@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-@interface MTLRenderPassDepthAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
-}
+@interface MTLRenderPassDepthAttachmentDescriptor : MTLRenderPassAttachmentDescriptor
 
-@property double clearDepth;
+@property (nonatomic) double clearDepth;
+@property (nonatomic) unsigned long long depthResolveFilter;
 
-- (double)clearDepth;
-- (id)description;
-- (id)init;
-- (void)setClearDepth:(double)arg1;
++ (id)alloc;
++ (id)allocWithZone:(struct _NSZone { }*)arg1;
 
 @end

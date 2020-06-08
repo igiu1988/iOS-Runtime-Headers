@@ -2,46 +2,43 @@
    Image: /System/Library/Frameworks/CoreBluetooth.framework/CoreBluetooth
  */
 
-@class <CBScalablePipeManagerDelegate>, CBXpcConnection, NSHashTable, NSMutableSet, NSSet, NSString;
-
-@interface CBScalablePipeManager : NSObject <CBXpcConnectionDelegate> {
-    CBXpcConnection *_connection;
-    <CBScalablePipeManagerDelegate> *_delegate;
-    NSMutableSet *_identifiers;
-    NSHashTable *_pipes;
-    int _state;
+@interface CBScalablePipeManager : CBManager {
+    <CBScalablePipeManagerDelegate> * _delegate;
+    NSMutableSet * _identifiers;
+    NSHashTable * _pipes;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) NSSet * identifiers;
-@property(readonly) int state;
-@property(readonly) Class superclass;
+@property (nonatomic) <CBScalablePipeManagerDelegate> *delegate;
+@property (nonatomic, readonly, retain) NSSet *identifiers;
+@property (nonatomic, readonly, retain) NSHashTable *pipes;
 
+- (void).cxx_destruct;
 - (void)dealloc;
-- (void)handleDataAvailable:(id)arg1;
+- (id)delegate;
 - (void)handleEndpointAdded:(id)arg1;
 - (void)handleEndpointRemoved:(id)arg1;
 - (void)handleHostStateUpdated:(id)arg1;
+- (void)handleMsg:(unsigned short)arg1 args:(id)arg2;
 - (void)handlePipeConnected:(id)arg1;
 - (void)handlePipeDisconnected:(id)arg1;
-- (void)handleStateUpdated:(id)arg1;
 - (id)identifiers;
-- (id)initWithDelegate:(id)arg1 queue:(id)arg2;
 - (id)initWithDelegate:(id)arg1;
-- (BOOL)isMsgAllowedWhenOff:(int)arg1;
+- (id)initWithDelegate:(id)arg1 queue:(id)arg2;
+- (bool)isMsgAllowedWhenOff:(unsigned short)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (void)orphanPipes;
 - (id)pipeForName:(id)arg1 identifier:(id)arg2;
-- (void)registerEndpoint:(id)arg1 type:(int)arg2 priority:(int)arg3;
-- (oneway void)release;
-- (BOOL)sendMsg:(int)arg1 args:(id)arg2;
-- (int)state;
+- (id)pipes;
+- (void)registerEndpoint:(id)arg1 type:(long long)arg2 priority:(long long)arg3;
+- (void)registerEndpoint:(id)arg1 type:(long long)arg2 priority:(long long)arg3 options:(id)arg4;
+- (void)registerEndpoint:(id)arg1 type:(long long)arg2 priority:(long long)arg3 transport:(long long)arg4;
+- (void)registerEndpoint:(id)arg1 type:(long long)arg2 priority:(long long)arg3 transport:(long long)arg4 requireEncryption:(bool)arg5;
+- (void)setDelegate:(id)arg1;
+- (void)setLinkRequirementsForPeer:(id)arg1 packetsPerSecond:(unsigned int)arg2 inputBytesPerSecond:(unsigned int)arg3 outputBytesPerSecond:(unsigned int)arg4;
+- (void)setLinkRequirementsForPeer:(id)arg1 withClientName:(id)arg2 packetsPerSecond:(unsigned int)arg3 inputBytesPerSecond:(unsigned int)arg4 outputBytesPerSecond:(unsigned int)arg5;
+- (void)setLinkRequirementsForPeerWithLatency:(id)arg1 latencyInMs:(unsigned int)arg2 inputBytesPerSecond:(unsigned int)arg3 outputBytesPerSecond:(unsigned int)arg4;
+- (id)sharedPairingAgent;
 - (void)unregisterAllEndpoints;
 - (void)unregisterEndpoint:(id)arg1;
-- (void)xpcConnection:(id)arg1 didReceiveMsg:(unsigned short)arg2 args:(id)arg3;
-- (void)xpcConnectionDidFinalize:(id)arg1;
-- (void)xpcConnectionDidReset:(id)arg1;
-- (void)xpcConnectionIsInvalid:(id)arg1;
 
 @end

@@ -2,13 +2,20 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@interface HKBiologicalSexObject : NSObject {
-    int _biologicalSex;
+@interface HKBiologicalSexObject : NSObject <NSCopying, NSSecureCoding> {
+    long long  _biologicalSex;
 }
 
-@property(readonly) int biologicalSex;
+@property (readonly) long long biologicalSex;
 
-- (id)_initWithBiologicalSex:(int)arg1;
-- (int)biologicalSex;
++ (bool)supportsSecureCoding;
+
+- (id)_initWithBiologicalSex:(long long)arg1;
+- (long long)biologicalSex;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (unsigned long long)hash;
+- (id)initWithCoder:(id)arg1;
+- (bool)isEqual:(id)arg1;
 
 @end

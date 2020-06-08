@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class NSString;
-
 @interface HDSQLitePropertyComparisonPredicate : HDSQLitePredicate <NSCopying> {
-    int _comparisonType;
-    NSString *_lhObjectPropertyName;
-    NSString *_rhObjectPropertyName;
+    long long  _comparisonType;
+    NSString * _lhObjectPropertyName;
+    NSString * _rhObjectPropertyName;
 }
 
-@property(readonly) int comparisonType;
-@property(readonly) NSString * lhObjectPropertyName;
-@property(readonly) NSString * rhObjectPropertyName;
+@property (nonatomic, readonly) long long comparisonType;
+@property (nonatomic, readonly) NSString *lhObjectPropertyName;
+@property (nonatomic, readonly) NSString *rhObjectPropertyName;
 
-+ (id)predicateWithLeftHandObjectPropertyName:(id)arg1 rightHandObjectPropertyName:(id)arg2 comparisonType:(int)arg3;
++ (id)predicateWithLeftHandObjectPropertyName:(id)arg1 rightHandObjectPropertyName:(id)arg2 comparisonType:(long long)arg3;
 
 - (void).cxx_destruct;
 - (id)SQLForEntityClass:(Class)arg1;
 - (id)_comparisonOperator;
-- (int)comparisonType;
+- (long long)comparisonType;
 - (id)description;
 - (id)lhObjectPropertyName;
 - (id)rhObjectPropertyName;

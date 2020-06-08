@@ -2,9 +2,8 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDIDSLocalDeliveryMessageDelivered : PBCodable <NSCopying> {
+    unsigned long long  _deliveryError;
     struct { 
         unsigned int deliveryError : 1; 
         unsigned int isToDefaultPairedDevice : 1; 
@@ -13,33 +12,32 @@
         unsigned int priority : 1; 
         unsigned int rTT : 1; 
         unsigned int timestamp : 1; 
-    unsigned long long _deliveryError;
-    } _has;
-    unsigned long long _isToDefaultPairedDevice;
-    unsigned long long _linkType;
-    unsigned long long _messageSize;
-    unsigned long long _priority;
-    unsigned long long _rTT;
-    NSString *_service;
-    unsigned long long _timestamp;
+    }  _has;
+    unsigned long long  _isToDefaultPairedDevice;
+    unsigned long long  _linkType;
+    unsigned long long  _messageSize;
+    unsigned long long  _priority;
+    unsigned long long  _rTT;
+    NSString * _service;
+    unsigned long long  _timestamp;
 }
 
-@property unsigned long long deliveryError;
-@property BOOL hasDeliveryError;
-@property BOOL hasIsToDefaultPairedDevice;
-@property BOOL hasLinkType;
-@property BOOL hasMessageSize;
-@property BOOL hasPriority;
-@property BOOL hasRTT;
-@property(readonly) BOOL hasService;
-@property BOOL hasTimestamp;
-@property unsigned long long isToDefaultPairedDevice;
-@property unsigned long long linkType;
-@property unsigned long long messageSize;
-@property unsigned long long priority;
-@property unsigned long long rTT;
-@property(retain) NSString * service;
-@property unsigned long long timestamp;
+@property (nonatomic) unsigned long long deliveryError;
+@property (nonatomic) bool hasDeliveryError;
+@property (nonatomic) bool hasIsToDefaultPairedDevice;
+@property (nonatomic) bool hasLinkType;
+@property (nonatomic) bool hasMessageSize;
+@property (nonatomic) bool hasPriority;
+@property (nonatomic) bool hasRTT;
+@property (nonatomic, readonly) bool hasService;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic) unsigned long long isToDefaultPairedDevice;
+@property (nonatomic) unsigned long long linkType;
+@property (nonatomic) unsigned long long messageSize;
+@property (nonatomic) unsigned long long priority;
+@property (nonatomic) unsigned long long rTT;
+@property (nonatomic, retain) NSString *service;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -47,32 +45,32 @@
 - (unsigned long long)deliveryError;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasDeliveryError;
-- (BOOL)hasIsToDefaultPairedDevice;
-- (BOOL)hasLinkType;
-- (BOOL)hasMessageSize;
-- (BOOL)hasPriority;
-- (BOOL)hasRTT;
-- (BOOL)hasService;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasDeliveryError;
+- (bool)hasIsToDefaultPairedDevice;
+- (bool)hasLinkType;
+- (bool)hasMessageSize;
+- (bool)hasPriority;
+- (bool)hasRTT;
+- (bool)hasService;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (unsigned long long)isToDefaultPairedDevice;
 - (unsigned long long)linkType;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)messageSize;
 - (unsigned long long)priority;
 - (unsigned long long)rTT;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)service;
 - (void)setDeliveryError:(unsigned long long)arg1;
-- (void)setHasDeliveryError:(BOOL)arg1;
-- (void)setHasIsToDefaultPairedDevice:(BOOL)arg1;
-- (void)setHasLinkType:(BOOL)arg1;
-- (void)setHasMessageSize:(BOOL)arg1;
-- (void)setHasPriority:(BOOL)arg1;
-- (void)setHasRTT:(BOOL)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasDeliveryError:(bool)arg1;
+- (void)setHasIsToDefaultPairedDevice:(bool)arg1;
+- (void)setHasLinkType:(bool)arg1;
+- (void)setHasMessageSize:(bool)arg1;
+- (void)setHasPriority:(bool)arg1;
+- (void)setHasRTT:(bool)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setIsToDefaultPairedDevice:(unsigned long long)arg1;
 - (void)setLinkType:(unsigned long long)arg1;
 - (void)setMessageSize:(unsigned long long)arg1;

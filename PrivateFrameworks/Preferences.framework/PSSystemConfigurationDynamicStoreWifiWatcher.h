@@ -3,15 +3,14 @@
  */
 
 @interface PSSystemConfigurationDynamicStoreWifiWatcher : NSObject {
-    struct __SCDynamicStore { } *_prefs;
-    struct __CFString { } *_tetheringLink;
-    struct __CFString { } *_wifiInterface;
-    struct __CFString { } *_wifiKey;
+    struct __SCDynamicStore { } * _prefs;
+    struct __CFString { } * _tetheringLink;
+    struct __CFString { } * _wifiInterface;
+    struct __CFString { } * _wifiKey;
 }
 
-+ (void)releaseSharedInstance;
 + (id)sharedInstance;
-+ (BOOL)wifiEnabled;
++ (bool)wifiEnabled;
 
 - (id)_wifiNameWithState:(id)arg1;
 - (id)_wifiPowerWithState:(id)arg1;

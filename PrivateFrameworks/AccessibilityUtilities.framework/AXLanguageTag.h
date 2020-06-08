@@ -2,53 +2,60 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-@class AXDialectMap, NSMutableOrderedSet, NSString;
-
 @interface AXLanguageTag : NSObject <NSCopying> {
+    NSMutableOrderedSet * _ambiguousDialects;
+    NSString * _content;
+    bool  _createdFromNewline;
+    NSMutableOrderedSet * _predictedSecondaryDialects;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
-    NSMutableOrderedSet *_ambiguousDialects;
-    NSString *_content;
-    } _range;
-    NSMutableOrderedSet *_unambiguousDialects;
-    BOOL _wasPredicted;
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _range;
+    NSMutableOrderedSet * _unambiguousDialects;
+    bool  _wasPredicted;
 }
 
-@property(retain) NSMutableOrderedSet * ambiguousDialects;
-@property NSString * content;
-@property(readonly) NSString * contentSubstring;
-@property(readonly) AXDialectMap * dialect;
-@property(readonly) AXDialectMap * preferredAmbiguousDialect;
-@property(readonly) AXDialectMap * preferredUnambiguousDialect;
-@property struct _NSRange { unsigned int x1; unsigned int x2; } range;
-@property(retain) NSMutableOrderedSet * unambiguousDialects;
-@property BOOL wasPredicted;
+@property (nonatomic, retain) NSMutableOrderedSet *ambiguousDialects;
+@property (nonatomic) NSString *content;
+@property (nonatomic, readonly) NSString *contentSubstring;
+@property (nonatomic) bool createdFromNewline;
+@property (nonatomic, readonly) AXDialectMap *dialect;
+@property (nonatomic, retain) NSMutableOrderedSet *predictedSecondaryDialects;
+@property (nonatomic, readonly) AXDialectMap *preferredAmbiguousDialect;
+@property (nonatomic, readonly) AXDialectMap *preferredUnambiguousDialect;
+@property (nonatomic) struct _NSRange { unsigned long long x1; unsigned long long x2; } range;
+@property (nonatomic, retain) NSMutableOrderedSet *unambiguousDialects;
+@property (nonatomic) bool wasPredicted;
 
-+ (id)tagWithDialects:(id)arg1 range:(struct _NSRange { unsigned int x1; unsigned int x2; })arg2 content:(id)arg3 predictedByTagger:(BOOL)arg4;
++ (id)tagWithDialects:(id)arg1 range:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2 content:(id)arg3 predictedByTagger:(bool)arg4;
 
+- (void).cxx_destruct;
 - (void)addAmbiguousDialect:(id)arg1;
 - (void)addAmbiguousDialects:(id)arg1;
+- (void)addPredictedSecondaryDialects:(id)arg1;
 - (void)addUnambiguousDialect:(id)arg1;
 - (id)ambiguousDialects;
-- (BOOL)canBeSpokenByDialect:(id)arg1;
-- (BOOL)canBeSpokenByLanguage:(id)arg1;
+- (bool)canBeSpokenByDialect:(id)arg1;
+- (bool)canBeSpokenByLanguage:(id)arg1;
 - (id)content;
 - (id)contentSubstring;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
+- (bool)createdFromNewline;
 - (id)description;
 - (id)dialect;
-- (BOOL)hasAmbigiousDialects;
+- (bool)hasAmbigiousDialects;
+- (id)predictedSecondaryDialects;
 - (id)preferredAmbiguousDialect;
 - (id)preferredUnambiguousDialect;
-- (struct _NSRange { unsigned int x1; unsigned int x2; })range;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })range;
 - (void)setAmbiguousDialects:(id)arg1;
 - (void)setContent:(id)arg1;
-- (void)setRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
+- (void)setCreatedFromNewline:(bool)arg1;
+- (void)setPredictedSecondaryDialects:(id)arg1;
+- (void)setRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
 - (void)setUnambiguousDialects:(id)arg1;
-- (void)setWasPredicted:(BOOL)arg1;
+- (void)setWasPredicted:(bool)arg1;
 - (id)unambiguousDialects;
-- (BOOL)wasPredicted;
+- (bool)wasPredicted;
 
 @end

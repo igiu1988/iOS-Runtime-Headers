@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/WebBookmarks.framework/WebBookmarks
  */
 
-@interface CloudTabServices : NSObject {
-}
+@interface CloudTabServices : NSObject
 
 + (id)_serverConnection;
 + (void)clearAllCloudTabDevices;
 + (void)clearTabsForCurrentDevice;
-+ (void)didToggleCloudTabs:(BOOL)arg1 terminateAfterUpdating:(BOOL)arg2;
-+ (void)didToggleCloudTabs:(BOOL)arg1;
-+ (void)didTogglePrivateBrowsing:(BOOL)arg1;
++ (void)didToggleCloudTabs:(bool)arg1;
++ (void)didToggleCloudTabs:(bool)arg1 terminateAfterUpdating:(bool)arg2;
 
 @end

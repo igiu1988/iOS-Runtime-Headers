@@ -2,35 +2,33 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSString;
-
 @interface MIPLibraryIdentifier : PBCodable <NSCopying> {
     struct { 
         unsigned int libraryId : 1; 
-    } _has;
-    long long _libraryId;
-    NSString *_libraryName;
+    }  _has;
+    long long  _libraryId;
+    NSString * _libraryName;
 }
 
-@property BOOL hasLibraryId;
-@property(readonly) BOOL hasLibraryName;
-@property long long libraryId;
-@property(retain) NSString * libraryName;
+@property (nonatomic) bool hasLibraryId;
+@property (nonatomic, readonly) bool hasLibraryName;
+@property (nonatomic) long long libraryId;
+@property (nonatomic, retain) NSString *libraryName;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasLibraryId;
-- (BOOL)hasLibraryName;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasLibraryId;
+- (bool)hasLibraryName;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (long long)libraryId;
 - (id)libraryName;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasLibraryId:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasLibraryId:(bool)arg1;
 - (void)setLibraryId:(long long)arg1;
 - (void)setLibraryName:(id)arg1;
 - (void)writeTo:(id)arg1;

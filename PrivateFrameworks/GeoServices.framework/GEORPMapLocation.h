@@ -2,49 +2,54 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLatLng, GEOPDViewportInfo, NSData;
-
 @interface GEORPMapLocation : PBCodable <NSCopying> {
+    GEOLatLng * _coordinate;
     struct { 
         unsigned int zoomLevel : 1; 
-    GEOLatLng *_coordinate;
-    } _has;
-    NSData *_image;
-    GEOPDViewportInfo *_viewportInfo;
-    float _zoomLevel;
+    }  _has;
+    NSData * _image;
+    GEOPDViewportInfo * _viewportInfo;
+    float  _zoomLevel;
 }
 
-@property(retain) GEOLatLng * coordinate;
-@property(readonly) BOOL hasCoordinate;
-@property(readonly) BOOL hasImage;
-@property(readonly) BOOL hasViewportInfo;
-@property BOOL hasZoomLevel;
-@property(retain) NSData * image;
-@property(retain) GEOPDViewportInfo * viewportInfo;
-@property float zoomLevel;
+@property (nonatomic, retain) GEOLatLng *coordinate;
+@property (nonatomic, readonly) bool hasCoordinate;
+@property (nonatomic, readonly) bool hasImage;
+@property (nonatomic, readonly) bool hasViewportInfo;
+@property (nonatomic) bool hasZoomLevel;
+@property (nonatomic, retain) NSData *image;
+@property (nonatomic, retain) GEOPDViewportInfo *viewportInfo;
+@property (nonatomic) float zoomLevel;
 
+// Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
+
+- (void).cxx_destruct;
+- (void)_setMapMode:(int)arg1 region:(id)arg2;
 - (id)coordinate;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasCoordinate;
-- (BOOL)hasImage;
-- (BOOL)hasViewportInfo;
-- (BOOL)hasZoomLevel;
-- (unsigned int)hash;
+- (bool)hasCoordinate;
+- (bool)hasImage;
+- (bool)hasViewportInfo;
+- (bool)hasZoomLevel;
+- (unsigned long long)hash;
 - (id)image;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setCoordinate:(id)arg1;
-- (void)setHasZoomLevel:(BOOL)arg1;
+- (void)setHasZoomLevel:(bool)arg1;
 - (void)setImage:(id)arg1;
 - (void)setViewportInfo:(id)arg1;
 - (void)setZoomLevel:(float)arg1;
 - (id)viewportInfo;
 - (void)writeTo:(id)arg1;
 - (float)zoomLevel;
+
+// Image: /System/Library/Frameworks/MapKit.framework/MapKit
+
+- (void)_setMapType:(unsigned long long)arg1 region:(id)arg2;
 
 @end

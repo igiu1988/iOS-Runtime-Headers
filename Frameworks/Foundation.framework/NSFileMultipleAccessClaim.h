@@ -2,36 +2,38 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSFileAccessNode, NSMutableArray;
-
 @interface NSFileMultipleAccessClaim : NSFileAccessClaim {
-    unsigned int _currentlyLinkResolvingURLIndex;
-    int _readingLinkResolutionCount;
-    NSMutableArray *_readingLocations;
-    unsigned int *_readingOptions;
-    NSMutableArray *_readingURLs;
-    BOOL *_readingURLsDidChange;
-    NSFileAccessNode *_rootNode;
-    NSMutableArray *_writingLocations;
-    unsigned int *_writingOptions;
-    NSMutableArray *_writingURLs;
-    BOOL *_writingURLsDidChange;
+    unsigned long long  _currentlyLinkResolvingURLIndex;
+    long long  _readingLinkResolutionCount;
+    NSMutableArray * _readingLocations;
+    unsigned long long * _readingOptions;
+    NSMutableArray * _readingURLs;
+    bool * _readingURLsDidChange;
+    NSFileAccessNode * _rootNode;
+    NSMutableArray * _writingLocations;
+    unsigned long long * _writingOptions;
+    NSMutableArray * _writingURLs;
+    bool * _writingURLsDidChange;
 }
 
-- (BOOL)blocksClaim:(id)arg1;
++ (bool)supportsSecureCoding;
+
+- (id)allURLs;
+- (bool)blocksClaim:(id)arg1;
 - (void)dealloc;
 - (void)devalueSelf;
-- (BOOL)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(BOOL)arg2;
-- (void)finalize;
-- (void)forwardUsingMessageSender:(id)arg1 crashHandler:(id)arg2;
+- (void)encodeWithCoder:(id)arg1;
+- (bool)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(bool)arg2;
+- (void)forwardUsingConnection:(id)arg1 crashHandler:(id /* block */)arg2;
 - (void)granted;
-- (id)initWithClient:(id)arg1 messageParameters:(id)arg2 replySender:(id)arg3;
-- (id)initWithPurposeID:(id)arg1 intents:(id)arg2 claimer:(id)arg3;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithPurposeID:(id)arg1 intents:(id)arg2 claimer:(id /* block */)arg3;
 - (void)invokeClaimer;
-- (BOOL)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
-- (BOOL)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
+- (bool)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
+- (bool)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
 - (void)itemAtLocation:(id)arg1 wasReplacedByItemAtLocation:(id)arg2;
-- (void)resolveURLsThenMaybeContinueInvokingClaimer:(id)arg1;
-- (BOOL)shouldBeRevokedPriorToInvokingAccessor;
+- (void)resolveURLsThenMaybeContinueInvokingClaimer:(id /* block */)arg1;
+- (bool)shouldBeRevokedPriorToInvokingAccessor;
+- (bool)shouldCancelInsteadOfWaiting;
 
 @end

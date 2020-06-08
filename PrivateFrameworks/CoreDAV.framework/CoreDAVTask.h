@@ -2,84 +2,82 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <CoreDAVAccountInfoProvider>, <CoreDAVResponseBodyParser>, <CoreDAVTaskDelegate>, <CoreDAVTaskManager>, CoreDAVErrorItem, CoreDAVRequestLogger, NSData, NSDate, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableDictionary, NSString, NSURL, NSURLConnection, NSURLRequest;
-
-@interface CoreDAVTask : NSObject <CoreDAVSubmittable> {
-    <CoreDAVAccountInfoProvider> *_accountInfoProvider;
-    BOOL _allowAutomaticRedirects;
-    id _completionBlock;
-    BOOL _compressedRequestFailed;
-    NSURLConnection *_connection;
-    id _context;
-    NSDate *_dateConnectionWentOut;
-    <CoreDAVTaskDelegate> *_delegate;
-    int _depth;
-    BOOL _didCancel;
-    BOOL _didFailWithError;
-    BOOL _didFinishLoading;
-    BOOL _didReceiveData;
-    BOOL _didReceiveResponse;
-    BOOL _didRetryWithClientToken;
-    BOOL _didSendRequest;
-    NSError *_error;
-    BOOL _everTriedTokenAuth;
-    NSData *_fakeResponseData;
-    BOOL _finished;
-    CoreDAVErrorItem *_forbiddenErrorItem;
-    BOOL _haveParsedFakeResponseData;
-    BOOL _justTriedTokenAuth;
-    CoreDAVRequestLogger *_logger;
-    int _numDownloadedElements;
-    NSMutableDictionary *_overriddenHeaders;
-    NSError *_passwordNotificationError;
-    BOOL _receivedBadPasswordResponse;
-    NSMutableArray *_redirectHistory;
-    NSURLRequest *_request;
-    BOOL _requestIsCompressed;
-    id _requestProgressBlock;
-    NSDictionary *_requestProperties;
-    NSHTTPURLResponse *_response;
-    <CoreDAVResponseBodyParser> *_responseBodyParser;
-    id _responseProgressBlock;
-    int _responseStatusCode;
-    BOOL _shouldRetryWithClientToken;
-    <CoreDAVTaskManager> *_taskManager;
-    double _timeoutInterval;
-    unsigned int _totalBytesReceived;
-    NSString *_uniqueID;
-    NSURL *_url;
+@interface CoreDAVTask : NSObject <CoreDAVSubmittable, DATask> {
+    <CoreDAVAccountInfoProvider> * _accountInfoProvider;
+    bool  _allowAutomaticRedirects;
+    id /* block */  _completionBlock;
+    bool  _compressedRequestFailed;
+    NSURLConnection * _connection;
+    id  _context;
+    NSDate * _dateConnectionWentOut;
+    <CoreDAVTaskDelegate> * _delegate;
+    int  _depth;
+    bool  _didCancel;
+    bool  _didFailWithError;
+    bool  _didFinishLoading;
+    bool  _didReceiveData;
+    bool  _didReceiveResponse;
+    bool  _didRetryWithClientToken;
+    bool  _didSendRequest;
+    NSError * _error;
+    bool  _everTriedTokenAuth;
+    NSData * _fakeResponseData;
+    bool  _finished;
+    CoreDAVErrorItem * _forbiddenErrorItem;
+    bool  _haveParsedFakeResponseData;
+    bool  _justTriedTokenAuth;
+    CoreDAVRequestLogger * _logger;
+    long long  _numDownloadedElements;
+    NSMutableDictionary * _overriddenHeaders;
+    NSError * _passwordNotificationError;
+    bool  _receivedBadPasswordResponse;
+    NSMutableArray * _redirectHistory;
+    NSURLRequest * _request;
+    bool  _requestIsCompressed;
+    id /* block */  _requestProgressBlock;
+    NSDictionary * _requestProperties;
+    NSHTTPURLResponse * _response;
+    <CoreDAVResponseBodyParser> * _responseBodyParser;
+    id /* block */  _responseProgressBlock;
+    long long  _responseStatusCode;
+    bool  _shouldRetryWithClientToken;
+    <CoreDAVTaskManager> * _taskManager;
+    double  _timeoutInterval;
+    unsigned long long  _totalBytesReceived;
+    bool  _triedRenewingCredential;
+    NSString * _uniqueID;
+    NSURL * _url;
 }
 
-@property <CoreDAVAccountInfoProvider> * accountInfoProvider;
-@property BOOL allowAutomaticRedirects;
-@property(copy) id completionBlock;
-@property(retain) id context;
-@property(copy,readonly) NSString * debugDescription;
-@property <CoreDAVTaskDelegate> * delegate;
-@property int depth;
-@property(copy,readonly) NSString * description;
-@property(retain) NSError * error;
-@property(getter=isFinished,readonly) BOOL finished;
-@property(readonly) unsigned int hash;
-@property(copy) id requestProgressBlock;
-@property(retain) NSDictionary * requestProperties;
-@property(retain) <CoreDAVResponseBodyParser> * responseBodyParser;
-@property(readonly) NSDictionary * responseHeaders;
-@property(copy) id responseProgressBlock;
-@property int responseStatusCode;
-@property(readonly) Class superclass;
-@property <CoreDAVTaskManager> * taskManager;
-@property double timeoutInterval;
-@property unsigned int totalBytesReceived;
-@property(readonly) NSURL * url;
+@property (nonatomic) <CoreDAVAccountInfoProvider> *accountInfoProvider;
+@property (nonatomic) bool allowAutomaticRedirects;
+@property (nonatomic, copy) id /* block */ completionBlock;
+@property (nonatomic, retain) id context;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CoreDAVTaskDelegate> *delegate;
+@property (nonatomic) int depth;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSError *error;
+@property (getter=isFinished, nonatomic, readonly) bool finished;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) id /* block */ requestProgressBlock;
+@property (nonatomic, retain) NSDictionary *requestProperties;
+@property (nonatomic, retain) <CoreDAVResponseBodyParser> *responseBodyParser;
+@property (nonatomic, readonly) NSDictionary *responseHeaders;
+@property (nonatomic, copy) id /* block */ responseProgressBlock;
+@property (nonatomic) long long responseStatusCode;
+@property (readonly) Class superclass;
+@property (nonatomic) <CoreDAVTaskManager> *taskManager;
+@property (nonatomic) double timeoutInterval;
+@property (nonatomic) unsigned long long totalBytesReceived;
+@property (nonatomic, readonly) NSURL *url;
+
+// Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
 
 + (id)stringFromDepth:(int)arg1;
 + (unsigned int)uniqueQueryID;
 
+- (void).cxx_destruct;
 - (id)_applyAuthenticationChain:(struct __CFArray { }*)arg1 toRequest:(id)arg2;
 - (id)_applyStorageSession:(struct __CFURLStorageSession { }*)arg1 toRequest:(id)arg2;
 - (id)_compressBodyData:(id)arg1;
@@ -87,28 +85,33 @@
 - (id)_createBodyData;
 - (void)_failImmediately;
 - (void)_handleBadPasswordResponse;
-- (BOOL)_includeGeneralHeaders;
+- (bool)_handleUnauthorizedAccessError:(id)arg1;
+- (bool)_includeGeneralHeaders;
+- (void)_logSantizedRequest:(id)arg1 withTaskID:(id)arg2;
+- (id)_osLogDescription;
 - (id)_requestForLogging;
 - (void)_sendTimeSpentInNetworkingToProvider;
-- (BOOL)_shouldHandleStatusCode:(int)arg1;
+- (bool)_shouldCreateCredentialForBasicOrDigestAuthChallenge:(id)arg1;
+- (bool)_shouldHandleStatusCode:(long long)arg1;
 - (id)accountInfoProvider;
 - (id)additionalHeaderValues;
-- (BOOL)allowAutomaticRedirects;
-- (unsigned int)cachePolicy;
-- (id)completionBlock;
-- (BOOL)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
+- (bool)allowAutomaticRedirects;
+- (unsigned long long)cachePolicy;
+- (id /* block */)completionBlock;
+- (bool)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)connection:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
-- (void)connection:(id)arg1 didSendBodyData:(int)arg2 totalBytesWritten:(int)arg3 totalBytesExpectedToWrite:(int)arg4;
+- (void)connection:(id)arg1 didSendBodyData:(long long)arg2 totalBytesWritten:(long long)arg3 totalBytesExpectedToWrite:(long long)arg4;
 - (id)connection:(id)arg1 needNewBodyStream:(id)arg2;
 - (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
 - (void)connection:(id)arg1 willSendRequestForAuthenticationChallenge:(id)arg2;
 - (void)connectionDidFinishLoading:(id)arg1;
-- (BOOL)connectionShouldUseCredentialStorage:(id)arg1;
+- (bool)connectionShouldUseCredentialStorage:(id)arg1;
 - (id)context;
 - (id)copyDefaultParserForContentType:(id)arg1;
+- (id)credentialForClientCertificateChallenge:(id)arg1;
 - (id)credentialForOAuthChallenge:(id)arg1;
 - (void)dealloc;
 - (id)delegate;
@@ -117,49 +120,61 @@
 - (id)error;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (void)finishEarlyWithError:(id)arg1;
-- (void)handleWebLoginRequestWithCompletionBlock:(id)arg1;
+- (void)handleWebLoginRequestWithCompletionBlock:(id /* block */)arg1;
 - (id)httpMethod;
 - (id)initWithURL:(id)arg1;
-- (BOOL)isFinished;
+- (bool)isFinished;
 - (id)lastRedirectURL;
 - (void)loadRequest:(id)arg1;
-- (BOOL)markAsFinished;
-- (int)numDownloadedElements;
+- (bool)markAsFinished;
+- (long long)numDownloadedElements;
 - (void)overrideRequestHeader:(id)arg1 withValue:(id)arg2;
 - (void)performCoreDAVTask;
 - (void)reportStatusWithError:(id)arg1;
 - (id)requestBody;
 - (id)requestBodyStream;
-- (id)requestProgressBlock;
+- (id /* block */)requestProgressBlock;
 - (id)requestProperties;
 - (void)reset;
 - (id)responseBodyParser;
 - (id)responseHeaders;
-- (id)responseProgressBlock;
-- (int)responseStatusCode;
+- (id /* block */)responseProgressBlock;
+- (long long)responseStatusCode;
 - (void)setAccountInfoProvider:(id)arg1;
-- (void)setAllowAutomaticRedirects:(BOOL)arg1;
-- (void)setCompletionBlock:(id)arg1;
+- (void)setAllowAutomaticRedirects:(bool)arg1;
+- (void)setCompletionBlock:(id /* block */)arg1;
 - (void)setContext:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setDepth:(int)arg1;
 - (void)setError:(id)arg1;
-- (void)setRequestProgressBlock:(id)arg1;
+- (void)setRequestProgressBlock:(id /* block */)arg1;
 - (void)setRequestProperties:(id)arg1;
 - (void)setResponseBodyParser:(id)arg1;
-- (void)setResponseProgressBlock:(id)arg1;
-- (void)setResponseStatusCode:(int)arg1;
+- (void)setResponseProgressBlock:(id /* block */)arg1;
+- (void)setResponseStatusCode:(long long)arg1;
 - (void)setTaskManager:(id)arg1;
 - (void)setTimeoutInterval:(double)arg1;
-- (void)setTotalBytesReceived:(unsigned int)arg1;
-- (BOOL)shouldLogResponseBody;
+- (void)setTotalBytesReceived:(unsigned long long)arg1;
+- (bool)shouldLogResponseBody;
 - (void)startModal;
 - (void)submitWithTaskManager:(id)arg1;
 - (id)taskManager;
 - (void)tearDownResources;
 - (double)timeoutInterval;
-- (unsigned int)totalBytesReceived;
+- (unsigned long long)totalBytesReceived;
 - (id)url;
-- (BOOL)validate:(id*)arg1;
+- (bool)validate:(id*)arg1;
+
+// Image: /System/Library/PrivateFrameworks/BookmarkDAV.framework/BookmarkDAV
+
++ (double)bdv_overrideTimeoutInterval;
+
+- (void)bdv_applyOverrideTimeoutIntervalIfNeeded;
+
+// Image: /System/Library/PrivateFrameworks/DataAccess.framework/Frameworks/DACoreDAVGlue.framework/DACoreDAVGlue
+
+- (void)cancelTaskWithReason:(int)arg1 underlyingError:(id)arg2;
+- (void)finishWithError:(id)arg1;
+- (void)performTask;
 
 @end

@@ -3,46 +3,63 @@
  */
 
 @interface GEOPDETA : PBCodable <NSCopying> {
+    unsigned int  _distance;
     struct { 
         unsigned int distance : 1; 
+        unsigned int historicTravelTime : 1; 
         unsigned int time : 1; 
         unsigned int transportType : 1; 
-    unsigned int _distance;
-    } _has;
-    unsigned int _time;
-    int _transportType;
+    }  _has;
+    unsigned int  _historicTravelTime;
+    GEORouteTrafficDetail * _routeTrafficDetail;
+    unsigned int  _time;
+    int  _transportType;
+    PBUnknownFields * _unknownFields;
 }
 
-@property unsigned int distance;
-@property BOOL hasDistance;
-@property BOOL hasTime;
-@property BOOL hasTransportType;
-@property unsigned int time;
-@property int transportType;
+@property (nonatomic) unsigned int distance;
+@property (nonatomic) bool hasDistance;
+@property (nonatomic) bool hasHistoricTravelTime;
+@property (nonatomic, readonly) bool hasRouteTrafficDetail;
+@property (nonatomic) bool hasTime;
+@property (nonatomic) bool hasTransportType;
+@property (nonatomic) unsigned int historicTravelTime;
+@property (nonatomic, retain) GEORouteTrafficDetail *routeTrafficDetail;
+@property (nonatomic) unsigned int time;
+@property (nonatomic) int transportType;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
-+ (id)etaForPlaceData:(id)arg1 transportType:(int)arg2;
-+ (int)recommendedTransportTypeForPlaceData:(id)arg1;
-
+- (void).cxx_destruct;
+- (int)StringAsTransportType:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)distance;
-- (BOOL)hasDistance;
-- (BOOL)hasTime;
-- (BOOL)hasTransportType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasDistance;
+- (bool)hasHistoricTravelTime;
+- (bool)hasRouteTrafficDetail;
+- (bool)hasTime;
+- (bool)hasTransportType;
+- (unsigned long long)hash;
+- (unsigned int)historicTravelTime;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
+- (id)routeTrafficDetail;
 - (void)setDistance:(unsigned int)arg1;
-- (void)setHasDistance:(BOOL)arg1;
-- (void)setHasTime:(BOOL)arg1;
-- (void)setHasTransportType:(BOOL)arg1;
+- (void)setHasDistance:(bool)arg1;
+- (void)setHasHistoricTravelTime:(bool)arg1;
+- (void)setHasTime:(bool)arg1;
+- (void)setHasTransportType:(bool)arg1;
+- (void)setHistoricTravelTime:(unsigned int)arg1;
+- (void)setRouteTrafficDetail:(id)arg1;
 - (void)setTime:(unsigned int)arg1;
 - (void)setTransportType:(int)arg1;
 - (unsigned int)time;
 - (int)transportType;
+- (id)transportTypeAsString:(int)arg1;
+- (id)unknownFields;
 - (void)writeTo:(id)arg1;
 
 @end

@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray, TSCH3DPickedPoint, TSCH3DRayPickPipelineDelegate;
-
 @interface TSCH3DRayPickPipeline : TSCH3DSceneRenderPipeline <TSCH3DSceneObjectDelegator> {
     struct tvec2<float> { 
         union { 
@@ -16,13 +14,13 @@
             float g; 
             float t; 
         } ; 
-    } mPickPosition;
-    TSCH3DRayPickPipelineDelegate *mSceneObjectDelegate;
+    }  mPickPosition;
+    TSCH3DRayPickPipelineDelegate * mSceneObjectDelegate;
 }
 
-@property(readonly) TSCH3DPickedPoint * pickedPoint;
-@property(readonly) NSArray * pickedPoints;
-@property float slack;
+@property (nonatomic, readonly) TSCH3DPickedPoint *pickedPoint;
+@property (nonatomic, readonly) NSArray *pickedPoints;
+@property (nonatomic) float slack;
 
 + (id)pipelineWithScene:(id)arg1 position:(const struct tvec2<float> { union { float x_1_1_1; float x_1_1_2; float x_1_1_3; } x1; union { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; }*)arg2;
 
@@ -39,7 +37,7 @@
 - (id)pickedPoint;
 - (id)pickedPoints;
 - (void)rayPick:(id)arg1;
-- (BOOL)run;
+- (bool)run;
 - (void)setSlack:(float)arg1;
 - (float)slack;
 

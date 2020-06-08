@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSIndexSet, NSString;
-
 @interface _SSVPlayActivityEndpointRevisionInformation : NSObject <NSCopying, NSSecureCoding> {
-    NSIndexSet *_additionalPendingRevisionsIndexSet;
-    unsigned long long _currentRevision;
-    NSString *_revisionVersionToken;
+    NSIndexSet * _additionalPendingRevisionsIndexSet;
+    unsigned long long  _currentRevision;
+    NSString * _revisionVersionToken;
 }
 
-@property(copy) NSIndexSet * additionalPendingRevisionsIndexSet;
-@property unsigned long long currentRevision;
-@property(copy) NSString * revisionVersionToken;
+@property (nonatomic, copy) NSIndexSet *additionalPendingRevisionsIndexSet;
+@property (nonatomic) unsigned long long currentRevision;
+@property (nonatomic, copy) NSString *revisionVersionToken;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)additionalPendingRevisionsIndexSet;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (unsigned long long)currentRevision;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)revisionVersionToken;
 - (void)setAdditionalPendingRevisionsIndexSet:(id)arg1;
 - (void)setCurrentRevision:(unsigned long long)arg1;

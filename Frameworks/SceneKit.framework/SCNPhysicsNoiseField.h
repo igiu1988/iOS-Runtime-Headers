@@ -2,36 +2,27 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface SCNPhysicsNoiseField : SCNPhysicsField {
-     /* Encoded args for previous method: ^{c3dPhysicsField=^^?{?=[4]}{?=[4]}fffIBBBBf}8@0:4 */
-    float _animationSpeed;
-    float _smoothness;
+    double  _animationSpeed;
+    double  _smoothness;
 }
 
-@property float animationSpeed;
-@property float smoothness;
+@property (nonatomic) double animationSpeed;
+@property (nonatomic) double smoothness;
 
-+ (id)SCNJSExportProtocol;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (struct c3dPhysicsField { int (**x1)(); struct { /* Warning: Unrecognized filer type: ']' using 'void*' */ void*x_2_1_1[4]; } x2; float x3; float x4; float x5; unsigned int x6; boolx7; boolx8; boolx9; boolx10; float x11; }*)_createField;
-- (float)animationSpeed;
+- (struct c3dPhysicsField { int (**x1)(); struct { /* Warning: Unrecognized filer type: ']' using 'void*' */ void*x_2_1_1[4]; } x2; float x3; float x4; float x5; unsigned int x6; bool x7; bool x8; bool x9; bool x10; float x11; }*)_createField;
+- (double)animationSpeed;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (void)setAnimationSpeed:(float)arg1;
-- (void)setSmoothness:(float)arg1;
+- (void)setAnimationSpeed:(double)arg1;
+- (void)setSmoothness:(double)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
-- (float)smoothness;
+- (double)smoothness;
+- (bool)supportsDirection;
+- (bool)supportsOffset;
 - (id)valueForUndefinedKey:(id)arg1;
 
 @end

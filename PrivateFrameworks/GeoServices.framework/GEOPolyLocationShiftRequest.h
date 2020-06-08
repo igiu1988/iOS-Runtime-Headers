@@ -2,25 +2,22 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLatLng;
-
 @interface GEOPolyLocationShiftRequest : PBRequest <NSCopying> {
-    GEOLatLng *_location;
+    GEOLatLng * _location;
 }
 
-@property(retain) GEOLatLng * location;
+@property (nonatomic, retain) GEOLatLng *location;
 
-- (struct { double x1; double x2; })coordinate;
+- (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)location;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
 - (void)setLocation:(id)arg1;

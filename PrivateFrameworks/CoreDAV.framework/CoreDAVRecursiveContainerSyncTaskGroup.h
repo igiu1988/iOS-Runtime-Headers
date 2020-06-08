@@ -2,45 +2,44 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class <CoreDAVLocalDBTreeInfoProvider>, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSURL;
-
-@interface CoreDAVRecursiveContainerSyncTaskGroup : CoreDAVTaskGroup <CoreDAVDeleteTaskDelegate, CoreDAVPutTaskDelegate, CoreDAVTaskGroupDelegate, CoreDAVMkcolTaskDelegate, CoreDAVPropPatchTaskDelegate> {
-    NSArray *_actions;
-    NSURL *_addMemberURL;
-    Class _appSpecificContainerItemClass;
-    Class _appSpecificDataItemClass;
-    NSMutableArray *_childCollectionURL;
-    NSURL *_folderURL;
-    NSMutableDictionary *_folderURLToChildrenURLOrder;
-    NSMutableDictionary *_leafURLToETag;
-    unsigned int _multiGetBatchSize;
-    NSString *_nextCTag;
-    NSString *_nextPTag;
-    NSString *_nextSyncToken;
-    int _phase;
-    BOOL _preflightCTag;
-    NSString *_previousCTag;
-    NSString *_previousPTag;
-    NSString *_previousSyncToken;
-    BOOL _syncItemOrder;
-    NSMutableSet *_syncReportDeletedURLs;
-    NSMutableArray *_unsubmittedTasks;
-    BOOL _useMultiGet;
+@interface CoreDAVRecursiveContainerSyncTaskGroup : CoreDAVTaskGroup <CoreDAVDeleteTaskDelegate, CoreDAVMkcolTaskDelegate, CoreDAVMoveTaskDelegate, CoreDAVPropPatchTaskDelegate, CoreDAVPutTaskDelegate, CoreDAVTaskGroupDelegate> {
+    NSArray * _actions;
+    NSURL * _addMemberURL;
+    Class  _appSpecificContainerItemClass;
+    Class  _appSpecificDataItemClass;
+    NSMutableArray * _childCollectionURL;
+    NSURL * _folderURL;
+    NSMutableDictionary * _folderURLToChildrenURLOrder;
+    NSMutableDictionary * _leafURLToETag;
+    unsigned long long  _multiGetBatchSize;
+    NSString * _nextCTag;
+    NSString * _nextPTag;
+    NSString * _nextSyncToken;
+    int  _phase;
+    bool  _preflightCTag;
+    NSString * _previousCTag;
+    NSString * _previousPTag;
+    NSString * _previousSyncToken;
+    bool  _syncItemOrder;
+    NSMutableSet * _syncReportDeletedURLs;
+    NSMutableArray * _unsubmittedTasks;
+    bool  _useMultiGet;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <CoreDAVLocalDBTreeInfoProvider> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) NSURL * folderURL;
-@property(readonly) NSDictionary * folderURLToChildrenURLOrder;
-@property(readonly) unsigned int hash;
-@property unsigned int multiGetBatchSize;
-@property(retain) NSString * nextCTag;
-@property BOOL preflightCTag;
-@property(readonly) NSString * previousCTag;
-@property(retain) NSString * previousSyncToken;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CoreDAVLocalDBTreeInfoProvider> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) NSURL *folderURL;
+@property (nonatomic, readonly) NSDictionary *folderURLToChildrenURLOrder;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) unsigned long long multiGetBatchSize;
+@property (nonatomic, retain) NSString *nextCTag;
+@property (nonatomic) bool preflightCTag;
+@property (nonatomic, readonly) NSString *previousCTag;
+@property (nonatomic, retain) NSString *previousSyncToken;
+@property (readonly) Class superclass;
 
+- (void).cxx_destruct;
 - (id)_copyContainerParserMappings;
 - (void)_folderModTask:(id)arg1 parsedPropStats:(id)arg2 error:(id)arg3;
 - (void)_foundChildrenOrder:(id)arg1 inFolderWithURL:(id)arg2;
@@ -50,7 +49,7 @@
 - (void)_getTopFolderTags;
 - (void)_postTask:(id)arg1 didFinishWithError:(id)arg2;
 - (void)_pushActions;
-- (unsigned int)_submitTasks;
+- (unsigned long long)_submitTasks;
 - (void)_syncReportTask:(id)arg1 didFinishWithError:(id)arg2;
 - (void)_taskGroupSuccessfullyFinishedWithContents:(id)arg1;
 - (void)_tearDownAllUnsubmittedTasks;
@@ -59,27 +58,27 @@
 - (id)copyFolderMultiGetTaskWithURLs:(id)arg1;
 - (id)copyMultiGetTaskWithURLs:(id)arg1;
 - (id)dataContentType;
-- (void)dealloc;
 - (void)deleteTask:(id)arg1 completedWithError:(id)arg2;
 - (id)description;
 - (id)folderURL;
 - (id)folderURLToChildrenURLOrder;
-- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousPTag:(id)arg3 previousSyncToken:(id)arg4 actions:(id)arg5 syncItemOrder:(BOOL)arg6 context:(id)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
-- (BOOL)isWhitelistedError:(id)arg1;
+- (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousPTag:(id)arg3 previousSyncToken:(id)arg4 actions:(id)arg5 syncItemOrder:(bool)arg6 context:(id)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
+- (bool)isWhitelistedError:(id)arg1;
 - (void)mkcolTask:(id)arg1 parsedPropStats:(id)arg2 error:(id)arg3;
-- (unsigned int)multiGetBatchSize;
+- (void)moveTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
+- (unsigned long long)multiGetBatchSize;
 - (id)nextCTag;
-- (BOOL)preflightCTag;
+- (bool)preflightCTag;
 - (id)previousCTag;
 - (id)previousSyncToken;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)propPatchTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)putTask:(id)arg1 completedWithNewETag:(id)arg2 error:(id)arg3;
-- (void)setMultiGetBatchSize:(unsigned int)arg1;
+- (void)setMultiGetBatchSize:(unsigned long long)arg1;
 - (void)setNextCTag:(id)arg1;
-- (void)setPreflightCTag:(BOOL)arg1;
+- (void)setPreflightCTag:(bool)arg1;
 - (void)setPreviousSyncToken:(id)arg1;
-- (BOOL)shouldSyncChildWithResourceType:(id)arg1;
+- (bool)shouldSyncChildWithResourceType:(id)arg1;
 - (void)startTaskGroup;
 - (void)syncAway;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;

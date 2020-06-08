@@ -2,52 +2,46 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSString, RCActionSheetAlertController, UIResponder, UIViewController;
-
 @interface RCActionSheetController : NSObject <UIActionSheetDelegate> {
-    UIViewController *_accessoryViewController;
-    NSArray *_actionButtonTitles;
-    id _actionHandlerBlock;
-    RCActionSheetAlertController *_alertController;
-    NSString *_alertMessage;
-    NSString *_alertTitle;
-    BOOL _autoDismissDisabled;
-    NSString *_cancelButtonTitle;
-    BOOL _dismissWhenDismissIsEnabled;
-    BOOL _enabled;
-    UIViewController *_modalItemPresentationViewController;
-    UIResponder *_originalFirstResponder;
-    BOOL _showing;
+    UIViewController * _accessoryViewController;
+    NSArray * _actionButtonTitles;
+    id /* block */  _actionHandlerBlock;
+    RCActionSheetAlertController * _alertController;
+    NSString * _alertMessage;
+    NSString * _alertTitle;
+    bool  _autoDismissDisabled;
+    NSString * _cancelButtonTitle;
+    bool  _dismissWhenDismissIsEnabled;
+    bool  _enabled;
+    UIViewController * _modalItemPresentationViewController;
+    UIResponder * _originalFirstResponder;
+    bool  _showing;
 }
 
-@property(readonly) UIViewController * accessoryViewController;
-@property(copy,readonly) id actionHandlerBlock;
-@property BOOL autoDismissDisabled;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property BOOL enabled;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) UIViewController *accessoryViewController;
+@property (nonatomic, readonly, copy) id /* block */ actionHandlerBlock;
+@property (nonatomic) bool autoDismissDisabled;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) bool enabled;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (void)_invokeActionHandlerWithActionIndex:(int)arg1;
+- (void)_invokeActionHandlerWithActionIndex:(long long)arg1;
 - (void)_willDismiss;
 - (id)accessoryViewController;
-- (id)actionHandlerBlock;
-- (BOOL)autoDismissDisabled;
+- (id /* block */)actionHandlerBlock;
+- (bool)autoDismissDisabled;
 - (void)cancel;
 - (void)dealloc;
-- (void)dismissWithActionIndex:(int)arg1 invokeActionHandler:(BOOL)arg2;
-- (void)dismissWithActionIndex:(int)arg1;
-- (BOOL)enabled;
+- (void)dismissWithActionIndex:(long long)arg1;
+- (void)dismissWithActionIndex:(long long)arg1 invokeActionHandler:(bool)arg2;
+- (bool)enabled;
 - (id)initWithTitle:(id)arg1 cancelTitle:(id)arg2 actionTitles:(id)arg3 accessoryViewController:(id)arg4;
-- (void)setAutoDismissDisabled:(BOOL)arg1;
-- (void)setEnabled:(BOOL)arg1;
-- (void)showInView:(id)arg1 actionHandlerBlock:(id)arg2;
-- (void)showInViewController:(id)arg1 actionHandlerBlock:(id)arg2;
+- (void)setAutoDismissDisabled:(bool)arg1;
+- (void)setEnabled:(bool)arg1;
+- (void)showInView:(id)arg1 actionHandlerBlock:(id /* block */)arg2;
+- (void)showInViewController:(id)arg1 source:(id)arg2 actionHandlerBlock:(id /* block */)arg3;
 
 @end

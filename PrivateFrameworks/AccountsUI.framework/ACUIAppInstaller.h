@@ -2,45 +2,43 @@
    Image: /System/Library/PrivateFrameworks/AccountsUI.framework/AccountsUI
  */
 
-@class <ACUIAppInstallerDelegate>, ACUIAppDescription, NSDate, NSURL;
-
 @interface ACUIAppInstaller : NSObject {
-    ACUIAppDescription *_app;
-    BOOL _availableInStoreResult;
-    BOOL _cachedReachabilityResult;
-    NSDate *_dateOfLastInstallationCheck;
-    NSDate *_dateOfLastReachabilityCheck;
-    <ACUIAppInstallerDelegate> *_delegate;
-    BOOL _needsAvailableInStoreCheck;
-    NSURL *_publisherURL;
-    BOOL _resultOfLastInstallationCheck;
+    ACUIAppDescription * _app;
+    bool  _availableInStoreResult;
+    bool  _cachedReachabilityResult;
+    NSDate * _dateOfLastInstallationCheck;
+    NSDate * _dateOfLastReachabilityCheck;
+    <ACUIAppInstallerDelegate> * _delegate;
+    bool  _needsAvailableInStoreCheck;
+    NSURL * _publisherURL;
+    bool  _resultOfLastInstallationCheck;
 }
 
-@property <ACUIAppInstallerDelegate> * delegate;
-@property(readonly) BOOL isAvailableInStore;
-@property(readonly) BOOL isDownloadable;
-@property(readonly) BOOL isInstalled;
-@property(retain) NSURL * publisherURL;
-@property(readonly) BOOL requiresReachabilityCheckToDetermineDownloadability;
+@property (nonatomic) <ACUIAppInstallerDelegate> *delegate;
+@property (nonatomic, readonly) bool isAvailableInStore;
+@property (nonatomic, readonly) bool isDownloadable;
+@property (nonatomic, readonly) bool isInstalled;
+@property (nonatomic, retain) NSURL *publisherURL;
+@property (nonatomic, readonly) bool requiresReachabilityCheckToDetermineDownloadability;
 
 + (id)currentStoreFront;
 
 - (void).cxx_destruct;
-- (BOOL)_isGreenTeaAvailable;
-- (void)_performAvailabilityCheck:(id)arg1;
-- (void)_performReachabilityCheck:(id)arg1;
-- (BOOL)_quicklyGenerateCachedReachabilityResultConsideringPublisherURL:(BOOL)arg1;
-- (void)_setAvailableInStoreResult:(BOOL)arg1;
-- (void)_setCachedReachabilityResult:(BOOL)arg1;
-- (void)checkAvailabilityInStore:(id)arg1;
+- (bool)_isGreenTeaAvailable;
+- (void)_performAvailabilityCheck:(id /* block */)arg1;
+- (void)_performReachabilityCheck:(id /* block */)arg1;
+- (bool)_quicklyGenerateCachedReachabilityResultConsideringPublisherURL:(bool)arg1;
+- (void)_setAvailableInStoreResult:(bool)arg1;
+- (void)_setCachedReachabilityResult:(bool)arg1;
+- (void)checkAvailabilityInStore:(id /* block */)arg1;
 - (id)delegate;
-- (void)fetchDownloadability:(id)arg1;
+- (void)fetchDownloadability:(id /* block */)arg1;
 - (id)initForAppWithDescription:(id)arg1;
-- (BOOL)isAvailableInStore;
-- (BOOL)isDownloadable;
-- (BOOL)isInstalled;
+- (bool)isAvailableInStore;
+- (bool)isDownloadable;
+- (bool)isInstalled;
 - (id)publisherURL;
-- (BOOL)requiresReachabilityCheckToDetermineDownloadability;
+- (bool)requiresReachabilityCheckToDetermineDownloadability;
 - (void)setDelegate:(id)arg1;
 - (void)setPublisherURL:(id)arg1;
 - (void)start;

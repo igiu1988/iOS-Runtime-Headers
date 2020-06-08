@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDColorReference;
-
 @interface EDPatternFill : EDFill {
-    EDColorReference *mBackColorReference;
-    EDColorReference *mForeColorReference;
-    int mType;
+    EDColorReference * mBackColorReference;
+    EDColorReference * mForeColorReference;
+    int  mType;
 }
 
 + (id)patternFillWithType:(int)arg1 foreColor:(id)arg2 backColor:(id)arg3 resources:(id)arg4;
@@ -19,15 +17,16 @@
 - (id)backColorReference;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
+- (id)description;
 - (id)foreColor;
 - (id)foreColorReference;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithResources:(id)arg1;
 - (id)initWithType:(int)arg1 foreColor:(id)arg2 backColor:(id)arg3 resources:(id)arg4;
 - (id)initWithType:(int)arg1 foreColorReference:(id)arg2 backColorReference:(id)arg3 resources:(id)arg4;
 - (bool)isEmpty;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToPatternFill:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToPatternFill:(id)arg1;
 - (void)setBackColor:(id)arg1;
 - (void)setBackColorReference:(id)arg1;
 - (void)setForeColor:(id)arg1;

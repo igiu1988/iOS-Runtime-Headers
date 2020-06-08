@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface EDFontsCollection : EDCollection {
-}
+@interface EDFontsCollection : EDCollection
 
-- (unsigned int)indexOfObjectWithFontName:(id)arg1 color:(id)arg2;
+- (unsigned long long)indexOfObjectWithFontName:(id)arg1 color:(id)arg2;
 
 @end

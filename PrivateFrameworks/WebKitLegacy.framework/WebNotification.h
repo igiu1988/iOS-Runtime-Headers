@@ -2,13 +2,12 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class WebNotificationPrivate;
-
 @interface WebNotification : NSObject {
-    WebNotificationPrivate *_private;
+    WebNotificationPrivate * _private;
 }
 
 - (id)body;
+- (void)dealloc;
 - (id)dir;
 - (void)dispatchClickEvent;
 - (void)dispatchCloseEvent;

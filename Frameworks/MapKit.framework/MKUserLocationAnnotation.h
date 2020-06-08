@@ -2,28 +2,28 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class NSString;
-
-@interface MKUserLocationAnnotation : NSObject <MKUserLocationAnnotation> {
-    struct { 
+@interface MKUserLocationAnnotation : NSObject <MKAnnotationPrivate> {
+    struct CLLocationCoordinate2D { 
         double latitude; 
         double longitude; 
-    double _accuracy;
-    } _coordinate;
+    }  _coordinate;
+    CLLocation * _location;
 }
 
-@property double accuracy;
-@property(readonly) struct { double x1; double x2; } coordinate;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy,readonly) NSString * subtitle;
-@property(readonly) Class superclass;
-@property(copy,readonly) NSString * title;
+@property (nonatomic) struct CLLocationCoordinate2D { double x1; double x2; } coordinate;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) CLLocation *location;
+@property (nonatomic, readonly) long long representation;
+@property (nonatomic, readonly, copy) NSString *subtitle;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) NSString *title;
 
-- (double)accuracy;
-- (struct { double x1; double x2; })coordinate;
-- (void)setAccuracy:(double)arg1;
-- (void)setCoordinate:(struct { double x1; double x2; })arg1;
+- (void).cxx_destruct;
+- (struct CLLocationCoordinate2D { double x1; double x2; })coordinate;
+- (id)location;
+- (void)setCoordinate:(struct CLLocationCoordinate2D { double x1; double x2; })arg1;
+- (void)setLocation:(id)arg1;
 
 @end

@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@interface SKUIListViewElement : SKUIViewElement {
-}
+@interface SKUIListViewElement : SKUIViewElement
 
-- (int)pageComponentType;
+- (long long)pageComponentType;
 
 @end

@@ -3,6 +3,11 @@
  */
 
 @interface AWDPowerApMetrics : PBCodable <NSCopying> {
+    unsigned int  _apAwakeDuration;
+    unsigned int  _cpuPowerMicroWatt;
+    NSMutableArray * _datas;
+    unsigned int  _dramPowerMicroWatt;
+    unsigned int  _gpuPowerMicroWatt;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int apAwakeDuration : 1; 
@@ -10,56 +15,62 @@
         unsigned int dramPowerMicroWatt : 1; 
         unsigned int gpuPowerMicroWatt : 1; 
         unsigned int socPowerMicroWatt : 1; 
-    unsigned int _apAwakeDuration;
-    unsigned int _cpuPowerMicroWatt;
-    unsigned int _dramPowerMicroWatt;
-    unsigned int _gpuPowerMicroWatt;
-    } _has;
-    unsigned int _socPowerMicroWatt;
-    unsigned long long _timestamp;
+    }  _has;
+    unsigned int  _socPowerMicroWatt;
+    unsigned long long  _timestamp;
 }
 
-@property unsigned int apAwakeDuration;
-@property unsigned int cpuPowerMicroWatt;
-@property unsigned int dramPowerMicroWatt;
-@property unsigned int gpuPowerMicroWatt;
-@property BOOL hasApAwakeDuration;
-@property BOOL hasCpuPowerMicroWatt;
-@property BOOL hasDramPowerMicroWatt;
-@property BOOL hasGpuPowerMicroWatt;
-@property BOOL hasSocPowerMicroWatt;
-@property BOOL hasTimestamp;
-@property unsigned int socPowerMicroWatt;
-@property unsigned long long timestamp;
+@property (nonatomic) unsigned int apAwakeDuration;
+@property (nonatomic) unsigned int cpuPowerMicroWatt;
+@property (nonatomic, retain) NSMutableArray *datas;
+@property (nonatomic) unsigned int dramPowerMicroWatt;
+@property (nonatomic) unsigned int gpuPowerMicroWatt;
+@property (nonatomic) bool hasApAwakeDuration;
+@property (nonatomic) bool hasCpuPowerMicroWatt;
+@property (nonatomic) bool hasDramPowerMicroWatt;
+@property (nonatomic) bool hasGpuPowerMicroWatt;
+@property (nonatomic) bool hasSocPowerMicroWatt;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic) unsigned int socPowerMicroWatt;
+@property (nonatomic) unsigned long long timestamp;
 
++ (Class)dataType;
+
+- (void)addData:(id)arg1;
 - (unsigned int)apAwakeDuration;
+- (void)clearDatas;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (unsigned int)cpuPowerMicroWatt;
+- (id)dataAtIndex:(unsigned long long)arg1;
+- (id)datas;
+- (unsigned long long)datasCount;
+- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)dramPowerMicroWatt;
 - (unsigned int)gpuPowerMicroWatt;
-- (BOOL)hasApAwakeDuration;
-- (BOOL)hasCpuPowerMicroWatt;
-- (BOOL)hasDramPowerMicroWatt;
-- (BOOL)hasGpuPowerMicroWatt;
-- (BOOL)hasSocPowerMicroWatt;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasApAwakeDuration;
+- (bool)hasCpuPowerMicroWatt;
+- (bool)hasDramPowerMicroWatt;
+- (bool)hasGpuPowerMicroWatt;
+- (bool)hasSocPowerMicroWatt;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setApAwakeDuration:(unsigned int)arg1;
 - (void)setCpuPowerMicroWatt:(unsigned int)arg1;
+- (void)setDatas:(id)arg1;
 - (void)setDramPowerMicroWatt:(unsigned int)arg1;
 - (void)setGpuPowerMicroWatt:(unsigned int)arg1;
-- (void)setHasApAwakeDuration:(BOOL)arg1;
-- (void)setHasCpuPowerMicroWatt:(BOOL)arg1;
-- (void)setHasDramPowerMicroWatt:(BOOL)arg1;
-- (void)setHasGpuPowerMicroWatt:(BOOL)arg1;
-- (void)setHasSocPowerMicroWatt:(BOOL)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasApAwakeDuration:(bool)arg1;
+- (void)setHasCpuPowerMicroWatt:(bool)arg1;
+- (void)setHasDramPowerMicroWatt:(bool)arg1;
+- (void)setHasGpuPowerMicroWatt:(bool)arg1;
+- (void)setHasSocPowerMicroWatt:(bool)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setSocPowerMicroWatt:(unsigned int)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (unsigned int)socPowerMicroWatt;

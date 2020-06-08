@@ -2,27 +2,29 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKUIGiftDashView, UILabel;
-
 @interface SKUIGiftConfirmLabeledValue : UIView {
-    SKUIGiftDashView *_dashView;
-    UILabel *_labelLabel;
-    int _style;
-    UILabel *_valueLabel;
+    SKUIGiftDashView * _dashView;
+    UILabel * _labelLabel;
+    long long  _style;
+    UILabel * _subtitleLabel;
+    UILabel * _valueLabel;
 }
 
-@property(readonly) int giftConfirmLabelStyle;
-@property(copy) NSString * label;
-@property(copy) NSString * value;
+@property (nonatomic, readonly) long long giftConfirmLabelStyle;
+@property (nonatomic, copy) NSString *label;
+@property (nonatomic, copy) NSString *subtitleLabel;
+@property (nonatomic, copy) NSString *value;
 
 - (void).cxx_destruct;
-- (int)giftConfirmLabelStyle;
-- (id)initWithGiftConfirmLabelStyle:(int)arg1;
+- (long long)giftConfirmLabelStyle;
+- (id)initWithGiftConfirmLabelStyle:(long long)arg1;
 - (id)label;
 - (void)layoutSubviews;
 - (void)setLabel:(id)arg1;
+- (void)setSubtitleLabel:(id)arg1;
 - (void)setValue:(id)arg1;
-- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
+- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (id)subtitleLabel;
 - (id)value;
 
 @end

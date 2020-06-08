@@ -2,20 +2,14 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class <BWSourceNodeErrorDelegate>;
+@interface BWSourceNode : BWNode
 
-@interface BWSourceNode : BWNode {
-    <BWSourceNodeErrorDelegate> *_errorDelegate;
-}
-
-@property(readonly) struct OpaqueCMClock { }* clock;
-@property <BWSourceNodeErrorDelegate> * errorDelegate;
+@property (nonatomic, readonly) struct OpaqueCMClock { }*clock;
 
 - (struct OpaqueCMClock { }*)clock;
-- (id)errorDelegate;
+- (void)makeOutputsLiveIfNeeded;
 - (id)nodeType;
-- (void)setErrorDelegate:(id)arg1;
-- (BOOL)start:(id*)arg1;
-- (BOOL)stop:(id*)arg1;
+- (bool)start:(id*)arg1;
+- (bool)stop:(id*)arg1;
 
 @end

@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class <KeychainSyncViewControllerDelegate>, KeychainSyncHeaderView, PSSpecifier;
-
 @interface PSKeychainSyncViewController : PSListController <KeychainSyncViewController> {
-    <KeychainSyncViewControllerDelegate> *_delegate;
-    PSSpecifier *_groupSpecifier;
-    KeychainSyncHeaderView *_headerView;
+    <KeychainSyncViewControllerDelegate> * _delegate;
+    PSSpecifier * _groupSpecifier;
+    PSKeychainSyncHeaderView * _headerView;
 }
 
-@property <KeychainSyncViewControllerDelegate> * delegate;
+@property (nonatomic) <KeychainSyncViewControllerDelegate> *delegate;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)delegate;
 - (id)groupSpecifier;
 - (id)headerView;
-- (float)heightForHeaderInTableView:(id)arg1;
+- (double)heightForHeaderInTableView:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (id)specifiers;

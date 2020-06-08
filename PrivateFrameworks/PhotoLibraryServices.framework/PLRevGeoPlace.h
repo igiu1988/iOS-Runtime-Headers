@@ -2,31 +2,30 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableDictionary;
-
 @interface PLRevGeoPlace : NSObject {
-    BOOL _isHome;
-    NSMutableDictionary *_placeTypeInfoMap;
+    bool  _isHome;
+    PLRevGeoPlaceAnnotation * _placeAnnotation;
+    NSMutableArray * _placeTypeInfoMap;
 }
 
-@property BOOL isHome;
-@property(readonly) NSMutableDictionary * placeTypeInfoMap;
+@property (nonatomic) bool isHome;
 
-+ (id)sortedAdditionalPlaceInfoComparator;
++ (id /* block */)sortedAdditionalPlaceInfoComparator;
 
-- (unsigned int)_dominantOrderTypeForPlaceType:(int)arg1 lastOrderType:(unsigned int)arg2;
-- (void)addPlaceName:(id)arg1 placeInfo:(id)arg2 forOrderType:(unsigned int)arg3 updateExisting:(BOOL)arg4;
-- (id)bestPlaceInfoForOrderType:(unsigned int)arg1;
+- (void)_addPlaceName:(id)arg1 placeInfo:(id)arg2 forOrderType:(unsigned long long)arg3;
+- (unsigned long long)_dominantOrderTypeForPlaceType:(int)arg1 lastOrderType:(unsigned long long)arg2;
+- (void)_mergeGEOMapItem:(id)arg1;
+- (id)_newFilterSortedPlaceInfos:(id)arg1 usingPlaceAnnotation:(id)arg2 outFoundOrderType:(unsigned long long*)arg3 outPreviousOrderType:(unsigned long long*)arg4;
+- (id)_placeInfosForOrderType:(unsigned long long)arg1 createIfNeeded:(bool)arg2;
+- (void)_removePlacesInPlaceInfos:(id)arg1 fromOrderType:(unsigned long long)arg2;
+- (id)bestPlaceInfoForOrderType:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)init;
-- (id)initWithGEOMapItem:(id)arg1;
-- (BOOL)isHome;
-- (void)mergeCommonDataForGEOMapItem:(id)arg1 updateExisting:(BOOL)arg2;
-- (void)mergeGEOMapItem:(id)arg1 updateExisting:(BOOL)arg2;
-- (id)placeInfoSetForOrderType:(unsigned int)arg1;
-- (id)placeTypeInfoMap;
-- (void)removePlacesInPlaceInfoSet:(id)arg1 fromOrderType:(unsigned int)arg2;
-- (void)setIsHome:(BOOL)arg1;
+- (id)initWithGEOMapItem:(id)arg1 placeAnnotationData:(id)arg2;
+- (bool)isHome;
+- (id)minimumAreaForOrderType:(unsigned long long)arg1 name:(id)arg2;
+- (id)placeInfosForOrderType:(unsigned long long)arg1;
+- (void)setIsHome:(bool)arg1;
 
 @end

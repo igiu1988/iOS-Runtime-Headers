@@ -2,31 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CallHistory.framework/CallHistory
  */
 
-@class NSMutableDictionary;
-
 @interface CHSharedAddressBook : CHSynchronizedLoggable {
-    void *_addressBook;
-    NSMutableDictionary *_addressBookCache;
+    NSMutableDictionary * _addressBookCache;
 }
 
-@property void* addressBook;
-@property(retain) NSMutableDictionary * addressBookCache;
+@property (retain) NSMutableDictionary *addressBookCache;
 
 + (id)get;
 
 - (void).cxx_destruct;
-- (void*)addressBook;
 - (id)addressBookCache;
-- (void)createAddressBook;
+- (void)cleanUpAddressBookCache_sync;
 - (void)dealloc;
 - (id)description;
 - (id)fetchAddressBookInfoFromCacheForKey:(id)arg1;
 - (id)init;
 - (void)insertAddressBookInfoIntoCache:(id)arg1 forKey:(id)arg2;
-- (void)performQuery_sync:(id)arg1;
-- (void)revertAddressBook:(BOOL)arg1;
+- (void)registerForContactsNotifications;
+- (void)revertAddressBook:(id)arg1;
 - (void)sendABChangedNotificationSyncWithUserInfo:(id)arg1;
-- (void)setAddressBook:(void*)arg1;
 - (void)setAddressBookCache:(id)arg1;
 
 @end

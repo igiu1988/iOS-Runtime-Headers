@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/CoreMotion.framework/CoreMotion
  */
 
-@class CMAttitude;
-
 @interface CMDeviceMotion : CMLogItem {
-    id _internal;
+    id  _internal;
 }
 
-@property(readonly) CMAttitude * attitude;
-@property(readonly) bool doingBiasEstimation;
-@property(readonly) bool doingYawCorrection;
-@property(readonly) struct { double x1; double x2; double x3; } gravity;
-@property(readonly) struct { struct { double x_1_1_1; double x_1_1_2; double x_1_1_3; } x1; int x2; } magneticField;
-@property(readonly) int magneticFieldCalibrationLevel;
-@property(readonly) struct { double x1; double x2; double x3; } rotationRate;
-@property(readonly) struct { double x1; double x2; double x3; } userAcceleration;
+@property (nonatomic, readonly) CMAttitude *attitude;
+@property (nonatomic, readonly) bool doingBiasEstimation;
+@property (nonatomic, readonly) bool doingYawCorrection;
+@property (nonatomic, readonly) struct { double x1; double x2; double x3; } gravity;
+@property (nonatomic, readonly) double heading;
+@property (nonatomic, readonly) struct { struct { double x_1_1_1; double x_1_1_2; double x_1_1_3; } x1; int x2; } magneticField;
+@property (nonatomic, readonly) int magneticFieldCalibrationLevel;
+@property (nonatomic, readonly) struct { double x1; double x2; double x3; } rotationRate;
+@property (nonatomic, readonly) struct { double x1; double x2; double x3; } userAcceleration;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (id)attitude;
-- (BOOL)calibrationRequired;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
@@ -28,8 +26,9 @@
 - (bool)doingYawCorrection;
 - (void)encodeWithCoder:(id)arg1;
 - (struct { double x1; double x2; double x3; })gravity;
+- (double)heading;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDeviceMotion:(struct { struct { double x_1_1_1; double x_1_1_2; double x_1_1_3; double x_1_1_4; } x1; struct { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; struct { float x_3_1_1; float x_3_1_2; float x_3_1_3; } x3; struct { float x_4_1_1; float x_4_1_2; float x_4_1_3; } x4; int x5; boolx6; boolx7; boolx8; })arg1 andTimestamp:(double)arg2;
+- (id)initWithDeviceMotion:(struct { struct { double x_1_1_1; double x_1_1_2; double x_1_1_3; double x_1_1_4; } x1; struct { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; struct { float x_3_1_1; float x_3_1_2; float x_3_1_3; } x3; struct { float x_4_1_1; float x_4_1_2; float x_4_1_3; } x4; int x5; bool x6; bool x7; bool x8; float x9; })arg1 andTimestamp:(double)arg2;
 - (struct { struct { double x_1_1_1; double x_1_1_2; double x_1_1_3; } x1; int x2; })magneticField;
 - (int)magneticFieldCalibrationLevel;
 - (struct { double x1; double x2; double x3; })rotationRate;

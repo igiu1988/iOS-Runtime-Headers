@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStyle, GQDWPLayoutStorage;
-
 @interface GQDWPLayoutFrame : NSObject {
-    GQDWPLayoutStorage *mStorage;
-    GQDSStyle *mStyle;
-    char *mStyleRef;
-    unsigned int mTextScale;
+    GQDWPLayoutStorage * mStorage;
+    GQDSStyle * mStyle;
+    char * mStyleRef;
+    unsigned int  mTextScale;
 }
 
 - (void)dealloc;
-- (BOOL)isBlank;
+- (bool)isBlank;
 - (id)layoutStyle;
 - (int)readAttributesFromReader:(struct _xmlTextReader { }*)arg1;
 - (void)resolveStyleRef;

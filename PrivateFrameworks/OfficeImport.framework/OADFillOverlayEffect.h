@@ -2,19 +2,19 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADFill;
-
 @interface OADFillOverlayEffect : OADEffect {
-    int mBlendMode;
-    OADFill *mFill;
+    int  mBlendMode;
+    OADFill * mFill;
 }
 
 - (int)blendMode;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
+- (id)description;
 - (id)fill;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)setBlendMode:(int)arg1;
 - (void)setFill:(id)arg1;
 

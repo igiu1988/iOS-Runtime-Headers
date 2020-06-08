@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSArray;
-
 @interface AFDeleteAlarmRequest : AFSiriRequest {
-    NSArray *_alarmIdentifiers;
+    NSArray * _alarmIdentifiers;
 }
 
-@property(copy) NSArray * alarmIdentifiers;
+@property (nonatomic, copy) NSArray *alarmIdentifiers;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)alarmIdentifiers;

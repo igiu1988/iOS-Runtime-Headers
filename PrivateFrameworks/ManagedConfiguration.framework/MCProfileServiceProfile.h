@@ -2,33 +2,35 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSArray, NSData, NSString;
-
 @interface MCProfileServiceProfile : MCProfile {
-    NSString *_URLString;
-    NSArray *_bogusPayloads;
-    id _challenge;
-    BOOL _confirmInstallation;
-    NSArray *_deviceAttributes;
-    NSData *_enrollmentIdentityPersistentID;
+    NSString * _URLString;
+    NSArray * _bogusPayloads;
+    id  _challenge;
+    bool  _confirmInstallation;
+    NSArray * _deviceAttributes;
+    NSData * _enrollmentIdentityPersistentID;
+    NSArray * _supportedDeviceIdentities;
+    bool  _supportedServerVersion;
 }
 
-@property(retain) NSString * URLString;
-@property(retain,readonly) id challenge;
-@property(readonly) BOOL confirmInstallation;
-@property(retain,readonly) NSArray * deviceAttributes;
-@property(retain) NSData * enrollmentIdentityPersistentID;
+@property (nonatomic, retain) NSString *URLString;
+@property (nonatomic, readonly, retain) id challenge;
+@property (nonatomic, readonly) bool confirmInstallation;
+@property (nonatomic, readonly, retain) NSArray *deviceAttributes;
+@property (nonatomic, retain) NSData *enrollmentIdentityPersistentID;
+@property (nonatomic, readonly, retain) NSArray *supportedDeviceIdentities;
+@property (nonatomic, readonly) bool supportedServerVersion;
 
 - (void).cxx_destruct;
 - (id)URLString;
 - (id)_badDataTypeErrorWithFieldName:(id)arg1;
 - (id)_unsupportedValueErrorWithFieldName:(id)arg1 value:(id)arg2;
 - (id)challenge;
-- (BOOL)confirmInstallation;
+- (bool)confirmInstallation;
 - (id)description;
 - (id)deviceAttributes;
 - (id)enrollmentIdentityPersistentID;
-- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(BOOL)arg2 outError:(id*)arg3;
+- (id)initWithDictionary:(id)arg1 allowEmptyPayload:(bool)arg2 outError:(id*)arg3;
 - (id)localizedManagedPayloadSummaryByType;
 - (id)localizedPayloadSummaryByType;
 - (id)managedPayloads;
@@ -36,5 +38,7 @@
 - (void)setEnrollmentIdentityPersistentID:(id)arg1;
 - (void)setURLString:(id)arg1;
 - (id)stubDictionary;
+- (id)supportedDeviceIdentities;
+- (bool)supportedServerVersion;
 
 @end

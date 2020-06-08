@@ -2,42 +2,41 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSMutableDictionary;
-
 @interface CKDFlowControlManager : NSObject {
-    unsigned int _defaultBudget;
-    double _defaultRegeneration;
-    double _maximumThrottleTime;
-    NSMutableDictionary *_operationFlowControls;
+    unsigned long long  _defaultBudget;
+    double  _defaultRegeneration;
+    double  _maximumThrottleTime;
+    NSMutableDictionary * _operationFlowControls;
 }
 
-@property unsigned int defaultBudget;
-@property double defaultRegeneration;
+@property (nonatomic) unsigned long long defaultBudget;
+@property (nonatomic) double defaultRegeneration;
 @property double maximumThrottleTime;
-@property(retain) NSMutableDictionary * operationFlowControls;
+@property (nonatomic, retain) NSMutableDictionary *operationFlowControls;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
-- (id)_flowControlForOperation:(id)arg1 createIfNecessary:(BOOL)arg2;
+- (id)CKStatusReportArray;
 - (id)_flowControlForOperation:(id)arg1;
-- (BOOL)checkFlowControlIsLimited:(id)arg1;
+- (id)_flowControlForOperation:(id)arg1 createIfNecessary:(bool)arg2;
+- (bool)checkFlowControlIsLimited:(id)arg1 outReportableError:(id*)arg2;
 - (double)currentBudget:(id)arg1;
-- (unsigned int)currentBudgetCap:(id)arg1;
+- (unsigned long long)currentBudgetCap:(id)arg1;
 - (double)currentRegeneration:(id)arg1;
-- (unsigned int)defaultBudget;
+- (unsigned long long)defaultBudget;
 - (double)defaultRegeneration;
 - (id)description;
-- (id)initWithDefaultBudget:(unsigned int)arg1 maximumThrottleTime:(double)arg2 andDefaultRegeneration:(double)arg3;
+- (bool)hasStatusToReport;
+- (id)initWithDefaultBudget:(unsigned long long)arg1 maximumThrottleTime:(double)arg2 andDefaultRegeneration:(double)arg3;
 - (double)maximumThrottleTime;
 - (id)operationFlowControls;
 - (double)secondsUntilFlowControlNotLimited:(id)arg1;
-- (void)setDefaultBudget:(unsigned int)arg1;
+- (void)setDefaultBudget:(unsigned long long)arg1;
 - (void)setDefaultRegeneration:(double)arg1;
 - (void)setMaximumThrottleTime:(double)arg1;
 - (void)setOperationFlowControls:(id)arg1;
-- (id)statusReport;
-- (void)updateFlowControl:(id)arg1 withCost:(unsigned int)arg2;
-- (void)updateFlowControl:(id)arg1 withRetryAfter:(unsigned int)arg2;
-- (void)updateFlowControlWithLocalErrorForOperation:(id)arg1;
+- (void)updateFlowControl:(id)arg1 withCost:(unsigned long long)arg2 reportableError:(id)arg3;
+- (void)updateFlowControl:(id)arg1 withRetryAfter:(unsigned long long)arg2 reportableError:(id)arg3;
+- (void)updateFlowControlForOperation:(id)arg1 reportableError:(id)arg2;
 
 @end

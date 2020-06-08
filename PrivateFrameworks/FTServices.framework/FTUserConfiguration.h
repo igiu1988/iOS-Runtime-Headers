@@ -3,19 +3,50 @@
  */
 
 @interface FTUserConfiguration : NSObject {
+    NSMutableDictionary * _cellularDataAvailableCache;
+    struct __CTServerConnection { } * _ctServerConnection;
+    NSMutableDictionary * _nonBTAllowedCache;
+    struct network_usage_policy_client_s { } * _usageClient;
+    NSMutableDictionary * _wifiAllowedCache;
 }
 
-@property(readonly) BOOL _nonWifiFaceTimeEntitled;
-@property BOOL allowAnyNetwork;
-@property BOOL cellularFaceTimeEnabled;
+@property (nonatomic, readonly) bool _nonWifiFaceTimeEntitled;
+@property (nonatomic) bool allowAnyNetwork;
+@property (nonatomic) bool cellularFaceTimeEnabled;
+@property (nonatomic) struct __CTServerConnection { }*ctServerConnection;
+@property (nonatomic) bool isDeviceInDualPhoneIdentityMode;
+@property (nonatomic, retain) NSMutableDictionary *nonBTAllowedCache;
+@property (nonatomic, copy) NSString *selectedPhoneNumberRegistrationSubscriptionLabel;
+@property (nonatomic, readonly, copy) NSNumber *selectedPhoneNumberRegistrationSubscriptionNumber;
 
 + (id)sharedInstance;
 
-- (BOOL)_adequateInternalOrCarrierInstall;
-- (BOOL)_nonWifiFaceTimeEntitled;
-- (BOOL)allowAnyNetwork;
-- (BOOL)cellularFaceTimeEnabled;
-- (void)setAllowAnyNetwork:(BOOL)arg1;
-- (void)setCellularFaceTimeEnabled:(BOOL)arg1;
+- (void).cxx_destruct;
+- (bool)_adequateInternalOrCarrierInstall;
+- (void)_clearCaches;
+- (bool)_getCellularDataEnabledForBundleID:(id)arg1;
+- (bool)_getNonBluetoothDataAllowedForBundleID:(id)arg1;
+- (bool)_getWifiDataAllowedForBundleID:(id)arg1;
+- (bool)_nonWifiFaceTimeEntitled;
+- (void)_setAppCellularDataEnabled:(bool)arg1;
+- (void)_setupUsageHandlerIfNeeded;
+- (bool)allowAnyNetwork;
+- (bool)cellularDataEnabledForBundleId:(id)arg1;
+- (bool)cellularFaceTimeEnabled;
+- (struct __CTServerConnection { }*)ctServerConnection;
+- (void)dealloc;
+- (id)init;
+- (bool)isDeviceInDualPhoneIdentityMode;
+- (id)nonBTAllowedCache;
+- (bool)nonBluetoothAllowedForBundleId:(id)arg1;
+- (id)selectedPhoneNumberRegistrationSubscriptionLabel;
+- (id)selectedPhoneNumberRegistrationSubscriptionNumber;
+- (void)setAllowAnyNetwork:(bool)arg1;
+- (void)setCellularFaceTimeEnabled:(bool)arg1;
+- (void)setCtServerConnection:(struct __CTServerConnection { }*)arg1;
+- (void)setIsDeviceInDualPhoneIdentityMode:(bool)arg1;
+- (void)setNonBTAllowedCache:(id)arg1;
+- (void)setSelectedPhoneNumberRegistrationSubscriptionLabel:(id)arg1;
+- (bool)wifiAllowedForBundleId:(id)arg1;
 
 @end

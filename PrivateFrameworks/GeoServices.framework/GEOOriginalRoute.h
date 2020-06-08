@@ -2,43 +2,51 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSData;
-
 @interface GEOOriginalRoute : PBCodable <NSCopying> {
     struct { 
         unsigned int originalRoutePurpose : 1; 
-    } _has;
-    NSData *_originalDirectionsResponseID;
-    int _originalRoutePurpose;
-    NSData *_routeHandle;
+        unsigned int routeIndex : 1; 
+    }  _has;
+    NSData * _originalDirectionsResponseID;
+    int  _originalRoutePurpose;
+    NSData * _routeHandle;
+    unsigned int  _routeIndex;
 }
 
-@property(readonly) BOOL hasOriginalDirectionsResponseID;
-@property BOOL hasOriginalRoutePurpose;
-@property(readonly) BOOL hasRouteHandle;
-@property(retain) NSData * originalDirectionsResponseID;
-@property int originalRoutePurpose;
-@property(retain) NSData * routeHandle;
+@property (nonatomic, readonly) bool hasOriginalDirectionsResponseID;
+@property (nonatomic) bool hasOriginalRoutePurpose;
+@property (nonatomic, readonly) bool hasRouteHandle;
+@property (nonatomic) bool hasRouteIndex;
+@property (nonatomic, retain) NSData *originalDirectionsResponseID;
+@property (nonatomic) int originalRoutePurpose;
+@property (nonatomic, retain) NSData *routeHandle;
+@property (nonatomic) unsigned int routeIndex;
 
+- (void).cxx_destruct;
+- (int)StringAsOriginalRoutePurpose:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasOriginalDirectionsResponseID;
-- (BOOL)hasOriginalRoutePurpose;
-- (BOOL)hasRouteHandle;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasOriginalDirectionsResponseID;
+- (bool)hasOriginalRoutePurpose;
+- (bool)hasRouteHandle;
+- (bool)hasRouteIndex;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)originalDirectionsResponseID;
 - (int)originalRoutePurpose;
-- (BOOL)readFrom:(id)arg1;
+- (id)originalRoutePurposeAsString:(int)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)routeHandle;
-- (void)setHasOriginalRoutePurpose:(BOOL)arg1;
+- (unsigned int)routeIndex;
+- (void)setHasOriginalRoutePurpose:(bool)arg1;
+- (void)setHasRouteIndex:(bool)arg1;
 - (void)setOriginalDirectionsResponseID:(id)arg1;
 - (void)setOriginalRoutePurpose:(int)arg1;
 - (void)setRouteHandle:(id)arg1;
+- (void)setRouteIndex:(unsigned int)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

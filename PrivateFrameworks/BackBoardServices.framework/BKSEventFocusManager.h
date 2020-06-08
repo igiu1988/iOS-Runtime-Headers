@@ -2,34 +2,68 @@
    Image: /System/Library/PrivateFrameworks/BackBoardServices.framework/BackBoardServices
  */
 
-@class NSMutableSet;
-
 @interface BKSEventFocusManager : NSObject {
-    NSMutableSet *_currentState;
-    BOOL _needsFlush;
-    NSMutableSet *_pendingState;
-    BOOL _systemAppControlsFocusOnMainDisplay;
+    NSSet * _cachedFocusedDeferralProperties;
+    NSObject<OS_dispatch_queue> * _calloutQueue;
+    NSString * _clientIdentifier;
+    NSXPCConnection * _connection;
+    NSMutableSet * _currentState;
+    NSObject<OS_dispatch_queue> * _focusClientQueue;
+    NSMapTable * _infoPerFocusChangeObserver;
+    <BKSEventFocusIPCInterface> * _ipcInterface;
+    bool  _needsFlush;
+    NSMutableDictionary * _pendingStatesByPriority;
+    int  _pid;
+    unsigned long long  _propertyUpdateGeneration;
+    bool  _systemAppControlsFocusOnMainDisplay;
 }
 
-@property(readonly) NSMutableSet * currentState;
-@property BOOL needsFlush;
-@property(readonly) NSMutableSet * pendingState;
-@property BOOL systemAppControlsFocusOnMainDisplay;
+@property (nonatomic, retain) NSSet *cachedFocusedDeferralProperties;
+@property (nonatomic, copy) NSString *clientIdentifier;
+@property (nonatomic, retain) NSXPCConnection *connection;
+@property (nonatomic, readonly) NSMutableSet *currentState;
+@property (nonatomic, retain) NSMapTable *infoPerFocusChangeObserver;
+@property (nonatomic) bool needsFlush;
+@property (nonatomic, readonly) NSMutableDictionary *pendingStatesByPriority;
+@property (nonatomic) int pid;
+@property (nonatomic) bool systemAppControlsFocusOnMainDisplay;
 
 + (id)sharedInstance;
 
-- (void)_pruneSet:(id)arg1 ofDeferralsPassingTest:(id)arg2;
+- (void).cxx_destruct;
+- (void)_connectToEventFocusService;
+- (void)_pruneSet:(id)arg1 ofDeferralsPassingTest:(id /* block */)arg2;
+- (void)_rebuildPendingStatesByPriority;
+- (void)_syncObserverState;
+- (void)addObserver:(id)arg1;
+- (id)cachedFocusedDeferralProperties;
+- (id)clientIdentifier;
+- (id)connection;
 - (id)currentState;
 - (void)dealloc;
 - (void)deferEventsForClientWithProperties:(id)arg1 toClientWithProperties:(id)arg2;
+- (void)deferEventsForClientWithProperties:(id)arg1 toClientWithProperties:(id)arg2 withPriority:(int)arg3;
 - (id)description;
 - (void)flush;
+- (void)focusedDeferralPropertiesUpdatedWithProperties:(id)arg1;
+- (id)infoPerFocusChangeObserver;
 - (id)init;
-- (BOOL)needsFlush;
-- (id)pendingState;
+- (id)initWithIPCInterface:(id)arg1;
+- (bool)needsFlush;
+- (id)pendingStatesByPriority;
+- (int)pid;
+- (void)reallyFlushWithSet:(id)arg1;
+- (void)removeObserver:(id)arg1;
+- (void)setCachedFocusedDeferralProperties:(id)arg1;
+- (void)setClientIdentifier:(id)arg1;
+- (void)setConnection:(id)arg1;
 - (void)setForegroundApplicationOnMainDisplay:(id)arg1 pid:(int)arg2;
-- (void)setNeedsFlush:(BOOL)arg1;
-- (void)setSystemAppControlsFocusOnMainDisplay:(BOOL)arg1;
-- (BOOL)systemAppControlsFocusOnMainDisplay;
+- (void)setInfoPerFocusChangeObserver:(id)arg1;
+- (void)setNeedsFlush:(bool)arg1;
+- (void)setPid:(int)arg1;
+- (void)setSystemAppControlsFocusOnMainDisplay:(bool)arg1;
+- (bool)systemAppControlsFocusOnMainDisplay;
+- (void)touchDetachedForIdentifier:(unsigned int)arg1 context:(unsigned int)arg2 pid:(int)arg3;
+- (void)touchUpOccuredForIdentifier:(unsigned int)arg1 detached:(bool)arg2 context:(unsigned int)arg3 pid:(int)arg4;
 
 @end

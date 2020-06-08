@@ -2,18 +2,20 @@
    Image: /System/Library/PrivateFrameworks/Notes.framework/Notes
  */
 
-@class NSData, NSString, NoteObject;
+@interface NoteBodyObject : NSManagedObject <ICSearchIndexableTarget>
 
-@interface NoteBodyObject : NSManagedObject {
-}
-
-@property(retain) NSString * content;
-@property(readonly) NSString * contentAsPlainText;
-@property(retain) NSString * externalContentRef;
-@property(retain) NSData * externalRepresentation;
-@property(retain) NoteObject * owner;
+@property (nonatomic, retain) NSString *content;
+@property (nonatomic, readonly) NSString *contentAsPlainText;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSString *externalContentRef;
+@property (nonatomic, retain) NSData *externalRepresentation;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) NoteObject *owner;
+@property (readonly) Class superclass;
 
 - (id)contentAsPlainText;
 - (id)contentAsPlainTextPreservingNewlines;
+- (id)targetSearchIndexable;
 
 @end

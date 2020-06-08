@@ -2,28 +2,36 @@
    Image: /System/Library/PrivateFrameworks/MapsSupport.framework/MapsSupport
  */
 
-@class GEOStorageRouteRequestStorage, PBUnknownFields;
-
 @interface MSPDirectionsSearch : PBCodable <NSCopying> {
-    GEOStorageRouteRequestStorage *_routeRequestStorage;
-    PBUnknownFields *_unknownFields;
+    struct { 
+        unsigned int navigationInterrupted : 1; 
+    }  _has;
+    bool  _navigationInterrupted;
+    GEOStorageRouteRequestStorage * _routeRequestStorage;
+    PBUnknownFields * _unknownFields;
 }
 
-@property(readonly) BOOL hasRouteRequestStorage;
-@property(retain) GEOStorageRouteRequestStorage * routeRequestStorage;
-@property(readonly) PBUnknownFields * unknownFields;
+@property (nonatomic) bool hasNavigationInterrupted;
+@property (nonatomic, readonly) bool hasRouteRequestStorage;
+@property (nonatomic) bool navigationInterrupted;
+@property (nonatomic, retain) GEOStorageRouteRequestStorage *routeRequestStorage;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasRouteRequestStorage;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasNavigationInterrupted;
+- (bool)hasRouteRequestStorage;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)navigationInterrupted;
+- (bool)readFrom:(id)arg1;
 - (id)routeRequestStorage;
+- (void)setHasNavigationInterrupted:(bool)arg1;
+- (void)setNavigationInterrupted:(bool)arg1;
 - (void)setRouteRequestStorage:(id)arg1;
 - (id)unknownFields;
 - (void)writeTo:(id)arg1;

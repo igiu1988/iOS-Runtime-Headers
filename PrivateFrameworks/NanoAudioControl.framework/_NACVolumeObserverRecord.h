@@ -2,39 +2,37 @@
    Image: /System/Library/PrivateFrameworks/NanoAudioControl.framework/NanoAudioControl
  */
 
-@class MPAVRoutingController, MPVolumeController, NACEventThrottler;
-
 @interface _NACVolumeObserverRecord : NSObject {
-    float _EUVolumeLimit;
-    BOOL _muted;
-    MPAVRoutingController *_routingController;
-    NACEventThrottler *_throttler;
-    BOOL _volumeControlAvailable;
-    MPVolumeController *_volumeController;
-    BOOL _volumeWarningEnabled;
+    float  _EUVolumeLimit;
+    bool  _muted;
+    MPAVRoutingController * _routingController;
+    NACEventThrottler * _throttler;
+    bool  _volumeControlAvailable;
+    MPVolumeController * _volumeController;
+    bool  _volumeWarningEnabled;
 }
 
-@property float EUVolumeLimit;
-@property(getter=isMuted) BOOL muted;
-@property(retain) MPAVRoutingController * routingController;
-@property(retain) NACEventThrottler * throttler;
-@property(getter=isVolumeControlAvailable) BOOL volumeControlAvailable;
-@property(retain) MPVolumeController * volumeController;
-@property(getter=isVolumeWarningEnabled) BOOL volumeWarningEnabled;
+@property (nonatomic) float EUVolumeLimit;
+@property (getter=isMuted, nonatomic) bool muted;
+@property (nonatomic, retain) MPAVRoutingController *routingController;
+@property (nonatomic, retain) NACEventThrottler *throttler;
+@property (getter=isVolumeControlAvailable, nonatomic) bool volumeControlAvailable;
+@property (nonatomic, retain) MPVolumeController *volumeController;
+@property (getter=isVolumeWarningEnabled, nonatomic) bool volumeWarningEnabled;
 
 - (void).cxx_destruct;
 - (float)EUVolumeLimit;
-- (BOOL)isMuted;
-- (BOOL)isVolumeControlAvailable;
-- (BOOL)isVolumeWarningEnabled;
+- (bool)isMuted;
+- (bool)isVolumeControlAvailable;
+- (bool)isVolumeWarningEnabled;
 - (id)routingController;
 - (void)setEUVolumeLimit:(float)arg1;
-- (void)setMuted:(BOOL)arg1;
+- (void)setMuted:(bool)arg1;
 - (void)setRoutingController:(id)arg1;
 - (void)setThrottler:(id)arg1;
-- (void)setVolumeControlAvailable:(BOOL)arg1;
+- (void)setVolumeControlAvailable:(bool)arg1;
 - (void)setVolumeController:(id)arg1;
-- (void)setVolumeWarningEnabled:(BOOL)arg1;
+- (void)setVolumeWarningEnabled:(bool)arg1;
 - (id)throttler;
 - (id)volumeController;
 

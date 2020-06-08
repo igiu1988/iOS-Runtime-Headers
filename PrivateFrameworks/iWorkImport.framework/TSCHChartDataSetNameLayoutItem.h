@@ -2,15 +2,15 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartDataSetNameLayoutItem : TSCHChartTitleLayoutItem {
-}
+@interface TSCHChartDataSetNameLayoutItem : TSCHChartTitleLayoutItem
 
-@property(readonly) BOOL isAboveChartBody;
+@property (nonatomic, readonly) bool isAboveChartBody;
 
-- (struct CGSize { float x1; float x2; })calcMinSize;
-- (BOOL)isAboveChartBody;
-- (BOOL)isTitleOn;
-- (unsigned int)titleParagraphStyleIndex;
+- (struct CGSize { double x1; double x2; })calcMinSize;
+- (bool)isAboveChartBody;
+- (bool)isTitleOn;
+- (bool)shouldPlaceTitleAtCenter;
+- (unsigned long long)titleParagraphStyleIndex;
 - (id)titleSelectionPath;
 - (id)titleTextForModel:(id)arg1;
 

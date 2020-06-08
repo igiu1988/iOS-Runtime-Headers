@@ -2,13 +2,12 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUSlideShowActivity : PUActivity {
-}
+@interface PUSlideShowActivity : PUActivity
 
-- (id)activityImage;
+- (id)_activityBundleImageConfiguration;
 - (id)activityTitle;
 - (id)activityType;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (bool)canPerformWithActivityItems:(id)arg1;
 - (void)performActivity;
 
 @end

@@ -2,57 +2,68 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class BRCItemID, BRCLocalItem, BRCPackageItem, BRCRelativePath, BRCServerItem;
-
 @interface BRCPathToItemLookup : NSObject {
+    BRCClientZone * _clientZone;
+    BRCPQLConnection * _db;
     struct { 
         unsigned int byFileID : 1; 
         unsigned int byDocumentID : 1; 
         unsigned int byPath : 1; 
-        unsigned int parentID : 1; 
+        unsigned int parentItem : 1; 
         unsigned int serverItem : 1; 
         unsigned int serverByPath : 1; 
         unsigned int packageItem : 1; 
-    } _fetched;
-    BRCLocalItem *_matchByDocumentID;
-    BRCLocalItem *_matchByFileID;
-    BRCLocalItem *_matchByPath;
-    BRCPackageItem *_packageItem;
-    BRCItemID *_parentID;
-    BRCRelativePath *_pathInPackage;
-    BRCRelativePath *_pathOfItem;
-    BRCServerItem *_serverByPath;
-    BRCServerItem *_serverItem;
+        unsigned int clientZone : 1; 
+    }  _fetched;
+    BRCDocumentItem * _matchByDocumentID;
+    BRCDocumentItem * _matchByDocumentIDGlobally;
+    BRCLocalItem * _matchByFileID;
+    BRCLocalItem * _matchByFileIDGlobally;
+    BRCLocalItem * _matchByPath;
+    BRCPackageItem * _packageItem;
+    BRCLocalItem * _parentItem;
+    BRCRelativePath * _pathOfItem;
+    BRCRelativePath * _relpathOfFSEvent;
+    BRCServerItem * _serverByPath;
 }
 
-@property(retain) BRCLocalItem * byDocumentID;
-@property(retain) BRCLocalItem * byFileID;
-@property(readonly) BRCLocalItem * byPath;
-@property(readonly) BRCPackageItem * packageItem;
-@property(readonly) BRCItemID * parentID;
-@property(readonly) BRCRelativePath * relpathInPackage;
-@property(readonly) BRCRelativePath * relpathOfFSEvent;
-@property(readonly) BRCRelativePath * relpathOfItem;
-@property(readonly) BRCServerItem * serverByPath;
+@property (nonatomic, retain) BRCDocumentItem *byDocumentID;
+@property (readonly, retain) BRCDocumentItem *byDocumentIDGlobally;
+@property (nonatomic, retain) BRCLocalItem *byFileID;
+@property (readonly, retain) BRCLocalItem *byFileIDGlobally;
+@property (nonatomic, readonly) BRCLocalItem *byPath;
+@property (nonatomic, readonly) BRCClientZone *clientZone;
+@property (nonatomic, readonly) BRCPQLConnection *db;
+@property (nonatomic, readonly) BRCLocalItem *parentItem;
+@property (nonatomic, readonly) BRCRelativePath *relpathOfFSEvent;
+@property (nonatomic, readonly) BRCRelativePath *relpathOfItem;
+@property (nonatomic, readonly) BRCServerItem *serverByPath;
 
 + (id)lookupForRelativePath:(id)arg1;
 
 - (void).cxx_destruct;
-- (BOOL)_fetchByDocumentID;
-- (BOOL)_fetchByFileID;
-- (BOOL)_fetchByPath;
+- (id)_byPathWithLastPathComponent:(id)arg1;
+- (bool)_fetchByDocumentID:(bool)arg1;
+- (bool)_fetchByFileID:(bool)arg1;
+- (bool)_fetchByPath;
+- (bool)_fetchClientZone;
+- (id)_resolveClientZoneWhileFetchingFileID:(bool)arg1 fetchindDocID:(bool)arg2;
+- (bool)_shareIDMatchesParent:(id)arg1;
 - (id)byDocumentID;
+- (id)byDocumentIDGlobally;
 - (id)byFileID;
+- (id)byFileIDGlobally;
 - (id)byPath;
+- (id)byPathWithLastPathComponent:(id)arg1;
+- (id)clientZone;
+- (id)db;
 - (id)description;
 - (id)initWithRelativePath:(id)arg1;
-- (id)packageItem;
-- (id)parentID;
-- (id)relpathInPackage;
+- (id)initWithRelativePath:(id)arg1 db:(id)arg2;
+- (id)parentItem;
 - (id)relpathOfFSEvent;
 - (id)relpathOfItem;
 - (id)serverByPath;
-- (id)serverItemFor:(id)arg1;
 - (void)setByDocumentID:(id)arg1;
 - (void)setByFileID:(id)arg1;
 

@@ -2,25 +2,20 @@
    Image: /System/Library/PrivateFrameworks/ScreenReaderCore.framework/ScreenReaderCore
  */
 
-@class SCRCPhotoEvaluatorResult, SCRCPhotoEvaluatorResultPeople;
-
 @interface SCRCPhotoEvaluatorResults : NSObject {
-    SCRCPhotoEvaluatorResult *_blurResult;
-    SCRCPhotoEvaluatorResult *_colorResult;
-    SCRCPhotoEvaluatorResult *_luminanceResult;
-    SCRCPhotoEvaluatorResultPeople *_peopleResult;
+    SCRCPhotoEvaluatorResult * _blurResult;
+    SCRCPhotoEvaluatorResult * _colorResult;
+    SCRCPhotoEvaluatorResult * _luminanceResult;
 }
 
-@property(readonly) SCRCPhotoEvaluatorResult * blurResult;
-@property(readonly) SCRCPhotoEvaluatorResult * colorResult;
-@property(readonly) SCRCPhotoEvaluatorResult * luminanceResult;
-@property(readonly) SCRCPhotoEvaluatorResultPeople * peopleResult;
+@property (nonatomic, readonly) SCRCPhotoEvaluatorResult *blurResult;
+@property (nonatomic, readonly) SCRCPhotoEvaluatorResult *colorResult;
+@property (nonatomic, readonly) SCRCPhotoEvaluatorResult *luminanceResult;
 
+- (void).cxx_destruct;
 - (id)blurResult;
 - (id)colorResult;
-- (void)dealloc;
-- (id)initWithBlurResult:(id)arg1 colorResult:(id)arg2 peopleResult:(id)arg3 luminanceResult:(id)arg4;
+- (id)initWithBlurResult:(id)arg1 colorResult:(id)arg2 luminanceResult:(id)arg3;
 - (id)luminanceResult;
-- (id)peopleResult;
 
 @end

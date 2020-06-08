@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADDrawable;
-
 @interface PDAnimationShapeTarget : PDAnimationTarget {
-    OADDrawable *mDrawable;
+    OADDrawable * mDrawable;
 }
 
 - (void)dealloc;
 - (id)drawable;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)setDrawable:(id)arg1;
 
 @end

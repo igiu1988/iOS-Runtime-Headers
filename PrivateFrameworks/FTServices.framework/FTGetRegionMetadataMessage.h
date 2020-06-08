@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/FTServices.framework/FTServices
  */
 
-@class NSDictionary, NSString;
-
 @interface FTGetRegionMetadataMessage : IDSBaseMessage <NSCopying> {
-    NSString *_language;
-    NSDictionary *_responseRegionInformation;
+    NSString * _language;
+    NSDictionary * _responseRegionInformation;
 }
 
-@property(copy) NSString * language;
-@property(copy) NSDictionary * responseRegionInformation;
+@property (copy) NSString *language;
+@property (copy) NSDictionary *responseRegionInformation;
 
+- (void).cxx_destruct;
 - (id)bagKey;
-- (int)command;
+- (long long)command;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (void)handleResponseDictionary:(id)arg1;
 - (id)init;
 - (id)language;
 - (id)messageBody;
 - (id)requiredKeys;
-- (int)responseCommand;
+- (long long)responseCommand;
 - (id)responseRegionInformation;
 - (void)setLanguage:(id)arg1;
 - (void)setResponseRegionInformation:(id)arg1;
-- (BOOL)wantsBagKey;
-- (BOOL)wantsBinaryPush;
-- (BOOL)wantsCompressedBody;
-- (BOOL)wantsHTTPGet;
-- (BOOL)wantsHTTPHeaders;
+- (bool)wantsBagKey;
+- (bool)wantsBinaryPush;
+- (bool)wantsCompressedBody;
+- (bool)wantsHTTPGet;
+- (bool)wantsHTTPHeaders;
 
 @end

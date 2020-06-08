@@ -3,21 +3,20 @@
  */
 
 @interface GQDScalarPath : GQDPath {
+    double  mScalar;
     struct CGSize { 
-        float width; 
-        float height; 
-    double mScalar;
-    } mSize;
-    int mType;
+        double width; 
+        double height; 
+    }  mSize;
+    int  mType;
 }
 
-- (id).cxx_construct;
 - (struct CGPath { }*)createBezierPath;
-- (BOOL)isRect;
-- (BOOL)isRectangular;
+- (bool)isRect;
+- (bool)isRectangular;
 - (int)readAttributesFromReader:(struct _xmlTextReader { }*)arg1 processor:(id)arg2;
 - (double)scalar;
-- (struct CGSize { float x1; float x2; })size;
+- (struct CGSize { double x1; double x2; })size;
 - (int)type;
 
 @end

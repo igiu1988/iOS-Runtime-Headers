@@ -2,23 +2,23 @@
    Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
  */
 
-@class NSMutableArray, NSString;
-
 @interface BLTPBBulletinSummary : PBCodable <NSCopying> {
-    unsigned int _destinations;
-    NSMutableArray *_keys;
-    NSString *_publisherBulletinID;
-    NSString *_recordID;
-    NSString *_sectionID;
+    unsigned int  _destinations;
+    NSMutableArray * _keys;
+    NSString * _publisherBulletinID;
+    NSString * _recordID;
+    NSString * _sectionID;
 }
 
-@property unsigned int destinations;
-@property(readonly) BOOL hasPublisherBulletinID;
-@property(readonly) BOOL hasRecordID;
-@property(retain) NSMutableArray * keys;
-@property(retain) NSString * publisherBulletinID;
-@property(retain) NSString * recordID;
-@property(retain) NSString * sectionID;
+@property (nonatomic) unsigned int destinations;
+@property (nonatomic, readonly) bool hasPublisherBulletinID;
+@property (nonatomic, readonly) bool hasRecordID;
+@property (nonatomic, retain) NSMutableArray *keys;
+@property (nonatomic, retain) NSString *publisherBulletinID;
+@property (nonatomic, retain) NSString *recordID;
+@property (nonatomic, retain) NSString *sectionID;
+
++ (Class)keyType;
 
 - (void).cxx_destruct;
 - (void)addKey:(id)arg1;
@@ -28,16 +28,16 @@
 - (id)description;
 - (unsigned int)destinations;
 - (id)dictionaryRepresentation;
-- (BOOL)hasPublisherBulletinID;
-- (BOOL)hasRecordID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (id)keyAtIndex:(unsigned int)arg1;
+- (bool)hasPublisherBulletinID;
+- (bool)hasRecordID;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
+- (id)keyAtIndex:(unsigned long long)arg1;
 - (id)keys;
-- (unsigned int)keysCount;
+- (unsigned long long)keysCount;
 - (void)mergeFrom:(id)arg1;
 - (id)publisherBulletinID;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)recordID;
 - (id)sectionID;
 - (void)setDestinations:(unsigned int)arg1;

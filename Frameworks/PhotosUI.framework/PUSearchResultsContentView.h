@@ -2,68 +2,53 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSAttributedString, NSMutableArray, NSPointerArray, NSString, UILabel, UIView;
-
 @interface PUSearchResultsContentView : UIView {
-    struct CGSize { 
-        float width; 
-        float height; 
-    struct UIEdgeInsets { 
-        float top; 
-        float left; 
-        float bottom; 
-        float right; 
-    NSAttributedString *_attributedTitle;
-    NSString *_auxSubtitle;
-    UILabel *_auxSubtitleLabel;
-    float _clippingOffsetY;
-    UIView *_clippingView;
-    } _contentInsets;
-    float _draggingOffsetX;
-    } _imageSize;
-    NSMutableArray *_imageViews;
-    NSPointerArray *_images;
-    unsigned int _maxImageCount;
-    NSString *_subtitle;
-    UILabel *_subtitleLabel;
-    NSAttributedString *_title;
-    UILabel *_titleLabel;
+    NSAttributedString * _attributedTitle;
+    NSString * _auxSubtitle;
+    UILabel * _auxSubtitleLabel;
+    PXRoundedCornerOverlayView * _cornerOverlayView;
+    UIColor * _highlightColor;
+    bool  _highlighted;
+    UIView * _imageContentView;
+    unsigned long long  _imageCropStyle;
+    UIImageView * _imageView;
+    NSString * _subtitle;
+    UILabel * _subtitleLabel;
+    NSAttributedString * _title;
+    UILabel * _titleLabel;
 }
 
-@property(copy) NSString * auxSubtitle;
-@property float clippingOffsetY;
-@property struct UIEdgeInsets { float x1; float x2; float x3; float x4; } contentInsets;
-@property float draggingOffsetX;
-@property struct CGSize { float x1; float x2; } imageSize;
-@property unsigned int maxImageCount;
-@property(copy) NSString * subtitle;
-@property(copy) NSAttributedString * title;
-
-+ (id)defaultAttributes;
-+ (id)highlightedAttributes;
-+ (id)subtitleTextColor;
+@property (nonatomic, copy) NSString *auxSubtitle;
+@property (nonatomic, retain) UIColor *highlightColor;
+@property (getter=isHighlighted, nonatomic) bool highlighted;
+@property (nonatomic) unsigned long long imageCropStyle;
+@property (nonatomic, readonly) UIImageView *imageView;
+@property (nonatomic, copy) NSString *subtitle;
+@property (nonatomic, copy) NSAttributedString *title;
 
 - (void).cxx_destruct;
-- (void)_updateImageContainers;
-- (void)_updateSubviews;
+- (void)_preferredContentSizeChanged:(id)arg1;
+- (void)_updateAuxSubtitleLabel;
+- (void)_updateCornerOverlayViewRadius;
+- (void)_updateSubtitleLabel;
+- (void)_updateTitleLabel;
 - (id)auxSubtitle;
-- (void)clearImages;
-- (float)clippingOffsetY;
-- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })contentInsets;
-- (float)draggingOffsetX;
-- (struct CGSize { float x1; float x2; })imageSize;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)dealloc;
+- (id)highlightColor;
+- (unsigned long long)imageCropStyle;
+- (id)imageView;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (bool)isHighlighted;
+- (void)layoutMarginsDidChange;
 - (void)layoutSubviews;
-- (unsigned int)maxImageCount;
 - (void)setAuxSubtitle:(id)arg1;
-- (void)setClippingOffsetY:(float)arg1;
-- (void)setContentInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
-- (void)setDraggingOffsetX:(float)arg1;
-- (void)setImage:(id)arg1 atIndex:(unsigned int)arg2;
-- (void)setImageSize:(struct CGSize { float x1; float x2; })arg1;
-- (void)setMaxImageCount:(unsigned int)arg1;
+- (void)setBackgroundColor:(id)arg1;
+- (void)setHighlightColor:(id)arg1;
+- (void)setHighlighted:(bool)arg1;
+- (void)setImageCropStyle:(unsigned long long)arg1;
 - (void)setSubtitle:(id)arg1;
 - (void)setTitle:(id)arg1;
+- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
 - (id)subtitle;
 - (id)title;
 

@@ -2,46 +2,60 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSDate, NSString;
-
 @interface PKPaymentMessage : NSObject <NSSecureCoding> {
-    BOOL _allowDeepLink;
-    NSString *_content;
-    NSDate *_expirationDate;
-    BOOL _expiresOnNextTransaction;
-    NSString *_identifier;
-    NSDate *_messageDate;
+    bool  _allowDeepLink;
+    bool  _archived;
+    NSString * _content;
+    NSDate * _expirationDate;
+    bool  _hasAssociatedPaymentApplication;
+    NSString * _identifier;
+    NSDate * _messageDate;
+    unsigned long long  _messageType;
+    NSString * _serviceIdentifier;
 }
 
-@property BOOL allowDeepLink;
-@property(copy) NSString * content;
-@property(copy) NSDate * expirationDate;
-@property BOOL expiresOnNextTransaction;
-@property(copy) NSString * identifier;
-@property(copy) NSDate * messageDate;
+@property (nonatomic) bool allowDeepLink;
+@property (nonatomic, readonly) bool archiveOnNextTransaction;
+@property (getter=isArchived, nonatomic) bool archived;
+@property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy) NSDate *expirationDate;
+@property (nonatomic) bool hasAssociatedPaymentApplication;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) NSDate *messageDate;
+@property (nonatomic) unsigned long long messageType;
+@property (nonatomic, copy) NSString *serviceIdentifier;
+@property (getter=isValid, nonatomic, readonly) bool valid;
 
 + (id)paymentMessageWithDictionary:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (BOOL)allowDeepLink;
+- (void).cxx_destruct;
+- (bool)allowDeepLink;
+- (bool)archiveOnNextTransaction;
 - (id)content;
-- (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)expirationDate;
-- (BOOL)expiresOnNextTransaction;
-- (unsigned int)hash;
+- (bool)hasAssociatedPaymentApplication;
+- (unsigned long long)hash;
 - (id)identifier;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToPaymentMessage:(id)arg1;
+- (bool)isArchived;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToPaymentMessage:(id)arg1;
+- (bool)isValid;
 - (id)messageDate;
-- (void)setAllowDeepLink:(BOOL)arg1;
+- (unsigned long long)messageType;
+- (id)serviceIdentifier;
+- (void)setAllowDeepLink:(bool)arg1;
+- (void)setArchived:(bool)arg1;
 - (void)setContent:(id)arg1;
 - (void)setExpirationDate:(id)arg1;
-- (void)setExpiresOnNextTransaction:(BOOL)arg1;
+- (void)setHasAssociatedPaymentApplication:(bool)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setMessageDate:(id)arg1;
+- (void)setMessageType:(unsigned long long)arg1;
+- (void)setServiceIdentifier:(id)arg1;
 
 @end

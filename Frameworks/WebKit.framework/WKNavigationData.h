@@ -2,33 +2,25 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString, NSURL, NSURLRequest, NSURLResponse;
-
 @interface WKNavigationData : NSObject <WKObject> {
     struct ObjectStorage<API::NavigationData> { 
         struct type { 
-            unsigned char __lx[360]; 
+            unsigned char __lx[792]; 
         } data; 
-    } _data;
+    }  _data;
 }
 
-@property(readonly) struct Object { int (**x1)(); id x2; }* _apiObject;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) NSURL * destinationURL;
-@property(readonly) unsigned int hash;
-@property(readonly) NSURLRequest * originalRequest;
-@property(readonly) NSURLResponse * response;
-@property(readonly) Class superclass;
-@property(readonly) NSString * title;
+@property (readonly) /* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*_apiObject;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) NSURL *destinationURL;
+@property (readonly) unsigned long long hash;
+@property (readonly) NSURLRequest *originalRequest;
+@property (readonly) NSURLResponse *response;
+@property (readonly) Class superclass;
+@property (readonly) NSString *title;
 
-- (struct Object { int (**x1)(); id x2; }*)_apiObject;
-- (id).cxx_construct;
+- (/* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*)_apiObject;
 - (void)dealloc;
 - (id)destinationURL;
 - (id)originalRequest;

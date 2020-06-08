@@ -2,27 +2,30 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSString, PKPassLibrary;
-
 @interface PKRemoteDataAccessor : PKDataAccessor {
-    PKPassLibrary *_library;
-    NSString *_objectUniqueID;
+    PKPassLibrary * _library;
+    NSString * _objectUniqueID;
 }
 
-@property(retain,readonly) PKPassLibrary * library;
-@property(retain,readonly) NSString * objectUniqueID;
+@property (nonatomic, readonly) PKPassLibrary *library;
+@property (nonatomic, readonly) NSString *objectUniqueID;
 
+- (void).cxx_destruct;
 - (id)archiveData;
-- (void)contentWithCompletion:(id)arg1;
-- (void)dealloc;
-- (id)displayProfileOfType:(int)arg1;
-- (void)imageSetForType:(int)arg1 screenScale:(float)arg2 suffix:(id)arg3 displayProfile:(id)arg4 preheat:(BOOL)arg5 withCompletion:(id)arg6;
+- (id)content;
+- (void)contentWithCompletion:(id /* block */)arg1;
+- (id)dataForBundleResource:(id)arg1;
+- (id)dataForBundleResourceNamed:(id)arg1 withExtension:(id)arg2;
+- (id)dataForBundleResources:(id)arg1;
+- (id)displayProfileOfType:(long long)arg1;
+- (id)imageSetForType:(long long)arg1 screenScale:(double)arg2 suffix:(id)arg3 displayProfile:(id)arg4 preheat:(bool)arg5;
+- (void)imageSetForType:(long long)arg1 screenScale:(double)arg2 suffix:(id)arg3 displayProfile:(id)arg4 preheat:(bool)arg5 withCompletion:(id /* block */)arg6;
 - (id)initWithLibrary:(id)arg1 objectUniqueID:(id)arg2;
 - (id)library;
 - (void)noteShared;
 - (id)objectUniqueID;
-- (void)requestUpdateWithCompletion:(id)arg1;
-- (void)revocationStatusWithCompletion:(id)arg1;
-- (void)updateSettings:(int)arg1;
+- (void)requestUpdateWithCompletion:(id /* block */)arg1;
+- (void)revocationStatusWithCompletion:(id /* block */)arg1;
+- (void)updateSettings:(unsigned long long)arg1;
 
 @end

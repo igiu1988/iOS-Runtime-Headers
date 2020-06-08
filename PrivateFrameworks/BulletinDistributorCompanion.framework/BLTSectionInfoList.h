@@ -2,37 +2,50 @@
    Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
  */
 
-@class <BLTSectionInfoListDelegate>, BLTSectionInfoListBBProvider, BLTSectionInfoListBridgeProvider, NSMutableDictionary, NSString;
-
 @interface BLTSectionInfoList : NSObject <BLTSectionInfoListProviderDelegate> {
+    <BLTSectionInfoListDelegate> * _delegate;
+    bool  _loaded;
+    bool  _loading;
+    NSMutableArray * _loadingCompletionHandlers;
     struct _opaque_pthread_mutex_t { 
-        long __sig; 
-        BOOL __opaque[40]; 
-    <BLTSectionInfoListDelegate> *_delegate;
-    } _lock;
-    BLTSectionInfoListBridgeProvider *_overrideProvider;
-    NSMutableDictionary *_sectionInfoListItemsBySectionID;
-    BLTSectionInfoListBBProvider *_sectionInfoProvider;
+        long long __sig; 
+        BOOL __opaque[56]; 
+    }  _lock;
+    <BLTSectionInfoListProvider> * _overrideProvider;
+    NSMutableDictionary * _sectionInfoListItemsBySectionID;
+    <BLTSectionInfoListProvider> * _sectionInfoProvider;
+    NSMutableSet * _sectionInfoSectionIDs;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <BLTSectionInfoListDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) BLTSectionInfoListBridgeProvider * overrideProvider;
-@property(retain) BLTSectionInfoListBBProvider * sectionInfoProvider;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <BLTSectionInfoListDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (getter=hasLoaded, nonatomic, readonly) bool loaded;
+@property (nonatomic, retain) <BLTSectionInfoListProvider> *overrideProvider;
+@property (nonatomic, retain) <BLTSectionInfoListProvider> *sectionInfoProvider;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
+- (void)_migrateFromExternalDeviceSwitchToOverrides:(id)arg1;
+- (id)bbSectionInfoForSectionID:(id)arg1;
+- (void)dealloc;
 - (id)delegate;
 - (id)effectiveSectionInfoForSectionID:(id)arg1;
-- (id)effectiveSectionInfos;
+- (bool)hasLoaded;
 - (id)init;
+- (id)originalSettings;
 - (id)overriddenSectionInfoForSectionID:(id)arg1;
+- (id)overriddenSettings;
 - (id)overrideProvider;
-- (void)reloadWithCompletion:(id)arg1;
-- (id)sectionInfoForSectionID:(id)arg1;
+- (id)overrides;
+- (void)reloadBBSection:(id)arg1 completion:(id /* block */)arg2;
+- (void)reloadWithCompletion:(id /* block */)arg1;
+- (void)removedSectionWithSectionID:(id)arg1;
+- (id)sectionIDs;
 - (id)sectionInfoProvider;
+- (id)sectionOverrideOnlyForSectionID:(id)arg1;
+- (id)sectionOverridesOnly;
 - (void)setDelegate:(id)arg1;
 - (void)setOverrideProvider:(id)arg1;
 - (void)setSectionInfoProvider:(id)arg1;

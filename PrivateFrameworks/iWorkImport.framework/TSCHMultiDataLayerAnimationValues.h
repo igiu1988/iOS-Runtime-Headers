@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class CALayer, NSArray, NSString;
-
 @interface TSCHMultiDataLayerAnimationValues : NSObject {
-    NSString *mKey;
-    NSArray *mKeyTimes;
-    CALayer *mLayer;
-    BOOL mNeedPresentationLayerValues;
-    NSArray *mValues;
+    NSString * mKey;
+    NSArray * mKeyTimes;
+    CALayer * mLayer;
+    bool  mNeedPresentationLayerValues;
+    NSArray * mValues;
 }
 
-@property(readonly) NSString * key;
-@property(readonly) NSArray * keyTimes;
-@property(readonly) CALayer * layer;
-@property(readonly) BOOL needPresentationLayerValues;
-@property(readonly) NSArray * values;
+@property (nonatomic, readonly) NSString *key;
+@property (nonatomic, readonly) NSArray *keyTimes;
+@property (nonatomic, readonly) CALayer *layer;
+@property (nonatomic, readonly) bool needPresentationLayerValues;
+@property (nonatomic, readonly) NSArray *values;
 
-+ (id)animationValuesWithLayer:(id)arg1 key:(id)arg2 values:(id)arg3 keyTimes:(id)arg4 needPresentationLayerValues:(BOOL)arg5;
-+ (id)animationValuesWithLayer:(id)arg1 key:(id)arg2 values:(id)arg3 keyTimes:(id)arg4;
 + (id)animationValuesWithLayer:(id)arg1 key:(id)arg2 values:(id)arg3;
++ (id)animationValuesWithLayer:(id)arg1 key:(id)arg2 values:(id)arg3 keyTimes:(id)arg4;
++ (id)animationValuesWithLayer:(id)arg1 key:(id)arg2 values:(id)arg3 keyTimes:(id)arg4 needPresentationLayerValues:(bool)arg5;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
-- (id)initWithLayer:(id)arg1 key:(id)arg2 values:(id)arg3 keyTimes:(id)arg4 needPresentationLayerValues:(BOOL)arg5;
+- (id)initWithLayer:(id)arg1 key:(id)arg2 values:(id)arg3 keyTimes:(id)arg4 needPresentationLayerValues:(bool)arg5;
 - (id)key;
 - (id)keyTimes;
 - (id)layer;
-- (BOOL)needPresentationLayerValues;
+- (bool)needPresentationLayerValues;
 - (id)values;
 
 @end

@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSNumber, NSString, NSUUID;
-
 @interface PKBeacon : NSObject <NSSecureCoding> {
-    NSNumber *_major;
-    NSNumber *_minor;
-    NSString *_name;
-    NSUUID *_proximityUUID;
-    NSString *_relevantText;
+    NSNumber * _major;
+    NSNumber * _minor;
+    NSString * _name;
+    NSUUID * _proximityUUID;
+    NSString * _relevantText;
 }
 
-@property(retain) NSNumber * major;
-@property(retain) NSNumber * minor;
-@property(retain) NSString * name;
-@property(retain) NSUUID * proximityUUID;
-@property(retain) NSString * relevantText;
+@property (nonatomic, retain) NSNumber *major;
+@property (nonatomic, retain) NSNumber *minor;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSUUID *proximityUUID;
+@property (nonatomic, retain) NSString *relevantText;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

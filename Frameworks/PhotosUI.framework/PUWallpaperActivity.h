@@ -2,21 +2,33 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class UIViewController;
-
 @interface PUWallpaperActivity : PUActivity {
-    UIViewController *_wallpaperActivityViewController;
+    bool  __needsUpdateWallpaperModificationAllowed;
+    bool  __wallpaperModificationAllowed;
+    UIViewController * _wallpaperActivityViewController;
 }
 
+@property (setter=_setNeedsUpdateWallpaperModificationAllowed:, nonatomic) bool _needsUpdateWallpaperModificationAllowed;
+@property (getter=_isWallpaperModificationAllowed, setter=_setWallpaperModificationAllowed:, nonatomic) bool _wallpaperModificationAllowed;
+
 - (void).cxx_destruct;
-- (id)activityImage;
+- (id)_activityBundleImageConfiguration;
+- (id)_activityImageName;
+- (bool)_isWallpaperModificationAllowed;
+- (bool)_needsUpdateWallpaperModificationAllowed;
+- (void)_restrictionsChanged:(id)arg1;
+- (void)_setNeedsUpdateWallpaperModificationAllowed:(bool)arg1;
+- (void)_setWallpaperModificationAllowed:(bool)arg1;
+- (void)_updateWallpaperModificationAllowedIfNeeded;
 - (id)activityTitle;
 - (id)activityType;
 - (id)activityViewController;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (bool)canPerformWithActivityItems:(id)arg1;
+- (void)dealloc;
+- (id)init;
 - (void)prepareWithActivityItems:(id)arg1;
+- (void)wallpaperImageViewController:(id)arg1 didSetWallpaperWithOptions:(id)arg2;
 - (void)wallpaperImageViewControllerDidCancel:(id)arg1;
-- (void)wallpaperImageViewControllerDidCropWallpaper:(id)arg1;
 - (void)wallpaperImageViewControllerDidFinishSaving:(id)arg1;
 
 @end

@@ -2,11 +2,11 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@interface ML3Composer : ML3Collection {
-}
+@interface ML3Composer : ML3Collection
+
+// Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
 
 + (id)allProperties;
-+ (id)artworkCacheIDProperty;
 + (id)countingQueryForBaseQuery:(id)arg1 countProperty:(id)arg2 forIdentifier:(long long)arg3;
 + (id)databaseTable;
 + (id)defaultOrderingTerms;
@@ -15,16 +15,17 @@
 + (id)joinClausesForProperty:(id)arg1;
 + (id)predisambiguatedProperties;
 + (id)propertiesForGroupingKey;
-+ (id)propertyForMPMediaEntityProperty:(id)arg1;
-+ (BOOL)propertyIsCountProperty:(id)arg1;
++ (bool)propertyIsCountProperty:(id)arg1;
 + (id)protocolItemWithProperties:(id)arg1 inLibrary:(id)arg2;
-+ (int)revisionTrackingCode;
-+ (id)subCollectionCountProperty;
++ (long long)revisionTrackingCode;
 + (id)trackForeignPersistentID;
 
 - (id)multiverseIdentifier;
 - (id)protocolItem;
-- (void)updateRepresentativeItem:(id)arg1 inLibrary:(id)arg2 withArtworkToken:(id)arg3;
 - (void)updateTrackValues:(id)arg1;
+
+// Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
+
++ (id)propertyForMPMediaEntityProperty:(id)arg1;
 
 @end

@@ -2,26 +2,24 @@
    Image: /System/Library/Frameworks/GLKit.framework/GLKit
  */
 
-@class GLKEffect;
-
 @interface GLKEffectProperty : NSObject {
-    unsigned long long _dirtyUniforms;
-    GLKEffect *_effect;
-    char *_fshSource;
-    int _location;
-    unsigned char _masksInitialized;
-    char *_nameString;
-    struct GLKEffectPropertyPrv { struct GLKBigInt_s {} *x1; struct GLKBigInt_s {} *x2; struct GLKBigInt_s {} *x3; struct GLKBigInt_s {} *x4; id x5; } *_prv;
-    char *_vshSource;
+    unsigned long long  _dirtyUniforms;
+    GLKEffect * _effect;
+    char * _fshSource;
+    int  _location;
+    unsigned char  _masksInitialized;
+    char * _nameString;
+    /* Warning: unhandled struct encoding: '{GLKEffectPropertyPrv=^{GLKBigInt_s}^{GLKBigInt_s}^{GLKBigInt_s}^{GLKBigInt_s}@}' */ struct GLKEffectPropertyPrv { struct GLKBigInt_s {} *x1; struct GLKBigInt_s {} *x2; struct GLKBigInt_s {} *x3; struct GLKBigInt_s {} *x4; id x5; } * _prv;
+    char * _vshSource;
 }
 
-@property unsigned long long dirtyUniforms;
-@property GLKEffect * effect;
-@property char * fshSource;
-@property int location;
-@property unsigned char masksInitialized;
-@property char * nameString;
-@property char * vshSource;
+@property (nonatomic) unsigned long long dirtyUniforms;
+@property (nonatomic) GLKEffect *effect;
+@property (nonatomic) char *fshSource;
+@property (nonatomic) int location;
+@property (nonatomic) unsigned char masksInitialized;
+@property (nonatomic) char *nameString;
+@property (nonatomic) char *vshSource;
 
 + (void)logSetMasksWithLabel:(id)arg1 obj:(id)arg2 typeStr:(id)arg3;
 + (void)setStaticMasksWithVshRoot:(id)arg1 fshRoot:(id)arg2;

@@ -2,16 +2,23 @@
    Image: /System/Library/PrivateFrameworks/CoreThemeDefinition.framework/CoreThemeDefinition
  */
 
-@class NSNumber, NSSet;
+@interface TDEffectRenditionSpec : TDRenditionSpec
 
-@interface TDEffectRenditionSpec : TDRenditionSpec {
-}
+@property (nonatomic, readonly, retain) TDEffectComponent *CUIShapeEffectOutputOpacity;
+@property (nonatomic, readonly, retain) TDEffectComponent *CUIShapeEffectShapeOpacity;
+@property (nonatomic, retain) NSOrderedSet *components;
+@property (nonatomic, retain) NSNumber *effectScale;
 
-@property(retain) NSSet * components;
-@property(retain) NSNumber * effectScale;
++ (id)keyPathsForValuesAffectingCUIShapeEffectOutputOpacity;
++ (id)keyPathsForValuesAffectingCUIShapeEffectShapeOpacity;
 
-- (id)createCSIRepresentationWithCompression:(BOOL)arg1 colorSpaceID:(unsigned int)arg2 document:(id)arg3;
+- (id)CUIShapeEffectOutputOpacity;
+- (id)CUIShapeEffectShapeOpacity;
+- (bool)canBePackedWithDocument:(id)arg1;
+- (id)componentOfType:(unsigned int)arg1;
+- (id)createCSIRepresentationWithCompression:(bool)arg1 colorSpaceID:(unsigned long long)arg2 document:(id)arg3;
 - (id)effectPreset;
+- (void)replaceComponentsWithComponentsFromEffectRendition:(id)arg1 withDocument:(id)arg2;
 - (void)setComponentsFromEffectPreset:(id)arg1 withDocument:(id)arg2;
 
 @end

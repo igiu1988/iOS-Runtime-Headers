@@ -2,25 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class BRCDatabaseManager;
-
-@interface BRCClientRanksPersistedState : NSObject <NSSecureCoding> {
-    BRCDatabaseManager *_dbManager;
-    unsigned long long _nextItemRowID;
-    unsigned long long _nextNotifRank;
-    unsigned long long _nextPackageItemRank;
-    unsigned long long _nextSyncDownRank;
+@interface BRCClientRanksPersistedState : BRCPersistedState {
+    unsigned long long  _nextItemRowID;
+    unsigned long long  _nextNotifRank;
+    unsigned long long  _nextPackageItemRank;
 }
 
-@property(readonly) unsigned long long nextItemRowID;
-@property unsigned long long nextNotifRank;
-@property unsigned long long nextPackageItemRank;
-@property unsigned long long nextSyncDownRank;
+@property (nonatomic, readonly) unsigned long long nextItemRowID;
+@property (nonatomic) unsigned long long nextNotifRank;
+@property (nonatomic) unsigned long long nextPackageItemRank;
 
-+ (id)loadFromClientStateInDBManager:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (id)loadFromClientStateInSession:(id)arg1 options:(id)arg2;
++ (bool)supportsSecureCoding;
 
-- (void).cxx_destruct;
 - (unsigned long long)allocateItemRowID;
 - (unsigned long long)allocateNotifRank;
 - (unsigned long long)allocatePackageItemRank;
@@ -31,9 +25,7 @@
 - (unsigned long long)nextItemRowID;
 - (unsigned long long)nextNotifRank;
 - (unsigned long long)nextPackageItemRank;
-- (unsigned long long)nextSyncDownRank;
 - (void)setNextNotifRank:(unsigned long long)arg1;
 - (void)setNextPackageItemRank:(unsigned long long)arg1;
-- (void)setNextSyncDownRank:(unsigned long long)arg1;
 
 @end

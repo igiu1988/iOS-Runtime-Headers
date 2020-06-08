@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@interface ML3StoreLink : ML3Entity {
-}
+@interface ML3StoreLink : ML3Entity
 
 + (id)databaseTable;
-+ (int)revisionTrackingCode;
++ (long long)revisionTrackingCode;
 
 @end

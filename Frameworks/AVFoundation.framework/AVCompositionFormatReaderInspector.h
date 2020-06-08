@@ -2,13 +2,13 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@interface AVCompositionFormatReaderInspector : AVFormatReaderInspector {
-}
+@interface AVCompositionFormatReaderInspector : AVFormatReaderInspector
 
-- (BOOL)isCompatibleWithSavedPhotosAlbum;
-- (BOOL)isComposable;
-- (BOOL)isExportable;
-- (BOOL)isPlayable;
-- (BOOL)isReadable;
+- (bool)isCompatibleWithAirPlayVideo;
+- (bool)isCompatibleWithSavedPhotosAlbum;
+- (bool)isComposable;
+- (bool)isExportable;
+- (bool)isPlayable;
+- (bool)isReadable;
 
 @end

@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
  */
 
-@class <MPUDataSourceControllerDelegate>, MPUDataSource, MPUNotificationObserver;
-
 @interface MPUDataSourceController : NSObject {
-    MPUDataSource *_dataSource;
-    <MPUDataSourceControllerDelegate> *_delegate;
-    MPUNotificationObserver *_didInvalidateObserver;
-    BOOL _shouldReloadWhenViewControllerIsVisible;
-    BOOL _viewControllerIsVisible;
-    MPUNotificationObserver *_willInvalidateObserver;
+    MPUDataSource * _dataSource;
+    <MPUDataSourceControllerDelegate> * _delegate;
+    MPUNotificationObserver * _didInvalidateObserver;
+    bool  _shouldReloadWhenViewControllerIsVisible;
+    bool  _viewControllerIsVisible;
+    MPUNotificationObserver * _willInvalidateObserver;
 }
 
-@property(readonly) MPUDataSource * dataSource;
-@property <MPUDataSourceControllerDelegate> * delegate;
-@property(retain) MPUNotificationObserver * didInvalidateObserver;
-@property BOOL shouldReloadWhenViewControllerIsVisible;
-@property BOOL viewControllerIsVisible;
-@property(retain) MPUNotificationObserver * willInvalidateObserver;
+@property (nonatomic, readonly) MPUDataSource *dataSource;
+@property (nonatomic) <MPUDataSourceControllerDelegate> *delegate;
+@property (nonatomic, retain) MPUNotificationObserver *didInvalidateObserver;
+@property (nonatomic) bool shouldReloadWhenViewControllerIsVisible;
+@property (nonatomic) bool viewControllerIsVisible;
+@property (nonatomic, retain) MPUNotificationObserver *willInvalidateObserver;
 
 - (void).cxx_destruct;
 - (void)_didInvalidate;
@@ -29,13 +27,13 @@
 - (id)initWithDataSource:(id)arg1 delegate:(id)arg2;
 - (void)setDelegate:(id)arg1;
 - (void)setDidInvalidateObserver:(id)arg1;
-- (void)setShouldReloadWhenViewControllerIsVisible:(BOOL)arg1;
-- (void)setViewControllerIsVisible:(BOOL)arg1;
+- (void)setShouldReloadWhenViewControllerIsVisible:(bool)arg1;
+- (void)setViewControllerIsVisible:(bool)arg1;
 - (void)setWillInvalidateObserver:(id)arg1;
-- (BOOL)shouldReloadWhenViewControllerIsVisible;
+- (bool)shouldReloadWhenViewControllerIsVisible;
 - (void)viewControllerDidAppear;
 - (void)viewControllerDidDisappear;
-- (BOOL)viewControllerIsVisible;
+- (bool)viewControllerIsVisible;
 - (id)willInvalidateObserver;
 
 @end

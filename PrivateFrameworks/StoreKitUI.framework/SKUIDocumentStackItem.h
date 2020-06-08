@@ -2,41 +2,45 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class IKAppDocument, NSDictionary, NSString, SKUINavigationDocumentController, UIViewController;
-
 @interface SKUIDocumentStackItem : NSObject {
-    IKAppDocument *_document;
-    SKUINavigationDocumentController *_navigationDocumentController;
-    NSDictionary *_presentationOptions;
-    BOOL _usesNavigationControllerForModalPresentation;
-    UIViewController *_viewController;
+    IKAppDocument * _document;
+    SKUINavigationDocumentController * _navigationDocumentController;
+    UIPopoverPresentationController * _popoverPresentationController;
+    NSDictionary * _presentationOptions;
+    bool  _usesNavigationControllerForModalPresentation;
+    UIViewController * _viewController;
 }
 
-@property(getter=isAnimated,readonly) BOOL animated;
-@property(readonly) IKAppDocument * document;
-@property(retain) SKUINavigationDocumentController * navigationDocumentController;
-@property(readonly) NSString * overlayType;
-@property(readonly) NSDictionary * presentationOptions;
-@property(readonly) NSString * presentationType;
-@property(readonly) NSString * sheetType;
-@property(readonly) NSString * sourceElementIdentifier;
-@property BOOL usesNavigationControllerForModalPresentation;
-@property(retain) UIViewController * viewController;
+@property (getter=isAnimated, nonatomic, readonly) bool animated;
+@property (nonatomic, readonly) IKAppDocument *document;
+@property (nonatomic, retain) SKUINavigationDocumentController *navigationDocumentController;
+@property (nonatomic, readonly) NSString *overlayType;
+@property (nonatomic, retain) UIPopoverPresentationController *popoverPresentationController;
+@property (nonatomic, readonly) NSDictionary *presentationOptions;
+@property (nonatomic, readonly) NSString *presentationType;
+@property (nonatomic, readonly) NSString *sheetType;
+@property (nonatomic, readonly) NSString *sourceElementIdentifier;
+@property (nonatomic) bool usesNavigationControllerForModalPresentation;
+@property (nonatomic, retain) UIViewController *viewController;
 
 - (void).cxx_destruct;
+- (void)_setDocument:(id)arg1;
 - (id)document;
+- (id)init;
 - (id)initWithDocument:(id)arg1 presentationOptions:(id)arg2;
-- (BOOL)isAnimated;
+- (bool)isAnimated;
 - (id)navigationDocumentController;
 - (id)overlayType;
+- (id)popoverPresentationController;
 - (id)presentationOptions;
 - (id)presentationType;
 - (void)setNavigationDocumentController:(id)arg1;
-- (void)setUsesNavigationControllerForModalPresentation:(BOOL)arg1;
+- (void)setPopoverPresentationController:(id)arg1;
+- (void)setUsesNavigationControllerForModalPresentation:(bool)arg1;
 - (void)setViewController:(id)arg1;
 - (id)sheetType;
 - (id)sourceElementIdentifier;
-- (BOOL)usesNavigationControllerForModalPresentation;
+- (bool)usesNavigationControllerForModalPresentation;
 - (id)viewController;
 
 @end

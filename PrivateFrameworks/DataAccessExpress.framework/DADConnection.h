@@ -2,31 +2,28 @@
    Image: /System/Library/PrivateFrameworks/DataAccessExpress.framework/DataAccessExpress
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>;
-
 @interface DADConnection : NSObject {
-    NSMutableSet *_accountIdsWithAlreadyResetCerts;
-    NSMutableSet *_accountIdsWithAlreadyResetThrottleTimers;
-    NSObject<OS_xpc_object> *_conn;
-    NSMutableDictionary *_inFlightAttachmentDownloads;
-    NSMutableDictionary *_inFlightCalendarAvailabilityRequests;
-    NSMutableDictionary *_inFlightCalendarDirectorySearches;
-    NSMutableDictionary *_inFlightFolderChanges;
-    NSMutableDictionary *_inFlightOofSettingsRequests;
-    NSMutableDictionary *_inFlightSearchQueries;
-    NSMutableDictionary *_inFlightShareRequests;
-    NSObject<OS_dispatch_queue> *_muckingWithConn;
-    NSObject<OS_dispatch_queue> *_muckingWithInFlightCollections;
-    id _statusReportBlock;
+    NSMutableSet * _accountIdsWithAlreadyResetCerts;
+    NSMutableSet * _accountIdsWithAlreadyResetThrottleTimers;
+    NSObject<OS_xpc_object> * _conn;
+    NSMutableDictionary * _inFlightAttachmentDownloads;
+    NSMutableDictionary * _inFlightCalendarAvailabilityRequests;
+    NSMutableDictionary * _inFlightCalendarDirectorySearches;
+    NSMutableDictionary * _inFlightFolderChanges;
+    NSMutableDictionary * _inFlightOofSettingsRequests;
+    NSMutableDictionary * _inFlightSearchQueries;
+    NSMutableDictionary * _inFlightShareRequests;
+    NSObject<OS_dispatch_queue> * _muckingWithConn;
+    NSObject<OS_dispatch_queue> * _muckingWithInFlightCollections;
+    bool  _registered;
+    id /* block */  _statusReportBlock;
 }
 
+@property (nonatomic) bool registered;
+
++ (unsigned long long)_nextStopMonitoringStatusToken;
 + (void)setShouldIgnoreAccountChanges;
 + (id)sharedConnection;
-+ (id)sharedConnectionIfServerIsRunning;
 
 - (void).cxx_destruct;
 - (void)_calendarAvailabilityRequestFinished:(id)arg1;
@@ -45,21 +42,21 @@
 - (id)_init;
 - (void)_logDataAccessStatus:(id)arg1;
 - (void)_oofSettingsRequestsFinished:(id)arg1;
-- (BOOL)_performOofSettingsRequest:(id)arg1 forAccountWithID:(id)arg2 forUpdate:(BOOL)arg3;
+- (bool)_performOofSettingsRequest:(id)arg1 forAccountWithID:(id)arg2 forUpdate:(bool)arg3;
 - (void)_policyKeyChanged:(id)arg1;
-- (void)_reallyRegisterForInterrogation;
 - (void)_registerForAppResumedNotification;
-- (void)_requestDaemonChangeAgentMonitoringStatus:(BOOL)arg1 waitForReply:(BOOL)arg2;
-- (void)_requestDaemonStopMonitoringAgents_Sync;
-- (void)_resetCertWarningsForAccountId:(id)arg1 andDataclasses:(int)arg2 isUserRequested:(BOOL)arg3;
+- (void)_requestDaemonChangeAgentMonitoringStatus:(bool)arg1 withToken:(unsigned long long)arg2 waitForReply:(bool)arg3;
+- (void)_resetCertWarningsForAccountId:(id)arg1 andDataclasses:(long long)arg2 isUserRequested:(bool)arg3;
 - (void)_resetThrottleTimersForAccountId:(id)arg1;
-- (void)_sendSynchronousXPCMessageWithParameters:(id)arg1 handlerBlock:(id)arg2;
+- (void)_sendSynchronousXPCMessageWithParameters:(id)arg1 handlerBlock:(id /* block */)arg2;
 - (void)_serverContactsSearchQueryFinished:(id)arg1;
 - (void)_serverDiedWithReason:(id)arg1;
 - (void)_shareResponseFinished:(id)arg1;
 - (void)_tearDownInFlightObjects;
+- (bool)_validateXPCReply:(id)arg1;
 - (id)activeSyncDeviceIdentifier;
-- (id)beginDownloadingAttachmentWithUUID:(id)arg1 accountID:(id)arg2 queue:(id)arg3 progressBlock:(id)arg4 completionBlock:(id)arg5;
+- (void)asyncProcessMeetingRequests:(id)arg1 deliveryIdsToClear:(id)arg2 deliveryIdsToSoftClear:(id)arg3 inFolderWithId:(id)arg4 forAccountWithId:(id)arg5;
+- (id)beginDownloadingAttachmentWithUUID:(id)arg1 accountID:(id)arg2 queue:(id)arg3 progressBlock:(id /* block */)arg4 completionBlock:(id /* block */)arg5;
 - (void)cancelCalendarAvailabilityRequestWithID:(id)arg1;
 - (void)cancelCalendarDirectorySearchWithID:(id)arg1;
 - (void)cancelDownloadingAttachmentWithDownloadID:(id)arg1 error:(id)arg2;
@@ -67,42 +64,48 @@
 - (id)currentPolicyKeyForAccountID:(id)arg1;
 - (void)dealloc;
 - (id)decodedErrorFromData:(id)arg1;
-- (void)externalIdentificationForAccountID:(id)arg1 resultsBlock:(id)arg2;
+- (void)externalIdentificationForAccountID:(id)arg1 resultsBlock:(id /* block */)arg2;
 - (void)fillOutCurrentEASTimeZoneInfo;
 - (void)handleURL:(id)arg1;
 - (id)init;
-- (BOOL)isOofSettingsSupportedForAccountWithID:(id)arg1;
-- (id)performCalendarDirectorySearchWithAccountID:(id)arg1 terms:(id)arg2 recordTypes:(id)arg3 resultLimit:(unsigned int)arg4 resultsBlock:(id)arg5 completionBlock:(id)arg6;
-- (BOOL)performServerContactsSearch:(id)arg1 forAccountWithID:(id)arg2;
-- (BOOL)processFolderChange:(id)arg1 forAccountWithID:(id)arg2;
-- (BOOL)processMeetingRequests:(id)arg1 deliveryIdsToClear:(id)arg2 deliveryIdsToSoftClear:(id)arg3 inFolderWithId:(id)arg4 forAccountWithId:(id)arg5;
-- (BOOL)registerForInterrogationWithBlock:(id)arg1;
+- (void)isOofSettingsSupportedForAccountWithID:(id)arg1 completionBlock:(id /* block */)arg2;
+- (id)performCalendarDirectorySearchWithAccountID:(id)arg1 terms:(id)arg2 recordTypes:(id)arg3 resultLimit:(unsigned long long)arg4 resultsBlock:(id /* block */)arg5 completionBlock:(id /* block */)arg6;
+- (bool)performServerContactsSearch:(id)arg1 forAccountWithID:(id)arg2;
+- (bool)processFolderChange:(id)arg1 forAccountWithID:(id)arg2;
+- (bool)processMeetingRequests:(id)arg1 deliveryIdsToClear:(id)arg2 deliveryIdsToSoftClear:(id)arg3 inFolderWithId:(id)arg4 forAccountWithId:(id)arg5;
+- (void)reallyRegisterForInterrogation;
+- (bool)registerForInterrogationWithBlock:(id /* block */)arg1;
+- (bool)registered;
 - (void)removeStoresForAccountWithID:(id)arg1;
-- (void)reportFolderItemsSyncSuccess:(BOOL)arg1 forFolderWithID:(id)arg2 withItemsCount:(unsigned int)arg3 andAccountWithID:(id)arg4;
-- (id)requestCalendarAvailabilityWithAccountID:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 ignoredEventID:(id)arg4 addresses:(id)arg5 resultsBlock:(id)arg6 completionBlock:(id)arg7;
+- (void)reportFolderItemsSyncSuccess:(bool)arg1 forFolderWithID:(id)arg2 withItemsCount:(unsigned long long)arg3 andAccountWithID:(id)arg4;
+- (void)reportSharedCalendarInviteAsJunkForCalendarWithID:(id)arg1 accountID:(id)arg2 queue:(id)arg3 completionBlock:(id /* block */)arg4;
+- (id)requestCalendarAvailabilityWithAccountID:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 ignoredEventID:(id)arg4 addresses:(id)arg5 resultsBlock:(id /* block */)arg6 completionBlock:(id /* block */)arg7;
 - (void)requestDaemonShutdown;
-- (void)requestDaemonStartMonitoringAgents;
-- (void)requestDaemonStartMonitoringAgents_Sync;
-- (void)requestDaemonStopMonitoringAgents;
-- (BOOL)requestPolicyUpdateForAccountID:(id)arg1;
+- (void)requestDaemonStartMonitoringAgentsSyncWithToken:(unsigned long long)arg1;
+- (void)requestDaemonStartMonitoringAgentsWithToken:(unsigned long long)arg1;
+- (unsigned long long)requestDaemonStopMonitoringAgents;
+- (unsigned long long)requestDaemonStopMonitoringAgentsSync;
+- (bool)requestPolicyUpdateForAccountID:(id)arg1;
 - (void)resetTimersAndWarnings;
-- (void)respondToSharedCalendarInvite:(int)arg1 forCalendarWithID:(id)arg2 accountID:(id)arg3 queue:(id)arg4 completionBlock:(id)arg5;
-- (BOOL)resumeWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
-- (BOOL)retrieveOofSettingsRequest:(id)arg1 forAccountWithID:(id)arg2;
-- (BOOL)setFolderIdsThatExternalClientsCareAboutAdded:(id)arg1 deleted:(id)arg2 foldersTag:(id)arg3 forAccountID:(id)arg4;
+- (void)respondToSharedCalendarInvite:(long long)arg1 forCalendarWithID:(id)arg2 accountID:(id)arg3 queue:(id)arg4 completionBlock:(id /* block */)arg5;
+- (bool)resumeWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
+- (bool)retrieveOofSettingsRequest:(id)arg1 forAccountWithID:(id)arg2;
+- (bool)setFolderIdsThatExternalClientsCareAboutAdded:(id)arg1 deleted:(id)arg2 foldersTag:(id)arg3 forAccountID:(id)arg4;
+- (void)setRegistered:(bool)arg1;
 - (id)statusReports;
-- (BOOL)stopWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
-- (BOOL)suspendWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
-- (BOOL)updateContentsOfAllFoldersForAccountID:(id)arg1 andDataclass:(int)arg2 isUserRequested:(BOOL)arg3;
-- (BOOL)updateContentsOfAllFoldersForAccountID:(id)arg1 andDataclass:(int)arg2;
-- (BOOL)updateContentsOfAllFoldersForAccountID:(id)arg1 andDataclasses:(int)arg2 isUserRequested:(BOOL)arg3;
-- (BOOL)updateContentsOfFoldersWithKeys:(id)arg1 forAccountID:(id)arg2 andDataclass:(int)arg3 isUserRequested:(BOOL)arg4;
-- (BOOL)updateContentsOfFoldersWithKeys:(id)arg1 forAccountID:(id)arg2 andDataclass:(int)arg3;
-- (BOOL)updateContentsOfFoldersWithKeys:(id)arg1 forAccountID:(id)arg2 andDataclasses:(int)arg3 isUserRequested:(BOOL)arg4;
-- (BOOL)updateFolderListForAccountID:(id)arg1 andDataclasses:(int)arg2 isUserRequested:(BOOL)arg3;
-- (BOOL)updateFolderListForAccountID:(id)arg1 andDataclasses:(int)arg2 requireChangedFolders:(BOOL)arg3 isUserRequested:(BOOL)arg4;
-- (BOOL)updateFolderListForAccountID:(id)arg1 andDataclasses:(int)arg2;
-- (BOOL)updateOofSettingsRequest:(id)arg1 forAccountWithID:(id)arg2;
-- (BOOL)watchFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
+- (bool)stopWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
+- (bool)suspendWatchingFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
+- (bool)updateContentsOfAllFoldersForAccountID:(id)arg1 andDataclass:(long long)arg2;
+- (bool)updateContentsOfAllFoldersForAccountID:(id)arg1 andDataclass:(long long)arg2 isUserRequested:(bool)arg3;
+- (bool)updateContentsOfAllFoldersForAccountID:(id)arg1 andDataclasses:(long long)arg2 isUserRequested:(bool)arg3;
+- (bool)updateContentsOfFoldersWithKeys:(id)arg1 forAccountID:(id)arg2 andDataclass:(long long)arg3;
+- (bool)updateContentsOfFoldersWithKeys:(id)arg1 forAccountID:(id)arg2 andDataclass:(long long)arg3 isUserRequested:(bool)arg4;
+- (bool)updateContentsOfFoldersWithKeys:(id)arg1 forAccountID:(id)arg2 andDataclasses:(long long)arg3 isUserRequested:(bool)arg4;
+- (bool)updateFolderListForAccountID:(id)arg1 andDataclasses:(long long)arg2;
+- (bool)updateFolderListForAccountID:(id)arg1 andDataclasses:(long long)arg2 isUserRequested:(bool)arg3;
+- (bool)updateFolderListForAccountID:(id)arg1 andDataclasses:(long long)arg2 requireChangedFolders:(bool)arg3 isUserRequested:(bool)arg4;
+- (bool)updateOofSettingsRequest:(id)arg1 forAccountWithID:(id)arg2;
+- (bool)watchFoldersWithKeys:(id)arg1 forAccountID:(id)arg2;
+- (bool)watchFoldersWithKeys:(id)arg1 forAccountID:(id)arg2 persistent:(bool)arg3;
 
 @end

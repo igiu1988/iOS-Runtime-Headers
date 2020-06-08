@@ -2,11 +2,11 @@
    Image: /System/Library/Frameworks/QuartzCore.framework/QuartzCore
  */
 
-@class NSDictionary;
-
 @interface LKNSDictionaryCodingProxy : CACodingProxy {
-    NSDictionary *_dict;
+    NSDictionary * _dict;
 }
+
++ (bool)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)decodedObject;

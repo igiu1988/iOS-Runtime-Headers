@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class AFSiriTaskDeliveryHandler, NSObject<OS_dispatch_queue>, NSString, NSXPCListener;
-
 @interface AFSiriTaskService : NSObject <NSXPCListenerDelegate> {
-    AFSiriTaskDeliveryHandler *_deliveryHandler;
-    NSXPCListener *_listener;
-    NSObject<OS_dispatch_queue> *_queue;
+    AFSiriTaskDeliveryHandler * _deliveryHandler;
+    NSXPCListener * _listener;
+    NSObject<OS_dispatch_queue> * _queue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)_machServiceNameForAppTaskServiceWithBundleIdentifier:(id)arg1;
 + (id)appTaskService;
@@ -21,7 +19,7 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithMachServiceName:(id)arg1;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)resume;
 - (void)setDelegate:(id)arg1;
 

@@ -2,47 +2,39 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class <BBSyncServiceDelegate>, IDSService, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSTimer;
-
 @interface BBSyncService : NSObject <IDSServiceDelegate> {
-    NSMutableDictionary *_deferredDismissalsBySectionID;
-    NSTimer *_deferredTimer;
-    <BBSyncServiceDelegate> *_delegate;
-    int _lockNotifyToken;
-    NSMutableArray *_pendingDismissalDictionaries;
-    NSMutableArray *_pendingDismissalIDs;
-    NSObject<OS_dispatch_queue> *_queue;
-    unsigned int _queuedFeed;
-    NSString *_queuedSectionID;
-    NSString *_queuedUniversalSectionID;
-    IDSService *_service;
+    <BBSyncServiceDelegate> * _delegate;
+    NSMutableArray * _pendingDismissalDictionaries;
+    NSMutableArray * _pendingDismissalIDs;
+    NSObject<OS_dispatch_queue> * _queue;
+    unsigned long long  _queuedFeed;
+    NSString * _queuedSectionID;
+    NSString * _queuedUniversalSectionID;
+    IDSService * _service;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <BBSyncServiceDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <BBSyncServiceDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) unsigned long long pairedDeviceCount;
+@property (readonly) Class superclass;
 
-- (void)_addDeferredDismissalForBulletin:(id)arg1 feeds:(unsigned int)arg2;
-- (void)_clearDeferredTimer;
-- (void)_deferredTimerFired:(id)arg1;
-- (void)_deviceLocked;
+- (void).cxx_destruct;
 - (id)_dismissalDictionaryForBulletin:(id)arg1;
-- (BOOL)_hasDestination;
-- (void)_reallyEnqueueBulletin:(id)arg1 feeds:(unsigned int)arg2;
-- (void)_sendDeferredDismissals;
+- (bool)_hasDestination;
+- (void)_reallyEnqueueBulletin:(id)arg1 feeds:(unsigned long long)arg2;
 - (void)_sendSyncMessage:(id)arg1;
 - (id)_syncAccount;
-- (BOOL)_syncHasDefaultPairedDevice;
+- (bool)_syncHasDefaultPairedDevice;
 - (id)_syncLocalDevices;
-- (void)dealloc;
 - (id)delegate;
 - (id)dismissalSectionIdentifierForIncomingMessage:(id)arg1;
-- (void)enqueueSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned int)arg2;
+- (void)enqueueSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned long long)arg2;
 - (id)initWithQueue:(id)arg1;
+- (unsigned long long)pairedDeviceCount;
 - (void)sendPendingSyncedRemovals;
-- (void)sendSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned int)arg2;
+- (void)sendSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned long long)arg2;
 - (void)service:(id)arg1 account:(id)arg2 incomingMessage:(id)arg3 fromID:(id)arg4;
 - (void)service:(id)arg1 activeAccountsChanged:(id)arg2;
 - (void)setDelegate:(id)arg1;

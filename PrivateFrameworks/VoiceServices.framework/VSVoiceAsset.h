@@ -2,46 +2,53 @@
    Image: /System/Library/PrivateFrameworks/VoiceServices.framework/VoiceServices
  */
 
-@class NSArray, NSNumber, NSString;
-
-@interface VSVoiceAsset : NSObject <NSSecureCoding> {
-    NSNumber *_contentVersion;
-    int _footprint;
-    int _gender;
-    BOOL _isBuiltInVoice;
-    BOOL _isInstalled;
-    NSArray *_languages;
-    NSString *_masteredVersion;
-    NSString *_name;
+@interface VSVoiceAsset : VSAssetBase <NSSecureCoding> {
+    long long  _footprint;
+    long long  _gender;
+    bool  _isBuiltInVoice;
+    bool  _isInstalled;
+    NSArray * _languages;
+    NSString * _name;
+    long long  _type;
 }
 
-@property(readonly) NSNumber * contentVersion;
-@property(readonly) int footprint;
-@property(readonly) int gender;
-@property BOOL isBuiltInVoice;
-@property(readonly) BOOL isInstalled;
-@property(readonly) NSArray * languages;
-@property(readonly) NSString * masteredVersion;
-@property(readonly) NSString * name;
+@property (nonatomic) long long footprint;
+@property (nonatomic) long long gender;
+@property (nonatomic) bool isBuiltInVoice;
+@property (nonatomic) bool isInstalled;
+@property (nonatomic, copy) NSArray *languages;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic) long long type;
 
-+ (BOOL)supportsSecureCoding;
++ (long long)footprintFromString:(id)arg1;
++ (id)footprintStringFromFootprint:(long long)arg1;
++ (long long)genderFromString:(id)arg1;
++ (id)genderStringFromGender:(long long)arg1;
++ (bool)supportsSecureCoding;
++ (long long)typeFromString:(id)arg1;
++ (id)typeStringFromType:(long long)arg1;
 
 - (void).cxx_destruct;
-- (id)contentVersion;
 - (id)description;
+- (id)descriptiveKey;
 - (id)dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
-- (int)footprint;
-- (int)gender;
+- (long long)footprint;
+- (long long)gender;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionaryRepresentation:(id)arg1;
-- (id)initWithName:(id)arg1 languages:(id)arg2 gender:(int)arg3 footprint:(int)arg4 contentVersion:(id)arg5 masteredVersion:(id)arg6 isInstalled:(BOOL)arg7;
-- (id)initWithName:(id)arg1 languages:(id)arg2 gender:(int)arg3 footprint:(int)arg4 isInstalled:(BOOL)arg5;
-- (BOOL)isBuiltInVoice;
-- (BOOL)isInstalled;
+- (bool)isBuiltInVoice;
+- (bool)isInstalled;
 - (id)languages;
-- (id)masteredVersion;
 - (id)name;
-- (void)setIsBuiltInVoice:(BOOL)arg1;
+- (void)setFootprint:(long long)arg1;
+- (void)setGender:(long long)arg1;
+- (void)setIsBuiltInVoice:(bool)arg1;
+- (void)setIsInstalled:(bool)arg1;
+- (void)setLanguages:(id)arg1;
+- (void)setName:(id)arg1;
+- (void)setType:(long long)arg1;
+- (long long)type;
+- (id)voiceKey;
 
 @end

@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSCHChartGrid;
-
 @interface TSCHDeprecatedChartGridForUpgrade : TSPObject {
-    TSCHChartGrid *mGrid;
+    TSCHChartGrid * mGrid;
 }
 
-@property(retain,readonly) TSCHChartGrid * grid;
+@property (nonatomic, readonly, retain) TSCHChartGrid *grid;
 
 - (void)dealloc;
 - (id)grid;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end

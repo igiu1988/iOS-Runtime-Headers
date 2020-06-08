@@ -2,36 +2,38 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@class NSString, TIKeyboardInputManagerState, TIKeyboardIntermediateText;
-
 @interface TIKeyboardConfiguration : NSObject <NSSecureCoding> {
-    NSString *_accentKeyString;
-    BOOL _assertDefaultKeyPlane;
-    TIKeyboardInputManagerState *_inputManagerState;
-    TIKeyboardIntermediateText *_intermediateText;
-    NSString *_layoutTag;
+    NSString * _accentKeyString;
+    bool  _assertDefaultKeyPlane;
+    TIKeyboardInputManagerState * _inputManagerState;
+    TIKeyboardIntermediateText * _intermediateText;
+    NSString * _layoutTag;
+    NSArray * _multilingualLanguages;
 }
 
-@property(copy) NSString * accentKeyString;
-@property BOOL assertDefaultKeyPlane;
-@property(copy) TIKeyboardInputManagerState * inputManagerState;
-@property(retain) TIKeyboardIntermediateText * intermediateText;
-@property(copy) NSString * layoutTag;
+@property (nonatomic, copy) NSString *accentKeyString;
+@property (nonatomic) bool assertDefaultKeyPlane;
+@property (nonatomic, copy) TIKeyboardInputManagerState *inputManagerState;
+@property (nonatomic, retain) TIKeyboardIntermediateText *intermediateText;
+@property (nonatomic, copy) NSString *layoutTag;
+@property (nonatomic, retain) NSArray *multilingualLanguages;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
+- (void).cxx_destruct;
 - (id)accentKeyString;
-- (BOOL)assertDefaultKeyPlane;
-- (void)dealloc;
+- (bool)assertDefaultKeyPlane;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)inputManagerState;
 - (id)intermediateText;
 - (id)layoutTag;
+- (id)multilingualLanguages;
 - (void)setAccentKeyString:(id)arg1;
-- (void)setAssertDefaultKeyPlane:(BOOL)arg1;
+- (void)setAssertDefaultKeyPlane:(bool)arg1;
 - (void)setInputManagerState:(id)arg1;
 - (void)setIntermediateText:(id)arg1;
 - (void)setLayoutTag:(id)arg1;
+- (void)setMultilingualLanguages:(id)arg1;
 
 @end

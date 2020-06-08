@@ -3,8 +3,10 @@
  */
 
 @interface LKCGImageCodingProxy : CACodingProxy {
-    struct CGImage { } *_image;
+    struct CGImage { } * _image;
 }
+
++ (bool)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)decodedObject;

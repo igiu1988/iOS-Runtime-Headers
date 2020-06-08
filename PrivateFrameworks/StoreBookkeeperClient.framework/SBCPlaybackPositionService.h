@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/StoreBookkeeperClient.framework/StoreBookkeeperClient
  */
 
-@class NSString, SBCPlaybackPositionDomain;
-
 @interface SBCPlaybackPositionService : SBCXPCService <SBCPlaybackPositionServiceProtocol> {
-    SBCPlaybackPositionDomain *_playbackPositionDomain;
-    BOOL _usingPlaybackPositions;
+    SBCPlaybackPositionDomain * _playbackPositionDomain;
+    bool  _usingPlaybackPositions;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) SBCPlaybackPositionDomain * playbackPositionDomain;
-@property(readonly) Class superclass;
-@property(readonly) BOOL usingPlaybackPositions;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) SBCPlaybackPositionDomain *playbackPositionDomain;
+@property (readonly) Class superclass;
+@property (readonly) bool usingPlaybackPositions;
 
 + (Class)XPCServiceInterfaceClass;
 + (id)_serviceForPlaybackPositionDomain:(id)arg1;
@@ -28,12 +26,14 @@
 - (void)didConnectToService;
 - (oneway void)endAccessingPlaybackPositionEntities;
 - (id)initWithPlaybackPositionDomain:(id)arg1;
+- (oneway void)persistPlaybackPositionEntity:(id)arg1 isCheckpoint:(bool)arg2 completionBlock:(id /* block */)arg3;
 - (id)playbackPositionDomain;
-- (oneway void)pullPlaybackPositionEntity:(id)arg1 completionBlock:(id)arg2;
-- (oneway void)pushPlaybackPositionEntity:(id)arg1 completionBlock:(id)arg2;
-- (oneway void)savePlaybackPositionEntity:(id)arg1 isCheckpoint:(BOOL)arg2;
-- (oneway void)synchronizeImmediatelyWithCompletionHandler:(id)arg1;
+- (oneway void)pullLocalPlaybackPositionForEntityIdentifiers:(id)arg1 completionBlock:(id /* block */)arg2;
+- (oneway void)pullPlaybackPositionEntity:(id)arg1 completionBlock:(id /* block */)arg2;
+- (oneway void)pushPlaybackPositionEntity:(id)arg1 completionBlock:(id /* block */)arg2;
+- (oneway void)synchronizeImmediatelyWithCompletionHandler:(id /* block */)arg1;
 - (oneway void)updateForeignDatabaseWithValuesFromPlaybackPositionEntity:(id)arg1;
-- (BOOL)usingPlaybackPositions;
+- (bool)usingPlaybackPositions;
+- (void)validateConnectionConfiguration;
 
 @end

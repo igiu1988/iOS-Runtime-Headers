@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@interface NSDocumentSerializer : NSAKSerializer {
-}
+@interface NSDocumentSerializer : NSAKSerializer
 
-- (unsigned int)serializePListValueIn:(id)arg1 key:(id)arg2 value:(id)arg3;
+- (unsigned long long)serializePListValueIn:(id)arg1 key:(id)arg2 value:(id)arg3;
 
 @end

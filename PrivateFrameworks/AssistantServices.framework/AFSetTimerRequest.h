@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class AFTimer;
-
 @interface AFSetTimerRequest : AFSiriRequest {
-    AFTimer *_timer;
+    STTimer * _timer;
 }
 
-@property(retain) AFTimer * timer;
+@property (nonatomic, retain) STTimer *timer;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)createResponse;

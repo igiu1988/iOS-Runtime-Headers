@@ -2,40 +2,41 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface PDAnimateMotionBehavior : PDAnimateScaleBehavior {
+    double  mAngle;
+    bool  mHasAngle;
+    bool  mHasOriginType;
+    bool  mHasPathEditMode;
+    bool  mHasRotationCenter;
+    int  mOriginType;
+    NSString * mPath;
+    int  mPathEditMode;
+    NSString * mPointsTypes;
     struct CGPoint { 
-        float x; 
-        float y; 
-    double mAngle;
-    BOOL mHasAngle;
-    BOOL mHasOriginType;
-    BOOL mHasPointType;
-    BOOL mHasRotationCenter;
-    int mOriginType;
-    NSString *mPath;
-    int mPointType;
-    } mRotationCenter;
+        double x; 
+        double y; 
+    }  mRotationCenter;
 }
 
-- (id).cxx_construct;
 - (double)angle;
 - (void)dealloc;
-- (BOOL)hasAngle;
-- (BOOL)hasOriginType;
-- (BOOL)hasPath;
-- (BOOL)hasPointType;
-- (BOOL)hasRotationCenter;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasAngle;
+- (bool)hasOriginType;
+- (bool)hasPath;
+- (bool)hasPathEditMode;
+- (bool)hasRotationCenter;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (int)originType;
 - (id)path;
-- (int)pointType;
-- (struct CGPoint { float x1; float x2; })rotationCenter;
+- (int)pathEditMode;
+- (id)pointsTypes;
+- (struct CGPoint { double x1; double x2; })rotationCenter;
 - (void)setAngle:(double)arg1;
 - (void)setOriginType:(int)arg1;
 - (void)setPath:(id)arg1;
-- (void)setPointType:(int)arg1;
-- (void)setRotationCenter:(struct CGPoint { float x1; float x2; })arg1;
+- (void)setPathEditMode:(int)arg1;
+- (void)setPointsTypes:(id)arg1;
+- (void)setRotationCenter:(struct CGPoint { double x1; double x2; })arg1;
 
 @end

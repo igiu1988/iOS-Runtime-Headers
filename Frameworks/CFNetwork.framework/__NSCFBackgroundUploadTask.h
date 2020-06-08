@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-@interface __NSCFBackgroundUploadTask : __NSCFBackgroundDataTask {
-}
+@interface __NSCFBackgroundUploadTask : __NSCFBackgroundDataTask
 
-- (BOOL)isKindOfClass:(Class)arg1;
+- (bool)isKindOfClass:(Class)arg1;
 
 @end

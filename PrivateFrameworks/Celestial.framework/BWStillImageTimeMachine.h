@@ -3,15 +3,15 @@
  */
 
 @interface BWStillImageTimeMachine : NSObject {
-    int _capacity;
-    struct opaqueCMSampleBuffer {} **_frames;
-    BOOL _suspended;
-    struct OpaqueFigSimpleMutex { } *_timeMachineMutex;
+    int  _capacity;
+    struct opaqueCMSampleBuffer {} ** _frames;
+    bool  _suspended;
+    struct OpaqueFigSimpleMutex { } * _timeMachineMutex;
 }
 
-@property(readonly) int capacity;
+@property (nonatomic, readonly) int capacity;
 
-+ (BOOL)afComplete:(struct opaqueCMSampleBuffer { }*)arg1;
++ (bool)afComplete:(struct opaqueCMSampleBuffer { }*)arg1;
 + (void)initialize;
 
 - (void)_drain;
@@ -20,7 +20,7 @@
 - (void)dealloc;
 - (void)drain;
 - (id)initWithCapacity:(int)arg1;
-- (long)insertFrame:(struct opaqueCMSampleBuffer { }*)arg1;
+- (int)insertFrame:(struct opaqueCMSampleBuffer { }*)arg1;
 - (void)resume;
 - (void)suspendAndDrain;
 

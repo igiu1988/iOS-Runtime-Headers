@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAudioMix, AVAudioOutputSettings, NSArray, NSMutableDictionary, NSString;
-
 @interface AVAssetReaderAudioMixOutputInternal : NSObject {
-    AVAudioMix *audioMix;
-    AVAudioOutputSettings *audioOutputSettings;
-    NSMutableDictionary *audioTapProcessorsForTracks;
-    NSString *audioTimePitchAlgorithm;
-    NSMutableDictionary *audioTimePitchAlgorithmsForTracks;
-    NSArray *audioTracks;
-    NSMutableDictionary *audioVolumeCurvesForTracks;
+    AVAudioMix * audioMix;
+    AVAudioOutputSettings * audioOutputSettings;
+    NSMutableDictionary * audioTapProcessorsForTracks;
+    NSString * audioTimePitchAlgorithm;
+    NSMutableDictionary * audioTimePitchAlgorithmsForTracks;
+    NSArray * audioTracks;
+    NSMutableDictionary * audioVolumeCurvesForTracks;
 }
 
 @end

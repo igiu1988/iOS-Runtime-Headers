@@ -3,10 +3,10 @@
  */
 
 @interface FigWeakReference : NSObject {
-    id _referencedObject;
+    id  _referencedObject;
 }
 
-@property(readonly) id referencedObject;
+@property (readonly) id referencedObject;
 
 + (id)weakReferenceToObject:(id)arg1;
 

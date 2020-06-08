@@ -2,33 +2,39 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSNumberFormatter;
-
-@interface NSEnergyFormatter : NSFormatter {
-    void *_formatter;
-    BOOL _isForFoodEnergyUse;
-    void *_reserved[2];
+@interface NSEnergyFormatter : NSFormatter <NSObservable, NSObserver> {
+    void * _formatter;
+    bool  _isForFoodEnergyUse;
+    void * _reserved;
 }
 
-@property(getter=isForFoodEnergyUse) BOOL forFoodEnergyUse;
-@property(copy) NSNumberFormatter * numberFormatter;
-@property int unitStyle;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isForFoodEnergyUse) bool forFoodEnergyUse;
+@property (readonly) unsigned long long hash;
+@property (copy) NSNumberFormatter *numberFormatter;
+@property (readonly) Class superclass;
+@property long long unitStyle;
 
 - (id)attributedStringForObjectValue:(id)arg1 withDefaultAttributes:(id)arg2;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (BOOL)getObjectValue:(out id*)arg1 forString:(id)arg2 errorDescription:(out id*)arg3;
+- (void)encodeWithCoder:(id)arg1;
+- (bool)getObjectValue:(out id*)arg1 forString:(id)arg2 errorDescription:(out id*)arg3;
 - (id)init;
-- (BOOL)isForFoodEnergyUse;
+- (id)initWithCoder:(id)arg1;
+- (bool)isForFoodEnergyUse;
 - (id)numberFormatter;
-- (void)setForFoodEnergyUse:(BOOL)arg1;
+- (void)receiveObservedValue:(id)arg1;
+- (void)setForFoodEnergyUse:(bool)arg1;
 - (void)setNumberFormatter:(id)arg1;
-- (void)setUnitStyle:(int)arg1;
+- (void)setUnitStyle:(long long)arg1;
 - (id)stringForObjectValue:(id)arg1;
 - (id)stringFromJoules:(double)arg1;
-- (id)stringFromValue:(double)arg1 unit:(int)arg2;
-- (int)targetUnitFromJoules:(double)arg1;
-- (id)unitStringFromJoules:(double)arg1 usedUnit:(int*)arg2;
-- (id)unitStringFromValue:(double)arg1 unit:(int)arg2;
-- (int)unitStyle;
+- (id)stringFromValue:(double)arg1 unit:(long long)arg2;
+- (long long)targetUnitFromJoules:(double)arg1;
+- (id)unitStringFromJoules:(double)arg1 usedUnit:(long long*)arg2;
+- (id)unitStringFromValue:(double)arg1 unit:(long long)arg2;
+- (long long)unitStyle;
 
 @end

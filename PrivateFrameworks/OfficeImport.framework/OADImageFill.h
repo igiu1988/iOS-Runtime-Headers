@@ -2,19 +2,15 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADBlipRef, OADImageFillTechnique, OADRelativeRect;
-
 @interface OADImageFill : OADFill {
-    OADBlipRef *mBlipRef;
-    long mDpi;
-    BOOL mIsBlipRefOverridden;
-    BOOL mIsDpiOverridden;
-    BOOL mIsRotateWithShapeOverridden;
-    BOOL mIsSourceRectOverridden;
-    BOOL mIsTechniqueOverridden;
-    BOOL mRotateWithShape;
-    OADRelativeRect *mSourceRect;
-    OADImageFillTechnique *mTechnique;
+    OADBlipRef * mBlipRef;
+    int  mDpi;
+    bool  mIsBlipRefOverridden;
+    bool  mIsDpiOverridden;
+    bool  mIsRotateWithShapeOverridden;
+    bool  mRotateWithShape;
+    OADRelativeRect * mSourceRect;
+    OADImageFillTechnique * mTechnique;
 }
 
 + (id)defaultProperties;
@@ -23,20 +19,23 @@
 - (id)color;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (long)dpi;
-- (unsigned int)hash;
+- (int)dpi;
+- (void)fixPropertiesForChangingParentPreservingEffectiveValues:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithDefaults;
-- (BOOL)isBlipRefOverridden;
-- (BOOL)isDpiOverridden;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isRotateWithShapeOverridden;
-- (BOOL)isSourceRectOverridden;
-- (BOOL)isTechniqueOverridden;
-- (BOOL)rotateWithShape;
+- (bool)isAnythingOverridden;
+- (bool)isBlipRefOverridden;
+- (bool)isDpiOverridden;
+- (bool)isEqual:(id)arg1;
+- (bool)isRotateWithShapeOverridden;
+- (bool)isSourceRectOverridden;
+- (bool)isTechniqueOverridden;
+- (void)removeUnnecessaryOverrides;
+- (bool)rotateWithShape;
 - (void)setBlipRef:(id)arg1;
-- (void)setDpi:(long)arg1;
+- (void)setDpi:(int)arg1;
 - (void)setParent:(id)arg1;
-- (void)setRotateWithShape:(BOOL)arg1;
+- (void)setRotateWithShape:(bool)arg1;
 - (void)setSourceRect:(id)arg1;
 - (void)setStyleColor:(id)arg1;
 - (void)setTechnique:(id)arg1;

@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableDictionary;
-
 @interface TSCH3DDictionaryOfDictionary : NSObject {
-    NSMutableDictionary *mDictionary;
+    NSMutableDictionary * mDictionary;
 }
 
 - (void)addEntriesFromDictionaryOfDictionary:(id)arg1;

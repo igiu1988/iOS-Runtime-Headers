@@ -2,32 +2,23 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVPlayer, AVPlayerItem, AVWeakReference, NSError, NSObject<OS_dispatch_queue>;
-
 @interface AVPlayerConnection : NSObject {
-    NSError *_error;
-    AVWeakReference *_playerItemReference;
-    AVWeakReference *_playerReference;
-    AVPlayerItem *_previousPlayerItem;
-    BOOL _shouldAppendItem;
-    int _status;
+    NSError * _error;
+    AVWeakReference * _playerItemReference;
+    AVWeakReference * _playerReference;
+    long long  _status;
 }
 
-@property(readonly) NSError * error;
-@property(readonly) AVPlayer * player;
-@property(readonly) AVPlayerItem * playerItem;
-@property(readonly) NSObject<OS_dispatch_queue> * serializationQueue;
-@property(readonly) int status;
+@property (nonatomic, readonly) long long status;
 
-- (BOOL)addItemToPlayQueue;
+- (bool)addItemToPlayQueueAfterPlaybackItemOfItem:(id)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)error;
-- (id)initWithWeakReferenceToPlayer:(id)arg1 weakReferenceToPlayerItem:(id)arg2 shouldAppendItem:(BOOL)arg3;
+- (id)initWithWeakReferenceToPlayer:(id)arg1 weakReferenceToPlayerItem:(id)arg2;
 - (id)player;
 - (id)playerItem;
 - (void)removeItemFromPlayQueue;
-- (id)serializationQueue;
-- (int)status;
+- (long long)status;
 
 @end

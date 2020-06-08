@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSArray;
-
 @interface MPMovieThumbnailRequest : NSObject {
-    int _timeOption;
-    NSArray *_times;
+    long long  _timeOption;
+    NSArray * _times;
 }
 
-@property int timeOption;
-@property(retain) NSArray * times;
+@property (nonatomic) long long timeOption;
+@property (nonatomic, retain) NSArray *times;
 
 - (void).cxx_destruct;
-- (void)setTimeOption:(int)arg1;
+- (void)setTimeOption:(long long)arg1;
 - (void)setTimes:(id)arg1;
-- (int)timeOption;
+- (long long)timeOption;
 - (id)times;
 
 @end

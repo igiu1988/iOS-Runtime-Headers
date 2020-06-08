@@ -2,20 +2,19 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDCollection, EDReference;
-
 @interface EDPivotArea : NSObject {
-    boolmGrandCol;
-    boolmGrandRow;
-    boolmOutline;
-    EDReference *mOffset;
-    EDCollection *mReferences;
-    int mType;
+    bool  mGrandCol;
+    bool  mGrandRow;
+    EDReference * mOffset;
+    bool  mOutline;
+    EDCollection * mReferences;
+    int  mType;
 }
 
 + (id)pivotArea;
 
 - (void)dealloc;
+- (id)description;
 - (bool)grandCol;
 - (bool)grandRow;
 - (id)init;

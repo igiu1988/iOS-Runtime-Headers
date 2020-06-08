@@ -2,33 +2,28 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class <SKUITrendingSearchPageViewDelegate>, NSOperationQueue, SKUIClientContext, SKUILoadTrendingSearchPageOperation, SKUITrendingSearchPage, SKUITrendingSearchPageView;
-
 @interface SKUISearchFieldTableView : UITableView {
-    SKUIClientContext *_clientContext;
-    SKUILoadTrendingSearchPageOperation *_loadOperation;
-    NSOperationQueue *_operationQueue;
-    SKUITrendingSearchPage *_page;
-    SKUITrendingSearchPageView *_pageView;
-    <SKUITrendingSearchPageViewDelegate> *_trendingSearchDelegate;
-    BOOL _trendingSearchesVisible;
+    SKUITrendingSearchPage * _page;
+    SKUITrendingSearchPageView * _pageView;
+    <SKUITrendingSearchPageViewDelegate> * _trendingSearchDelegate;
+    SKUITrendingSearchProvider * _trendingSearchProvider;
+    bool  _trendingSearchesVisible;
 }
 
-@property(retain) SKUIClientContext * clientContext;
-@property <SKUITrendingSearchPageViewDelegate> * trendingSearchDelegate;
-@property BOOL trendingSearchesVisible;
+@property (nonatomic) <SKUITrendingSearchPageViewDelegate> *trendingSearchDelegate;
+@property (nonatomic, retain) SKUITrendingSearchProvider *trendingSearchProvider;
+@property (nonatomic) bool trendingSearchesVisible;
 
 - (void).cxx_destruct;
 - (void)_reloadData;
 - (void)_reloadView;
 - (void)_setTrendingResponse:(id)arg1 error:(id)arg2;
-- (id)clientContext;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 style:(int)arg2;
 - (void)layoutSubviews;
-- (void)setClientContext:(id)arg1;
 - (void)setTrendingSearchDelegate:(id)arg1;
-- (void)setTrendingSearchesVisible:(BOOL)arg1;
+- (void)setTrendingSearchProvider:(id)arg1;
+- (void)setTrendingSearchesVisible:(bool)arg1;
 - (id)trendingSearchDelegate;
-- (BOOL)trendingSearchesVisible;
+- (id)trendingSearchProvider;
+- (bool)trendingSearchesVisible;
 
 @end

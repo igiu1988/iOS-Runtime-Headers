@@ -2,15 +2,10 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString, SALocalSearchBusiness2;
+@interface SAMovieV2MovieListSnippet : SAUISnippet
 
-@interface SAMovieV2MovieListSnippet : SAUISnippet {
-}
-
-@property(copy) NSArray * movieListCells;
-@property(copy) NSString * subtitle;
-@property(retain) SALocalSearchBusiness2 * theater;
-@property(copy) NSString * title;
+@property (nonatomic, copy) NSArray *movieListCells;
+@property (nonatomic, retain) SALocalSearchBusiness2 *theater;
 
 + (id)movieListSnippet;
 + (id)movieListSnippetWithDictionary:(id)arg1 context:(id)arg2;
@@ -19,11 +14,7 @@
 - (id)groupIdentifier;
 - (id)movieListCells;
 - (void)setMovieListCells:(id)arg1;
-- (void)setSubtitle:(id)arg1;
 - (void)setTheater:(id)arg1;
-- (void)setTitle:(id)arg1;
-- (id)subtitle;
 - (id)theater;
-- (id)title;
 
 @end

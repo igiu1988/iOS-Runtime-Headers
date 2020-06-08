@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStylesheet;
-
 @interface GQDWPStorage : NSObject {
-    struct __CFArray { } *mAttachments;
-    struct __CFArray { } *mBody;
-    GQDSStylesheet *mStylesheet;
+    struct __CFArray { } * mAttachments;
+    struct __CFArray { } * mBody;
+    GQDSStylesheet * mStylesheet;
 }
 
 - (struct __CFArray { }*)attachments;

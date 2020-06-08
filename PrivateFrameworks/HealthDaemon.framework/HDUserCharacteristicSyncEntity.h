@@ -2,12 +2,19 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@interface HDUserCharacteristicSyncEntity : HDKeyValueSyncEntity {
-}
+@interface HDUserCharacteristicSyncEntity : HDKeyValueSyncEntity <HDNanoSyncEntity>
 
-+ (int)category;
-+ (void)didReceiveKeysAndValuesWithHealthDaemon:(id)arg1;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+
++ (long long)category;
++ (void)didReceiveValuesForKeys:(id)arg1 profile:(id)arg2;
 + (int)nanoSyncObjectType;
-+ (int)syncEntityType;
++ (unsigned long long)supportedNanoSyncDirectionsForProtocolVersion:(int)arg1;
++ (bool)supportsSpeculativeNanoSyncChanges;
++ (id)syncEntityDependenciesForSyncProtocolVersion:(int)arg1;
++ (id)syncEntityIdentifier;
 
 @end

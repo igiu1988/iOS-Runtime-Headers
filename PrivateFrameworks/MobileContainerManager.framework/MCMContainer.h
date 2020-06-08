@@ -2,49 +2,49 @@
    Image: /System/Library/PrivateFrameworks/MobileContainerManager.framework/MobileContainerManager
  */
 
-@class NSDictionary, NSString, NSURL, NSUUID, NSXPCConnection;
-
 @interface MCMContainer : NSObject {
-    int _containerClass;
-    NSString *_identifier;
-    NSUUID *_uuid;
-    NSXPCConnection *_xpcConnection;
+    long long  _containerClass;
+    NSString * _identifier;
+    struct container_object { } * _thisContainer;
+    unsigned int  _userId;
+    NSUUID * _uuid;
 }
 
-@property(readonly) int containerClass;
-@property(readonly) NSString * identifier;
-@property(readonly) NSDictionary * info;
-@property(getter=isTemporary,readonly) BOOL temporary;
-@property(readonly) NSURL * url;
-@property(readonly) NSUUID * uuid;
+@property (nonatomic, readonly) long long containerClass;
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, readonly) NSDictionary *info;
+@property (getter=isTemporary, nonatomic, readonly) bool temporary;
+@property (nonatomic, readonly) struct container_object { }*thisContainer;
+@property (nonatomic, readonly) NSURL *url;
+@property (nonatomic, readonly) NSUUID *uuid;
 
-+ (id)containerWithIdentifier:(id)arg1 createIfNecessary:(BOOL)arg2 existed:(BOOL*)arg3 error:(id*)arg4;
++ (id)containerWithIdentifier:(id)arg1 createIfNecessary:(bool)arg2 existed:(bool*)arg3 error:(id*)arg4;
 + (id)containerWithIdentifier:(id)arg1 error:(id*)arg2;
-+ (id)temporaryContainerWithIdentifier:(id)arg1 existed:(BOOL*)arg2 error:(id*)arg3;
++ (id)temporaryContainerWithIdentifier:(id)arg1 existed:(bool*)arg2 error:(id*)arg3;
++ (long long)typeContainerClass;
 
 - (void).cxx_destruct;
 - (void)_errorOccurred;
-- (int)_getContainerClass;
-- (id)_getMetadataInfoFromServer;
-- (void)_invalidateObject;
-- (BOOL)_setupXpcCnnection;
-- (int)containerClass;
+- (long long)containerClass;
 - (void)dealloc;
 - (id)description;
-- (void)destroyContainerWithCompletion:(id)arg1;
-- (unsigned int)hash;
+- (id)destroyContainerWithCompletion:(id /* block */)arg1;
+- (unsigned long long)diskUsageWithError:(id*)arg1;
+- (struct container_object { }*)getLowLevelContainerObject;
+- (unsigned long long)hash;
 - (id)identifier;
 - (id)info;
 - (id)infoValueForKey:(id)arg1 error:(id*)arg2;
 - (id)init;
-- (id)initWithIdentifier:(id)arg1 createIfNecessary:(BOOL)arg2 existed:(BOOL*)arg3 temp:(BOOL)arg4 error:(id*)arg5;
-- (id)initWithIdentifier:(id)arg1 uuid:(id)arg2 containerClass:(int)arg3 error:(id*)arg4;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isTemporary;
+- (id)initWithIdentifier:(id)arg1 createIfNecessary:(bool)arg2 existed:(bool*)arg3 temp:(bool)arg4 error:(id*)arg5;
+- (id)initWithIdentifier:(id)arg1 userId:(unsigned int)arg2 uuid:(id)arg3 error:(id*)arg4;
+- (bool)isEqual:(id)arg1;
+- (bool)isTemporary;
 - (void)markDeleted;
-- (BOOL)recreateDefaultStructureWithError:(id*)arg1;
-- (BOOL)regenerateDirectoryUUIDWithError:(id*)arg1;
-- (BOOL)setInfoValue:(id)arg1 forKey:(id)arg2 error:(id*)arg3;
+- (bool)recreateDefaultStructureWithError:(id*)arg1;
+- (bool)regenerateDirectoryUUIDWithError:(id*)arg1;
+- (bool)setInfoValue:(id)arg1 forKey:(id)arg2 error:(id*)arg3;
+- (struct container_object { }*)thisContainer;
 - (id)url;
 - (id)uuid;
 

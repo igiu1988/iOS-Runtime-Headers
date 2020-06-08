@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray, NSError, NSString;
-
 @interface CKOperationResult : NSObject <NSSecureCoding> {
-    NSError *_error;
-    NSString *_operationID;
-    NSArray *_requestUUIDs;
+    NSError * _error;
+    CKOperationMetrics * _metrics;
+    NSString * _operationID;
 }
 
-@property(retain) NSError * error;
-@property(retain) NSString * operationID;
-@property(retain) NSArray * requestUUIDs;
+@property (nonatomic, retain) NSError *error;
+@property (nonatomic, retain) CKOperationMetrics *metrics;
+@property (nonatomic, retain) NSString *operationID;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (id)CKPropertiesDescription;
+- (id)CKDescriptionPropertiesWithPublic:(bool)arg1 private:(bool)arg2 shouldExpand:(bool)arg3;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)error;
 - (id)initWithCoder:(id)arg1;
+- (id)metrics;
 - (id)operationID;
-- (id)requestUUIDs;
 - (void)setError:(id)arg1;
+- (void)setMetrics:(id)arg1;
 - (void)setOperationID:(id)arg1;
-- (void)setRequestUUIDs:(id)arg1;
 
 @end

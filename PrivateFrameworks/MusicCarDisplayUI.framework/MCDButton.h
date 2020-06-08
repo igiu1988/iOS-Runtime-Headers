@@ -2,30 +2,40 @@
    Image: /System/Library/PrivateFrameworks/MusicCarDisplayUI.framework/MusicCarDisplayUI
  */
 
-@class CALayer, NSString;
-
 @interface MCDButton : UIButton {
-    CALayer *_focusColorLayer;
-    NSString *_labelTemplateString;
-    BOOL _showBezelInTouch;
+    CALayer * _focusColorLayer;
+    bool  _hideBezelInKnob;
+    bool  _showBezelInTouch;
 }
 
-@property(copy) NSString * labelTemplateString;
-@property(getter=isSelected) BOOL selected;
-@property BOOL showBezelInTouch;
+@property (nonatomic) bool hideBezelInKnob;
+@property (getter=isSelected, nonatomic) bool selected;
+@property (nonatomic) bool showBezelInTouch;
 
-+ (id)buttonWithType:(int)arg1;
++ (id)buttonWithType:(long long)arg1;
 
 - (void).cxx_destruct;
-- (void)_focusStateDidChange;
-- (BOOL)_isFocusableElement;
+- (id)_buttonBackGroundColorTouch;
 - (void)_updateButtonStyle;
-- (id)labelTemplateString;
+- (bool)canBecomeFocused;
+- (id)colorForKnobContentSelected;
+- (id)colorForKnobFocusLayer;
+- (id)colorForKnobFocusLayerSelected;
+- (id)colorForKnobFocused;
+- (id)colorForTouchContentSelected;
+- (id)colorForTouchFocusLayer;
+- (id)colorForTouchFocusLayerSelected;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (bool)hideBezelInKnob;
 - (void)layoutSubviews;
-- (void)setLabelTemplateString:(id)arg1;
-- (void)setSelected:(BOOL)arg1;
-- (void)setShowBezelInTouch:(BOOL)arg1;
-- (BOOL)showBezelInTouch;
+- (void)setHidden:(bool)arg1;
+- (void)setHideBezelInKnob:(bool)arg1;
+- (void)setSelected:(bool)arg1;
+- (void)setShowBezelInTouch:(bool)arg1;
+- (bool)shouldUpdateButtonOpacityForKnobUnfocused;
+- (bool)showBezelInTouch;
+- (id)tintColorForUnhighlightedTextLabel;
+- (void)updateButtonOpacityForKnobUnfocused;
 - (void)willMoveToWindow:(id)arg1;
 
 @end

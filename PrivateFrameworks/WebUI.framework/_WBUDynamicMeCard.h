@@ -2,22 +2,23 @@
    Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
  */
 
-@class NSMutableArray;
-
 @interface _WBUDynamicMeCard : NSObject {
-    NSMutableArray *_blocksPendingMeCard;
-    void *_me;
+    NSMutableArray * _blocksPendingMeCard;
+    CNContact * _me;
+    bool  _meCardExists;
 }
 
-+ (int)_ABPropertyIDForString:(id)arg1;
-+ (BOOL)isProxyProperty:(id)arg1;
+@property (nonatomic, readonly) bool meCardExists;
+
++ (id)_contactObjectComponentForString:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)_addressBookChanged:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)performWhenReady:(id)arg1;
-- (id)valueForProperty:(id)arg1 isMultiValue:(BOOL*)arg2;
-- (id)valueForProxyProperty:(id)arg1;
+- (id)me;
+- (bool)meCardExists;
+- (void)performWhenReady:(id /* block */)arg1;
+- (id)valueForProperty:(id)arg1 contact:(id)arg2;
 
 @end

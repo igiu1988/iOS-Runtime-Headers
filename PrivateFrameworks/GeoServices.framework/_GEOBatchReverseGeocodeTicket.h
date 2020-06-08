@@ -2,34 +2,17 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOBatchRevGeocodeRequest, GEOMapRegion, GEOMapServiceTraits, NSString;
-
-@interface _GEOBatchReverseGeocodeTicket : NSObject <GEOMapServiceTicket> {
-    GEOBatchRevGeocodeRequest *_batchReverseGeocodeRequest;
-    GEOMapRegion *_resultBoundingRegion;
-    BOOL _shiftLocationsIfNeeded;
-    GEOMapServiceTraits *_traits;
+@interface _GEOBatchReverseGeocodeTicket : GEOAbstractMapServiceTicket {
+    GEOBatchRevGeocodeRequest * _batchReverseGeocodeRequest;
+    bool  _shiftLocationsIfNeeded;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) GEOMapRegion * resultBoundingRegion;
-@property(readonly) Class superclass;
-@property(readonly) GEOMapServiceTraits * traits;
-
-- (void)_batchReverseGeocodeWithRequest:(id)arg1 handler:(id)arg2 networkActivity:(id)arg3;
-- (void)applyToCorrectedSearch:(id)arg1;
+- (void).cxx_destruct;
+- (void)_batchReverseGeocodeWithRequest:(id)arg1 auditToken:(id)arg2 handler:(id /* block */)arg3 networkActivity:(id /* block */)arg4;
 - (void)cancel;
-- (void)dealloc;
 - (id)description;
-- (id)initWithBatchReverseGeocodeRequest:(id)arg1 shiftLocationsIfNeeded:(BOOL)arg2 traits:(id)arg3;
-- (BOOL)isEqualForHistoryToTicket:(id)arg1;
-- (id)resultBoundingRegion;
-- (void)submitWithHandler:(id)arg1 networkActivity:(id)arg2;
-- (void)submitWithHandler:(id)arg1 timeout:(int)arg2 networkActivity:(id)arg3;
-- (void)submitWithRefinedHandler:(id)arg1 networkActivity:(id)arg2;
-- (void)submitWithRefinedHandler:(id)arg1 timeout:(int)arg2 networkActivity:(id)arg3;
-- (id)traits;
+- (id)initWithBatchReverseGeocodeRequest:(id)arg1 shiftLocationsIfNeeded:(bool)arg2 traits:(id)arg3;
+- (bool)isEqualForHistoryToTicket:(id)arg1;
+- (void)submitWithHandler:(id /* block */)arg1 auditToken:(id)arg2 timeout:(long long)arg3 networkActivity:(id /* block */)arg4;
 
 @end

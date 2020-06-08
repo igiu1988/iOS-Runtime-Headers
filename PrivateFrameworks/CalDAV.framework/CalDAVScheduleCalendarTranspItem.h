@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class CoreDAVItemWithNoChildren;
-
 @interface CalDAVScheduleCalendarTranspItem : CoreDAVItem {
-    CoreDAVItemWithNoChildren *_transparent;
+    CoreDAVItemWithNoChildren * _transparent;
 }
 
-@property(readonly) BOOL isScheduleTransparent;
-@property(retain) CoreDAVItemWithNoChildren * transparent;
+@property (nonatomic, readonly) bool isScheduleTransparent;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *transparent;
 
+- (void).cxx_destruct;
 - (id)copyParseRules;
-- (void)dealloc;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
-- (BOOL)isScheduleTransparent;
+- (bool)isScheduleTransparent;
 - (void)setTransparent:(id)arg1;
 - (id)transparent;
 

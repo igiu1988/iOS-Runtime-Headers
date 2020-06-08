@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVPlayerItemOutputInternal;
-
 @interface AVPlayerItemOutput : NSObject {
-    AVPlayerItemOutputInternal *_outputInternal;
+    AVPlayerItemOutputInternal * _outputInternal;
 }
 
-@property BOOL suppressesPlayerRendering;
+@property (nonatomic) bool suppressesPlayerRendering;
 
-- (BOOL)_attachToPlayerItem:(id)arg1;
+- (bool)_attachToPlayerItem:(id)arg1;
 - (struct OpaqueCMTimebase { }*)_copyTimebase;
 - (void)_detachFromPlayerItem;
 - (struct { long long x1; int x2; unsigned int x3; long long x4; })_itemTimeForHostTimeAsCMTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg1;
@@ -21,7 +19,7 @@
 - (id)init;
 - (struct { long long x1; int x2; unsigned int x3; long long x4; })itemTimeForHostTime:(double)arg1;
 - (struct { long long x1; int x2; unsigned int x3; long long x4; })itemTimeForMachAbsoluteTime:(long long)arg1;
-- (void)setSuppressesPlayerRendering:(BOOL)arg1;
-- (BOOL)suppressesPlayerRendering;
+- (void)setSuppressesPlayerRendering:(bool)arg1;
+- (bool)suppressesPlayerRendering;
 
 @end

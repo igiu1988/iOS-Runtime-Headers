@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, UIColor;
-
 @interface SKUIStorePagePinnedBackdropLayoutAttributes : UICollectionViewLayoutAttributes <NSCopying> {
-    UIColor *_backdropColor;
-    NSString *_backdropGroupName;
-    int _backdropStyle;
-    BOOL _hidesBackdropView;
-    float _transitionProgress;
+    UIColor * _backdropColor;
+    NSString * _backdropGroupName;
+    long long  _backdropStyle;
+    bool  _hidesBackdropView;
+    double  _transitionProgress;
 }
 
-@property(retain) UIColor * backdropColor;
-@property(copy) NSString * backdropGroupName;
-@property int backdropStyle;
-@property BOOL hidesBackdropView;
-@property float transitionProgress;
+@property (nonatomic, retain) UIColor *backdropColor;
+@property (nonatomic, copy) NSString *backdropGroupName;
+@property (nonatomic) long long backdropStyle;
+@property (nonatomic) bool hidesBackdropView;
+@property (nonatomic) double transitionProgress;
 
 - (void).cxx_destruct;
 - (id)backdropColor;
 - (id)backdropGroupName;
-- (int)backdropStyle;
+- (long long)backdropStyle;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (BOOL)hidesBackdropView;
+- (bool)hidesBackdropView;
 - (void)setBackdropColor:(id)arg1;
 - (void)setBackdropGroupName:(id)arg1;
-- (void)setBackdropStyle:(int)arg1;
-- (void)setHidesBackdropView:(BOOL)arg1;
-- (void)setTransitionProgress:(float)arg1;
-- (float)transitionProgress;
+- (void)setBackdropStyle:(long long)arg1;
+- (void)setHidesBackdropView:(bool)arg1;
+- (void)setTransitionProgress:(double)arg1;
+- (double)transitionProgress;
 
 @end

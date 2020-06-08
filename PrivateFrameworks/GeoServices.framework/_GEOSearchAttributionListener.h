@@ -2,24 +2,19 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray, NSString;
-
 @interface _GEOSearchAttributionListener : NSObject {
-    NSMutableArray *_completionHandlers;
-    NSMutableArray *_errorHandlers;
-    NSString *_identifier;
-    unsigned int _version;
+    NSMutableArray * _completionHandlers;
+    NSMutableArray * _errorHandlers;
+    NSString * _identifier;
 }
 
-@property(readonly) NSString * identifier;
-@property(readonly) unsigned int version;
+@property (nonatomic, readonly) NSString *identifier;
 
-- (void)addCompletionHandler:(id)arg1 errorHandler:(id)arg2;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (void)addCompletionHandler:(id /* block */)arg1 errorHandler:(id /* block */)arg2;
 - (void)handleError:(id)arg1;
-- (void)handleInfo:(id)arg1 updatedManifest:(BOOL)arg2;
+- (void)handleInfo:(id)arg1;
 - (id)identifier;
-- (id)initWithIdentifier:(id)arg1 version:(unsigned int)arg2;
-- (unsigned int)version;
+- (id)initWithIdentifier:(id)arg1;
 
 @end

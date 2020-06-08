@@ -2,17 +2,16 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class <MFCorecipientsIndicatorAtomDelegate>, NSArray;
-
 @interface MFCorecipientsIndicatorAtom : MFModernAtomView {
-    <MFCorecipientsIndicatorAtomDelegate> *_delegate;
-    NSArray *_recipients;
-    BOOL _touchesWereCancelled;
+    <MFCorecipientsIndicatorAtomDelegate> * _delegate;
+    NSArray * _recipients;
+    bool  _touchesWereCancelled;
 }
 
-@property <MFCorecipientsIndicatorAtomDelegate> * delegate;
-@property(retain) NSArray * recipients;
+@property (nonatomic) <MFCorecipientsIndicatorAtomDelegate> *delegate;
+@property (nonatomic, retain) NSArray *recipients;
 
+- (void)dealloc;
 - (id)delegate;
 - (id)init;
 - (id)initWithRecipients:(id)arg1;

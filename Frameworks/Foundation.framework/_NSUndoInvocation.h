@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSInvocation;
-
 @interface _NSUndoInvocation : _NSUndoObject {
-    NSInvocation *_invocation;
+    NSInvocation * _invocation;
 }
 
 - (void)dealloc;

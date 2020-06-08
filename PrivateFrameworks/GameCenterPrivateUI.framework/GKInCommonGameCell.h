@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKGameRecord;
-
 @interface GKInCommonGameCell : GKPlayerGameCell {
-    GKGameRecord *_localPlayerGameRecord;
+    GKGameRecord * _localPlayerGameRecord;
 }
 
-@property(retain) GKGameRecord * localPlayerGameRecord;
+@property (nonatomic, retain) GKGameRecord *localPlayerGameRecord;
 
+- (void)dealloc;
 - (void)didUpdateModel;
 - (id)leaderboardStringWithGameRecord:(id)arg1;
 - (id)localPlayerGameRecord;

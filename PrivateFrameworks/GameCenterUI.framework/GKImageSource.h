@@ -2,31 +2,31 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class GKImageBrush, GKThreadsafeCache, NSString, UIImage;
-
 @interface GKImageSource : NSObject {
-    GKThreadsafeCache *_cache;
-    UIImage *_defaultImage;
-    GKImageBrush *_imageBrush;
-    NSString *_name;
-    UIImage *_renderedDefaultImage;
-    BOOL _shouldRenderDefaultImageWithBrush;
+    GKThreadsafeCache * _cache;
+    UIImage * _defaultImage;
+    GKImageBrush * _imageBrush;
+    NSString * _name;
+    UIImage * _renderedDefaultImage;
+    bool  _shouldRenderDefaultImageWithBrush;
 }
 
-@property(retain) GKThreadsafeCache * cache;
-@property(retain) UIImage * defaultImage;
-@property(readonly) GKImageBrush * imageBrush;
-@property(readonly) NSString * name;
-@property(retain) UIImage * renderedDefaultImage;
-@property BOOL shouldRenderDefaultImageWithBrush;
+@property (nonatomic, retain) GKThreadsafeCache *cache;
+@property (nonatomic, retain) UIImage *defaultImage;
+@property (nonatomic, retain) GKImageBrush *imageBrush;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) UIImage *renderedDefaultImage;
+@property (nonatomic) bool shouldRenderDefaultImageWithBrush;
 
 + (id)cacheDirectoryForImageID:(id)arg1;
 + (void)clearCache;
 + (id)sharedCache;
 + (id)syncQueue;
 
+- (void)_storeImage:(id)arg1 cacheKey:(id)arg2 path:(id)arg3 context:(id)arg4;
 - (id)cache;
-- (unsigned int)cacheCostForImage:(id)arg1;
+- (unsigned long long)cacheCostForImage:(id)arg1;
+- (void)cacheImageFromContext:(id)arg1 forIdentifier:(id)arg2;
 - (id)cachedImageForIdentifier:(id)arg1;
 - (id)cachedImageForKey:(id)arg1;
 - (void)clearCachedImageForIdentifier:(id)arg1;
@@ -45,16 +45,18 @@
 - (id)processAndCacheImageDataInContext:(id)arg1 withImage:(id)arg2 forIdentifier:(id)arg3;
 - (id)processAndCacheImageDataInContext:(id)arg1 withImage:(id)arg2 forKey:(id)arg3;
 - (id)renderedDefaultImage;
-- (id)renderedImageWithImage:(id)arg1 defaultSize:(struct CGSize { float x1; float x2; })arg2 returnContext:(id*)arg3;
-- (id)renderedImageWithImage:(id)arg1 returnContext:(id*)arg2;
 - (id)renderedImageWithImage:(id)arg1;
+- (id)renderedImageWithImage:(id)arg1 defaultSize:(struct CGSize { double x1; double x2; })arg2 returnContext:(id*)arg3;
+- (id)renderedImageWithImage:(id)arg1 returnContext:(id*)arg2;
 - (id)renderedTestImage;
 - (void)setCache:(id)arg1;
 - (void)setDefaultImage:(id)arg1;
+- (void)setImageBrush:(id)arg1;
+- (void)setName:(id)arg1;
 - (void)setRenderedDefaultImage:(id)arg1;
-- (void)setShouldRenderDefaultImageWithBrush:(BOOL)arg1;
-- (BOOL)shouldRenderDefaultImageWithBrush;
-- (BOOL)shouldUseTestImage;
+- (void)setShouldRenderDefaultImageWithBrush:(bool)arg1;
+- (bool)shouldRenderDefaultImageWithBrush;
+- (bool)shouldUseTestImage;
 - (id)subsourceWithBrush:(id)arg1;
 - (void)validateFileSystemCache;
 

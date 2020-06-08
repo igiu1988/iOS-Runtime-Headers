@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/SiriTasks.framework/SiriTasks
  */
 
-@class AFCity, STWeatherAttributes;
-
 @interface STShowWeatherConditionsRequest : AFSiriRequest {
-    STWeatherAttributes *_attributes;
-    AFCity *_city;
+    STWeatherAttributes * _attributes;
+    STCity * _city;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_initWithAttributes:(id)arg1 city:(id)arg2;

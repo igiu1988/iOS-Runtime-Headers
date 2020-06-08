@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSCH3DGLPointerCountedSet;
-
 @interface TSCH3DGLStatisticsData : NSObject {
-    unsigned int mFrames;
-    TSCH3DGLPointerCountedSet *mGeometryUseCount;
-    TSCH3DGLPointerCountedSet *mShadersUseCount;
+    unsigned long long  mFrames;
+    TSCH3DGLPointerCountedSet * mGeometryUseCount;
+    TSCH3DGLPointerCountedSet * mShadersUseCount;
 }
 
-@property unsigned int frames;
+@property (nonatomic) unsigned long long frames;
 
 + (id)statisticsData;
 
@@ -18,8 +16,8 @@
 - (void)dealloc;
 - (id)description;
 - (void)drawGeometry:(id)arg1;
-- (unsigned int)frames;
+- (unsigned long long)frames;
 - (id)init;
-- (void)setFrames:(unsigned int)arg1;
+- (void)setFrames:(unsigned long long)arg1;
 
 @end

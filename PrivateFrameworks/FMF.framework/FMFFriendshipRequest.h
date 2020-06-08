@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/FMF.framework/FMF
  */
 
-@class FMFHandle, NSDate, NSSet, NSString;
-
 @interface FMFFriendshipRequest : NSObject <NSCopying, NSSecureCoding> {
-    NSDate *_endDate;
-    FMFHandle *_fromHandle;
-    NSString *_groupId;
-    NSString *_requestId;
-    int _requestType;
-    NSSet *_toHandles;
+    NSDate * _endDate;
+    FMFHandle * _fromHandle;
+    NSString * _groupId;
+    NSString * _requestId;
+    long long  _requestType;
+    NSSet * _toHandles;
 }
 
-@property(retain) NSDate * endDate;
-@property(retain) FMFHandle * fromHandle;
-@property(retain) NSString * groupId;
-@property(retain) NSString * requestId;
-@property int requestType;
-@property(retain) NSSet * toHandles;
+@property (nonatomic, retain) NSDate *endDate;
+@property (nonatomic, retain) FMFHandle *fromHandle;
+@property (nonatomic, retain) NSString *groupId;
+@property (nonatomic, retain) NSString *requestId;
+@property (nonatomic) long long requestType;
+@property (nonatomic, retain) NSSet *toHandles;
 
-+ (id)friendshipRequestToHandles:(id)arg1 fromHandle:(id)arg2 withType:(int)arg3 groupId:(id)arg4 withEndDate:(id)arg5;
-+ (BOOL)supportsSecureCoding;
++ (id)friendshipRequestToHandles:(id)arg1 fromHandle:(id)arg2 withType:(long long)arg3 groupId:(id)arg4 withEndDate:(id)arg5;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -31,14 +29,14 @@
 - (id)fromHandle;
 - (id)groupId;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFromHandle:(id)arg1 toHandle:(id)arg2 ofType:(int)arg3 groupId:(id)arg4 endDate:(id)arg5 requestId:(id)arg6;
+- (id)initWithFromHandle:(id)arg1 toHandle:(id)arg2 ofType:(long long)arg3 groupId:(id)arg4 endDate:(id)arg5 requestId:(id)arg6;
 - (id)requestId;
-- (int)requestType;
+- (long long)requestType;
 - (void)setEndDate:(id)arg1;
 - (void)setFromHandle:(id)arg1;
 - (void)setGroupId:(id)arg1;
 - (void)setRequestId:(id)arg1;
-- (void)setRequestType:(int)arg1;
+- (void)setRequestType:(long long)arg1;
 - (void)setToHandles:(id)arg1;
 - (id)toHandles;
 

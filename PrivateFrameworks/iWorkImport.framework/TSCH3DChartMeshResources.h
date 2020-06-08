@@ -2,29 +2,28 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSObject<TSCH3DChartMeshCreator>, TSCH3DChartMeshSharedResource, TSCH3DChartTexcoordSharedResource, TSCH3DGeometry, TSCH3DResource, TSCHChartSeries;
-
 @interface TSCH3DChartMeshResources : NSObject <TSCHUnretainedParent> {
     struct GeometryArrays { 
         unsigned int offset; 
         unsigned int count; 
         unsigned int capoffset; 
         unsigned int capcount; 
-    } mArrays;
-    TSCH3DChartMeshSharedResource *mBounds;
-    TSCH3DResource *mCachedBounds;
-    NSObject<TSCH3DChartMeshCreator> *mCreator;
-    TSCH3DGeometry *mGeometry;
-    TSCH3DChartMeshSharedResource *mNormal;
-    TSCHChartSeries *mSeries;
-    TSCH3DChartTexcoordSharedResource *mTexcoord;
-    TSCH3DChartMeshSharedResource *mVertex;
+    }  mArrays;
+    TSCH3DChartMeshSharedResource * mBounds;
+    TSCH3DResource * mCachedBounds;
+    TSUOnce * mCachedBoundsOnce;
+    NSObject<TSCH3DChartMeshCreator> * mCreator;
+    TSCH3DGeometry * mGeometry;
+    TSCH3DChartMeshSharedResource * mNormal;
+    TSCHChartSeries * mSeries;
+    TSCH3DChartTexcoordSharedResource * mTexcoord;
+    TSCH3DChartMeshSharedResource * mVertex;
 }
 
-@property(readonly) TSCH3DResource * bounds;
-@property(readonly) TSCH3DResource * normal;
-@property(readonly) TSCH3DResource * texcoord;
-@property(readonly) TSCH3DResource * vertex;
+@property (nonatomic, readonly) TSCH3DResource *bounds;
+@property (nonatomic, readonly) TSCH3DResource *normal;
+@property (nonatomic, readonly) TSCH3DResource *texcoord;
+@property (nonatomic, readonly) TSCH3DResource *vertex;
 
 + (id)nullBuffer;
 + (id)resourcesWithSeries:(id)arg1 creator:(id)arg2;
@@ -33,7 +32,7 @@
 - (id)bounds;
 - (void)clearParent;
 - (void)dealloc;
-- (struct GeometryResource { int x1; struct ObjcSharedPtr<TSCH3DResource> { id x_2_1_1; } x2; struct GeometryArrays { unsigned int x_3_1_1; unsigned int x_3_1_2; unsigned int x_3_1_3; unsigned int x_3_1_4; } x3; struct ObjcSharedPtr<TSCH3DGeometry> { id x_4_1_1; } x4; })geometryResourceWithPrimitiveType:(int)arg1;
+- (struct GeometryResource { int x1; /* Warning: unhandled struct encoding: '{ObjcSharedPtr<TSCH3DResource>=@}{GeometryArrays=IIII}{ObjcSharedPtr<TSCH3DGeometry>=@}}' */ struct ObjcSharedPtr<TSCH3DResource> { id x_2_1_1; struct GeometryArrays { unsigned int x_2_2_1; unsigned int x_2_2_2; unsigned int x_2_2_3; unsigned int x_2_2_4; } x_2_1_2; struct ObjcSharedPtr<TSCH3DGeometry> { id x_3_2_1; } x_2_1_3; } x2; })geometryResourceWithPrimitiveType:(int)arg1;
 - (id)initWithSeries:(id)arg1 creator:(id)arg2;
 - (id)normal;
 - (void)regenerate;

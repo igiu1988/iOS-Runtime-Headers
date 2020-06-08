@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
  */
 
-@class NSMutableArray, NSString;
-
 @interface SBFSubject : SBFObservable <SBFObserver> {
-    NSMutableArray *_observers;
+    NSMutableArray * _observers;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
+- (void).cxx_destruct;
 - (id)_observers;
-- (void)dealloc;
 - (id)init;
 - (void)observerDidComplete;
 - (void)observerDidFailWithError:(id)arg1;

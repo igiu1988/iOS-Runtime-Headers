@@ -2,35 +2,36 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class MFHeaderLabelView, UILabel;
-
 @interface MFComposeMultiView : MFComposeHeaderView {
-    BOOL _accountAutoselected;
-    BOOL _accountHasUnsafeDomain;
-    UILabel *_accountLabel;
-    MFHeaderLabelView *_imageSizeHeaderLabelView;
-    UILabel *_imageSizeLabel;
-    BOOL _imageSizeShown;
-    UILabel *_placeholderImageSizeLabel;
+    bool  _accountAutoselected;
+    NSString * _accountDescription;
+    bool  _accountHasUnsafeDomain;
+    UILabel * _accountLabel;
+    MFHeaderLabelView * _imageSizeHeaderLabelView;
+    UILabel * _imageSizeLabel;
+    bool  _imageSizeShown;
+    UILabel * _placeholderImageSizeLabel;
 }
 
-@property(getter=isAccountAutoselected) BOOL accountAutoselected;
-@property BOOL accountHasUnsafeDomain;
+@property (getter=isAccountAutoselected, nonatomic) bool accountAutoselected;
+@property (nonatomic) bool accountHasUnsafeDomain;
 
-- (BOOL)accountHasUnsafeDomain;
+- (id)_accountDescriptionAttributedString;
+- (bool)accountHasUnsafeDomain;
 - (id)accountLabel;
 - (void)dealloc;
 - (id)imageSizeHeaderLabelView;
 - (id)imageSizeLabel;
-- (BOOL)isAccountAutoselected;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (bool)isAccountAutoselected;
 - (id)labelColor;
 - (void)layoutSubviews;
 - (id)placeholderImageSizeLabel;
 - (void)refreshPreferredContentSize;
-- (void)setAccountAutoselected:(BOOL)arg1;
+- (void)setAccountAutoselected:(bool)arg1;
 - (void)setAccountDescription:(id)arg1;
-- (void)setAccountHasUnsafeDomain:(BOOL)arg1;
+- (void)setAccountHasUnsafeDomain:(bool)arg1;
 - (void)setImageSizeDescription:(id)arg1;
-- (void)setShowsImageSize:(BOOL)arg1;
+- (void)setShowsImageSize:(bool)arg1;
 
 @end

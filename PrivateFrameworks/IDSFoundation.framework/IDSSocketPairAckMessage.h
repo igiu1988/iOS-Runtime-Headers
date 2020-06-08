@@ -3,10 +3,10 @@
  */
 
 @interface IDSSocketPairAckMessage : IDSSocketPairMessage {
-    unsigned int _sequenceNumber;
+    unsigned int  _sequenceNumber;
 }
 
-@property(readonly) unsigned int sequenceNumber;
+@property (nonatomic, readonly) unsigned int sequenceNumber;
 
 - (id)_nonHeaderData;
 - (unsigned char)command;

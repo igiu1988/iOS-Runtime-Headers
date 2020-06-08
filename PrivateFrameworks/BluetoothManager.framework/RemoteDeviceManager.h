@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/BluetoothManager.framework/BluetoothManager
  */
 
-@class NSObject<OS_xpc_object>;
-
 @interface RemoteDeviceManager : NSObject {
-    NSObject<OS_xpc_object> *_connection;
+    NSObject<OS_xpc_object> * _connection;
 }
 
 - (void)dealloc;

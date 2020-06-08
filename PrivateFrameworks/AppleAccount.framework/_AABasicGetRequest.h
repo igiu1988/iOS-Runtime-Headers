@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class ACAccount;
-
 @interface _AABasicGetRequest : AARequest {
-    ACAccount *_account;
+    ACAccount * _account;
 }
 
 - (void).cxx_destruct;

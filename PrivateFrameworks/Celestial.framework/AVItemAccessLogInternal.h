@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSArray;
-
 @interface AVItemAccessLogInternal : NSObject {
-    NSArray *logArray;
+    NSArray * logArray;
 }
 
 @end

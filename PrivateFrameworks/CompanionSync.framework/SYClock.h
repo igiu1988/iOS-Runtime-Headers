@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/CompanionSync.framework/CompanionSync
  */
 
-@class SYPeer;
-
 @interface SYClock : PBCodable <NSCopying> {
-    SYPeer *_peer;
-    unsigned long long _version;
+    SYPeer * _peer;
+    unsigned long long  _version;
 }
 
-@property(retain) SYPeer * peer;
-@property unsigned long long version;
+@property (nonatomic, retain) SYPeer *peer;
+@property (nonatomic) unsigned long long version;
 
 + (void)initialize;
 
@@ -20,13 +18,13 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (unsigned long long)increaseBy:(unsigned long long)arg1;
 - (unsigned long long)increment;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)peer;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setPeer:(id)arg1;
 - (void)setVersion:(unsigned long long)arg1;
 - (unsigned long long)version;

@@ -2,45 +2,46 @@
    Image: /System/Library/Frameworks/NetworkExtension.framework/NetworkExtension
  */
 
-@class NSString;
-
-@interface NEProxyServer : NSObject <NEConfigurationValidating, NEPrettyDescription, NSSecureCoding, NSCopying> {
-    NSString *_address;
-    BOOL _authenticationRequired;
-    NSString *_password;
-    int _port;
-    int _type;
-    NSString *_username;
+@interface NEProxyServer : NSObject <NEConfigurationValidating, NEPrettyDescription, NSCopying, NSSecureCoding> {
+    NSString * _address;
+    bool  _authenticationRequired;
+    NSString * _password;
+    long long  _port;
+    long long  _type;
+    NSString * _username;
 }
 
-@property(readonly) NSString * address;
-@property BOOL authenticationRequired;
-@property(copy) NSString * password;
-@property(readonly) int port;
-@property(readonly) int type;
-@property(copy) NSString * username;
+@property (readonly) NSString *address;
+@property bool authenticationRequired;
+@property (copy) NSString *password;
+@property (readonly) long long port;
+@property long long type;
+@property (copy) NSString *username;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)address;
-- (BOOL)authenticationRequired;
-- (BOOL)checkValidityAndCollectErrors:(id)arg1;
+- (bool)authenticationRequired;
+- (bool)checkValidityAndCollectErrors:(id)arg1;
 - (id)copyPassword;
 - (id)copyProtectionSpace;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (id)descriptionWithIndent:(int)arg1;
+- (id)descriptionWithIndent:(int)arg1 options:(unsigned long long)arg2;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithAddress:(id)arg1 andPort:(int)arg2;
+- (id)initWithAddress:(id)arg1 port:(long long)arg2;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithType:(int)arg1 address:(id)arg2 port:(int)arg3;
+- (id)initWithType:(long long)arg1 address:(id)arg2 port:(long long)arg3;
+- (bool)needToUpdateKeychain;
 - (id)password;
-- (int)port;
-- (void)setAuthenticationRequired:(BOOL)arg1;
+- (long long)port;
+- (void)removeFromKeychain;
+- (void)setAuthenticationRequired:(bool)arg1;
 - (void)setPassword:(id)arg1;
+- (void)setType:(long long)arg1;
 - (void)setUsername:(id)arg1;
 - (void)syncWithKeychain;
-- (int)type;
+- (long long)type;
 - (id)username;
 
 @end

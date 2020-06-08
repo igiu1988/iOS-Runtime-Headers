@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/RemoteMediaServices.framework/RemoteMediaServices
  */
 
-@class NSString;
-
 @interface RMSBeginPairingMessage : PBCodable <NSCopying> {
-    NSString *_appName;
-    NSString *_deviceModel;
-    NSString *_deviceName;
-    NSString *_passcode;
+    NSString * _appName;
+    NSString * _deviceModel;
+    NSString * _deviceName;
+    NSString * _passcode;
 }
 
-@property(retain) NSString * appName;
-@property(retain) NSString * deviceModel;
-@property(retain) NSString * deviceName;
-@property(readonly) BOOL hasAppName;
-@property(readonly) BOOL hasDeviceModel;
-@property(readonly) BOOL hasDeviceName;
-@property(readonly) BOOL hasPasscode;
-@property(retain) NSString * passcode;
+@property (nonatomic, retain) NSString *appName;
+@property (nonatomic, retain) NSString *deviceModel;
+@property (nonatomic, retain) NSString *deviceName;
+@property (nonatomic, readonly) bool hasAppName;
+@property (nonatomic, readonly) bool hasDeviceModel;
+@property (nonatomic, readonly) bool hasDeviceName;
+@property (nonatomic, readonly) bool hasPasscode;
+@property (nonatomic, retain) NSString *passcode;
 
 - (void).cxx_destruct;
 - (id)appName;
@@ -28,15 +26,15 @@
 - (id)deviceModel;
 - (id)deviceName;
 - (id)dictionaryRepresentation;
-- (BOOL)hasAppName;
-- (BOOL)hasDeviceModel;
-- (BOOL)hasDeviceName;
-- (BOOL)hasPasscode;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasAppName;
+- (bool)hasDeviceModel;
+- (bool)hasDeviceName;
+- (bool)hasPasscode;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)passcode;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setAppName:(id)arg1;
 - (void)setDeviceModel:(id)arg1;
 - (void)setDeviceName:(id)arg1;

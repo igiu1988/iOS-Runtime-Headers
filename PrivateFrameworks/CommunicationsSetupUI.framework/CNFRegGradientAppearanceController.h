@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@interface CNFRegGradientAppearanceController : CNFRegAppearanceController {
-}
+@interface CNFRegGradientAppearanceController : CNFRegAppearanceController
 
-- (BOOL)actionSheetsUsePopoverStyle;
-- (int)modalPresentationStyle;
-- (int)navigationBarActivityIndicatorStyle;
+- (bool)actionSheetsUsePopoverStyle;
+- (long long)modalPresentationStyle;
+- (long long)navigationBarActivityIndicatorStyle;
 - (id)webViewBackgroundColor;
-- (BOOL)webViewDrawsShadows;
-- (BOOL)webViewIsOpaque;
+- (bool)webViewDrawsShadows;
+- (bool)webViewIsOpaque;
 
 @end

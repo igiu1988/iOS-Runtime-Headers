@@ -2,29 +2,29 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAUIColor : AceObject <SAAceSerializable>
 
-@interface SAUIColor : AceObject <SAAceSerializable> {
-}
-
-@property int blueValue;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property int greenValue;
-@property(readonly) unsigned int hash;
-@property int redValue;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSNumber *alpha;
+@property (nonatomic) long long blueValue;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) long long greenValue;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) long long redValue;
+@property (readonly) Class superclass;
 
 + (id)color;
 + (id)colorWithDictionary:(id)arg1 context:(id)arg2;
 
-- (int)blueValue;
+- (id)alpha;
+- (long long)blueValue;
 - (id)encodedClassName;
-- (int)greenValue;
+- (long long)greenValue;
 - (id)groupIdentifier;
-- (int)redValue;
-- (void)setBlueValue:(int)arg1;
-- (void)setGreenValue:(int)arg1;
-- (void)setRedValue:(int)arg1;
+- (long long)redValue;
+- (void)setAlpha:(id)arg1;
+- (void)setBlueValue:(long long)arg1;
+- (void)setGreenValue:(long long)arg1;
+- (void)setRedValue:(long long)arg1;
 
 @end

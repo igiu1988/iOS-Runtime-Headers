@@ -2,71 +2,85 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKEventEditViewDelegate>, EKEvent, EKEventEditViewController, EKEventEditor, EKEventStore, NSString, UIColor;
-
 @interface EKEventEditViewController : UINavigationController {
-    <EKEventEditViewDelegate> *_editViewDelegate;
-    EKEventEditor *_editor;
-    EKEvent *_event;
-    NSString *_eventId;
-    EKEventStore *_store;
-    EKEventEditViewController *_strongSelf;
-    int _transitionForModalViewPresentation;
+    bool  _completedWithAction;
+    <EKEventEditViewDelegate> * _editViewDelegate;
+    EKEventEditor * _editor;
+    EKEvent * _event;
+    NSString * _eventId;
+    EKEventStore * _store;
+    EKEventEditViewController * _strongSelf;
+    NSString * _suggestionKey;
+    int  _transitionForModalViewPresentation;
 }
 
-@property BOOL canHideDoneAndCancelButtons;
-@property <EKEventEditViewDelegate> * editViewDelegate;
-@property(retain) EKEventEditor * editor;
-@property(retain) UIColor * editorBackgroundColor;
-@property float editorNavBarLeftContentInset;
-@property float editorNavBarRightContentInset;
-@property(retain) EKEvent * event;
-@property(retain) EKEventStore * eventStore;
-@property BOOL scrollToNotes;
-@property BOOL showAttachments;
-@property(retain) EKEventEditViewController * strongSelf;
-@property int transitionForModalViewPresentation;
+@property (nonatomic) bool canHideDoneAndCancelButtons;
+@property (nonatomic) <EKEventEditViewDelegate> *editViewDelegate;
+@property (nonatomic, retain) EKEventEditor *editor;
+@property (nonatomic, retain) UIColor *editorBackgroundColor;
+@property (nonatomic) double editorNavBarLeftContentInset;
+@property (nonatomic) double editorNavBarRightContentInset;
+@property (nonatomic, retain) EKEvent *event;
+@property (nonatomic, retain) EKEventStore *eventStore;
+@property (nonatomic) bool scrollToNotes;
+@property (nonatomic) bool showAttachments;
+@property (nonatomic, retain) EKEventEditViewController *strongSelf;
+@property (nonatomic, retain) NSString *suggestionKey;
+@property (nonatomic) bool timeImplicitlySet;
+@property (nonatomic) int transitionForModalViewPresentation;
 
++ (id)eventEditViewControllerWithEvent:(id)arg1 eventStore:(id)arg2 editViewDelegate:(id)arg3;
 + (void)setDefaultDatesForEvent:(id)arg1;
 
 - (void).cxx_destruct;
+- (id)_eventEditorForTestingOnly;
 - (void)_storeChanged:(id)arg1;
-- (BOOL)canHideDoneAndCancelButtons;
+- (bool)canHideDoneAndCancelButtons;
 - (void)cancelEditing;
 - (void)completeAndSave;
 - (void)dealloc;
 - (id)editViewDelegate;
-- (void)editor:(id)arg1 didCompleteWithAction:(int)arg2;
-- (void)editor:(id)arg1 prepareCalendarItemForEdit:(id)arg2;
 - (id)editor;
+- (void)editor:(id)arg1 didCompleteWithAction:(long long)arg2;
+- (void)editor:(id)arg1 prepareCalendarItemForEdit:(id)arg2;
 - (id)editorBackgroundColor;
-- (float)editorNavBarLeftContentInset;
-- (float)editorNavBarRightContentInset;
+- (double)editorNavBarLeftContentInset;
+- (double)editorNavBarRightContentInset;
 - (id)event;
 - (id)eventStore;
+- (void)focusAndSelectStartDate;
+- (void)focusAndSelectTitle;
+- (void)focusTitle;
 - (void)handleTapOutside;
+- (bool)hasUnsavedChanges;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (struct CGSize { float x1; float x2; })preferredContentSize;
+- (struct CGSize { double x1; double x2; })preferredContentSize;
 - (void)refreshStartAndEndDates;
-- (BOOL)saveWithSpan:(int)arg1 animated:(BOOL)arg2;
-- (BOOL)scrollToNotes;
-- (void)setCanHideDoneAndCancelButtons:(BOOL)arg1;
+- (bool)saveWithSpan:(long long)arg1 animated:(bool)arg2;
+- (bool)scrollToNotes;
+- (void)setCanHideDoneAndCancelButtons:(bool)arg1;
 - (void)setEditViewDelegate:(id)arg1;
 - (void)setEditor:(id)arg1;
 - (void)setEditorBackgroundColor:(id)arg1;
-- (void)setEditorNavBarLeftContentInset:(float)arg1;
-- (void)setEditorNavBarRightContentInset:(float)arg1;
+- (void)setEditorNavBarLeftContentInset:(double)arg1;
+- (void)setEditorNavBarRightContentInset:(double)arg1;
 - (void)setEvent:(id)arg1;
 - (void)setEventStore:(id)arg1;
-- (void)setScrollToNotes:(BOOL)arg1;
-- (void)setShowAttachments:(BOOL)arg1;
+- (void)setScrollToNotes:(bool)arg1;
+- (void)setShowAttachments:(bool)arg1;
 - (void)setStrongSelf:(id)arg1;
+- (void)setSuggestionKey:(id)arg1;
+- (void)setTimeImplicitlySet:(bool)arg1;
 - (void)setTransitionForModalViewPresentation:(int)arg1;
-- (BOOL)shouldAutorotate;
-- (BOOL)showAttachments;
+- (bool)shouldAutorotate;
+- (bool)showAttachments;
 - (id)strongSelf;
-- (unsigned int)supportedInterfaceOrientations;
+- (id)suggestionKey;
+- (unsigned long long)supportedInterfaceOrientations;
+- (bool)timeImplicitlySet;
 - (int)transitionForModalViewPresentation;
-- (BOOL)willPresentDialogOnSave;
+- (void)viewDidAppear:(bool)arg1;
+- (void)viewWillDisappear:(bool)arg1;
+- (bool)willPresentDialogOnSave;
 
 @end

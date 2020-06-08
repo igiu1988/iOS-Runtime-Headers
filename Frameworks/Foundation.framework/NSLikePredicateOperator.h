@@ -2,10 +2,9 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@interface NSLikePredicateOperator : NSMatchingPredicateOperator {
-}
+@interface NSLikePredicateOperator : NSMatchingPredicateOperator
 
-- (BOOL)_shouldEscapeForLike;
+- (bool)_shouldEscapeForLike;
 - (SEL)selector;
 - (id)symbol;
 

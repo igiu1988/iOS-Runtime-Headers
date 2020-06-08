@@ -2,23 +2,25 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSObject<OS_dispatch_queue>, NSUserActivity;
-
 @interface NPKContinuityCoordinator : NSObject {
-    NSUserActivity *_currentUserActivity;
-    NSUserActivity *_getPaymentPassesUserActivity;
-    NSUserActivity *_individualPassUserActivity;
-    NSUserActivity *_passListUserActivity;
-    NSUserActivity *_provisionPassUserActivity;
-    NSObject<OS_dispatch_queue> *_queue;
+    NSUserActivity * _currentUserActivity;
+    NSUserActivity * _getPaymentPassesUserActivity;
+    NSUserActivity * _individualPassUserActivity;
+    NSUserActivity * _passListUserActivity;
+    NSUserActivity * _provisionPassUserActivity;
+    NSObject<OS_dispatch_queue> * _queue;
+    NSUserActivity * _setUpPeerPaymentUserActivity;
+    NSUserActivity * _viewPeerPaymentUserActivity;
 }
 
-@property NSUserActivity * currentUserActivity;
-@property(retain) NSUserActivity * getPaymentPassesUserActivity;
-@property(retain) NSUserActivity * individualPassUserActivity;
-@property(retain) NSUserActivity * passListUserActivity;
-@property(retain) NSUserActivity * provisionPassUserActivity;
-@property(retain) NSObject<OS_dispatch_queue> * queue;
+@property (nonatomic) NSUserActivity *currentUserActivity;
+@property (nonatomic, retain) NSUserActivity *getPaymentPassesUserActivity;
+@property (nonatomic, retain) NSUserActivity *individualPassUserActivity;
+@property (nonatomic, retain) NSUserActivity *passListUserActivity;
+@property (nonatomic, retain) NSUserActivity *provisionPassUserActivity;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *queue;
+@property (nonatomic, retain) NSUserActivity *setUpPeerPaymentUserActivity;
+@property (nonatomic, retain) NSUserActivity *viewPeerPaymentUserActivity;
 
 + (id)sharedContinuityCoordinator;
 
@@ -31,6 +33,7 @@
 - (id)getPaymentPassesUserActivity;
 - (id)individualPassUserActivity;
 - (id)init;
+- (void)invalidateAllActivities;
 - (id)passListUserActivity;
 - (id)provisionPassUserActivity;
 - (id)queue;
@@ -40,10 +43,16 @@
 - (void)setPassListUserActivity:(id)arg1;
 - (void)setProvisionPassUserActivity:(id)arg1;
 - (void)setQueue:(id)arg1;
+- (void)setSetUpPeerPaymentUserActivity:(id)arg1;
+- (id)setUpPeerPaymentUserActivity;
+- (void)setViewPeerPaymentUserActivity:(id)arg1;
 - (id)userActivityForPassWithUniqueID:(id)arg1;
 - (void)userNeedsPaymentPasses;
 - (void)userNeedsToProvisionPassWithUniqueID:(id)arg1;
+- (void)userNeedsToSetUpPeerPayment;
+- (void)userNeedsToViewPeerPaymentForHandle:(id)arg1;
 - (void)userViewingPassList;
-- (void)userViewingPassWithUniqueID:(id)arg1 isPaymentPass:(BOOL)arg2;
+- (void)userViewingPassWithUniqueID:(id)arg1 isPaymentPass:(bool)arg2;
+- (id)viewPeerPaymentUserActivity;
 
 @end

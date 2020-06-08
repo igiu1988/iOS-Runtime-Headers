@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-@class SCNNode;
-
 @interface SCNIKJoint : NSObject {
-    SCNNode *joint;
-    float maxAllowedRotationAngle;
+    SCNNode * joint;
+    double  maxAllowedRotationAngle;
 }
 
-@property SCNNode * joint;
-@property float maxAllowedRotationAngle;
+@property (nonatomic) SCNNode *joint;
+@property (nonatomic) double maxAllowedRotationAngle;
 
 - (id)joint;
-- (float)maxAllowedRotationAngle;
+- (double)maxAllowedRotationAngle;
 - (void)setJoint:(id)arg1;
-- (void)setMaxAllowedRotationAngle:(float)arg1;
+- (void)setMaxAllowedRotationAngle:(double)arg1;
 
 @end

@@ -2,32 +2,38 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDResources, OADGraphicProperties;
-
 @interface CHDDataLabel : NSObject {
-    boolmIsPositionAffineTransform;
-    boolmShowBubbleSize;
-    boolmShowCategoryName;
-    boolmShowLeaderLines;
-    boolmShowLegendKey;
-    boolmShowPercent;
-    boolmShowSeriesName;
-    boolmShowValue;
-    unsigned int mContentFormatId;
-    OADGraphicProperties *mGraphicProperties;
-    int mPosition;
-    EDResources *mResources;
-    double mRotation;
-    unsigned int mStringIndex;
+    bool  mContentFormatDerived;
+    unsigned long long  mContentFormatId;
+    bool  mDeleted;
+    bool  mExtensionDetected;
+    OADGraphicProperties * mGraphicProperties;
+    bool  mIsPositionAffineTransform;
+    int  mPosition;
+    EDResources * mResources;
+    double  mRotation;
+    bool  mShowBubbleSize;
+    bool  mShowCategoryName;
+    bool  mShowLeaderLines;
+    bool  mShowLegendKey;
+    bool  mShowPercent;
+    bool  mShowSeriesName;
+    bool  mShowValue;
+    unsigned long long  mStringIndex;
 }
 
 + (id)dataLabelWithResources:(id)arg1;
 
 - (id)contentFormat;
-- (unsigned int)contentFormatId;
+- (unsigned long long)contentFormatId;
 - (void)dealloc;
+- (id)description;
 - (id)graphicProperties;
 - (id)initWithResources:(id)arg1;
+- (bool)isContentFormatDerivedFromDataPoints;
+- (bool)isCustomLabelBlockingVisibility;
+- (bool)isDeleted;
+- (bool)isExtensionDetected;
 - (bool)isPositionAffineTransform;
 - (bool)isShowBubbleSize;
 - (bool)isShowCategoryName;
@@ -39,8 +45,11 @@
 - (int)position;
 - (double)rotationAngle;
 - (void)setContentFormat:(id)arg1;
-- (void)setContentFormatId:(unsigned int)arg1;
+- (void)setContentFormatId:(unsigned long long)arg1;
+- (void)setDeleted:(bool)arg1;
+- (void)setExtensionDetected:(bool)arg1;
 - (void)setGraphicProperties:(id)arg1;
+- (void)setIsContentFormatDerivedFromDataPoints:(bool)arg1;
 - (void)setIsPositionAffineTransform:(bool)arg1;
 - (void)setPosition:(int)arg1;
 - (void)setRotationAngle:(double)arg1;
@@ -52,8 +61,8 @@
 - (void)setShowSeriesName:(bool)arg1;
 - (void)setShowValue:(bool)arg1;
 - (void)setString:(id)arg1;
-- (void)setStringIndex:(unsigned int)arg1;
+- (void)setStringIndex:(unsigned long long)arg1;
 - (id)string;
-- (unsigned int)stringIndex;
+- (unsigned long long)stringIndex;
 
 @end

@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
  */
 
-@class NSURL;
-
 @interface NSHTMLWebDelegate : NSObject {
-    NSURL *_baseURL;
-    BOOL _loadDidFinish;
-    BOOL _loadDidSucceed;
+    NSURL * _baseURL;
+    bool  _loadDidFinish;
+    bool  _loadDidSucceed;
 }
 
 - (void)dealloc;
 - (void)decidePolicyForRequest:(id)arg1 decisionListener:(id)arg2;
 - (id)init;
 - (id)initWithBaseURL:(id)arg1;
-- (BOOL)loadDidFinish;
-- (BOOL)loadDidSucceed;
+- (bool)loadDidFinish;
+- (bool)loadDidSucceed;
 - (void)webView:(id)arg1 decidePolicyForMIMEType:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 request:(id)arg3 frame:(id)arg4 decisionListener:(id)arg5;
 - (void)webView:(id)arg1 decidePolicyForNewWindowAction:(id)arg2 request:(id)arg3 newFrameName:(id)arg4 decisionListener:(id)arg5;

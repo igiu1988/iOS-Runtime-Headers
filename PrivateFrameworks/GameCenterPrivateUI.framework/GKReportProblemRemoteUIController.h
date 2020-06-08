@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKPlayer, NSURL;
-
 @interface GKReportProblemRemoteUIController : GKRemoteUIController {
-    GKPlayer *_problemPlayer;
-    NSURL *_url;
+    GKPlayer * _problemPlayer;
+    NSURL * _url;
 }
 
-@property(retain) GKPlayer * problemPlayer;
-@property(retain) NSURL * url;
+@property (nonatomic, retain) GKPlayer *problemPlayer;
+@property (nonatomic, retain) NSURL *url;
 
-+ (id)controllerForProblemPlayer:(id)arg1 completionHandler:(id)arg2;
++ (id)controllerForProblemPlayer:(id)arg1 completionHandler:(id /* block */)arg2;
 
 - (id)bagKey;
+- (void)dealloc;
 - (id)fallbackURL;
 - (id)initWithProblemPlayer:(id)arg1;
 - (id)postBodyForInitialLoad;

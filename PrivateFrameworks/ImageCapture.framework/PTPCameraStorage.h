@@ -2,18 +2,14 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class NSMutableArray;
-
 @interface PTPCameraStorage : PTPCameraFolder {
-    NSMutableArray *_tempArrayOfAllObjectHandles;
-    NSMutableArray *_tempArrayOfAllObjectHandlesToBeIgnored;
+    NSMutableArray * _objectInfoArray;
 }
 
 - (void)dealloc;
-- (id)initWithStorageID:(unsigned long)arg1 device:(id)arg2;
+- (id)initWithStorageID:(unsigned int)arg1 device:(id)arg2;
+- (id)objectInfoArray;
 - (void)prime;
 - (void)refreshInfo;
-- (id)tempArrayOfAllObjectHandles;
-- (id)tempArrayOfAllObjectHandlesToBeIgnored;
 
 @end

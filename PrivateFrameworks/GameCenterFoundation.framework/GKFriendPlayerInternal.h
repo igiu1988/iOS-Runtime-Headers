@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKGameInternal, NSDate, NSString;
-
 @interface GKFriendPlayerInternal : GKFamiliarPlayerInternal {
-    NSDate *_lastPlayedDate;
-    GKGameInternal *_lastPlayedGame;
-    NSString *_status;
+    NSDate * _lastPlayedDate;
+    GKGameInternal * _lastPlayedGame;
+    NSString * _status;
 }
 
 + (id)secureCodedPropertyKeys;
++ (bool)supportsSecureCoding;
 
 - (void)dealloc;
 - (int)defaultFamiliarity;
-- (BOOL)isFriend;
+- (bool)isFriend;
 - (id)lastPlayedDate;
 - (id)lastPlayedGame;
 - (void)setLastPlayedDate:(id)arg1;

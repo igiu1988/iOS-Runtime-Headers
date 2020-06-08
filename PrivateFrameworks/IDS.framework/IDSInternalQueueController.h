@@ -2,21 +2,21 @@
    Image: /System/Library/PrivateFrameworks/IDS.framework/IDS
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface IDSInternalQueueController : NSObject {
-    NSObject<OS_dispatch_queue> *_queue;
+    void * _contextKey;
+    NSObject<OS_dispatch_queue> * _queue;
 }
 
 + (id)sharedInstance;
 
+- (void).cxx_destruct;
 - (void)assertQueueIsCurrent;
 - (void)assertQueueIsNotCurrent;
-- (void)dealloc;
 - (id)init;
-- (BOOL)isQueueCurrent;
-- (void)performBlock:(id)arg1 waitUntilDone:(BOOL)arg2;
-- (void)performBlock:(id)arg1;
+- (id)initWithName:(char *)arg1 contextKey:(void*)arg2;
+- (bool)isQueueCurrent;
+- (void)performBlock:(id /* block */)arg1;
+- (void)performBlock:(id /* block */)arg1 waitUntilDone:(bool)arg2;
 - (id)queue;
 
 @end

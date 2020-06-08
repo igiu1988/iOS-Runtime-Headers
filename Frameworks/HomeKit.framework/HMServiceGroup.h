@@ -2,65 +2,109 @@
    Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
  */
 
-@class HMHome, HMMessageDispatcher, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
-
-@interface HMServiceGroup : NSObject <HMMessageReceiver, NSSecureCoding> {
-    NSMutableArray *_currentServices;
-    HMHome *_home;
-    HMMessageDispatcher *_msgDispatcher;
-    NSString *_name;
-    NSMutableDictionary *_pendingRequests;
-    NSUUID *_uuid;
-    NSObject<OS_dispatch_queue> *_workQueue;
+@interface HMServiceGroup : NSObject <HFFavoritable, HFHomeKitObject, HFHomeStatusVisible, HFReorderableHomeKitObject, HFStateDumpBuildable, HFUserNotificationServiceSettingsProviding, HMFLogging, HMFMessageReceiver, HMMutableApplicationData, HMObjectMerge, NSSecureCoding> {
+    HMApplicationData * _applicationData;
+    _HMContext * _context;
+    HMMutableArray * _currentServices;
+    HMHome * _home;
+    HMFUnfairLock * _lock;
+    NSString * _name;
+    NSUUID * _uniqueIdentifier;
+    NSUUID * _uuid;
 }
 
-@property(retain) NSMutableArray * currentServices;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property HMHome * home;
-@property(readonly) NSObject<OS_dispatch_queue> * messageReceiveQueue;
-@property(readonly) NSUUID * messageTargetUUID;
-@property(retain) HMMessageDispatcher * msgDispatcher;
-@property(copy,readonly) NSString * name;
-@property(retain) NSMutableDictionary * pendingRequests;
-@property(copy,readonly) NSArray * services;
-@property(readonly) Class superclass;
-@property(retain) NSUUID * uuid;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
+@property (nonatomic, readonly) HMApplicationData *applicationData;
+@property (nonatomic, retain) _HMContext *context;
+@property (nonatomic, retain) HMMutableArray *currentServices;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly, copy) NSDate *hf_dateAdded;
+@property (nonatomic, readonly, copy) NSString *hf_displayName;
+@property (nonatomic, readonly) bool hf_hasSetFavorite;
+@property (nonatomic, readonly) bool hf_hasSetVisibleInHomeStatus;
+@property (nonatomic, readonly) bool hf_isFavorite;
+@property (nonatomic, readonly) bool hf_isSupported;
+@property (nonatomic, readonly) bool hf_isVisibleInHomeStatus;
+@property (nonatomic, readonly) HFServiceDescriptor *hf_serviceDescriptor;
+@property (nonatomic, readonly) HFServiceNameComponents *hf_serviceNameComponents;
+@property (nonatomic, readonly) bool hf_shouldShowInFavorites;
+@property (nonatomic, readonly) bool hf_supportsHomeStatus;
+@property (nonatomic, readonly, copy) HFUserNotificationServiceSettings *hf_userNotificationSettings;
+@property (nonatomic) HMHome *home;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (nonatomic, readonly) NSUUID *messageTargetUUID;
+@property (nonatomic, readonly, copy) NSString *name;
+@property (nonatomic, readonly, copy) NSArray *services;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) NSUUID *uniqueIdentifier;
+@property (nonatomic, readonly) NSUUID *uuid;
 
-+ (BOOL)supportsSecureCoding;
+// Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
+
++ (id)logCategory;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
+- (void)__configureWithContext:(id)arg1 home:(id)arg2;
+- (void)_addService:(id)arg1 completionHandler:(id /* block */)arg2;
+- (id)_findService:(id)arg1;
+- (void)_handleServiceAddedNotification:(id)arg1;
+- (void)_handleServiceGroupRenamedNotification:(id)arg1;
+- (void)_handleServiceRemovedNotification:(id)arg1;
+- (void)_invalidate;
+- (bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (void)_registerNotificationHandlers;
-- (void)addService:(id)arg1 completionHandler:(id)arg2;
-- (void)configure:(id)arg1 uuid:(id)arg2 messageDispatcher:(id)arg3;
+- (void)_removeService:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)_removeServices:(id)arg1;
+- (void)_unconfigure;
+- (void)_updateName:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)addService:(id)arg1 completionHandler:(id /* block */)arg2;
+- (id)applicationData;
+- (id)context;
 - (id)currentServices;
+- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
-- (void)handleServiceAddedNotification:(id)arg1;
-- (void)handleServiceGroupRenamedNotification:(id)arg1;
-- (void)handleServiceRemovedNotification:(id)arg1;
 - (id)home;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithName:(id)arg1;
-- (void)invalidate;
+- (id)initWithName:(id)arg1 uuid:(id)arg2;
+- (id)logIdentifier;
 - (id)messageReceiveQueue;
 - (id)messageTargetUUID;
-- (id)msgDispatcher;
 - (id)name;
-- (id)pendingRequests;
-- (void)removeService:(id)arg1 completionHandler:(id)arg2;
-- (void)removeServicesForAccessory:(id)arg1;
+- (void)removeService:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)services;
+- (void)setApplicationData:(id)arg1;
+- (void)setContext:(id)arg1;
 - (void)setCurrentServices:(id)arg1;
 - (void)setHome:(id)arg1;
-- (void)setMsgDispatcher:(id)arg1;
-- (void)setPendingRequests:(id)arg1;
-- (void)setUuid:(id)arg1;
-- (void)setWorkQueue:(id)arg1;
-- (void)updateName:(id)arg1 completionHandler:(id)arg2;
+- (void)setName:(id)arg1;
+- (id)uniqueIdentifier;
+- (void)updateApplicationData:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)updateName:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)uuid;
-- (id)workQueue;
+
+// Image: /System/Library/PrivateFrameworks/Home.framework/Home
+
+- (id)_hf_allBulletinBoardNotifications;
+- (id)hf_dateAdded;
+- (id)hf_displayName;
+- (bool)hf_hasSetFavorite;
+- (bool)hf_hasSetVisibleInHomeStatus;
+- (bool)hf_isFavorite;
+- (bool)hf_isSupported;
+- (bool)hf_isValidObject;
+- (bool)hf_isVisibleInHomeStatus;
+- (id)hf_serviceDescriptor;
+- (id)hf_serviceNameComponents;
+- (bool)hf_shouldShowInFavorites;
+- (id)hf_stateDumpBuilderWithContext:(id)arg1;
+- (bool)hf_supportsHomeStatus;
+- (id)hf_updateDateAdded:(id)arg1;
+- (id)hf_updateIsFavorite:(bool)arg1;
+- (id)hf_updateIsVisibleInHomeStatus:(bool)arg1;
+- (id)hf_updateUserNotificationSettings:(id)arg1;
+- (id)hf_userNotificationSettings;
 
 @end

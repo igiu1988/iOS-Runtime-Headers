@@ -2,23 +2,13 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSObject<OS_dispatch_group>;
-
 @interface AFFuture : NSObject {
-    NSObject<OS_dispatch_group> *_executionGroup;
-    id _result;
+    NSObject<OS_dispatch_group> * _group;
+    id  _value;
 }
 
-+ (id)futureWithResultGenerator:(id)arg1;
-+ (id)futureWithSynchronousResultGenerator:(id)arg1;
-
 - (void).cxx_destruct;
-- (void)_wait;
-- (id)chainResultGenerator:(id)arg1;
-- (id)init;
-- (id)initWithResultGenerator:(id)arg1;
-- (id)initWithSynchronousResultGenerator:(id)arg1;
-- (id)notifyWithCompletion:(id)arg1;
-- (id)result;
+- (id)initAndGetSetterBlock:(id /* block */*)arg1;
+- (id)waitForValue:(unsigned long long)arg1;
 
 @end

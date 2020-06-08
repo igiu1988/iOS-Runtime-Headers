@@ -2,36 +2,34 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSData, NSString;
-
 @interface PFZipLocalFileHeader : NSObject {
-    unsigned int _compressedSize;
-    unsigned short _compressionMethod;
-    unsigned int _crc32;
-    NSData *_extraFieldData;
-    unsigned short _extraFieldLength;
-    NSString *_filename;
-    unsigned short _filenameLength;
-    unsigned short _generalPurposeBit;
-    unsigned short _lastModDate;
-    unsigned short _lastModTime;
-    unsigned int _uncompressedSize;
-    unsigned short _versionNeededToExtract;
+    unsigned int  _compressedSize;
+    unsigned short  _compressionMethod;
+    unsigned int  _crc32;
+    NSData * _extraFieldData;
+    unsigned short  _extraFieldLength;
+    NSString * _filename;
+    unsigned short  _filenameLength;
+    unsigned short  _generalPurposeBit;
+    unsigned short  _lastModDate;
+    unsigned short  _lastModTime;
+    unsigned int  _uncompressedSize;
+    unsigned short  _versionNeededToExtract;
 }
 
-@property unsigned int compressedSize;
-@property unsigned short compressionMethod;
-@property unsigned int crc32;
-@property(retain) NSData * extraFieldData;
-@property(readonly) unsigned short extraFieldLength;
-@property(retain) NSString * filename;
-@property(readonly) unsigned short filenameLength;
-@property unsigned short generalPurposeBit;
-@property unsigned short lastModDate;
-@property unsigned short lastModTime;
-@property(readonly) unsigned int totalHeaderLength;
-@property unsigned int uncompressedSize;
-@property unsigned short versionNeededToExtract;
+@property (nonatomic) unsigned int compressedSize;
+@property (nonatomic) unsigned short compressionMethod;
+@property (nonatomic) unsigned int crc32;
+@property (nonatomic, retain) NSData *extraFieldData;
+@property (nonatomic, readonly) unsigned short extraFieldLength;
+@property (nonatomic, retain) NSString *filename;
+@property (nonatomic, readonly) unsigned short filenameLength;
+@property (nonatomic) unsigned short generalPurposeBit;
+@property (nonatomic) unsigned short lastModDate;
+@property (nonatomic) unsigned short lastModTime;
+@property (nonatomic, readonly) unsigned int totalHeaderLength;
+@property (nonatomic) unsigned int uncompressedSize;
+@property (nonatomic) unsigned short versionNeededToExtract;
 
 - (void)appendToData:(id)arg1;
 - (unsigned int)compressedSize;
@@ -47,8 +45,8 @@
 - (id)init;
 - (unsigned short)lastModDate;
 - (unsigned short)lastModTime;
-- (unsigned int)loadFromBytes:(const char *)arg1 offset:(unsigned int)arg2;
-- (unsigned int)loadFromData:(id)arg1 offset:(unsigned int)arg2;
+- (unsigned long long)loadFromBytes:(const char *)arg1 offset:(unsigned long long)arg2;
+- (unsigned long long)loadFromData:(id)arg1 offset:(unsigned long long)arg2;
 - (void)setCompressedSize:(unsigned int)arg1;
 - (void)setCompressionMethod:(unsigned short)arg1;
 - (void)setCrc32:(unsigned int)arg1;

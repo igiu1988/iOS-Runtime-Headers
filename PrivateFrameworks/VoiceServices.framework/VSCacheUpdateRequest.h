@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/VoiceServices.framework/VoiceServices
  */
 
-@class NSString;
-
 @interface VSCacheUpdateRequest : NSObject {
-    NSString *_classID;
-    NSString *_modelID;
+    NSString * _classID;
+    NSString * _modelID;
 }
 
 - (id)classIdentifier;

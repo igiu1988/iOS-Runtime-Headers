@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
  */
 
-@class NSArray, NSData;
-
 @interface MPUUserActivityContext : NSObject <NSCopying, NSMutableCopying> {
-    NSArray *_containerItems;
-    int _originatorType;
-    int _originatorVersion;
+    NSArray * _containerItems;
+    long long  _originatorType;
+    long long  _originatorVersion;
 }
 
-@property(copy,readonly) NSArray * containerItems;
-@property(copy,readonly) NSData * dataRepresentation;
-@property(readonly) int originatorType;
-@property(readonly) int originatorVersion;
+@property (nonatomic, readonly, copy) NSArray *containerItems;
+@property (nonatomic, readonly, copy) NSData *dataRepresentation;
+@property (nonatomic, readonly) long long originatorType;
+@property (nonatomic, readonly) long long originatorVersion;
 
 - (void).cxx_destruct;
 - (id)containerItemFollowingContainerItem:(id)arg1;
@@ -23,11 +21,11 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)dataRepresentation;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithDataRepresentation:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
-- (int)originatorType;
-- (int)originatorVersion;
+- (long long)originatorType;
+- (long long)originatorVersion;
 
 @end

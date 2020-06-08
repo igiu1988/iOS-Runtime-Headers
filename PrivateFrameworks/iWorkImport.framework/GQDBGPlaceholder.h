@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStyle;
-
 @interface GQDBGPlaceholder : GQDDrawable {
-    BOOL mIsVisible;
-    GQDSStyle *mStyle;
+    bool  mIsVisible;
+    GQDSStyle * mStyle;
 }
 
 - (void)dealloc;
-- (BOOL)isVisible;
+- (bool)isVisible;
 - (id)placeholderStyle;
 
 @end

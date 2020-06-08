@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSLock, NSMutableArray, NSObject<OS_dispatch_source>;
-
 @interface _GEOURLManifestListener : NSObject {
-    NSMutableArray *_handlers;
-    NSLock *_lock;
-    NSObject<OS_dispatch_source> *_timeoutTimer;
+    NSMutableArray * _handlers;
+    NSLock * _lock;
+    NSObject<OS_dispatch_source> * _timeoutTimer;
 }
 
 + (id)sharedListener;
 
-- (void)_finish:(BOOL)arg1;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (void)_finish:(bool)arg1;
 - (id)init;
-- (void)waitForManifestWithHandler:(id)arg1;
+- (void)waitForManifestWithCallback:(id)arg1;
 
 @end

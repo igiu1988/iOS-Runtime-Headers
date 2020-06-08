@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class NSData, NSDate, NSDictionary;
-
 @interface GKTurnBasedExchangeReplyInternal : GKInternalRepresentation {
-    NSData *_data;
-    NSDictionary *_localizableMessage;
-    unsigned char _recipientIndex;
-    NSDate *_replyDate;
+    NSData * _data;
+    NSDictionary * _localizableMessage;
+    unsigned char  _recipientIndex;
+    NSDate * _replyDate;
 }
 
-@property(retain) NSData * data;
-@property(retain) NSDictionary * localizableMessage;
-@property unsigned char recipientIndex;
-@property(retain) NSDate * replyDate;
+@property (nonatomic, retain) NSData *data;
+@property (nonatomic, retain) NSDictionary *localizableMessage;
+@property (nonatomic) unsigned char recipientIndex;
+@property (nonatomic, retain) NSDate *replyDate;
 
 + (id)secureCodedPropertyKeys;
 

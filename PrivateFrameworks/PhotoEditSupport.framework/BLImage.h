@@ -2,35 +2,34 @@
    Image: /System/Library/PrivateFrameworks/PhotoEditSupport.framework/PhotoEditSupport
  */
 
-@class CIImage, UIImage;
-
 @interface BLImage : NSObject <NSCopying> {
+    struct CGImage { } * _CGImage;
+    CIImage * _CIImage;
+    UIImage * _UIImage;
+    int  _askedImageType;
+    bool  _isPlaceholder;
+    int  _obtainedImageType;
     struct CGSize { 
-        float width; 
-        float height; 
-    struct CGImage { } *_CGImage;
-    CIImage *_CIImage;
-    UIImage *_UIImage;
-    int _askedImageType;
-    BOOL _isPlaceholder;
-    int _obtainedImageType;
-    } _size;
-    int _storageType;
+        double width; 
+        double height; 
+    }  _size;
+    int  _storageType;
 }
 
-@property int askedImageType;
-@property(readonly) int imageOrientation;
-@property BOOL isPlaceholder;
-@property(readonly) unsigned int memoryUsage;
-@property int obtainedImageType;
-@property(readonly) float scale;
-@property(readonly) struct CGSize { float x1; float x2; } size;
-@property(readonly) int storageType;
+@property (nonatomic) int askedImageType;
+@property (nonatomic, readonly) long long imageOrientation;
+@property (nonatomic) bool isPlaceholder;
+@property (nonatomic, readonly) unsigned long long memoryUsage;
+@property (nonatomic) int obtainedImageType;
+@property (nonatomic, readonly) double scale;
+@property (nonatomic, readonly) struct CGSize { double x1; double x2; } size;
+@property (nonatomic, readonly) int storageType;
 
 + (id)abbreviatedDescriptionWithImageType:(int)arg1;
 + (id)descriptionWithImageType:(int)arg1;
 + (id)imageWithImage:(id)arg1;
 
+- (void).cxx_destruct;
 - (struct CGImage { }*)CGImage;
 - (id)CIImage;
 - (id)UIImage;
@@ -38,17 +37,17 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (int)imageOrientation;
+- (long long)imageOrientation;
 - (id)init;
 - (id)initWithFileAtURL:(id)arg1;
-- (BOOL)isPlaceholder;
-- (unsigned int)memoryUsage;
+- (bool)isPlaceholder;
+- (unsigned long long)memoryUsage;
 - (int)obtainedImageType;
-- (float)scale;
+- (double)scale;
 - (void)setAskedImageType:(int)arg1;
-- (void)setIsPlaceholder:(BOOL)arg1;
+- (void)setIsPlaceholder:(bool)arg1;
 - (void)setObtainedImageType:(int)arg1;
-- (struct CGSize { float x1; float x2; })size;
+- (struct CGSize { double x1; double x2; })size;
 - (int)storageType;
 
 @end

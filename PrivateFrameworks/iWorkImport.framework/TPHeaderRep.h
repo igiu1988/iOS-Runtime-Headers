@@ -2,32 +2,25 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TPPaginatedPageInfo;
-
 @interface TPHeaderRep : TSWPHeaderRep {
-    BOOL _hideKnobs;
+    bool  _hideKnobs;
+    NSTimer * editingDidBeginTimer;
 }
 
-@property BOOL hideKnobs;
-@property(readonly) TPPaginatedPageInfo * pageInfo;
+@property (nonatomic, retain) NSTimer *editingDidBeginTimer;
+@property (nonatomic) bool hideKnobs;
+@property (nonatomic, readonly) TPPaginatedPageInfo *pageInfo;
 
-- (void)addKnobsToArray:(id)arg1;
-- (id)beginEditing;
-- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })boundsForStandardKnobs;
-- (BOOL)canEditWithEditor:(id)arg1;
-- (BOOL)doesNeedDisplayOnEditingDidEnd;
-- (void)editingDidEnd;
-- (BOOL)hideKnobs;
-- (id)newTrackerForKnob:(id)arg1;
-- (BOOL)p_isInDocumentSetup;
-- (BOOL)p_isMiddleFooterRep;
-- (BOOL)p_isMiddleHeaderRep;
-- (BOOL)p_shouldCreateArrowKnobs;
+- (void).cxx_destruct;
+- (id)editingDidBeginTimer;
+- (bool)hideKnobs;
+- (bool)p_isInDocumentSetup;
+- (bool)p_isMiddleFooterRep;
+- (bool)p_isMiddleHeaderRep;
+- (bool)p_shouldCreateArrowKnobs;
 - (id)pageInfo;
 - (id)pageLayout;
-- (void)setHideKnobs:(BOOL)arg1;
-- (BOOL)shouldCreateKnobs;
-- (BOOL)shouldIgnoreSingleTapAtPoint:(struct CGPoint { float x1; float x2; })arg1 withRecognizer:(id)arg2;
-- (void)updatePositionsOfKnobs:(id)arg1;
+- (void)setEditingDidBeginTimer:(id)arg1;
+- (void)setHideKnobs:(bool)arg1;
 
 @end

@@ -2,22 +2,22 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData, NSMutableArray;
-
 @interface CKDPNotificationSyncResponse : PBCodable <NSCopying> {
+    NSData * _changeID;
     struct { 
         unsigned int moreAvailable : 1; 
-    NSData *_changeID;
-    } _has;
-    BOOL _moreAvailable;
-    NSMutableArray *_pushMessages;
+    }  _has;
+    bool  _moreAvailable;
+    NSMutableArray * _pushMessages;
 }
 
-@property(retain) NSData * changeID;
-@property(readonly) BOOL hasChangeID;
-@property BOOL hasMoreAvailable;
-@property BOOL moreAvailable;
-@property(retain) NSMutableArray * pushMessages;
+@property (nonatomic, retain) NSData *changeID;
+@property (nonatomic, readonly) bool hasChangeID;
+@property (nonatomic) bool hasMoreAvailable;
+@property (nonatomic) bool moreAvailable;
+@property (nonatomic, retain) NSMutableArray *pushMessages;
+
++ (Class)pushMessageType;
 
 - (void).cxx_destruct;
 - (void)addPushMessage:(id)arg1;
@@ -27,19 +27,19 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasChangeID;
-- (BOOL)hasMoreAvailable;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasChangeID;
+- (bool)hasMoreAvailable;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)moreAvailable;
-- (id)pushMessageAtIndex:(unsigned int)arg1;
+- (bool)moreAvailable;
+- (id)pushMessageAtIndex:(unsigned long long)arg1;
 - (id)pushMessages;
-- (unsigned int)pushMessagesCount;
-- (BOOL)readFrom:(id)arg1;
+- (unsigned long long)pushMessagesCount;
+- (bool)readFrom:(id)arg1;
 - (void)setChangeID:(id)arg1;
-- (void)setHasMoreAvailable:(BOOL)arg1;
-- (void)setMoreAvailable:(BOOL)arg1;
+- (void)setHasMoreAvailable:(bool)arg1;
+- (void)setMoreAvailable:(bool)arg1;
 - (void)setPushMessages:(id)arg1;
 - (void)writeTo:(id)arg1;
 

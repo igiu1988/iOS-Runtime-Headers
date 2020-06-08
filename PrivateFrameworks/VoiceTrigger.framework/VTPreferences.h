@@ -2,48 +2,60 @@
    Image: /System/Library/PrivateFrameworks/VoiceTrigger.framework/VoiceTrigger
  */
 
-@interface VTPreferences : NSObject {
-}
+@interface VTPreferences : NSObject
 
-+ (void)initialize;
++ (unsigned long long)_deviceCategoryForDeviceProductType:(id)arg1;
++ (id)deviceCategoryStringRepresentationForCategoryType:(unsigned long long)arg1;
 + (id)sharedPreferences;
 
-- (BOOL)_storeModeEnabled;
-- (id)consoleLoggingLevel;
-- (id)earlyDetectThresholdOffset;
-- (BOOL)facedownGestureEnabled;
-- (BOOL)fileLoggingIsEnabled;
+- (id)_VTSATBasePath;
+- (id)_VTSATCachePath;
+- (id)_getSATEnrollmentAudioPathForLanguageCode:(id)arg1;
+- (bool)_isLocalVoiceTriggerAvailable;
+- (bool)_isSATMarkedForMarker:(id)arg1 languageCode:(id)arg2;
+- (id)_languageCode;
+- (id)_localeIdentifier;
+- (void)_setVoiceTriggerEnabled:(bool)arg1;
+- (bool)_storeModeEnabled;
+- (bool)_voiceTriggerEnabled;
+- (id)audioInjectionFilePath;
+- (id)devicesWithVoiceProfileIniCloudForLanguage:(id)arg1;
+- (void)discardAllSATEnrollment;
+- (void)discardSATEnrollmentForLanguageCode:(id)arg1;
+- (void)enableVoiceTriggerUponVoiceProfileSyncForLanguage:(id)arg1;
+- (bool)fileLoggingIsEnabled;
 - (id)fileLoggingLevel;
-- (BOOL)hasExplicitlySetVoiceTriggerEnabled;
-- (id)languageCode;
+- (bool)gestureSubscriptionEnabled;
+- (id)getMD5HashForSATEnrollmentAudioForLanguageCode:(id)arg1;
+- (id)getSATEnrollmentPath;
+- (bool)hasExplicitlySetVoiceTriggerEnabled;
+- (bool)hasVoiceProfileIniCloudForLanguageCode:(id)arg1;
+- (id)init;
+- (bool)isRemoteVoiceTriggerAvailable;
+- (bool)isSATAvailable;
+- (bool)isSATEnrolledForLanguageCode:(id)arg1;
+- (bool)isSATEnrollmentMigratedForLanguageCode:(id)arg1;
+- (bool)isVoiceTriggerAvailable;
 - (id)localizedTriggerPhrase;
 - (id)localizedTriggerPhraseForLanguageCode:(id)arg1;
-- (id)loggingThresholdOffset;
-- (BOOL)onetimeRemoteAssetQueryRanSuccessfully;
-- (BOOL)phraseSpotterEnabled;
-- (void)setConsoleLoggingLevel:(id)arg1;
-- (void)setEarlyDetectThresholdOffset:(id)arg1;
-- (void)setFacedownGestureEnabled:(BOOL)arg1;
-- (void)setFileLoggingIsEnabled:(BOOL)arg1;
+- (void)markSATEnrollmentSuccessForLanguageCode:(id)arg1;
+- (bool)onetimeRemoteAssetQueryRanSuccessfully;
+- (bool)phraseSpotterEnabled;
+- (bool)secondPassAudioLoggingEnabled;
+- (void)setFileLoggingIsEnabled:(bool)arg1;
 - (void)setFileLoggingLevel:(id)arg1;
-- (void)setLanguageCode:(id)arg1;
-- (void)setLanguageCodeWithoutUpdate:(id)arg1;
-- (void)setLoggingThresholdOffset:(id)arg1;
-- (void)setOnetimeRemoteAssetQueryRanSuccessfully:(BOOL)arg1;
-- (void)setPhraseSpotterEnabled:(BOOL)arg1;
-- (void)setSpeakerAdaptationEnabled:(BOOL)arg1;
-- (void)setThresholdOffset:(id)arg1;
-- (void)setThresholdOverride:(id)arg1;
-- (void)setVoiceTriggerEnabled:(BOOL)arg1;
-- (void)setVoiceTriggerEnabledWhenChargerConnected:(BOOL)arg1;
-- (void)setVoiceTriggerEnabledWhenChargerDisconnected:(BOOL)arg1;
-- (double)siriLastUseInactiveInterval;
-- (BOOL)speakerAdaptationEnabled;
+- (void)setOnetimeRemoteAssetQueryRanSuccessfully:(bool)arg1;
+- (void)setPhraseSpotterEnabled:(bool)arg1;
+- (void)setSecondPassAudioLoggingEnabled:(bool)arg1;
+- (void)setVoiceTriggerEnabled:(bool)arg1;
+- (void)setVoiceTriggerEnabledWhenChargerConnected:(bool)arg1;
+- (void)setVoiceTriggerEnabledWhenChargerDisconnected:(bool)arg1;
 - (void)synchronize;
-- (id)thresholdOffset;
-- (id)thresholdOverride;
-- (BOOL)voiceTriggerEnabled;
-- (BOOL)voiceTriggerEnabledWhenChargerConnected;
-- (BOOL)voiceTriggerEnabledWhenChargerDisconnected;
+- (bool)useSiriActivationSPIForiOS;
+- (bool)useSiriActivationSPIForwatchOS;
+- (bool)voiceTriggerEnabled;
+- (bool)voiceTriggerEnabledWhenChargerConnected;
+- (bool)voiceTriggerEnabledWhenChargerDisconnected;
+- (bool)voiceTriggerInCoreSpeech;
 
 @end

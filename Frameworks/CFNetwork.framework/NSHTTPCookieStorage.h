@@ -2,42 +2,73 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-@class NSArray, NSHTTPCookieStorageInternal;
-
 @interface NSHTTPCookieStorage : NSObject {
-    NSHTTPCookieStorageInternal *_internal;
+    NSHTTPCookieStorageInternal * _internal;
 }
 
-@property unsigned int cookieAcceptPolicy;
-@property(copy,readonly) NSArray * cookies;
+@property unsigned long long cookieAcceptPolicy;
+@property (readonly, copy) NSArray *cookies;
+@property (readonly) unsigned long long webui_safariCookieAcceptPolicyEnumValue;
+@property (readonly) bool webui_trackerProtectionEnabled;
 
-+ (id)aa_icloudCookies;
+// Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
+
++ (id)_csff:(id)arg1;
++ (id)_csfi:(id)arg1;
++ (id)_groupContainerCookieStorages;
++ (id)_groupContainerStoragesLock;
++ (void)_setSharedHTTPCookieStorage:(id)arg1;
++ (id)_sharedCookieStorageLock;
++ (id)sharedCookieStorageForGroupContainerIdentifier:(id)arg1;
 + (id)sharedHTTPCookieStorage;
 
 - (struct OpaqueCFHTTPCookieStorage { }*)_CFHTTPCookieStorage;
 - (struct OpaqueCFHTTPCookieStorage { }*)_cookieStorage;
 - (id)_cookiesForURL:(id)arg1 mainDocumentURL:(id)arg2;
+- (void)_getCookieStoragePartitionsCompletionHandler:(id /* block */)arg1;
+- (void)_getCookiesForPartition:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)_getCookiesForURL:(id)arg1 mainDocumentURL:(id)arg2 partition:(id)arg3 completionHandler:(id /* block */)arg4;
+- (void)_getCookiesForURL:(id)arg1 mainDocumentURL:(id)arg2 partition:(id)arg3 policyProperties:(id)arg4 completionHandler:(id /* block */)arg5;
 - (id)_initWithCFHTTPCookieStorage:(struct OpaqueCFHTTPCookieStorage { }*)arg1;
 - (id)_initWithIdentifier:(id)arg1 private:(bool)arg2;
 - (void)_saveCookies;
-- (void)_setPrivateBrowsingEnabled:(BOOL)arg1;
-- (unsigned int)cookieAcceptPolicy;
+- (void)_saveCookies:(id /* block */)arg1;
+- (void)_setCookies:(id)arg1 forURL:(id)arg2 mainDocumentURL:(id)arg3 policyProperties:(id)arg4;
+- (void)_setPrivateBrowsingEnabled:(bool)arg1;
+- (void)_testingOfStoringOfCookie:(id)arg1;
+- (unsigned long long)cookieAcceptPolicy;
 - (id)cookieRequestHeaderFieldsForURL:(id)arg1;
 - (id)cookies;
 - (id)cookiesForURL:(id)arg1;
 - (void)dealloc;
 - (void)deleteCookie:(id)arg1;
 - (id)description;
-- (void)getCookiesForTask:(id)arg1 completionHandler:(id)arg2;
+- (void)getCookiesForTask:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)init;
 - (void)removeCookiesSinceDate:(id)arg1;
 - (void)setCookie:(id)arg1;
-- (void)setCookieAcceptPolicy:(unsigned int)arg1;
+- (void)setCookieAcceptPolicy:(unsigned long long)arg1;
 - (void)setCookies:(id)arg1 forURL:(id)arg2 mainDocumentURL:(id)arg3;
 - (void)setCookiesFromResponseHeader:(id)arg1 forURL:(id)arg2 policyBaseURL:(id)arg3;
 - (id)sortedCookiesUsingDescriptors:(id)arg1;
 - (void)storeCookies:(id)arg1 forTask:(id)arg2;
+
+// Image: /System/Library/Frameworks/VideoSubscriberAccount.framework/VideoSubscriberAccount
+
++ (id)vs_sharedCookieStorage;
+
+- (void)vs_saveCookies;
+
+// Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
+
++ (id)aa_icloudCookies;
+
+// Image: /System/Library/PrivateFrameworks/WebUI.framework/WebUI
+
+- (float)_safariCookieAcceptPolicyFloatValue;
 - (void)webui_applySafariCookieAcceptPolicy;
-- (void)webui_migrateSafariCookieAcceptPolicy;
+- (id)webui_safariCookieAcceptPolicy;
+- (unsigned long long)webui_safariCookieAcceptPolicyEnumValue;
+- (bool)webui_trackerProtectionEnabled;
 
 @end

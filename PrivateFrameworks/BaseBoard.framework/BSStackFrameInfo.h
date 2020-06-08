@@ -2,27 +2,27 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@class NSString;
-
 @interface BSStackFrameInfo : NSObject {
-    unsigned long _address;
-    NSString *_className;
-    NSString *_executableName;
-    NSString *_functionName;
-    NSString *_realFunctionName;
+    unsigned long long  _address;
+    NSString * _className;
+    NSString * _executablePath;
+    NSString * _functionName;
+    NSString * _realFunctionName;
 }
 
-@property(readonly) unsigned long address;
-@property(retain,readonly) NSString * className;
-@property(retain,readonly) NSString * executableName;
-@property(retain,readonly) NSString * functionName;
+@property (nonatomic, readonly) unsigned long long address;
+@property (nonatomic, readonly) NSString *className;
+@property (nonatomic, readonly) NSString *executableName;
+@property (nonatomic, readonly) NSString *executablePath;
+@property (nonatomic, readonly) NSString *functionName;
 
-- (unsigned long)address;
+- (void).cxx_destruct;
+- (unsigned long long)address;
 - (id)className;
-- (void)dealloc;
 - (id)description;
 - (id)executableName;
+- (id)executablePath;
 - (id)functionName;
-- (id)initWithReturnAddress:(unsigned long)arg1;
+- (id)initWithReturnAddress:(unsigned long long)arg1;
 
 @end

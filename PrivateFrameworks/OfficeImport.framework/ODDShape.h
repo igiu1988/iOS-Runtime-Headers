@@ -2,17 +2,16 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray;
-
 @interface ODDShape : ODDLayoutObject {
-    NSMutableArray *mAdjustments;
-    int mPresetType;
-    int mType;
+    NSMutableArray * mAdjustments;
+    int  mPresetType;
+    int  mType;
 }
 
 - (void)addAdjustment:(id)arg1;
 - (id)adjustments;
 - (void)dealloc;
+- (id)description;
 - (id)init;
 - (int)presetType;
 - (void)setPresetType:(int)arg1;

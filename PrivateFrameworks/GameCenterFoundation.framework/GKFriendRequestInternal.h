@@ -2,17 +2,16 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class NSDate, NSString;
-
 @interface GKFriendRequestInternal : GKFamiliarPlayerInternal {
-    NSDate *_date;
-    NSString *_message;
+    NSDate * _date;
+    NSString * _message;
 }
 
-@property(retain) NSDate * date;
-@property(retain) NSString * message;
+@property (nonatomic, retain) NSDate *date;
+@property (nonatomic, retain) NSString *message;
 
 + (id)secureCodedPropertyKeys;
++ (bool)supportsSecureCoding;
 
 - (id)date;
 - (void)dealloc;

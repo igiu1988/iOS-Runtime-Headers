@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSEnumerator;
-
 @interface TNChartFormulaArgumentEnumerator : NSObject <NSFastEnumeration> {
-    NSEnumerator *mUnderlyingEnumerator;
+    NSEnumerator * _underlyingEnumerator;
 }
 
-- (unsigned int)countByEnumeratingWithState:(struct { unsigned long x1; id *x2; unsigned long *x3; unsigned long x4[5]; }*)arg1 objects:(id*)arg2 count:(unsigned int)arg3;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (unsigned long long)countByEnumeratingWithState:(struct { unsigned long long x1; id *x2; unsigned long long x3; unsigned long long x4[5]; }*)arg1 objects:(id*)arg2 count:(unsigned long long)arg3;
 - (id)initWithEnumerator:(id)arg1;
 - (id)nextElement;
 - (id)nextObject;

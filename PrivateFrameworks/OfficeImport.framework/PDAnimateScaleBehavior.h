@@ -4,27 +4,33 @@
 
 @interface PDAnimateScaleBehavior : PDAnimateBehavior {
     struct CGPoint { 
-        float x; 
-        float y; 
+        double x; 
+        double y; 
+    }  mBy;
     struct CGPoint { 
-        float x; 
-        float y; 
+        double x; 
+        double y; 
+    }  mFrom;
+    bool  mHasBy;
+    bool  mHasFrom;
+    bool  mHasTo;
     struct CGPoint { 
-        float x; 
-        float y; 
-    } mBy;
-    } mFrom;
-    } mTo;
+        double x; 
+        double y; 
+    }  mTo;
 }
 
-- (id).cxx_construct;
-- (struct CGPoint { float x1; float x2; })by;
-- (struct CGPoint { float x1; float x2; })from;
+- (struct CGPoint { double x1; double x2; })by;
+- (struct CGPoint { double x1; double x2; })from;
+- (bool)hasBy;
+- (bool)hasFrom;
+- (bool)hasTo;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
-- (void)setBy:(struct CGPoint { float x1; float x2; })arg1;
-- (void)setFrom:(struct CGPoint { float x1; float x2; })arg1;
-- (void)setTo:(struct CGPoint { float x1; float x2; })arg1;
-- (struct CGPoint { float x1; float x2; })to;
+- (bool)isEqual:(id)arg1;
+- (void)setBy:(struct CGPoint { double x1; double x2; })arg1;
+- (void)setFrom:(struct CGPoint { double x1; double x2; })arg1;
+- (void)setTo:(struct CGPoint { double x1; double x2; })arg1;
+- (struct CGPoint { double x1; double x2; })to;
 
 @end

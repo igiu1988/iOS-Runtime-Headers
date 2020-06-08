@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@interface GEOMapItemOpenState : NSObject {
-}
+@interface GEOMapItemOpenState : NSObject
 
-+ (unsigned int)_geoMapItemOpeningHoursOptionsForOperatingHours:(id)arg1 withTimeZone:(id)arg2 andCompareDate:(id)arg3 hasOperatingHoursOnAnyDayOfTheWeek:(BOOL)arg4;
++ (unsigned long long)_geoMapItemCompleteOpeningHoursOptionsForOperatingHours:(id)arg1 andCompareDate:(id)arg2 hasTimeZone:(bool)arg3 andHasOperatingHoursOnAnyDayOfTheWeek:(bool)arg4;
 
 @end

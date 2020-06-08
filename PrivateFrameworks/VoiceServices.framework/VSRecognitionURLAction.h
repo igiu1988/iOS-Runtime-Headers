@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/VoiceServices.framework/VoiceServices
  */
 
-@class NSURL;
-
 @interface VSRecognitionURLAction : VSRecognitionAction {
-    NSURL *_url;
+    NSURL * _url;
 }
 
 - (id)URL;

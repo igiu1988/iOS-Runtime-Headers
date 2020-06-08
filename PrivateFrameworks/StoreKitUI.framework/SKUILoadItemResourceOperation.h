@@ -2,14 +2,18 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIItemResourceRequest;
-
 @interface SKUILoadItemResourceOperation : SKUILoadResourceOperation {
+    SSVPlatformRequestOperation * _underlyingOperation;
 }
 
-@property(copy,readonly) SKUIItemResourceRequest * resourceRequest;
+@property (readonly, copy) SKUIItemResourceRequest *resourceRequest;
+@property SSVPlatformRequestOperation *underlyingOperation;
 
+- (void).cxx_destruct;
+- (void)cancel;
 - (id)initWithResourceRequest:(id)arg1;
 - (void)main;
+- (void)setUnderlyingOperation:(id)arg1;
+- (id)underlyingOperation;
 
 @end

@@ -2,29 +2,30 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADColorMap, OADTextListStyle, OADTheme;
-
 @interface PDNotesMaster : PDSlideBase {
-    OADColorMap *mColorMap;
-    OADTextListStyle *mNotesTextStyle;
-    OADTheme *mTheme;
+    OADColorMap * mColorMap;
+    OADTextListStyle * mNotesTextStyle;
+    OADTheme * mTheme;
 }
 
 - (id)colorMap;
 - (id)colorScheme;
 - (void)dealloc;
+- (id)defaultTextListStyle;
 - (id)description;
 - (void)doneWithContent;
 - (id)drawingTheme;
 - (id)fontScheme;
 - (id)init;
-- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(bool)arg3;
 - (id)notesTextStyle;
-- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(bool)arg3;
 - (id)parentSlideBase;
-- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
-- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(BOOL)arg4;
+- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(bool)arg3;
+- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(bool)arg4;
 - (id)parentTextStyleForTables;
+- (void)removeUnnecessaryOverrides;
+- (void)setUpPropertyHierarchyPreservingEffectiveValues;
 - (id)styleMatrix;
 - (id)theme;
 

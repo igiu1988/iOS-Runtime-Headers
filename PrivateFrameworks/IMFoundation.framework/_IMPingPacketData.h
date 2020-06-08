@@ -3,30 +3,30 @@
  */
 
 @interface _IMPingPacketData : NSObject {
+    int  _error;
+    double  _rtt;
+    int  _sequenceNumber;
     struct timeval { 
-        int tv_sec; 
+        long long tv_sec; 
         int tv_usec; 
-    int _error;
-    double _rtt;
-    int _sequenceNumber;
-    } _timeSent;
-    BOOL _timedOut;
+    }  _timeSent;
+    bool  _timedOut;
 }
 
-@property(readonly) int error;
-@property(readonly) double rtt;
-@property(readonly) int sequenceNumber;
-@property(readonly) struct timeval { int x1; int x2; } timeSent;
-@property(readonly) BOOL timedOut;
+@property (nonatomic, readonly) int error;
+@property (nonatomic, readonly) double rtt;
+@property (nonatomic, readonly) int sequenceNumber;
+@property (nonatomic, readonly) struct timeval { long long x1; int x2; } timeSent;
+@property (nonatomic, readonly) bool timedOut;
 
 - (void)_markPacketAsTimedOut:(double)arg1;
 - (void)_returnPacketArrived;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (int)error;
-- (id)initWithSequeneceNumber:(int)arg1 timesent:(struct timeval { int x1; int x2; }*)arg2 error:(int)arg3;
+- (id)initWithSequeneceNumber:(int)arg1 timesent:(struct timeval { long long x1; int x2; }*)arg2 error:(int)arg3;
 - (double)rtt;
 - (int)sequenceNumber;
-- (struct timeval { int x1; int x2; })timeSent;
-- (BOOL)timedOut;
+- (struct timeval { long long x1; int x2; })timeSent;
+- (bool)timedOut;
 
 @end

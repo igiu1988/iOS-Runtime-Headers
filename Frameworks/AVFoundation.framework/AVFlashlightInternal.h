@@ -2,15 +2,14 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference;
-
 @interface AVFlashlightInternal : NSObject {
-    BOOL available;
-    struct OpaqueFigFlashlight { } *flashlight;
-    float flashlightLevel;
-    struct OpaqueFigSimpleMutex { } *lock;
-    BOOL overheated;
-    AVWeakReference *weakReference;
+    bool  available;
+    struct OpaqueFigFlashlight { } * flashlight;
+    float  flashlightLevel;
+    struct OpaqueFigSimpleMutex { } * lock;
+    bool  overheated;
+    NSObject<OS_dispatch_queue> * serverReconnectQueue;
+    AVWeakReference * weakReference;
 }
 
 @end

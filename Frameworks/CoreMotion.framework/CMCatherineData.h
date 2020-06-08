@@ -3,14 +3,14 @@
  */
 
 @interface CMCatherineData : CMLogItem {
-    double _catherine;
-    double _confidence;
+    double  _catherine;
+    double  _confidence;
 }
 
-@property(readonly) double catherine;
-@property(readonly) double confidence;
+@property (nonatomic, readonly) double catherine;
+@property (nonatomic, readonly) double confidence;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (double)catherine;
 - (double)confidence;

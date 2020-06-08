@@ -2,65 +2,25 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSNumber, NSString;
-
 @interface __NSConcreteURLComponents : NSURLComponents <NSCopying> {
-    struct _URIParseInfo { 
-        int userinfoNameOffset; 
-        int userinfoPasswordOffset; 
-        int hostOffset; 
-        int portOffset; 
-        int pathOffset; 
-        int paramOffset; 
-        int queryOffset; 
-        int fragmentOffset; 
-        int endOffset; 
-        unsigned int schemeExists : 1; 
-        unsigned int authorityExists : 1; 
-        unsigned int userinfoNameExists : 1; 
-        unsigned int userinfoPasswordExists : 1; 
-        unsigned int hostExists : 1; 
-        unsigned int portExists : 1; 
-        unsigned int paramExists : 1; 
-        unsigned int queryExists : 1; 
-        unsigned int fragmentExists : 1; 
-    unsigned int _schemeComponentValid : 1;
-    unsigned int _userComponentValid : 1;
-    unsigned int _passwordComponentValid : 1;
-    unsigned int _hostComponentValid : 1;
-    unsigned int _portComponentValid : 1;
-    unsigned int _pathComponentValid : 1;
-    unsigned int _queryComponentValid : 1;
-    unsigned int _fragmentComponentValid : 1;
-    NSString *_fragmentComponent;
-    NSString *_hostComponent;
-    int _lock;
-    } _parseInfo;
-    NSString *_passwordComponent;
-    NSString *_pathComponent;
-    NSNumber *_portComponent;
-    NSString *_queryComponent;
-    NSString *_schemeComponent;
-    NSString *_urlString;
-    NSString *_userComponent;
+    struct __CFURLComponents { } * _components;
 }
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (bool)automaticallyNotifiesObserversForKey:(id)arg1;
 
 - (id)URL;
 - (id)URLRelativeToURL:(id)arg1;
+- (struct __CFURLComponents { }*)__cfComponents;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (void)finalize;
 - (id)fragment;
-- (void)freeIvars;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)host;
 - (id)init;
 - (id)initWithString:(id)arg1;
-- (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(BOOL)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (id)initWithURL:(id)arg1 resolvingAgainstBaseURL:(bool)arg2;
+- (bool)isEqual:(id)arg1;
 - (id)password;
 - (id)path;
 - (id)percentEncodedFragment;
@@ -68,10 +28,19 @@
 - (id)percentEncodedPassword;
 - (id)percentEncodedPath;
 - (id)percentEncodedQuery;
+- (id)percentEncodedQueryItems;
 - (id)percentEncodedUser;
 - (id)port;
 - (id)query;
 - (id)queryItems;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })rangeOfFragment;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })rangeOfHost;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })rangeOfPassword;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })rangeOfPath;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })rangeOfPort;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })rangeOfQuery;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })rangeOfScheme;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })rangeOfUser;
 - (id)scheme;
 - (void)setFragment:(id)arg1;
 - (void)setHost:(id)arg1;
@@ -82,6 +51,7 @@
 - (void)setPercentEncodedPassword:(id)arg1;
 - (void)setPercentEncodedPath:(id)arg1;
 - (void)setPercentEncodedQuery:(id)arg1;
+- (void)setPercentEncodedQueryItems:(id)arg1;
 - (void)setPercentEncodedUser:(id)arg1;
 - (void)setPort:(id)arg1;
 - (void)setQuery:(id)arg1;

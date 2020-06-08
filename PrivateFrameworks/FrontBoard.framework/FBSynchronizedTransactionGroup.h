@@ -2,33 +2,39 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@class <FBSynchronizedTransactionDelegate>, NSMutableSet, NSString;
-
 @interface FBSynchronizedTransactionGroup : FBTransaction <FBSynchronizedTransaction, FBSynchronizedTransactionDelegate> {
-    BOOL _didCommit;
-    BOOL _readyForCommit;
-    <FBSynchronizedTransactionDelegate> *_synchronizationDelegate;
-    NSMutableSet *_synchronizedTransactions;
-    NSMutableSet *_synchronizedTransactionsAwaitingCommitReadiness;
-    NSMutableSet *_synchronizedTransactionsReadyToCommit;
+    bool  _commitAllowed;
+    bool  _didCommit;
+    bool  _readyForCommit;
+    <FBSynchronizedTransactionGroupDelegate> * _synchronizationDelegate;
+    NSMutableSet * _synchronizedTransactions;
+    NSMutableSet * _synchronizedTransactionsAwaitingCommitReadiness;
+    NSMutableSet * _synchronizedTransactionsReadyToCommit;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
-@property <FBSynchronizedTransactionDelegate> * synchronizationDelegate;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (nonatomic) <FBSynchronizedTransactionDelegate> *synchronizationDelegate;
 
+- (void).cxx_destruct;
+- (bool)_canBeInterrupted;
+- (void)_checkPreconditionsAndCommitIfReady;
+- (void)_childTransactionDidComplete:(id)arg1;
+- (void)_didComplete;
 - (void)_performSynchronizedCommit:(id)arg1;
+- (void)_performSynchronizedCommitIfReady;
+- (bool)_shouldFailForChildTransaction:(id)arg1;
 - (void)addSynchronizedTransaction:(id)arg1;
-- (void)dealloc;
 - (id)init;
-- (BOOL)isReadyForSynchronizedCommit;
+- (bool)isReadyForSynchronizedCommit;
 - (void)performSynchronizedCommit;
 - (void)setSynchronizationDelegate:(id)arg1;
 - (id)synchronizationDelegate;
 - (void)synchronizedTransaction:(id)arg1 didCommitSynchronizedTransactions:(id)arg2;
 - (void)synchronizedTransaction:(id)arg1 willCommitSynchronizedTransactions:(id)arg2;
 - (void)synchronizedTransactionReadyToCommit:(id)arg1;
+- (id)synchronizedTransactions;
 
 @end

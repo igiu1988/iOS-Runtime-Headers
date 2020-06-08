@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/MediaRemote.framework/MediaRemote
  */
 
-@class NSData, NSString;
-
 @interface MRNowPlayingArtworkImage : MRNowPlayingArtwork {
-    NSData *_imageData;
-    NSString *_mimeType;
+    NSData * _imageData;
+    NSString * _mimeType;
 }
 
-@property(readonly) NSData * imageData;
-@property(readonly) NSString * mimeType;
+@property (nonatomic, readonly, copy) NSData *imageData;
+@property (nonatomic, readonly, copy) NSString *mimeType;
 
-- (void)bindToXPCDictionary:(id)arg1;
+- (void).cxx_destruct;
 - (id)copyImageData;
-- (void)dealloc;
-- (BOOL)hasArtworkData;
+- (id)description;
+- (bool)hasArtworkData;
 - (id)imageData;
 - (id)initWithImageData:(id)arg1 mimeType:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)mimeType;
 - (unsigned int)type;
 

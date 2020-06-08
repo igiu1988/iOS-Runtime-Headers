@@ -2,20 +2,22 @@
    Image: /System/Library/PrivateFrameworks/NanoAudioControl.framework/NanoAudioControl
  */
 
-@class NSString;
-
 @interface NACVolumeValueMessage : PBCodable <NSCopying> {
+    NSString * _category;
     struct { 
+        unsigned int originIdentifier : 1; 
         unsigned int volumeValue : 1; 
-    NSString *_category;
-    } _has;
-    float _volumeValue;
+    }  _has;
+    int  _originIdentifier;
+    float  _volumeValue;
 }
 
-@property(retain) NSString * category;
-@property(readonly) BOOL hasCategory;
-@property BOOL hasVolumeValue;
-@property float volumeValue;
+@property (nonatomic, retain) NSString *category;
+@property (nonatomic, readonly) bool hasCategory;
+@property (nonatomic) bool hasOriginIdentifier;
+@property (nonatomic) bool hasVolumeValue;
+@property (nonatomic) int originIdentifier;
+@property (nonatomic) float volumeValue;
 
 - (void).cxx_destruct;
 - (id)category;
@@ -23,14 +25,18 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasCategory;
-- (BOOL)hasVolumeValue;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasCategory;
+- (bool)hasOriginIdentifier;
+- (bool)hasVolumeValue;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (int)originIdentifier;
+- (bool)readFrom:(id)arg1;
 - (void)setCategory:(id)arg1;
-- (void)setHasVolumeValue:(BOOL)arg1;
+- (void)setHasOriginIdentifier:(bool)arg1;
+- (void)setHasVolumeValue:(bool)arg1;
+- (void)setOriginIdentifier:(int)arg1;
 - (void)setVolumeValue:(float)arg1;
 - (float)volumeValue;
 - (void)writeTo:(id)arg1;

@@ -2,16 +2,16 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSString;
-
 @interface _MFDADeferredSelectMailboxOperation : MFOfflineCacheOperation <MFDAOfflineCacheOperation> {
-    NSString *_folderID;
+    NSString * _folderID;
 }
+
++ (bool)supportsSecureCoding;
 
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithMailbox:(id)arg1;
-- (BOOL)performWithAccount:(id)arg1 offlineCache:(id)arg2;
+- (bool)performWithAccount:(id)arg1 offlineCache:(id)arg2;
 
 @end

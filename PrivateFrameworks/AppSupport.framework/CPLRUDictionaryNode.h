@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/AppSupport.framework/AppSupport
  */
 
-@class CPLRUDictionaryNode;
-
 @interface CPLRUDictionaryNode : NSObject {
-    id _key;
-    id _object;
-    CPLRUDictionaryNode *next;
-    CPLRUDictionaryNode *prev;
+    id  _key;
+    id  _object;
+    CPLRUDictionaryNode * next;
+    CPLRUDictionaryNode * prev;
 }
 
-@property(readonly) id key;
-@property(retain) id object;
+@property (nonatomic, readonly) id key;
+@property (nonatomic, retain) id object;
 
 - (void)dealloc;
 - (id)initWithKey:(id)arg1 object:(id)arg2;

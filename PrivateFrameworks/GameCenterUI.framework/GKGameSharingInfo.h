@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class NSString, NSURL, UIImage;
-
 @interface GKGameSharingInfo : NSObject {
-    BOOL _complete;
-    NSString *_developerName;
-    NSString *_emailBody;
-    NSString *_emailSubject;
-    NSString *_gameName;
-    UIImage *_iconImage;
-    NSURL *_shortViewItemURL;
-    NSURL *_viewItemURL;
+    bool  _complete;
+    NSString * _developerName;
+    NSString * _emailBody;
+    NSString * _emailSubject;
+    NSString * _gameName;
+    UIImage * _iconImage;
+    NSURL * _shortViewItemURL;
+    NSURL * _viewItemURL;
 }
 
-@property BOOL complete;
-@property(retain) NSString * developerName;
-@property(retain) NSString * emailBody;
-@property(retain) NSString * emailSubject;
-@property(retain) NSString * gameName;
-@property(retain) UIImage * iconImage;
-@property(retain) NSURL * shortViewItemURL;
-@property(retain) NSURL * viewItemURL;
+@property (nonatomic) bool complete;
+@property (nonatomic, retain) NSString *developerName;
+@property (nonatomic, retain) NSString *emailBody;
+@property (nonatomic, retain) NSString *emailSubject;
+@property (nonatomic, retain) NSString *gameName;
+@property (nonatomic, retain) UIImage *iconImage;
+@property (nonatomic, retain) NSURL *shortViewItemURL;
+@property (nonatomic, retain) NSURL *viewItemURL;
 
-- (BOOL)complete;
+- (bool)complete;
 - (void)dealloc;
 - (id)developerName;
 - (id)emailBody;
@@ -34,7 +32,7 @@
 - (id)initWithGame:(id)arg1;
 - (id)itemsForActivityType:(id)arg1;
 - (id)operationThatBlocksUntilLoaded;
-- (void)setComplete:(BOOL)arg1;
+- (void)setComplete:(bool)arg1;
 - (void)setDeveloperName:(id)arg1;
 - (void)setEmailBody:(id)arg1;
 - (void)setEmailSubject:(id)arg1;

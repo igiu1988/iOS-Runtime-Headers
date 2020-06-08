@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OITSUPointerKeyDictionary;
-
 @interface ECTwoPointerKeyCache : NSObject {
-    OITSUPointerKeyDictionary *mCache;
+    OITSUPointerKeyDictionary * mCache;
 }
 
 - (void)dealloc;

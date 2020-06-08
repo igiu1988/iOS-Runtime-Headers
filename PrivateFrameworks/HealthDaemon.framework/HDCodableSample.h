@@ -2,57 +2,53 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class HDCodableObject;
-
-@interface HDCodableSample : PBCodable <NSCopying> {
+@interface HDCodableSample : PBCodable <HDDecoding, NSCopying> {
+    long long  _dataType;
+    double  _endDate;
     struct { 
         unsigned int dataType : 1; 
         unsigned int endDate : 1; 
         unsigned int startDate : 1; 
-    long long _dataType;
-    double _endDate;
-    } _has;
-    HDCodableObject *_object;
-    double _startDate;
+    }  _has;
+    HDCodableObject * _object;
+    double  _startDate;
 }
 
-@property long long dataType;
-@property double endDate;
-@property BOOL hasDataType;
-@property BOOL hasEndDate;
-@property(readonly) BOOL hasObject;
-@property BOOL hasStartDate;
-@property(retain) HDCodableObject * object;
-@property double startDate;
+@property (nonatomic) long long dataType;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) double endDate;
+@property (nonatomic) bool hasDataType;
+@property (nonatomic) bool hasEndDate;
+@property (nonatomic, readonly) bool hasObject;
+@property (nonatomic) bool hasStartDate;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) HDCodableObject *object;
+@property (nonatomic) double startDate;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (id)_decodedObjectTypeOfClass:(Class)arg1;
+- (bool)applyToObject:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (long long)dataType;
-- (id)decodedCategoryType;
-- (id)decodedCorrelationType;
-- (id)decodedEndDate;
-- (id)decodedQuantityType;
-- (id)decodedStartDate;
-- (id)decodedWorkoutType;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (double)endDate;
-- (BOOL)hasDataType;
-- (BOOL)hasEndDate;
-- (BOOL)hasObject;
-- (BOOL)hasStartDate;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasDataType;
+- (bool)hasEndDate;
+- (bool)hasObject;
+- (bool)hasStartDate;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)object;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setDataType:(long long)arg1;
 - (void)setEndDate:(double)arg1;
-- (void)setHasDataType:(BOOL)arg1;
-- (void)setHasEndDate:(BOOL)arg1;
-- (void)setHasStartDate:(BOOL)arg1;
+- (void)setHasDataType:(bool)arg1;
+- (void)setHasEndDate:(bool)arg1;
+- (void)setHasStartDate:(bool)arg1;
 - (void)setObject:(id)arg1;
 - (void)setStartDate:(double)arg1;
 - (double)startDate;

@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSData, NSHTTPURLResponse, NSMutableDictionary, NSString, NSURL, SKUIArtwork, SKUIProductPage, SKUIUber, SSMetricsConfiguration;
-
 @interface SKUIStorePage : NSObject <NSCopying> {
-    SKUIArtwork *_backgroundArtwork;
-    NSData *_itmlData;
-    NSHTTPURLResponse *_itmlResponse;
-    SSMetricsConfiguration *_metricsConfiguration;
-    NSString *_metricsPageDescription;
-    NSArray *_pageComponents;
-    NSString *_pageType;
-    NSURL *_pageURL;
-    SKUIProductPage *_productPage;
-    NSString *_title;
-    SKUIUber *_uber;
-    NSMutableDictionary *_values;
+    SKUIArtwork * _backgroundArtwork;
+    NSData * _itmlData;
+    NSHTTPURLResponse * _itmlResponse;
+    SSMetricsConfiguration * _metricsConfiguration;
+    NSString * _metricsPageDescription;
+    NSArray * _pageComponents;
+    NSString * _pageType;
+    NSURL * _pageURL;
+    SKUIProductPage * _productPage;
+    NSString * _title;
+    SKUIUber * _uber;
+    NSMutableDictionary * _values;
 }
 
-@property(retain) NSData * ITMLData;
-@property(retain) NSHTTPURLResponse * ITMLResponse;
-@property(retain) SKUIArtwork * backgroundArtwork;
-@property(retain) SSMetricsConfiguration * metricsConfiguration;
-@property(copy) NSString * metricsPageDescription;
-@property(copy) NSArray * pageComponents;
-@property(copy) NSString * pageType;
-@property(copy) NSURL * pageURL;
-@property(copy) SKUIProductPage * productPage;
-@property(copy) NSString * title;
-@property(retain) SKUIUber * uber;
+@property (nonatomic, retain) NSData *ITMLData;
+@property (nonatomic, retain) NSHTTPURLResponse *ITMLResponse;
+@property (nonatomic, retain) SKUIArtwork *backgroundArtwork;
+@property (nonatomic, retain) SSMetricsConfiguration *metricsConfiguration;
+@property (nonatomic, copy) NSString *metricsPageDescription;
+@property (nonatomic, copy) NSArray *pageComponents;
+@property (nonatomic, copy) NSString *pageType;
+@property (nonatomic, copy) NSURL *pageURL;
+@property (nonatomic, copy) SKUIProductPage *productPage;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, retain) SKUIUber *uber;
 
 - (void).cxx_destruct;
 - (id)ITMLData;

@@ -2,26 +2,28 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVVideoCompositing>, AVAssetReaderVideoCompositionOutputInternal, AVVideoComposition, NSArray, NSDictionary;
-
 @interface AVAssetReaderVideoCompositionOutput : AVAssetReaderOutput {
-    AVAssetReaderVideoCompositionOutputInternal *_videoCompositionOutputInternal;
+    AVAssetReaderVideoCompositionOutputInternal * _videoCompositionOutputInternal;
 }
 
-@property(readonly) <AVVideoCompositing> * customVideoCompositor;
-@property(copy) AVVideoComposition * videoComposition;
-@property(readonly) NSDictionary * videoSettings;
-@property(readonly) NSArray * videoTracks;
+@property (nonatomic, readonly) <AVVideoCompositing> *customVideoCompositor;
+@property (nonatomic, copy) AVVideoComposition *videoComposition;
+@property (nonatomic, readonly) NSDictionary *videoSettings;
+@property (nonatomic, readonly) NSArray *videoTracks;
+
+// Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
 
 + (id)assetReaderVideoCompositionOutputWithVideoTracks:(id)arg1 videoSettings:(id)arg2;
 
 - (id)_asset;
-- (BOOL)_enableTrackExtractionReturningError:(id*)arg1;
-- (id)_errorForOSStatus:(long)arg1;
-- (BOOL)_prepareForReadingReturningError:(id*)arg1;
-- (void)_setVideoComposition:(id)arg1 customVideoCompositorSession:(id)arg2;
+- (bool)_enableTrackExtractionReturningError:(id*)arg1;
+- (id)_errorForOSStatus:(int)arg1;
+- (id)_formatDescriptions;
+- (bool)_prepareForReadingReturningError:(id*)arg1;
 - (void)_setVideoComposition:(id)arg1;
-- (BOOL)alwaysCopiesSampleData;
+- (void)_setVideoComposition:(id)arg1 customVideoCompositorSession:(id)arg2;
+- (id)_videoCompositionProcessorColorProperties;
+- (bool)alwaysCopiesSampleData;
 - (id)customVideoCompositor;
 - (void)dealloc;
 - (id)description;
@@ -33,5 +35,13 @@
 - (id)videoComposition;
 - (id)videoSettings;
 - (id)videoTracks;
+
+// Image: /System/Library/PrivateFrameworks/CameraEffectsKit.framework/CameraEffectsKit
+
++ (id)assetReaderVideoCompositionOutputWithVideoComposition:(id)arg1 appliedToAsset:(id)arg2 videoSettings:(id)arg3;
+
+// Image: /System/Library/PrivateFrameworks/Memories.framework/Memories
+
++ (id)assetReaderVideoCompositionOutputWithVideoComposition:(id)arg1 appliedToAsset:(id)arg2 videoSettings:(id)arg3;
 
 @end

@@ -2,27 +2,27 @@
    Image: /System/Library/PrivateFrameworks/RemoteMediaServices.framework/RemoteMediaServices
  */
 
-@class <RMSDiscoverySessionDelegate>, NSArray, NSString, RMSIDSClient;
-
 @interface RMSDiscoverySessionProxy : RMSSessionProxy <RMSDiscoverySession> {
-    NSArray *_availableServices;
-    <RMSDiscoverySessionDelegate> *_delegate;
-    BOOL _discovering;
-    int _discoveryTypes;
-    RMSIDSClient *_idsClient;
-    BOOL _networkAvailable;
-    int _retryRate;
-    BOOL _wifiAvailable;
+    NSArray * _availableServices;
+    <RMSDiscoverySessionDelegate> * _delegate;
+    bool  _discovering;
+    long long  _discoveryTypes;
+    RMSIDSClient * _idsClient;
+    bool  _networkAvailable;
+    NSArray * _pairedNetworkNames;
+    long long  _retryRate;
+    bool  _wifiAvailable;
 }
 
-@property(readonly) NSArray * availableServices;
-@property(copy,readonly) NSString * debugDescription;
-@property <RMSDiscoverySessionDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property int discoveryTypes;
-@property(readonly) unsigned int hash;
-@property(getter=isNetworkAvailable,readonly) BOOL networkAvailable;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) NSArray *availableServices;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <RMSDiscoverySessionDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) long long discoveryTypes;
+@property (readonly) unsigned long long hash;
+@property (getter=isNetworkAvailable, nonatomic, readonly) bool networkAvailable;
+@property (nonatomic, retain) NSArray *pairedNetworkNames;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_availableServicesDidUpdateNotification:(id)arg1;
@@ -34,12 +34,14 @@
 - (void)beginDiscovery;
 - (void)dealloc;
 - (id)delegate;
-- (int)discoveryTypes;
+- (long long)discoveryTypes;
 - (void)endDiscovery;
 - (void)heartbeatDidFail;
 - (id)init;
-- (BOOL)isNetworkAvailable;
+- (bool)isNetworkAvailable;
+- (id)pairedNetworkNames;
 - (void)setDelegate:(id)arg1;
-- (void)setDiscoveryTypes:(int)arg1;
+- (void)setDiscoveryTypes:(long long)arg1;
+- (void)setPairedNetworkNames:(id)arg1;
 
 @end

@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class NSArray, NSString;
-
 @interface AAFamilyEligibilityResponse : AAResponse {
-    NSArray *_familyFeaturePrimaryDescriptions;
-    NSArray *_familyFeatureSecondaryDescriptions;
-    NSString *_familyFeatureSecondaryTitle;
-    BOOL _hasPendingInvites;
-    NSString *_underageEligibilityAlertMessage;
-    NSString *_underageEligibilityAlertTitle;
+    NSArray * _familyFeaturePrimaryDescriptions;
+    NSArray * _familyFeatureSecondaryDescriptions;
+    NSString * _familyFeatureSecondaryTitle;
+    bool  _hasPendingInvites;
+    NSString * _underageEligibilityAlertMessage;
+    NSString * _underageEligibilityAlertTitle;
 }
 
-@property(readonly) int eligibilityStatus;
-@property(readonly) BOOL eligible;
-@property(readonly) NSArray * familyFeaturePrimaryDescriptions;
-@property(readonly) NSArray * familyFeatureSecondaryDescriptions;
-@property(readonly) NSString * familyFeatureSecondaryTitle;
-@property(readonly) BOOL hasPendingInvites;
-@property(readonly) NSString * underageEligibilityAlertMessage;
-@property(readonly) NSString * underageEligibilityAlertTitle;
+@property (nonatomic, readonly) long long eligibilityStatus;
+@property (nonatomic, readonly) bool eligible;
+@property (nonatomic, readonly) NSArray *familyFeaturePrimaryDescriptions;
+@property (nonatomic, readonly) NSArray *familyFeatureSecondaryDescriptions;
+@property (nonatomic, readonly) NSString *familyFeatureSecondaryTitle;
+@property (nonatomic, readonly) bool hasPendingInvites;
+@property (nonatomic, readonly) NSString *underageEligibilityAlertMessage;
+@property (nonatomic, readonly) NSString *underageEligibilityAlertTitle;
 
 - (void).cxx_destruct;
-- (int)eligibilityStatus;
-- (BOOL)eligible;
+- (long long)eligibilityStatus;
+- (bool)eligible;
 - (id)familyFeaturePrimaryDescriptions;
 - (id)familyFeatureSecondaryDescriptions;
 - (id)familyFeatureSecondaryTitle;
-- (BOOL)hasPendingInvites;
+- (bool)hasPendingInvites;
 - (id)initWithHTTPResponse:(id)arg1 data:(id)arg2;
 - (id)underageEligibilityAlertMessage;
 - (id)underageEligibilityAlertTitle;

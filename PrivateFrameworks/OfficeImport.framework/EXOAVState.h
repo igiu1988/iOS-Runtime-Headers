@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EXReadState;
-
 @interface EXOAVState : OAVReadState {
-    EXReadState *mEXReadState;
+    EXReadState * mEXReadState;
 }
 
 - (id)exState;

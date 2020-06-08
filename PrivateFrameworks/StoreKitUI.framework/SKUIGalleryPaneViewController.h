@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIEmbeddedMediaView, SKUIMediaComponent;
-
 @interface SKUIGalleryPaneViewController : UIViewController {
-    SKUIMediaComponent *_component;
-    int _galleryIndex;
+    SKUIMediaComponent * _component;
+    long long  _galleryIndex;
 }
 
-@property(readonly) SKUIMediaComponent * component;
-@property(readonly) int galleryIndex;
-@property(readonly) SKUIEmbeddedMediaView * mediaView;
+@property (nonatomic, readonly) SKUIMediaComponent *component;
+@property (nonatomic, readonly) long long galleryIndex;
+@property (nonatomic, readonly) SKUIEmbeddedMediaView *mediaView;
 
 - (void).cxx_destruct;
 - (id)component;
-- (int)galleryIndex;
-- (id)initWithMediaComponent:(id)arg1 galleryIndex:(int)arg2;
+- (long long)galleryIndex;
+- (id)initWithMediaComponent:(id)arg1 galleryIndex:(long long)arg2;
 - (id)mediaView;
 
 @end

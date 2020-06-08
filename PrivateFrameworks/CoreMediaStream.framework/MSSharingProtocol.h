@@ -2,13 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class <MSSharingProtocolDelegate>, NSArray, NSString, NSURL;
-
 @interface MSSharingProtocol : NSObject {
     struct __MSShPCContext { 
         struct __MSSPCContext { 
@@ -34,19 +27,19 @@
         int (*didFailAuthenticationCallback)(); 
         int (*didReceiveServerSideConfigurationVersionCallback)(); 
         int __contextType; 
-    } _context;
-    <MSSharingProtocolDelegate> *_delegate;
-    NSURL *_inviteURL;
-    NSURL *_manageURL;
-    NSString *_personID;
-    NSURL *_respondURL;
-    NSArray *_shares;
-    NSURL *_statusURL;
-    int _transactionType;
+    }  _context;
+    <MSSharingProtocolDelegate> * _delegate;
+    NSURL * _inviteURL;
+    NSURL * _manageURL;
+    NSString * _personID;
+    NSURL * _respondURL;
+    NSArray * _shares;
+    NSURL * _statusURL;
+    int  _transactionType;
 }
 
-@property <MSSharingProtocolDelegate> * delegate;
-@property(readonly) NSString * personID;
+@property (nonatomic) <MSSharingProtocolDelegate> *delegate;
+@property (nonatomic, readonly) NSString *personID;
 
 + (id)_dictShareStateFromShareState:(int)arg1;
 + (id)_invalidFieldErrorWithFieldName:(id)arg1;
@@ -73,7 +66,7 @@
 - (id)personID;
 - (void)requestCurrentShareState;
 - (void)sendInvitations:(id)arg1;
-- (void)sendResponseToInvitation:(id)arg1 accept:(BOOL)arg2;
+- (void)sendResponseToInvitation:(id)arg1 accept:(bool)arg2;
 - (void)setDelegate:(id)arg1;
 
 @end

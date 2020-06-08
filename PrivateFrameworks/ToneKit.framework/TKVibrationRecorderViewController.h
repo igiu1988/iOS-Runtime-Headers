@@ -2,17 +2,18 @@
    Image: /System/Library/PrivateFrameworks/ToneKit.framework/ToneKit
  */
 
-@class <TKVibrationRecorderViewControllerDelegate>, TKVibrationRecorderContentViewController;
-
-@interface TKVibrationRecorderViewController : UINavigationController {
-    TKVibrationRecorderContentViewController *_vibrationRecorderContentViewController;
+@interface TKVibrationRecorderViewController : UINavigationController <PSStateRestoration> {
+    TKVibrationRecorderContentViewController * _vibrationRecorderContentViewController;
 }
 
-@property(setter=_setVibrationRecorderContentViewController:,retain) TKVibrationRecorderContentViewController * _vibrationRecorderContentViewController;
-@property <TKVibrationRecorderViewControllerDelegate> * vibrationRecorderViewControllerDelegate;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (nonatomic) <TKVibrationRecorderViewControllerDelegate> *vibrationRecorderViewControllerDelegate;
 
-- (void)_setVibrationRecorderContentViewController:(id)arg1;
-- (id)_vibrationRecorderContentViewController;
+- (void).cxx_destruct;
+- (bool)canBeShownFromSuspendedState;
 - (void)dealloc;
 - (id)initWithVibratorController:(id)arg1;
 - (void)setVibrationRecorderViewControllerDelegate:(id)arg1;

@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSMutableArray;
-
 @interface AVScheduledAudioParametersInternal : NSObject {
-    NSMutableArray *ramps;
+    NSMutableArray * ramps;
 }
 
 @end

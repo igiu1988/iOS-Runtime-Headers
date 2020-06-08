@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSHashTable, NSObject<OS_dispatch_source>;
-
 @interface SKUIMetricsFlushTimer : NSObject {
-    NSHashTable *_metricsControllers;
-    NSObject<OS_dispatch_source> *_timer;
-    unsigned long long _timerStartTime;
+    NSHashTable * _metricsControllers;
+    NSObject<OS_dispatch_source> * _timer;
+    unsigned long long  _timerStartTime;
 }
 
 + (id)sharedTimer;

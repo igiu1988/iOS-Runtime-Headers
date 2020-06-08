@@ -2,14 +2,18 @@
    Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
  */
 
-@interface IMExpirableMessageChatItem : IMAttachmentMessagePartChatItem {
-}
+@interface IMExpirableMessageChatItem : IMAttachmentMessagePartChatItem
 
-@property(readonly) BOOL isPlayed;
-@property(readonly) BOOL isSaved;
+@property (nonatomic, readonly) bool isPlayed;
+@property (nonatomic, readonly) bool isSaved;
+
+// Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
+
+- (bool)isPlayed;
+- (bool)isSaved;
+
+// Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
 
 - (Class)__ck_chatItemClass;
-- (BOOL)isPlayed;
-- (BOOL)isSaved;
 
 @end

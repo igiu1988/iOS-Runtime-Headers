@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class CoreDAVItem, NSMutableSet;
-
 @interface CalDAVCalendarServerResourceChangeUpdatedElement : CalDAVCalendarServerResourceChangeElement {
-    NSMutableSet *_calendarChanges;
-    BOOL _content;
-    CoreDAVItem *_prop;
+    NSMutableSet * _calendarChanges;
+    bool  _content;
+    CoreDAVItem * _prop;
 }
 
-@property(retain) NSMutableSet * calendarChanges;
-@property BOOL content;
-@property(retain) CoreDAVItem * prop;
+@property (nonatomic, retain) NSMutableSet *calendarChanges;
+@property (nonatomic) bool content;
+@property (nonatomic, retain) CoreDAVItem *prop;
 
+- (void).cxx_destruct;
 - (void)addCalendarChange:(id)arg1;
 - (void)addContentItem:(id)arg1;
 - (id)calendarChanges;
-- (BOOL)content;
+- (bool)content;
 - (id)copyParseRules;
-- (void)dealloc;
 - (id)init;
 - (id)prop;
 - (void)setCalendarChanges:(id)arg1;
-- (void)setContent:(BOOL)arg1;
+- (void)setContent:(bool)arg1;
 - (void)setProp:(id)arg1;
 
 @end

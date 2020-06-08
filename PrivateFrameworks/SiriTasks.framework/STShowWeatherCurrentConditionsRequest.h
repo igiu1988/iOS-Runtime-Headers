@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/SiriTasks.framework/SiriTasks
  */
 
-@class AFCity, STWeatherCurrentConditions, STWeatherUnits;
-
 @interface STShowWeatherCurrentConditionsRequest : AFSiriRequest {
-    AFCity *_city;
-    STWeatherCurrentConditions *_currentConditions;
-    STWeatherUnits *_units;
+    STCity * _city;
+    STWeatherCurrentConditions * _currentConditions;
+    STWeatherUnits * _units;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_initWithCurrentConditions:(id)arg1 city:(id)arg2 units:(id)arg3;

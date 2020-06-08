@@ -2,35 +2,39 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, TSCEEdgeListPrinter;
-
 @interface TSCECellDependencyRowPrinter : NSObject {
-    NSString *_cellID;
-    TSCEEdgeListPrinter *_dependentsList;
-    unsigned int _dirtyPrecedentCount;
-    BOOL _isFormula;
-    BOOL _isInCycle;
-    TSCEEdgeListPrinter *_precedentsList;
+    NSString * _cellID;
+    TSCEEdgeListPrinter * _dependentsList;
+    unsigned long long  _dirtyPrecedentCount;
+    bool  _isFormula;
+    bool  _isInCycle;
+    TSCEEdgeListPrinter * _precedentsList;
 }
 
-@property(retain) NSString * cellID;
-@property unsigned int dirtyPrecedentCount;
-@property BOOL isFormula;
-@property BOOL isInCycle;
+@property (nonatomic, retain) NSString *cellID;
+@property (nonatomic, retain) TSCEEdgeListPrinter *dependentsList;
+@property (nonatomic) unsigned long long dirtyPrecedentCount;
+@property (nonatomic) bool isFormula;
+@property (nonatomic) bool isInCycle;
+@property (nonatomic, retain) TSCEEdgeListPrinter *precedentsList;
 
+- (void).cxx_destruct;
 - (void)addDependentWithCellID:(id)arg1 forOwner:(id)arg2;
 - (void)addPrecedentWithCellID:(id)arg1 forOwner:(id)arg2;
 - (id)cellID;
-- (void)dealloc;
-- (unsigned int)dirtyPrecedentCount;
-- (id)initWithCellID:(id)arg1 dirtyPrecedentCount:(unsigned int)arg2;
-- (BOOL)isFormula;
-- (BOOL)isInCycle;
-- (int)numericCompare:(id)arg1;
+- (id)dependentsList;
+- (unsigned long long)dirtyPrecedentCount;
+- (id)initWithCellID:(id)arg1 dirtyPrecedentCount:(unsigned long long)arg2;
+- (bool)isFormula;
+- (bool)isInCycle;
+- (id)precedentsList;
 - (void)setCellID:(id)arg1;
-- (void)setDirtyPrecedentCount:(unsigned int)arg1;
-- (void)setIsFormula:(BOOL)arg1;
-- (void)setIsInCycle:(BOOL)arg1;
+- (void)setDependentsList:(id)arg1;
+- (void)setDirtyPrecedentCount:(unsigned long long)arg1;
+- (void)setIsFormula:(bool)arg1;
+- (void)setIsInCycle:(bool)arg1;
+- (void)setPrecedentsList:(id)arg1;
 - (id)stringForDependencyRow;
+- (long long)tsce_numericCompare:(id)arg1;
 
 @end

@@ -2,20 +2,21 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSData, NSString;
-
 @interface PKPaymentConfigurationResponse : PKPaymentWebServiceResponse {
-    NSData *_data;
-    NSData *_signature;
-    NSString *_version;
+    NSDictionary * _configuration;
+    NSData * _data;
+    NSData * _signature;
+    NSString * _version;
 }
 
-@property(readonly) NSData * data;
-@property(readonly) NSData * signature;
-@property(readonly) NSString * version;
+@property (nonatomic, readonly, copy) NSDictionary *configuration;
+@property (nonatomic, readonly, copy) NSData *data;
+@property (nonatomic, readonly, copy) NSData *signature;
+@property (nonatomic, readonly, copy) NSString *version;
 
+- (void).cxx_destruct;
+- (id)configuration;
 - (id)data;
-- (void)dealloc;
 - (id)initWithData:(id)arg1;
 - (id)signature;
 - (id)version;

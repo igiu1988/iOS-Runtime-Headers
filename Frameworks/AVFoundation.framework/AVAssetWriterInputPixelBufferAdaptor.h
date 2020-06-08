@@ -2,22 +2,25 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetWriterInput, AVAssetWriterInputPixelBufferAdaptorInternal, NSDictionary;
-
-@interface AVAssetWriterInputPixelBufferAdaptor : NSObject {
-    AVAssetWriterInputPixelBufferAdaptorInternal *_internal;
+@interface AVAssetWriterInputPixelBufferAdaptor : NSObject <AVKeyPathDependencyHost, AVWeakObservable> {
+    AVAssetWriterInputPixelBufferAdaptorInternal * _internal;
 }
 
-@property(readonly) AVAssetWriterInput * assetWriterInput;
-@property(readonly) struct __CVPixelBufferPool { }* pixelBufferPool;
-@property(readonly) NSDictionary * sourcePixelBufferAttributes;
+@property (nonatomic, readonly) AVAssetWriterInput *assetWriterInput;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) struct __CVPixelBufferPool { }*pixelBufferPool;
+@property (nonatomic, readonly) NSDictionary *sourcePixelBufferAttributes;
+@property (readonly) Class superclass;
 
 + (id)assetWriterInputPixelBufferAdaptorWithAssetWriterInput:(id)arg1 sourcePixelBufferAttributes:(id)arg2;
-+ (id)keyPathsForValuesAffectingPixelBufferPool;
 
-- (BOOL)appendPixelBuffer:(struct __CVBuffer { }*)arg1 withPresentationTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg2;
+- (void)addCallbackToCancelDuringDeallocation:(id)arg1;
+- (bool)appendPixelBuffer:(struct __CVBuffer { }*)arg1 withPresentationTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg2;
 - (id)assetWriterInput;
 - (void)dealloc;
+- (void)declareKeyPathDependenciesWithRegistry:(id)arg1;
 - (id)description;
 - (void)finalize;
 - (id)init;

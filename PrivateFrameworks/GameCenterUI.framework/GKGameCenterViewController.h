@@ -2,64 +2,64 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class <GKGameCenterControllerDelegate>, GKHostedGameCenterViewController, GKRemoteGameCenterViewController, NSMutableDictionary, NSString, UIAlertController;
-
-@interface GKGameCenterViewController : UINavigationController {
-    UIAlertController *_alertController;
-    <GKGameCenterControllerDelegate> *_gameCenterDelegateWeak;
-    GKHostedGameCenterViewController *_privateViewController;
-    GKRemoteGameCenterViewController *_remoteViewController;
-    NSMutableDictionary *_volatileProperties;
+@interface GKGameCenterViewController : UINavigationController <GKExtensionParentViewControllerProtocol> {
+    UIAlertController * _alertController;
+    <GKGameCenterControllerDelegate> * _gameCenterDelegateWeak;
+    NSString * _leaderboardIdentifier;
+    long long  _leaderboardTimeScope;
+    GKDashboardHostViewController * _remoteViewController;
+    long long  _viewState;
 }
 
-@property(retain) UIAlertController * alertController;
-@property <GKGameCenterControllerDelegate> * gameCenterDelegate;
-@property(retain) NSString * leaderboardCategory;
-@property(retain) NSString * leaderboardIdentifier;
-@property int leaderboardTimeScope;
-@property(retain) GKHostedGameCenterViewController * privateViewController;
-@property(retain) GKRemoteGameCenterViewController * remoteViewController;
-@property int viewState;
-@property(retain) NSMutableDictionary * volatileProperties;
+@property (nonatomic, retain) UIAlertController *alertController;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) <GKGameCenterControllerDelegate> *gameCenterDelegate;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) NSString *leaderboardCategory;
+@property (nonatomic, retain) NSString *leaderboardIdentifier;
+@property (nonatomic) long long leaderboardTimeScope;
+@property (nonatomic, retain) GKDashboardHostViewController *remoteViewController;
+@property (readonly) Class superclass;
+@property (nonatomic) long long viewState;
 
-+ (BOOL)_preventsAppearanceProxyCustomization;
-+ (BOOL)accessInstanceVariablesDirectly;
++ (bool)_preventsAppearanceProxyCustomization;
++ (bool)accessInstanceVariablesDirectly;
 
-- (BOOL)_canSetPropertiesOnRemoteViewController;
-- (void)_flushVolatileProperties;
-- (BOOL)_remoteControllerIsPresented;
 - (void)_setupChildViewController;
+- (void)_setupRemoteViewController;
 - (id)alertController;
-- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (void)dealloc;
+- (void)extensionDidFinishWithError:(id)arg1;
 - (id)gameCenterDelegate;
 - (id)init;
 - (id)leaderboardCategory;
 - (id)leaderboardIdentifier;
-- (int)leaderboardTimeScope;
+- (long long)leaderboardTimeScope;
 - (void)loadView;
 - (void)notifyDelegateOnWillFinish;
-- (id)privateViewController;
 - (id)remoteViewController;
 - (void)setAlertController:(id)arg1;
 - (void)setGameCenterDelegate:(id)arg1;
 - (void)setLeaderboardCategory:(id)arg1;
 - (void)setLeaderboardIdentifier:(id)arg1;
-- (void)setLeaderboardTimeScope:(int)arg1;
-- (void)setPrivateViewController:(id)arg1;
+- (void)setLeaderboardIdentifierFromExtension:(id)arg1;
+- (void)setLeaderboardTimeScope:(long long)arg1;
+- (void)setLeaderboardTimeScopeFromExtension:(long long)arg1;
 - (void)setRemoteViewController:(id)arg1;
-- (void)setValue:(id)arg1 forKey:(id)arg2;
-- (void)setViewState:(int)arg1;
-- (void)setVolatileProperties:(id)arg1;
-- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
-- (BOOL)shouldAutomaticallyForwardRotationMethods;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (unsigned int)supportedInterfaceOrientations;
-- (id)valueForKey:(id)arg1;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
-- (int)viewState;
-- (void)viewWillAppear:(BOOL)arg1;
-- (id)volatileProperties;
+- (void)setViewState:(long long)arg1;
+- (void)setViewStateFromExtension:(long long)arg1;
+- (bool)shouldAutomaticallyForwardAppearanceMethods;
+- (bool)shouldAutomaticallyForwardRotationMethods;
+- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (bool)shouldShowPlayForChallenge;
+- (bool)shouldShowPlayForTurnBasedMatch;
+- (bool)shouldShowQuitForTurnBasedMatch;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewDidAppear:(bool)arg1;
+- (void)viewDidDisappear:(bool)arg1;
+- (long long)viewState;
+- (void)viewWillAppear:(bool)arg1;
 
 @end

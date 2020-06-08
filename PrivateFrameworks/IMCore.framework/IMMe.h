@@ -2,39 +2,37 @@
    Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
  */
 
-@class IMHandle, IMPerson, NSArray, NSMutableArray, NSString;
-
 @interface IMMe : NSObject {
-    NSArray *_abEmails;
-    NSString *_abFirstName;
-    NSString *_abFullName;
-    NSMutableArray *_abIMHandles;
-    NSString *_abLastName;
-    NSString *_abNickname;
-    NSMutableArray *_loginIMHandles;
-    IMPerson *_person;
+    NSArray * _abEmails;
+    NSString * _abFirstName;
+    NSString * _abFullName;
+    NSMutableArray * _abIMHandles;
+    NSString * _abLastName;
+    NSString * _abNickname;
+    NSMutableArray * _loginIMHandles;
+    IMPerson * _person;
 }
 
-@property(readonly) IMHandle * bestIMHandle;
-@property(readonly) NSString * email;
-@property(readonly) NSArray * emails;
-@property(readonly) NSString * firstName;
-@property(readonly) NSString * fullName;
-@property(readonly) NSString * guid;
-@property(readonly) NSArray * imHandles;
-@property(readonly) NSString * lastName;
-@property(readonly) NSString * nickname;
-@property(readonly) IMPerson * person;
+@property (nonatomic, readonly) IMHandle *bestIMHandle;
+@property (nonatomic, readonly) NSString *email;
+@property (nonatomic, readonly) NSArray *emails;
+@property (nonatomic, readonly) NSString *firstName;
+@property (nonatomic, readonly) NSString *fullName;
+@property (nonatomic, readonly) NSString *guid;
+@property (nonatomic, readonly) NSArray *imHandles;
+@property (nonatomic, readonly) NSString *lastName;
+@property (nonatomic, readonly) NSString *nickname;
+@property (nonatomic, readonly) IMPerson *person;
 
 + (id)fallbackUserName;
 + (id)imHandleForService:(id)arg1;
 + (id)me;
 
+- (void).cxx_destruct;
 - (id)_imHandlesWithIDs:(id)arg1 onAccount:(id)arg2;
-- (BOOL)addIMHandle:(id)arg1;
-- (BOOL)addLoginIMHandle:(id)arg1;
+- (bool)addIMHandle:(id)arg1;
+- (bool)addLoginIMHandle:(id)arg1;
 - (id)bestIMHandle;
-- (void)dealloc;
 - (id)description;
 - (id)email;
 - (id)emails;
@@ -43,15 +41,15 @@
 - (id)guid;
 - (id)imHandles;
 - (id)init;
-- (BOOL)isIMHandleLoginIMHandle:(id)arg1;
+- (bool)isIMHandleLoginIMHandle:(id)arg1;
 - (id)lastName;
 - (id)loginIMHandles;
 - (void)myPictureChanged;
 - (id)nickname;
 - (id)person;
 - (void)rebuildIMHandles;
-- (BOOL)removeIMHandle:(id)arg1;
-- (BOOL)removeLoginIMHandle:(id)arg1;
+- (bool)removeIMHandle:(id)arg1;
+- (bool)removeLoginIMHandle:(id)arg1;
 - (void)resetABPerson;
 - (void)setFirstName:(id)arg1 lastName:(id)arg2;
 - (void)setIMPerson:(id)arg1;

@@ -2,38 +2,46 @@
    Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
  */
 
-@class <MPUNowPlayingDelegate>, NSDictionary, NSObject<OS_dispatch_source>, NSString, UIImage;
-
 @interface MPUNowPlayingController : NSObject {
-    BOOL _cachedArtworkDirty;
-    UIImage *_cachedNowPlayingArtwork;
-    double _currentDuration;
-    double _currentElapsed;
-    NSString *_currentNowPlayingAppDisplayID;
-    BOOL _currentNowPlayingAppIsRunning;
-    NSDictionary *_currentNowPlayingInfo;
-    <MPUNowPlayingDelegate> *_delegate;
-    int _isPlaying;
-    BOOL _isRegisteredForNowPlayingNotifications;
-    BOOL _isUpdatingNowPlayingApp;
-    BOOL _isUpdatingNowPlayingInfo;
-    BOOL _isUpdatingPlaybackState;
-    BOOL _shouldUpdateNowPlayingArtwork;
-    NSObject<OS_dispatch_source> *_timeInformationTimer;
-    double _timeInformationUpdateInterval;
+    bool  _cachedArtworkDirty;
+    UIImage * _cachedNowPlayingArtwork;
+    double  _currentDuration;
+    double  _currentElapsed;
+    NSString * _currentNowPlayingAppDisplayID;
+    bool  _currentNowPlayingAppIsRunning;
+    NSString * _currentNowPlayingAppParentApp;
+    NSString * _currentNowPlayingArtworkDigest;
+    NSDictionary * _currentNowPlayingInfo;
+    <MPUNowPlayingDelegate> * _delegate;
+    bool  _hasValidCurrentNowPlayingAppDisplayID;
+    long long  _isPlaying;
+    bool  _isRegisteredForNowPlayingNotifications;
+    bool  _isUpdatingNowPlayingApp;
+    bool  _isUpdatingNowPlayingInfo;
+    bool  _isUpdatingPlaybackState;
+    bool  _shouldUpdateNowPlayingArtwork;
+    NSObject<OS_dispatch_source> * _timeInformationTimer;
+    double  _timeInformationUpdateInterval;
+    bool  _wantsTimeInformationUpdates;
 }
 
-@property(readonly) double currentDuration;
-@property(readonly) double currentElapsed;
-@property(readonly) UIImage * currentNowPlayingArtwork;
-@property(readonly) NSDictionary * currentNowPlayingInfo;
-@property <MPUNowPlayingDelegate> * delegate;
-@property(readonly) BOOL isPlaying;
-@property(readonly) NSString * nowPlayingAppDisplayID;
-@property BOOL shouldUpdateNowPlayingArtwork;
-@property double timeInformationUpdateInterval;
+@property (nonatomic, readonly) double currentDuration;
+@property (nonatomic, readonly) double currentElapsed;
+@property (nonatomic, readonly) bool currentNowPlayingAppIsRunning;
+@property (nonatomic, readonly) UIImage *currentNowPlayingArtwork;
+@property (nonatomic, readonly) NSString *currentNowPlayingArtworkDigest;
+@property (nonatomic, readonly) NSDictionary *currentNowPlayingInfo;
+@property (nonatomic, readonly) MPUNowPlayingMetadata *currentNowPlayingMetadata;
+@property (nonatomic) <MPUNowPlayingDelegate> *delegate;
+@property (nonatomic, readonly) bool isPlaying;
+@property (nonatomic, readonly) NSString *nowPlayingAppDisplayID;
+@property (nonatomic, readonly) bool nowPlayingAppIsSystemMediaApp;
+@property (nonatomic, readonly) NSString *nowPlayingAppParentAppDisplayID;
+@property (nonatomic) bool shouldUpdateNowPlayingArtwork;
+@property (nonatomic) double timeInformationUpdateInterval;
 
 - (void).cxx_destruct;
+- (bool)_isUpdatingTimeInformation;
 - (void)_registerForNotifications;
 - (void)_startUpdatingTimeInformation;
 - (void)_stopUpdatingTimeInformation;
@@ -41,20 +49,25 @@
 - (void)_updateCurrentNowPlaying;
 - (void)_updateNowPlayingAppDisplayID;
 - (void)_updatePlaybackState;
-- (void)_updateTimeInformation;
+- (void)_updateTimeInformationAndCallDelegate:(bool)arg1;
 - (double)currentDuration;
 - (double)currentElapsed;
+- (bool)currentNowPlayingAppIsRunning;
 - (id)currentNowPlayingArtwork;
+- (id)currentNowPlayingArtworkDigest;
 - (id)currentNowPlayingInfo;
+- (id)currentNowPlayingMetadata;
 - (void)dealloc;
 - (id)delegate;
 - (id)init;
-- (BOOL)isPlaying;
+- (bool)isPlaying;
 - (id)nowPlayingAppDisplayID;
+- (bool)nowPlayingAppIsSystemMediaApp;
+- (id)nowPlayingAppParentAppDisplayID;
 - (void)setDelegate:(id)arg1;
-- (void)setShouldUpdateNowPlayingArtwork:(BOOL)arg1;
+- (void)setShouldUpdateNowPlayingArtwork:(bool)arg1;
 - (void)setTimeInformationUpdateInterval:(double)arg1;
-- (BOOL)shouldUpdateNowPlayingArtwork;
+- (bool)shouldUpdateNowPlayingArtwork;
 - (void)startUpdating;
 - (void)stopUpdating;
 - (double)timeInformationUpdateInterval;

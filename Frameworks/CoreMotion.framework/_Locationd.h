@@ -3,16 +3,21 @@
  */
 
 @interface _Locationd : NSObject <CLIntersiloServiceProtocol> {
-    BOOL _valid;
+    bool  _valid;
 }
 
-@property BOOL valid;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (nonatomic) bool valid;
 
-+ (void)becameFatallyBlocked:(id)arg1;
++ (void)becameFatallyBlocked:(id)arg1 index:(unsigned long long)arg2;
 + (id)getSilo;
-+ (BOOL)isSupported;
++ (bool)isSupported;
++ (void)performSyncOnSilo:(id)arg1 invoker:(id /* block */)arg2;
 
-- (void)setValid:(BOOL)arg1;
-- (BOOL)valid;
+- (void)setValid:(bool)arg1;
+- (bool)valid;
 
 @end

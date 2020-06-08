@@ -2,38 +2,50 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardServices.framework/SpringBoardServices
  */
 
-@class NSHashTable, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
-
 @interface SBSStatusBarStyleOverridesAssertionManager : NSObject <SBSStatusBarStyleOverridesAssertionClient> {
-    NSHashTable *_assertions;
-    NSObject<OS_dispatch_queue> *_internalQueue;
-    NSXPCConnection *_sbXPCConnection;
+    NSMapTable * _assertionsByIdentifier;
+    NSObject<OS_dispatch_queue> * _coordinatorCalloutQueue;
+    NSObject<OS_dispatch_queue> * _internalQueue;
+    SBSStatusBarStyleOverridesCoordinator * _internalQueue_styleOverrideCoordinator;
+    NSXPCConnection * _sbXPCConnection;
 }
 
-@property(retain) NSHashTable * assertions;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) NSObject<OS_dispatch_queue> * internalQueue;
-@property(retain) NSXPCConnection * sbXPCConnection;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSMapTable *assertionsByIdentifier;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *coordinatorCalloutQueue;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *internalQueue;
+@property (nonatomic) SBSStatusBarStyleOverridesCoordinator *internalQueue_styleOverrideCoordinator;
+@property (nonatomic, retain) NSXPCConnection *sbXPCConnection;
+@property (readonly) Class superclass;
 
 + (id)sharedInstance;
 
-- (void)_internalQueue_removeStatusBarStyleOverridesAssertionMatchingData:(id)arg1 invalidate:(BOOL)arg2;
-- (void)_invalidateStatusBarStyleOverridesAssertionsWithData:(id)arg1;
+- (void).cxx_destruct;
+- (void)_internalQueue_removeStatusBarStyleOverridesAssertionWithIdentifier:(id)arg1 invalidate:(bool)arg2;
+- (void)_internalQueue_setupXPCConnectionIfNecessary;
+- (void)_internalQueue_updateRegistrationForCoordinator:(id)arg1 reply:(id /* block */)arg2;
 - (void)_reactivateAssertions;
+- (void)_registerStyleOverrideCoordinatorAfterInterruption;
 - (void)_tearDownXPCConnection;
-- (void)addStatusBarStyleOverridesAssertion:(id)arg1 withHandler:(id)arg2 onQueue:(id)arg3;
-- (id)assertions;
-- (void)dealloc;
+- (void)addStatusBarStyleOverridesAssertion:(id)arg1 withHandler:(id /* block */)arg2 onQueue:(id)arg3;
+- (id)assertionsByIdentifier;
+- (id)coordinatorCalloutQueue;
 - (id)init;
 - (id)internalQueue;
+- (id)internalQueue_styleOverrideCoordinator;
 - (void)invalidateStatusBarStyleOverridesAssertionsWithIdentifiers:(id)arg1;
 - (void)removeStatusBarStyleOverridesAssertion:(id)arg1;
 - (id)sbXPCConnection;
-- (void)setAssertions:(id)arg1;
+- (void)setAssertionsByIdentifier:(id)arg1;
+- (void)setCoordinatorCalloutQueue:(id)arg1;
 - (void)setInternalQueue:(id)arg1;
+- (void)setInternalQueue_styleOverrideCoordinator:(id)arg1;
 - (void)setSbXPCConnection:(id)arg1;
+- (void)statusBarTappedWithContext:(id)arg1 reply:(id /* block */)arg2;
+- (void)unregisterCoordinator;
+- (void)updateRegistrationForCoordinator:(id)arg1 reply:(id /* block */)arg2;
+- (void)updateStatusStringForAssertion:(id)arg1;
 
 @end

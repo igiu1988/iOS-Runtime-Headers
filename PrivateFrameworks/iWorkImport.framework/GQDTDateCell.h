@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDTComputedFormatSpec;
-
 @interface GQDTDateCell : GQDTCell {
-    GQDTComputedFormatSpec *mComputedFormat;
-    struct __CFDate { } *mDate;
+    GQDTComputedFormatSpec * mComputedFormat;
+    struct __CFDate { } * mDate;
 }
 
 - (struct __CFString { }*)createStringValue;

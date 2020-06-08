@@ -2,33 +2,35 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKRecurrenceChooserControllerDelegate>, NSDate;
-
 @interface EKRecurrenceChooserController : NSObject {
-    NSDate *_date;
-    <EKRecurrenceChooserControllerDelegate> *_delegate;
+    UIColor * _backgroundColor;
+    NSDate * _date;
+    <EKRecurrenceChooserControllerDelegate> * _delegate;
 }
 
-@property(copy) NSDate * date;
-@property <EKRecurrenceChooserControllerDelegate> * delegate;
-@property(readonly) int frequency;
+@property (nonatomic, copy) UIColor *backgroundColor;
+@property (copy) NSDate *date;
+@property <EKRecurrenceChooserControllerDelegate> *delegate;
+@property (nonatomic, readonly) long long frequency;
 
-+ (int)dayFromNumber:(int)arg1;
++ (int)dayFromNumber:(long long)arg1;
 
 - (void).cxx_destruct;
-- (id)cellForRow:(int)arg1;
+- (id)backgroundColor;
+- (id)cellForRow:(long long)arg1;
 - (id)date;
 - (id)delegate;
-- (BOOL)drawBackgroundForRow:(int)arg1;
-- (int)frequency;
-- (float)heightForRow:(int)arg1;
+- (bool)drawBackgroundForRow:(long long)arg1;
+- (long long)frequency;
+- (double)heightForRow:(long long)arg1;
 - (id)initWithDate:(id)arg1;
 - (void)notifyDelegate;
-- (int)numberOfRows;
-- (void)rowTapped:(int)arg1;
+- (long long)numberOfRows;
+- (void)rowTapped:(long long)arg1;
+- (void)setBackgroundColor:(id)arg1;
 - (void)setDate:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (id)startDateComponents:(unsigned int)arg1;
+- (id)startDateComponents:(unsigned long long)arg1;
 - (void)updateFromRecurrenceRule:(id)arg1;
 - (void)updateRecurrenceRuleBuilder:(id)arg1;
 

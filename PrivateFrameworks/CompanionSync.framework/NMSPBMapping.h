@@ -3,12 +3,12 @@
  */
 
 @interface NMSPBMapping : NSObject {
-    Class _requestClass;
-    Class _responseClass;
+    Class  _requestClass;
+    Class  _responseClass;
 }
 
-@property(retain) Class requestClass;
-@property(retain) Class responseClass;
+@property (nonatomic, retain) Class requestClass;
+@property (nonatomic, retain) Class responseClass;
 
 - (void).cxx_destruct;
 - (id)description;

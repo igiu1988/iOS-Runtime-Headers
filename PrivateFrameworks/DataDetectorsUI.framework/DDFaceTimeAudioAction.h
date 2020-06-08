@@ -2,13 +2,14 @@
    Image: /System/Library/PrivateFrameworks/DataDetectorsUI.framework/DataDetectorsUI
  */
 
-@interface DDFaceTimeAudioAction : DDTelephoneNumberAction {
-}
+@interface DDFaceTimeAudioAction : DDCallAction
 
-+ (BOOL)isAvailable;
++ (bool)isAvailable;
 
+- (id)callProvider;
 - (int)interactionType;
 - (id)localizedName;
-- (void)perform;
+- (id)notificationIconBundleIdentifier;
+- (id)notificationTitle;
 
 @end

@@ -2,28 +2,32 @@
    Image: /System/Library/PrivateFrameworks/BackBoardServices.framework/BackBoardServices
  */
 
-@class <BKSSystemApplicationClientDelegate>, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>;
-
 @interface BKSSystemApplicationClient : BSBaseXPCClient {
-    NSObject<OS_dispatch_queue> *_callOutQueue;
-    NSObject<OS_dispatch_semaphore> *_checkinSemaphore;
-    <BKSSystemApplicationClientDelegate> *_delegate;
-    BOOL _pendingCheckIn;
-    BOOL _sentConnect;
+    NSObject<OS_dispatch_queue> * _callOutQueue;
+    NSObject<OS_dispatch_semaphore> * _checkinSemaphore;
+    <BKSSystemApplicationClientDelegate> * _delegate;
+    bool  _pendingCheckIn;
+    NSObject<OS_dispatch_semaphore> * _pingSemaphore;
+    bool  _sentConnect;
+    double  _systemIdleSleepInterval;
+    bool  _waitingForPing;
 }
 
-@property <BKSSystemApplicationClientDelegate> * delegate;
+@property (nonatomic) <BKSSystemApplicationClientDelegate> *delegate;
+@property (nonatomic) double systemIdleSleepInterval;
 
+- (void).cxx_destruct;
 - (void)_connect;
 - (void)_queue_handleWatchdogPing:(id)arg1;
-- (void)_sendMessageOfType:(int)arg1 packer:(id)arg2 replyHandler:(id)arg3 waitForReply:(BOOL)arg4 waitDuration:(unsigned long long)arg5;
-- (void)_sendMessageOfType:(int)arg1 packer:(id)arg2 replyHandler:(id)arg3;
-- (void)_sendMessageOfType:(int)arg1 packer:(id)arg2;
-- (void)checkIn;
+- (void)_sendMessageOfType:(long long)arg1 packer:(id /* block */)arg2;
+- (void)_sendMessageOfType:(long long)arg1 packer:(id /* block */)arg2 replyHandler:(id /* block */)arg3;
+- (void)_sendMessageOfType:(long long)arg1 packer:(id /* block */)arg2 replyHandler:(id /* block */)arg3 waitForReply:(bool)arg4 waitDuration:(unsigned long long)arg5;
+- (void)checkInAndWaitForDataMigration:(bool)arg1;
 - (void)connect;
-- (void)dealloc;
 - (id)delegate;
+- (void)finishBooting;
 - (id)initWithCalloutQueue:(id)arg1;
+- (bool)ping;
 - (void)queue_connectionWasInterrupted;
 - (void)queue_connectionWasInvalidated;
 - (void)queue_connectionWasResumed;
@@ -31,5 +35,7 @@
 - (void)restart;
 - (void)sendActions:(id)arg1;
 - (void)setDelegate:(id)arg1;
+- (void)setSystemIdleSleepInterval:(double)arg1;
+- (double)systemIdleSleepInterval;
 
 @end

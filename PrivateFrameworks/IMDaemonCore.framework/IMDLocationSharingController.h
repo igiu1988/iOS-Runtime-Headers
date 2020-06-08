@@ -2,12 +2,12 @@
    Image: /System/Library/PrivateFrameworks/IMDaemonCore.framework/IMDaemonCore
  */
 
-@class FMFSession;
-
 @interface IMDLocationSharingController : NSObject {
-    FMFSession *_session;
+    FMFSession * _session;
 }
 
++ (void)_addLocationShareItemToMatchingChats:(id)arg1 handleID:(id)arg2 hasStoredItem:(bool)arg3 broadcastChanges:(bool)arg4;
++ (void)addLocationShareItemToMatchingChats:(id)arg1;
 + (id)sharedInstance;
 
 - (void)_forwardMappingPacket:(id)arg1 toID:(id)arg2 account:(id)arg3;

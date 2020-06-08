@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/NanoSystemSettings.framework/NanoSystemSettings
  */
 
-@class NSString;
-
 @interface NSSUsageBundleCategory : NSObject <NSSecureCoding> {
-    NSString *_name;
-    unsigned long long _size;
+    NSString * _name;
+    unsigned long long  _size;
 }
 
-@property(retain) NSString * name;
-@property unsigned long long size;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic) unsigned long long size;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)description;

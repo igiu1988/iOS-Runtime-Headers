@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/CoreMotion.framework/CoreMotion
  */
 
-@class NSDate;
-
-@interface CMSedentaryTimerData : NSObject <NSSecureCoding, NSCopying> {
-    int fAlarmType;
-    BOOL fDidWake;
-    double fFiredDate;
-    double fStartDate;
+@interface CMSedentaryTimerData : NSObject <NSCopying, NSSecureCoding> {
+    long long  fAlarmType;
+    bool  fDidWake;
+    double  fFiredDate;
+    double  fStartDate;
 }
 
-@property(readonly) int alarmType;
-@property(readonly) BOOL didWake;
-@property(readonly) NSDate * firedDate;
-@property(readonly) NSDate * startDate;
+@property (nonatomic, readonly) long long alarmType;
+@property (nonatomic, readonly) bool didWake;
+@property (nonatomic, readonly) NSDate *firedDate;
+@property (nonatomic, readonly) NSDate *startDate;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (int)alarmType;
+- (long long)alarmType;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (BOOL)didWake;
+- (bool)didWake;
 - (void)encodeWithCoder:(id)arg1;
 - (id)firedDate;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithStartDate:(double)arg1 firedDate:(double)arg2 alarmType:(int)arg3 didWake:(BOOL)arg4;
+- (id)initWithStartDate:(double)arg1 firedDate:(double)arg2 alarmType:(long long)arg3 didWake:(bool)arg4;
 - (id)startDate;
 
 @end

@@ -2,28 +2,29 @@
    Image: /System/Library/PrivateFrameworks/CloudDocs.framework/CloudDocs
  */
 
-@class NSArray, NSNumber, NSURL;
-
 @interface BRQueryStitch : NSObject {
-    NSURL *_fromURL;
-    BOOL _kind;
-    NSNumber *_objid;
-    NSArray *_queries;
-    NSURL *_url;
+    NSArray * _contexts;
+    NSURL * _fromURL;
+    BOOL  _kind;
+    BRFileObjectID * _objid;
+    NSURL * _url;
 }
 
-@property(retain) NSURL * fromURL;
-@property(retain) NSArray * queries;
+@property (nonatomic, retain) NSArray *contexts;
+@property (nonatomic, retain) NSURL *fromURL;
 
+- (void).cxx_destruct;
 - (void)_creationDone;
 - (void)_deletionDone;
+- (void)_enableUpdatesFromIPCAfterStitchingOnAllQueries;
 - (void)_renameDone;
+- (id)contexts;
 - (void)dealloc;
 - (id)description;
 - (void)done;
 - (id)fromURL;
 - (id)initWithURL:(id)arg1 objid:(id)arg2 kind:(BOOL)arg3;
-- (id)queries;
+- (void)setContexts:(id)arg1;
 - (void)setFromURL:(id)arg1;
 - (void)setQueries:(id)arg1;
 

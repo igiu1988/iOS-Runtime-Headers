@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface OCCancel : NSObject <TCCancelDelegate> {
-    BOOL mIsCancelled;
-    BOOL mIsQuit;
+    bool  mIsCancelled;
+    bool  mIsQuit;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 - (void)cancel;
 - (id)init;
-- (BOOL)isCancelled;
-- (BOOL)isQuit;
+- (bool)isCancelled;
+- (bool)isQuit;
 - (void)quit;
 
 @end

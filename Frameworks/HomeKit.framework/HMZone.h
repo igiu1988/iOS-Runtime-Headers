@@ -2,66 +2,73 @@
    Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
  */
 
-@class HMHome, HMMessageDispatcher, NSArray, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
-
-@interface HMZone : NSObject <HMMessageReceiver, NSSecureCoding> {
-    NSMutableArray *_currentRooms;
-    HMHome *_home;
-    HMMessageDispatcher *_msgDispatcher;
-    NSString *_name;
-    NSMutableDictionary *_pendingRequests;
-    NSUUID *_uuid;
-    NSObject<OS_dispatch_queue> *_workQueue;
+@interface HMZone : NSObject <HFStateDumpBuildable, HMFMessageReceiver, HMObjectMerge, NSSecureCoding> {
+    _HMContext * _context;
+    HMMutableArray * _currentRooms;
+    HMHome * _home;
+    HMFUnfairLock * _lock;
+    NSString * _name;
+    NSUUID * _uniqueIdentifier;
+    NSUUID * _uuid;
 }
 
-@property(retain) NSMutableArray * currentRooms;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property HMHome * home;
-@property(readonly) NSObject<OS_dispatch_queue> * messageReceiveQueue;
-@property(readonly) NSUUID * messageTargetUUID;
-@property(retain) HMMessageDispatcher * msgDispatcher;
-@property(copy,readonly) NSString * name;
-@property(retain) NSMutableDictionary * pendingRequests;
-@property(copy,readonly) NSArray * rooms;
-@property(readonly) Class superclass;
-@property(retain) NSUUID * uuid;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
+@property (nonatomic, retain) _HMContext *context;
+@property (nonatomic, retain) HMMutableArray *currentRooms;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) HMHome *home;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (nonatomic, readonly) NSUUID *messageTargetUUID;
+@property (nonatomic, readonly, copy) NSString *name;
+@property (nonatomic, readonly, copy) NSArray *rooms;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) NSUUID *uniqueIdentifier;
+@property (nonatomic, readonly) NSUUID *uuid;
 
-+ (BOOL)supportsSecureCoding;
+// Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
+
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
+- (void)__configureWithContext:(id)arg1 home:(id)arg2;
+- (void)_addRoom:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)_handleRoomAddedNotification:(id)arg1;
+- (void)_handleRoomRemovedNotification:(id)arg1;
+- (void)_handleZoneRenamedNotification:(id)arg1;
+- (void)_invalidate;
+- (bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (void)_registerNotificationHandlers;
-- (void)addRoom:(id)arg1 completionHandler:(id)arg2;
-- (void)configure:(id)arg1 uuid:(id)arg2 messageDispatcher:(id)arg3;
+- (void)_removeRoom:(id)arg1;
+- (void)_removeRoom:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)_unconfigure;
+- (void)_updateName:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)addRoom:(id)arg1 completionHandler:(id /* block */)arg2;
+- (id)context;
 - (id)currentRooms;
+- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
-- (void)handleRoomAddedNotification:(id)arg1;
-- (void)handleRoomRemovedNotification:(id)arg1;
-- (void)handleZoneRenamedNotification:(id)arg1;
 - (id)home;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithName:(id)arg1;
-- (void)invalidate;
+- (id)initWithName:(id)arg1 uuid:(id)arg2;
 - (id)messageReceiveQueue;
 - (id)messageTargetUUID;
-- (id)msgDispatcher;
 - (id)name;
-- (id)pendingRequests;
-- (void)removeRoom:(id)arg1 completionHandler:(id)arg2;
-- (void)removeRoom:(id)arg1;
+- (void)removeRoom:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)roomWithUUID:(id)arg1;
 - (id)rooms;
+- (void)setContext:(id)arg1;
 - (void)setCurrentRooms:(id)arg1;
 - (void)setHome:(id)arg1;
-- (void)setMsgDispatcher:(id)arg1;
-- (void)setPendingRequests:(id)arg1;
+- (void)setName:(id)arg1;
 - (void)setUuid:(id)arg1;
-- (void)setWorkQueue:(id)arg1;
-- (void)updateName:(id)arg1 completionHandler:(id)arg2;
+- (id)uniqueIdentifier;
+- (void)updateName:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)uuid;
-- (id)workQueue;
+
+// Image: /System/Library/PrivateFrameworks/Home.framework/Home
+
+- (id)hf_stateDumpBuilderWithContext:(id)arg1;
 
 @end

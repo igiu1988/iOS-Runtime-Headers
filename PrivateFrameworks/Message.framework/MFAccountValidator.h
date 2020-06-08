@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class MFAccount, MFActivityMonitor, MFError, MFMonitoredInvocation, NSArray;
-
 @interface MFAccountValidator : NSObject {
+    MFAccount * _account;
+    MFActivityMonitor * _accountValidationActivity;
+    id /* block */  _completionBlock;
+    id  _delegate;
     struct { 
         unsigned int useSSL : 1; 
         unsigned int incomingServerSupportsSSL : 1; 
@@ -16,50 +14,46 @@
         unsigned int canceled : 1; 
         unsigned int performsValidationInBackground : 1; 
         unsigned int unused : 27; 
-    MFAccount *_account;
-    MFActivityMonitor *_accountValidationActivity;
-    id _completionBlock;
-    id _delegate;
-    } _flags;
-    NSArray *_incomingServerAuthSchemes;
-    MFError *_incomingServerValidationError;
-    NSArray *_smtpServerAuthSchemes;
-    MFError *_smtpServerValidationError;
-    MFMonitoredInvocation *_validationInvocation;
+    }  _flags;
+    NSArray * _incomingServerAuthSchemes;
+    MFError * _incomingServerValidationError;
+    NSArray * _smtpServerAuthSchemes;
+    MFError * _smtpServerValidationError;
+    MFMonitoredInvocation * _validationInvocation;
 }
 
-@property(readonly) MFAccount * account;
-@property(readonly) BOOL accountIsValid;
-@property(readonly) BOOL accountSupportsSSL;
-@property id delegate;
-@property(readonly) MFError * error;
-@property(readonly) BOOL performsValidationInBackground;
-@property(readonly) MFMonitoredInvocation * validationInvocation;
+@property (nonatomic, readonly) MFAccount *account;
+@property (nonatomic, readonly) bool accountIsValid;
+@property (nonatomic, readonly) bool accountSupportsSSL;
+@property (nonatomic) id delegate;
+@property (nonatomic, readonly) MFError *error;
+@property (nonatomic, readonly) bool performsValidationInBackground;
+@property (nonatomic, readonly) MFMonitoredInvocation *validationInvocation;
 
 - (void)_backgroundValidateAccountFinished:(id)arg1 authSchemes:(id)arg2;
-- (BOOL)_incomingServerValid;
+- (bool)_incomingServerValid;
 - (id)_ispAccountInfo;
-- (BOOL)_outgoingServerValid;
-- (void)_validateAccount:(id)arg1 withFallbacks:(BOOL)arg2;
+- (bool)_outgoingServerValid;
 - (void)_validateAccount:(id)arg1;
+- (void)_validateAccount:(id)arg1 withFallbacks:(bool)arg2;
 - (void)_validateAccountWithoutFallbacks:(id)arg1;
 - (id)account;
-- (BOOL)accountIsValid;
-- (BOOL)accountSupportsSSL;
-- (BOOL)accountValidationCanceled;
+- (bool)accountIsValid;
+- (bool)accountSupportsSSL;
+- (bool)accountValidationCanceled;
 - (void)cancelValidation;
 - (void)dealloc;
 - (id)delegate;
 - (id)error;
 - (id)init;
-- (id)initWithPerformsValidationInBackground:(BOOL)arg1;
-- (BOOL)performsValidationInBackground;
+- (id)initWithPerformsValidationInBackground:(bool)arg1;
+- (bool)performsValidationInBackground;
 - (void)setDelegate:(id)arg1;
 - (void)stop;
-- (void)validateAccount:(id)arg1 useSSL:(BOOL)arg2 withCompletion:(id)arg3;
-- (void)validateAccount:(id)arg1 useSSL:(BOOL)arg2;
-- (void)validateAccountWithoutFallbacks:(id)arg1 withCompletion:(id)arg2;
+- (void)validateAccount:(id)arg1 useSSL:(bool)arg2;
+- (void)validateAccount:(id)arg1 useSSL:(bool)arg2 withCompletion:(id /* block */)arg3;
 - (void)validateAccountWithoutFallbacks:(id)arg1;
+- (void)validateAccountWithoutFallbacks:(id)arg1 withCompletion:(id /* block */)arg2;
 - (id)validationInvocation;
 
 @end

@@ -2,18 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString;
+@interface SAGetResultObjects : SABaseCommand <SAServerBoundCommand>
 
-@interface SAGetResultObjects : SABaseCommand <SAServerBoundCommand> {
-}
+@property (nonatomic, copy) NSString *aceId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSArray *objectIdentifiers;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
 
-@property(copy) NSString * aceId;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) NSArray * objectIdentifiers;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
+// Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
 
 + (id)getResultObjects;
 + (id)getResultObjectsWithDictionary:(id)arg1 context:(id)arg2;
@@ -21,6 +20,12 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)objectIdentifiers;
+- (bool)requiresResponse;
 - (void)setObjectIdentifiers:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/SiriCore.framework/SiriCore
+
+- (bool)siriCore_isProvisional;
+- (bool)siriCore_isRetryable;
 
 @end

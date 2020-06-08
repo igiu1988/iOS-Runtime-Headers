@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSArray, NSString, UIFont;
-
 @interface CKPhoneNumberCompressor : NSObject {
-    float _desiredWidth;
-    UIFont *_font;
-    NSString *_phoneNumber;
-    NSArray *_preferredCompressions;
+    double  _desiredWidth;
+    UIFont * _font;
+    NSString * _phoneNumber;
+    NSArray * _preferredCompressions;
 }
 
-@property float desiredWidth;
-@property(retain) UIFont * font;
-@property(copy) NSString * phoneNumber;
-@property(copy) NSArray * preferredCompressions;
+@property (nonatomic) double desiredWidth;
+@property (nonatomic, retain) UIFont *font;
+@property (nonatomic, copy) NSString *phoneNumber;
+@property (nonatomic, copy) NSArray *preferredCompressions;
 
+- (void).cxx_destruct;
 - (id)_compressPhoneNumberIfFitsInCompressionLevel:(int)arg1;
 - (id)compress;
-- (void)dealloc;
-- (float)desiredWidth;
+- (double)desiredWidth;
 - (id)font;
 - (id)phoneNumber;
 - (id)preferredCompressions;
-- (void)setDesiredWidth:(float)arg1;
+- (void)setDesiredWidth:(double)arg1;
 - (void)setFont:(id)arg1;
 - (void)setPhoneNumber:(id)arg1;
 - (void)setPreferredCompressions:(id)arg1;

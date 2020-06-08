@@ -2,14 +2,19 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVExternalDeviceDelegate>, AVWeakReference, NSArray;
-
 @interface AVExternalDeviceInternal : NSObject {
-    NSArray *_HIDs;
-    <AVExternalDeviceDelegate> *_delegate;
-    struct OpaqueFigEndpoint { } *_figEndpoint;
-    long _makeHIDsOnlyOnce;
-    AVWeakReference *_weakReference;
+    NSArray * _HIDs;
+    NSData * _MFiCertSerial;
+    NSMutableDictionary * _currentViewAreas;
+    <AVExternalDeviceDelegate> * _delegate;
+    struct OpaqueFigEndpoint { } * _figEndpoint;
+    long long  _makeHIDsOnlyOnce;
+    long long  _makeIconsOnlyOnce;
+    NSArray * _oemIcons;
+    NSObject<OS_dispatch_queue> * _queue;
+    NSArray * _screenInfo;
+    NSObject<OS_dispatch_queue> * _viewAreasQueue;
+    AVWeakReference * _weakReference;
 }
 
 @end

@@ -2,20 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPZone, NSString;
-
 @interface CKDPZoneSaveRequest : PBRequest <NSCopying> {
-    NSString *_etag;
-    CKDPZone *_recordZone;
-    NSString *_zoneProtectionInfoTag;
+    CKDPZone * _recordZone;
+    NSString * _zoneProtectionInfoTag;
 }
 
-@property(retain) NSString * etag;
-@property(readonly) BOOL hasEtag;
-@property(readonly) BOOL hasRecordZone;
-@property(readonly) BOOL hasZoneProtectionInfoTag;
-@property(retain) CKDPZone * recordZone;
-@property(retain) NSString * zoneProtectionInfoTag;
+@property (nonatomic, readonly) bool hasRecordZone;
+@property (nonatomic, readonly) bool hasZoneProtectionInfoTag;
+@property (nonatomic, retain) CKDPZone *recordZone;
+@property (nonatomic, retain) NSString *zoneProtectionInfoTag;
 
 + (id)options;
 
@@ -24,18 +19,15 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (id)etag;
-- (BOOL)hasEtag;
-- (BOOL)hasRecordZone;
-- (BOOL)hasZoneProtectionInfoTag;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasRecordZone;
+- (bool)hasZoneProtectionInfoTag;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)recordZone;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
-- (void)setEtag:(id)arg1;
 - (void)setRecordZone:(id)arg1;
 - (void)setZoneProtectionInfoTag:(id)arg1;
 - (void)writeTo:(id)arg1;

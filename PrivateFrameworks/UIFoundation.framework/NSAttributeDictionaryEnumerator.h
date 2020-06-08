@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
  */
 
-@class NSAttributeDictionary;
-
 @interface NSAttributeDictionaryEnumerator : NSEnumerator {
-    NSAttributeDictionary *dictionary;
-    unsigned int nextElement;
+    NSAttributeDictionary * dictionary;
+    unsigned long long  nextElement;
 }
 
 - (void)dealloc;

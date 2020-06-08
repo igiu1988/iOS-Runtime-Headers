@@ -2,28 +2,31 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class WKWebView, _WKFrameHandle;
-
 @interface _WKWebViewPrintFormatter : UIViewPrintFormatter {
-    struct PrintInfo { 
-        float pageSetupScaleFactor; 
-        float availablePaperWidth; 
-        float availablePaperHeight; 
-    _WKFrameHandle *_frameToPrint;
-    } _printInfo;
-    double _totalScaleFactor;
+    struct RetainPtr<_WKFrameHandle> { 
+        void *m_ptr; 
+    }  _frameToPrint;
+    struct RetainPtr<CGPDFDocument *> { 
+        void *m_ptr; 
+    }  _printedDocument;
+    bool  _snapshotFirstPage;
+    bool  _suppressPageCountRecalc;
 }
 
-@property(retain) _WKFrameHandle * frameToPrint;
-@property(readonly) WKWebView * webView;
+@property (nonatomic, retain) _WKFrameHandle *frameToPrint;
+@property (nonatomic) bool snapshotFirstPage;
 
 - (id).cxx_construct;
-- (int)_recalcPageCount;
-- (void)dealloc;
-- (void)drawInRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 forPageAtIndex:(int)arg2;
+- (void).cxx_destruct;
+- (long long)_recalcPageCount;
+- (void)_setNeedsRecalc;
+- (void)_setSnapshotPaperRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)_webView;
+- (void)drawInRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 forPageAtIndex:(long long)arg2;
 - (id)frameToPrint;
-- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })rectForPageAtIndex:(int)arg1;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })rectForPageAtIndex:(long long)arg1;
 - (void)setFrameToPrint:(id)arg1;
-- (id)webView;
+- (void)setSnapshotFirstPage:(bool)arg1;
+- (bool)snapshotFirstPage;
 
 @end

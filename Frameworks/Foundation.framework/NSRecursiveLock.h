@@ -2,26 +2,29 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSString;
-
-@interface NSRecursiveLock : NSObject <NSLocking> {
-    void *_priv;
+@interface NSRecursiveLock : NSObject <HMFLocking, NSLocking> {
+    void * _priv;
 }
 
-@property(copy) NSString * name;
+@property (copy) NSString *name;
+
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 
 - (void)dealloc;
 - (id)description;
-- (void)finalize;
 - (id)init;
-- (BOOL)isLocking;
+- (bool)isLocking;
 - (void)lock;
-- (BOOL)lockBeforeDate:(id)arg1;
+- (bool)lockBeforeDate:(id)arg1;
 - (id)name;
 - (void)setName:(id)arg1;
-- (BOOL)tryLock;
+- (bool)tryLock;
 - (void)unlock;
+
+// Image: /System/Library/PrivateFrameworks/HMFoundation.framework/HMFoundation
+
+- (void)performBlock:(id /* block */)arg1;
 
 @end

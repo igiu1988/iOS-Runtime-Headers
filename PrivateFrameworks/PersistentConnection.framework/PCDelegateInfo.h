@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/PersistentConnection.framework/PersistentConnection
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface PCDelegateInfo : NSObject {
-    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> * _queue;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)queue;
 - (void)setQueue:(id)arg1;
 

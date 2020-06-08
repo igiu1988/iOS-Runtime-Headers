@@ -2,27 +2,27 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class CPLPlatformObject, NSString;
+@interface CPLEngineIDMapping : CPLEngineStorage <CPLAbstractObject>
 
-@interface CPLEngineIDMapping : CPLEngineStorage <CPLAbstractObject> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) CPLPlatformObject *platformObject;
+@property (readonly) Class superclass;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) CPLPlatformObject * platformObject;
-@property(readonly) Class superclass;
-
-- (BOOL)addCloudIdentifier:(id)arg1 forLocalIdentifier:(id)arg2 isFinal:(BOOL)arg3 error:(id*)arg4;
-- (id)cloudIdentifierForLocalIdentifier:(id)arg1 isFinal:(BOOL*)arg2;
-- (id)cloudIdentifiersForLocalIdentifiers:(id)arg1;
-- (BOOL)hasPendingIdentifiers;
-- (id)localIdentifierForCloudIdentifier:(id)arg1 isFinal:(BOOL*)arg2;
-- (id)localIdentifiersForCloudIdentifiers:(id)arg1;
-- (BOOL)markAllPendingIdentifiersAsFinalWithError:(id*)arg1;
-- (BOOL)removeMappingForCloudIdentifier:(id)arg1 error:(id*)arg2;
-- (BOOL)resetAllFinalCloudIdentifiersWithError:(id*)arg1;
-- (BOOL)resetWithError:(id*)arg1;
-- (BOOL)setFinalCloudIdentifier:(id)arg1 forPendingCloudIdentifier:(id)arg2 error:(id*)arg3;
+- (bool)addAddEventForRecordWithLocalScopedIdentifier:(id)arg1 direction:(unsigned long long)arg2 error:(id*)arg3;
+- (bool)addCloudScopedIdentifier:(id)arg1 forLocalScopedIdentifier:(id)arg2 isFinal:(bool)arg3 direction:(unsigned long long)arg4 error:(id*)arg5;
+- (bool)addDeleteEventForRecordWithLocalScopedIdentifier:(id)arg1 direction:(unsigned long long)arg2 error:(id*)arg3;
+- (id)cloudScopedIdentifierForLocalScopedIdentifier:(id)arg1 isFinal:(bool*)arg2;
+- (bool)deleteRecordsForScopeIndex:(long long)arg1 maxCount:(long long)arg2 deletedCount:(long long*)arg3 error:(id*)arg4;
+- (bool)hasPendingIdentifiers;
+- (id)localScopedIdentifierForCloudScopedIdentifier:(id)arg1 isFinal:(bool*)arg2;
+- (id)localScopedIdentifierForCloudScopedIdentifierIncludeRemappedRecords:(id)arg1;
+- (bool)markAllPendingIdentifiersForScopeWithIdentifier:(id)arg1 asFinalWithError:(id*)arg2;
+- (bool)removeMappingForCloudScopedIdentifier:(id)arg1 error:(id*)arg2;
+- (bool)resetAllFinalCloudIdentifiersForScopeWithIdentifier:(id)arg1 error:(id*)arg2;
+- (unsigned long long)scopeType;
+- (bool)setFinalCloudScopedIdentifier:(id)arg1 forPendingCloudScopedIdentifier:(id)arg2 error:(id*)arg3;
+- (id)setupCloudScopedIdentifier:(id)arg1 forLocalScopedIdentifier:(id)arg2 isFinal:(bool)arg3 direction:(unsigned long long)arg4 error:(id*)arg5;
 
 @end

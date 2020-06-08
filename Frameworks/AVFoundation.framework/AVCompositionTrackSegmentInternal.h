@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSURL;
-
 @interface AVCompositionTrackSegmentInternal : NSObject {
-    int editAssetTrackID;
-    NSURL *editAssetURL;
+    int  editAssetTrackID;
+    NSURL * editAssetURL;
 }
 
 @end

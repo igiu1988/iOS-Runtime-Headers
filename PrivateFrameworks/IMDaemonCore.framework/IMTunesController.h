@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/IMDaemonCore.framework/IMDaemonCore
  */
 
-@class NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
-
 @interface IMTunesController : NSObject {
-    NSDate *_lastChange;
-    NSDictionary *_lastInfo;
-    NSMutableArray *_listeners;
-    NSString *_messageFormat;
-    NSMutableDictionary *_playerInfo;
+    NSDate * _lastChange;
+    NSDictionary * _lastInfo;
+    NSMutableArray * _listeners;
+    NSString * _messageFormat;
+    NSMutableDictionary * _playerInfo;
 }
 
-@property(readonly) BOOL isEnabled;
-@property(readonly) NSString * messageFormat;
-@property(readonly) NSDictionary * playerInfo;
+@property (nonatomic, readonly) bool isEnabled;
+@property (nonatomic, readonly) NSString *messageFormat;
+@property (nonatomic) NSMutableDictionary *playerInfo;
 
 + (id)sharedTunesController;
 
@@ -24,9 +22,10 @@
 - (void)addListener:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (BOOL)isEnabled;
+- (bool)isEnabled;
 - (id)messageFormat;
 - (id)playerInfo;
 - (void)removeListener:(id)arg1;
+- (void)setPlayerInfo:(id)arg1;
 
 @end

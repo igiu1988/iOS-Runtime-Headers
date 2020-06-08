@@ -2,52 +2,59 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class CPLPlatformObject, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
-
 @interface CPLEngineResourceDownloadQueue : CPLEngineStorage <CPLAbstractObject> {
-    NSMutableArray *_backgroundActiveTasks;
-    NSObject<OS_dispatch_queue> *_downloadQueue;
-    NSMutableArray *_highPriorityActiveTasks;
-    NSMutableArray *_highPriorityTasksQueue;
-    NSMutableArray *_lowPriorityActiveTasks;
-    NSMutableArray *_lowPriorityTasksQueue;
-    BOOL _shouldRequestABackgroundDownloadSyncPhase;
-    unsigned int _totalClientRequestErrors;
-    unsigned int _totalClientRequests;
-    unsigned int _totalPutInBackground;
+    NSObject<OS_dispatch_queue> * _downloadLock;
+    CPLActiveDownloadQueue * _highPriorityQueue;
+    unsigned long long  _inflightTransferTasksCount;
+    NSDate * _lastTransferTaskBurstDate;
+    unsigned long long  _lastTransferTasksBurstCount;
+    CPLActiveDownloadQueue * _lowPriorityQueue;
+    bool  _shouldRequestABackgroundDownloadSyncPhase;
+    CPLActiveDownloadQueue * _thumbnailHighPriorityQueue;
+    unsigned long long  _transferTasksBurstCount;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) CPLPlatformObject * platformObject;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) CPLPlatformObject *platformObject;
+@property (readonly) Class superclass;
+
++ (bool)shouldRetryDownloadOnError:(id)arg1;
 
 - (void).cxx_destruct;
-- (BOOL)_cancelDownloadTask:(id)arg1;
-- (void)_downloadTaskDidFail:(id)arg1 withError:(id)arg2 completionHandler:(id)arg3;
-- (void)_downloadTaskDidSucceed:(id)arg1 completionHandler:(id)arg2;
-- (id)_downloadTaskForLocalResource:(id)arg1 clientBundleID:(id)arg2 highPriority:(BOOL)arg3 background:(BOOL)arg4 backgroundTaskIdentifier:(unsigned int)arg5 didStartHandler:(id)arg6 progressHandler:(id)arg7 completionHandler:(id)arg8;
-- (void)_enqueueDownloadTask:(id)arg1;
-- (id)_failedTaskWithCompletionHandler:(id)arg1 error:(id)arg2;
-- (void)_finishDownloadTask:(id)arg1 error:(id)arg2;
-- (BOOL)_hasActiveForegroundTasks;
-- (void)_processQueuedDownloadTasks;
-- (id)_realDownloadTaskForCloudResource:(id)arg1 clientBundleID:(id)arg2 didStartHandler:(id)arg3 progressHandler:(id)arg4 completionHandler:(id)arg5;
-- (void)_reallyDispatchDownloadTask:(id)arg1;
-- (id)_resourceStorageCopyTaskForResource:(id)arg1 clientBundleID:(id)arg2 didStartHandler:(id)arg3 progressHandler:(id)arg4 completionHandler:(id)arg5;
-- (unsigned int)countOfQueuedDownloadTasks;
-- (id)dequeueBackgroundDownloadTaskForResourceType:(unsigned int)arg1 withCompletionHandler:(id)arg2;
-- (BOOL)dequeueNextBackgroundDownloadTask:(id*)arg1 resourceType:(unsigned int)arg2 taskIdentifier:(unsigned int*)arg3 error:(id*)arg4;
-- (id)downloadTaskForLocalResource:(id)arg1 clientBundleID:(id)arg2 highPriority:(BOOL)arg3 didStartHandler:(id)arg4 progressHandler:(id)arg5 completionHandler:(id)arg6;
-- (BOOL)enqueueBackgroundDownloadTaskForResource:(id)arg1 taskIdentifier:(unsigned int)arg2 error:(id*)arg3;
+- (id)_activeQueueForTransferTask:(id)arg1;
+- (bool)_canScheduleBackgroundDownloads;
+- (void)_dequeueTransferTaskInActiveQueue:(id)arg1;
+- (void)_dispatchTransportTasksIfNecessary;
+- (id)_downloadTaskForLocalResource:(id)arg1 clientBundleID:(id)arg2 highPriority:(bool)arg3 proposedTaskIdentifier:(id)arg4 didStartHandler:(id /* block */)arg5 progressHandler:(id /* block */)arg6 completionHandler:(id /* block */)arg7;
+- (void)_enqueueTransferTaskInActiveQueue:(id)arg1;
+- (id)_failedTaskWithCompletionHandler:(id /* block */)arg1 error:(id)arg2 resource:(id)arg3 highPriority:(bool)arg4;
+- (bool)_launchTransportTaskForQueue:(id)arg1 highPriority:(bool)arg2;
+- (id)_queuesStatus;
+- (id)_realDownloadTaskForLocalResource:(id)arg1 cloudResource:(id)arg2 didStartHandler:(id /* block */)arg3 progressHandler:(id /* block */)arg4 completionHandler:(id /* block */)arg5;
+- (void)_requestBackgroundDownloads;
+- (id)_resourceStorageCopyTaskForResource:(id)arg1 cloudResource:(id)arg2 didStartHandler:(id /* block */)arg3 progressHandler:(id /* block */)arg4 completionHandler:(id /* block */)arg5;
+- (void)_scheduleBackgroundDownloadsIfNecessary;
+- (bool)_shouldTryLowPriorityDownloadWithError:(id*)arg1;
+- (unsigned long long)_transportTaskCount;
+- (void)_unscheduleBackgroundDownloads;
+- (void)barrier;
+- (id)cloudResourceForLocalResource:(id*)arg1 shouldNotTrustCaches:(bool*)arg2 transportScope:(id*)arg3 error:(id*)arg4;
+- (unsigned long long)countOfQueuedDownloadTasks;
+- (bool)deleteRecordsForScopeIndex:(long long)arg1 maxCount:(long long)arg2 deletedCount:(long long*)arg3 error:(id*)arg4;
+- (id)dequeueNextBackgroundDownloadTasksForResourceType:(unsigned long long)arg1 maximumSize:(unsigned long long)arg2 maximumCount:(unsigned long long)arg3 error:(id*)arg4;
+- (id)downloadTaskForLocalResource:(id)arg1 clientBundleID:(id)arg2 highPriority:(bool)arg3 proposedTaskIdentifier:(id)arg4 didStartHandler:(id /* block */)arg5 progressHandler:(id /* block */)arg6 completionHandler:(id /* block */)arg7;
+- (bool)enqueueBackgroundDownloadTaskForResource:(id)arg1 downloading:(bool)arg2 error:(id*)arg3;
 - (id)enumeratorForDownloadedResources;
+- (bool)hasActiveOrQueuedBackgroundDownloadOperations;
 - (id)initWithEngineStore:(id)arg1 name:(id)arg2;
-- (BOOL)markBackgroundDownloadTaskForResourceAsSuceeded:(id)arg1 taskIdentifier:(unsigned int)arg2 error:(id*)arg3;
-- (BOOL)reenqueueBackgroundDownloadTaskForResource:(id)arg1 taskIdentifier:(unsigned int)arg2 bumpRetryCount:(BOOL)arg3 didDiscard:(BOOL*)arg4 error:(id*)arg5;
-- (BOOL)removeAllBackgroundDownloadTasksForItemWithIdentifier:(id)arg1 error:(id*)arg2;
-- (BOOL)removeBackgroundDownloadTaskForResource:(id)arg1 taskIdentifier:(unsigned int)arg2 error:(id*)arg3;
-- (BOOL)resetDequeuedBackgroundDownloadTasksWithError:(id*)arg1;
-- (BOOL)resetWithError:(id*)arg1;
+- (bool)markBackgroundDownloadTaskForResourceAsSuceeded:(id)arg1 error:(id*)arg2;
+- (bool)reenqueueBackgroundDownloadTaskForResource:(id)arg1 bumpRetryCount:(bool)arg2 didDiscard:(bool*)arg3 error:(id*)arg4;
+- (bool)removeAllBackgroundDownloadTasksForItemWithScopedIdentifier:(id)arg1 error:(id*)arg2;
+- (bool)removeBackgroundDownloadTaskForResource:(id)arg1 error:(id*)arg2;
+- (bool)resetDequeuedBackgroundDownloadTasksWithError:(id*)arg1;
+- (unsigned long long)scopeType;
+- (id)status;
 
 @end

@@ -3,11 +3,11 @@
  */
 
 @interface IKDOMSchema : NSObject {
-    struct _xmlSchema { } *_schemaPtr;
+    struct _xmlSchema { } * _schemaPtr;
 }
 
 - (void)dealloc;
 - (id)initWithSchemaData:(id)arg1;
-- (BOOL)validateDocument:(id)arg1 error:(id*)arg2;
+- (bool)validateDocument:(id)arg1 error:(id*)arg2;
 
 @end

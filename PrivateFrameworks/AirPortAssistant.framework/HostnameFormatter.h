@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AirPortAssistant.framework/AirPortAssistant
  */
 
-@interface HostnameFormatter : APFormatter {
-}
+@interface HostnameFormatter : APFormatter
 
-+ (id)hostnameFormatter:(unsigned int)arg1;
++ (id)hostnameFormatter:(unsigned long long)arg1;
 + (id)hostnameSet;
 
-- (BOOL)isPartialStringValid:(id)arg1 newEditingString:(id*)arg2 errorDescription:(id*)arg3;
+- (bool)isPartialStringValid:(id)arg1 newEditingString:(id*)arg2 errorDescription:(id*)arg3;
 
 @end

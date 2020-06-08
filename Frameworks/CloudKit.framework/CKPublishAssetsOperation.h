@@ -2,46 +2,47 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSDictionary;
-
 @interface CKPublishAssetsOperation : CKDatabaseOperation {
-    unsigned int _URLOptions;
-    id _assetPublishedBlock;
-    NSDictionary *_fileNamesByAssetFieldNames;
-    id _publishAssetCompletionBlock;
-    NSArray *_recordIDs;
-    unsigned int _requestedTTL;
+    unsigned long long  _URLOptions;
+    id /* block */  _assetPublishedBlock;
+    NSDictionary * _fileNamesByAssetFieldNames;
+    NSMutableDictionary * _perItemErrorsByRecordID;
+    id /* block */  _publishAssetCompletionBlock;
+    NSArray * _recordIDs;
+    unsigned long long  _requestedTTL;
 }
 
-@property unsigned int URLOptions;
-@property(copy) id assetPublishedBlock;
-@property(retain) NSDictionary * fileNamesByAssetFieldNames;
-@property(copy) id publishAssetCompletionBlock;
-@property(retain) NSArray * recordIDs;
-@property unsigned int requestedTTL;
+@property (nonatomic) unsigned long long URLOptions;
+@property (nonatomic, copy) id /* block */ assetPublishedBlock;
+@property (nonatomic, retain) NSDictionary *fileNamesByAssetFieldNames;
+@property (nonatomic, retain) NSMutableDictionary *perItemErrorsByRecordID;
+@property (nonatomic, copy) id /* block */ publishAssetCompletionBlock;
+@property (nonatomic, retain) NSArray *recordIDs;
+@property (nonatomic) unsigned long long requestedTTL;
 
 - (void).cxx_destruct;
-- (BOOL)CKOperationShouldRun:(id*)arg1;
-- (unsigned int)URLOptions;
+- (bool)CKOperationShouldRun:(id*)arg1;
+- (unsigned long long)URLOptions;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)_handleProgressCallback:(id)arg1;
-- (id)assetPublishedBlock;
+- (id)activityCreate;
+- (id /* block */)assetPublishedBlock;
 - (id)fileNamesByAssetFieldNames;
+- (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
+- (bool)hasCKOperationCallbacksSet;
 - (id)initWithRecordIDs:(id)arg1;
+- (id)perItemErrorsByRecordID;
 - (void)performCKOperation;
-- (id)publishAssetCompletionBlock;
+- (id /* block */)publishAssetCompletionBlock;
 - (id)recordIDs;
-- (unsigned int)requestedTTL;
-- (void)setAssetPublishedBlock:(id)arg1;
+- (unsigned long long)requestedTTL;
+- (void)setAssetPublishedBlock:(id /* block */)arg1;
 - (void)setFileNamesByAssetFieldNames:(id)arg1;
-- (void)setPublishAssetCompletionBlock:(id)arg1;
+- (void)setPerItemErrorsByRecordID:(id)arg1;
+- (void)setPublishAssetCompletionBlock:(id /* block */)arg1;
 - (void)setRecordIDs:(id)arg1;
-- (void)setRequestedTTL:(unsigned int)arg1;
-- (void)setURLOptions:(unsigned int)arg1;
+- (void)setRequestedTTL:(unsigned long long)arg1;
+- (void)setURLOptions:(unsigned long long)arg1;
 
 @end

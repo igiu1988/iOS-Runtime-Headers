@@ -2,58 +2,72 @@
    Image: /System/Library/PrivateFrameworks/HomeSharing.framework/HomeSharing
  */
 
-@class NSObject<OS_dispatch_queue>, NSString, RadiosPreferences;
-
-@interface HSCloudAvailabilityController : NSObject <RadiosPreferencesDelegate, HSCloudAvailability> {
-    NSObject<OS_dispatch_queue> *_accessQueue;
-    BOOL _canShowCloudDownloadButtons;
-    BOOL _canShowCloudMusic;
-    BOOL _canShowCloudVideo;
-    BOOL _isAirplaneModeActive;
-    BOOL _isAutoDownloadOnCellularAllowed;
-    BOOL _isCellularDataActive;
-    BOOL _isNetworkReachable;
-    BOOL _isShowingAllMusic;
-    BOOL _isShowingAllVideo;
-    BOOL _isUpdateInProgress;
-    BOOL _isWiFiEnabled;
-    int _networkType;
-    int _preferencesChangedNotifyToken;
-    BOOL _preferencesChangedNotifyTokenIsValid;
-    RadiosPreferences *_radiosPreferences;
-    struct __SCNetworkReachability { } *reachabilityRef;
+@interface HSCloudAvailabilityController : NSObject <HSCloudAvailability, ICEnvironmentMonitorObserver, RadiosPreferencesDelegate> {
+    NSObject<OS_dispatch_queue> * _accessQueue;
+    bool  _canShowCloudDownloadButtons;
+    bool  _canShowCloudMusic;
+    bool  _canShowCloudVideo;
+    struct __CTServerConnection { } * _ctServerConnection;
+    bool  _hasProperNetworkConditionsToShowCloudMedia;
+    bool  _isAirplaneModeActive;
+    bool  _isAutoDownloadOnCellularAllowed;
+    bool  _isCellularDataActive;
+    bool  _isCellularDataRestrictedForMusic;
+    bool  _isNetworkReachable;
+    bool  _isShowingAllMusic;
+    bool  _isShowingAllVideo;
+    bool  _isUpdateInProgress;
+    bool  _isWiFiAssociated;
+    bool  _isWiFiEnabled;
+    unsigned long long  _networkReachabilityObservationCount;
+    long long  _networkType;
+    int  _preferencesChangedNotifyToken;
+    bool  _preferencesChangedNotifyTokenIsValid;
+    RadiosPreferences * _radiosPreferences;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)sharedController;
 
 - (void).cxx_destruct;
-- (void)_cellularNetworkAllowedDidChangeNotification:(id)arg1;
-- (void)_handleTelephonyNotificationWithName:(id)arg1 userInfo:(id)arg2;
-- (BOOL)_hasCellularCapability;
-- (BOOL)_hasWiFiCapability;
-- (BOOL)_isAutoDownloadOnCellularAllowed;
-- (void)_networkTypeDidChangeNotification:(id)arg1;
-- (void)_onQueue_updateCanShowCloudDownloadButtonsWithNotification:(BOOL)arg1;
-- (void)_onQueue_updateCanShowCloudTracksWithNotification:(BOOL)arg1;
-- (void)_setNewIsNetworkReachable:(BOOL)arg1;
-- (BOOL)_uncachedIsAutoDownloadOnCellularAllowed;
-- (BOOL)_uncachedIsShowingAllMusic;
-- (BOOL)_uncachedIsShowingAllVideo;
-- (void)_wifiEnabledDidChangeNotification:(id)arg1;
+- (void)_applicationWillEnterForeground:(id)arg1;
+- (bool)_hasCellularCapability;
+- (bool)_hasWiFiCapability;
+- (bool)_isAutoDownloadOnCellularAllowed;
+- (void)_onQueue_beginObservingReachabilityChanges;
+- (void)_onQueue_endObservingReachabilityChanges;
+- (void)_onQueue_updateCanShowCloudDownloadButtonsWithNotification:(bool)arg1;
+- (void)_onQueue_updateCanShowCloudTracksWithNotification:(bool)arg1;
+- (void)_onQueue_updateIsCellularDataRestrictedForMusic;
+- (void)_setNewIsNetworkReachable:(bool)arg1 networkType:(long long)arg2;
+- (bool)_uncachedIsAutoDownloadOnCellularAllowed;
+- (bool)_uncachedIsShowingAllMusic;
+- (bool)_uncachedIsShowingAllVideo;
+- (void)_wifiStateDidChangeNotification:(id)arg1;
 - (void)airplaneModeChanged;
-- (BOOL)canShowCloudDownloadButtons;
-- (BOOL)canShowCloudMusic;
-- (BOOL)canShowCloudVideo;
+- (void)beginObservingNetworkReachability;
+- (bool)canShowCloudDownloadButtons;
+- (bool)canShowCloudMusic;
+- (bool)canShowCloudVideo;
 - (void)dealloc;
-- (BOOL)hasProperNetworkConditionsToPlayMedia;
+- (void)endObservingNetworkReachability;
+- (void)environmentMonitorDidChangeNetworkReachability:(id)arg1;
+- (void)environmentMonitorDidChangeNetworkType:(id)arg1;
+- (bool)hasProperNetworkConditionsToPlayMedia;
+- (bool)hasProperNetworkConditionsToShowCloudMedia;
 - (id)init;
-- (BOOL)isCellularDataRestricted;
-- (BOOL)isNetworkReachable;
-- (BOOL)shouldProhibitActionsForCurrentNetworkConditions;
+- (bool)isCellularDataRestricted;
+- (bool)isCellularDataRestrictedForMusic;
+- (bool)isCellularDataRestrictedForStoreApps;
+- (bool)isCellularDataRestrictedForVideos;
+- (bool)isNetworkReachable;
+- (bool)shouldProhibitActionsForCurrentNetworkConditions;
+- (bool)shouldProhibitMusicActionForCurrentNetworkConditions;
+- (bool)shouldProhibitStoreAppsActionForCurrentNetworkConditions;
+- (bool)shouldProhibitVideosActionForCurrentNetworkConditions;
 
 @end

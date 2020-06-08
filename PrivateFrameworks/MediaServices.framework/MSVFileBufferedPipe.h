@@ -2,33 +2,32 @@
    Image: /System/Library/PrivateFrameworks/MediaServices.framework/MediaServices
  */
 
-@class NSData, NSFileHandle, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSPipe;
-
 @interface MSVFileBufferedPipe : NSObject {
-    unsigned int _dataPendingOffset;
-    NSData *_dataPendingWrite;
-    NSFileHandle *_fileHandleForReading;
-    NSFileHandle *_fileHandleForWriting;
-    BOOL _hasBufferedData;
-    NSPipe *_inputPipe;
-    NSPipe *_outputPipe;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSFileHandle *_readBufferFileHandle;
-    NSObject<OS_dispatch_source> *_readSource;
-    BOOL _readSourceClosed;
-    BOOL _readyForData;
-    NSFileHandle *_writeBufferFileHandle;
-    NSObject<OS_dispatch_source> *_writeSource;
+    unsigned int  _dataPendingOffset;
+    NSData * _dataPendingWrite;
+    NSFileHandle * _fileHandleForReading;
+    NSFileHandle * _fileHandleForWriting;
+    bool  _hasBufferedData;
+    NSPipe * _inputPipe;
+    NSPipe * _outputPipe;
+    NSObject<OS_dispatch_queue> * _queue;
+    NSFileHandle * _readBufferFileHandle;
+    NSObject<OS_dispatch_source> * _readSource;
+    bool  _readSourceClosed;
+    bool  _readyForData;
+    NSFileHandle * _writeBufferFileHandle;
+    NSObject<OS_dispatch_source> * _writeSource;
 }
 
-@property(retain,readonly) NSFileHandle * fileHandleForReading;
-@property(retain,readonly) NSFileHandle * fileHandleForWriting;
+@property (readonly, retain) NSFileHandle *fileHandleForReading;
+@property (readonly, retain) NSFileHandle *fileHandleForWriting;
 
 + (id)pipe;
 
 - (void).cxx_destruct;
-- (void)_inputReadyForReading:(unsigned int)arg1;
-- (void)_outputReadyForWriting:(unsigned int)arg1;
+- (void)_createBufferFiles;
+- (void)_inputReadyForReading:(unsigned long long)arg1;
+- (void)_outputReadyForWriting:(unsigned long long)arg1;
 - (void)_writeBufferedData;
 - (id)fileHandleForReading;
 - (id)fileHandleForWriting;

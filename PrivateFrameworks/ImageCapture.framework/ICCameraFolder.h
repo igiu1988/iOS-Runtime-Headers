@@ -2,15 +2,17 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class NSArray;
-
 @interface ICCameraFolder : ICCameraItem {
-    int _filesLock;
-    void *_folderProperties;
-    int _foldersLock;
+    struct os_unfair_lock_s { 
+        unsigned int _os_unfair_lock_opaque; 
+    }  _filesLock;
+    void * _folderProperties;
+    struct os_unfair_lock_s { 
+        unsigned int _os_unfair_lock_opaque; 
+    }  _foldersLock;
 }
 
-@property(readonly) NSArray * contents;
+@property (readonly) NSArray *contents;
 
 - (void)addFile:(id)arg1;
 - (void)addFolder:(id)arg1;
@@ -21,9 +23,8 @@
 - (void)deleteItem:(id)arg1;
 - (id)description;
 - (id)files;
-- (void)finalize;
 - (id)folders;
-- (BOOL)hasThumbnail;
+- (bool)hasThumbnail;
 - (id)initWithName:(id)arg1 parentFolder:(id)arg2 device:(id)arg3;
 - (void)lockFiles;
 - (void)lockFolders;

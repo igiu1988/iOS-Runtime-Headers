@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartBorderAxisRenderer : TSCHChartAxisRenderer {
-}
+@interface TSCHChartBorderAxisRenderer : TSCHChartAxisRenderer
 
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -2,21 +2,23 @@
    Image: /System/Library/PrivateFrameworks/NanoMediaRemote.framework/NanoMediaRemote
  */
 
-@class NSDate, NSString, _NMRMediaRemoteGetArtworkMessage;
-
 @interface NMRMediaRemoteGetArtworkMessage : NSObject <NMRMediaRemoteProtobufCodable> {
-    _NMRMediaRemoteGetArtworkMessage *_protobuf;
+    _NMRMediaRemoteGetArtworkMessage * _protobuf;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) NSDate * serializationDate;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSNumber *originIdentifier;
+@property (nonatomic, readonly) NSDate *serializationDate;
+@property (readonly) Class superclass;
+
++ (id)messageWithOriginIdentifier:(id)arg1;
 
 - (void).cxx_destruct;
-- (id)init;
+- (id)initWithOriginIdentifier:(id)arg1;
 - (id)initWithProtobufData:(id)arg1;
+- (id)originIdentifier;
 - (id)protobufData;
 - (id)serializationDate;
 

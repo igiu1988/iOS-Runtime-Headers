@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class NSData, NSString;
-
 @interface HDCodableTimestampedKeyValuePair : PBCodable <NSCopying> {
+    NSData * _bytesValue;
     struct { 
         unsigned int numberDoubleValue : 1; 
         unsigned int numberIntValue : 1; 
         unsigned int timestamp : 1; 
-    NSData *_bytesValue;
-    } _has;
-    NSString *_key;
-    double _numberDoubleValue;
-    long long _numberIntValue;
-    NSString *_stringValue;
-    double _timestamp;
+    }  _has;
+    NSString * _key;
+    double  _numberDoubleValue;
+    long long  _numberIntValue;
+    NSString * _stringValue;
+    double  _timestamp;
 }
 
-@property(retain) NSData * bytesValue;
-@property(readonly) BOOL hasBytesValue;
-@property(readonly) BOOL hasKey;
-@property BOOL hasNumberDoubleValue;
-@property BOOL hasNumberIntValue;
-@property(readonly) BOOL hasStringValue;
-@property BOOL hasTimestamp;
-@property(retain) NSString * key;
-@property double numberDoubleValue;
-@property long long numberIntValue;
-@property(retain) NSString * stringValue;
-@property double timestamp;
+@property (nonatomic, retain) NSData *bytesValue;
+@property (nonatomic, readonly) bool hasBytesValue;
+@property (nonatomic, readonly) bool hasKey;
+@property (nonatomic) bool hasNumberDoubleValue;
+@property (nonatomic) bool hasNumberIntValue;
+@property (nonatomic, readonly) bool hasStringValue;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic, retain) NSString *key;
+@property (nonatomic) double numberDoubleValue;
+@property (nonatomic) long long numberIntValue;
+@property (nonatomic, retain) NSString *stringValue;
+@property (nonatomic) double timestamp;
 
 - (void).cxx_destruct;
 - (id)bytesValue;
@@ -39,24 +37,24 @@
 - (id)decodedValue;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasBytesValue;
-- (BOOL)hasKey;
-- (BOOL)hasNumberDoubleValue;
-- (BOOL)hasNumberIntValue;
-- (BOOL)hasStringValue;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
+- (bool)hasBytesValue;
+- (bool)hasKey;
+- (bool)hasNumberDoubleValue;
+- (bool)hasNumberIntValue;
+- (bool)hasStringValue;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
 - (id)initWithKey:(id)arg1 value:(id)arg2 timestamp:(id)arg3;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)key;
 - (void)mergeFrom:(id)arg1;
 - (double)numberDoubleValue;
 - (long long)numberIntValue;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setBytesValue:(id)arg1;
-- (void)setHasNumberDoubleValue:(BOOL)arg1;
-- (void)setHasNumberIntValue:(BOOL)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasNumberDoubleValue:(bool)arg1;
+- (void)setHasNumberIntValue:(bool)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setKey:(id)arg1;
 - (void)setNumberDoubleValue:(double)arg1;
 - (void)setNumberIntValue:(long long)arg1;

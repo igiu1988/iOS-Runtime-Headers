@@ -2,61 +2,59 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <TSDMovieHUDViewController>, CALayer, KNBuildRenderer, NSObject<NSCopying>, NSObject<TSKMediaPlayerController>, NSString;
-
-@interface KNMovieRenderer : KNBuildRenderer <TSKMediaPlayerControllerDelegate> {
+@interface KNMovieRenderer : KNBuildRenderer <KNAmbientBuildRenderer, TSKMediaPlayerControllerDelegate> {
+    TSUWeakReference * _buildInRendererReference;
     struct CGRect { 
         struct CGPoint { 
-            float x; 
-            float y; 
+            double x; 
+            double y; 
         } origin; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } size; 
-    unsigned int mHasMoviePlaybackStarted : 1;
-    unsigned int mNeedsToSendMovieStartCallback : 1;
-    unsigned int mNeedsToSendBuildEndCallback : 1;
-    unsigned int mIsObservingVideoLayerReadyForDisplay : 1;
-    unsigned int mNeedsPlaybackAtStartTime : 1;
-    unsigned int mHasPendingTogglePlayingControl : 1;
-    unsigned int mPendingTogglePlayingControlStartsPlaying : 1;
-    unsigned int mShouldMoviePlaybackEndOnCompletion : 1;
-    unsigned int mWasMoviePlayingBeforeAnimationPause : 1;
-    KNBuildRenderer *mBuildInRenderer;
-    } mFrameInContainerView;
-    SEL mMovieStartCallbackSelector;
-    id mMovieStartCallbackTarget;
-    double mPlaybackAtStartTimePauseOffset;
-    double mPlaybackAtStartTimePauseTime;
-    NSObject<TSKMediaPlayerController> *mPlayerController;
-    double mStartTime;
-    CALayer *mVideoLayer;
-    <TSDMovieHUDViewController> *mViewController;
+    }  _frameInContainerView;
+    unsigned int  _hasMoviePlaybackStarted;
+    unsigned int  _hasPendingTogglePlayingControl;
+    unsigned int  _isObservingVideoLayerReadyForDisplay;
+    unsigned int  _isTeardownCompletionBlockPending;
+    SEL  _movieStartCallbackSelector;
+    id  _movieStartCallbackTarget;
+    unsigned int  _needsPlaybackAtStartTime;
+    unsigned int  _needsToSendBuildEndCallback;
+    unsigned int  _needsToSendMovieStartCallback;
+    unsigned int  _pendingTogglePlayingControlStartsPlaying;
+    double  _playbackAtStartTimePauseOffset;
+    double  _playbackAtStartTimePauseTime;
+    NSObject<TSKLayerMediaPlayerController> * _playerController;
+    unsigned int  _shouldMoviePlaybackEndOnCompletion;
+    double  _startTime;
+    CALayer * _videoLayer;
+    unsigned int  _wasMoviePlayingBeforeAnimationPause;
 }
 
-@property KNBuildRenderer * buildInRenderer;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) BOOL hasMoviePlaybackStarted;
-@property(readonly) unsigned int hash;
-@property(readonly) NSObject<NSCopying> * movieTimelineMovieIdentifier;
-@property(readonly) CALayer * offscreenVideoLayer;
-@property(readonly) NSObject<TSKMediaPlayerController> * playerController;
-@property(readonly) Class superclass;
-@property(retain) <TSDMovieHUDViewController> * viewController;
+@property (nonatomic) KNBuildRenderer *buildInRenderer;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) bool hasAmbientBuildStarted;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSObject<NSCopying> *movieTimelineMovieIdentifier;
+@property (nonatomic, readonly) CALayer *offscreenVideoLayer;
+@property (nonatomic, readonly) NSObject<TSKMediaPlayerController> *playerController;
+@property (nonatomic, readonly) bool shouldActionBuildsStopAnimations;
+@property (readonly) Class superclass;
 
 + (id)movieInfoForMovieTimelineMovieIdentifier:(id)arg1;
 + (id)movieTimelineMovieIdentifierForMovieInfo:(id)arg1;
 
-- (BOOL)addAnimationsAtLayerTime:(double)arg1;
-- (void)animateAfterDelay:(double)arg1;
-- (void)applyMovieControl:(int)arg1;
+- (bool)addAnimationsAtLayerTime:(double)arg1;
+- (void)animate;
+- (void)applyMovieControl:(long long)arg1;
 - (id)buildInRenderer;
 - (void)dealloc;
 - (void)forceRemoveAnimations;
-- (BOOL)hasMoviePlaybackStarted;
-- (id)initWithAnimatedBuild:(id)arg1 info:(id)arg2 buildStage:(id)arg3 session:(id)arg4 animatedSlideView:(id)arg5;
+- (bool)hasAmbientBuildStarted;
+- (id)initWithAnimatedBuild:(id)arg1 info:(id)arg2 buildStage:(id)arg3 animatedSlideView:(id)arg4;
 - (void)interruptAndReset;
 - (id)movieTimelineMovieIdentifier;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
@@ -64,6 +62,7 @@
 - (void)p_applyActionEffect:(id)arg1;
 - (void)p_cancelPlaybackAtStartTime;
 - (struct CGImage { }*)p_copyCurrentVideoFrameImage;
+- (struct CGImage { }*)p_copyCurrentVideoFrameImageUsingAVAssetImageGenerator;
 - (void)p_didEndMoviePlayback;
 - (void)p_didStartMoviePlayback;
 - (void)p_playbackDidFailWithError:(id)arg1;
@@ -74,23 +73,20 @@
 - (void)p_showVideoLayer;
 - (void)p_startMoviePlaybackIfNeeded;
 - (void)p_startPlaybackAtStartTime;
-- (void)p_teardownUpdatingTexture:(BOOL)arg1;
+- (void)p_teardownUpdatingTexture:(bool)arg1;
 - (void)p_unschedulePlaybackAtStartTime;
 - (void)pauseAnimations;
 - (void)pauseAnimationsAtTime:(double)arg1;
 - (void)playbackDidStopForPlayerController:(id)arg1;
-- (void)playerController:(id)arg1 playbackDidFailWithError:(id)arg2;
 - (id)playerController;
-- (void)registerForMovieStartCallback:(SEL)arg1 target:(id)arg2;
-- (void)removeAnimationsAndFinish:(BOOL)arg1;
+- (void)playerController:(id)arg1 playbackDidFailWithError:(id)arg2;
+- (void)registerForAmbientBuildStartCallback:(SEL)arg1 target:(id)arg2;
+- (void)removeAnimationsAndFinish:(bool)arg1;
 - (void)resumeAnimationsIfPaused;
 - (void)resumeAnimationsIfPausedAtTime:(double)arg1;
 - (void)setBuildInRenderer:(id)arg1;
-- (void)setFrameOnViewLayer:(id)arg1;
-- (void)setViewController:(id)arg1;
+- (bool)shouldActionBuildsStopAnimations;
 - (void)stopAnimations;
 - (void)updateAnimationsForLayerTime:(double)arg1;
-- (void)updateHUD;
-- (id)viewController;
 
 @end

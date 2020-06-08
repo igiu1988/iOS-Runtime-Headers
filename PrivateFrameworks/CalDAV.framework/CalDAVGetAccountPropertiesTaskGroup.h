@@ -2,49 +2,48 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class CalDAVServerVersion, NSSet, NSURL;
-
 @interface CalDAVGetAccountPropertiesTaskGroup : CoreDAVGetAccountPropertiesTaskGroup {
-    NSSet *_calendarHomes;
-    NSURL *_delegatePrincipalURL;
-    NSURL *_dropboxURL;
-    NSURL *_inboxURL;
-    NSURL *_notificationURL;
-    NSURL *_outboxURL;
-    CalDAVServerVersion *_serverVersion;
-    BOOL _supportsCalendarUserSearch;
-    NSURL *_updatedPrincipalURL;
-    NSSet *_userAddresses;
+    NSSet * _calendarHomes;
+    NSURL * _delegatePrincipalURL;
+    NSURL * _dropboxURL;
+    NSURL * _inboxURL;
+    NSURL * _notificationURL;
+    NSURL * _outboxURL;
+    NSSet * _preferredUserAddresses;
+    CalDAVServerVersion * _serverVersion;
+    bool  _supportsCalendarUserSearch;
+    NSURL * _updatedPrincipalURL;
 }
 
-@property(readonly) NSSet * calendarHomes;
-@property(retain) NSURL * delegatePrincipalURL;
-@property(readonly) NSURL * dropboxURL;
-@property(readonly) NSURL * inboxURL;
-@property(readonly) NSURL * notificationURL;
-@property(readonly) NSURL * outboxURL;
-@property(readonly) CalDAVServerVersion * serverVersion;
-@property(readonly) BOOL supportsCalendarUserSearch;
-@property(readonly) NSURL * updatedPrincipalURL;
-@property(readonly) NSSet * userAddresses;
+@property (nonatomic, readonly) NSSet *calendarHomes;
+@property (nonatomic, retain) NSURL *delegatePrincipalURL;
+@property (nonatomic, readonly) NSURL *dropboxURL;
+@property (nonatomic, readonly) NSURL *inboxURL;
+@property (nonatomic, readonly) NSURL *notificationURL;
+@property (nonatomic, readonly) NSURL *outboxURL;
+@property (nonatomic, readonly) NSSet *preferredUserAddresses;
+@property (nonatomic, readonly) CalDAVServerVersion *serverVersion;
+@property (nonatomic, readonly) bool supportsCalendarUserSearch;
+@property (nonatomic, readonly) NSURL *updatedPrincipalURL;
 
+- (void).cxx_destruct;
 - (id)_copyAccountPropertiesPropFindElements;
 - (void)_setPropertiesFromParsedResponses:(id)arg1;
 - (id)calendarHomes;
-- (void)dealloc;
 - (id)delegatePrincipalURL;
 - (id)description;
 - (id)dropboxURL;
-- (BOOL)forceOptionsRequest;
+- (bool)forceOptionsRequest;
 - (id)homeSet;
 - (id)inboxURL;
 - (id)notificationURL;
 - (id)outboxURL;
+- (id)preferredUserAddresses;
 - (void)processPrincipalHeaders:(id)arg1;
 - (id)serverVersion;
 - (void)setDelegatePrincipalURL:(id)arg1;
 - (void)startTaskGroup;
-- (BOOL)supportsCalendarUserSearch;
+- (bool)supportsCalendarUserSearch;
 - (id)updatedPrincipalURL;
 - (id)userAddresses;
 

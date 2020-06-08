@@ -2,54 +2,50 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetWriterInput, NSArray, NSDictionary, NSString;
-
 @interface AVAssetWriterInputSelectionOption : AVMediaSelectionOption {
-    BOOL _displaysNonForcedSubtitles;
-    BOOL _enabled;
-    NSString *_extendedLanguageTag;
-    AVAssetWriterInput *_input;
-    NSString *_languageCode;
-    NSString *_mediaType;
-    NSArray *_metadata;
-    NSDictionary *_outputSettings;
-    struct opaqueCMFormatDescription { } *_sourceFormatHint;
-    NSDictionary *_trackReferences;
+    bool  _displaysNonForcedSubtitles;
+    bool  _enabled;
+    NSString * _extendedLanguageTag;
+    AVAssetWriterInput * _input;
+    NSString * _languageCode;
+    NSString * _mediaType;
+    NSArray * _metadata;
+    NSDictionary * _outputSettings;
+    struct opaqueCMFormatDescription { } * _sourceFormatHint;
+    NSDictionary * _trackReferences;
 }
 
-@property(readonly) BOOL displaysNonForcedSubtitles;
-@property(readonly) NSString * extendedLanguageTag;
-@property(readonly) AVAssetWriterInput * input;
-@property(readonly) NSString * languageCode;
-@property(readonly) NSString * mediaType;
-@property(readonly) NSArray * metadata;
-@property(readonly) NSDictionary * outputSettings;
-@property(readonly) struct opaqueCMFormatDescription { }* sourceFormatHint;
-@property(readonly) NSDictionary * trackReferences;
+@property (nonatomic, readonly) bool displaysNonForcedSubtitles;
+@property (nonatomic, readonly) NSString *extendedLanguageTag;
+@property (nonatomic, readonly) AVAssetWriterInput *input;
+@property (nonatomic, readonly) NSString *languageCode;
+@property (nonatomic, readonly) NSString *mediaType;
+@property (nonatomic, readonly) NSArray *metadata;
+@property (nonatomic, readonly) NSDictionary *outputSettings;
+@property (nonatomic, readonly) struct opaqueCMFormatDescription { }*sourceFormatHint;
+@property (nonatomic, readonly) NSDictionary *trackReferences;
 
-+ (id)assetWriterInputSelectionOptionWithAssetWriterInput:(id)arg1 displaysNonForcedSubtitles:(BOOL)arg2;
 + (id)assetWriterInputSelectionOptionWithAssetWriterInput:(id)arg1;
++ (id)assetWriterInputSelectionOptionWithAssetWriterInput:(id)arg1 displaysNonForcedSubtitles:(bool)arg2;
 
 - (id)_ancillaryDescription;
-- (BOOL)_hasEqualValueForKey:(id)arg1 asObject:(id)arg2;
-- (BOOL)_isAuxiliaryContent;
-- (BOOL)_isDesignatedDefault;
-- (BOOL)_isMainProgramContent;
+- (bool)_hasEqualValueForKey:(id)arg1 asObject:(id)arg2;
+- (bool)_isAuxiliaryContent;
+- (bool)_isDesignatedDefault;
 - (id)_taggedCharacteristics;
 - (id)associatedMediaSelectionOptionInMediaSelectionGroup:(id)arg1;
 - (id)availableMetadataFormats;
 - (id)commonMetadata;
 - (void)dealloc;
-- (BOOL)displaysNonForcedSubtitles;
+- (bool)displaysNonForcedSubtitles;
 - (id)extendedLanguageTag;
 - (void)finalize;
-- (BOOL)hasMediaCharacteristic:(id)arg1;
-- (unsigned int)hash;
-- (id)initWithAssetWriterInput:(id)arg1 displaysNonForcedSubtitles:(BOOL)arg2;
+- (unsigned long long)hash;
 - (id)initWithAssetWriterInput:(id)arg1;
+- (id)initWithAssetWriterInput:(id)arg1 displaysNonForcedSubtitles:(bool)arg2;
 - (id)input;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isPlayable;
+- (bool)isEqual:(id)arg1;
+- (bool)isPlayable;
 - (id)languageCode;
 - (id)locale;
 - (id)mediaSubTypes;

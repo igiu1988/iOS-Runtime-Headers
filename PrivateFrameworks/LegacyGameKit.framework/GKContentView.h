@@ -2,42 +2,40 @@
    Image: /System/Library/PrivateFrameworks/LegacyGameKit.framework/LegacyGameKit
  */
 
-@class NSArray, NSString, UIActivityIndicatorView, UIButton, UIFont, UIImage, UIImageView, UILabel, UITableView;
-
 @interface GKContentView : UIView {
-    UIActivityIndicatorView *_activityIndicator;
-    UIButton *_cancelButton;
-    NSArray *_connectionButtons;
-    UIImageView *_iconView;
-    UILabel *_messageLabel;
-    BOOL _needsLayout;
-    UIButton *_otherButton;
-    UITableView *_table;
-    UIImageView *_tableWellView;
-    UILabel *_titleLabel;
+    UIActivityIndicatorView * _activityIndicator;
+    UIButton * _cancelButton;
+    NSArray * _connectionButtons;
+    UIImageView * _iconView;
+    UILabel * _messageLabel;
+    bool  _needsLayout;
+    UIButton * _otherButton;
+    UITableView * _table;
+    UIImageView * _tableWellView;
+    UILabel * _titleLabel;
 }
 
-@property(retain) UIActivityIndicatorView * activityIndicator;
-@property(retain) UIButton * cancelButton;
-@property(retain,readonly) NSArray * connectionButtons;
-@property UIImage * icon;
-@property(retain) UIImageView * iconView;
-@property NSString * message;
-@property(readonly) UIFont * messageFont;
-@property(retain) UILabel * messageLabel;
-@property int numberOfMessageLines;
-@property int numberOfTitleLines;
-@property(retain) UIButton * otherButton;
-@property(retain,readonly) UITableView * table;
-@property NSString * title;
-@property(readonly) UIFont * titleFont;
-@property(retain) UILabel * titleLabel;
+@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, retain) UIButton *cancelButton;
+@property (nonatomic, readonly, retain) NSArray *connectionButtons;
+@property (nonatomic) UIImage *icon;
+@property (nonatomic, retain) UIImageView *iconView;
+@property (nonatomic) NSString *message;
+@property (nonatomic, readonly) UIFont *messageFont;
+@property (nonatomic, retain) UILabel *messageLabel;
+@property (nonatomic) long long numberOfMessageLines;
+@property (nonatomic) long long numberOfTitleLines;
+@property (nonatomic, retain) UIButton *otherButton;
+@property (nonatomic, readonly, retain) UITableView *table;
+@property (nonatomic) NSString *title;
+@property (nonatomic, readonly) UIFont *titleFont;
+@property (nonatomic, retain) UILabel *titleLabel;
 
-+ (float)maxTextWidth;
++ (double)maxTextWidth;
 
-- (id)_createButton:(BOOL)arg1;
+- (id)_createButton:(bool)arg1;
 - (void)_createCancelButtonWithTitle:(id)arg1;
-- (id)_createConnectionButtonWithType:(unsigned int)arg1;
+- (id)_createConnectionButtonWithType:(unsigned long long)arg1;
 - (void)_createMessageLabelIfNeeded;
 - (void)_createOtherButtonWithTitle:(id)arg1;
 - (void)_createTitleLabelIfNeeded;
@@ -53,22 +51,22 @@
 - (id)message;
 - (id)messageFont;
 - (id)messageLabel;
-- (int)numberOfMessageLines;
-- (int)numberOfTitleLines;
+- (long long)numberOfMessageLines;
+- (long long)numberOfTitleLines;
 - (id)otherButton;
 - (void)setActivityIndicator:(id)arg1;
 - (void)setCancelButton:(id)arg1;
-- (void)setConnectionButtonTypes:(unsigned int)arg1;
+- (void)setConnectionButtonTypes:(unsigned long long)arg1;
 - (void)setIcon:(id)arg1;
 - (void)setIconView:(id)arg1;
 - (void)setMessage:(id)arg1;
 - (void)setMessageLabel:(id)arg1;
-- (void)setNumberOfMessageLines:(int)arg1;
-- (void)setNumberOfTitleLines:(int)arg1;
+- (void)setNumberOfMessageLines:(long long)arg1;
+- (void)setNumberOfTitleLines:(long long)arg1;
 - (void)setOtherButton:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (void)setTitleLabel:(id)arg1;
-- (void)showActivityIndicator:(BOOL)arg1;
+- (void)showActivityIndicator:(bool)arg1;
 - (id)table;
 - (id)title;
 - (id)titleFont;

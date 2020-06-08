@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, CIVector;
-
 @interface CIPerspectiveTransform : CIFilter {
-    CIVector *inputBottomLeft;
-    CIVector *inputBottomRight;
-    CIImage *inputImage;
-    CIVector *inputTopLeft;
-    CIVector *inputTopRight;
+    CIVector * inputBottomLeft;
+    CIVector * inputBottomRight;
+    CIImage * inputImage;
+    CIVector * inputTopLeft;
+    CIVector * inputTopRight;
 }
 
-@property(retain) CIVector * inputBottomLeft;
-@property(retain) CIVector * inputBottomRight;
-@property(retain) CIImage * inputImage;
-@property(retain) CIVector * inputTopLeft;
-@property(retain) CIVector * inputTopRight;
+@property (nonatomic, retain) CIVector *inputBottomLeft;
+@property (nonatomic, retain) CIVector *inputBottomRight;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) CIVector *inputTopLeft;
+@property (nonatomic, retain) CIVector *inputTopRight;
 
 + (id)customAttributes;
 

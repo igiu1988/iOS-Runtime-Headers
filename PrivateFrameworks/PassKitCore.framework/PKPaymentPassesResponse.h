@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSArray, NSString;
-
 @interface PKPaymentPassesResponse : PKPaymentWebServiceResponse {
-    NSArray *_devicePassSerialNumbers;
-    NSString *_lastUpdatedTag;
-    NSArray *_passURLs;
+    NSArray * _devicePassSerialNumbers;
+    NSString * _lastUpdatedTag;
+    NSArray * _passURLs;
 }
 
-@property(retain) NSArray * devicePassSerialNumbers;
-@property(retain) NSString * lastUpdatedTag;
-@property(retain) NSArray * passURLs;
+@property (nonatomic, copy) NSArray *devicePassSerialNumbers;
+@property (nonatomic, copy) NSString *lastUpdatedTag;
+@property (nonatomic, copy) NSArray *passURLs;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)devicePassSerialNumbers;
 - (id)initWithData:(id)arg1;
 - (id)lastUpdatedTag;

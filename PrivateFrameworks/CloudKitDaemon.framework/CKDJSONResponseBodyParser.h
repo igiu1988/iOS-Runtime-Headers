@@ -2,39 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
+@interface CKDJSONResponseBodyParser : CKDResponseBodyParser
 
-@class NSError, NSMutableData, NSObject<OS_dispatch_queue>, NSString;
-
-@interface CKDJSONResponseBodyParser : NSObject <CKDResponseBodyParser> {
-    id _objectParsedBlock;
-    NSObject<OS_dispatch_queue> *_parseQueue;
-    NSMutableData *_parserData;
-    NSError *_parserError;
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) id objectParsedBlock;
-@property(retain) NSObject<OS_dispatch_queue> * parseQueue;
-@property(retain) NSMutableData * parserData;
-@property(retain) NSError * parserError;
-@property(readonly) Class superclass;
-
-- (void).cxx_destruct;
-- (void)finishWithCompletion:(id)arg1;
-- (id)init;
-- (id)objectParsedBlock;
-- (id)parseQueue;
-- (id)parserData;
-- (id)parserError;
+- (void)finishWithCompletion:(id /* block */)arg1;
 - (void)processData:(id)arg1;
-- (void)setObjectParsedBlock:(id)arg1;
-- (void)setParseQueue:(id)arg1;
-- (void)setParserData:(id)arg1;
-- (void)setParserError:(id)arg1;
 
 @end

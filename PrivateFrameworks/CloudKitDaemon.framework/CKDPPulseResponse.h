@@ -2,16 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSMutableArray, NSString;
-
 @interface CKDPPulseResponse : PBCodable <NSCopying> {
-    NSString *_currentEtag;
-    NSMutableArray *_userDatas;
+    NSString * _currentEtag;
+    NSMutableArray * _userDatas;
 }
 
-@property(retain) NSString * currentEtag;
-@property(readonly) BOOL hasCurrentEtag;
-@property(retain) NSMutableArray * userDatas;
+@property (nonatomic, retain) NSString *currentEtag;
+@property (nonatomic, readonly) bool hasCurrentEtag;
+@property (nonatomic, retain) NSMutableArray *userDatas;
+
++ (Class)userDataType;
 
 - (void).cxx_destruct;
 - (void)addUserData:(id)arg1;
@@ -21,16 +21,16 @@
 - (id)currentEtag;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasCurrentEtag;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasCurrentEtag;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setCurrentEtag:(id)arg1;
 - (void)setUserDatas:(id)arg1;
-- (id)userDataAtIndex:(unsigned int)arg1;
+- (id)userDataAtIndex:(unsigned long long)arg1;
 - (id)userDatas;
-- (unsigned int)userDatasCount;
+- (unsigned long long)userDatasCount;
 - (void)writeTo:(id)arg1;
 
 @end

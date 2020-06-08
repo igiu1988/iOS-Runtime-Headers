@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
  */
 
-@class BLTPBBulletinSummary;
-
 @interface BLTPBAddBulletinSummaryRequest : PBRequest <NSCopying> {
-    BLTPBBulletinSummary *_bulletin;
+    BLTPBBulletinSummary * _bulletin;
 }
 
-@property(retain) BLTPBBulletinSummary * bulletin;
-@property(readonly) BOOL hasBulletin;
+@property (nonatomic, retain) BLTPBBulletinSummary *bulletin;
+@property (nonatomic, readonly) bool hasBulletin;
 
 - (void).cxx_destruct;
 - (id)bulletin;
@@ -17,11 +15,11 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasBulletin;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasBulletin;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setBulletin:(id)arg1;
 - (void)writeTo:(id)arg1;
 

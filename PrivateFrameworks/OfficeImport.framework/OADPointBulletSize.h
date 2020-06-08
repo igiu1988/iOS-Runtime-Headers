@@ -3,12 +3,12 @@
  */
 
 @interface OADPointBulletSize : OADBulletSize {
-    int mPoints;
+    int  mPoints;
 }
 
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithPoints:(int)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (int)points;
 
 @end

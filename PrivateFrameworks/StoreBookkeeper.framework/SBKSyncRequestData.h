@@ -2,14 +2,9 @@
    Image: /System/Library/PrivateFrameworks/StoreBookkeeper.framework/StoreBookkeeper
  */
 
-@class SBKSyncTransaction;
+@interface SBKSyncRequestData : SBKRequestData
 
-@interface SBKSyncRequestData : SBKRequestData {
-}
-
-@property(readonly) SBKSyncTransaction * transaction;
-
-- (BOOL)_needsConflictDetection;
+- (bool)_needsConflictDetection;
 - (id)_serializableConflictDetectionOrdinalForKey:(id)arg1;
 - (id)_serializableConflictDetectionValue;
 - (id)_serializableDeleteItemPayloadDictionaryForKey:(id)arg1;

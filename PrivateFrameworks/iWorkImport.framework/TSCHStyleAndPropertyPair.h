@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSSStyle;
-
 @interface TSCHStyleAndPropertyPair : NSObject <NSCopying> {
-    int mProperty;
-    TSSStyle *mStyle;
+    int  mProperty;
+    TSSStyle * mStyle;
 }
 
 + (id)pairWithStyle:(id)arg1 property:(int)arg2;
 
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithStyle:(id)arg1 property:(int)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (int)property;
 - (id)style;
 

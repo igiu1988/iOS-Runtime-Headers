@@ -3,15 +3,15 @@
  */
 
 @interface ODDLayoutVariablePropertySet : OADProperties {
-    int mDirection;
-    BOOL mHasDirection;
+    int  mDirection;
+    bool  mHasDirection;
 }
 
 + (id)defaultProperties;
 
 - (id)description;
 - (int)direction;
-- (BOOL)hasDirection;
+- (bool)hasDirection;
 - (id)initWithDefaults;
 - (void)setDirection:(int)arg1;
 

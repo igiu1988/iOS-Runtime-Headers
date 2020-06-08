@@ -2,32 +2,31 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPRecordFieldIdentifier, CKDPRecordFieldValue;
-
 @interface CKDPRecordField : PBCodable <NSCopying> {
-    CKDPRecordFieldIdentifier *_identifier;
-    CKDPRecordFieldValue *_value;
+    CKDPRecordFieldIdentifier * _identifier;
+    CKDPRecordFieldValue * _value;
 }
 
-@property(readonly) BOOL hasIdentifier;
-@property(readonly) BOOL hasValue;
-@property(retain) CKDPRecordFieldIdentifier * identifier;
-@property(retain) CKDPRecordFieldValue * value;
+@property (nonatomic, readonly) bool hasIdentifier;
+@property (nonatomic, readonly) bool hasValue;
+@property (nonatomic, retain) CKDPRecordFieldIdentifier *identifier;
+@property (nonatomic, retain) CKDPRecordFieldValue *value;
 
 + (id)emptyFieldWithKey:(id)arg1;
 
 - (void).cxx_destruct;
+- (void)_CKLogToFileHandle:(id)arg1 atDepth:(int)arg2;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasIdentifier;
-- (BOOL)hasValue;
-- (unsigned int)hash;
+- (bool)hasIdentifier;
+- (bool)hasValue;
+- (unsigned long long)hash;
 - (id)identifier;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setValue:(id)arg1;
 - (id)value;

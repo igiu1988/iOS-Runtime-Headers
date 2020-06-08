@@ -2,40 +2,52 @@
    Image: /System/Library/PrivateFrameworks/SoftwareUpdateServices.framework/SoftwareUpdateServices
  */
 
-@interface SUUtility : NSObject {
-}
+@interface SUUtility : NSObject
 
 + (id)URLIfFileExists:(id)arg1;
-+ (id)addToDate:(id)arg1 numberOfDays:(int)arg2;
-+ (void)assignError:(id*)arg1 withCode:(int)arg2;
-+ (void)assignError:(id*)arg1 withError:(id)arg2 translate:(BOOL)arg3;
-+ (BOOL)cellularDataIsEnabled;
-+ (BOOL)createInstallationKeybag:(id)arg1;
++ (id)addToDate:(id)arg1 numberOfDays:(long long)arg2;
++ (bool)alarmSetBeforeDate:(id)arg1;
++ (long long)appDemoteableSpace;
++ (bool)appDemotionIsEnabled;
++ (void)assignError:(id*)arg1 withCode:(long long)arg2;
++ (void)assignError:(id*)arg1 withError:(id)arg2 translate:(bool)arg3;
++ (long long)cacheDelete:(id)arg1;
++ (bool)cellularDataIsEnabled;
 + (id)currentProductBuild;
 + (id)currentProductCategory;
 + (id)currentProductType;
 + (id)currentProductVersion;
 + (id)currentReleaseType;
-+ (id)errorWithCode:(int)arg1 originalError:(id)arg2;
-+ (id)errorWithCode:(int)arg1;
-+ (BOOL)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2;
++ (long long)demoteApps:(unsigned long long)arg1 withError:(id*)arg2;
++ (unsigned long long)devicePadding:(id)arg1;
++ (void)enableAppDemotion:(bool)arg1;
++ (id)errorWithCode:(long long)arg1;
++ (id)errorWithCode:(long long)arg1 originalError:(id)arg2;
++ (bool)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2;
++ (bool)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2 isAutoDownload:(bool)arg3;
++ (bool)freeCachedSpaceSynchronous:(unsigned long long)arg1 timeout:(double)arg2 isAutoDownload:(bool)arg3 disableCDLevelFour:(bool)arg4 disableSiriDeletion:(bool)arg5 disableAppDemotion:(bool)arg6;
 + (id)gregorianCalendar;
-+ (BOOL)hasCellularRadio;
-+ (BOOL)hasEnoughDiskSpace:(unsigned long long)arg1 deltaSpaceNeeded:(unsigned long long*)arg2;
-+ (BOOL)hasEnoughDiskSpace:(unsigned long long)arg1;
-+ (int)installationKeybagState;
-+ (BOOL)isCellularDataCapable;
-+ (BOOL)isDaemon;
-+ (BOOL)isPasscodeLocked;
-+ (BOOL)isPasswordProtected;
-+ (BOOL)isRestoringFromCloud;
-+ (BOOL)isWiFiCapable;
++ (bool)hasCellularRadio;
++ (bool)hasEnoughDiskSpace:(unsigned long long)arg1 growth:(unsigned long long)arg2;
++ (bool)hasEnoughDiskSpace:(unsigned long long)arg1 growth:(unsigned long long)arg2 deltaSpaceNeeded:(unsigned long long*)arg3;
++ (bool)hasEnoughDiskSpace:(unsigned long long)arg1 growth:(unsigned long long)arg2 deltaSpaceNeeded:(unsigned long long*)arg3 isAutoDownload:(bool)arg4;
++ (bool)hasEnoughDiskSpace:(unsigned long long)arg1 growth:(unsigned long long)arg2 deltaSpaceNeeded:(unsigned long long*)arg3 isAutoDownload:(bool)arg4 disableCDLevelFour:(bool)arg5 disableCDLevelThree:(bool)arg6 disableSiriDeletion:(bool)arg7 disableAppDemotion:(bool)arg8;
++ (bool)hasEnoughDiskSpace:(unsigned long long)arg1 growth:(unsigned long long)arg2 deltaSpaceNeeded:(unsigned long long*)arg3 isAutoDownload:(bool)arg4 includePurging:(bool)arg5;
++ (bool)isCellularDataCapable;
++ (bool)isDaemon;
++ (bool)isWiFiCapable;
++ (void)postAutoUpdateInformationalNotification:(id)arg1 body:(id)arg2 buttonText:(id)arg3 altButtonText:(id)arg4 withCompletion:(id /* block */)arg5;
++ (void)postFailureNotification:(id)arg1 body:(id)arg2 buttonText:(id)arg3 altButtonText:(id)arg4;
 + (id)prettyPrintDate:(id)arg1;
++ (void)purgeV1SUAssets;
 + (id)serialNumber;
-+ (void)setIsDaemon:(BOOL)arg1;
++ (void)setCacheable:(bool)arg1;
++ (void)setIsDaemon:(bool)arg1;
++ (id)systemContainerURL;
 + (id)taskQueue;
-+ (id)translateError:(id)arg1 withAddedUserInfo:(id)arg2;
++ (unsigned long long)totalPurgeableSpace:(id)arg1;
 + (id)translateError:(id)arg1;
-+ (int)translateErrorCodeFromError:(id)arg1;
++ (id)translateError:(id)arg1 withAddedUserInfo:(id)arg2;
++ (long long)translateErrorCodeFromError:(id)arg1;
 
 @end

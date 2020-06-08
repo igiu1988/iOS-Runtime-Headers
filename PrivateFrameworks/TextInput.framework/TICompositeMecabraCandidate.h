@@ -2,22 +2,22 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@class NSArray, NSString;
-
 @interface TICompositeMecabraCandidate : TIMecabraCandidate {
-    NSArray *_autoconvertedCandidatePointerValues;
-    NSString *_remainderCandidateString;
+    NSArray * _autoconvertedCandidatePointerValues;
+    NSString * _remainderCandidateString;
 }
 
-@property(copy) NSArray * autoconvertedCandidatePointerValues;
-@property(copy) NSString * remainderCandidateString;
+@property (nonatomic, copy) NSArray *autoconvertedCandidatePointerValues;
+@property (nonatomic, copy) NSString *remainderCandidateString;
 
-+ (BOOL)supportsSecureCoding;
+// Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
+
++ (bool)supportsSecureCoding;
 + (int)type;
 
+- (void).cxx_destruct;
 - (id)autoconvertedCandidatePointerValues;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (void)encodeWithCandidateResultSetCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCandidateResultSetCoder:(id)arg1;
@@ -26,5 +26,9 @@
 - (id)remainderCandidateString;
 - (void)setAutoconvertedCandidatePointerValues:(id)arg1;
 - (void)setRemainderCandidateString:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/TextInputCore.framework/TextInputCore
+
+- (id)initWithMecabraCandidate:(const void*)arg1 autoconvertedCandidates:(id)arg2;
 
 @end

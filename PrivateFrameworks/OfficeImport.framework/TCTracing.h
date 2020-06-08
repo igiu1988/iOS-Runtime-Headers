@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface TCTracing : NSObject {
-    NSString *mFilename;
+    NSString * mFilename;
 }
 
 - (void)dealloc;

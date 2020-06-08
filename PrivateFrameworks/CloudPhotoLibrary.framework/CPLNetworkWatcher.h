@@ -2,30 +2,30 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class <CPLNetworkWatcherDelegate>, NSObject<OS_dispatch_queue>;
-
 @interface CPLNetworkWatcher : NSObject {
-    <CPLNetworkWatcherDelegate> *_delegate;
-    unsigned int _networkState;
-    NSObject<OS_dispatch_queue> *_queue;
-    struct __SCNetworkReachability { } *_reachability;
-    unsigned int _reachabilityFlags;
+    <CPLNetworkWatcherDelegate> * _delegate;
+    unsigned long long  _networkState;
+    NSObject<OS_dispatch_queue> * _queue;
+    struct __SCNetworkReachability { } * _reachability;
+    unsigned int  _reachabilityFlags;
 }
 
-@property <CPLNetworkWatcherDelegate> * delegate;
-@property(readonly) unsigned int networkState;
+@property (nonatomic) <CPLNetworkWatcherDelegate> *delegate;
+@property (nonatomic, readonly) NSString *endPoint;
+@property (nonatomic, readonly) unsigned long long networkState;
 
-+ (id)_descriptionForNetworkState:(unsigned int)arg1;
++ (id)_descriptionForNetworkState:(unsigned long long)arg1;
 
 - (void).cxx_destruct;
-- (void)_initialReachabilityTestFailed;
+- (const char *)_reachabilityEndPoint;
 - (void)_reachabilityFlagsDidChange:(unsigned int)arg1;
 - (void)_setupReachability;
 - (void)_teardownReachability;
-- (void)_updateState:(unsigned int)arg1;
+- (void)_updateState:(unsigned long long)arg1;
 - (id)delegate;
+- (id)endPoint;
 - (id)initWithQueue:(id)arg1;
-- (unsigned int)networkState;
+- (unsigned long long)networkState;
 - (void)setDelegate:(id)arg1;
 - (void)start;
 - (void)stop;

@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/RemoteMediaServices.framework/RemoteMediaServices
  */
 
-@class NSTimer;
-
 @interface RMSSessionProxy : NSObject {
-    NSTimer *_heartbeatTimer;
-    BOOL _isPaused;
-    double _lastHeartbeatTime;
-    int _sessionIdentifier;
-    double _sessionTimeout;
+    NSTimer * _heartbeatTimer;
+    bool  _isPaused;
+    double  _lastHeartbeatTime;
+    int  _sessionIdentifier;
+    double  _sessionTimeout;
 }
 
-@property int sessionIdentifier;
+@property (nonatomic) int sessionIdentifier;
 
 - (void).cxx_destruct;
 - (void)_applicationDidBecomeActive:(id)arg1;
@@ -23,9 +21,10 @@
 - (void)endHeartbeat;
 - (void)heartbeatDidFail;
 - (int)heartbeatTime;
+- (id)init;
 - (id)initWithTimeout:(double)arg1;
 - (int)sessionIdentifier;
-- (BOOL)sessionMatchesNotification:(id)arg1;
+- (bool)sessionMatchesNotification:(id)arg1;
 - (void)setSessionIdentifier:(int)arg1;
 
 @end

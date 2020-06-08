@@ -2,32 +2,35 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADProperties;
-
 @interface OADProperties : NSObject {
-    unsigned int mIsMerged : 1;
-    unsigned int mIsMergedWithParent : 1;
-    OADProperties *mParent;
+    unsigned int  mIsMerged;
+    unsigned int  mIsMergedWithParent;
+    OADProperties * mParent;
 }
 
 + (id)defaultProperties;
 
+- (void)changeParentPreservingEffectiveValues:(id)arg1;
 - (void)dealloc;
+- (id)description;
+- (void)fixPropertiesForChangingParentPreservingEffectiveValues:(id)arg1;
 - (void)flatten;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
 - (id)initWithDefaults;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isMerged;
-- (BOOL)isMergedPropertyForSelector:(SEL)arg1;
-- (BOOL)isMergedWithParent;
+- (bool)isAnythingOverridden;
+- (bool)isEqual:(id)arg1;
+- (bool)isMerged;
+- (bool)isMergedPropertyForSelector:(SEL)arg1;
+- (bool)isMergedWithParent;
 - (id)overrideForSelector:(SEL)arg1;
+- (id)overrideForSelector:(SEL)arg1 mustExist:(bool)arg2;
 - (void)p_setParent:(id)arg1;
 - (id)parent;
+- (id)possiblyInexistentOverrideForSelector:(SEL)arg1;
 - (void)removeUnnecessaryOverrides;
-- (void)setMerged:(BOOL)arg1;
-- (void)setMergedWithParent:(BOOL)arg1;
-- (void)setParent:(id)arg1 myRestrictedClass:(Class)arg2;
+- (void)setMerged:(bool)arg1;
+- (void)setMergedWithParent:(bool)arg1;
 - (void)setParent:(id)arg1;
 
 @end

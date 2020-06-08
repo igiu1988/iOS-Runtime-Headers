@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPLocationBound, CKDPLocationCoordinate;
-
 @interface CKDPLocation : PBCodable <NSCopying> {
-    CKDPLocationBound *_bounds;
-    CKDPLocationCoordinate *_coordinate;
+    CKDPLocationBound * _bounds;
+    CKDPLocationCoordinate * _coordinate;
 }
 
-@property(retain) CKDPLocationBound * bounds;
-@property(retain) CKDPLocationCoordinate * coordinate;
-@property(readonly) BOOL hasBounds;
-@property(readonly) BOOL hasCoordinate;
+@property (nonatomic, retain) CKDPLocationBound *bounds;
+@property (nonatomic, retain) CKDPLocationCoordinate *coordinate;
+@property (nonatomic, readonly) bool hasBounds;
+@property (nonatomic, readonly) bool hasCoordinate;
 
 - (void).cxx_destruct;
 - (id)bounds;
@@ -21,12 +19,12 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasBounds;
-- (BOOL)hasCoordinate;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasBounds;
+- (bool)hasCoordinate;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setBounds:(id)arg1;
 - (void)setCoordinate:(id)arg1;
 - (void)writeTo:(id)arg1;

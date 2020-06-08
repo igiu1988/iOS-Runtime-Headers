@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class AVAssetImageGenerator;
-
 @interface PLAssetImageGenerator : NSObject {
-    AVAssetImageGenerator *_imageGenerator;
-    BOOL _inUse;
+    AVAssetImageGenerator * _imageGenerator;
+    bool  _inUse;
 }
 
-@property(retain) AVAssetImageGenerator * imageGenerator;
-@property BOOL inUse;
+@property (nonatomic, retain) AVAssetImageGenerator *imageGenerator;
+@property (nonatomic) bool inUse;
 
 - (void)dealloc;
 - (id)imageGenerator;
-- (BOOL)inUse;
+- (bool)inUse;
 - (id)initWithAsset:(id)arg1;
 - (void)setImageGenerator:(id)arg1;
-- (void)setInUse:(BOOL)arg1;
+- (void)setInUse:(bool)arg1;
 
 @end

@@ -2,39 +2,50 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOMapMatchRequest : PBRequest <NSCopying> {
-    NSMutableArray *_locations;
-    NSMutableArray *_waypoints;
+    struct { 
+        unsigned int searchThreshold : 1; 
+    }  _has;
+    NSMutableArray * _locations;
+    double  _searchThreshold;
+    NSMutableArray * _waypoints;
 }
 
-@property(retain) NSMutableArray * locations;
-@property(retain) NSMutableArray * waypoints;
+@property (nonatomic) bool hasSearchThreshold;
+@property (nonatomic, retain) NSMutableArray *locations;
+@property (nonatomic) double searchThreshold;
+@property (nonatomic, retain) NSMutableArray *waypoints;
 
++ (Class)locationType;
++ (Class)waypointType;
+
+- (void).cxx_destruct;
 - (void)addLocation:(id)arg1;
 - (void)addWaypoint:(id)arg1;
 - (void)clearLocations;
 - (void)clearWaypoints;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (id)locationAtIndex:(unsigned int)arg1;
+- (bool)hasSearchThreshold;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
+- (id)locationAtIndex:(unsigned long long)arg1;
 - (id)locations;
-- (unsigned int)locationsCount;
+- (unsigned long long)locationsCount;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (unsigned int)requestTypeCode;
 - (Class)responseClass;
+- (double)searchThreshold;
+- (void)setHasSearchThreshold:(bool)arg1;
 - (void)setLocations:(id)arg1;
+- (void)setSearchThreshold:(double)arg1;
 - (void)setWaypoints:(id)arg1;
-- (id)waypointAtIndex:(unsigned int)arg1;
+- (id)waypointAtIndex:(unsigned long long)arg1;
 - (id)waypoints;
-- (unsigned int)waypointsCount;
+- (unsigned long long)waypointsCount;
 - (void)writeTo:(id)arg1;
 
 @end

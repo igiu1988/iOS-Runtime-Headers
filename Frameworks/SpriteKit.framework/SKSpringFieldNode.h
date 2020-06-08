@@ -2,8 +2,9 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-@interface SKSpringFieldNode : SKFieldNode {
-}
+@interface SKSpringFieldNode : SKFieldNode
+
++ (bool)supportsSecureCoding;
 
 - (id)_descriptionClassName;
 - (void)_initialize;

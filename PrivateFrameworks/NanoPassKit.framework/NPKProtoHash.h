@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSData;
-
 @interface NPKProtoHash : PBCodable <NSCopying> {
-    NSData *_hashData;
+    NSData * _hashData;
 }
 
-@property(readonly) BOOL hasHashData;
-@property(retain) NSData * hashData;
+@property (nonatomic, readonly) bool hasHashData;
+@property (nonatomic, retain) NSData *hashData;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasHashData;
-- (unsigned int)hash;
+- (bool)hasHashData;
+- (unsigned long long)hash;
 - (id)hashData;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setHashData:(id)arg1;
 - (void)writeTo:(id)arg1;
 

@@ -2,35 +2,38 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray, NSString;
-
 @interface GEOSuggestionEntryList : PBCodable <NSCopying> {
-    NSString *_localizedSectionHeader;
-    NSMutableArray *_suggestionEntries;
+    NSString * _localizedSectionHeader;
+    NSMutableArray * _suggestionEntries;
+    PBUnknownFields * _unknownFields;
 }
 
-@property(readonly) BOOL hasLocalizedSectionHeader;
-@property(retain) NSString * localizedSectionHeader;
-@property(retain) NSMutableArray * suggestionEntries;
+@property (nonatomic, readonly) bool hasLocalizedSectionHeader;
+@property (nonatomic, retain) NSString *localizedSectionHeader;
+@property (nonatomic, retain) NSMutableArray *suggestionEntries;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
++ (Class)suggestionEntriesType;
+
+- (void).cxx_destruct;
 - (void)addSuggestionEntries:(id)arg1;
 - (void)clearSuggestionEntries;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasLocalizedSectionHeader;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasLocalizedSectionHeader;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)localizedSectionHeader;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setLocalizedSectionHeader:(id)arg1;
 - (void)setSuggestionEntries:(id)arg1;
 - (id)suggestionEntries;
-- (id)suggestionEntriesAtIndex:(unsigned int)arg1;
-- (unsigned int)suggestionEntriesCount;
+- (id)suggestionEntriesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)suggestionEntriesCount;
+- (id)unknownFields;
 - (void)writeTo:(id)arg1;
 
 @end

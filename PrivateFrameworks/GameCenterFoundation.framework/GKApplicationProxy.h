@@ -2,39 +2,39 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class LSApplicationProxy, NSBundle, NSDate, NSDictionary, NSNumber, NSString;
-
 @interface GKApplicationProxy : NSObject {
-    LSApplicationProxy *_lsProxy;
-    NSDictionary *_metadata;
+    LSApplicationProxy * _lsProxy;
+    NSDictionary * _metadata;
 }
 
-@property(retain,readonly) NSNumber * adamID;
-@property(retain,readonly) NSBundle * bundle;
-@property(retain,readonly) NSString * bundleID;
-@property(retain,readonly) NSString * bundleVersion;
-@property(retain,readonly) NSNumber * externalVersion;
-@property(getter=isGameCenterEnabled,readonly) BOOL gameCenterEnabled;
-@property(getter=isInstalled,readonly) BOOL installed;
-@property(retain) LSApplicationProxy * lsProxy;
-@property(retain) NSDictionary * metadata;
-@property(retain,readonly) NSDate * purchaseDate;
-@property(getter=isRestricted,readonly) BOOL restricted;
+@property (nonatomic, readonly, retain) NSNumber *adamID;
+@property (nonatomic, readonly, retain) NSBundle *bundle;
+@property (nonatomic, readonly, retain) NSString *bundleID;
+@property (nonatomic, readonly, retain) NSString *bundleShortVersion;
+@property (nonatomic, readonly, retain) NSString *bundleVersion;
+@property (nonatomic, readonly, retain) NSNumber *externalVersion;
+@property (getter=isGameCenterEnabled, nonatomic, readonly) bool gameCenterEnabled;
+@property (getter=isInstalled, nonatomic, readonly) bool installed;
+@property (nonatomic, retain) LSApplicationProxy *lsProxy;
+@property (nonatomic, retain) NSDictionary *metadata;
+@property (nonatomic, readonly, retain) NSDate *purchaseDate;
+@property (getter=isRestricted, nonatomic, readonly) bool restricted;
 
 + (id)metadataForBundleURL:(id)arg1;
 
 - (id)adamID;
 - (id)bundle;
 - (id)bundleID;
+- (id)bundleShortVersion;
 - (id)bundleURL;
 - (id)bundleVersion;
 - (void)dealloc;
 - (id)externalVersion;
 - (id)initWithBundleID:(id)arg1;
 - (id)initWithProxy:(id)arg1;
-- (BOOL)isGameCenterEnabled;
-- (BOOL)isInstalled;
-- (BOOL)isRestricted;
+- (bool)isGameCenterEnabled;
+- (bool)isInstalled;
+- (bool)isRestricted;
 - (id)lsProxy;
 - (id)metadata;
 - (id)purchaseDate;

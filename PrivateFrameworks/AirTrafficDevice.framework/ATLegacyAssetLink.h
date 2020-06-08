@@ -2,30 +2,30 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-@class <ATAssetLinkDelegate>, <ATLegacyAssetLinkProgressDelegate>, ATLegacyMessageLink, NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
-
-@interface ATLegacyAssetLink : NSObject <ATMessageLinkObserver, ATAssetLink> {
-    NSObject<OS_dispatch_queue> *_callbackQueue;
-    <ATAssetLinkDelegate> *_delegate;
-    NSMutableDictionary *_enqueuedAssetsByDataClass;
-    ATLegacyMessageLink *_messageLink;
-    BOOL _open;
-    <ATLegacyAssetLinkProgressDelegate> *_progressDelegate;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSMutableArray *_readyDataClasses;
-    NSArray *_supportedDataClasses;
-    NSMutableSet *_unqueuedAssets;
+@interface ATLegacyAssetLink : NSObject <ATAssetLink, ATMessageLinkObserver> {
+    NSObject<OS_dispatch_queue> * _callbackQueue;
+    <ATAssetLinkDelegate> * _delegate;
+    NSMutableDictionary * _enqueuedAssetsByDataClass;
+    NSString * _hostVersion;
+    ATLegacyMessageLink * _messageLink;
+    bool  _open;
+    <ATLegacyAssetLinkProgressDelegate> * _progressDelegate;
+    NSObject<OS_dispatch_queue> * _queue;
+    NSMutableArray * _readyDataClasses;
+    NSArray * _supportedDataClasses;
+    NSMutableDictionary * _syncIDToItemPidMap;
+    NSMutableSet * _unqueuedAssets;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <ATAssetLinkDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(getter=isOpen,readonly) BOOL open;
-@property <ATLegacyAssetLinkProgressDelegate> * progressDelegate;
-@property(copy) NSArray * readyDataClasses;
-@property(readonly) Class superclass;
-@property(copy) NSArray * supportedDataClasses;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <ATAssetLinkDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (getter=isOpen, nonatomic, readonly) bool open;
+@property (nonatomic) <ATLegacyAssetLinkProgressDelegate> *progressDelegate;
+@property (nonatomic, copy) NSArray *readyDataClasses;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSArray *supportedDataClasses;
 
 - (void).cxx_destruct;
 - (id)_assetManifestForDataclasses:(id)arg1;
@@ -35,19 +35,20 @@
 - (void)_handleFileCompleteMessage:(id)arg1;
 - (void)_handleFileErrorMessage:(id)arg1;
 - (void)_handleFileProgressMessage:(id)arg1;
-- (BOOL)canEnqueueAsset:(id)arg1;
+- (id)_manifestEntryForATAsset:(id)arg1;
+- (bool)canEnqueueAsset:(id)arg1;
 - (void)cancelAssets:(id)arg1;
 - (void)close;
 - (id)delegate;
-- (id)enqueueAssets:(id)arg1 force:(BOOL)arg2;
-- (id)initWithMessageLink:(id)arg1;
-- (BOOL)isOpen;
-- (BOOL)linkIsReady;
-- (unsigned int)maximumBatchSize;
+- (id)enqueueAssets:(id)arg1 force:(bool)arg2;
+- (id)initWithMessageLink:(id)arg1 hostVersion:(id)arg2;
+- (bool)isOpen;
+- (bool)linkIsReady;
+- (unsigned long long)maximumBatchSize;
 - (void)messageLinkWasClosed:(id)arg1;
-- (BOOL)open;
+- (bool)open;
 - (void)prioritizeAsset:(id)arg1;
-- (unsigned int)priority;
+- (unsigned long long)priority;
 - (id)progressDelegate;
 - (id)readyDataClasses;
 - (void)setDelegate:(id)arg1;

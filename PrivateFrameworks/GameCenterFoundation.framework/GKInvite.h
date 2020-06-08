@@ -2,44 +2,42 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKInviteInternal, GKPlayer, NSData, NSString;
-
 @interface GKInvite : NSObject {
-    BOOL _cancelled;
-    GKInviteInternal *_internal;
-    GKPlayer *_sender;
+    bool  _cancelled;
+    GKInviteInternal * _internal;
+    GKPlayer * _sender;
 }
 
-@property(getter=isCancelled) BOOL cancelled;
-@property(getter=isHosted,readonly) BOOL hosted;
-@property(retain) GKInviteInternal * internal;
-@property(readonly) NSString * inviteID;
-@property(retain,readonly) NSString * inviter;
-@property(readonly) BOOL isNearby;
-@property(readonly) NSString * message;
-@property(readonly) unsigned int playerAttributes;
-@property(readonly) unsigned int playerGroup;
-@property(retain,readonly) GKPlayer * sender;
-@property(readonly) NSData * sessionToken;
+@property (getter=isCancelled, nonatomic) bool cancelled;
+@property (getter=isHosted, nonatomic, readonly) bool hosted;
+@property (retain) GKInviteInternal *internal;
+@property (nonatomic, readonly) NSString *inviteID;
+@property (nonatomic, readonly, retain) NSString *inviter;
+@property (nonatomic, readonly) bool isNearby;
+@property (nonatomic, readonly) NSString *message;
+@property (nonatomic, readonly) unsigned int playerAttributes;
+@property (nonatomic, readonly) unsigned long long playerGroup;
+@property (nonatomic, readonly, retain) GKPlayer *sender;
+@property (nonatomic, readonly) NSData *sessionToken;
 
 + (id)instanceMethodSignatureForSelector:(SEL)arg1;
-+ (BOOL)instancesRespondToSelector:(SEL)arg1;
++ (bool)instancesRespondToSelector:(SEL)arg1;
 
 - (void)dealloc;
 - (id)description;
 - (id)forwardingTargetForSelector:(SEL)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
 - (id)initWithInternalRepresentation:(id)arg1;
 - (id)internal;
 - (id)inviter;
-- (BOOL)isCancelled;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isHosted;
+- (bool)isCancelled;
+- (bool)isEqual:(id)arg1;
+- (bool)isHosted;
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (bool)respondsToSelector:(SEL)arg1;
 - (id)sender;
-- (void)setCancelled:(BOOL)arg1;
+- (void)setCancelled:(bool)arg1;
 - (void)setInternal:(id)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;

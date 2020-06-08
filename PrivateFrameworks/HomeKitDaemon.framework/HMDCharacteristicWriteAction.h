@@ -2,32 +2,41 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class HMDActionSet, HMDCharacteristic, NSUUID;
-
-@interface HMDCharacteristicWriteAction : NSObject <NSSecureCoding> {
-    HMDActionSet *_actionSet;
-    HMDCharacteristic *_characteristic;
-    id _targetValue;
-    NSUUID *_uuid;
+@interface HMDCharacteristicWriteAction : HMFObject <HMDBackingStoreObjectProtocol, NSSecureCoding> {
+    HMDActionSet * _actionSet;
+    HMDCharacteristic * _characteristic;
+    id  _targetValue;
+    NSUUID * _uuid;
 }
 
-@property(readonly) HMDActionSet * actionSet;
-@property(readonly) HMDCharacteristic * characteristic;
-@property(copy) id targetValue;
-@property(copy,readonly) NSUUID * uuid;
+@property (nonatomic, readonly) HMDActionSet *actionSet;
+@property (nonatomic, readonly) HMDCharacteristic *characteristic;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) id targetValue;
+@property (nonatomic, readonly, copy) NSUUID *uuid;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
+- (void)_processWriteActionModelUpdated:(id)arg1 message:(id)arg2;
+- (id)actionInformation;
 - (id)actionSet;
 - (id)characteristic;
-- (void)configure:(id)arg1 actionSet:(id)arg2;
+- (id)dumpState;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithCharacteristic:(id)arg1 targetValue:(id)arg2;
+- (id)init;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithUUID:(id)arg1 characteristic:(id)arg2 targetValue:(id)arg3 actionSet:(id)arg4;
+- (bool)isSecureAction;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
 - (void)replaceCharacteristic:(id)arg1;
 - (void)setTargetValue:(id)arg1;
 - (id)targetValue;
+- (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (id)uuid;
 
 @end

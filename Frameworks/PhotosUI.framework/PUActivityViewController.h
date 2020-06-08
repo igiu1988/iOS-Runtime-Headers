@@ -2,58 +2,74 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PUActivityViewControllerDelegate>, NSArray, NSString, PLProgressView, PUActivityItemSourceController, PUProgressIndicatorView;
-
 @interface PUActivityViewController : UIActivityViewController <PLDismissableViewController> {
-    struct __CFString { } *_aggregateKey;
-    float _currentAssetPreparationProgress;
-    <PUActivityViewControllerDelegate> *_delegate;
-    PUActivityItemSourceController *_itemSourceController;
-    int _numberOfAssetPreparationsCompleted;
-    int _numberOfAssetsToPrepare;
-    NSArray *_photosActivities;
-    PUProgressIndicatorView *_preparationProgressView;
-    PLProgressView *_remakerProgressView;
+    struct __CFString { } * _aggregateKey;
+    double  _currentAssetPreparationProgress;
+    <PUActivityViewControllerDelegate> * _delegate;
+    bool  _isDismissed;
+    PUActivityItemSourceController * _itemSourceController;
+    long long  _numberOfAssetPreparationsCompleted;
+    long long  _numberOfAssetsToPrepare;
+    NSArray * _photosActivities;
+    PUProgressIndicatorView * _preparationProgressView;
+    bool  _readyForInteraction;
+    PLProgressView * _remakerProgressView;
+    bool  _shouldUpdateVisibleItemsWhenReady;
+    UIView * _topBorderView;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <PUActivityViewControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) NSArray * photosActivities;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PUActivityViewControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSArray *photosActivities;
+@property (getter=isReadyForInteraction, nonatomic) bool readyForInteraction;
+@property (readonly) Class superclass;
 
-+ (id)_defaultActivityTypeOrder;
-+ (BOOL)_isOutboundShareActivity:(id)arg1;
++ (bool)_isOutboundShareActivity:(id)arg1;
++ (bool)_wantsMomentShareLinkForActivity:(id)arg1 assetCount:(long long)arg2;
++ (id)defaultActivityTypeOrder;
++ (bool)needsConfidentialityCheckForActivityType:(id)arg1;
 + (id)photosApplicationActivities;
-+ (void)trackUserActivity:(id)arg1 forAssets:(id)arg2;
 
 - (void).cxx_destruct;
+- (void)_activity:(id)arg1 didComplete:(bool)arg2;
 - (void)_cancel;
-- (void)_handleUserCancelWithCompletion:(id)arg1;
+- (void)_cleanUpActivityState;
+- (void)_handlePostReadyToInteractUpdatesIfNeeded;
+- (void)_handleUserCancelWithCompletion:(id /* block */)arg1;
 - (void)_performActivity:(id)arg1;
+- (void)_performIndividualItemSourcePreparationForActivity:(id)arg1;
+- (void)_performMomentShareLinkPreparationForActivity:(id)arg1;
 - (void)_prepareActivity:(id)arg1;
-- (void)_prepareAssetProgressForActivity:(id)arg1;
-- (void)_puActivity:(id)arg1 didComplete:(BOOL)arg2;
+- (void)_prepareAssetsForActivity:(id)arg1;
+- (void)_presentConfidentialityWarningWithCompletionHandler:(id /* block */)arg1;
 - (void)_removePreparationProgressView;
 - (void)_removeRemakerProgressView;
 - (void)_sharingManagerDidBeginPublishing:(id)arg1;
-- (BOOL)_shouldShowSystemActivity:(id)arg1;
-- (void)_showPreparationProgressView:(id)arg1 withCancelationHandler:(id)arg2;
-- (void)_showRemakerProgressView:(id)arg1 forMail:(BOOL)arg2 withCancelationHandler:(id)arg3;
-- (void)_showSharingWasInterruptedWithCompletion:(id)arg1;
-- (void)addAsset:(id)arg1;
+- (bool)_shouldShowSystemActivityType:(id)arg1;
+- (void)_showPreparationProgressView:(id)arg1 withCancelationHandler:(id /* block */)arg2;
+- (void)_showRemakerProgressView:(id)arg1 forMail:(bool)arg2 withCancelationHandler:(id /* block */)arg3;
+- (void)_showSharingWasInterruptedForError:(id)arg1 completion:(id /* block */)arg2;
+- (void)_updateTopBorderView;
+- (void)addAssetItem:(id)arg1;
 - (void)dealloc;
 - (id)delegate;
-- (id)initWithAssets:(id)arg1 photosApplicationActivities:(id)arg2;
+- (id)initWithAssetItems:(id)arg1 photosApplicationActivities:(id)arg2;
+- (bool)isReadyForInteraction;
 - (void)mailActivity:(id)arg1 displayVideoRemakerProgressView:(id)arg2;
 - (id)photosActivities;
-- (BOOL)prepareForDismissingForced:(BOOL)arg1;
-- (void)removeAsset:(id)arg1;
+- (void)ppt_cancelActivity;
+- (void)ppt_performActivityOfType:(id)arg1;
+- (bool)prepareForDismissingForced:(bool)arg1;
+- (void)removeAssetItem:(id)arg1;
 - (void)setAggregateKey:(struct __CFString { }*)arg1;
-- (void)setAssets:(id)arg1;
-- (void)setCompletionWithItemsHandler:(id)arg1;
+- (void)setAssetItems:(id)arg1;
+- (void)setCompletionWithItemsHandler:(id /* block */)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)updateVisibleShareActions;
+- (void)setReadyForInteraction:(bool)arg1;
+- (void)updateVisibileShareActionsIfNeeded;
+- (void)viewDidAppear:(bool)arg1;
+- (void)viewDidLayoutSubviews;
 
 @end

@@ -2,28 +2,28 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOPlaceDataCacheUsageFeedbackCollection : PBCodable <NSCopying> {
-    NSMutableArray *_cacheFeedbacks;
+    NSMutableArray * _cacheFeedbacks;
 }
 
-@property(retain) NSMutableArray * cacheFeedbacks;
+@property (nonatomic, retain) NSMutableArray *cacheFeedbacks;
 
++ (Class)cacheFeedbackType;
+
+- (void).cxx_destruct;
 - (void)addCacheFeedback:(id)arg1;
-- (id)cacheFeedbackAtIndex:(unsigned int)arg1;
+- (id)cacheFeedbackAtIndex:(unsigned long long)arg1;
 - (id)cacheFeedbacks;
-- (unsigned int)cacheFeedbacksCount;
+- (unsigned long long)cacheFeedbacksCount;
 - (void)clearCacheFeedbacks;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setCacheFeedbacks:(id)arg1;
 - (void)writeTo:(id)arg1;
 

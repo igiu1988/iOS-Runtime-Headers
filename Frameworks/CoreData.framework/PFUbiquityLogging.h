@@ -3,12 +3,12 @@
  */
 
 @interface PFUbiquityLogging : NSObject {
-    int _desiredLogLevel;
+    int  _desiredLogLevel;
 }
 
-@property int desiredLogLevel;
+@property (nonatomic) int desiredLogLevel;
 
-+ (BOOL)canLogMessageAtLevel:(int)arg1;
++ (bool)canLogMessageAtLevel:(int)arg1;
 + (void)initialize;
 + (void)setLoggingLevel:(int)arg1;
 

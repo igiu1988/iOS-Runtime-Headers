@@ -2,49 +2,45 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray, NSString;
-
 @interface GEOPDCategory : PBCodable <NSCopying> {
     struct { 
         unsigned int level : 1; 
-    NSString *_categoryId;
-    } _has;
-    int _level;
-    NSMutableArray *_localizedNames;
+    }  _has;
+    int  _level;
+    NSMutableArray * _localizedNames;
+    PBUnknownFields * _unknownFields;
 }
 
-@property(retain) NSString * categoryId;
-@property(readonly) BOOL hasCategoryId;
-@property BOOL hasLevel;
-@property int level;
-@property(retain) NSMutableArray * localizedNames;
+@property (nonatomic) bool hasLevel;
+@property (nonatomic) int level;
+@property (nonatomic, retain) NSMutableArray *localizedNames;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
 + (id)_allCategoriesForPlaceData:(id)arg1 type:(unsigned int)arg2;
 + (id)categoryNamesForPlaceData:(id)arg1 type:(unsigned int)arg2;
-+ (BOOL)hasCategoryNamesForPlaceData:(id)arg1 type:(unsigned int)arg2;
++ (bool)hasCategoryNamesForPlaceData:(id)arg1 type:(unsigned int)arg2;
++ (Class)localizedNameType;
 
+- (void).cxx_destruct;
 - (void)addLocalizedName:(id)arg1;
-- (id)categoryId;
 - (void)clearLocalizedNames;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasCategoryId;
-- (BOOL)hasLevel;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasLevel;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (int)level;
-- (id)localizedNameAtIndex:(unsigned int)arg1;
+- (id)localizedNameAtIndex:(unsigned long long)arg1;
 - (id)localizedNames;
-- (unsigned int)localizedNamesCount;
+- (unsigned long long)localizedNamesCount;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setCategoryId:(id)arg1;
-- (void)setHasLevel:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasLevel:(bool)arg1;
 - (void)setLevel:(int)arg1;
 - (void)setLocalizedNames:(id)arg1;
+- (id)unknownFields;
 - (void)writeTo:(id)arg1;
 
 @end

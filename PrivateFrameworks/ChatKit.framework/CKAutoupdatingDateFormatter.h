@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSString;
-
 @interface CKAutoupdatingDateFormatter : NSDateFormatter {
-    NSString *_template;
+    NSString * _template;
 }
 
-@property(copy) NSString * template;
+@property (nonatomic, copy) NSString *template;
 
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithTemplate:(id)arg1;
 - (id)notificationCenter;

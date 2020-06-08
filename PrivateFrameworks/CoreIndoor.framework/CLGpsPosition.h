@@ -3,6 +3,11 @@
  */
 
 @interface CLGpsPosition : NSObject <NSSecureCoding> {
+    struct time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<long long, std::__1::ratio<1, 1000000000> > > { 
+        struct duration<long long, std::__1::ratio<1, 1000000000> > { 
+            long long __rep_; 
+        } __d_; 
+    }  _expiry;
     struct { 
         int suitability; 
         struct { 
@@ -26,44 +31,65 @@
         } rawCoordinate; 
         double rawCourse; 
         int floor; 
-    double _deltaDistance;
-    double _deltaDistanceAccuracy;
-    } _gpsLocation;
-    float _horzUncSemiMaj;
-    float _horzUncSemiMajAz;
-    float _horzUncSemiMin;
-    double _timestampGps;
+        unsigned int integrity; 
+        int referenceFrame; 
+        int rawReferenceFrame; 
+    }  _gpsLocation;
+    struct { 
+        double odometer; 
+        double deltaDistance; 
+        double deltaDistanceAccuracy; 
+        double timestampGps; 
+        double machtime; 
+        float horzUncSemiMaj; 
+        float horzUncSemiMin; 
+        float horzUncSemiMajAz; 
+        bool isFitnessMatch; 
+        int matchQuality; 
+        struct { 
+            double latitude; 
+            double longitude; 
+        } matchCoordinate; 
+        double matchCourse; 
+        int matchFormOfWay; 
+        int matchRoadClass; 
+        bool matchShifted; 
+        struct { 
+            double rawUnmodifiedCourse; 
+            double rawUnmodifiedCourseUnc; 
+            bool isStatic; 
+            bool isMounted; 
+        } mapMatcherData; 
+        struct { 
+            double value; 
+            double std; 
+        } pressure; 
+        float undulation; 
+        struct { 
+            double latitude; 
+            double longitude; 
+        } specialCoordinate; 
+        double specialHorizontalAccuracy; 
+        double machContinuousTime; 
+        int originDevice; 
+    }  _gpsLocationPrivate;
 }
 
-@property double deltaDistance;
-@property double deltaDistanceAccuracy;
-@property struct { int x1; struct { double x_2_1_1; double x_2_1_2; } x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; int x11; double x12; int x13; struct { double x_14_1_1; double x_14_1_2; } x14; double x15; int x16; } gpsLocation;
-@property float horzUncSemiMaj;
-@property float horzUncSemiMajAz;
-@property float horzUncSemiMin;
-@property double timestampGps;
+@property (nonatomic, readonly) /* Warning: unhandled struct encoding: '{time_point<std::__1::chrono::steady_clock' */ struct  expiry; /* unknown property attribute:  1000000000> >=q}} */
+@property (nonatomic, readonly) struct { int x1; struct { double x_2_1_1; double x_2_1_2; } x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; int x11; double x12; int x13; struct { double x_14_1_1; double x_14_1_2; } x14; double x15; int x16; unsigned int x17; int x18; int x19; } gpsLocation;
+@property (nonatomic, readonly) struct { double x1; double x2; double x3; double x4; double x5; float x6; float x7; float x8; bool x9; int x10; struct { double x_11_1_1; double x_11_1_2; } x11; double x12; int x13; int x14; bool x15; struct { double x_16_1_1; double x_16_1_2; bool x_16_1_3; bool x_16_1_4; } x16; struct { double x_17_1_1; double x_17_1_2; } x17; float x18; struct { double x_19_1_1; double x_19_1_2; } x19; double x20; double x21; int x22; } gpsLocationPrivate;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (id).cxx_construct;
-- (double)deltaDistance;
-- (double)deltaDistanceAccuracy;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (struct { int x1; struct { double x_2_1_1; double x_2_1_2; } x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; int x11; double x12; int x13; struct { double x_14_1_1; double x_14_1_2; } x14; double x15; int x16; })gpsLocation;
-- (float)horzUncSemiMaj;
-- (float)horzUncSemiMajAz;
-- (float)horzUncSemiMin;
+- (struct time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<long long, std::__1::ratio<1, 1000000000> > > { struct duration<long long, std::__1::ratio<1, 1000000000> > { long long x_1_1_1; } x1; })expiry;
+- (struct { int x1; struct { double x_2_1_1; double x_2_1_2; } x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; int x11; double x12; int x13; struct { double x_14_1_1; double x_14_1_2; } x14; double x15; int x16; unsigned int x17; int x18; int x19; })gpsLocation;
+- (struct { double x1; double x2; double x3; double x4; double x5; float x6; float x7; float x8; bool x9; int x10; struct { double x_11_1_1; double x_11_1_2; } x11; double x12; int x13; int x14; bool x15; struct { double x_16_1_1; double x_16_1_2; bool x_16_1_3; bool x_16_1_4; } x16; struct { double x_17_1_1; double x_17_1_2; } x17; float x18; struct { double x_19_1_1; double x_19_1_2; } x19; double x20; double x21; int x22; })gpsLocationPrivate;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithLocation:(const struct { int x1; struct { double x_2_1_1; double x_2_1_2; } x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; int x11; double x12; int x13; struct { double x_14_1_1; double x_14_1_2; } x14; double x15; int x16; }*)arg1 andPrivateLocation:(const struct { double x1; double x2; double x3; double x4; float x5; float x6; float x7; boolx8; int x9; struct { double x_10_1_1; double x_10_1_2; } x10; double x11; int x12; int x13; boolx14; }*)arg2;
-- (void)setDeltaDistance:(double)arg1;
-- (void)setDeltaDistanceAccuracy:(double)arg1;
-- (void)setGpsLocation:(struct { int x1; struct { double x_2_1_1; double x_2_1_2; } x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; int x11; double x12; int x13; struct { double x_14_1_1; double x_14_1_2; } x14; double x15; int x16; })arg1;
-- (void)setHorzUncSemiMaj:(float)arg1;
-- (void)setHorzUncSemiMajAz:(float)arg1;
-- (void)setHorzUncSemiMin:(float)arg1;
-- (void)setTimestampGps:(double)arg1;
-- (double)timestampGps;
+- (id)initWithLocation:(const struct { int x1; struct { double x_2_1_1; double x_2_1_2; } x2; double x3; double x4; double x5; double x6; double x7; double x8; double x9; double x10; int x11; double x12; int x13; struct { double x_14_1_1; double x_14_1_2; } x14; double x15; int x16; unsigned int x17; int x18; int x19; }*)arg1 andPrivateLocation:(const struct { double x1; double x2; double x3; double x4; double x5; float x6; float x7; float x8; bool x9; int x10; struct { double x_11_1_1; double x_11_1_2; } x11; double x12; int x13; int x14; bool x15; struct { double x_16_1_1; double x_16_1_2; bool x_16_1_3; bool x_16_1_4; } x16; struct { double x_17_1_1; double x_17_1_2; } x17; float x18; struct { double x_19_1_1; double x_19_1_2; } x19; double x20; double x21; int x22; }*)arg2;
+- (bool)isStaleFix:(struct time_point<std::__1::chrono::steady_clock, std::__1::chrono::duration<long long, std::__1::ratio<1, 1000000000> > > { struct duration<long long, std::__1::ratio<1, 1000000000> > { long long x_1_1_1; } x1; })arg1;
 
 @end

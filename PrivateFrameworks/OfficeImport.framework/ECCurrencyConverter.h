@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary;
-
 @interface ECCurrencyConverter : NSObject {
-    NSMutableDictionary *mLassoToXlCurrencyCode;
-    NSMutableDictionary *mXlAccountingFormat;
-    NSMutableDictionary *mXlToLassoCurrencyCode;
-    NSMutableDictionary *mXlToLassoCurrencyCodeBySymbol;
+    NSMutableDictionary * mLassoToXlCurrencyCode;
+    NSMutableDictionary * mXlAccountingFormat;
+    NSMutableDictionary * mXlToLassoCurrencyCode;
+    NSMutableDictionary * mXlToLassoCurrencyCodeBySymbol;
 }
 
 + (id)currencyConverter;

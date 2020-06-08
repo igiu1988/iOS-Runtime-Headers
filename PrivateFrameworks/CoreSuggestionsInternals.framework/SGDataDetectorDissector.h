@@ -2,22 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSString;
-
-@interface SGDataDetectorDissector : NSObject <SGPipelineDissector> {
-    long _scannerOptions;
+@interface SGDataDetectorDissector : SGPipelineDissector {
+    long long  _scannerOptions;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
-
 + (void)initialize;
-+ (BOOL)stringHasDatesOrTimes:(id)arg1;
++ (bool)stringHasDatesOrTimes:(id)arg1;
 
-- (void)dissect:(id)arg1;
+- (id)detectionsInPlainText:(id)arg1 withEligibleRegions:(id)arg2 ddSignature:(struct __DDResult {}**)arg3;
+- (void)dissectInternal:(id)arg1 inContext:(id)arg2;
 - (id)init;
-- (id)initWithSigs:(BOOL)arg1;
+- (id)initWithSigs:(bool)arg1;
 
 @end

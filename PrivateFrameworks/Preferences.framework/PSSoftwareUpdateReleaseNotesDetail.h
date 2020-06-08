@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSString;
-
 @interface PSSoftwareUpdateReleaseNotesDetail : PSListController <UIWebViewDelegate> {
-    NSString *_releaseNotes;
+    NSString * _releaseNotes;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) NSString * releaseNotes;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) NSString *releaseNotes;
+@property (readonly) Class superclass;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
 - (void)loadView;
 - (id)releaseNotes;
 - (void)setReleaseNotes:(id)arg1;
 - (id)specifiers;
-- (BOOL)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(int)arg3;
+- (bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
 
 @end

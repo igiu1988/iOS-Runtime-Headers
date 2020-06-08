@@ -2,35 +2,50 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class <SAAceSerializable>, NSNumber, NSString;
+@interface SAAceView : SABaseAceObject <AFAceCommandDialogInfoExtracting, SAAceSerializable>
 
-@interface SAAceView : AceObject <SAAceSerializable> {
-}
+@property (nonatomic) bool canBeRefreshed;
+@property (nonatomic) bool canUseServerTTS;
+@property (nonatomic, retain) <SAAceSerializable> *context;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, copy) NSNumber *deferredRendering;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSNumber *listenAfterSpeaking;
+@property (nonatomic, copy) NSDictionary *speakableContextInfo;
+@property (nonatomic, copy) NSString *speakableText;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *viewId;
 
-@property(retain) <SAAceSerializable> * context;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy) NSNumber * deferredRendering;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) NSNumber * listenAfterSpeaking;
-@property(copy) NSString * speakableText;
-@property(readonly) Class superclass;
-@property(copy) NSString * viewId;
+// Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
 
 + (id)aceView;
 + (id)aceViewWithDictionary:(id)arg1 context:(id)arg2;
 
+- (bool)canBeRefreshed;
+- (bool)canUseServerTTS;
 - (id)context;
 - (id)deferredRendering;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)listenAfterSpeaking;
+- (void)setCanBeRefreshed:(bool)arg1;
+- (void)setCanUseServerTTS:(bool)arg1;
 - (void)setContext:(id)arg1;
 - (void)setDeferredRendering:(id)arg1;
 - (void)setListenAfterSpeaking:(id)arg1;
+- (void)setSpeakableContextInfo:(id)arg1;
 - (void)setSpeakableText:(id)arg1;
 - (void)setViewId:(id)arg1;
+- (id)speakableContextInfo;
 - (id)speakableText;
 - (id)viewId;
+
+// Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
+
+- (id)_af_dialogIdentifier;
+- (id)_af_dialogPhase;
+- (void)_af_extractDialogInfo:(id /* block */)arg1;
+- (void)af_addEntriesToAnalyticsContext:(id)arg1;
 
 @end

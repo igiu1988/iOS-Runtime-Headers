@@ -2,29 +2,28 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSArray, NSMutableDictionary, NSNumber, NSString, SSDownloadMetadata, SSDownloadPolicy, SSDownloadStatus, SSXPCConnection;
-
 @interface SSDownload : SSEntity <SSXPCCoding> {
-    NSMutableDictionary *_localAssets;
-    SSDownloadMetadata *_metadata;
-    NSNumber *_prioritizeAboveDownload;
-    SSDownloadStatus *_status;
+    NSMutableDictionary * _localAssets;
+    SSDownloadMetadata * _metadata;
+    NSNumber * _prioritizeAboveDownload;
+    SSDownloadStatus * _status;
 }
 
-@property(getter=_XPCConnection,readonly) SSXPCConnection * _XPCConnection;
-@property(retain) NSArray * assets;
-@property(getter=isCancelable,readonly) BOOL cancelable;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) id downloadIdentifier;
-@property(copy) SSDownloadPolicy * downloadPolicy;
-@property(readonly) long long downloadSizeLimit;
-@property(getter=isExternal,readonly) BOOL external;
-@property(readonly) unsigned int hash;
-@property(copy) SSDownloadMetadata * metadata;
-@property(readonly) long long persistentIdentifier;
-@property(retain) SSDownloadStatus * status;
-@property(readonly) Class superclass;
+@property (getter=_XPCConnection, readonly) SSXPCConnection *_XPCConnection;
+@property (readonly) NSDictionary *_localAssets;
+@property (nonatomic, retain) NSArray *assets;
+@property (getter=isCancelable, readonly) bool cancelable;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) id downloadIdentifier;
+@property (copy) SSDownloadPolicy *downloadPolicy;
+@property (readonly) long long downloadSizeLimit;
+@property (getter=isExternal, nonatomic, readonly) bool external;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) SSDownloadMetadata *metadata;
+@property (readonly) long long persistentIdentifier;
+@property (nonatomic, retain) SSDownloadStatus *status;
+@property (readonly) Class superclass;
 
 + (long long)_existsMessage;
 + (long long)_getExternalValuesMessage;
@@ -39,10 +38,11 @@
 - (id)_errorWithData:(id)arg1;
 - (id)_errorWithXPCReply:(id)arg1;
 - (id)_initWithLocalPropertyValues:(id)arg1;
+- (id)_localAssets;
 - (id)_newAssetWithURL:(id)arg1 assetType:(id)arg2;
 - (void)_resetLocalIVars;
 - (void)_resetStatus;
-- (BOOL)addAsset:(id)arg1 forType:(id)arg2;
+- (bool)addAsset:(id)arg1 forType:(id)arg2;
 - (id)assets;
 - (id)assetsForType:(id)arg1;
 - (id)backgroundNetworkingJobGroupName;
@@ -56,25 +56,26 @@
 - (long long)downloadSizeLimit;
 - (double)estimatedSecondsRemaining;
 - (id)failureError;
-- (void)handleWithDownloadHandler:(id)arg1 completionBlock:(id)arg2;
+- (void)handleWithDownloadHandler:(id)arg1 completionBlock:(id /* block */)arg2;
 - (id)initWithDownloadMetadata:(id)arg1;
 - (id)initWithPersistentIdentifier:(long long)arg1;
-- (BOOL)isBackgroundNetworkingUserInitiated;
-- (BOOL)isCancelable;
-- (BOOL)isEligibleForRestore:(id*)arg1;
-- (BOOL)isExternal;
+- (bool)isBackgroundNetworkingUserInitiated;
+- (bool)isCancelable;
+- (bool)isEligibleForRestore:(id*)arg1;
+- (bool)isExternal;
 - (id)metadata;
 - (id)networkConstraints;
 - (void)pause;
 - (double)percentComplete;
 - (long long)persistentIdentifier;
-- (void)prioritizeAboveDownload:(id)arg1 completionBlock:(id)arg2;
-- (BOOL)removeAsset:(id)arg1;
+- (void)prioritizeAboveDownload:(id)arg1 completionBlock:(id /* block */)arg2;
+- (bool)removeAsset:(id)arg1;
+- (void)restart;
 - (void)resume;
 - (void)setAssets:(id)arg1;
 - (void)setBackgroundNetworkingJobGroupName:(id)arg1;
-- (void)setBackgroundNetworkingUserInitiated:(BOOL)arg1;
-- (void)setDownloadHandler:(id)arg1 completionBlock:(id)arg2;
+- (void)setBackgroundNetworkingUserInitiated:(bool)arg1;
+- (void)setDownloadHandler:(id)arg1 completionBlock:(id /* block */)arg2;
 - (void)setDownloadPolicy:(id)arg1;
 - (void)setMetadata:(id)arg1;
 - (void)setNetworkConstraints:(id)arg1;

@@ -2,28 +2,24 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSLock, NSXPCConnection;
-
 @interface PKInAppPaymentService : NSObject {
-    NSXPCConnection *_connection;
-    NSLock *_connectionLock;
+    PKXPCService * _remoteService;
 }
 
-- (id)_connection;
-- (id)_connectionWithTeardownExisting:(BOOL)arg1 createNewIfNecessary:(BOOL)arg2;
-- (id)_errorHandlerWithCompletion:(id)arg1;
-- (void)_establishPaymentServiceConnection;
-- (void)_registerForApplicationLifeCycleNotifications;
-- (void)_registerForInAppPaymentServiceNotifications;
-- (void)_sendResumed;
-- (void)_sendSuspended;
-- (void)_tearDownPaymentServiceConnection;
-- (void)_unregisterForApplicationLifeCycleNotifications;
-- (void)_unregisterForPaymentServiceNotifications;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (id)_remoteObjectProxy;
+- (id)_remoteObjectProxyWithErrorHandler:(id /* block */)arg1;
+- (id)_remoteObjectProxyWithFailureHandler:(id /* block */)arg1;
+- (id)_remoteObjectProxyWithSemaphore:(id)arg1;
+- (id)_synchronousRemoteObjectProxyWithErrorHandler:(id /* block */)arg1;
 - (id)init;
-- (void)presentInAppPaymentInterfaceWithPaymentRequest:(id)arg1 forHostIdentifier:(id)arg2 orientation:(id)arg3 completion:(id)arg4;
-- (void)registerPaymentListenerEndpoint:(id)arg1 forHostIdentifier:(id)arg2 completion:(id)arg3;
-- (void)retrievePaymentListenerEndpointForHostIdentifier:(id)arg1 completion:(id)arg2;
+- (void)merchantStatusCheck:(id)arg1 merchantDomain:(id)arg2 sourceApplicationSecondaryIdentifier:(id)arg3 completion:(id /* block */)arg4;
+- (void)paymentHardwareStatusWithCompletion:(id /* block */)arg1;
+- (void)paymentServicesMerchantURLForAPIType:(unsigned long long)arg1 completion:(id /* block */)arg2;
+- (void)presentInAppPaymentInterfaceWithPaymentRequest:(id)arg1 forHostIdentifier:(id)arg2 orientation:(id)arg3 completion:(id /* block */)arg4;
+- (void)registerPaymentListenerEndpoint:(id)arg1 forHostIdentifier:(id)arg2 completion:(id /* block */)arg3;
+- (void)retrievePaymentListenerEndpointForHostIdentifier:(id)arg1 completion:(id /* block */)arg2;
+- (bool)secureElementStatus:(unsigned long long*)arg1;
+- (void)secureElementStatusWithCompletion:(id /* block */)arg1;
 
 @end

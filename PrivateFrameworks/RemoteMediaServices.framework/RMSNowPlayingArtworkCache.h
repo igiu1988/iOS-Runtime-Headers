@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/RemoteMediaServices.framework/RemoteMediaServices
  */
 
-@class NSCache, _RMSNowPlayingArtworkCacheItem;
-
 @interface RMSNowPlayingArtworkCache : NSObject {
-    NSCache *_cache;
-    _RMSNowPlayingArtworkCacheItem *_lastItem;
+    NSCache * _cache;
+    _RMSNowPlayingArtworkCacheItem * _lastItem;
 }
 
 + (id)sharedArtworkCache;

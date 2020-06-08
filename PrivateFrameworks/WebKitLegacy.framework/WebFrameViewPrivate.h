@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class WAKScrollView, WebFrame;
-
 @interface WebFrameViewPrivate : NSObject {
-    WAKScrollView *frameScrollView;
-    BOOL includedInWebKitStatistics;
-    WebFrame *webFrame;
+    WAKScrollView * frameScrollView;
+    bool  includedInWebKitStatistics;
+    WebFrame * webFrame;
 }
 
 - (void)dealloc;

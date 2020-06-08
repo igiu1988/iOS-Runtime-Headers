@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@interface PLMergePolicy : NSMergePolicy {
-}
+@interface PLMergePolicy : NSMergePolicy
 
-- (BOOL)resolveConflicts:(id)arg1 error:(id*)arg2;
+- (bool)resolveOptimisticLockingVersionConflicts:(id)arg1 error:(id*)arg2;
 
 @end

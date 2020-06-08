@@ -2,42 +2,43 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOPDSource : PBCodable <NSCopying> {
     struct { 
         unsigned int resultProviderId : 1; 
-    } _has;
-    int _resultProviderId;
-    NSString *_sourceId;
-    NSString *_version;
+    }  _has;
+    int  _resultProviderId;
+    NSString * _sourceId;
+    PBUnknownFields * _unknownFields;
+    NSString * _version;
 }
 
-@property BOOL hasResultProviderId;
-@property(readonly) BOOL hasSourceId;
-@property(readonly) BOOL hasVersion;
-@property int resultProviderId;
-@property(retain) NSString * sourceId;
-@property(retain) NSString * version;
+@property (nonatomic) bool hasResultProviderId;
+@property (nonatomic, readonly) bool hasSourceId;
+@property (nonatomic, readonly) bool hasVersion;
+@property (nonatomic) int resultProviderId;
+@property (nonatomic, retain) NSString *sourceId;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
+@property (nonatomic, retain) NSString *version;
 
+- (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasResultProviderId;
-- (BOOL)hasSourceId;
-- (BOOL)hasVersion;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasResultProviderId;
+- (bool)hasSourceId;
+- (bool)hasVersion;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (int)resultProviderId;
-- (void)setHasResultProviderId:(BOOL)arg1;
+- (void)setHasResultProviderId:(bool)arg1;
 - (void)setResultProviderId:(int)arg1;
 - (void)setSourceId:(id)arg1;
 - (void)setVersion:(id)arg1;
 - (id)sourceId;
+- (id)unknownFields;
 - (id)version;
 - (void)writeTo:(id)arg1;
 

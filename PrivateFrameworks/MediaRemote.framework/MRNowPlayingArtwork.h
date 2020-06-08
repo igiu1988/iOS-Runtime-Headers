@@ -2,17 +2,13 @@
    Image: /System/Library/PrivateFrameworks/MediaRemote.framework/MediaRemote
  */
 
-@interface MRNowPlayingArtwork : NSObject {
-}
+@interface MRNowPlayingArtwork : NSObject
 
-@property(readonly) BOOL hasArtworkData;
-@property(readonly) unsigned int type;
+@property (nonatomic, readonly) bool hasArtworkData;
+@property (nonatomic, readonly) unsigned int type;
 
-+ (id)nowPlayingArtworkFromXPCDictionary:(id)arg1;
-
-- (void)bindToXPCDictionary:(id)arg1;
 - (id)copyImageData;
-- (BOOL)hasArtworkData;
+- (bool)hasArtworkData;
 - (unsigned int)type;
 
 @end

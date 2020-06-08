@@ -3,18 +3,22 @@
  */
 
 @interface GEORPPlaceProblem : PBCodable <NSCopying> {
+    unsigned int  _componentIndex;
+    unsigned int  _componentValueIndex;
     struct { 
         unsigned int componentIndex : 1; 
         unsigned int componentValueIndex : 1; 
-    unsigned int _componentIndex;
-    unsigned int _componentValueIndex;
-    } _has;
+        unsigned int problematicDepartureSequenceIndex : 1; 
+    }  _has;
+    unsigned int  _problematicDepartureSequenceIndex;
 }
 
-@property unsigned int componentIndex;
-@property unsigned int componentValueIndex;
-@property BOOL hasComponentIndex;
-@property BOOL hasComponentValueIndex;
+@property (nonatomic) unsigned int componentIndex;
+@property (nonatomic) unsigned int componentValueIndex;
+@property (nonatomic) bool hasComponentIndex;
+@property (nonatomic) bool hasComponentValueIndex;
+@property (nonatomic) bool hasProblematicDepartureSequenceIndex;
+@property (nonatomic) unsigned int problematicDepartureSequenceIndex;
 
 - (unsigned int)componentIndex;
 - (unsigned int)componentValueIndex;
@@ -22,16 +26,20 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasComponentIndex;
-- (BOOL)hasComponentValueIndex;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasComponentIndex;
+- (bool)hasComponentValueIndex;
+- (bool)hasProblematicDepartureSequenceIndex;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (unsigned int)problematicDepartureSequenceIndex;
+- (bool)readFrom:(id)arg1;
 - (void)setComponentIndex:(unsigned int)arg1;
 - (void)setComponentValueIndex:(unsigned int)arg1;
-- (void)setHasComponentIndex:(BOOL)arg1;
-- (void)setHasComponentValueIndex:(BOOL)arg1;
+- (void)setHasComponentIndex:(bool)arg1;
+- (void)setHasComponentValueIndex:(bool)arg1;
+- (void)setHasProblematicDepartureSequenceIndex:(bool)arg1;
+- (void)setProblematicDepartureSequenceIndex:(unsigned int)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

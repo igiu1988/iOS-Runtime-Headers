@@ -2,11 +2,11 @@
    Image: /System/Library/Frameworks/QuartzCore.framework/QuartzCore
  */
 
-@class NSArray;
-
 @interface LKNSArrayCodingProxy : CACodingProxy {
-    NSArray *_array;
+    NSArray * _array;
 }
+
++ (bool)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)decodedObject;

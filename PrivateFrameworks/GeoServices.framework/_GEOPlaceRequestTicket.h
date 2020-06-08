@@ -2,38 +2,22 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class <GEOMapItem>, GEOMapRegion, GEOMapServiceTraits, GEOPDPlaceRequest, GEOPDPlaceResponse, NSString;
-
-@interface _GEOPlaceRequestTicket : NSObject <GEOMapServiceTicket> {
-    BOOL _canceled;
-    <GEOMapItem> *_mapItemToRefine;
-    GEOPDPlaceRequest *_request;
-    GEOPDPlaceResponse *_response;
-    GEOMapRegion *_resultBoundingRegion;
-    GEOMapServiceTraits *_traits;
+@interface _GEOPlaceRequestTicket : GEOAbstractMapServiceTicket {
+    <GEOMapItem> * _mapItemToRefine;
+    GEOPDPlaceRequest * _request;
+    GEOPDPlaceResponse * _response;
 }
 
-@property(getter=isCanceled,readonly) BOOL canceled;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) GEOMapRegion * resultBoundingRegion;
-@property(readonly) Class superclass;
-@property(readonly) GEOMapServiceTraits * traits;
-
-- (void)_processRequest:(id)arg1 withHandler:(id)arg2 refinedHandler:(id)arg3 networkActivity:(id)arg4;
+- (void).cxx_destruct;
+- (void)_processRequest:(id)arg1 auditToken:(id)arg2 timeout:(double)arg3 withHandler:(id /* block */)arg4 refinedHandler:(id /* block */)arg5 networkActivity:(id /* block */)arg6;
 - (void)applyToCorrectedSearch:(id)arg1;
+- (void)applyToPlaceInfo:(id)arg1;
 - (void)cancel;
-- (void)dealloc;
 - (id)description;
-- (id)initWithRequest:(id)arg1 traits:(id)arg2 mapItemToRefine:(id)arg3;
 - (id)initWithRequest:(id)arg1 traits:(id)arg2;
-- (BOOL)isCanceled;
-- (id)resultBoundingRegion;
-- (void)submitWithHandler:(id)arg1 networkActivity:(id)arg2;
-- (void)submitWithHandler:(id)arg1 timeout:(int)arg2 networkActivity:(id)arg3;
-- (void)submitWithRefinedHandler:(id)arg1 networkActivity:(id)arg2;
-- (void)submitWithRefinedHandler:(id)arg1 timeout:(int)arg2 networkActivity:(id)arg3;
-- (id)traits;
+- (id)initWithRequest:(id)arg1 traits:(id)arg2 mapItemToRefine:(id)arg3;
+- (id)resultSectionHeader;
+- (void)submitWithHandler:(id /* block */)arg1 auditToken:(id)arg2 timeout:(long long)arg3 networkActivity:(id /* block */)arg4;
+- (void)submitWithRefinedHandler:(id /* block */)arg1 auditToken:(id)arg2 timeout:(long long)arg3 networkActivity:(id /* block */)arg4;
 
 @end

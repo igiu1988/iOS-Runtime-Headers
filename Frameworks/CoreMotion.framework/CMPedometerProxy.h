@@ -2,42 +2,53 @@
    Image: /System/Library/Frameworks/CoreMotion.framework/CoreMotion
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSObject<OS_dispatch_queue>;
-
 @interface CMPedometerProxy : NSObject {
-    NSObject<OS_dispatch_queue> *fAppQueue;
-    double fDistanceFromStart;
-    double fDistanceOffset;
-    int fFloorAscendedOffset;
-    int fFloorAscendedStart;
-    int fFloorDescendedOffset;
-    int fFloorDescendedStart;
-    id fHandler;
-    NSObject<OS_dispatch_queue> *fInternalQueue;
-    struct CLConnectionClient { struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > { struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> > { struct __rep { union { struct __long { unsigned int x_1_5_1; unsigned int x_1_5_2; char *x_1_5_3; } x_1_4_1; struct __short { union { unsigned char x_1_6_1; BOOL x_1_6_2; } x_2_5_1; BOOL x_2_5_2[11]; } x_1_4_2; struct __raw { unsigned long x_3_5_1[3]; } x_1_4_3; } x_1_3_1; } x_1_2_1; } x_1_1_1; } x1; id x2; id x3; id x4; struct CLConnection {} *x5; struct CLNameValuePair { int (**x_6_1_1)(); struct __CFDictionary {} *x_6_1_2; } x6; struct CLNameValuePair { int (**x_7_1_1)(); struct __CFDictionary {} *x_7_1_2; } x7; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > { struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> > { struct __rep { union { struct __long { unsigned int x_1_5_1; unsigned int x_1_5_2; char *x_1_5_3; } x_1_4_1; struct __short { union { unsigned char x_1_6_1; BOOL x_1_6_2; } x_2_5_1; BOOL x_2_5_2[11]; } x_1_4_2; struct __raw { unsigned long x_3_5_1[3]; } x_1_4_3; } x_1_3_1; } x_1_2_1; } x_8_1_1; } x8; id x9; /* Warning: Unrecognized filer type: '?' using 'void*' */ void*x10; id x11; void*x12; id x13; id x14; void*x15; id x16; void*x17; } *fLocationdConnection;
-    int fStepCountFromStart;
-    int fStepCountOffset;
-    BOOL fStopUpdates;
-    double fValidStartDate;
+    double  fActiveTimeFromStart;
+    double  fActiveTimeOffset;
+    NSObject<OS_dispatch_queue> * fAppQueue;
+    id /* block */  fCumulativeUpdateHandler;
+    double  fDistanceFromStart;
+    double  fDistanceOffset;
+    int  fElevationAscendedOffset;
+    int  fElevationAscendedStart;
+    bool  fElevationCountingAvailable;
+    int  fElevationDescendedOffset;
+    int  fElevationDescendedStart;
+    id /* block */  fEventHandler;
+    int  fFloorAscendedOffset;
+    int  fFloorAscendedStart;
+    bool  fFloorCountingAvailable;
+    int  fFloorDescendedOffset;
+    int  fFloorDescendedStart;
+    NSObject<OS_dispatch_queue> * fInternalQueue;
+    struct CLConnectionClient { id x1; unsigned char x2; unsigned long x3; unsigned char x4; /* Warning: Unrecognized filer type: 'a' using 'void*' */ void*x5; long x6; long x7; unsigned int x8/* : ? */; void*x9; BOOL x10; void*x11; long doublex12; const out void*x13; void*x14; void*x15; in void*x16; void*x17; void*x18; const void*x19; int (**x20)(); struct shared_ptr<int> { int *x_21_1_1; struct __shared_weak_count {} *x_21_1_2; } x21; } * fLocationdConnection;
+    id /* block */  fOffsetUpdateHandler;
+    bool  fPaceAndCadenceAvailable;
+    long long  fPushCountFromStart;
+    long long  fPushCountOffset;
+    long long  fStepCountFromStart;
+    long long  fStepCountOffset;
+    bool  fStopEventUpdates;
+    bool  fStopUpdates;
+    double  fValidStartDate;
+    NSObject<OS_dispatch_source> * fWatchdogTimer;
+    int  fWorkoutType;
 }
 
-- (void)_handleQueryResponse:(struct CLConnectionMessage { id x1; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > { struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> > { struct __rep { union { struct __long { unsigned int x_1_5_1; unsigned int x_1_5_2; char *x_1_5_3; } x_1_4_1; struct __short { union { unsigned char x_1_6_1; BOOL x_1_6_2; } x_2_5_1; BOOL x_2_5_2[11]; } x_1_4_2; struct __raw { unsigned long x_3_5_1[3]; } x_1_4_3; } x_1_3_1; } x_1_2_1; } x_2_1_1; } x2; id x3; id x4; }*)arg1 onQueue:(id)arg2 withHandler:(id)arg3;
-- (void)_handleRecordQueryResponse:(struct CLConnectionMessage { id x1; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > { struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__rep, std::__1::allocator<char> > { struct __rep { union { struct __long { unsigned int x_1_5_1; unsigned int x_1_5_2; char *x_1_5_3; } x_1_4_1; struct __short { union { unsigned char x_1_6_1; BOOL x_1_6_2; } x_2_5_1; BOOL x_2_5_2[11]; } x_1_4_2; struct __raw { unsigned long x_3_5_1[3]; } x_1_4_3; } x_1_3_1; } x_1_2_1; } x_2_1_1; } x2; id x3; id x4; }*)arg1 withHandler:(id)arg2;
-- (void)_internalQueryPedometerDataFromDate:(id)arg1 toDate:(id)arg2 onQueue:(id)arg3 withHandler:(id)arg4;
-- (void)_queryPedometerDataFromDate:(id)arg1 toDate:(id)arg2 withHandler:(id)arg3;
-- (void)_queryPedometerDataSinceDataRecord:(id)arg1 withHandler:(id)arg2;
-- (void)_queryPedometerDataSinceRecord:(int)arg1 withHandler:(id)arg2;
-- (void)_startPedometerUpdatesFromDate:(id)arg1 withHandler:(id)arg2;
+- (void)_handleQueryResponse:(struct shared_ptr<CLConnectionMessage> { struct CLConnectionMessage {} *x1; struct __shared_weak_count {} *x2; })arg1 onQueue:(id)arg2 withHandler:(id /* block */)arg3;
+- (void)_handleRecordQueryResponse:(struct shared_ptr<CLConnectionMessage> { struct CLConnectionMessage {} *x1; struct __shared_weak_count {} *x2; })arg1 withHandler:(id /* block */)arg2;
+- (void)_internalQueryPedometerDataFromDate:(id)arg1 toDate:(id)arg2 onQueue:(id)arg3 withHandler:(id /* block */)arg4;
+- (void)_queryPedometerCalibrationBinsWithHandler:(id /* block */)arg1 forType:(long long)arg2 forRemote:(bool)arg3;
+- (void)_queryPedometerDataFromDate:(id)arg1 toDate:(id)arg2 withHandler:(id /* block */)arg3;
+- (void)_queryPedometerDataSinceDataRecord:(id)arg1 withHandler:(id /* block */)arg2;
+- (void)_startPedometerEventUpdatesWithHandler:(id /* block */)arg1;
+- (void)_startPedometerUpdatesFromDate:(id)arg1 withHandler:(id /* block */)arg2;
+- (void)_startPedometerUpdatesSinceDataRecord:(id)arg1 withHandler:(id /* block */)arg2;
+- (void)_startWatchdogCheckins;
+- (void)_stopPedometerEventUpdates;
 - (void)_stopPedometerUpdates;
+- (void)_stopWatchdogCheckins;
+- (id)_strideCalibrationDump;
 - (void)_teardown;
 - (void)dealloc;
 - (id)init;

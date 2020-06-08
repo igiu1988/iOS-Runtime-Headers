@@ -3,12 +3,12 @@
  */
 
 @interface TSCH3DLens : NSObject <NSCopying> {
-    float mFar;
-    float mNear;
+    float  mFar;
+    float  mNear;
 }
 
-@property float far;
-@property float near;
+@property (nonatomic) float far;
+@property (nonatomic) float near;
 
 + (id)lens;
 

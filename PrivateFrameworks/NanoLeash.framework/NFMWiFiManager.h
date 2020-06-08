@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/NanoLeash.framework/NanoLeash
  */
 
-@interface NFMWiFiManager : NSObject {
-}
+@interface NFMWiFiManager : NSObject
 
 + (id)sharedManager;
 
-- (void)setHoldWiFiAssertion:(BOOL)arg1;
+- (void)setHoldWiFiAssertion:(bool)arg1;
 
 @end

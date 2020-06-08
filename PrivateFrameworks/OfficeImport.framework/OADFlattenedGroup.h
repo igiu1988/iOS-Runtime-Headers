@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray;
-
 @interface OADFlattenedGroup : OADDrawable {
-    NSMutableArray *mDrawables;
+    NSMutableArray * mDrawables;
 }
 
 - (void)addDrawable:(id)arg1;

@@ -2,38 +2,36 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class NSString, NSURL;
-
 @interface SLPlace : NSObject <MKAnnotation, NSSecureCoding> {
-    NSString *_category;
-    double _distance;
-    NSString *_identifier;
-    double _latitude;
-    double _longitude;
-    NSString *_name;
-    NSURL *_pictureURL;
+    NSString * _category;
+    double  _distance;
+    NSString * _identifier;
+    double  _latitude;
+    double  _longitude;
+    NSString * _name;
+    NSURL * _pictureURL;
 }
 
-@property(retain) NSString * category;
-@property(readonly) struct { double x1; double x2; } coordinate;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
+@property (retain) NSString *category;
+@property (nonatomic, readonly) struct CLLocationCoordinate2D { double x1; double x2; } coordinate;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
 @property double distance;
-@property(readonly) unsigned int hash;
-@property(retain) NSString * identifier;
+@property (readonly) unsigned long long hash;
+@property (retain) NSString *identifier;
 @property double latitude;
 @property double longitude;
-@property(retain) NSString * name;
-@property(retain) NSURL * pictureURL;
-@property(copy,readonly) NSString * subtitle;
-@property(readonly) Class superclass;
-@property(copy,readonly) NSString * title;
+@property (retain) NSString *name;
+@property (retain) NSURL *pictureURL;
+@property (nonatomic, readonly, copy) NSString *subtitle;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) NSString *title;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)category;
-- (struct { double x1; double x2; })coordinate;
+- (struct CLLocationCoordinate2D { double x1; double x2; })coordinate;
 - (id)description;
 - (double)distance;
 - (id)encodableProperties;

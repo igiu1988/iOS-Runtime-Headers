@@ -2,26 +2,26 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, TSUZipFileWriter;
-
 @interface TSPZipFileWriteChannel : NSObject <TSUStreamWriteChannel> {
-    TSUZipFileWriter *_archiveWriter;
-    BOOL _isClosed;
+    TSUZipFileWriter * _archiveWriter;
+    bool  _isClosed;
+    NSObject<OS_dispatch_queue> * _writerQueue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) BOOL isValid;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isValid;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (void)addBarrier:(id)arg1;
+- (void)addBarrier:(id /* block */)arg1;
 - (void)close;
+- (void)flushWithCompletion:(id /* block */)arg1;
 - (id)init;
 - (id)initWithArchiveWriter:(id)arg1;
-- (BOOL)isValid;
-- (void)setLowWater:(unsigned long)arg1;
-- (void)writeData:(id)arg1 queue:(id)arg2 handler:(id)arg3;
+- (bool)isValid;
+- (void)setLowWater:(unsigned long long)arg1;
+- (void)writeData:(id)arg1 handler:(id /* block */)arg2;
 
 @end

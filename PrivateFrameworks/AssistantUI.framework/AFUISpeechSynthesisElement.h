@@ -2,62 +2,87 @@
    Image: /System/Library/PrivateFrameworks/AssistantUI.framework/AssistantUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <AFUISpeechSynthesisElementDelegate>, NSString, VSSpeechRequest;
-
 @interface AFUISpeechSynthesisElement : NSObject {
-    NSString *_animationIdentifier;
-    id _completion;
-    <AFUISpeechSynthesisElementDelegate> *_delegate;
-    BOOL _durationHasElapsed;
-    BOOL _eligibleForSynthesis;
-    BOOL _isPhonetic;
-    BOOL _preprationBlockCompleted;
-    BOOL _provisional;
-    VSSpeechRequest *_speechRequest;
-    int _synthesisResult;
-    NSString *_text;
+    NSDictionary * _analyticsContext;
+    NSString * _animationIdentifier;
+    SAUIAudioData * _audioData;
+    id /* block */  _completion;
+    bool  _delayed;
+    <AFUISpeechSynthesisElementDelegate> * _delegate;
+    bool  _durationHasElapsed;
+    bool  _eligibleForProcessing;
+    bool  _eligibleForSynthesis;
+    NSString * _gender;
+    NSString * _identifier;
+    bool  _isPhonetic;
+    NSString * _language;
+    bool  _preparationBlockCompleted;
+    VSPresynthesizedAudioRequest * _presynthesizedAudioRequest;
+    bool  _provisional;
+    NSDictionary * _speakableContextInfo;
+    VSSpeechRequest * _speechRequest;
+    long long  _synthesisResult;
+    NSString * _text;
 }
 
-@property(readonly) NSString * animationIdentifier;
-@property(getter=_completion,readonly) id completion;
-@property <AFUISpeechSynthesisElementDelegate> * delegate;
-@property(setter=_setDurationHasElapsed:) BOOL durationHasElapsed;
-@property(getter=isEligibleForSynthesis) BOOL eligibleForSynthesis;
-@property BOOL isPhonetic;
-@property(setter=_setPreparationBlockCompleted:) BOOL preprationBlockCompleted;
-@property(getter=isProvisional,readonly) BOOL provisional;
-@property(retain) VSSpeechRequest * speechRequest;
-@property int synthesisResult;
-@property(copy) NSString * text;
+@property (nonatomic, readonly) NSDictionary *analyticsContext;
+@property (nonatomic, readonly) NSString *animationIdentifier;
+@property (nonatomic, readonly) SAUIAudioData *audioData;
+@property (getter=_completion, nonatomic, readonly) id /* block */ completion;
+@property (getter=isDelayed, nonatomic) bool delayed;
+@property (nonatomic) <AFUISpeechSynthesisElementDelegate> *delegate;
+@property (setter=_setDurationHasElapsed:) bool durationHasElapsed;
+@property (getter=isEligibleForProcessing, setter=_setEligibleForProcessing:, nonatomic) bool eligibleForProcessing;
+@property (getter=isEligibleForSynthesis, setter=_setEligibleForSynthesis:, nonatomic) bool eligibleForSynthesis;
+@property (nonatomic, readonly) NSString *gender;
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic) bool isPhonetic;
+@property (nonatomic, readonly) NSString *language;
+@property (setter=_setPreparationBlockCompleted:) bool preparationBlockCompleted;
+@property (nonatomic, retain) VSPresynthesizedAudioRequest *presynthesizedAudioRequest;
+@property (getter=isProvisional, nonatomic, readonly) bool provisional;
+@property (nonatomic, retain) NSDictionary *speakableContextInfo;
+@property (nonatomic, retain) VSSpeechRequest *speechRequest;
+@property (nonatomic) long long synthesisResult;
+@property (setter=_setText:, nonatomic, copy) NSString *text;
 
 - (void).cxx_destruct;
-- (id)_completion;
-- (void)_setDurationHasElapsed:(BOOL)arg1;
-- (void)_setEligibleForSynthesis:(BOOL)arg1;
-- (void)_setPreparationBlockCompleted:(BOOL)arg1;
+- (id /* block */)_completion;
+- (void)_setDurationHasElapsed:(bool)arg1;
+- (void)_setEligibleForProcessing:(bool)arg1;
+- (void)_setEligibleForSynthesis:(bool)arg1;
+- (void)_setPreparationBlockCompleted:(bool)arg1;
 - (void)_setText:(id)arg1;
 - (void)_updateSynthesisEligibility;
+- (id)analyticsContext;
 - (id)animationIdentifier;
+- (id)audioData;
 - (id)delegate;
 - (id)description;
-- (BOOL)durationHasElapsed;
+- (bool)durationHasElapsed;
 - (void)executeCompletion;
+- (id)gender;
+- (id)identifier;
 - (id)init;
-- (id)initWithText:(id)arg1 provisional:(BOOL)arg2 eligibleAfterDuration:(double)arg3 preparation:(id)arg4 completion:(id)arg5 animationIdentifier:(id)arg6;
-- (BOOL)isEligibleForSynthesis;
-- (BOOL)isPhonetic;
-- (BOOL)isProvisional;
-- (BOOL)preprationBlockCompleted;
+- (id)initWithText:(id)arg1 audioData:(id)arg2 identifier:(id)arg3 language:(id)arg4 gender:(id)arg5 provisional:(bool)arg6 eligibleAfterDuration:(double)arg7 delayed:(bool)arg8 preparation:(id /* block */)arg9 completion:(id /* block */)arg10 animationIdentifier:(id)arg11 analyticsContext:(id)arg12 speakableContextInfo:(id)arg13;
+- (bool)isDelayed;
+- (bool)isEligibleForProcessing;
+- (bool)isEligibleForSynthesis;
+- (bool)isPhonetic;
+- (bool)isProvisional;
+- (id)language;
+- (bool)preparationBlockCompleted;
+- (id)presynthesizedAudioRequest;
+- (void)setDelayed:(bool)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setIsPhonetic:(BOOL)arg1;
+- (void)setIsPhonetic:(bool)arg1;
+- (void)setPresynthesizedAudioRequest:(id)arg1;
+- (void)setSpeakableContextInfo:(id)arg1;
 - (void)setSpeechRequest:(id)arg1;
-- (void)setSynthesisResult:(int)arg1;
+- (void)setSynthesisResult:(long long)arg1;
+- (id)speakableContextInfo;
 - (id)speechRequest;
-- (int)synthesisResult;
+- (long long)synthesisResult;
 - (id)text;
 
 @end

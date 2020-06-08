@@ -2,31 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class <CPLEngineTransportDownloadBatchTask>, <CPLPullFromTransportTaskDelegate>, NSData, NSObject<OS_dispatch_queue>, NSString;
-
-@interface CPLPullFromTransportTask : CPLEngineSyncTask {
-    NSString *_clientCacheIdentifier;
-    BOOL _didBeginTransientRepository;
-    BOOL _didGetSomeChanges;
-    <CPLEngineTransportDownloadBatchTask> *_downloadTask;
-    NSData *_initialSyncAnchor;
-    NSObject<OS_dispatch_queue> *_queue;
-    BOOL _resetSyncAnchor;
+@interface CPLPullFromTransportTask : CPLEngineMultiscopeSyncTask {
+    CPLScopeFilter * _scopeFilter;
 }
 
-@property(retain) <CPLPullFromTransportTaskDelegate> * delegate;
-@property(readonly) BOOL didGetSomeChanges;
+@property (nonatomic, retain) CPLScopeFilter *scopeFilter;
 
 - (void).cxx_destruct;
-- (void)_finishTaskWithErrorAndCleanupIfNecessary:(id)arg1;
-- (void)_handleNewBatch:(id)arg1 newSyncAnchor:(id)arg2;
-- (void)_launch;
-- (void)cancel;
-- (BOOL)didGetSomeChanges;
-- (id)initWithEngineLibrary:(id)arg1;
-- (void)launch;
-- (void)pause;
-- (void)resume;
+- (id)enumerateScopesForTaskInTransaction:(id)arg1;
+- (id)newScopedTaskWithScope:(id)arg1 transportScope:(id)arg2 clientCacheIdentifier:(id)arg3;
+- (id)scopeFilter;
+- (void)setScopeFilter:(id)arg1;
+- (bool)shouldProcessScope:(id)arg1 inTransaction:(id)arg2;
 - (id)taskIdentifier;
 
 @end

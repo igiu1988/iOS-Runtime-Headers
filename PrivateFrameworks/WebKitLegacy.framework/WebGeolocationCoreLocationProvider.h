@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class <WebGeolocationCoreLocationUpdateListener>, NSString;
-
 @interface WebGeolocationCoreLocationProvider : NSObject <CLLocationManagerDelegate> {
+    bool  _isWaitingForAuthorization;
+    int  _lastAuthorizationStatus;
     struct RetainPtr<CLLocationManager> { 
         void *m_ptr; 
-    BOOL _isWaitingForAuthorization;
-    int _lastAuthorizationStatus;
-    } _locationManager;
-    <WebGeolocationCoreLocationUpdateListener> *_positionListener;
+    }  _locationManager;
+    <WebGeolocationCoreLocationUpdateListener> * _positionListener;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -28,7 +26,7 @@
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 - (void)requestGeolocationAuthorization;
 - (void)sendLocation:(id)arg1;
-- (void)setEnableHighAccuracy:(BOOL)arg1;
+- (void)setEnableHighAccuracy:(bool)arg1;
 - (void)start;
 - (void)stop;
 

@@ -3,19 +3,20 @@
  */
 
 @interface SKPhysicsJointSpring : SKPhysicsJoint {
-    float _damping;
-    float _frequency;
+    double  _damping;
+    double  _frequency;
 }
 
-@property float damping;
-@property float frequency;
+@property (nonatomic) double damping;
+@property (nonatomic) double frequency;
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
-+ (id)jointWithBodyA:(id)arg1 bodyB:(id)arg2 anchorA:(struct CGPoint { float x1; float x2; })arg3 anchorB:(struct CGPoint { float x1; float x2; })arg4;
++ (id)jointWithBodyA:(id)arg1 bodyB:(id)arg2 anchorA:(struct CGPoint { double x1; double x2; })arg3 anchorB:(struct CGPoint { double x1; double x2; })arg4;
++ (bool)supportsSecureCoding;
 
-- (float)damping;
-- (float)frequency;
-- (void)setDamping:(float)arg1;
-- (void)setFrequency:(float)arg1;
+- (double)damping;
+- (double)frequency;
+- (void)setDamping:(double)arg1;
+- (void)setFrequency:(double)arg1;
 
 @end

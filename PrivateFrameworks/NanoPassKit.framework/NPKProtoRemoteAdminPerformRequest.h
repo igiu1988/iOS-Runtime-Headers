@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSData, NSString;
-
 @interface NPKProtoRemoteAdminPerformRequest : PBRequest <NSCopying> {
-    NSString *_command;
-    NSData *_infoDictionary;
-    NSString *_seid;
-    NSData *_url;
+    NSString * _command;
+    NSData * _infoDictionary;
+    NSString * _seid;
+    NSData * _url;
 }
 
-@property(retain) NSString * command;
-@property(readonly) BOOL hasInfoDictionary;
-@property(retain) NSData * infoDictionary;
-@property(retain) NSString * seid;
-@property(retain) NSData * url;
+@property (nonatomic, retain) NSString *command;
+@property (nonatomic, readonly) bool hasInfoDictionary;
+@property (nonatomic, retain) NSData *infoDictionary;
+@property (nonatomic, retain) NSString *seid;
+@property (nonatomic, retain) NSData *url;
 
 - (void).cxx_destruct;
 - (id)command;
@@ -23,12 +21,12 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasInfoDictionary;
-- (unsigned int)hash;
+- (bool)hasInfoDictionary;
+- (unsigned long long)hash;
 - (id)infoDictionary;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)seid;
 - (void)setCommand:(id)arg1;
 - (void)setInfoDictionary:(id)arg1;

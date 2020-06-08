@@ -3,28 +3,28 @@
  */
 
 @interface GLKEffectPropertyTexGen : GLKEffectProperty {
-    int _coord;
-    float *_eyePlaneByInvModelview;
-    int _eyePlaneByInvModelviewLoc;
-    int _mode;
-    int _modeLoc;
-    char *_modeNameString;
-    float *_plane;
-    int _planeLoc;
-    char *_planeNameString;
-    unsigned int _textureIndex;
+    int  _coord;
+    float * _eyePlaneByInvModelview;
+    int  _eyePlaneByInvModelviewLoc;
+    int  _mode;
+    int  _modeLoc;
+    char * _modeNameString;
+    float * _plane;
+    int  _planeLoc;
+    char * _planeNameString;
+    unsigned int  _textureIndex;
 }
 
-@property(readonly) int coord;
-@property float* eyePlaneByInvModelview;
-@property int eyePlaneByInvModelviewLoc;
-@property int mode;
-@property int modeLoc;
-@property char * modeNameString;
-@property float* plane;
-@property int planeLoc;
-@property char * planeNameString;
-@property unsigned int textureIndex;
+@property (nonatomic, readonly) int coord;
+@property (nonatomic) float*eyePlaneByInvModelview;
+@property (nonatomic) int eyePlaneByInvModelviewLoc;
+@property (nonatomic) int mode;
+@property (nonatomic) int modeLoc;
+@property (nonatomic) char *modeNameString;
+@property (nonatomic) float*plane;
+@property (nonatomic) int planeLoc;
+@property (nonatomic) char *planeNameString;
+@property (nonatomic) unsigned int textureIndex;
 
 - (void)bind;
 - (int)coord;

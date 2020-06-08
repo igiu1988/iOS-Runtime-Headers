@@ -2,12 +2,13 @@
    Image: /System/Library/PrivateFrameworks/VisualAlert.framework/VisualAlert
  */
 
-@interface AXLocalNotificationHandler : AXNotificationHandler {
-    id _opaqueObserver;
+@interface AXLocalNotificationHandler : VISAXNotificationHandler {
+    id  _opaqueObserver;
 }
 
-@property(setter=_setOpaqueObserver:,retain) id _opaqueObserver;
+@property (setter=_setOpaqueObserver:, nonatomic, retain) id _opaqueObserver;
 
+- (void).cxx_destruct;
 - (id)_notificationTypeDescription;
 - (id)_opaqueObserver;
 - (void)_setOpaqueObserver:(id)arg1;

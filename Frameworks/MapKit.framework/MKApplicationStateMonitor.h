@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class BKSApplicationStateMonitor;
-
 @interface MKApplicationStateMonitor : NSObject {
-    BOOL _active;
-    BKSApplicationStateMonitor *_appStateMonitor;
-    BOOL _forceBackboardServicesMonitoring;
-    BOOL _inBackground;
-    unsigned int _observerCount;
+    bool  _active;
+    BKSApplicationStateMonitor * _appStateMonitor;
+    bool  _forceBackboardServicesMonitoring;
+    bool  _inBackground;
+    unsigned long long  _observerCount;
 }
 
-@property(getter=isActive,readonly) BOOL active;
-@property BOOL forceBackboardServicesMonitoring;
-@property(getter=isInBackground,readonly) BOOL inBackground;
+@property (getter=isActive, nonatomic, readonly) bool active;
+@property (nonatomic) bool forceBackboardServicesMonitoring;
+@property (getter=isInBackground, nonatomic, readonly) bool inBackground;
 
 + (id)sharedInstance;
 
@@ -22,12 +20,14 @@
 - (void)_becomeActive;
 - (void)_enterBackground;
 - (void)_exitBackground;
+- (void)_handleApplicationStateChange:(id)arg1 interestedPID:(int)arg2;
+- (void)_performSynchronouslyOnMainQueue:(id /* block */)arg1;
 - (void)_resignActive;
 - (void)dealloc;
-- (BOOL)forceBackboardServicesMonitoring;
-- (BOOL)isActive;
-- (BOOL)isInBackground;
-- (void)setForceBackboardServicesMonitoring:(BOOL)arg1;
+- (bool)forceBackboardServicesMonitoring;
+- (bool)isActive;
+- (bool)isInBackground;
+- (void)setForceBackboardServicesMonitoring:(bool)arg1;
 - (void)startObserving;
 - (void)stopObserving;
 

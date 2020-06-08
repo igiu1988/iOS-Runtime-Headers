@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/IMAVCore.framework/IMAVCore
  */
 
-@class NSString;
-
 @interface IMAVCamera : NSObject {
-    id _internalDevice;
+    id  _internalDevice;
 }
 
-@property(readonly) int cameraStyle;
-@property(readonly) BOOL hasShutter;
-@property(readonly) BOOL isShutterOpen;
-@property(readonly) BOOL isSuspended;
-@property(readonly) BOOL isWideScreen;
-@property(retain,readonly) NSString * name;
-@property(retain,readonly) NSString * uniqueID;
+@property (nonatomic, readonly) long long cameraStyle;
+@property (nonatomic, readonly) bool hasShutter;
+@property (nonatomic, readonly) bool isShutterOpen;
+@property (nonatomic, readonly) bool isSuspended;
+@property (nonatomic, readonly) bool isWideScreen;
+@property (nonatomic, readonly, retain) NSString *name;
+@property (nonatomic, readonly, retain) NSString *uniqueID;
 
 - (id)_AVCamera;
 - (id)_initWithAVCamera:(id)arg1;
-- (int)cameraStyle;
+- (long long)cameraStyle;
 - (void)dealloc;
 - (id)description;
-- (BOOL)hasShutter;
+- (bool)hasShutter;
 - (id)init;
-- (BOOL)isShutterOpen;
-- (BOOL)isSuspended;
-- (BOOL)isWideScreen;
+- (bool)isShutterOpen;
+- (bool)isSuspended;
+- (bool)isWideScreen;
 - (id)name;
 - (id)uniqueID;
 

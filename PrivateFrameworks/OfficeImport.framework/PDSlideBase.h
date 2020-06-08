@@ -2,26 +2,20 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSArray, NSString, OADBackground, OADShape, OADTableStyle, PDAnimation, PDTransition;
-
 @interface PDSlideBase : NSObject {
-    unsigned int mIsHidden : 1;
-    unsigned int mIsDoneWithContent : 1;
-    PDAnimation *mAnimation;
-    OADBackground *mBackground;
-    BOOL mCachedSlideNumberPlaceholder;
-    BOOL mCachedSlideNumberShape;
-    OADTableStyle *mDefaultTableStyle;
-    NSArray *mDrawables;
-    NSString *mName;
-    OADShape *mSlideNumberPlaceholder;
-    OADShape *mSlideNumberShape;
-    PDTransition *mTransition;
+    PDAnimation * mAnimation;
+    OADBackground * mBackground;
+    OADTableStyle * mDefaultTableStyle;
+    NSArray * mDrawables;
+    unsigned int  mIsDoneWithContent;
+    unsigned int  mIsHidden;
+    NSString * mName;
+    PDTransition * mPpt2011Transition;
+    unsigned int  mSlideId;
+    PDTransition * mTransition;
 }
 
-@property(readonly) BOOL hasMappableSlideNumberShape;
-@property(readonly) OADShape * slideNumberPlaceholder;
-@property(readonly) OADShape * slideNumberShape;
+@property (nonatomic) unsigned int slideId;
 
 + (int)inheritedPlaceholderType:(int)arg1;
 
@@ -32,6 +26,7 @@
 - (id)colorScheme;
 - (void)dealloc;
 - (id)defaultTableStyle;
+- (id)defaultTextListStyle;
 - (id)defaultTheme;
 - (id)description;
 - (void)doneWithContent;
@@ -39,31 +34,38 @@
 - (id)drawingTheme;
 - (id)fontScheme;
 - (void)generatePpt9Animations:(id)arg1;
-- (BOOL)hasMappableSlideNumberShape;
-- (BOOL)hasPpt10Animations;
-- (BOOL)hasPpt9Animations;
+- (bool)hasPpt10Animations;
+- (bool)hasPpt9Animations;
+- (id)inheritedTextStyleForPlaceholderType:(int)arg1;
 - (id)init;
-- (BOOL)isHidden;
-- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (bool)isHidden;
+- (id)masterGraphicForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(bool)arg3;
 - (id)name;
-- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
+- (id)parentShapePropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(bool)arg3;
 - (id)parentSlideBase;
-- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
-- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(BOOL)arg4;
+- (id)parentTextBodyPropertiesForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(bool)arg3;
+- (id)parentTextStyleForPlaceholderType:(int)arg1 placeholderTypeIndex:(int)arg2 defaultTextListStyle:(id)arg3 overrideIndex:(bool)arg4;
 - (id)parentTextStyleForTables;
-- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(BOOL)arg3;
-- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2 useBaseTypeMatch:(BOOL)arg3 overrideIndex:(BOOL)arg4;
+- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2 overrideIndex:(bool)arg3;
+- (id)placeholderWithType:(int)arg1 placeholderTypeIndex:(int)arg2 useBaseTypeMatch:(bool)arg3 overrideIndex:(bool)arg4;
 - (id)placeholders;
+- (id)ppt2011Transition;
+- (void)removeUnnecessaryOverrides;
 - (void)setBackground:(id)arg1;
 - (void)setDefaultTableStyle:(id)arg1;
-- (void)setDrawables:(id)arg1 defaultTextListStyle:(id)arg2;
-- (void)setInheritedTextStyle:(id)arg1 placeholderType:(int)arg2 defaultTextListStyle:(id)arg3;
-- (void)setIsHidden:(BOOL)arg1;
+- (void)setDrawables:(id)arg1;
+- (void)setDrawablesNoHierarchy:(id)arg1;
+- (void)setIsHidden:(bool)arg1;
 - (void)setName:(id)arg1;
+- (void)setPpt2011Transition:(id)arg1;
 - (void)setPpt9AnimationDataForCacheItem:(id)arg1 order:(int)arg2 state:(id)arg3;
+- (void)setSlideId:(unsigned int)arg1;
 - (void)setTransition:(id)arg1;
-- (id)slideNumberPlaceholder;
-- (id)slideNumberShape;
+- (void)setUpDrawablePropertyHierarchy;
+- (void)setUpPropertyHierarchyForDrawable:(id)arg1;
+- (void)setUpPropertyHierarchyForDrawablePreservingEffectiveValues:(id)arg1;
+- (void)setUpPropertyHierarchyPreservingEffectiveValues;
+- (unsigned int)slideId;
 - (id)styleMatrix;
 - (id)transition;
 

@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVOutputSettingsAssistantBaseSettingsProvider>, <AVOutputSettingsAssistantVideoSettingsAdjuster>;
-
 @interface AVOutputSettingsAssistantInternal : NSObject {
+    <AVOutputSettingsAssistantBaseSettingsProvider> * baseSettingsProvider;
+    struct opaqueCMFormatDescription { } * sourceAudioFormat;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
+    }  sourceVideoAverageFrameDuration;
+    struct opaqueCMFormatDescription { } * sourceVideoFormat;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
-    <AVOutputSettingsAssistantBaseSettingsProvider> *baseSettingsProvider;
-    struct opaqueCMFormatDescription { } *sourceAudioFormat;
-    } sourceVideoAverageFrameDuration;
-    struct opaqueCMFormatDescription { } *sourceVideoFormat;
-    } sourceVideoMinFrameDuration;
-    <AVOutputSettingsAssistantVideoSettingsAdjuster> *videoSettingsAdjuster;
+    }  sourceVideoMinFrameDuration;
+    <AVOutputSettingsAssistantVideoSettingsAdjuster> * videoSettingsAdjuster;
 }
 
 @end

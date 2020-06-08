@@ -2,53 +2,54 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSString;
-
 @interface CKDPOperation : PBCodable <NSCopying> {
     struct { 
         unsigned int type : 1; 
         unsigned int last : 1; 
         unsigned int synchronousMode : 1; 
-    } _has;
-    BOOL _last;
-    NSString *_operationUUID;
-    BOOL _synchronousMode;
-    int _type;
+    }  _has;
+    bool  _last;
+    NSString * _operationUUID;
+    bool  _synchronousMode;
+    int  _type;
 }
 
-@property BOOL hasLast;
-@property(readonly) BOOL hasOperationUUID;
-@property BOOL hasSynchronousMode;
-@property BOOL hasType;
-@property BOOL last;
-@property(retain) NSString * operationUUID;
-@property BOOL synchronousMode;
-@property int type;
+@property (nonatomic) bool hasLast;
+@property (nonatomic, readonly) bool hasOperationUUID;
+@property (nonatomic) bool hasSynchronousMode;
+@property (nonatomic) bool hasType;
+@property (nonatomic) bool last;
+@property (nonatomic, retain) NSString *operationUUID;
+@property (nonatomic) bool synchronousMode;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
+- (int)StringAsType:(id)arg1;
+- (void)_CKLogToFileHandle:(id)arg1 atDepth:(int)arg2;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasLast;
-- (BOOL)hasOperationUUID;
-- (BOOL)hasSynchronousMode;
-- (BOOL)hasType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)last;
+- (bool)hasLast;
+- (bool)hasOperationUUID;
+- (bool)hasSynchronousMode;
+- (bool)hasType;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
+- (bool)last;
 - (void)mergeFrom:(id)arg1;
 - (id)operationUUID;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasLast:(BOOL)arg1;
-- (void)setHasSynchronousMode:(BOOL)arg1;
-- (void)setHasType:(BOOL)arg1;
-- (void)setLast:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasLast:(bool)arg1;
+- (void)setHasSynchronousMode:(bool)arg1;
+- (void)setHasType:(bool)arg1;
+- (void)setLast:(bool)arg1;
 - (void)setOperationUUID:(id)arg1;
-- (void)setSynchronousMode:(BOOL)arg1;
+- (void)setSynchronousMode:(bool)arg1;
 - (void)setType:(int)arg1;
-- (BOOL)synchronousMode;
+- (bool)synchronousMode;
 - (int)type;
+- (id)typeAsString:(int)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

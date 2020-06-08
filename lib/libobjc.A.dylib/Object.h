@@ -2,8 +2,8 @@
    Image: /usr/lib/libobjc.A.dylib
  */
 
-@interface Object {
-    Class isa;
+@interface Object  {
+    Class  isa;
 }
 
 + (id)autorelease;

@@ -2,39 +2,40 @@
    Image: /System/Library/PrivateFrameworks/ToneLibrary.framework/ToneLibrary
  */
 
-@class NSMutableDictionary, TLAccessQueue, TLAlert;
-
-@interface TLAlertController : NSObject {
-    TLAccessQueue *_accessQueue;
-    NSMutableDictionary *_alertsBySoundIDs;
-    TLAlert *_repeatedlyPlayingAlert;
+@interface TLAlertController : NSObject <TLAlertPlaybackBackEndController> {
+    NSObject<OS_dispatch_queue> * _accessQueue;
+    NSString * _accessQueueLabel;
+    NSMapTable * _alertContexts;
+    TLAlertQueuePlayerController * _queuePlayerController;
+    TLAlertSystemSoundController * _systemSoundController;
 }
 
-@property(setter=_setAccessQueue:,retain) TLAccessQueue * _accessQueue;
-@property(setter=_setAlertsBySoundIDs:,retain) NSMutableDictionary * _alertsBySoundIDs;
-@property(readonly) BOOL _hasVibratorCapability;
-@property(setter=_setRepeatedlyPlayingAlert:,retain) TLAlert * _repeatedlyPlayingAlert;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
++ (long long)_playbackBackEndForAlert:(id)arg1;
++ (bool)_shouldStopAlertForUserInterruption:(id)arg1;
 + (id)sharedAlertController;
 
-- (id)_accessQueue;
-- (id)_alertsBySoundIDs;
-- (void)_didReachTimeoutForSystemSound:(id)arg1;
-- (BOOL)_hasVibratorCapability;
-- (BOOL)_playAlert:(id)arg1 completionHandler:(id)arg2 targetQueue:(id)arg3;
-- (void)_removeSoundID:(unsigned long)arg1 shouldStopSound:(BOOL)arg2 fireCompletionHandler:(BOOL)arg3;
-- (id)_repeatedlyPlayingAlert;
-- (void)_setAccessQueue:(id)arg1;
-- (void)_setAlertsBySoundIDs:(id)arg1;
-- (void)_setRepeatedlyPlayingAlert:(id)arg1;
-- (unsigned long)_soundIDForAlert:(id)arg1;
-- (void)_startPlayingAlertRepeatedly:(id)arg1;
-- (void)_stopAlert:(id)arg1 withFadeOutDuration:(double)arg2 options:(unsigned int)arg3 completionHandler:(id)arg4 targetQueue:(id)arg5;
-- (BOOL)_stopAllAlerts;
-- (void)_stopRepeatedlyPlayingAlert:(id)arg1 withFadeOutDuration:(double)arg2 options:(unsigned int)arg3 completionHandler:(id)arg4 targetQueue:(id)arg5;
-- (void)_systemSoundDidFinishPlaying:(unsigned long)arg1;
+- (void).cxx_destruct;
+- (void)_assertRunningOnAccessQueue;
+- (id)_controllerForPlaybackBackEnd:(long long)arg1;
+- (void)_didCompletePlaybackOfAlert:(id)arg1;
+- (void)_didReachTimeoutForAlert:(id)arg1;
+- (void)_performBlockOnAccessQueue:(id /* block */)arg1;
+- (id)_prepareForPlayingAlert:(id)arg1;
+- (id)_queuePlayerController;
+- (bool)_stopAllAlertsInCurrentProcess;
+- (void)_stopPlayingAlerts:(id)arg1 withOptions:(id)arg2 playbackCompletionType:(long long)arg3 completionHandler:(id /* block */)arg4;
+- (id)_systemSoundController;
 - (void)dealloc;
+- (void)handleActivationAssertionStatusChangeForAlert:(id)arg1 updatedStatus:(bool)arg2;
 - (id)init;
-- (BOOL)stopAllAlerts;
+- (void)playAlert:(id)arg1 withCompletionHandler:(id /* block */)arg2;
+- (bool)stopAllAlerts;
+- (void)stopPlayingAlerts:(id)arg1 withOptions:(id)arg2 playbackCompletionType:(long long)arg3 completionHandler:(id /* block */)arg4;
+- (void)updateAudioVolumeDynamicallyForAlert:(id)arg1 toValue:(float)arg2;
 
 @end

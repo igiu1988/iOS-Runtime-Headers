@@ -2,38 +2,42 @@
    Image: /System/Library/PrivateFrameworks/CoreThemeDefinition.framework/CoreThemeDefinition
  */
 
-@class NSString, NSURL, TDDistiller, TDLogger;
-
 @interface TDDistillRunner : NSObject {
-    int _assetStoreVersionNumber;
-    NSString *_assetStoreVersionString;
-    int _capabilities;
-    NSURL *_carScratchURL;
-    TDDistiller *_distiller;
-    TDLogger *_logger;
-    NSURL *_outputURL;
+    long long  _assetStoreVersionNumber;
+    NSString * _assetStoreVersionString;
+    NSURL * _carScratchURL;
+    TDDistiller * _distiller;
+    TDLogger * _logger;
+    NSString * _minDeploymentTarget;
+    NSURL * _outputURL;
+    bool  _packDocument;
 }
 
-@property int assetStoreVersionNumber;
-@property(copy) NSString * assetStoreVersionString;
-@property(retain) TDLogger * logger;
-@property(copy) NSURL * outputURL;
+@property long long assetStoreVersionNumber;
+@property (copy) NSString *assetStoreVersionString;
+@property (nonatomic, retain) TDLogger *logger;
+@property (nonatomic) NSString *minDeploymentTarget;
+@property (nonatomic, copy) NSURL *outputURL;
+@property (nonatomic) bool packImagesInDocument;
 
-- (BOOL)_isDistillUnnecessaryForDocument:(id)arg1;
+- (bool)_isDistillUnnecessaryForDocument:(id)arg1;
 - (void)_moveScratchToOutputPath;
 - (void)_removeScratchPath;
-- (int)assetStoreVersionNumber;
+- (long long)assetStoreVersionNumber;
 - (id)assetStoreVersionString;
 - (id)carScratchURL;
 - (void)dealloc;
 - (id)init;
 - (id)logger;
+- (id)minDeploymentTarget;
 - (id)outputURL;
-- (BOOL)runDistillWithDocumentURL:(id)arg1 outputURL:(id)arg2 attemptIncremental:(BOOL)arg3 forceDistill:(BOOL)arg4;
-- (void)setAssetStoreVersionNumber:(int)arg1;
+- (bool)packImagesInDocument;
+- (bool)runDistillWithDocumentURL:(id)arg1 outputURL:(id)arg2 attemptIncremental:(bool)arg3 forceDistill:(bool)arg4;
+- (void)setAssetStoreVersionNumber:(long long)arg1;
 - (void)setAssetStoreVersionString:(id)arg1;
-- (void)setDocumentCapabilities:(int)arg1;
 - (void)setLogger:(id)arg1;
+- (void)setMinDeploymentTarget:(id)arg1;
 - (void)setOutputURL:(id)arg1;
+- (void)setPackImagesInDocument:(bool)arg1;
 
 @end

@@ -2,29 +2,33 @@
    Image: /System/Library/PrivateFrameworks/MailServices.framework/MailServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<OS_dispatch_queue>, NSXPCConnection, NSXPCInterface, Protocol;
-
 @interface MSXPCConnection : NSXPCConnection {
-    NSXPCConnection *_connection;
-    NSXPCInterface *_exportedInterface;
-    id _exportedObject;
-    id _interruptionHandler;
-    id _invalidationHandler;
-    Protocol *_protocol;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSXPCInterface *_remoteObjectInterface;
+    MFPromise * _connectionPromise;
+    NSXPCInterface * _exportedInterface;
+    id  _exportedObject;
+    id /* block */  _interruptionHandler;
+    id /* block */  _invalidationHandler;
+    NSLock * _lock;
+    Protocol * _protocol;
+    NSObject<OS_dispatch_queue> * _queue;
+    NSXPCInterface * _remoteObjectInterface;
+    long long  _resumeCount;
+    bool  _shouldLaunchMobileMail;
+    unsigned int  _state;
 }
 
-@property(retain) NSXPCConnection * connection;
-@property(retain,readonly) Protocol * protocol;
+@property (nonatomic, readonly, retain) Protocol *protocol;
+@property (nonatomic) bool shouldLaunchMobileMail;
 
-- (void)_sendInvocation:(id)arg1 remoteInterface:(id)arg2 errorHandler:(id)arg3;
+- (id)_connection;
+- (id)_connectionForPromise:(id)arg1;
+- (void)_finishPromise:(id)arg1 withConnection:(id)arg2 error:(id)arg3;
+- (void)_invalidatePromise:(id)arg1;
+- (void)_invokeInterruptionHandlerForPromise:(id)arg1;
+- (id /* block */)_nts_wrappedInterruptionHandler;
+- (void)_queue_invokeInvalidationHandler;
+- (void)_sendInvocation:(id)arg1 remoteInterface:(id)arg2 remoteProxy:(id)arg3 errorHandler:(id /* block */)arg4;
 - (int)auditSessionIdentifier;
-- (id)connection;
 - (void)dealloc;
 - (id)description;
 - (unsigned int)effectiveGroupIdentifier;
@@ -32,21 +36,22 @@
 - (id)exportedInterface;
 - (id)exportedObject;
 - (id)initWithProtocol:(id)arg1;
-- (id)interruptionHandler;
+- (id /* block */)interruptionHandler;
 - (void)invalidate;
-- (id)invalidationHandler;
+- (id /* block */)invalidationHandler;
 - (int)processIdentifier;
 - (id)protocol;
 - (id)remoteObjectInterface;
 - (id)remoteObjectProxy;
-- (id)remoteObjectProxyWithErrorHandler:(id)arg1;
+- (id)remoteObjectProxyWithErrorHandler:(id /* block */)arg1;
 - (void)resume;
-- (void)setConnection:(id)arg1;
 - (void)setExportedInterface:(id)arg1;
 - (void)setExportedObject:(id)arg1;
-- (void)setInterruptionHandler:(id)arg1;
-- (void)setInvalidationHandler:(id)arg1;
+- (void)setInterruptionHandler:(id /* block */)arg1;
+- (void)setInvalidationHandler:(id /* block */)arg1;
 - (void)setRemoteObjectInterface:(id)arg1;
+- (void)setShouldLaunchMobileMail:(bool)arg1;
+- (bool)shouldLaunchMobileMail;
 - (void)suspend;
 
 @end

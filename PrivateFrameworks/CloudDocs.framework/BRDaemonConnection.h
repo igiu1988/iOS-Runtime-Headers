@@ -2,30 +2,33 @@
    Image: /System/Library/PrivateFrameworks/CloudDocs.framework/CloudDocs
  */
 
-@class NSUUID;
-
 @interface BRDaemonConnection : NSXPCConnection {
-    BOOL _isUsingTokenService;
-    NSUUID *_uuid;
+    bool  _isUsingTokenService;
+    NSUUID * _uuid;
 }
 
 + (id)cloudDocsAppSupportURL;
 + (id)cloudDocsCachesURL;
 + (id)defaultConnection;
++ (id)defaultConnectionIfExists;
 + (id)homeDirectoryURL;
 + (void)initialize;
 + (void)invalidateCachedURLProperties;
 + (id)mobileDocumentsURL;
 + (id)secondaryConnection;
++ (id)secondaryConnectionIfExists;
++ (id)syncedDesktopURL;
++ (id)syncedDocumentsURL;
++ (id)syncedRootURLs;
 + (id)t_connectionForUUID:(id)arg1;
 + (void)t_setDefaultConnection:(id)arg1;
 + (void)t_setMobileDocumentsURL:(id)arg1;
 
+- (void).cxx_destruct;
 - (void)_setupAndResume;
-- (void)dealloc;
 - (id)initUsingUserLocalDaemon;
 - (id)initUsingUserLocalDaemonTokenService;
-- (struct BRXPCSyncProxy { Class x1; id x2; id x3; id x4; id x5; int x6; }*)syncProxy;
-- (struct BRXPCSyncProxy { Class x1; id x2; id x3; id x4; id x5; int x6; }*)syncTokenProxy;
+- (/* Warning: unhandled struct encoding: '{BRXPCSyncProxy=#@@@}' */ struct BRXPCSyncProxy { Class x1; id x2; id x3; }*)newSyncProxy;
+- (/* Warning: unhandled struct encoding: '{BRXPCSyncProxy=#@@@}' */ struct BRXPCSyncProxy { Class x1; id x2; id x3; }*)newSyncTokenProxy;
 
 @end

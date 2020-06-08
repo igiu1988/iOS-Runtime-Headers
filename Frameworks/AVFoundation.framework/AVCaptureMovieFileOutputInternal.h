@@ -2,21 +2,25 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference, NSArray, NSMutableArray;
-
 @interface AVCaptureMovieFileOutputInternal : NSObject {
+    NSArray * availableVideoCodecs;
+    NSString * bravoCameraSelectionBehaviorForRecording;
+    NSMutableArray * connectionsThatRecordVideoOrientationAndMirroringChangesAsMetadataTrack;
+    struct ct_green_tea_logger_s { } * greenTeaLogger;
+    NSArray * metadata;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
-    NSArray *metadata;
-    } movieFragmentInterval;
-    BOOL paused;
-    BOOL recording;
-    NSMutableArray *recordingDelegatesArray;
-    BOOL sendLastVideoPreviewFrame;
-    AVWeakReference *weakReference;
+    }  movieFragmentInterval;
+    bool  paused;
+    bool  recording;
+    NSMutableArray * recordingDelegatesArray;
+    bool  sendLastVideoPreviewFrame;
+    NSString * videoCodec;
+    NSDictionary * videoCompressionProperties;
+    AVWeakReference * weakReference;
 }
 
 - (void)dealloc;

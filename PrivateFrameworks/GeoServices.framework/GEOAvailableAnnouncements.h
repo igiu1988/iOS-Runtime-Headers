@@ -2,33 +2,33 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray, NSString;
-
 @interface GEOAvailableAnnouncements : PBCodable <NSCopying> {
-    NSMutableArray *_announcements;
-    NSString *_languageCode;
+    NSMutableArray * _announcements;
+    NSString * _languageCode;
 }
 
-@property(retain) NSMutableArray * announcements;
-@property(readonly) BOOL hasLanguageCode;
-@property(retain) NSString * languageCode;
+@property (nonatomic, retain) NSMutableArray *announcements;
+@property (nonatomic, readonly) bool hasLanguageCode;
+@property (nonatomic, retain) NSString *languageCode;
 
++ (Class)announcementType;
+
+- (void).cxx_destruct;
 - (void)addAnnouncement:(id)arg1;
-- (id)announcementAtIndex:(unsigned int)arg1;
+- (id)announcementAtIndex:(unsigned long long)arg1;
 - (id)announcements;
-- (unsigned int)announcementsCount;
+- (unsigned long long)announcementsCount;
 - (void)clearAnnouncements;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasLanguageCode;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasLanguageCode;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)languageCode;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setAnnouncements:(id)arg1;
 - (void)setLanguageCode:(id)arg1;
 - (void)writeTo:(id)arg1;

@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-@interface ATLockdownMessageLink : ATConcreteMessageLink {
-}
+@interface ATLockdownMessageLink : ATConcreteMessageLink
 
 - (id)initWithSocket:(id)arg1;
-- (BOOL)isWifiConnection;
+- (bool)isWifiConnection;
 
 @end

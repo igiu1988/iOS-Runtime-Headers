@@ -2,55 +2,56 @@
    Image: /System/Library/PrivateFrameworks/FitnessUI.framework/FitnessUI
  */
 
-@class <FUDatePickerDelegate>, FUScrollWheel, NSArray, NSDate, NSDateFormatter, NSMutableArray, NSString, UILabel;
-
 @interface FUDatePicker : UIView <FUScrollWheelDataSource, FUScrollWheelDelegate> {
-    NSDate *_date;
-    NSDateFormatter *_dateFormatter;
-    unsigned int _dateOffset;
-    FUScrollWheel *_dateWheel;
-    UILabel *_dayLabel;
-    int _dayOrder;
-    <FUDatePickerDelegate> *_delegate;
-    BOOL _displayEra;
-    BOOL _firstResponderShouldChange;
-    UILabel *_monthLabel;
-    NSArray *_monthNames;
-    unsigned int _monthOffset;
-    int _monthOrder;
-    FUScrollWheel *_monthWheel;
-    unsigned int _numRowsDate;
-    unsigned int _numRowsMonth;
-    unsigned int _numRowsYear;
-    UILabel *_yearLabel;
-    int _yearOrder;
-    FUScrollWheel *_yearWheel;
-    NSMutableArray *_yearsWithNames;
+    NSDate * _date;
+    NSDateFormatter * _dateFormatter;
+    unsigned long long  _dateOffset;
+    FUScrollWheel * _dateWheel;
+    UILabel * _dayLabel;
+    long long  _dayOrder;
+    NSArray * _dayValues;
+    <FUDatePickerDelegate> * _delegate;
+    bool  _displayEra;
+    bool  _firstResponderShouldChange;
+    UILabel * _monthLabel;
+    NSArray * _monthNames;
+    unsigned long long  _monthOffset;
+    long long  _monthOrder;
+    FUScrollWheel * _monthWheel;
+    unsigned long long  _numRowsDate;
+    unsigned long long  _numRowsMonth;
+    unsigned long long  _numRowsYear;
+    UILabel * _yearLabel;
+    long long  _yearOrder;
+    FUScrollWheel * _yearWheel;
+    NSMutableArray * _yearsWithNames;
 }
 
-@property(retain) NSDate * date;
-@property(retain) FUScrollWheel * dateWheel;
-@property(copy,readonly) NSString * debugDescription;
-@property <FUDatePickerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) FUScrollWheel * monthWheel;
-@property(readonly) Class superclass;
-@property(retain) FUScrollWheel * yearWheel;
+@property (nonatomic, retain) NSDate *date;
+@property (nonatomic, retain) FUScrollWheel *dateWheel;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <FUDatePickerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) FUScrollWheel *monthWheel;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) FUScrollWheel *yearWheel;
 
 - (void).cxx_destruct;
-- (void)_updateDateRange:(BOOL)arg1;
+- (id)_enumerateDayValues;
+- (id)_enumerateDayValuesFromFormatter:(id)arg1;
+- (void)_updateDateRange:(bool)arg1;
 - (void)_updateSpinners;
 - (id)date;
 - (id)dateWheel;
 - (id)delegate;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
 - (id)monthWheel;
-- (unsigned int)numberOfRowsInScrollWheel:(id)arg1;
-- (void)scrollWheel:(id)arg1 didChangeCurrentIndexTo:(unsigned int)arg2;
-- (id)scrollWheel:(id)arg1 titleForItemAtIndex:(unsigned int)arg2;
-- (BOOL)scrollWheelShouldBecomeFirstResponder:(id)arg1;
+- (unsigned long long)numberOfRowsInScrollWheel:(id)arg1;
+- (void)scrollWheel:(id)arg1 didChangeCurrentIndexTo:(unsigned long long)arg2;
+- (id)scrollWheel:(id)arg1 titleForItemAtIndex:(unsigned long long)arg2;
+- (bool)scrollWheelShouldBecomeFirstResponder:(id)arg1;
 - (void)setDate:(id)arg1;
 - (void)setDateWheel:(id)arg1;
 - (void)setDelegate:(id)arg1;

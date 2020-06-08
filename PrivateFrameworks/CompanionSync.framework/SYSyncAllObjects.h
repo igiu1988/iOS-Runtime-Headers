@@ -2,35 +2,35 @@
    Image: /System/Library/PrivateFrameworks/CompanionSync.framework/CompanionSync
  */
 
-@class NSMutableArray, NSString, SYMessageHeader;
-
 @interface SYSyncAllObjects : PBCodable <NSCopying> {
-    NSMutableArray *_allObjects;
-    SYMessageHeader *_header;
-    NSString *_syncID;
-    unsigned long long _version;
+    NSMutableArray * _allObjects;
+    SYMessageHeader * _header;
+    NSString * _syncID;
+    unsigned long long  _version;
 }
 
-@property(retain) NSMutableArray * allObjects;
-@property(retain) SYMessageHeader * header;
-@property(retain) NSString * syncID;
-@property unsigned long long version;
+@property (nonatomic, retain) NSMutableArray *allObjects;
+@property (nonatomic, retain) SYMessageHeader *header;
+@property (nonatomic, retain) NSString *syncID;
+@property (nonatomic) unsigned long long version;
+
++ (Class)allObjectsType;
 
 - (void).cxx_destruct;
 - (void)addAllObjects:(id)arg1;
 - (id)allObjects;
-- (id)allObjectsAtIndex:(unsigned int)arg1;
-- (unsigned int)allObjectsCount;
+- (id)allObjectsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)allObjectsCount;
 - (void)clearAllObjects;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)header;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setAllObjects:(id)arg1;
 - (void)setHeader:(id)arg1;
 - (void)setSyncID:(id)arg1;

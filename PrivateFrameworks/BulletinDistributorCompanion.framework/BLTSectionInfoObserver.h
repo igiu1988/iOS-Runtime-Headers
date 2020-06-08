@@ -2,29 +2,33 @@
    Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
  */
 
-@class <BLTSectionInfoObserverDelegate>, BBObserver, NSObject<OS_dispatch_queue>, NSString;
-
 @interface BLTSectionInfoObserver : NSObject <BBObserverDelegate> {
-    <BLTSectionInfoObserverDelegate> *_delegate;
-    BBObserver *_observer;
-    NSObject<OS_dispatch_queue> *_queue;
+    <BLTSectionInfoObserverDelegate> * _delegate;
+    BBObserver * _observer;
+    NSObject<OS_dispatch_queue> * _queue;
+    id /* block */  _reloadSectionInfoCompletion;
+    BBSettingsGateway * _settingsGateway;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <BLTSectionInfoObserverDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <BLTSectionInfoObserverDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (void)_getBBSectionInfoExtendedProperties:(id)arg1 withCompletion:(id)arg2;
-- (void)_reloadSectionInfosWithCompletion:(id)arg1;
+- (void)_getBBSectionInfoExtendedProperties:(id)arg1 withCompletion:(id /* block */)arg2;
+- (void)_reloadSectionInfosWithCompletion:(id /* block */)arg1;
+- (void)_settingsGatewayReconnected:(id)arg1;
 - (void)dealloc;
 - (id)delegate;
 - (id)init;
+- (id)initWithSettingsGateway:(id)arg1;
+- (void)observer:(id)arg1 noteServerConnectionStateChanged:(bool)arg2;
+- (void)observer:(id)arg1 removeSection:(id)arg2;
 - (void)observer:(id)arg1 updateSectionInfo:(id)arg2;
-- (void)reloadWithCompletion:(id)arg1;
+- (void)reloadWithCompletion:(id /* block */)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)updateSectionInfoBySectionIDs:(id)arg1;
+- (void)updateSectionInfoBySectionIDs:(id)arg1 completion:(id /* block */)arg2;
 
 @end

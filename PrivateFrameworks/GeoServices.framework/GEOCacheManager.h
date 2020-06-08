@@ -2,21 +2,26 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class <GEOCacheManaging>;
-
-@interface GEOCacheManager : NSObject {
-    <GEOCacheManaging> *_proxy;
+@interface GEOCacheManager : NSObject <GEOCacheManaging> {
+    <GEOCacheManaging> * _proxy;
 }
 
-+ (BOOL)_isLocalProxy;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+
 + (id)sharedManager;
 + (void)useLocalProxy;
++ (void)useProxy:(Class)arg1;
 + (void)useRemoteProxy;
 
-- (void)checkHasExpiredWithInvalidationDatas:(id)arg1 handler:(id)arg2;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (void)checkHasExpiredWithInvalidationDatas:(id)arg1 handler:(id /* block */)arg2;
 - (id)init;
-- (int)invalidationStateForPlace:(id)arg1;
-- (void)versionsForDomains:(id)arg1 handler:(id)arg2;
+- (long long)invalidationStateForComponent:(id)arg1;
+- (long long)invalidationStateForPlace:(id)arg1;
+- (void)snapshotWithFilePathArray:(id)arg1 handler:(id /* block */)arg2;
+- (void)versionsForDomains:(id)arg1 handler:(id /* block */)arg2;
 
 @end

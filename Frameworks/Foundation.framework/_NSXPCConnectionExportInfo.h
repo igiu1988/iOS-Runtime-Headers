@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSXPCInterface;
-
 @interface _NSXPCConnectionExportInfo : NSObject {
-    long long _exportCount;
-    NSXPCInterface *_exportedInterface;
-    id _exportedObject;
+    long long  _exportCount;
+    NSXPCInterface * _exportedInterface;
+    id  _exportedObject;
 }
 
-@property long long exportCount;
-@property(retain) NSXPCInterface * exportedInterface;
-@property(retain) id exportedObject;
+@property (nonatomic) long long exportCount;
+@property (nonatomic, retain) NSXPCInterface *exportedInterface;
+@property (nonatomic, retain) id exportedObject;
 
 - (void)dealloc;
 - (id)description;

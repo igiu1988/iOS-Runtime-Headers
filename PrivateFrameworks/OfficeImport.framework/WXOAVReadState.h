@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary, WDParagraph, WXReadState;
-
 @interface WXOAVReadState : OAVReadState {
-    NSMutableDictionary *mNextVmlShapeIdToTextBoxMap;
-    WDParagraph *mParagraph;
-    WXReadState *mWxState;
+    NSMutableDictionary * mNextVmlShapeIdToTextBoxMap;
+    WDParagraph * mParagraph;
+    WXReadState * mWxState;
 }
 
 - (id)currentParagraph;

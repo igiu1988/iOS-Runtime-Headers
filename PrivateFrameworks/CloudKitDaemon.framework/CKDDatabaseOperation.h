@@ -3,15 +3,20 @@
  */
 
 @interface CKDDatabaseOperation : CKDOperation {
-    int _databaseScope;
+    long long  _databaseScope;
 }
 
-@property int databaseScope;
+@property (nonatomic) long long databaseScope;
 
-- (void)configureRequest:(id)arg1;
-- (int)databaseScope;
+- (id)CKStatusReportProperties;
+- (id)activityCreate;
+- (long long)databaseScope;
+- (id)flowControlKey;
 - (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
-- (id)newChildOperationInfoOfClass:(Class)arg1;
-- (void)setDatabaseScope:(int)arg1;
+- (void)setDatabaseScope:(long long)arg1;
+- (void)setPCSData:(id)arg1 forFetchedRecordID:(id)arg2;
+- (void)setPCSData:(id)arg1 forFetchedShareID:(id)arg2;
+- (void)setPCSData:(id)arg1 forFetchedZoneID:(id)arg2;
+- (void)spawnAndRunOperationOfClass:(Class)arg1 operationInfo:(id)arg2 spawnQueue:(id)arg3 operationConfigurationBlock:(id /* block */)arg4;
 
 @end

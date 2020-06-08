@@ -2,27 +2,26 @@
    Image: /System/Library/PrivateFrameworks/ATFoundation.framework/ATFoundation
  */
 
-@class NSMutableDictionary, NSString, NSXPCListener;
-
-@interface ATSessionServerListener : NSObject <NSXPCListenerDelegate, ATSessionServer> {
-    NSXPCListener *_listener;
-    NSMutableDictionary *_sessionProxiesBySessionID;
+@interface ATSessionServerListener : NSObject <ATSessionServer, NSXPCListenerDelegate> {
+    NSXPCListener * _listener;
+    NSMutableDictionary * _sessionProxiesBySessionID;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)sharedSessionServer;
 
 - (void).cxx_destruct;
 - (void)_dumpDebugInformation;
 - (void)addSession:(id)arg1;
-- (void)cancelSessionWithIdentifier:(id)arg1 completion:(id)arg2;
-- (void)fetchSessionsWithTypeIdentifier:(id)arg1 completion:(id)arg2;
+- (void)cancelSessionWithIdentifier:(id)arg1 completion:(id /* block */)arg2;
+- (void)fetchActiveSessionCountForSessionTypeIdentifier:(id)arg1 completion:(id /* block */)arg2;
+- (void)fetchSessionsWithTypeIdentifier:(id)arg1 completion:(id /* block */)arg2;
 - (id)init;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)removeSession:(id)arg1;
 - (void)start;
 - (void)stop;

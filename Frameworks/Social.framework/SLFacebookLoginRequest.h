@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class ACAccount;
-
 @interface SLFacebookLoginRequest : SLFacebookRequest {
-    ACAccount *_account;
+    ACAccount * _account;
 }
 
 - (void).cxx_destruct;

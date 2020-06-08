@@ -2,81 +2,82 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableOrderedSet, NSNumber, NSString, NSURL, PLGenericAlbum;
-
 @interface PLPersistedAlbumMetadata : NSObject {
-    BOOL _allowsOverwite;
-    NSMutableOrderedSet *_assetUUIDs;
-    NSString *_cloudGUID;
-    NSString *_customKeyAssetUUID;
-    BOOL _customSortAscending;
-    int _customSortKey;
-    PLGenericAlbum *_genericAlbum;
-    BOOL _inTrash;
-    BOOL _isFolder;
-    NSNumber *_kind;
-    NSURL *_metadataURL;
-    BOOL _pinned;
-    NSString *_title;
-    NSString *_uuid;
+    bool  _allowsOverwrite;
+    NSMutableOrderedSet * _assetUUIDs;
+    NSString * _cloudGUID;
+    NSString * _customKeyAssetUUID;
+    bool  _customSortAscending;
+    int  _customSortKey;
+    PLGenericAlbum * _genericAlbum;
+    NSString * _importSessionID;
+    bool  _inTrash;
+    bool  _isFolder;
+    NSNumber * _kind;
+    NSURL * _metadataURL;
+    bool  _pinned;
+    NSString * _title;
+    NSString * _uuid;
 }
 
-@property BOOL allowsOverwite;
-@property(retain) NSMutableOrderedSet * assetUUIDs;
-@property(retain) NSString * cloudGUID;
-@property(retain) NSString * customKeyAssetUUID;
-@property BOOL customSortAscending;
-@property int customSortKey;
-@property(retain) PLGenericAlbum * genericAlbum;
-@property(getter=isInTrash) BOOL inTrash;
-@property(readonly) BOOL isFolder;
-@property(retain) NSNumber * kind;
-@property(retain) NSURL * metadataURL;
-@property(getter=isPinned) BOOL pinned;
-@property(retain) NSString * title;
-@property(retain) NSString * uuid;
+@property (nonatomic) bool allowsOverwrite;
+@property (nonatomic, retain) NSMutableOrderedSet *assetUUIDs;
+@property (nonatomic, retain) NSString *cloudGUID;
+@property (nonatomic, retain) NSString *customKeyAssetUUID;
+@property (nonatomic) bool customSortAscending;
+@property (nonatomic) int customSortKey;
+@property (nonatomic, retain) PLGenericAlbum *genericAlbum;
+@property (nonatomic, retain) NSString *importSessionID;
+@property (getter=isInTrash, nonatomic) bool inTrash;
+@property (nonatomic, readonly) bool isFolder;
+@property (nonatomic, retain) NSNumber *kind;
+@property (nonatomic, retain) NSURL *metadataURL;
+@property (getter=isPinned, nonatomic) bool pinned;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSString *uuid;
 
-+ (BOOL)isValidPath:(id)arg1;
++ (bool)isValidPath:(id)arg1;
 
-- (void)_readMetadata;
+- (bool)_readMetadata;
 - (void)_saveMetadata;
-- (BOOL)allowsOverwite;
+- (bool)allowsOverwrite;
 - (id)assetUUIDs;
 - (id)cloudGUID;
 - (id)customKeyAssetUUID;
-- (BOOL)customSortAscending;
+- (bool)customSortAscending;
 - (int)customSortKey;
 - (void)dealloc;
 - (id)description;
-- (id)extensionForKind:(id)arg1;
 - (id)genericAlbum;
+- (id)importSessionID;
 - (id)init;
 - (id)initWithPLGenericAlbum:(id)arg1;
-- (id)initWithPersistedDataAtPath:(id)arg1;
-- (id)initWithTitle:(id)arg1 uuid:(id)arg2 cloudGUID:(id)arg3 kind:(id)arg4 assetUUIDs:(id)arg5;
+- (id)initWithPersistedDataAtURL:(id)arg1;
+- (id)initWithTitle:(id)arg1 uuid:(id)arg2 cloudGUID:(id)arg3 kind:(id)arg4 assetUUIDs:(id)arg5 persistedAlbumDataDirectory:(id)arg6;
 - (id)insertAlbumFromDataInManagedObjectContext:(id)arg1;
-- (BOOL)isFolder;
-- (BOOL)isInTrash;
-- (BOOL)isPinned;
+- (bool)isFolder;
+- (bool)isInTrash;
+- (bool)isPinned;
 - (id)kind;
 - (id)metadataURL;
 - (void)persistAlbumData;
 - (void)removePersistedAlbumData;
-- (void)setAllowsOverwite:(BOOL)arg1;
+- (void)setAllowsOverwrite:(bool)arg1;
 - (void)setAssetUUIDs:(id)arg1;
 - (void)setCloudGUID:(id)arg1;
 - (void)setCustomKeyAssetUUID:(id)arg1;
-- (void)setCustomSortAscending:(BOOL)arg1;
+- (void)setCustomSortAscending:(bool)arg1;
 - (void)setCustomSortKey:(int)arg1;
 - (void)setGenericAlbum:(id)arg1;
-- (void)setInTrash:(BOOL)arg1;
+- (void)setImportSessionID:(id)arg1;
+- (void)setInTrash:(bool)arg1;
 - (void)setKind:(id)arg1;
 - (void)setMetadataURL:(id)arg1;
-- (void)setPinned:(BOOL)arg1;
+- (void)setPinned:(bool)arg1;
 - (void)setTitle:(id)arg1;
 - (void)setUuid:(id)arg1;
 - (id)title;
-- (void)updateChildrenOrderingInAlbum:(id)arg1 includePendingAssetChanges:(BOOL)arg2;
+- (void)updateChildrenOrderingInAlbum:(id)arg1 includePendingAssetChanges:(bool)arg2;
 - (id)uuid;
 
 @end

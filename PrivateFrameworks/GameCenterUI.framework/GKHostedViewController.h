@@ -2,66 +2,60 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class GKGame, GKRemoteViewController;
-
 @interface GKHostedViewController : UIViewController {
-    GKGame *_game;
-    BOOL _gkIsDisappearing;
-    BOOL _isRequestingRemoteViewController;
-    BOOL _presentingRemoteViewController;
-    GKRemoteViewController *_remoteViewController;
-    id _remoteViewReadyHandler;
-    BOOL _shouldPresentRemoteViewController;
+    GKGame * _game;
+    bool  _gkIsDisappearing;
+    bool  _isRequestingRemoteViewController;
+    bool  _presentingRemoteViewController;
+    GKRemoteViewController * _remoteViewController;
+    id /* block */  _remoteViewReadyHandler;
+    bool  _shouldPresentRemoteViewController;
 }
 
-@property(retain) GKGame * game;
-@property BOOL gkIsDisappearing;
-@property BOOL isRequestingRemoteViewController;
-@property BOOL presentingRemoteViewController;
-@property(retain) GKRemoteViewController * remoteViewController;
-@property(copy) id remoteViewReadyHandler;
-@property BOOL shouldPresentRemoteViewController;
+@property (nonatomic, retain) GKGame *game;
+@property (nonatomic) bool gkIsDisappearing;
+@property (nonatomic) bool isRequestingRemoteViewController;
+@property (nonatomic) bool presentingRemoteViewController;
+@property (nonatomic, retain) GKRemoteViewController *remoteViewController;
+@property (nonatomic, copy) id /* block */ remoteViewReadyHandler;
+@property (nonatomic) bool shouldPresentRemoteViewController;
 
 - (id)_presentingViewController;
-- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (void)dealloc;
 - (void)didGetRemoteViewController;
 - (void)didReceiveMemoryWarning;
-- (void)dismissModalViewControllerAnimated:(BOOL)arg1;
-- (void)dismissViewControllerAnimated:(BOOL)arg1 completion:(id)arg2;
+- (void)dismissModalViewControllerAnimated:(bool)arg1;
+- (void)dismissViewControllerAnimated:(bool)arg1 completion:(id /* block */)arg2;
 - (void)donePressed:(id)arg1;
 - (id)game;
-- (BOOL)gkIsDisappearing;
+- (bool)gkIsDisappearing;
 - (id)hostSideViewControllerClassName;
 - (id)init;
-- (BOOL)isRequestingRemoteViewController;
+- (bool)isRequestingRemoteViewController;
 - (void)presentRemoteViewControllerIfNeeded;
-- (BOOL)presentingRemoteViewController;
+- (bool)presentingRemoteViewController;
 - (id)remoteViewController;
-- (id)remoteViewReadyHandler;
+- (id /* block */)remoteViewReadyHandler;
 - (void)requestRemoteViewControllerIfNeeded;
 - (void)resetRemoteViewController;
 - (id)serviceSideViewControllerClassName;
 - (void)setGame:(id)arg1;
-- (void)setGkIsDisappearing:(BOOL)arg1;
-- (void)setIsRequestingRemoteViewController:(BOOL)arg1;
-- (void)setPresentingRemoteViewController:(BOOL)arg1;
+- (void)setGkIsDisappearing:(bool)arg1;
+- (void)setIsRequestingRemoteViewController:(bool)arg1;
+- (void)setPresentingRemoteViewController:(bool)arg1;
 - (void)setRemoteViewController:(id)arg1;
-- (void)setRemoteViewReadyHandler:(id)arg1;
-- (void)setShouldPresentRemoteViewController:(BOOL)arg1;
-- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
-- (BOOL)shouldAutomaticallyForwardRotationMethods;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (BOOL)shouldPresentRemoteViewController;
-- (unsigned int)supportedInterfaceOrientations;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
+- (void)setRemoteViewReadyHandler:(id /* block */)arg1;
+- (void)setShouldPresentRemoteViewController:(bool)arg1;
+- (bool)shouldAutomaticallyForwardAppearanceMethods;
+- (bool)shouldAutomaticallyForwardRotationMethods;
+- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (bool)shouldPresentRemoteViewController;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewDidAppear:(bool)arg1;
+- (void)viewDidDisappear:(bool)arg1;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillDisappear:(bool)arg1;
 
 @end

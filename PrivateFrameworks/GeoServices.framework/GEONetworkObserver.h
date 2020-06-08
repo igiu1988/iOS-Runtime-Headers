@@ -2,29 +2,28 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSLock;
-
 @interface GEONetworkObserver : NSObject {
-    NSLock *_lock;
-    BOOL _networkNotified;
-    struct __CFDictionary { } *_networkObservers;
-    struct __SCNetworkReachability { } *_networkReach;
-    unsigned int _networkReachability;
-    BOOL _networkReachable;
+    bool  _initialized;
+    NSObject<OS_dispatch_queue> * _isolationQueue;
+    bool  _networkNotified;
+    struct __SCNetworkReachability { } * _networkReach;
+    unsigned int  _networkReachability;
+    bool  _networkReachable;
 }
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (id)sharedNetworkObserver;
 
+- (void).cxx_destruct;
 - (void)_networkObserversInitialize;
 - (void)_networkReachableCallBack:(unsigned int)arg1;
-- (void)_networkReachableFirstCallBack:(id)arg1;
 - (void)addNetworkReachableObserver:(id)arg1 selector:(SEL)arg2;
 - (void)dealloc;
 - (id)init;
 - (void)initializeIfNecessary;
-- (BOOL)isCellConnection;
-- (BOOL)isNetworkReachable;
+- (bool)isCellConnection;
+- (bool)isConnectionRequired;
+- (bool)isNetworkReachable;
 - (void)removeNetworkReachableObserver:(id)arg1;
 
 @end

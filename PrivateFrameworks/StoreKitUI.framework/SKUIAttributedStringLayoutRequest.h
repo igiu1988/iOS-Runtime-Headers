@@ -2,35 +2,33 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSAttributedString, NSString;
-
 @interface SKUIAttributedStringLayoutRequest : NSObject <SKUILayoutRequest> {
-    NSAttributedString *_attributedString;
-    int _numberOfLines;
-    BOOL _wantsBaselineOffset;
-    float _width;
+    NSAttributedString * _attributedString;
+    long long  _numberOfLines;
+    bool  _wantsBaselineOffset;
+    double  _width;
 }
 
-@property(readonly) NSAttributedString * attributedString;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class layoutClass;
-@property int numberOfLines;
-@property(readonly) Class superclass;
-@property BOOL wantsBaselineOffset;
-@property float width;
+@property (nonatomic, readonly) NSAttributedString *attributedString;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) Class layoutClass;
+@property (nonatomic) long long numberOfLines;
+@property (readonly) Class superclass;
+@property (nonatomic) bool wantsBaselineOffset;
+@property (nonatomic) double width;
 
 - (void).cxx_destruct;
 - (id)attributedString;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)initWithAttributedString:(id)arg1;
 - (Class)layoutClass;
-- (int)numberOfLines;
-- (void)setNumberOfLines:(int)arg1;
-- (void)setWantsBaselineOffset:(BOOL)arg1;
-- (void)setWidth:(float)arg1;
-- (BOOL)wantsBaselineOffset;
-- (float)width;
+- (long long)numberOfLines;
+- (void)setNumberOfLines:(long long)arg1;
+- (void)setWantsBaselineOffset:(bool)arg1;
+- (void)setWidth:(double)arg1;
+- (bool)wantsBaselineOffset;
+- (double)width;
 
 @end

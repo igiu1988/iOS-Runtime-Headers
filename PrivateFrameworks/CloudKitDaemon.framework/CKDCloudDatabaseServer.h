@@ -2,49 +2,70 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString, NSXPCListener;
-
-@interface CKDCloudDatabaseServer : NSObject <NSXPCListenerDelegate> {
-    NSMutableArray *_connectedClients;
-    NSObject<OS_dispatch_queue> *_lowDiskQueue;
-    NSObject<OS_dispatch_source> *_lowDiskSource;
-    NSObject<OS_dispatch_source> *_lowDiskTimer;
-    NSObject<OS_dispatch_source> *_sighandlerSource;
-    NSXPCListener *_xpcListener;
+@interface CKDCloudDatabaseServer : NSObject {
+    NSOperationQueue * _clientTeardownQueue;
+    NSMutableArray * _connectedClients;
+    NSMutableDictionary * _recentClientsByProcessName;
+    NSObject<OS_dispatch_source> * _sighandlerSource;
+    unsigned long long  _stateHandle;
+    NSObject<OS_dispatch_queue> * _statusReportCallbackQueue;
+    NSMutableArray * _statusReportCallbacks;
+    NSObject<OS_dispatch_queue> * _statusReportQueue;
+    NSObject<OS_dispatch_source> * _statusReportRequestSource;
+    int  _tccToken;
+    NSXPCListener * _xpcListener;
 }
 
-@property(retain) NSMutableArray * connectedClients;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) NSObject<OS_dispatch_queue> * lowDiskQueue;
-@property(retain) NSObject<OS_dispatch_source> * lowDiskSource;
-@property(retain) NSObject<OS_dispatch_source> * lowDiskTimer;
-@property(retain) NSObject<OS_dispatch_source> * sighandlerSource;
-@property(readonly) Class superclass;
-@property(retain) NSXPCListener * xpcListener;
+@property (nonatomic, retain) NSOperationQueue *clientTeardownQueue;
+@property (nonatomic, retain) NSMutableArray *connectedClients;
+@property (nonatomic, retain) NSMutableDictionary *recentClientsByProcessName;
+@property (nonatomic, retain) NSObject<OS_dispatch_source> *sighandlerSource;
+@property (nonatomic) unsigned long long stateHandle;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *statusReportCallbackQueue;
+@property (nonatomic, retain) NSMutableArray *statusReportCallbacks;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *statusReportQueue;
+@property (nonatomic, retain) NSObject<OS_dispatch_source> *statusReportRequestSource;
+@property (nonatomic) int tccToken;
+@property (nonatomic, retain) NSXPCListener *xpcListener;
 
 + (id)sharedServer;
 
 - (void).cxx_destruct;
-- (void)_didReceiveLowDiskNotification;
-- (id)allClients;
+- (id)CKStatusReportArray;
+- (void)_cleanRecentClients;
+- (void)_dumpStatusReportArrayToOsTrace:(id)arg1;
+- (void)_dumpStatusReportToFileHandle:(id)arg1;
+- (id)clientTeardownQueue;
 - (id)connectedClients;
 - (void)dealloc;
+- (void)dumpStatusReportToFileHandle:(id)arg1;
 - (id)init;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-- (id)lowDiskQueue;
-- (id)lowDiskSource;
-- (id)lowDiskTimer;
+- (bool)isInSyncBubble;
+- (void)kickOffPendingLongLivedOperations;
+- (bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (id)recentClientsByProcessName;
 - (void)resume;
+- (void)setClientTeardownQueue:(id)arg1;
 - (void)setConnectedClients:(id)arg1;
-- (void)setLowDiskQueue:(id)arg1;
-- (void)setLowDiskSource:(id)arg1;
-- (void)setLowDiskTimer:(id)arg1;
+- (void)setRecentClientsByProcessName:(id)arg1;
 - (void)setSighandlerSource:(id)arg1;
+- (void)setStateHandle:(unsigned long long)arg1;
+- (void)setStatusReportCallbackQueue:(id)arg1;
+- (void)setStatusReportCallbacks:(id)arg1;
+- (void)setStatusReportQueue:(id)arg1;
+- (void)setStatusReportRequestSource:(id)arg1;
+- (void)setTccToken:(int)arg1;
 - (void)setXpcListener:(id)arg1;
 - (id)sighandlerSource;
-- (void)statusReport;
+- (unsigned long long)stateHandle;
+- (id)statusReportCallbackQueue;
+- (id)statusReportCallbacks;
+- (id)statusReportQueue;
+- (id)statusReportRequestSource;
+- (void)statusReportWithCompletionHandler:(id /* block */)arg1;
+- (int)tccToken;
+- (void)uploadContent;
+- (void)willSwitchUser;
 - (id)xpcListener;
 
 @end

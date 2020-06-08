@@ -2,70 +2,87 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSLock, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSThread, RadiosPreferences;
-
-@interface MFNetworkController : NSObject <RadiosPreferencesDelegate> {
-    NSMutableSet *_backgroundWifiClients;
-    NSMutableSet *_calls;
-    BOOL _data;
-    NSString *_dataIndicator;
-    BOOL _dns;
-    unsigned int _flags;
-    BOOL _hasCellDataCapability;
-    BOOL _hasWiFiCapability;
-    long _interface;
-    BOOL _isRoamingAllowed;
-    BOOL _isWiFiEnabled;
-    NSLock *_lock;
-    NSMutableArray *_observers;
-    NSObject<OS_dispatch_queue> *_prefsQueue;
-    RadiosPreferences *_radiosPreferences;
-    struct __SCNetworkReachability { } *_reachability;
-    struct __CFRunLoop { } *_rl;
-    struct __SCDynamicStore { } *_store;
-    struct __CFRunLoopSource { } *_store_source;
-    struct __CTServerConnection { } *_telephony;
-    NSThread *_thread;
-    struct __SCPreferences { } *_wiFiPreferences;
-    void *_wifiManager;
+@interface MFNetworkController : NSObject <CXCallObserverDelegate, MFDiagnosticsGenerator, RadiosPreferencesDelegate> {
+    unsigned long long  _activeCalls;
+    bool  _alternateAdviceState;
+    NSMutableSet * _backgroundWifiClients;
+    CXCallObserver * _callObserver;
+    bool  _cellularDataAvailable;
+    CoreTelephonyClient * _ctc;
+    int  _dataIndicator;
+    NSObject<OS_dispatch_queue> * _dataStatusQueue;
+    bool  _dns;
+    unsigned int  _flags;
+    bool  _hasCellDataCapability;
+    bool  _hasWiFiCapability;
+    bool  _isRoamingAllowed;
+    bool  _isWiFiEnabled;
+    NSLock * _lock;
+    NSMutableArray * _observers;
+    NSObject<OS_dispatch_queue> * _prefsQueue;
+    RadiosPreferences * _radiosPreferences;
+    struct __SCNetworkReachability { } * _reachability;
+    struct __CFRunLoop { } * _rl;
+    struct __SCDynamicStore { } * _store;
+    struct __CFRunLoopSource { } * _store_source;
+    int  _symptomsToken;
+    struct __SCPreferences { } * _wiFiPreferences;
+    void * _wifiManager;
 }
 
-@property void* wifiManager;
+@property (nonatomic, readonly) AWDMailNetworkDiagnosticsReport *awdNetworkDiagnosticReport;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) MFObservable *networkObservable;
+@property (readonly) Class superclass;
+@property (nonatomic) void*wifiManager;
+@property (nonatomic, readonly) MFObservable *wifiObservable;
 
 + (id)networkAssertionWithIdentifier:(id)arg1;
 + (id)sharedInstance;
 
+- (void)_carrierBundleDidChange;
 - (void)_checkKeys:(id)arg1 forStore:(struct __SCDynamicStore { }*)arg2;
-- (void)_handleNotification:(id)arg1 info:(id)arg2 forConnection:(struct __CTServerConnection { }*)arg3;
 - (void)_handleWiFiNotification:(unsigned int)arg1;
+- (void)_initializeDataStatus;
 - (void)_inititializeWifiManager;
-- (BOOL)_isNetworkUp_nts;
+- (bool)_isNetworkUp_nts;
 - (id)_networkAssertionWithIdentifier:(id)arg1;
-- (struct { int x1; int x2; })_pollDataAndCallStatus_nts;
 - (void)_setDataStatus_nts:(id)arg1;
 - (void)_setFlags:(unsigned int)arg1 forReachability:(struct __SCNetworkReachability { }*)arg2;
-- (void)_setUpTelephony_nts;
-- (BOOL)_simulationOverrideForType:(unsigned int)arg1 actualValue:(BOOL)arg2;
-- (void)_tearDownTelephony_nts;
+- (void)_setupSymptons;
+- (bool)_simulationOverrideForType:(unsigned long long)arg1 actualValue:(bool)arg2;
+- (void)_updateActiveCalls;
 - (void)_updateWifiClientType;
 - (void)addBackgroundWifiClient:(id)arg1;
-- (id)addNetworkObserverBlock:(id)arg1 queue:(id)arg2;
+- (id)addNetworkObserverBlock:(id /* block */)arg1 queue:(id)arg2;
 - (void)airplaneModeChanged;
+- (id)awdNetworkDiagnosticReport;
+- (void)callObserver:(id)arg1 callChanged:(id)arg2;
+- (void)connectionActivationError:(id)arg1 connection:(int)arg2 error:(int)arg3;
+- (id)copyCarrierBundleValue:(id)arg1;
 - (id)copyDiagnosticInformation;
 - (int)dataStatus;
+- (void)dataStatus:(id)arg1 dataStatusInfo:(id)arg2;
 - (void)dealloc;
-- (BOOL)inAirplaneMode;
+- (bool)hasAlternateAdvice;
+- (bool)inAirplaneMode;
 - (id)init;
 - (void)invalidate;
-- (BOOL)is3GConnection;
-- (BOOL)is4GConnection;
-- (BOOL)isDataAvailable;
-- (BOOL)isFatPipe;
-- (BOOL)isNetworkUp;
-- (BOOL)isOnWWAN;
+- (bool)is3GConnection;
+- (bool)is4GConnection;
+- (bool)isDataAvailable;
+- (bool)isFatPipe;
+- (bool)isNetworkUp;
+- (bool)isOnWWAN;
+- (id)networkObservable;
+- (void)preferredDataSimChanged:(id)arg1;
 - (void)removeBackgroundWifiClient:(id)arg1;
 - (void)removeNetworkObserver:(id)arg1;
 - (void)setWifiManager:(void*)arg1;
+- (void)simStatusDidChange:(id)arg1 status:(id)arg2;
 - (void*)wifiManager;
+- (id)wifiObservable;
 
 @end

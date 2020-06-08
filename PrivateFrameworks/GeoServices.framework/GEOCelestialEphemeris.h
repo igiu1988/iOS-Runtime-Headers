@@ -2,48 +2,47 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOEquatorialCelestialBodyData, GEOHorizontalCelestialBodyData, GEOSolarEclipticCelestialBodyData, NSDate;
-
 @interface GEOCelestialEphemeris : NSObject {
+    long long  _body;
     struct { 
         double latitude; 
         double longitude; 
-    int _body;
-    } _coordinate;
-    NSDate *_date;
-    GEOSolarEclipticCelestialBodyData *_eclipticCoord;
-    double _elongation;
-    GEOEquatorialCelestialBodyData *_equatorialCoord;
-    GEOHorizontalCelestialBodyData *_horizontalCoord;
-    double _illuminatedFraction;
-    double _parallacticAngle;
-    double _phaseAngle;
-    NSDate *_rise;
-    NSDate *_set;
-    NSDate *_transit;
+    }  _coordinate;
+    NSDate * _date;
+    GEOSolarEclipticCelestialBodyData * _eclipticCoord;
+    double  _elongation;
+    GEOEquatorialCelestialBodyData * _equatorialCoord;
+    bool  _highPrecision;
+    GEOHorizontalCelestialBodyData * _horizontalCoord;
+    double  _illuminatedFraction;
+    double  _parallacticAngle;
+    double  _phaseAngle;
+    NSDate * _rise;
+    NSDate * _set;
+    NSDate * _transit;
 }
 
-@property(readonly) GEOSolarEclipticCelestialBodyData * eclipticCoord;
-@property(readonly) double elongation;
-@property(readonly) GEOEquatorialCelestialBodyData * equatorialCoord;
-@property(readonly) GEOHorizontalCelestialBodyData * horizontalCoord;
-@property(readonly) double illuminatedFraction;
-@property(readonly) double parallacticAngle;
-@property(readonly) double phaseAngle;
-@property(readonly) NSDate * rise;
-@property(readonly) NSDate * set;
-@property(readonly) NSDate * transit;
+@property (nonatomic, readonly) GEOSolarEclipticCelestialBodyData *eclipticCoord;
+@property (nonatomic, readonly) double elongation;
+@property (nonatomic, readonly) GEOEquatorialCelestialBodyData *equatorialCoord;
+@property (nonatomic, readonly) GEOHorizontalCelestialBodyData *horizontalCoord;
+@property (nonatomic, readonly) double illuminatedFraction;
+@property (nonatomic, readonly) double parallacticAngle;
+@property (nonatomic, readonly) double phaseAngle;
+@property (nonatomic, readonly) NSDate *rise;
+@property (nonatomic, readonly) NSDate *set;
+@property (nonatomic, readonly) NSDate *transit;
 
-- (id).cxx_construct;
-- (void)_getRightAscension:(double*)arg1 declination:(double*)arg2 forJulianDay:(double)arg3 forBody:(int)arg4;
-- (struct CAARiseTransitSetDetails { boolx1; double x2; boolx3; double x4; boolx5; double x6; })_riseTransitSetForBody:(int)arg1;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (void)_getRightAscension:(double*)arg1 declination:(double*)arg2 forJulianDay:(double)arg3 forBody:(long long)arg4;
+- (struct CAARiseTransitSetDetails { bool x1; double x2; bool x3; bool x4; double x5; bool x6; double x7; })_riseTransitSetForBody:(long long)arg1;
 - (id)eclipticCoord;
 - (double)elongation;
 - (id)equatorialCoord;
 - (id)horizontalCoord;
 - (double)illuminatedFraction;
-- (id)initWithLocation:(struct { double x1; double x2; })arg1 date:(id)arg2 body:(int)arg3;
+- (id)initWithLocation:(struct { double x1; double x2; })arg1 date:(id)arg2 body:(long long)arg3;
+- (id)initWithLocation:(struct { double x1; double x2; })arg1 date:(id)arg2 body:(long long)arg3 useHighPrecision:(bool)arg4;
 - (double)parallacticAngle;
 - (double)phaseAngle;
 - (id)rise;

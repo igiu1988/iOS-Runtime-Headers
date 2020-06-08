@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-@class NSString;
-
 @interface WebAVMediaSelectionOption : NSObject {
-    NSString *_localizedDisplayName;
+    NSString * _localizedDisplayName;
 }
 
-@property(retain) NSString * localizedDisplayName;
+@property (retain) NSString *localizedDisplayName;
 
+- (void)dealloc;
 - (id)localizedDisplayName;
 - (void)setLocalizedDisplayName:(id)arg1;
 

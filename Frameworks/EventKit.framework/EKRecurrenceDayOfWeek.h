@@ -2,27 +2,28 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@interface EKRecurrenceDayOfWeek : NSObject <NSCopying> {
-    int _dayOfTheWeek;
-    int _weekNumber;
+@interface EKRecurrenceDayOfWeek : NSObject <NSCopying, NSSecureCoding> {
+    long long  _dayOfTheWeek;
+    long long  _weekNumber;
 }
 
-@property(readonly) int dayOfTheWeek;
-@property(readonly) int weekNumber;
+@property (nonatomic, readonly) long long dayOfTheWeek;
+@property (nonatomic, readonly) long long weekNumber;
 
-+ (id)dayOfWeek:(int)arg1 weekNumber:(int)arg2;
-+ (id)dayOfWeek:(int)arg1;
++ (id)dayOfWeek:(long long)arg1;
++ (id)dayOfWeek:(long long)arg1 weekNumber:(long long)arg2;
++ (bool)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (int)dayOfTheWeek;
+- (long long)dayOfTheWeek;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)iCalendarDescription;
-- (id)iCalendarValueFromDayOfTheWeek:(unsigned int)arg1;
+- (id)iCalendarValueFromDayOfTheWeek:(long long)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDayOfTheWeek:(int)arg1 weekNumber:(int)arg2;
-- (BOOL)isEqual:(id)arg1;
-- (int)weekNumber;
+- (id)initWithDayOfTheWeek:(long long)arg1 weekNumber:(long long)arg2;
+- (bool)isEqual:(id)arg1;
+- (long long)weekNumber;
 
 @end

@@ -2,25 +2,31 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class NSString, SKAccountPageViewController;
-
 @interface SKRemoteAccountPageViewController : _UIRemoteViewController <SKUIClientAccountPageViewController> {
-    SKAccountPageViewController *_accountPageViewController;
+    SKAccountPageViewController * _accountPageViewController;
 }
 
-@property SKAccountPageViewController * accountPageViewController;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (nonatomic) SKAccountPageViewController *accountPageViewController;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)exportedInterface;
 + (id)serviceViewControllerInterface;
 
+- (void).cxx_destruct;
 - (id)accountPageViewController;
+- (void)didFinishLoading;
 - (void)didPrepareWithResult:(id)arg1 error:(id)arg2;
-- (void)dismissViewController;
+- (void)dismissViewControllerWithResult:(id)arg1 error:(id)arg2;
+- (void)financeInterruptionResolved:(bool)arg1;
+- (void)overrideCreditCardPresentationWithCompletion:(id /* block */)arg1;
+- (void)overrideRedeemCameraWithCompletion:(id /* block */)arg1;
+- (void)popBridgedViewControllersToIndex:(unsigned long long)arg1;
+- (void)pushBridgedViewControllerAnimated:(bool)arg1 options:(id)arg2;
 - (void)setAccountPageViewController:(id)arg1;
+- (void)setBridgedNavigationItemWithOptions:(id)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 
 @end

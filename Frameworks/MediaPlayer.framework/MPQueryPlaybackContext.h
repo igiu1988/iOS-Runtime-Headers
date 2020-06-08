@@ -2,28 +2,28 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPMediaQuery, NSArray;
-
 @interface MPQueryPlaybackContext : MPPlaybackContext {
-    NSArray *_prefixMediaItems;
-    MPMediaQuery *_query;
-    BOOL _shouldRestartPlaybackIfQueueChanges;
-    unsigned int _startIndex;
+    NSDictionary * _endTimeModifications;
+    MPMediaQuery * _query;
+    NSDictionary * _startTimeModifications;
 }
 
-@property(copy) NSArray * prefixMediaItems;
-@property(readonly) MPMediaQuery * query;
-@property BOOL shouldRestartPlaybackIfQueueChanges;
-@property unsigned int startIndex;
+@property (nonatomic, copy) NSDictionary *endTimeModifications;
+@property (nonatomic, readonly) MPMediaQuery *query;
+@property (nonatomic, copy) NSDictionary *startTimeModifications;
+
++ (Class)queueFeederClass;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
+- (id)descriptionComponents;
+- (void)encodeWithCoder:(id)arg1;
+- (id)endTimeModifications;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithQuery:(id)arg1;
-- (id)prefixMediaItems;
 - (id)query;
-- (void)setPrefixMediaItems:(id)arg1;
-- (void)setShouldRestartPlaybackIfQueueChanges:(BOOL)arg1;
-- (void)setStartIndex:(unsigned int)arg1;
-- (BOOL)shouldRestartPlaybackIfQueueChanges;
-- (unsigned int)startIndex;
+- (void)setEndTimeModifications:(id)arg1;
+- (void)setStartTimeModifications:(id)arg1;
+- (id)startTimeModifications;
 
 @end

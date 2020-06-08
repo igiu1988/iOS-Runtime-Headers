@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class NSError, NSString;
-
 @interface CoreDAVNullParser : NSObject <CoreDAVResponseBodyParser> {
-    NSError *_parserError;
+    NSError * _parserError;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) NSError * parserError;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) NSError *parserError;
+@property (readonly) Class superclass;
 
-+ (BOOL)canHandleContentType:(id)arg1;
++ (bool)canHandleContentType:(id)arg1;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)parserError;
-- (BOOL)processData:(id)arg1 forTask:(id)arg2;
+- (bool)processData:(id)arg1 forTask:(id)arg2;
 
 @end

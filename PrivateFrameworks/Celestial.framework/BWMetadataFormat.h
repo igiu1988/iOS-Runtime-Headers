@@ -3,7 +3,7 @@
  */
 
 @interface BWMetadataFormat : BWFormat {
-    struct opaqueCMFormatDescription { } *_desc;
+    struct opaqueCMFormatDescription { } * _desc;
 }
 
 + (id)formatWithMetadataFormatDescription:(struct opaqueCMFormatDescription { }*)arg1;
@@ -14,6 +14,6 @@
 - (id)debugDescription;
 - (id)description;
 - (struct opaqueCMFormatDescription { }*)formatDescription;
-- (unsigned long)mediaType;
+- (unsigned int)mediaType;
 
 @end

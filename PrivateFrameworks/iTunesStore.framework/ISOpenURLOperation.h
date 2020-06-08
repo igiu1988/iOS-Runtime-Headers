@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class ISOpenURLRequest;
-
 @interface ISOpenURLOperation : ISOperation {
-    ISOpenURLRequest *_request;
+    ISOpenURLRequest * _request;
 }
 
-@property(readonly) ISOpenURLRequest * openURLRequest;
+@property (readonly) ISOpenURLRequest *openURLRequest;
 
+- (void).cxx_destruct;
 - (id)_newSortedTargetsArray;
-- (BOOL)_openURL:(id)arg1;
-- (void)dealloc;
+- (bool)_openURL:(id)arg1;
 - (id)init;
 - (id)initWithOpenURLRequest:(id)arg1;
 - (id)openURLRequest;

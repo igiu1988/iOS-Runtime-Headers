@@ -2,19 +2,19 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSMutableArray;
-
 @interface AWDWiFiMetricsManagerLinkQualityStats : PBCodable <NSCopying> {
     struct { 
         unsigned int timestamp : 1; 
-    } _has;
-    NSMutableArray *_statRecords;
-    unsigned long long _timestamp;
+    }  _has;
+    NSMutableArray * _statRecords;
+    unsigned long long  _timestamp;
 }
 
-@property BOOL hasTimestamp;
-@property(retain) NSMutableArray * statRecords;
-@property unsigned long long timestamp;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic, retain) NSMutableArray *statRecords;
+@property (nonatomic) unsigned long long timestamp;
+
++ (Class)statRecordType;
 
 - (void)addStatRecord:(id)arg1;
 - (void)clearStatRecords;
@@ -23,17 +23,17 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setStatRecords:(id)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
-- (id)statRecordAtIndex:(unsigned int)arg1;
+- (id)statRecordAtIndex:(unsigned long long)arg1;
 - (id)statRecords;
-- (unsigned int)statRecordsCount;
+- (unsigned long long)statRecordsCount;
 - (unsigned long long)timestamp;
 - (void)writeTo:(id)arg1;
 

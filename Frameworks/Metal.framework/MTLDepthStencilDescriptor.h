@@ -2,40 +2,18 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-@class MTLStencilDescriptor, NSString;
+@interface MTLDepthStencilDescriptor : NSObject <NSCopying>
 
-@interface MTLDepthStencilDescriptor : NSObject <NSCopying> {
-    struct MTLDepthStencilDescriptorPrivate { 
-        MTLStencilDescriptor *frontFaceStencil; 
-        MTLStencilDescriptor *backFaceStencil; 
-        unsigned int depthCompareFunction; 
-        BOOL depthWriteEnabled; 
-        NSString *label; 
-    } _private;
-}
+@property (nonatomic, copy) MTLStencilDescriptor *backFaceStencil;
+@property (nonatomic) unsigned long long depthCompareFunction;
+@property (readonly) const /* Warning: unhandled struct encoding: '{MTLDepthStencilDescriptorPrivate=@@QB@}' */ struct MTLDepthStencilDescriptorPrivate { id x1; unsigned long long x2; bool x3; id x4; }*depthStencilPrivate;
+@property (getter=isDepthWriteEnabled, nonatomic) bool depthWriteEnabled;
+@property (nonatomic, copy) MTLStencilDescriptor *frontFaceStencil;
+@property (nonatomic, copy) NSString *label;
 
-@property(copy) MTLStencilDescriptor * backFaceStencil;
-@property unsigned int depthCompareFunction;
-@property(getter=isDepthWriteEnabled) BOOL depthWriteEnabled;
-@property(copy) MTLStencilDescriptor * frontFaceStencil;
-@property(copy) NSString * label;
++ (id)alloc;
++ (id)allocWithZone:(struct _NSZone { }*)arg1;
 
-- (id)backFaceStencil;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
-- (unsigned int)depthCompareFunction;
-- (struct MTLDepthStencilDescriptorPrivate { id x1; id x2; unsigned int x3; BOOL x4; id x5; }*)depthStencilPrivate;
-- (id)description;
-- (id)frontFaceStencil;
-- (unsigned int)hash;
-- (id)init;
-- (BOOL)isDepthWriteEnabled;
-- (BOOL)isEqual:(id)arg1;
-- (id)label;
-- (void)setBackFaceStencil:(id)arg1;
-- (void)setDepthCompareFunction:(unsigned int)arg1;
-- (void)setDepthWriteEnabled:(BOOL)arg1;
-- (void)setFrontFaceStencil:(id)arg1;
-- (void)setLabel:(id)arg1;
 
 @end

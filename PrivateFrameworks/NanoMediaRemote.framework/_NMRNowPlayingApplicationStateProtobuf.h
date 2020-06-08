@@ -2,43 +2,61 @@
    Image: /System/Library/PrivateFrameworks/NanoMediaRemote.framework/NanoMediaRemote
  */
 
-@class NSString;
-
 @interface _NMRNowPlayingApplicationStateProtobuf : PBCodable <NSCopying> {
+    NSString * _companionBundleIdentifier;
     struct { 
         unsigned int playbackState : 1; 
-    NSString *_bundleIdentifier;
-    } _has;
-    NSString *_localizedDisplayName;
-    unsigned int _playbackState;
+        unsigned int processID : 1; 
+    }  _has;
+    NSData * _iconDigest;
+    NSString * _localizedDisplayName;
+    unsigned int  _playbackState;
+    int  _processID;
+    NSString * _watchBundleIdentifier;
 }
 
-@property(retain) NSString * bundleIdentifier;
-@property(readonly) BOOL hasBundleIdentifier;
-@property(readonly) BOOL hasLocalizedDisplayName;
-@property BOOL hasPlaybackState;
-@property(retain) NSString * localizedDisplayName;
-@property unsigned int playbackState;
+@property (nonatomic, retain) NSString *companionBundleIdentifier;
+@property (nonatomic, readonly) bool hasCompanionBundleIdentifier;
+@property (nonatomic, readonly) bool hasIconDigest;
+@property (nonatomic, readonly) bool hasLocalizedDisplayName;
+@property (nonatomic) bool hasPlaybackState;
+@property (nonatomic) bool hasProcessID;
+@property (nonatomic, readonly) bool hasWatchBundleIdentifier;
+@property (nonatomic, retain) NSData *iconDigest;
+@property (nonatomic, retain) NSString *localizedDisplayName;
+@property (nonatomic) unsigned int playbackState;
+@property (nonatomic) int processID;
+@property (nonatomic, retain) NSString *watchBundleIdentifier;
 
 - (void).cxx_destruct;
-- (id)bundleIdentifier;
+- (id)companionBundleIdentifier;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasBundleIdentifier;
-- (BOOL)hasLocalizedDisplayName;
-- (BOOL)hasPlaybackState;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasCompanionBundleIdentifier;
+- (bool)hasIconDigest;
+- (bool)hasLocalizedDisplayName;
+- (bool)hasPlaybackState;
+- (bool)hasProcessID;
+- (bool)hasWatchBundleIdentifier;
+- (unsigned long long)hash;
+- (id)iconDigest;
+- (bool)isEqual:(id)arg1;
 - (id)localizedDisplayName;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)playbackState;
-- (BOOL)readFrom:(id)arg1;
-- (void)setBundleIdentifier:(id)arg1;
-- (void)setHasPlaybackState:(BOOL)arg1;
+- (int)processID;
+- (bool)readFrom:(id)arg1;
+- (void)setCompanionBundleIdentifier:(id)arg1;
+- (void)setHasPlaybackState:(bool)arg1;
+- (void)setHasProcessID:(bool)arg1;
+- (void)setIconDigest:(id)arg1;
 - (void)setLocalizedDisplayName:(id)arg1;
 - (void)setPlaybackState:(unsigned int)arg1;
+- (void)setProcessID:(int)arg1;
+- (void)setWatchBundleIdentifier:(id)arg1;
+- (id)watchBundleIdentifier;
 - (void)writeTo:(id)arg1;
 
 @end

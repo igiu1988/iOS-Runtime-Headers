@@ -3,25 +3,24 @@
  */
 
 @interface HSItemsRequest : HSRequest {
-    BOOL _includeHiddenItems;
-    BOOL _shouldParseResponse;
+    bool  _includeHiddenItems;
+    bool  _shouldParseResponse;
 }
 
-@property BOOL includeHiddenItems;
-@property BOOL shouldParseResponse;
+@property (nonatomic) bool includeHiddenItems;
+@property (nonatomic) bool shouldParseResponse;
 
-+ (id)requestWithDatabaseID:(unsigned int)arg1 containerID:(unsigned int)arg2;
 + (id)requestWithDatabaseID:(unsigned int)arg1;
++ (id)requestWithDatabaseID:(unsigned int)arg1 containerID:(unsigned int)arg2;
 
 - (id)canonicalResponseForResponse:(id)arg1;
-- (BOOL)includeHiddenItems;
+- (bool)includeHiddenItems;
 - (id)initWithAction:(id)arg1;
-- (id)initWithDatabaseID:(unsigned int)arg1 containerID:(unsigned int)arg2;
 - (id)initWithDatabaseID:(unsigned int)arg1;
-- (void)setIncludeHiddenItems:(BOOL)arg1;
-- (void)setShouldParseResponse:(BOOL)arg1;
-- (void)setSongsRequestWithSessonID:(unsigned int)arg1 metadataFilter:(id)arg2 purchaseTokenListing:(id)arg3 queryFilter:(id)arg4;
-- (BOOL)shouldParseResponse;
+- (id)initWithDatabaseID:(unsigned int)arg1 containerID:(unsigned int)arg2;
+- (void)setIncludeHiddenItems:(bool)arg1;
+- (void)setShouldParseResponse:(bool)arg1;
+- (bool)shouldParseResponse;
 - (double)timeoutInterval;
 
 @end

@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDTComputedFormatSpec;
-
 @interface GQDTDurationCell : GQDTCell {
-    GQDTComputedFormatSpec *mComputedFormat;
-    struct __CFBundle { } *mProcessorBundle;
-    double mValue;
+    GQDTComputedFormatSpec * mComputedFormat;
+    struct __CFBundle { } * mProcessorBundle;
+    double  mValue;
 }
 
 - (struct __CFString { }*)createStringValue;

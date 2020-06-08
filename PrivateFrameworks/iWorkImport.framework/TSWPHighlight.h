@@ -2,63 +2,68 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class <TSKModel>, NSDate, NSString, TSDCommentStorage, TSKAnnotationAuthor;
-
-@interface TSWPHighlight : TSPObject <TSDAnnotationHosting, TSPCopying, TSKDocumentObject, TSDCommentStorageDelegate> {
-    TSDCommentStorage *_commentStorage;
-    <TSKModel> *hostingModel;
+@interface TSWPHighlight : TSPObject <TSDComment, TSKDocumentObject, TSPCopying, TSWPOverlappingField, TSWPTextSpanningObject> {
+    TSDCommentStorage * _commentStorage;
+    TSWPStorage * _parentStorage;
+    NSString * _textAttributeUUIDString;
 }
 
-@property(readonly) int annotationDisplayStringType;
-@property(readonly) int annotationType;
-@property(readonly) TSKAnnotationAuthor * author;
-@property(readonly) NSString * changeTrackingContentFormatString;
-@property(readonly) NSString * changeTrackingContentString;
-@property(readonly) NSString * changeTrackingTitleString;
-@property(retain) TSDCommentStorage * commentStorage;
-@property(readonly) NSDate * date;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property <TSKModel> * hostingModel;
-@property(copy) TSDCommentStorage * storage;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) int annotationDisplayStringType;
+@property (nonatomic, readonly) int annotationType;
+@property (nonatomic, readonly) NSString *annotationUUID;
+@property (nonatomic, retain) TSKAnnotationAuthor *author;
+@property (nonatomic, retain) TSDCommentStorage *commentStorage;
+@property (nonatomic, readonly) NSDate *date;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isHighlight;
+@property (nonatomic) TSWPStorage *parentStorage;
+@property (nonatomic, copy) TSDCommentStorage *storage;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *textAttributeUUIDString;
 
 + (id)defaultHighlightWithContext:(id)arg1 includeCommentWithAuthor:(id)arg2;
++ (id)highlightTextColorForHighlights:(id)arg1;
 
+- (void).cxx_destruct;
 - (int)annotationDisplayStringType;
 - (int)annotationType;
+- (id)annotationUUID;
 - (id)author;
-- (id)commandForDeletingComment;
 - (id)commentStorage;
-- (void)commentStorageTextDidChange:(id)arg1;
-- (void)commitText:(id)arg1;
+- (void)commentWillBeAddedToDocumentRoot;
 - (id)copyWithContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)date;
-- (void)dealloc;
 - (id)description;
-- (id)hostingModel;
-- (id)initFromUnarchiver:(id)arg1;
+- (unsigned long long)hash;
+- (void)i_setTextAttributeUUIDString:(id)arg1;
+- (id)initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 commentStorage:(id)arg2;
-- (BOOL)isCommentEmpty;
-- (BOOL)isEqual:(id)arg1;
-- (void)loadFromArchive:(const struct HighlightArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct Reference {} *x3; int x4; unsigned int x5[1]; }*)arg1 unarchiver:(id)arg2;
+- (id)initWithContext:(id)arg1 commentStorage:(id)arg2 annotationUUID:(id)arg3;
+- (bool)isCommentEmpty;
+- (bool)isEqual:(id)arg1;
+- (bool)isEquivalentToObject:(id)arg1;
+- (bool)isFloatingComment;
+- (bool)isHighlight;
+- (bool)isInDocument;
+- (void)loadFromArchive:(const struct HighlightArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct Reference {} *x5; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > {} *x6; }*)arg1 unarchiver:(id)arg2;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)p_invalidateAnnotationResultsForDocumentRoot:(id)arg1 key:(id)arg2;
+- (id)parentStorage;
+- (void)resetTextAttributeUUIDString;
 - (void)saveToArchiver:(id)arg1;
 - (void)setAuthor:(id)arg1;
 - (void)setCommentStorage:(id)arg1;
-- (void)setHostingModel:(id)arg1;
+- (void)setParentStorage:(id)arg1;
 - (void)setStorage:(id)arg1;
+- (void)setTextAttributeUUIDString:(id)arg1;
 - (id)storage;
-- (void)wasAddedToDocumentRoot:(id)arg1 context:(id)arg2;
+- (id)textAttributeUUIDString;
+- (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
-- (void)willBeAddedToDocumentRoot:(id)arg1 context:(id)arg2;
+- (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 
 @end

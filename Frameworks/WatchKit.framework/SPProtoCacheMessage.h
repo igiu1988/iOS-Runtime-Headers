@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/WatchKit.framework/WatchKit
  */
 
-@class NSData, NSString, SPProtoCacheSyncData;
-
 @interface SPProtoCacheMessage : PBCodable <NSCopying> {
-    NSData *_assetData;
-    NSString *_assetKey;
-    int _cacheType;
-    NSString *_gizmoCacheIdentifier;
-    int _messageType;
-    SPProtoCacheSyncData *_syncData;
+    NSData * _assetData;
+    NSString * _assetKey;
+    int  _cacheType;
+    NSString * _gizmoCacheIdentifier;
+    int  _messageType;
+    SPProtoCacheSyncData * _syncData;
 }
 
-@property(retain) NSData * assetData;
-@property(retain) NSString * assetKey;
-@property int cacheType;
-@property(retain) NSString * gizmoCacheIdentifier;
-@property(readonly) BOOL hasAssetData;
-@property(readonly) BOOL hasAssetKey;
-@property(readonly) BOOL hasGizmoCacheIdentifier;
-@property(readonly) BOOL hasSyncData;
-@property int messageType;
-@property(retain) SPProtoCacheSyncData * syncData;
+@property (nonatomic, retain) NSData *assetData;
+@property (nonatomic, retain) NSString *assetKey;
+@property (nonatomic) int cacheType;
+@property (nonatomic, retain) NSString *gizmoCacheIdentifier;
+@property (nonatomic, readonly) bool hasAssetData;
+@property (nonatomic, readonly) bool hasAssetKey;
+@property (nonatomic, readonly) bool hasGizmoCacheIdentifier;
+@property (nonatomic, readonly) bool hasSyncData;
+@property (nonatomic) int messageType;
+@property (nonatomic, retain) SPProtoCacheSyncData *syncData;
 
 - (void).cxx_destruct;
 - (id)assetData;
@@ -33,15 +31,15 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)gizmoCacheIdentifier;
-- (BOOL)hasAssetData;
-- (BOOL)hasAssetKey;
-- (BOOL)hasGizmoCacheIdentifier;
-- (BOOL)hasSyncData;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasAssetData;
+- (bool)hasAssetKey;
+- (bool)hasGizmoCacheIdentifier;
+- (bool)hasSyncData;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (int)messageType;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setAssetData:(id)arg1;
 - (void)setAssetKey:(id)arg1;
 - (void)setCacheType:(int)arg1;

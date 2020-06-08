@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSNumber, SAPersonAttribute;
+@interface SAPhoneCall : SADomainCommand
 
-@interface SAPhoneCall : SADomainCommand {
-}
-
-@property(retain) SAPersonAttribute * callRecipient;
-@property(copy) NSNumber * emergencyCall;
-@property BOOL faceTime;
-@property BOOL faceTimeAudio;
+@property (nonatomic, retain) SAPersonAttribute *callRecipient;
+@property (nonatomic, copy) NSNumber *emergencyCall;
+@property (nonatomic) bool faceTime;
+@property (nonatomic) bool faceTimeAudio;
+@property (nonatomic) bool handsFreeCall;
+@property (nonatomic) bool speakerphoneCall;
 
 + (id)call;
 + (id)callWithDictionary:(id)arg1 context:(id)arg2;
@@ -18,13 +17,17 @@
 - (id)callRecipient;
 - (id)emergencyCall;
 - (id)encodedClassName;
-- (BOOL)faceTime;
-- (BOOL)faceTimeAudio;
+- (bool)faceTime;
+- (bool)faceTimeAudio;
 - (id)groupIdentifier;
-- (BOOL)requiresResponse;
+- (bool)handsFreeCall;
+- (bool)requiresResponse;
 - (void)setCallRecipient:(id)arg1;
 - (void)setEmergencyCall:(id)arg1;
-- (void)setFaceTime:(BOOL)arg1;
-- (void)setFaceTimeAudio:(BOOL)arg1;
+- (void)setFaceTime:(bool)arg1;
+- (void)setFaceTimeAudio:(bool)arg1;
+- (void)setHandsFreeCall:(bool)arg1;
+- (void)setSpeakerphoneCall:(bool)arg1;
+- (bool)speakerphoneCall;
 
 @end

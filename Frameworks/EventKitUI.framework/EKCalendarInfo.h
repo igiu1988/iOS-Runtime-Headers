@@ -2,31 +2,31 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class EKCalendar, EKGroupInfo, NSString, UIColor, UIImage;
-
 @interface EKCalendarInfo : NSObject {
-    EKCalendar *_calendar;
-    UIColor *_color;
-    int _customGroupType;
-    EKGroupInfo *_group;
-    BOOL _selected;
-    NSString *_title;
+    EKCalendar * _calendar;
+    UIColor * _color;
+    int  _customGroupType;
+    EKGroupInfo * _group;
+    bool  _isEnabled;
+    bool  _selected;
+    NSString * _title;
 }
 
-@property(retain) EKCalendar * calendar;
-@property(retain) UIColor * color;
-@property int customGroupType;
-@property(readonly) int displayOrder;
-@property(readonly) BOOL excludeFromSelectAll;
-@property EKGroupInfo * group;
-@property(readonly) UIImage * highlightedIcon;
-@property(readonly) UIImage * icon;
-@property(readonly) BOOL isEditable;
-@property(readonly) BOOL isPublished;
-@property(readonly) BOOL isShared;
-@property(readonly) BOOL isSubscribed;
-@property BOOL selected;
-@property(copy,readonly) NSString * title;
+@property (nonatomic, retain) EKCalendar *calendar;
+@property (nonatomic, retain) UIColor *color;
+@property (nonatomic) int customGroupType;
+@property (nonatomic, readonly) int displayOrder;
+@property (nonatomic, readonly) bool excludeFromSelectAll;
+@property (nonatomic) EKGroupInfo *group;
+@property (nonatomic, readonly) UIImage *highlightedIcon;
+@property (nonatomic, readonly) UIImage *icon;
+@property (nonatomic, readonly) bool isEditable;
+@property (nonatomic) bool isEnabled;
+@property (nonatomic, readonly) bool isPublished;
+@property (nonatomic, readonly) bool isShared;
+@property (nonatomic, readonly) bool isSubscribed;
+@property (nonatomic) bool selected;
+@property (nonatomic, readonly, copy) NSString *title;
 
 - (void).cxx_destruct;
 - (void)_updateCustomGroupType;
@@ -35,21 +35,23 @@
 - (int)customGroupType;
 - (id)description;
 - (int)displayOrder;
-- (BOOL)excludeFromSelectAll;
+- (bool)excludeFromSelectAll;
 - (id)group;
 - (id)highlightedIcon;
 - (id)icon;
 - (id)initWithCalendar:(id)arg1;
-- (BOOL)isEditable;
-- (BOOL)isPublished;
-- (BOOL)isShared;
-- (BOOL)isSubscribed;
-- (BOOL)selected;
+- (bool)isEditable;
+- (bool)isEnabled;
+- (bool)isPublished;
+- (bool)isShared;
+- (bool)isSubscribed;
+- (bool)selected;
 - (void)setCalendar:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)setCustomGroupType:(int)arg1;
 - (void)setGroup:(id)arg1;
-- (void)setSelected:(BOOL)arg1;
+- (void)setIsEnabled:(bool)arg1;
+- (void)setSelected:(bool)arg1;
 - (id)title;
 
 @end

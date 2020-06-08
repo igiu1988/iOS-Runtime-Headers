@@ -2,17 +2,16 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDReferenceCollection, EDWorkbook;
-
 @interface CHDFormula : EDFormula {
-    EDReferenceCollection *mReferences;
-    EDWorkbook *mWorkbook;
+    EDReferenceCollection * mReferences;
+    EDWorkbook * mWorkbook;
 }
 
 + (id)formulaWithReference:(id)arg1;
 + (id)formulaWithReferences:(id)arg1;
 
-- (unsigned int)countOfCellsBeingReferenced;
+- (id)constantValuesFromConstantStringFormula;
+- (unsigned long long)countOfCellsBeingReferenced;
 - (void)dealloc;
 - (id)initWithReference:(id)arg1;
 - (id)initWithReferences:(id)arg1;

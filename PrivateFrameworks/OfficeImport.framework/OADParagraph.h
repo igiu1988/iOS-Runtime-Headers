@@ -2,28 +2,31 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray, OADCharacterProperties, OADParagraphProperties;
-
 @interface OADParagraph : NSObject {
-    OADCharacterProperties *mParagraphEndCharacterProperties;
-    OADParagraphProperties *mProperties;
-    NSMutableArray *mTextRuns;
+    OADCharacterProperties * mParagraphEndCharacterProperties;
+    OADParagraphProperties * mProperties;
+    NSMutableArray * mTextRuns;
 }
 
-- (id)addDateTimeField;
+- (id)addDateTimeFieldWithFormat:(int)arg1;
 - (id)addFooterField;
-- (id)addGenericTextField;
+- (id)addGenericTextFieldWithGuid:(id)arg1 type:(id)arg2;
 - (id)addRegularTextRun;
 - (id)addSlideNumberField;
 - (id)addTextLineBreak;
 - (void)applyProperties:(id)arg1;
 - (id)bulletCharacterProperties;
-- (unsigned int)characterCount;
+- (void)changeParentParagraphPropertiesPreservingEffectiveValues:(id)arg1;
+- (void)changeParentTextListStylePreservingEffectiveValues:(id)arg1;
+- (unsigned long long)characterCount;
 - (void)dealloc;
+- (id)description;
 - (id)findFirstTextRunOfClass:(Class)arg1;
-- (BOOL)hasBulletCharacterProperties;
+- (bool)hasBulletCharacterProperties;
 - (id)init;
-- (BOOL)isEmpty;
+- (bool)isEmpty;
+- (bool)isSimilarToParagraph:(id)arg1;
+- (unsigned long long)lineBreakCount;
 - (id)paragraphEndCharacterProperties;
 - (id)plainText;
 - (id)properties;
@@ -31,7 +34,7 @@
 - (void)removeUnnecessaryOverrides;
 - (void)setParagraphEndCharacterProperties:(id)arg1;
 - (void)setParentTextListStyle:(id)arg1;
-- (id)textRunAtIndex:(unsigned int)arg1;
-- (unsigned int)textRunCount;
+- (id)textRunAtIndex:(unsigned long long)arg1;
+- (unsigned long long)textRunCount;
 
 @end

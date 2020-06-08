@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@interface TIMutableCharacterSetDescription : TICharacterSetDescription {
-}
+@interface TIMutableCharacterSetDescription : TICharacterSetDescription
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void)addCharactersInString:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;

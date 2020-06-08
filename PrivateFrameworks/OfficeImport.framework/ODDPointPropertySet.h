@@ -2,28 +2,27 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSObject, NSString;
-
 @interface ODDPointPropertySet : NSObject {
-    double mCustomOffsetX;
-    double mCustomOffsetY;
-    double mCustomScaleX;
-    double mCustomScaleY;
-    BOOL mCustomVerticalFlip;
-    NSString *mLayoutTypeId;
-    NSObject *mPresentationAssociatedId;
-    NSString *mPresentationName;
-    int mPresentationStyleCount;
-    int mPresentationStyleIndex;
-    NSString *mPresentationStyleLabel;
+    double  mCustomOffsetX;
+    double  mCustomOffsetY;
+    double  mCustomScaleX;
+    double  mCustomScaleY;
+    bool  mCustomVerticalFlip;
+    NSString * mLayoutTypeId;
+    NSObject * mPresentationAssociatedId;
+    NSString * mPresentationName;
+    int  mPresentationStyleCount;
+    int  mPresentationStyleIndex;
+    NSString * mPresentationStyleLabel;
 }
 
 - (double)customOffsetX;
 - (double)customOffsetY;
 - (double)customScaleX;
 - (double)customScaleY;
-- (BOOL)customVerticalFlip;
+- (bool)customVerticalFlip;
 - (void)dealloc;
+- (id)description;
 - (id)layoutTypeId;
 - (id)presentationAssociatedId;
 - (id)presentationName;
@@ -34,7 +33,7 @@
 - (void)setCustomOffsetY:(double)arg1;
 - (void)setCustomScaleX:(double)arg1;
 - (void)setCustomScaleY:(double)arg1;
-- (void)setCustomVerticalFlip:(BOOL)arg1;
+- (void)setCustomVerticalFlip:(bool)arg1;
 - (void)setLayoutTypeId:(id)arg1;
 - (void)setPresentationAssociatedId:(id)arg1;
 - (void)setPresentationName:(id)arg1;

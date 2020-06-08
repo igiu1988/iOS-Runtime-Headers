@@ -2,26 +2,28 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSOperationQueue, SKUIClientContext, SKUIRedeemConfiguration;
-
 @interface SKUIRedeemStepViewController : UIViewController {
-    SKUIClientContext *_clientContext;
-    SKUIRedeemConfiguration *_configuration;
-    NSOperationQueue *_operationQueue;
+    SKUIClientContext * _clientContext;
+    SKUIRedeemConfiguration * _configuration;
+    NSOperationQueue * _operationQueue;
+    <SKUIRedeemStepDelegate> * _redeemStepDelegate;
 }
 
-@property(retain) SKUIClientContext * clientContext;
-@property(retain) SKUIRedeemConfiguration * configuration;
-@property(retain) NSOperationQueue * operationQueue;
-@property(readonly) BOOL shouldShowPassbookLearnMore;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (nonatomic, retain) SKUIRedeemConfiguration *configuration;
+@property (nonatomic, retain) NSOperationQueue *operationQueue;
+@property (nonatomic) <SKUIRedeemStepDelegate> *redeemStepDelegate;
+@property (nonatomic, readonly) bool shouldShowPassbookLearnMore;
 
 - (void).cxx_destruct;
 - (id)clientContext;
 - (id)configuration;
 - (id)operationQueue;
+- (id)redeemStepDelegate;
 - (void)setClientContext:(id)arg1;
 - (void)setConfiguration:(id)arg1;
 - (void)setOperationQueue:(id)arg1;
-- (BOOL)shouldShowPassbookLearnMore;
+- (void)setRedeemStepDelegate:(id)arg1;
+- (bool)shouldShowPassbookLearnMore;
 
 @end

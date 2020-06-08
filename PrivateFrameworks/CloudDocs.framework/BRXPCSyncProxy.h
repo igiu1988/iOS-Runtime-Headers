@@ -2,28 +2,22 @@
    Image: /System/Library/PrivateFrameworks/CloudDocs.framework/CloudDocs
  */
 
-@class NSError, NSObject, NSObject<OS_dispatch_group>;
-
 @interface BRXPCSyncProxy : NSProxy {
-    NSError *_error;
-    NSObject<OS_dispatch_group> *_group;
-    int _nested;
-    id _result;
-    NSObject *_target;
+    NSError * _error;
+    id  _result;
+    NSObject * _target;
 }
 
-@property(retain) NSError * error;
-@property(retain) id result;
+@property (nonatomic, retain) NSError *error;
+@property (nonatomic, retain) id result;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)error;
-- (void)finalize;
 - (void)forwardInvocation:(id)arg1;
 - (id)initWithXPCObject:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)result;
-- (id)resultWithTimeout:(int)arg1;
-- (void)setBoolResult:(BOOL)arg1 error:(id)arg2;
+- (void)setBoolResult:(bool)arg1 error:(id)arg2;
 - (void)setError:(id)arg1;
 - (void)setObjResult:(id)arg1 error:(id)arg2;
 - (void)setResult:(id)arg1;

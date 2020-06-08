@@ -2,11 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADRelativeRect;
-
 @interface OADStretchTechnique : OADImageFillTechnique {
-    OADRelativeRect *mFillRect;
-    BOOL mIsFillRectOverridden;
+    OADRelativeRect * mFillRect;
 }
 
 + (id)defaultProperties;
@@ -14,10 +11,13 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)fillRect;
-- (unsigned int)hash;
+- (void)fixPropertiesForChangingParentPreservingEffectiveValues:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithDefaults;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isFillRectOverridden;
+- (bool)isAnythingOverridden;
+- (bool)isEqual:(id)arg1;
+- (bool)isFillRectOverridden;
+- (void)removeUnnecessaryOverrides;
 - (void)setFillRect:(id)arg1;
 
 @end

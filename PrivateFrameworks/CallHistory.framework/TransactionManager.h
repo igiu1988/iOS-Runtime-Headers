@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CallHistory.framework/CallHistory
  */
 
-@class NSMutableArray, NSXPCConnection, NSXPCInterface;
-
 @interface TransactionManager : CHSynchronizedLoggable {
-    NSXPCConnection *_connection;
-    NSXPCInterface *_interface;
-    NSMutableArray *_queuedTransactions;
-    id _syncHelperReadyNotificationRef;
+    NSXPCConnection * _connection;
+    NSXPCInterface * _interface;
+    NSMutableArray * _queuedTransactions;
+    id  _syncHelperReadyNotificationRef;
 }
 
 + (id)instance;
@@ -20,7 +18,6 @@
 - (void)createXpcConnection_sync;
 - (void)dealloc;
 - (id)init;
-- (void)sendHello_sync;
 - (void)setupConnectionHandlers_sync;
 
 @end

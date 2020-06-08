@@ -2,27 +2,29 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMapTable, NSMutableArray, NSString;
-
-@interface GEOSearchAttributionServerLocalProxy : NSObject <GEOSearchAttributionServerProxy> {
-    NSMapTable *_listeners;
-    NSMutableArray *_updateManifestCompletionHandlers;
-    NSMutableArray *_updateManifestErrorHandlers;
-    BOOL _updatingManifest;
+@interface GEOSearchAttributionServerLocalProxy : NSObject <GEOResourceManifestTileGroupObserver, GEOSearchAttributionServerProxy> {
+    GEOSearchAttributionManifest * _attributionManifest;
+    NSLock * _attributionManifestLock;
+    NSObject<OS_dispatch_queue> * _isolationQueue;
+    NSMapTable * _listeners;
+    NSLock * _listenersLock;
+    NSMutableArray * _updateManifestCompletionHandlers;
+    NSMutableArray * _updateManifestErrorHandlers;
+    bool  _updatingManifest;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-- (void)_loadAttributionInfoForListener:(id)arg1 hasUpdatedManifest:(BOOL)arg2;
-- (void)_pruneOldAttributionLogos;
+- (void).cxx_destruct;
+- (id)_attributionManifest;
+- (void)_loadAttributionInfoForListener:(id)arg1;
 - (void)_sendError:(id)arg1 toListener:(id)arg2;
-- (void)_sendInfo:(id)arg1 updatedManifest:(BOOL)arg2 toListener:(id)arg3;
-- (void)_updateManifestWithCompletionHandler:(id)arg1 errorHandler:(id)arg2;
-- (void)dealloc;
+- (void)_sendInfo:(id)arg1 toListener:(id)arg2;
 - (id)init;
-- (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 completionHandler:(id)arg3 errorHandler:(id)arg4;
+- (void)loadAttributionInfoForIdentifiers:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 
 @end

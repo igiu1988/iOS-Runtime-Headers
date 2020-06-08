@@ -2,29 +2,31 @@
    Image: /System/Library/PrivateFrameworks/NanoAudioControl.framework/NanoAudioControl
  */
 
-@class <NACVolumeControllerDelegate>, NACEventThrottler, NSNumber, NSString;
-
 @interface NACVolumeControllerDemo : NSObject <NACVolumeController> {
-    NSString *_audioCategory;
-    NACEventThrottler *_defaultsThrottler;
-    <NACVolumeControllerDelegate> *_delegate;
-    float _hapticIntensity;
-    BOOL _systemMuted;
-    NSNumber *_volumeValue;
+    NSString * _audioCategory;
+    NACEventThrottler * _defaultsThrottler;
+    <NACVolumeControllerDelegate> * _delegate;
+    float  _hapticIntensity;
+    long long  _hapticState;
+    bool  _prominentHapticEnabled;
+    bool  _systemMuted;
+    NSNumber * _volumeValue;
 }
 
-@property(readonly) float EUVolumeLimit;
-@property(copy,readonly) NSString * debugDescription;
-@property <NACVolumeControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property float hapticIntensity;
-@property(readonly) unsigned int hash;
-@property(getter=isMuted,readonly) BOOL muted;
-@property(readonly) Class superclass;
-@property(getter=isSystemMuted) BOOL systemMuted;
-@property(getter=isVolumeControlAvailable,readonly) BOOL volumeControlAvailable;
-@property(readonly) float volumeValue;
-@property(getter=isVolumeWarningEnabled,readonly) BOOL volumeWarningEnabled;
+@property (nonatomic, readonly) float EUVolumeLimit;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <NACVolumeControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) float hapticIntensity;
+@property (nonatomic) long long hapticState;
+@property (readonly) unsigned long long hash;
+@property (getter=isMuted, nonatomic, readonly) bool muted;
+@property (getter=isProminentHapticEnabled, nonatomic) bool prominentHapticEnabled;
+@property (readonly) Class superclass;
+@property (getter=isSystemMuted, nonatomic) bool systemMuted;
+@property (getter=isVolumeControlAvailable, nonatomic, readonly) bool volumeControlAvailable;
+@property (nonatomic, readonly) float volumeValue;
+@property (getter=isVolumeWarningEnabled, nonatomic, readonly) bool volumeWarningEnabled;
 
 - (void).cxx_destruct;
 - (float)EUVolumeLimit;
@@ -37,18 +39,22 @@
 - (id)delegate;
 - (void)endObservingVolume;
 - (float)hapticIntensity;
+- (long long)hapticState;
 - (id)init;
 - (id)initWithAudioCategory:(id)arg1;
-- (BOOL)isMuted;
-- (BOOL)isSystemMuted;
-- (BOOL)isVolumeControlAvailable;
-- (BOOL)isVolumeWarningEnabled;
+- (bool)isMuted;
+- (bool)isProminentHapticEnabled;
+- (bool)isSystemMuted;
+- (bool)isVolumeControlAvailable;
+- (bool)isVolumeWarningEnabled;
 - (void)setDelegate:(id)arg1;
 - (void)setHapticIntensity:(float)arg1;
-- (void)setMuted:(BOOL)arg1;
-- (void)setSystemMuted:(BOOL)arg1;
-- (void)setVolumeValue:(float)arg1 muted:(BOOL)arg2 overrideEULimit:(BOOL)arg3;
+- (void)setHapticState:(long long)arg1;
+- (void)setMuted:(bool)arg1;
+- (void)setProminentHapticEnabled:(bool)arg1;
+- (void)setSystemMuted:(bool)arg1;
 - (void)setVolumeValue:(float)arg1;
+- (void)setVolumeValue:(float)arg1 muted:(bool)arg2 overrideEULimit:(bool)arg3;
 - (float)volumeValue;
 
 @end

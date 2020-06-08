@@ -3,9 +3,10 @@
  */
 
 @interface GEOLeaveNowFeedbackCollection : PBCodable <NSCopying> {
-    struct { 
-        unsigned long long _high; 
-        unsigned long long _low; 
+    int  _actionType;
+    int  _alertType;
+    double  _currentTimestamp;
+    double  _eventTimestamp;
     struct { 
         unsigned int sessionID : 1; 
         unsigned int currentTimestamp : 1; 
@@ -14,67 +15,72 @@
         unsigned int actionType : 1; 
         unsigned int alertType : 1; 
         unsigned int travelState : 1; 
-    int _actionType;
-    int _alertType;
-    double _currentTimestamp;
-    double _eventTimestamp;
-    } _has;
-    } _sessionID;
-    double _travelDuration;
-    int _travelState;
+    }  _has;
+    struct GEOSessionID { 
+        unsigned long long _high; 
+        unsigned long long _low; 
+    }  _sessionID;
+    double  _travelDuration;
+    int  _travelState;
 }
 
-@property int actionType;
-@property int alertType;
-@property double currentTimestamp;
-@property double eventTimestamp;
-@property BOOL hasActionType;
-@property BOOL hasAlertType;
-@property BOOL hasCurrentTimestamp;
-@property BOOL hasEventTimestamp;
-@property BOOL hasSessionID;
-@property BOOL hasTravelDuration;
-@property BOOL hasTravelState;
-@property struct { unsigned long long x1; unsigned long long x2; } sessionID;
-@property double travelDuration;
-@property int travelState;
+@property (nonatomic) int actionType;
+@property (nonatomic) int alertType;
+@property (nonatomic) double currentTimestamp;
+@property (nonatomic) double eventTimestamp;
+@property (nonatomic) bool hasActionType;
+@property (nonatomic) bool hasAlertType;
+@property (nonatomic) bool hasCurrentTimestamp;
+@property (nonatomic) bool hasEventTimestamp;
+@property (nonatomic) bool hasSessionID;
+@property (nonatomic) bool hasTravelDuration;
+@property (nonatomic) bool hasTravelState;
+@property (nonatomic) struct GEOSessionID { unsigned long long x1; unsigned long long x2; } sessionID;
+@property (nonatomic) double travelDuration;
+@property (nonatomic) int travelState;
 
+- (int)StringAsActionType:(id)arg1;
+- (int)StringAsAlertType:(id)arg1;
+- (int)StringAsTravelState:(id)arg1;
 - (int)actionType;
+- (id)actionTypeAsString:(int)arg1;
 - (int)alertType;
+- (id)alertTypeAsString:(int)arg1;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (double)currentTimestamp;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (double)eventTimestamp;
-- (BOOL)hasActionType;
-- (BOOL)hasAlertType;
-- (BOOL)hasCurrentTimestamp;
-- (BOOL)hasEventTimestamp;
-- (BOOL)hasSessionID;
-- (BOOL)hasTravelDuration;
-- (BOOL)hasTravelState;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasActionType;
+- (bool)hasAlertType;
+- (bool)hasCurrentTimestamp;
+- (bool)hasEventTimestamp;
+- (bool)hasSessionID;
+- (bool)hasTravelDuration;
+- (bool)hasTravelState;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (struct { unsigned long long x1; unsigned long long x2; })sessionID;
+- (bool)readFrom:(id)arg1;
+- (struct GEOSessionID { unsigned long long x1; unsigned long long x2; })sessionID;
 - (void)setActionType:(int)arg1;
 - (void)setAlertType:(int)arg1;
 - (void)setCurrentTimestamp:(double)arg1;
 - (void)setEventTimestamp:(double)arg1;
-- (void)setHasActionType:(BOOL)arg1;
-- (void)setHasAlertType:(BOOL)arg1;
-- (void)setHasCurrentTimestamp:(BOOL)arg1;
-- (void)setHasEventTimestamp:(BOOL)arg1;
-- (void)setHasSessionID:(BOOL)arg1;
-- (void)setHasTravelDuration:(BOOL)arg1;
-- (void)setHasTravelState:(BOOL)arg1;
-- (void)setSessionID:(struct { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)setHasActionType:(bool)arg1;
+- (void)setHasAlertType:(bool)arg1;
+- (void)setHasCurrentTimestamp:(bool)arg1;
+- (void)setHasEventTimestamp:(bool)arg1;
+- (void)setHasSessionID:(bool)arg1;
+- (void)setHasTravelDuration:(bool)arg1;
+- (void)setHasTravelState:(bool)arg1;
+- (void)setSessionID:(struct GEOSessionID { unsigned long long x1; unsigned long long x2; })arg1;
 - (void)setTravelDuration:(double)arg1;
 - (void)setTravelState:(int)arg1;
 - (double)travelDuration;
 - (int)travelState;
+- (id)travelStateAsString:(int)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

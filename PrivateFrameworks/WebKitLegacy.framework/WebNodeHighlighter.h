@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class WebNodeHighlight, WebView;
-
 @interface WebNodeHighlighter : NSObject {
-    WebNodeHighlight *_currentHighlight;
-    WebView *_inspectedWebView;
+    WebNodeHighlight * _currentHighlight;
+    WebView * _inspectedWebView;
 }
 
 - (void)dealloc;

@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class NSData, NSString, NSURL;
-
 @interface MFMixedMessageFragment : NSObject {
-    NSURL *_baseURL;
-    NSData *_markupData;
-    NSString *_markupString;
-    NSString *_mimeType;
-    NSString *_textEncodingName;
+    NSURL * _baseURL;
+    NSData * _markupData;
+    NSString * _markupString;
+    NSString * _mimeType;
+    NSString * _textEncodingName;
 }
 
 - (id)baseURL;

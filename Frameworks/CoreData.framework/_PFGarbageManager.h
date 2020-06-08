@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSMutableDictionary;
-
 @interface _PFGarbageManager : NSObject {
-    NSMutableDictionary *_filesToCleanUp;
-    NSMutableDictionary *_storeLinksDirs;
+    NSMutableDictionary * _filesToCleanUp;
+    NSMutableDictionary * _storeLinksDirs;
 }
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
@@ -16,14 +14,14 @@
 - (void)_deleteIfNecessary:(id)arg1;
 - (void)_doCleanupForDir:(id)arg1 exceptURLs:(id)arg2;
 - (id)_init__;
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (bool)_isDeallocating;
+- (bool)_tryRetain;
 - (id)autorelease;
 - (void)doCleanupForURL:(id)arg1;
-- (BOOL)registerURLForCleanup:(id)arg1;
+- (bool)registerURLForCleanup:(id)arg1;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (id)temporaryLinksDirectoryForStore:(id)arg1;
 
 @end

@@ -2,22 +2,21 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSData, NSString, NSURL;
+@interface SAUIImageResource : AceObject <SAAceSerializable>
 
-@interface SAUIImageResource : AceObject <SAAceSerializable> {
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) NSData * imageData;
-@property double pixelHeight;
-@property double pixelWidth;
-@property double pointHeight;
-@property double pointWidth;
-@property(copy) NSURL * resourceUrl;
-@property double scaleFactor;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSData *imageData;
+@property (nonatomic) double pixelHeight;
+@property (nonatomic) double pixelWidth;
+@property (nonatomic) double pointHeight;
+@property (nonatomic) double pointWidth;
+@property (nonatomic, copy) NSURL *resourceUrl;
+@property (nonatomic) double scaleFactor;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *urlFormatString;
+@property (nonatomic, copy) NSString *userAgent;
 
 + (id)imageResource;
 + (id)imageResourceWithDictionary:(id)arg1 context:(id)arg2;
@@ -38,5 +37,9 @@
 - (void)setPointWidth:(double)arg1;
 - (void)setResourceUrl:(id)arg1;
 - (void)setScaleFactor:(double)arg1;
+- (void)setUrlFormatString:(id)arg1;
+- (void)setUserAgent:(id)arg1;
+- (id)urlFormatString;
+- (id)userAgent;
 
 @end

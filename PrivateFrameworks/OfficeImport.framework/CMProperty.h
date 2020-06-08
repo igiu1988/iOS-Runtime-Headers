@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface CMProperty : NSObject {
-    NSString *cachedCssString;
+    NSString * cachedCssString;
 }
 
+- (void).cxx_destruct;
 - (id)cachedCssStringForName:(id)arg1;
 - (int)compareValue:(id)arg1;
 - (id)cssString;

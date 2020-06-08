@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/DataAccessUI.framework/DataAccessUI
  */
 
-@interface DADiagnosticsNotesController : PSDetailController {
-}
+@interface DADiagnosticsNotesController : PSDetailController
 
 - (void)_cancelButtonPressed;
 - (void)_disableButtons;
 - (void)_enableButtons;
 - (void)_okButtonPressed;
 - (id)init;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
+- (void)viewWillAppear:(bool)arg1;
 
 @end

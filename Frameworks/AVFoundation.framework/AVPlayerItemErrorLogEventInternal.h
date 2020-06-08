@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSDictionary;
-
 @interface AVPlayerItemErrorLogEventInternal : NSObject {
-    NSDictionary *dict;
+    NSDictionary * dict;
 }
 
 @end

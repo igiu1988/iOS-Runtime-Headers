@@ -2,23 +2,23 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSString;
-
 @interface MCSubCalAccountPayload : MCPayload {
-    NSString *_accountDescription;
-    NSString *_accountPersistentUUID;
-    NSString *_hostname;
-    NSString *_password;
-    BOOL _useSSL;
-    NSString *_username;
+    NSString * _accountDescription;
+    NSString * _accountPersistentUUID;
+    NSString * _hostname;
+    NSString * _password;
+    bool  _useSSL;
+    NSNumber * _useSSLNum;
+    NSString * _username;
 }
 
-@property(retain,readonly) NSString * accountDescription;
-@property(copy) NSString * accountPersistentUUID;
-@property(retain,readonly) NSString * hostname;
-@property(retain,readonly) NSString * password;
-@property(readonly) BOOL useSSL;
-@property(retain,readonly) NSString * username;
+@property (nonatomic, readonly, retain) NSString *accountDescription;
+@property (nonatomic, copy) NSString *accountPersistentUUID;
+@property (nonatomic, readonly, retain) NSString *hostname;
+@property (nonatomic, readonly, retain) NSString *password;
+@property (nonatomic, readonly) bool useSSL;
+@property (nonatomic, readonly) NSNumber *useSSLNum;
+@property (nonatomic, readonly, retain) NSString *username;
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
@@ -27,6 +27,7 @@
 - (void).cxx_destruct;
 - (id)accountDescription;
 - (id)accountPersistentUUID;
+- (bool)containsSensitiveUserInformation;
 - (id)description;
 - (id)hostname;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id*)arg3;
@@ -39,7 +40,8 @@
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)title;
-- (BOOL)useSSL;
+- (bool)useSSL;
+- (id)useSSLNum;
 - (id)username;
 
 @end

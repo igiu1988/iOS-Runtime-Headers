@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/WebContentAnalysis.framework/WebContentAnalysis
  */
 
-@class WFLSMMap;
-
 @interface WFJudge : NSObject {
-    WFLSMMap *map;
+    WFLSMMap * map;
 }
 
 + (id)defaultJudge;

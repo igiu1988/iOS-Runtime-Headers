@@ -2,45 +2,47 @@
    Image: /System/Library/PrivateFrameworks/SiriUI.framework/SiriUI
  */
 
-@class UIColor, UIView;
-
 @interface SiriUIKeyline : UIView {
-    UIColor *_customBackgroundColor;
-    float _customLeftPadding;
-    float _customRightPadding;
-    UIView *_keyLineView;
-    int _keylineType;
-    BOOL _veritical;
+    UIColor * _customBackgroundColor;
+    double  _customLeftPadding;
+    double  _customRightPadding;
+    UIView * _keyLineView;
+    long long  _keylineType;
+    bool  _veritical;
 }
 
-@property(retain) UIColor * customBackgroundColor;
-@property float customLeftPadding;
-@property float customRightPadding;
-@property int keylineType;
-@property(getter=_isVeritical,setter=_setVertical:) BOOL veritical;
+@property (nonatomic, retain) UIColor *customBackgroundColor;
+@property (nonatomic) double customLeftPadding;
+@property (nonatomic) double customRightPadding;
+@property (nonatomic) long long keylineType;
+@property (getter=_isVeritical, setter=_setVertical:, nonatomic) bool veritical;
 
 + (id)keyline;
 + (id)keylineForSelectableRow;
 + (id)keylineWithDefaultInsets;
-+ (id)keylineWithKeylineType:(int)arg1;
++ (id)keylineWithKeylineType:(long long)arg1;
++ (id)keylineWithKeylineType:(long long)arg1 platterStyling:(bool)arg2;
 + (id)starkKeyline;
 + (id)verticalKeyline;
 
 - (void).cxx_destruct;
-- (BOOL)_isVeritical;
-- (id)_keylineColorForType:(int)arg1;
-- (float)_keylineWidthForType:(int)arg1;
-- (void)_setVertical:(BOOL)arg1;
+- (bool)_isVeritical;
+- (id)_keylineColorForType:(long long)arg1 platterStyling:(bool)arg2;
+- (double)_keylineThicknessForType:(long long)arg1;
+- (void)_setVertical:(bool)arg1;
+- (struct CGSize { double x1; double x2; })_sizeThatFits:(struct CGSize { double x1; double x2; })arg1 useAutolayout:(bool)arg2;
 - (id)customBackgroundColor;
-- (float)customLeftPadding;
-- (float)customRightPadding;
-- (id)initWithKeylineType:(int)arg1;
-- (int)keylineType;
+- (double)customLeftPadding;
+- (double)customRightPadding;
+- (id)initWithKeylineType:(long long)arg1;
+- (id)initWithKeylineType:(long long)arg1 platterStyling:(bool)arg2;
+- (struct CGSize { double x1; double x2; })intrinsicContentSize;
+- (long long)keylineType;
 - (void)layoutSubviews;
 - (void)setCustomBackgroundColor:(id)arg1;
-- (void)setCustomLeftPadding:(float)arg1;
-- (void)setCustomRightPadding:(float)arg1;
-- (void)setKeylineType:(int)arg1;
-- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
+- (void)setCustomLeftPadding:(double)arg1;
+- (void)setCustomRightPadding:(double)arg1;
+- (void)setKeylineType:(long long)arg1;
+- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
 
 @end

@@ -3,11 +3,11 @@
  */
 
 @interface GQDWPBlockList : NSObject {
-    struct __CFArray { } *mChildren;
+    struct __CFArray { } * mChildren;
 }
 
 - (struct __CFArray { }*)children;
 - (void)dealloc;
-- (BOOL)isBlank;
+- (bool)isBlank;
 
 @end

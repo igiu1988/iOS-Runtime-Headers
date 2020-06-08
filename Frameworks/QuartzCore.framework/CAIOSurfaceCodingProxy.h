@@ -3,8 +3,10 @@
  */
 
 @interface CAIOSurfaceCodingProxy : CACodingProxy {
-    struct __IOSurface { } *_surface;
+    struct __IOSurface { } * _surface;
 }
+
++ (bool)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)decodedObject;

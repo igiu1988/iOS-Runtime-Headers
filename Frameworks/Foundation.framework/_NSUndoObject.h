@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class _NSUndoObject;
-
 @interface _NSUndoObject : NSObject {
-    id _target;
-    _NSUndoObject *next;
-    _NSUndoObject *previous;
+    id  _target;
+    _NSUndoObject * next;
+    _NSUndoObject * previous;
 }
 
 - (id)init;
 - (id)initWithTarget:(id)arg1;
 - (void)invoke;
-- (BOOL)isBeginMark;
-- (BOOL)isEndMark;
+- (bool)isBeginMark;
+- (bool)isEndMark;
 - (id)target;
 
 @end

@@ -2,13 +2,19 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-@class NSDictionary;
-
 @interface RUIBarButtonItem : RUIElement {
+    id /* block */  _action;
+    UIBarButtonItem * _barButtonItem;
 }
 
-@property(retain) NSDictionary * attributes;
+@property (nonatomic, copy) id /* block */ action;
+@property (nonatomic, readonly) UIBarButtonItem *barButtonItem;
 
-- (id)newBarButtonItemWithTarget:(id)arg1 action:(SEL)arg2;
+- (void).cxx_destruct;
+- (void)_buttonPressed:(id)arg1;
+- (id /* block */)action;
+- (id)barButtonItem;
+- (void)setAction:(id /* block */)arg1;
+- (void)setEnabled:(bool)arg1;
 
 @end

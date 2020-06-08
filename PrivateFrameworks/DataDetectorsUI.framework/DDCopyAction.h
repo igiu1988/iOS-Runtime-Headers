@@ -2,10 +2,12 @@
    Image: /System/Library/PrivateFrameworks/DataDetectorsUI.framework/DataDetectorsUI
  */
 
-@interface DDCopyAction : DDAction {
-}
+@interface DDCopyAction : DDAction
 
++ (bool)actionAvailableForContact:(id)arg1;
+
+- (bool)canBePerformedWhenDeviceIsLocked;
 - (id)localizedName;
-- (void)perform;
+- (void)performFromView:(id)arg1;
 
 @end

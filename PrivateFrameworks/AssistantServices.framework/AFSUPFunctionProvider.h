@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSDateFormatter, NSString;
-
 @interface AFSUPFunctionProvider : AFSpeakableUtteranceParser <AFSpeakableNamespaceProvider> {
-    NSDateFormatter *_dateFormatter;
-    NSDateFormatter *_timeFormatter;
-    BOOL _useSpeechMode;
+    NSDateFormatter * _dateFormatter;
+    NSDateFormatter * _timeFormatter;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-+ (BOOL)_shouldAutomaticallyProvideFunctions;
++ (bool)_shouldAutomaticallyProvideFunctions;
 
 - (void).cxx_destruct;
 - (id)_callFunction:(id)arg1 withArguments:(id)arg2;
@@ -26,10 +23,11 @@
 - (id)_dateFormattedWithFormatter:(id)arg1 arguments:(id)arg2;
 - (id)_deviceModel;
 - (id)_lowercaseString:(id)arg1;
+- (id)_siriUsageDescription:(id)arg1;
+- (id)_speechRecognitionUsageDescription:(id)arg1;
 - (id)_tempInWeatherUnits:(id)arg1;
 - (id)init;
 - (id)initWithLocale:(id)arg1;
-- (id)stringForExpression:(id)arg1;
-- (void)useSpeechMode:(BOOL)arg1;
+- (id)stringForExpression:(id)arg1 containsPrivacySensitiveContents:(bool*)arg2;
 
 @end

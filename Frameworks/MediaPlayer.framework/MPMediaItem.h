@@ -2,87 +2,104 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPMediaItemArtwork, NSArray, NSDate, NSString, NSURL;
+@interface MPMediaItem : MPMediaEntity
 
-@interface MPMediaItem : MPMediaEntity {
-}
+@property (nonatomic, readonly) NSString *albumArtist;
+@property (nonatomic, readonly) unsigned long long albumArtistPersistentID;
+@property (nonatomic, readonly) unsigned long long albumPersistentID;
+@property (nonatomic, readonly) NSString *albumTitle;
+@property (nonatomic, readonly) unsigned long long albumTrackCount;
+@property (nonatomic, readonly) unsigned long long albumTrackNumber;
+@property (nonatomic, readonly) NSString *artist;
+@property (nonatomic, readonly) unsigned long long artistPersistentID;
+@property (nonatomic, readonly) MPMediaItemArtwork *artwork;
+@property (nonatomic, readonly) NSURL *assetURL;
+@property (nonatomic, readonly) unsigned long long beatsPerMinute;
+@property (nonatomic, readonly) double bookmarkTime;
+@property (nonatomic, readonly) NSArray *chapters;
+@property (getter=isCloudItem, nonatomic, readonly) bool cloudItem;
+@property (nonatomic, readonly) NSString *comments;
+@property (getter=isCompilation, nonatomic, readonly) bool compilation;
+@property (nonatomic, readonly) NSString *composer;
+@property (nonatomic, readonly) unsigned long long composerPersistentID;
+@property (nonatomic, copy) NSDate *dateAccessed;
+@property (nonatomic, readonly) NSDate *dateAdded;
+@property (nonatomic, readonly) unsigned long long discCount;
+@property (nonatomic, readonly) unsigned long long discNumber;
+@property (nonatomic, readonly) NSString *effectiveAlbumArtist;
+@property (nonatomic, readonly) double effectiveStopTime;
+@property (getter=isExplicitItem, nonatomic, readonly) bool explicitItem;
+@property (nonatomic, readonly) NSString *genre;
+@property (nonatomic, readonly) unsigned long long genrePersistentID;
+@property (nonatomic) bool hasBeenPlayed;
+@property (nonatomic, readonly) bool isITunesU;
+@property (nonatomic, readonly) bool isRental;
+@property (nonatomic, readonly) bool isUsableAsRepresentativeItem;
+@property (getter=wlk_jsPropertyStrings, nonatomic, readonly) NSSet *jsPropertyStrings;
+@property (nonatomic, copy) NSDate *lastPlayedDate;
+@property (nonatomic, copy) NSDate *lastSkippedDate;
+@property (nonatomic, readonly) NSString *lyrics;
+@property (nonatomic, readonly) unsigned long long mediaType;
+@property (getter=wlk_mediaTypeString, nonatomic, readonly, copy) NSString *mediaTypeString;
+@property (nonatomic, readonly) unsigned long long persistentID;
+@property (nonatomic, readonly) unsigned long long playCount;
+@property (nonatomic) unsigned long long playCountSinceSync;
+@property (getter=wlk_playState, nonatomic, readonly, copy) NSString *playState;
+@property (nonatomic, readonly) double playbackDuration;
+@property (nonatomic, readonly) NSString *playbackStoreID;
+@property (nonatomic, readonly) unsigned long long podcastPersistentID;
+@property (nonatomic, readonly) NSString *podcastTitle;
+@property (getter=hasProtectedAsset, nonatomic, readonly) bool protectedAsset;
+@property (nonatomic, readonly) unsigned long long rating;
+@property (nonatomic, readonly) NSDate *releaseDate;
+@property (nonatomic, readonly) bool rememberBookmarkTime;
+@property (nonatomic, readonly) unsigned long long skipCount;
+@property (nonatomic) unsigned long long skipCountSinceSync;
+@property (nonatomic, readonly) double startTime;
+@property (nonatomic, readonly) double stopTime;
+@property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) NSString *userGrouping;
+@property (nonatomic, readonly) NSNumber *vui_HLSAudioCapability;
+@property (nonatomic, readonly) NSNumber *vui_HLSColorCapability;
+@property (nonatomic, readonly) NSNumber *vui_HLSResolution;
+@property (nonatomic, readonly) NSNumber *vui_assetType;
+@property (nonatomic, readonly) NSNumber *vui_audioCapability;
+@property (nonatomic, readonly) NSNumber *vui_colorCapability;
+@property (nonatomic, readonly) VUIContentRating *vui_contentRating;
+@property (nonatomic, readonly) NSString *vui_coverArtImageIdentifier;
+@property (nonatomic, readonly) VUIMediaItemCredits *vui_credits;
+@property (nonatomic, readonly) NSURL *vui_extrasURL;
+@property (nonatomic, readonly) NSNumber *vui_isLocal;
+@property (nonatomic, readonly) NSNumber *vui_isPlayable;
+@property (nonatomic, readonly) VUIMediaEntityType *vui_mediaEntityType;
+@property (nonatomic, readonly) NSNumber *vui_playedState;
+@property (nonatomic, readonly) NSString *vui_previewFrameImageIdentifier;
+@property (nonatomic, readonly) NSDate *vui_rentalEndDate;
+@property (nonatomic, readonly) NSDate *vui_rentalExpirationDate;
+@property (nonatomic, readonly) NSDate *vui_rentalPlaybackEndDate;
+@property (nonatomic, readonly) NSNumber *vui_resolution;
+@property (nonatomic, readonly) NSObject<VUIMediaEntityIdentifier> *vui_seasonIdentifier;
+@property (nonatomic, readonly) NSObject<VUIMediaEntityIdentifier> *vui_showIdentifier;
+@property (nonatomic, readonly) NSString *vui_studio;
+@property (nonatomic, readonly) unsigned long long year;
 
-@property(readonly) NSString * albumArtist;
-@property(readonly) unsigned long long albumArtistPersistentID;
-@property(readonly) NSString * albumArtistWithFallback;
-@property(readonly) unsigned long long albumPersistentID;
-@property(readonly) NSString * albumTitle;
-@property(readonly) NSString * albumTitleWithFallback;
-@property(readonly) unsigned int albumTrackCount;
-@property(readonly) unsigned int albumTrackNumber;
-@property(readonly) NSString * artist;
-@property(readonly) unsigned long long artistPersistentID;
-@property(readonly) NSString * artistWithFallback;
-@property(readonly) MPMediaItemArtwork * artwork;
-@property(readonly) NSURL * assetURL;
-@property(readonly) unsigned int beatsPerMinute;
-@property(readonly) double bookmarkTime;
-@property(readonly) NSArray * chapters;
-@property(getter=isCloudItem,readonly) BOOL cloudItem;
-@property(readonly) NSString * comments;
-@property(getter=isCompilation,readonly) BOOL compilation;
-@property(readonly) NSString * composer;
-@property(readonly) unsigned long long composerPersistentID;
-@property(copy) NSDate * dateAccessed;
-@property(readonly) unsigned int discCount;
-@property(readonly) unsigned int discNumber;
-@property(readonly) NSString * effectiveAlbumArtist;
-@property(readonly) double effectiveStopTime;
-@property(readonly) NSString * genre;
-@property(readonly) unsigned long long genrePersistentID;
-@property BOOL hasBeenPlayed;
-@property(readonly) BOOL isITunesU;
-@property(readonly) BOOL isRental;
-@property(readonly) BOOL isUsableAsRepresentativeItem;
-@property(copy) NSDate * lastPlayedDate;
-@property(copy) NSDate * lastSkippedDate;
-@property(readonly) NSString * lyrics;
-@property(readonly) unsigned int mediaType;
-@property(readonly) BOOL mediaTypeCanSeedGenius;
-@property(readonly) unsigned long long persistentID;
-@property(readonly) unsigned int playCount;
-@property unsigned int playCountSinceSync;
-@property(readonly) double playbackDuration;
-@property(readonly) unsigned long long podcastPersistentID;
-@property(readonly) NSString * podcastTitle;
-@property(readonly) unsigned int rating;
-@property(readonly) NSDate * releaseDate;
-@property(readonly) BOOL rememberBookmarkTime;
-@property(readonly) unsigned int skipCount;
-@property unsigned int skipCountSinceSync;
-@property(readonly) double startTime;
-@property(readonly) double stopTime;
-@property(readonly) NSString * title;
-@property(readonly) NSString * titleWithFallback;
-@property(readonly) NSString * userGrouping;
-@property(readonly) unsigned int year;
+// Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
 
 + (id)MPSD_mediaItemPropertiesForDownloadability;
 + (void)_createFilterableDictionary;
-+ (BOOL)_isValidItemProperty:(id)arg1;
++ (bool)_isValidItemProperty:(id)arg1;
 + (id)artworkCatalogCacheProperties;
-+ (BOOL)canFilterByProperty:(id)arg1;
++ (bool)canFilterByProperty:(id)arg1;
 + (id)dynamicProperties;
-+ (id)fallbackTitlePropertyForGroupingType:(int)arg1;
-+ (id)persistentIDPropertyForGroupingType:(int)arg1;
++ (id)fallbackTitlePropertyForGroupingType:(long long)arg1;
++ (id)persistentIDPropertyForGroupingType:(long long)arg1;
 + (id)screenshotArtworkCatalogCacheProperties;
-+ (id)titlePropertyForGroupingType:(int)arg1;
++ (bool)supportsSecureCoding;
++ (id)titlePropertyForGroupingType:(long long)arg1;
 
-- (BOOL)MPSD_isDownloadInProgress;
-- (BOOL)MPSD_isDownloadable;
-- (id)MPU_containerLibraryLinkURL;
-- (id)MPU_directStoreURL;
-- (id)MPU_libraryLinkArtist;
-- (id)MPU_libraryLinkKind;
-- (id)MPU_libraryLinkPlaylistName;
-- (id)MPU_libraryLinkURL:(BOOL)arg1;
-- (id)MPU_libraryLinkURL;
-- (id)SAMPMediaItemRepresentation;
+- (bool)MPSD_isDownloadInProgress;
+- (bool)MPSD_isDownloadable;
+- (id)_artworkCatalogWithArtworkType:(long long)arg1;
 - (id)_bestStoreURL;
 - (id)_directStoreURL;
 - (id)_libraryLinkArtist;
@@ -91,95 +108,179 @@
 - (id)_libraryLinkURL;
 - (id)albumArtist;
 - (unsigned long long)albumArtistPersistentID;
-- (id)albumArtistWithFallback;
-- (id)albumImageWithFallbackForSize:(struct CGSize { float x1; float x2; })arg1 doubleLineRow:(BOOL)arg2;
 - (unsigned long long)albumPersistentID;
 - (id)albumTitle;
-- (id)albumTitleWithFallback;
-- (unsigned int)albumTrackCount;
-- (unsigned int)albumTrackNumber;
+- (unsigned long long)albumTrackCount;
+- (unsigned long long)albumTrackNumber;
 - (id)artist;
 - (unsigned long long)artistPersistentID;
-- (id)artistWithFallback;
 - (id)artwork;
 - (id)artworkCatalog;
 - (id)assetURL;
-- (unsigned int)beatsPerMinute;
+- (unsigned long long)beatsPerMinute;
 - (double)bookmarkTime;
-- (id)chapterOfType:(int)arg1 atIndex:(unsigned int)arg2;
-- (id)chapterOfType:(int)arg1 atTime:(double)arg2;
+- (id)chapterOfType:(long long)arg1 atIndex:(unsigned long long)arg2;
+- (id)chapterOfType:(long long)arg1 atTime:(double)arg2;
 - (id)chapters;
-- (id)chaptersOfType:(int)arg1;
+- (id)chaptersOfType:(long long)arg1;
+- (void)clearLocationProperties;
 - (id)comments;
 - (id)composer;
 - (unsigned long long)composerPersistentID;
-- (unsigned int)countOfChaptersOfType:(int)arg1;
+- (unsigned long long)countOfChaptersOfType:(long long)arg1;
 - (id)dateAccessed;
+- (id)dateAdded;
 - (void)didReceiveMemoryWarning;
-- (BOOL)didSkipWithPlayedToTime:(double)arg1;
-- (unsigned int)discCount;
-- (unsigned int)discNumber;
+- (bool)didSkipWithPlayedToTime:(double)arg1;
+- (unsigned long long)discCount;
+- (unsigned long long)discNumber;
 - (id)effectiveAlbumArtist;
 - (double)effectiveStopTime;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)existsInLibrary;
+- (bool)existsInLibrary;
 - (void)gaplessHeuristicInfo:(unsigned int*)arg1 durationInSamples:(unsigned long long*)arg2 lastPacketsResync:(unsigned long long*)arg3 encodingDelay:(unsigned int*)arg4 encodingDrain:(unsigned int*)arg5;
 - (id)genre;
 - (unsigned long long)genrePersistentID;
-- (BOOL)hasBeenPlayed;
-- (unsigned int)hash;
+- (bool)hasBeenPlayed;
+- (bool)hasProtectedAsset;
+- (unsigned long long)hash;
+- (void)incrementPlayCount;
 - (void)incrementPlayCountForPlayingToEnd;
-- (BOOL)incrementPlayCountForStopTime:(double)arg1;
+- (bool)incrementPlayCountForStopTime:(double)arg1;
 - (void)incrementSkipCount;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithMultiverseIdentifier:(id)arg1;
 - (id)initWithPersistentID:(unsigned long long)arg1;
-- (BOOL)isCloudItem;
-- (BOOL)isCompilation;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isITunesU;
-- (BOOL)isRental;
-- (BOOL)isUsableAsRepresentativeItem;
+- (bool)isCloudItem;
+- (bool)isCompilation;
+- (bool)isEqual:(id)arg1;
+- (bool)isExplicitItem;
+- (bool)isITunesU;
+- (bool)isRental;
+- (bool)isUsableAsRepresentativeItem;
 - (Class)itemArrayCoderPIDDataCodingClass;
 - (id)lastPlayedDate;
 - (id)lastSkippedDate;
 - (id)lyrics;
 - (void)markNominalAmountHasBeenPlayed;
-- (unsigned int)mediaType;
-- (BOOL)mediaTypeCanSeedGenius;
+- (unsigned long long)mediaType;
 - (id)multiverseIdentifier;
-- (void)noteWasPlayedToTime:(double)arg1 skipped:(BOOL)arg2;
-- (unsigned int)playCount;
-- (unsigned int)playCountSinceSync;
+- (double)nominalHasBeenPlayedThreshold;
+- (void)noteWasPlayedToTime:(double)arg1 skipped:(bool)arg2;
+- (unsigned long long)playCount;
+- (unsigned long long)playCountSinceSync;
 - (double)playbackDuration;
+- (id)playbackStoreID;
 - (unsigned long long)podcastPersistentID;
 - (id)podcastTitle;
 - (void)populateLocationPropertiesWithPath:(id)arg1;
+- (void)populateLocationPropertiesWithPath:(id)arg1 assetProtectionType:(long long)arg2;
+- (void)populateLocationPropertiesWithPath:(id)arg1 assetProtectionType:(long long)arg2 completionBlock:(id /* block */)arg3;
 - (id)predicateForProperty:(id)arg1;
-- (unsigned int)rating;
+- (unsigned long long)rating;
 - (id)releaseDate;
-- (BOOL)rememberBookmarkTime;
+- (bool)rememberBookmarkTime;
 - (id)representativeItem;
 - (id)screenshotArtworkCatalog;
 - (void)setDateAccessed:(id)arg1;
-- (void)setHasBeenPlayed:(BOOL)arg1;
+- (void)setHasBeenPlayed:(bool)arg1;
 - (void)setLastPlayedDate:(id)arg1;
 - (void)setLastSkippedDate:(id)arg1;
-- (void)setPlayCount:(unsigned int)arg1;
-- (void)setPlayCountSinceSync:(unsigned int)arg1;
-- (void)setRating:(unsigned int)arg1;
-- (void)setSkipCount:(unsigned int)arg1;
-- (void)setSkipCountSinceSync:(unsigned int)arg1;
-- (unsigned int)skipCount;
-- (unsigned int)skipCountSinceSync;
+- (void)setPlayCount:(unsigned long long)arg1;
+- (void)setPlayCountSinceSync:(unsigned long long)arg1;
+- (void)setRating:(unsigned long long)arg1;
+- (void)setSkipCount:(unsigned long long)arg1;
+- (void)setSkipCountSinceSync:(unsigned long long)arg1;
+- (unsigned long long)skipCount;
+- (unsigned long long)skipCountSinceSync;
 - (double)startTime;
 - (double)stopTime;
 - (id)title;
-- (id)titleWithFallback;
-- (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id)arg1;
+- (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id /* block */)arg1;
 - (id)userGrouping;
 - (id)valueForProperty:(id)arg1;
 - (id)valuesForProperties:(id)arg1;
-- (unsigned int)year;
+- (unsigned long long)year;
+
+// Image: /System/Library/Frameworks/QuickLook.framework/QuickLook
+
++ (id)playingInfoFromAsset:(id)arg1 withDefaultTitle:(id)arg2;
++ (id)playingInfoFromAsset:(id)arg1 withDefaultTitle:(id)arg2 playbackDuration:(double)arg3 elapsedTime:(double)arg4;
+
+// Image: /System/Library/PrivateFrameworks/FuseUI.framework/FuseUI
+
++ (id)customPropertyHandlersCollection;
++ (void)registerSupportedCustomPropertiesWithHandlersCollection:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
+
++ (id)MPU_contentItemIdentifierCollectionProperties;
+
+- (id)MPU_contentItemIdentifierCollection;
+
+// Image: /System/Library/PrivateFrameworks/MediaPlayerUI.framework/MediaPlayerUI
+
+- (id)MPU_containerLibraryLinkURL;
+- (id)MPU_directStoreURL;
+- (id)MPU_libraryLinkArtist;
+- (id)MPU_libraryLinkKind;
+- (id)MPU_libraryLinkPlaylistName;
+
+// Image: /System/Library/PrivateFrameworks/MusicCarDisplayUI.framework/MusicCarDisplayUI
+
+- (id)albumImageWithFallbackForSize:(struct CGSize { double x1; double x2; })arg1 doubleLineRow:(bool)arg2;
+
+// Image: /System/Library/PrivateFrameworks/VideosUI.framework/VideosUI
+
++ (bool)_vui_isLocalWithPropertyValues:(id)arg1;
++ (bool)_vui_isNetworkPlayableWithPropertyValues:(id)arg1;
++ (long long)vui_MPMediaItemAudioCapabilityFromVUIMediaEntityAudioCapability:(unsigned long long)arg1;
++ (long long)vui_MPMediaItemColorCapabilityFromVUIMediaEntityColorCapability:(unsigned long long)arg1;
++ (long long)vui_MPMediaItemVideoQualityFromVUIMediaEntityResolution:(unsigned long long)arg1;
++ (unsigned long long)vui_VUIMediaEntityAudioCapabilityFromMPMediaItemAudioCapability:(long long)arg1;
++ (unsigned long long)vui_VUIMediaEntityColorCapabilityFromMPMediaItemColorCapability:(long long)arg1;
++ (unsigned long long)vui_VUIMediaEntityResolutionFromMPMediaItemVideoQuality:(long long)arg1;
+
+- (id)_vui_imageIdentifierWithImageType:(unsigned long long)arg1;
+- (id)vui_HLSAudioCapability;
+- (id)vui_HLSColorCapability;
+- (id)vui_HLSResolution;
+- (id)vui_artworkCatalogWithImageType:(unsigned long long)arg1;
+- (id)vui_assetType;
+- (id)vui_assetTypeIgnoringLocalAsset:(bool)arg1;
+- (id)vui_audioCapability;
+- (id)vui_colorCapability;
+- (id)vui_contentRating;
+- (id)vui_coverArtImageIdentifier;
+- (id)vui_credits;
+- (id)vui_extrasURL;
+- (id)vui_imageIdentifierWithImageType:(unsigned long long)arg1;
+- (id)vui_imageLoadParamsWithImageType:(unsigned long long)arg1;
+- (id)vui_isLocal;
+- (id)vui_isPlayable;
+- (id)vui_mediaEntityType;
+- (id)vui_playedState;
+- (id)vui_previewFrameImageIdentifier;
+- (id)vui_rentalEndDate;
+- (id)vui_rentalExpirationDate;
+- (id)vui_rentalPlaybackEndDate;
+- (id)vui_resolution;
+- (id)vui_seasonIdentifier;
+- (id)vui_showIdentifier;
+- (id)vui_studio;
+
+// Image: /System/Library/PrivateFrameworks/WatchListKitUI.framework/WatchListKitUI
+
++ (id)wlk_JSgenericProperties;
++ (id)wlk_JSmovieProperties;
++ (id)wlk_JStvShowProperties;
++ (id)wlk_mediaItemForPersistentIdentifier:(id)arg1;
++ (id)wlk_mediaItemForStoreIdentifier:(id)arg1;
+
+- (id)wlk_jsPropertyStrings;
+- (id)wlk_mediaTypeString;
+- (id)wlk_playState;
+- (id)wlk_stringIdentifierForProperty:(id)arg1;
+- (id)wlk_stringIdentifierForSeason;
 
 @end

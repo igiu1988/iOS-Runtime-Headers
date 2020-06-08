@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TNUIState;
-
 @interface TNArchivedUIState : TSPObject {
-    TNUIState *mUIState;
+    TNUIState * _uiState;
 }
 
-@property(readonly) TNUIState * uiState;
+@property (nonatomic, readonly) TNUIState *uiState;
 
-- (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
+- (void).cxx_destruct;
 - (id)initWithUIState:(id)arg1 context:(id)arg2;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (id)uiState;
 

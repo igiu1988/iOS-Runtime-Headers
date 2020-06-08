@@ -2,38 +2,50 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSAttributedString, NSString, NSStringDrawingContext;
-
 @interface SKUIAttributedStringLayout : NSObject <SKUICachedLayout> {
+    NSAttributedString * _attributedString;
     struct CGSize { 
-        float width; 
-        float height; 
-    NSAttributedString *_attributedString;
-    } _boundingSize;
-    NSStringDrawingContext *_context;
-    float _topInset;
+        double width; 
+        double height; 
+    }  _boundingSize;
+    NSStringDrawingContext * _context;
+    struct UIEdgeInsets { 
+        double top; 
+        double left; 
+        double bottom; 
+        double right; 
+    }  _edgeInsetsForShadow;
+    NSShadow * _shadow;
+    double  _topInset;
+    bool  _usesTallCharacterSet;
 }
 
-@property(readonly) NSAttributedString * attributedString;
-@property(readonly) float baselineOffset;
-@property(readonly) struct CGSize { float x1; float x2; } boundingSize;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) float firstBaselineOffset;
-@property(readonly) unsigned int hash;
-@property(readonly) int numberOfLines;
-@property(readonly) NSStringDrawingContext * stringDrawingContext;
-@property(readonly) Class superclass;
-@property(readonly) float topInset;
+@property (nonatomic, readonly) NSAttributedString *attributedString;
+@property (nonatomic, readonly) double baselineOffset;
+@property (nonatomic, readonly) struct CGSize { double x1; double x2; } boundingSize;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) struct UIEdgeInsets { double x1; double x2; double x3; double x4; } edgeInsetsForShadow;
+@property (nonatomic, readonly) double firstBaselineOffset;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) long long numberOfLines;
+@property (nonatomic, readonly) NSShadow *shadow;
+@property (nonatomic, readonly) NSStringDrawingContext *stringDrawingContext;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) double topInset;
+@property (nonatomic, readonly) bool usesTallCharacterSet;
 
 - (void).cxx_destruct;
 - (id)attributedString;
-- (float)baselineOffset;
-- (struct CGSize { float x1; float x2; })boundingSize;
-- (float)firstBaselineOffset;
+- (double)baselineOffset;
+- (struct CGSize { double x1; double x2; })boundingSize;
+- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })edgeInsetsForShadow;
+- (double)firstBaselineOffset;
 - (id)initWithLayoutRequest:(id)arg1;
-- (int)numberOfLines;
+- (long long)numberOfLines;
+- (id)shadow;
 - (id)stringDrawingContext;
-- (float)topInset;
+- (double)topInset;
+- (bool)usesTallCharacterSet;
 
 @end

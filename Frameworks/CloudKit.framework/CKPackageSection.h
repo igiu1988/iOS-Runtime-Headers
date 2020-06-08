@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSData;
-
 @interface CKPackageSection : NSObject {
-    int _index;
-    NSData *_signature;
-    long long _size;
+    long long  _index;
+    NSData * _signature;
+    unsigned long long  _size;
 }
 
-@property(readonly) int index;
-@property(readonly) NSData * signature;
-@property long long size;
+@property (nonatomic, readonly) long long index;
+@property (nonatomic, readonly) NSData *signature;
+@property (nonatomic) unsigned long long size;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
 - (id)description;
-- (int)index;
-- (id)initWithIndex:(int)arg1 signature:(id)arg2 size:(long long)arg3;
-- (void)setSize:(long long)arg1;
+- (long long)index;
+- (id)initWithIndex:(long long)arg1 signature:(id)arg2 size:(unsigned long long)arg3;
+- (void)setSize:(unsigned long long)arg1;
 - (id)signature;
-- (long long)size;
+- (unsigned long long)size;
 
 @end

@@ -2,52 +2,50 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSArray, NSDate, NSOrderedSet, NSString, PLManagedAsset;
-
 @interface PLSimpleAlbum : NSObject <PLAssetContainer> {
-    NSOrderedSet *_assets;
-    PLManagedAsset *_keyAsset;
-    PLManagedAsset *_secondaryKeyAsset;
-    PLManagedAsset *_tertiaryKeyAsset;
-    NSString *_title;
+    NSOrderedSet * _assets;
+    PLManagedAsset * _keyAsset;
+    PLManagedAsset * _secondaryKeyAsset;
+    PLManagedAsset * _tertiaryKeyAsset;
+    NSString * _title;
 }
 
-@property(readonly) unsigned int approximateCount;
-@property(retain,readonly) NSOrderedSet * assets;
-@property(readonly) unsigned int assetsCount;
-@property(readonly) BOOL canShowAvalancheStacks;
-@property(readonly) BOOL canShowComments;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain,readonly) NSDate * endDate;
-@property(readonly) unsigned int hash;
-@property(readonly) BOOL isEmpty;
-@property(retain) PLManagedAsset * keyAsset;
-@property(copy,readonly) NSArray * localizedLocationNames;
-@property(copy,readonly) NSString * localizedTitle;
-@property(readonly) unsigned int photosCount;
-@property(retain) PLManagedAsset * secondaryKeyAsset;
-@property(retain,readonly) NSDate * startDate;
-@property(readonly) Class superclass;
-@property(retain) PLManagedAsset * tertiaryKeyAsset;
-@property(retain,readonly) NSString * title;
-@property(retain,readonly) NSString * uuid;
-@property(readonly) unsigned int videosCount;
+@property (nonatomic, readonly) unsigned long long approximateCount;
+@property (nonatomic, readonly, retain) NSOrderedSet *assets;
+@property (nonatomic, readonly) unsigned long long assetsCount;
+@property (nonatomic, readonly) bool canShowAvalancheStacks;
+@property (nonatomic, readonly) bool canShowComments;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly, retain) NSDate *endDate;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isEmpty;
+@property (nonatomic, retain) PLManagedAsset *keyAsset;
+@property (nonatomic, readonly, copy) NSArray *localizedLocationNames;
+@property (nonatomic, readonly, copy) NSString *localizedTitle;
+@property (nonatomic, readonly) unsigned long long photosCount;
+@property (nonatomic, retain) PLManagedAsset *secondaryKeyAsset;
+@property (nonatomic, readonly, retain) NSDate *startDate;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) PLManagedAsset *tertiaryKeyAsset;
+@property (nonatomic, readonly, retain) NSString *title;
+@property (nonatomic, readonly, retain) NSString *uuid;
+@property (nonatomic, readonly) unsigned long long videosCount;
 
-- (int)_countOfAssetType:(short)arg1;
-- (unsigned int)approximateCount;
+- (long long)_countOfAssetType:(short)arg1;
+- (unsigned long long)approximateCount;
 - (id)assets;
-- (unsigned int)assetsCount;
-- (BOOL)canPerformEditOperation:(unsigned int)arg1;
-- (BOOL)canShowAvalancheStacks;
-- (BOOL)canShowComments;
+- (unsigned long long)assetsCount;
+- (bool)canPerformEditOperation:(unsigned long long)arg1;
+- (bool)canShowAvalancheStacks;
+- (bool)canShowComments;
 - (void)dealloc;
 - (id)initWithTitle:(id)arg1 assets:(id)arg2;
-- (BOOL)isEmpty;
+- (bool)isEmpty;
 - (id)keyAsset;
 - (id)localizedLocationNames;
 - (id)localizedTitle;
-- (unsigned int)photosCount;
+- (unsigned long long)photosCount;
 - (id)secondaryKeyAsset;
 - (void)setKeyAsset:(id)arg1;
 - (void)setSecondaryKeyAsset:(id)arg1;
@@ -55,6 +53,6 @@
 - (id)tertiaryKeyAsset;
 - (id)title;
 - (id)uuid;
-- (unsigned int)videosCount;
+- (unsigned long long)videosCount;
 
 @end

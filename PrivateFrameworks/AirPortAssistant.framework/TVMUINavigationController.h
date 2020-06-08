@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/AirPortAssistant.framework/AirPortAssistant
  */
 
-@interface TVMUINavigationController : UINavigationController {
-}
+@interface TVMUINavigationController : UINavigationController
 
-- (BOOL)disablesAutomaticKeyboardDismissal;
+- (bool)disablesAutomaticKeyboardDismissal;
 
 @end

@@ -2,49 +2,38 @@
    Image: /System/Library/PrivateFrameworks/HomeSharing.framework/HomeSharing
  */
 
-@class NSData, NSDictionary, NSMutableArray, NSString, NSURL;
-
 @interface HSRequest : NSObject {
-    NSString *_action;
-    NSDictionary *_arguments;
-    NSData *_bodyData;
-    NSMutableArray *_cachedBodyDataBlocks;
-    BOOL _concurrent;
-    BOOL _excludeSessionIDFromURL;
-    int _method;
-    NSURL *_responseDataDestinationFileURL;
+    bool  _acceptsGzipEncoding;
+    NSString * _action;
+    NSDictionary * _arguments;
+    NSData * _bodyData;
+    bool  _concurrent;
+    long long  _method;
 }
 
-@property(readonly) NSString * action;
-@property(copy) NSData * bodyData;
-@property(getter=isConcurrent,readonly) BOOL concurrent;
-@property BOOL excludeSessionIDFromURL;
-@property int method;
-@property(copy) NSURL * responseDataDestinationFileURL;
-@property(readonly) double timeoutInterval;
+@property (nonatomic) bool acceptsGzipEncoding;
+@property (nonatomic, readonly) NSString *action;
+@property (nonatomic, copy) NSData *bodyData;
+@property (getter=isConcurrent, nonatomic, readonly) bool concurrent;
+@property (nonatomic) long long method;
+@property (nonatomic, readonly) double timeoutInterval;
 
 + (id)request;
 
 - (void).cxx_destruct;
 - (id)URLRequestForBaseURL:(id)arg1 sessionID:(unsigned int)arg2;
-- (BOOL)acceptsGzipEncoding;
+- (bool)acceptsGzipEncoding;
 - (id)action;
-- (void)appendCachedBodyDataBlocksIntoData:(id)arg1 clearCache:(BOOL)arg2;
 - (id)bodyData;
-- (void)cacheBodyDataBlock:(id)arg1;
-- (unsigned int)cachedBodyDataBlocksLength;
 - (id)canonicalResponseForResponse:(id)arg1;
 - (id)description;
-- (BOOL)excludeSessionIDFromURL;
 - (id)initWithAction:(id)arg1;
-- (BOOL)isConcurrent;
-- (int)method;
+- (bool)isConcurrent;
+- (long long)method;
 - (id)requestURLForBaseURL:(id)arg1 sessionID:(unsigned int)arg2;
-- (id)responseDataDestinationFileURL;
+- (void)setAcceptsGzipEncoding:(bool)arg1;
 - (void)setBodyData:(id)arg1;
-- (void)setExcludeSessionIDFromURL:(BOOL)arg1;
-- (void)setMethod:(int)arg1;
-- (void)setResponseDataDestinationFileURL:(id)arg1;
+- (void)setMethod:(long long)arg1;
 - (void)setValue:(id)arg1 forArgument:(id)arg2;
 - (double)timeoutInterval;
 

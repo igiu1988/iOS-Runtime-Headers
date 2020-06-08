@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
  */
 
-@class FBSSceneSettingsDiff, FBSSceneTransitionContext;
-
 @interface FBSWorkspaceSceneUpdateEvent : FBSWorkspaceSceneEvent {
-    FBSSceneSettingsDiff *_settings;
-    FBSSceneTransitionContext *_transitionContext;
+    FBSSceneSettingsDiff * _settings;
+    FBSSceneTransitionContext * _transitionContext;
 }
 
-@property(retain) FBSSceneSettingsDiff * settingsDiff;
-@property(retain) FBSSceneTransitionContext * transitionContext;
+@property (nonatomic, retain) FBSSceneSettingsDiff *settingsDiff;
+@property (nonatomic, retain) FBSSceneTransitionContext *transitionContext;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (void)setSettingsDiff:(id)arg1;

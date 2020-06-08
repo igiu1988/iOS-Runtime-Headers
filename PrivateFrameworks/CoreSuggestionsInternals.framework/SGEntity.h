@@ -2,68 +2,94 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSData, NSMutableSet, NSSet, NSString, SGDuplicateKey, SGRecordId, SGSimpleTimeRange;
-
 @interface SGEntity : NSObject {
-    NSString *_content;
-    double _creationTimestamp;
-    SGDuplicateKey *_duplicateKey;
-    double _lastModifiedTimestamp;
-    NSMutableSet *_locations;
-    long long _masterEntityId;
-    NSMutableSet *_participants;
-    double _quality;
-    SGRecordId *_recordId;
-    NSString *_sourceKey;
-    unsigned int _state;
-    NSData *_structuredData;
-    NSMutableSet *_tags;
-    SGSimpleTimeRange *_timeRange;
-    NSString *_title;
+    CSPerson * _author;
+    NSString * _content;
+    struct _NSRange { 
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _contentRangeOfInterest;
+    struct SGUnixTimestamp_ { 
+        double secondsFromUnixEpoch; 
+    }  _creationTimestamp;
+    SGDuplicateKey * _duplicateKey;
+    unsigned long long  _extractionType;
+    long long  _groupId;
+    struct SGUnixTimestamp_ { 
+        double secondsFromUnixEpoch; 
+    }  _lastModifiedTimestamp;
+    NSMutableSet * _locations;
+    long long  _masterEntityId;
+    double  _quality;
+    SGRecordId * _recordId;
+    NSString * _sourceKey;
+    unsigned int  _state;
+    NSData * _structuredData;
+    NSMutableSet * _tags;
+    struct _opaque_pthread_mutex_t { 
+        long long __sig; 
+        BOOL __opaque[56]; 
+    }  _tagsLock;
+    NSSet * _tagsSnapshot;
+    SGSimpleTimeRange * _timeRange;
+    NSString * _title;
 }
 
-@property(retain) NSString * content;
-@property double creationTimestamp;
-@property(retain) SGDuplicateKey * duplicateKey;
-@property double lastModifiedTimestamp;
-@property(retain) NSMutableSet * locations;
-@property long long masterEntityId;
-@property(readonly) NSSet * participants;
-@property double quality;
-@property(retain) SGRecordId * recordId;
-@property(retain) NSString * sourceKey;
-@property unsigned int state;
-@property(retain) NSData * structuredData;
-@property(readonly) NSSet * tags;
-@property(retain) SGSimpleTimeRange * timeRange;
-@property(retain) NSString * title;
+@property (nonatomic, retain) CSPerson *author;
+@property (nonatomic, copy) NSString *content;
+@property (nonatomic) struct _NSRange { unsigned long long x1; unsigned long long x2; } contentRangeOfInterest;
+@property (nonatomic) struct SGUnixTimestamp_ { double x1; } creationTimestamp;
+@property (nonatomic, retain) SGDuplicateKey *duplicateKey;
+@property (nonatomic) unsigned long long extractionType;
+@property (nonatomic) long long groupId;
+@property (nonatomic) struct SGUnixTimestamp_ { double x1; } lastModifiedTimestamp;
+@property (nonatomic, retain) NSMutableSet *locations;
+@property (nonatomic) long long masterEntityId;
+@property (nonatomic) double quality;
+@property (nonatomic, retain) SGRecordId *recordId;
+@property (nonatomic, copy) NSString *sourceKey;
+@property (nonatomic) unsigned int state;
+@property (nonatomic, copy) NSData *structuredData;
+@property (nonatomic, retain) SGSimpleTimeRange *timeRange;
+@property (nonatomic, copy) NSString *title;
 
 - (void).cxx_destruct;
-- (void)addParticipant:(id)arg1 type:(unsigned int)arg2;
 - (void)addTag:(id)arg1;
+- (id)author;
 - (id)content;
-- (double)creationTimestamp;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })contentRangeOfInterest;
+- (struct SGUnixTimestamp_ { double x1; })creationTimestamp;
+- (void)dealloc;
+- (id)description;
 - (id)duplicateKey;
 - (id)extraKeyTag;
+- (unsigned long long)extractionType;
 - (id)fieldsToSaveOnConfirmation;
-- (unsigned int)hash;
+- (long long)groupId;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isCancelled;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToEntity:(id)arg1;
-- (BOOL)isFromForwardedMessage;
-- (double)lastModifiedTimestamp;
+- (id)initWithEntity:(id)arg1;
+- (bool)isCancelled;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToEntity:(id)arg1;
+- (bool)isFromForwardedMessage;
+- (bool)isInhuman;
+- (bool)isNaturalLanguageEvent;
+- (bool)isPartiallyDownloaded;
+- (struct SGUnixTimestamp_ { double x1; })lastModifiedTimestamp;
 - (id)loadOrigin:(id)arg1;
 - (id)locations;
 - (long long)masterEntityId;
-- (id)participants;
-- (id)participantsWithRoleType:(unsigned int)arg1;
 - (double)quality;
 - (id)recordId;
+- (void)setAuthor:(id)arg1;
 - (void)setContent:(id)arg1;
-- (void)setCreationTimestamp:(double)arg1;
+- (void)setContentRangeOfInterest:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)setCreationTimestamp:(struct SGUnixTimestamp_ { double x1; })arg1;
 - (void)setDuplicateKey:(id)arg1;
-- (void)setLastModifiedTimestamp:(double)arg1;
+- (void)setExtractionType:(unsigned long long)arg1;
+- (void)setGroupId:(long long)arg1;
+- (void)setLastModifiedTimestamp:(struct SGUnixTimestamp_ { double x1; })arg1;
 - (void)setLocations:(id)arg1;
 - (void)setMasterEntityId:(long long)arg1;
 - (void)setQuality:(double)arg1;
@@ -77,6 +103,7 @@
 - (unsigned int)state;
 - (id)structuredData;
 - (id)tags;
+- (id)templateShortName;
 - (id)timeRange;
 - (id)title;
 - (void)validate;

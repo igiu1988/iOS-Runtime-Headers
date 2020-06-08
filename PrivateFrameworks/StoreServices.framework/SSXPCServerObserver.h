@@ -3,15 +3,15 @@
  */
 
 @interface SSXPCServerObserver : NSObject {
-    id _observer;
-    SEL _selector;
+    id  _observer;
+    SEL  _selector;
 }
 
-@property id observer;
-@property SEL selector;
+@property (nonatomic) id observer;
+@property (nonatomic) SEL selector;
 
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)observer;
 - (SEL)selector;
 - (void)setObserver:(id)arg1;

@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class NSMutableSet;
-
 @interface CoreDAVPrincipalSearchPropertySetItem : CoreDAVItem {
-    NSMutableSet *_principalSearchProperties;
+    NSMutableSet * _principalSearchProperties;
 }
 
-@property(retain) NSMutableSet * principalSearchProperties;
+@property (nonatomic, retain) NSMutableSet *principalSearchProperties;
 
 + (id)copyParseRules;
 
+- (void).cxx_destruct;
 - (void)addPrincipalSearchProperty:(id)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)init;
 - (id)principalSearchProperties;

@@ -2,28 +2,27 @@
    Image: /System/Library/PrivateFrameworks/ImageCapture.framework/ImageCapture
  */
 
-@class NSString;
-
 @interface PTPDataPacket : NSObject {
+    long long  _bufferSize;
+    long long  _bytesTransferred;
+    id  _data;
+    <PTPDataPacketDataSource> * _dataSource;
+    int  _fd;
+    NSString * _filepath;
+    long long  _offsetInBuffer;
+    unsigned short  _operationCode;
     struct _PTPRange { 
         unsigned long long location; 
         unsigned long long length; 
-    long long _bufferSize;
-    long long _bytesTransferred;
-    id _data;
-    int _fd;
-    NSString *_filepath;
-    long long _offsetInBuffer;
-    unsigned short _operationCode;
-    } _range;
-    unsigned long _transactionID;
+    }  _range;
+    unsigned int  _transactionID;
 }
 
 - (long long)bufferSize;
 - (long long)bytesTransferred;
 - (id)contentForTCP;
 - (id)contentForUSB;
-- (id)contentForUSBUsingBuffer:(void*)arg1 capacity:(unsigned long)arg2;
+- (id)contentForUSBUsingBuffer:(void*)arg1 capacity:(unsigned int)arg2;
 - (long long)copyDataToWrappedBytes:(id)arg1 forTransport:(unsigned short)arg2 fromOffset:(unsigned long long)arg3;
 - (long long)copyFromBuffer:(void*)arg1 numBytes:(long long)arg2;
 - (long long)copyHeaderToWrappedBytes:(id)arg1 forTransport:(unsigned short)arg2;
@@ -33,8 +32,9 @@
 - (void)dealloc;
 - (id)description;
 - (id)filepath;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 andData:(id)arg3;
-- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned long)arg2 andFilepath:(id)arg3;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 andData:(id)arg3;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 andDataSource:(id)arg3;
+- (id)initWithOperationCode:(unsigned short)arg1 transactionID:(unsigned int)arg2 andFilepath:(id)arg3;
 - (id)initWithTCPBuffer:(void*)arg1;
 - (id)initWithUSBBuffer:(void*)arg1;
 - (long long)offsetInBuffer;
@@ -44,7 +44,7 @@
 - (void)setData:(id)arg1;
 - (void)setOperationCode:(unsigned short)arg1;
 - (int)setRange:(struct _PTPRange { unsigned long long x1; unsigned long long x2; })arg1;
-- (void)setTransactionID:(unsigned long)arg1;
-- (unsigned long)transactionID;
+- (void)setTransactionID:(unsigned int)arg1;
+- (unsigned int)transactionID;
 
 @end

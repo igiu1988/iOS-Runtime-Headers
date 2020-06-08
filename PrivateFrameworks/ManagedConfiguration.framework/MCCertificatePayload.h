@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSData, NSDate, NSString;
-
 @interface MCCertificatePayload : MCPayload {
-    NSData *_certificatePersistentID;
-    NSString *_installedOnDeviceID;
+    NSData * _certificatePersistentID;
+    NSString * _installedOnDeviceID;
 }
 
-@property(retain) NSData * certificatePersistentID;
-@property(retain,readonly) NSDate * expiry;
-@property(copy) NSString * installedOnDeviceID;
-@property(readonly) BOOL isIdentity;
-@property(readonly) BOOL isRoot;
-@property(readonly) BOOL isSigned;
+@property (nonatomic, retain) NSData *certificatePersistentID;
+@property (nonatomic, readonly, retain) NSDate *expiry;
+@property (nonatomic, copy) NSString *installedOnDeviceID;
+@property (nonatomic, readonly) bool isFullyTrustedRootCert;
+@property (nonatomic, readonly) bool isIdentity;
+@property (nonatomic, readonly) bool isRoot;
+@property (nonatomic, readonly) bool isSigned;
 
 - (void).cxx_destruct;
 - (id)certificatePersistentID;
@@ -24,9 +23,10 @@
 - (id)expiry;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id*)arg3;
 - (id)installedOnDeviceID;
-- (BOOL)isIdentity;
-- (BOOL)isRoot;
-- (BOOL)isSigned;
+- (bool)isFullyTrustedRootCert;
+- (bool)isIdentity;
+- (bool)isRoot;
+- (bool)isSigned;
 - (void)setCertificatePersistentID:(id)arg1;
 - (void)setInstalledOnDeviceID:(id)arg1;
 - (id)stubDictionary;

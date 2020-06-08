@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSMutableArray;
-
 @interface SKUIHorizontalLockupColumn : NSObject {
+    NSMutableArray * _childViewElements;
+    long long  _identifier;
     struct CGSize { 
-        float width; 
-        float height; 
-    NSMutableArray *_childViewElements;
-    int _identifier;
-    } _size;
+        double width; 
+        double height; 
+    }  _size;
 }
 
-@property(copy,readonly) NSArray * childViewElements;
-@property int identifier;
-@property struct CGSize { float x1; float x2; } size;
+@property (nonatomic, readonly, copy) NSArray *childViewElements;
+@property (nonatomic) long long identifier;
+@property (nonatomic) struct CGSize { double x1; double x2; } size;
 
 - (void).cxx_destruct;
 - (void)_addChildViewElement:(id)arg1;
 - (id)childViewElements;
 - (id)description;
-- (int)identifier;
+- (long long)identifier;
 - (id)init;
-- (void)setIdentifier:(int)arg1;
-- (void)setSize:(struct CGSize { float x1; float x2; })arg1;
-- (struct CGSize { float x1; float x2; })size;
+- (void)setIdentifier:(long long)arg1;
+- (void)setSize:(struct CGSize { double x1; double x2; })arg1;
+- (struct CGSize { double x1; double x2; })size;
 
 @end

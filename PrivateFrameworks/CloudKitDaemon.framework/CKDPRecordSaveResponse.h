@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPDateStatistics, CKDPRecord, NSString;
-
 @interface CKDPRecordSaveResponse : PBCodable <NSCopying> {
-    NSString *_etag;
-    CKDPRecord *_serverFields;
-    CKDPDateStatistics *_timeStatistics;
+    NSString * _etag;
+    CKDPRecord * _serverFields;
+    CKDPDateStatistics * _timeStatistics;
 }
 
-@property(retain) NSString * etag;
-@property(readonly) BOOL hasEtag;
-@property(readonly) BOOL hasServerFields;
-@property(readonly) BOOL hasTimeStatistics;
-@property(retain) CKDPRecord * serverFields;
-@property(retain) CKDPDateStatistics * timeStatistics;
+@property (nonatomic, retain) NSString *etag;
+@property (nonatomic, readonly) bool hasEtag;
+@property (nonatomic, readonly) bool hasServerFields;
+@property (nonatomic, readonly) bool hasTimeStatistics;
+@property (nonatomic, retain) CKDPRecord *serverFields;
+@property (nonatomic, retain) CKDPDateStatistics *timeStatistics;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -23,13 +21,13 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)etag;
-- (BOOL)hasEtag;
-- (BOOL)hasServerFields;
-- (BOOL)hasTimeStatistics;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasEtag;
+- (bool)hasServerFields;
+- (bool)hasTimeStatistics;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)serverFields;
 - (void)setEtag:(id)arg1;
 - (void)setServerFields:(id)arg1;

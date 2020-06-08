@@ -2,27 +2,24 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDServerConfiguration;
-
 @interface CKDGlobalConfigurationURLRequest : CKDURLRequest {
-    CKDServerConfiguration *_configuration;
+    CKDServerConfiguration * _configuration;
 }
 
-@property(retain) CKDServerConfiguration * configuration;
+@property (nonatomic, retain) CKDServerConfiguration *configuration;
 
 - (void).cxx_destruct;
 - (id)additionalHeaderValues;
-- (BOOL)allowsAnonymousAccount;
+- (bool)allowsAnonymousAccount;
 - (id)configuration;
-- (Class)expectedResponseClass;
-- (BOOL)hasRequestBody;
+- (bool)hasRequestBody;
 - (id)httpMethod;
-- (int)partitionType;
+- (long long)partitionType;
 - (void)requestDidParsePlistObject:(id)arg1;
-- (BOOL)requiresConfiguration;
-- (BOOL)requiresDeviceID;
-- (BOOL)requiresSignature;
-- (int)serverType;
+- (bool)requiresConfiguration;
+- (bool)requiresDeviceID;
+- (bool)requiresSignature;
+- (long long)serverType;
 - (void)setConfiguration:(id)arg1;
 - (id)url;
 

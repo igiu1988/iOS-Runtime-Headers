@@ -2,17 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPAsset, NSString;
-
 @interface CKDPAssetUploadTokenRetrieveResponseUploadToken : PBCodable <NSCopying> {
-    CKDPAsset *_asset;
-    NSString *_token;
+    CKDPAsset * _asset;
+    struct { 
+        unsigned int tokenExpiration : 1; 
+    }  _has;
+    NSString * _token;
+    long long  _tokenExpiration;
 }
 
-@property(retain) CKDPAsset * asset;
-@property(readonly) BOOL hasAsset;
-@property(readonly) BOOL hasToken;
-@property(retain) NSString * token;
+@property (nonatomic, retain) CKDPAsset *asset;
+@property (nonatomic, readonly) bool hasAsset;
+@property (nonatomic, readonly) bool hasToken;
+@property (nonatomic) bool hasTokenExpiration;
+@property (nonatomic, retain) NSString *token;
+@property (nonatomic) long long tokenExpiration;
 
 - (void).cxx_destruct;
 - (id)asset;
@@ -20,15 +24,19 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasAsset;
-- (BOOL)hasToken;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasAsset;
+- (bool)hasToken;
+- (bool)hasTokenExpiration;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setAsset:(id)arg1;
+- (void)setHasTokenExpiration:(bool)arg1;
 - (void)setToken:(id)arg1;
+- (void)setTokenExpiration:(long long)arg1;
 - (id)token;
+- (long long)tokenExpiration;
 - (void)writeTo:(id)arg1;
 
 @end

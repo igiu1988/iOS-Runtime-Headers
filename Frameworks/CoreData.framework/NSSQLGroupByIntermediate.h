@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSArray;
-
 @interface NSSQLGroupByIntermediate : NSSQLIntermediate {
-    NSArray *_properties;
+    NSArray * _properties;
 }
 
 - (void)dealloc;

@@ -2,19 +2,21 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface OITSUWidthLimitedQueue : NSObject {
-    int mLimit;
-    NSObject<OS_dispatch_queue> *mManagerQueue;
-    int mReaderCount;
-    int mSpinLock;
-    NSObject<OS_dispatch_queue> *mTargetQueue;
+    int  mLimit;
+    NSObject<OS_dispatch_queue> * mManagerQueue;
+    int  mReaderCount;
+    NSObject<OS_dispatch_queue> * mTargetQueue;
+    struct os_unfair_lock_s { 
+        unsigned int _os_unfair_lock_opaque; 
+    }  mUnfairLock;
 }
 
 - (void)dealloc;
 - (id)init;
-- (id)initWithLimit:(unsigned int)arg1;
-- (void)performAsync:(id)arg1;
+- (id)initWithLimit:(unsigned long long)arg1;
+- (void)performAsync:(id /* block */)arg1;
+- (void)performSync:(id /* block */)arg1;
+- (id)targetDispatchQueue;
 
 @end

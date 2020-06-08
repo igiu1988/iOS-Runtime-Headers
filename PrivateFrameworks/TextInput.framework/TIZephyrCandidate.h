@@ -2,43 +2,58 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@class NSString;
-
 @interface TIZephyrCandidate : TIKeyboardCandidateSingle {
-    BOOL _isFromPhraseDictionary;
-    BOOL _isFromTextChecker;
-    NSString *_label;
-    unsigned int _usageTrackingMask;
-    unsigned int _wordOriginFeedbackID;
-    BOOL extensionCandidate;
+    unsigned long long  _ageForConnectionsMetrics;
+    NSString * _fromBundleId;
+    bool  _isFromPhraseDictionary;
+    bool  _isFromTextChecker;
+    bool  _isSecureContentCandidate;
+    NSString * _label;
+    _ICPredictedItem * _proactivePredictedItem;
+    TIProactiveTrigger * _proactiveTrigger;
+    NSString * _responseKitCategory;
+    unsigned int  _usageTrackingMask;
+    unsigned long long  _wordOriginFeedbackID;
 }
 
-@property(getter=isExtensionCandidate) BOOL extensionCandidate;
-@property BOOL isFromPhraseDictionary;
-@property BOOL isFromTextChecker;
-@property(copy) NSString * label;
+@property (nonatomic) unsigned long long ageForConnectionsMetrics;
+@property (nonatomic, copy) NSString *fromBundleId;
+@property (nonatomic) bool isFromPhraseDictionary;
+@property (nonatomic) bool isFromTextChecker;
+@property (nonatomic, copy) NSString *label;
+@property (nonatomic, copy) _ICPredictedItem *proactivePredictedItem;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 + (int)type;
 
+- (void).cxx_destruct;
+- (unsigned long long)ageForConnectionsMetrics;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (void)encodeWithCandidateResultSetCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned int)arg3 usageTrackingMask:(unsigned int)arg4;
-- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned int)arg3;
+- (id)fromBundleId;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned long long)arg3;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned long long)arg3 usageTrackingMask:(unsigned int)arg4;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned long long)arg3 usageTrackingMask:(unsigned int)arg4 secureContentCandidate:(bool)arg5 proactiveTrigger:(id)arg6 proactivePredictedItem:(id)arg7;
+- (id)initWithCandidate:(id)arg1 forInput:(id)arg2 wordOriginFeedbackID:(unsigned long long)arg3 usageTrackingMask:(unsigned int)arg4 secureContentCandidate:(bool)arg5 proactiveTrigger:(id)arg6 proactivePredictedItem:(id)arg7 responseKitCategory:(id)arg8;
+- (id)initWithCandidate:(id)arg1 responseKitCategory:(id)arg2;
 - (id)initWithCandidateResultSetCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isAutocorrection;
-- (BOOL)isExtensionCandidate;
-- (BOOL)isFromPhraseDictionary;
-- (BOOL)isFromTextChecker;
+- (bool)isAutocorrection;
+- (bool)isFromPhraseDictionary;
+- (bool)isFromTextChecker;
+- (bool)isSecureContentCandidate;
 - (id)label;
-- (void)setExtensionCandidate:(BOOL)arg1;
-- (void)setIsFromPhraseDictionary:(BOOL)arg1;
-- (void)setIsFromTextChecker:(BOOL)arg1;
+- (id)proactivePredictedItem;
+- (id)proactiveTrigger;
+- (id)responseKitCategory;
+- (void)setAgeForConnectionsMetrics:(unsigned long long)arg1;
+- (void)setFromBundleId:(id)arg1;
+- (void)setIsFromPhraseDictionary:(bool)arg1;
+- (void)setIsFromTextChecker:(bool)arg1;
 - (void)setLabel:(id)arg1;
+- (void)setProactivePredictedItem:(id)arg1;
 - (unsigned int)usageTrackingMask;
-- (unsigned int)wordOriginFeedbackID;
+- (unsigned long long)wordOriginFeedbackID;
 
 @end

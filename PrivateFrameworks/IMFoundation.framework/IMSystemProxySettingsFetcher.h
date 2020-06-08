@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/IMFoundation.framework/IMFoundation
  */
 
-@class NSString;
-
 @interface IMSystemProxySettingsFetcher : NSObject {
-    id _delegate;
-    NSString *_host;
-    unsigned short _port;
-    NSString *_proxyAccount;
-    NSString *_proxyHost;
-    NSString *_proxyPassword;
-    unsigned short _proxyPort;
-    int _proxyProtocol;
+    id  _delegate;
+    NSString * _host;
+    unsigned short  _port;
+    NSString * _proxyAccount;
+    NSString * _proxyHost;
+    NSString * _proxyPassword;
+    unsigned short  _proxyPort;
+    long long  _proxyProtocol;
 }
 
-@property(copy) NSString * _host;
-@property unsigned short _port;
-@property(copy) NSString * _proxyAccount;
-@property(copy) NSString * _proxyHost;
-@property(copy) NSString * _proxyPassword;
-@property unsigned short _proxyPort;
-@property int _proxyProtocol;
+@property (nonatomic, copy) NSString *_host;
+@property (nonatomic) unsigned short _port;
+@property (nonatomic, copy) NSString *_proxyAccount;
+@property (nonatomic, copy) NSString *_proxyHost;
+@property (nonatomic, copy) NSString *_proxyPassword;
+@property (nonatomic) unsigned short _proxyPort;
+@property (nonatomic) long long _proxyProtocol;
 @property id delegate;
 
 - (void)_callAccountSettingsDelegateMethod;
@@ -33,12 +31,12 @@
 - (id)_proxyHost;
 - (id)_proxyPassword;
 - (unsigned short)_proxyPort;
-- (int)_proxyProtocol;
+- (long long)_proxyProtocol;
 - (void)_takeProxySettingsFromDictionary:(struct __CFDictionary { }*)arg1;
 - (void)dealloc;
 - (id)delegate;
 - (id)initWithHost:(id)arg1 port:(unsigned short)arg2 delegate:(id)arg3;
-- (id)initWithProxyProtocol:(int)arg1 proxyHost:(id)arg2 proxyPort:(unsigned short)arg3 delegate:(id)arg4;
+- (id)initWithProxyProtocol:(long long)arg1 proxyHost:(id)arg2 proxyPort:(unsigned short)arg3 delegate:(id)arg4;
 - (void)retrieveProxyAccountSettings;
 - (void)retrieveProxySettings;
 - (void)setDelegate:(id)arg1;
@@ -48,6 +46,6 @@
 - (void)set_proxyHost:(id)arg1;
 - (void)set_proxyPassword:(id)arg1;
 - (void)set_proxyPort:(unsigned short)arg1;
-- (void)set_proxyProtocol:(int)arg1;
+- (void)set_proxyProtocol:(long long)arg1;
 
 @end

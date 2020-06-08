@@ -3,14 +3,14 @@
  */
 
 @interface ExFATCameraDevice : ICCameraDevice {
-    void *_exFATCameraProperties;
+    void * _exFATCameraProperties;
 }
 
 - (void)dealloc;
-- (BOOL)eject;
+- (bool)eject;
 - (void)enumerateContent;
-- (void)finalize;
+- (bool)iCloudPhotosEnabled;
 - (id)initWithVolumePath:(id)arg1 mediaPaths:(id)arg2;
-- (unsigned int)itemsInFolder:(id)arg1;
+- (unsigned long long)itemsInFolder:(id)arg1;
 
 @end

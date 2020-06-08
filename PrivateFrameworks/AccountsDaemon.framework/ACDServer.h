@@ -2,36 +2,33 @@
    Image: /System/Library/PrivateFrameworks/AccountsDaemon.framework/AccountsDaemon
  */
 
-@class ACDAccessPluginManager, ACDAuthenticationDialogManager, ACDAuthenticationPluginManager, ACDDataclassOwnersManager, ACRemoteDeviceProxy, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, NSXPCListener;
-
-@interface ACDServer : NSObject <NSXPCListenerDelegate, ACDAccountStoreDelegate> {
-    ACDAccessPluginManager *_accessPluginManager;
-    NSMutableArray *_accountStoreClients;
-    NSXPCListener *_accountStoreListener;
-    NSXPCListener *_authenticationDialogListener;
-    ACDAuthenticationDialogManager *_authenticationDialogManager;
-    NSMutableArray *_authenticationDialogManagerClients;
-    ACDAuthenticationPluginManager *_authenticationPluginManager;
-    NSMutableDictionary *_clientsByConnection;
-    ACDDataclassOwnersManager *_dataclassOwnersManager;
-    NSObject<OS_dispatch_queue> *_deferredConnectionResumeQueue;
-    NSObject<OS_dispatch_semaphore> *_deferredConnectionResumeQueueSemaphore;
-    NSMutableDictionary *_entitlementsByConnection;
-    NSMutableArray *_oauthSignerClients;
-    NSXPCListener *_oauthSignerListener;
-    NSObject<OS_dispatch_queue> *_performMigrationQueue;
-    ACRemoteDeviceProxy *_remoteDeviceProxy;
+@interface ACDServer : NSObject <ACDAccountStoreDelegate, NSXPCListenerDelegate> {
+    ACDAccessPluginManager * _accessPluginManager;
+    NSMutableArray * _accountStoreClients;
+    NSXPCListener * _accountStoreListener;
+    NSXPCListener * _authenticationDialogListener;
+    ACDAuthenticationDialogManager * _authenticationDialogManager;
+    NSMutableArray * _authenticationDialogManagerClients;
+    ACDAuthenticationPluginManager * _authenticationPluginManager;
+    NSMutableDictionary * _clientsByConnection;
+    ACDDataclassOwnersManager * _dataclassOwnersManager;
+    NSObject<OS_dispatch_queue> * _deferredConnectionResumeQueue;
+    NSObject<OS_dispatch_semaphore> * _deferredConnectionResumeQueueSemaphore;
+    NSMutableArray * _oauthSignerClients;
+    NSXPCListener * _oauthSignerListener;
+    NSObject<OS_dispatch_queue> * _performMigrationQueue;
+    ACRemoteDeviceProxy * _remoteDeviceProxy;
 }
 
-@property(retain) ACDAccessPluginManager * accessPluginManager;
-@property(retain) ACDAuthenticationDialogManager * authenticationDialogManager;
-@property(retain) ACDAuthenticationPluginManager * authenticationPluginManager;
-@property(retain) ACDDataclassOwnersManager * dataclassOwnersManager;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) ACRemoteDeviceProxy * remoteDeviceProxy;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) ACDAccessPluginManager *accessPluginManager;
+@property (nonatomic, retain) ACDAuthenticationDialogManager *authenticationDialogManager;
+@property (nonatomic, retain) ACDAuthenticationPluginManager *authenticationPluginManager;
+@property (nonatomic, retain) ACDDataclassOwnersManager *dataclassOwnersManager;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) ACRemoteDeviceProxy *remoteDeviceProxy;
+@property (readonly) Class superclass;
 
 + (id)sharedServer;
 
@@ -39,14 +36,16 @@
 - (void)_beginObservingIDSProxyNotifications;
 - (void)_beginObservingLanguageChangeNotfication;
 - (void)_beginObservingLaunchNotifications;
-- (id)_enumerateAllEntitlementForConnection:(id)arg1;
+- (void)_beginObservingMigrationDidFinishDarwinNotifications;
+- (void)_endObservingLanguageChangeNotification;
+- (void)_endObservingMigrationDidFinishDarwinNotifications;
+- (void)_handleLanguageChangedDarwinNotification;
 - (id)_keyForConnection:(id)arg1;
 - (id)_newDaemonAccountStoreFilterForClient:(id)arg1;
 - (id)_newOAuthSignerForClient:(id)arg1;
 - (void)_signalDeferredConnectionResumeQueueSemaphore;
-- (void)_stopObservingLanguageChangeNotification;
 - (id)accessPluginManager;
-- (void)accountStoreDidSaveAccounts;
+- (void)accountStore:(id)arg1 didSaveAccount:(id)arg2;
 - (id)authenticationDialogManager;
 - (id)authenticationPluginManager;
 - (id)clientForConnection:(id)arg1;
@@ -54,9 +53,8 @@
 - (void)credentialsDidChangeForAccountWithIdentifier:(id)arg1;
 - (id)dataclassOwnersManager;
 - (void)dealloc;
-- (id)entitlementsForConnection:(id)arg1;
 - (id)init;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (id)remoteDeviceProxy;
 - (void)setAccessPluginManager:(id)arg1;
 - (void)setAuthenticationDialogManager:(id)arg1;

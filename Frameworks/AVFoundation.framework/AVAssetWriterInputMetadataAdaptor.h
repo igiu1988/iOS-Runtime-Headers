@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetWriterInput, AVAssetWriterInputMetadataAdaptorInternal;
-
 @interface AVAssetWriterInputMetadataAdaptor : NSObject {
-    AVAssetWriterInputMetadataAdaptorInternal *_internal;
+    AVAssetWriterInputMetadataAdaptorInternal * _internal;
 }
 
-@property(readonly) AVAssetWriterInput * assetWriterInput;
+@property (nonatomic, readonly) AVAssetWriterInput *assetWriterInput;
 
 + (id)assetWriterInputMetadataAdaptorWithAssetWriterInput:(id)arg1;
 + (void)initialize;
 
-- (BOOL)appendTimedMetadataGroup:(id)arg1;
+- (bool)appendTimedMetadataGroup:(id)arg1;
 - (id)assetWriterInput;
 - (void)dealloc;
 - (id)description;

@@ -2,61 +2,57 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class FigCaptureStillImageSettings, NSArray, NSDictionary, NSString;
-
-@interface BWSISNode : BWNode <BWBracketSettingsProvider> {
-    int (*_createSampleBufferProcessorFunction)();
-    NSArray *_afWindowParamsArray;
-    BOOL _allowExperimentalOverrides;
-    float _bracketGainCap;
-    FigCaptureStillImageSettings *_currentCaptureSettings;
-    NSArray *_exposureValues;
-    NSDictionary *_fusionParamsDictionary;
-    double _integrationTimeThreshold;
-    int _lastFusionTypeUsed;
-    int _lensShadingCorrectionMode;
-    int _maxIntegrationTimeLimitMsec;
-    NSDictionary *_noiseModelParamsDictionary;
-    int _numberFramesReceived;
-    int _oisBracketCount;
-    NSArray *_oisExposureDurationTypes;
-    int _outputMode;
-    BOOL _preBracketedFrameReceived;
-    struct OpaqueFigSampleBufferProcessor { } *_sampleBufferProcessor;
-    NSDictionary *_sensorIDDictionary;
-    int _sisBracketCount;
+@interface BWSISNode : BWNode {
+    bool  _OISSupported;
+    NSArray * _afWindowParamsArray;
+    bool  _allowAllocationsAtPrepareTime;
+    bool  _allowExperimentalOverrides;
+    bool  _alwaysRequestsPreBracketedEV0;
+    float  _bracketGainCap;
+    NSDictionary * _cameraTuningDictionary;
+    int (* _createSampleBufferProcessorFunction;
+    FigCaptureStillImageSettings * _currentCaptureSettings;
+    NSArray * _exposureValues;
+    NSDictionary * _fusionParamsDictionary;
+    int  _fusionScheme;
+    int  _lastFusionTypeUsed;
+    int  _lensShadingCorrectionMode;
+    bool  _livePhotoSupported;
+    int  _maxIntegrationTimeLimitMsec;
+    NSDictionary * _noiseModelParamsDictionary;
+    int  _numberFramesReceived;
+    int  _oisBracketCount;
+    NSArray * _oisExposureDurationTypes;
+    bool  _preBracketedFrameReceived;
+    struct OpaqueFigSampleBufferProcessor { } * _sampleBufferProcessor;
+    NSDictionary * _sensorIDDictionary;
+    int  _sisBracketCount;
 }
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) double integrationTimeThreshold;
-@property(readonly) Class superclass;
 
 + (void)initialize;
 
+- (bool)OISSupported;
 - (void)_clearCaptureRequestState;
-- (id)_initWithSensorIDDictionary:(id)arg1 allowExperimentalOverrides:(BOOL)arg2;
-- (id)_oisBracketSettingsWithCurrentFrameStats:(struct { double x1; float x2; float x3; double x4; float x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; long long x11; }*)arg1 stillImageSettings:(id)arg2;
-- (long)_setupSampleBufferProcessor;
-- (id)_sisBracketSettingsWithCurrentFrameStats:(struct { double x1; float x2; float x3; double x4; float x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; long long x11; }*)arg1 stillImageSettings:(id)arg2;
-- (void)_sisProcessorOutputReady:(long)arg1 sampleBuffer:(struct opaqueCMSampleBuffer { }*)arg2;
-- (long)_unpackSISOptions;
-- (int)bracketCountForBracketingMode:(int)arg1 withCurrentFrameStats:(struct { double x1; float x2; float x3; double x4; float x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; long long x11; }*)arg2 stillImageSettings:(id)arg3;
-- (id)bracketSettingsForBracketingMode:(int)arg1 withCurrentFrameStats:(struct { double x1; float x2; float x3; double x4; float x5; unsigned int x6; unsigned int x7; unsigned int x8; unsigned int x9; unsigned int x10; long long x11; }*)arg2 stillImageSettings:(id)arg3;
+- (id)_initWithCameraTuningDictionary:(id)arg1 sensorIDDictionary:(id)arg2 sbpCreationFunction:(int (*)arg3 fusionScheme:(int)arg4 allowExperimentalOverrides:(bool)arg5;
+- (void)_sampleBufferProcessorOutputReady:(int)arg1 sampleBuffer:(struct opaqueCMSampleBuffer { }*)arg2;
+- (int)_setupSampleBufferProcessor;
+- (int)_unpackSISOptions;
+- (bool)allowAllocationsAtPrepareTime;
+- (bool)alwaysRequestsPreBracketedEV0;
+- (bool)attachesInputBracketToOutputSampleBuffer;
 - (void)dealloc;
 - (void)didSelectFormat:(id)arg1 forInput:(id)arg2;
 - (void)handleNodeError:(id)arg1 forInput:(id)arg2;
-- (id)initWithSensorIDDictionary:(id)arg1;
-- (double)integrationTimeThreshold;
+- (id)initWithCameraTuningDictionary:(id)arg1 sensorIDDictionary:(id)arg2 fusionScheme:(int)arg3;
+- (bool)livePhotoSupported;
 - (id)nodeSubType;
 - (id)nodeType;
 - (void)prepareForCurrentConfigurationToBecomeLive;
 - (void)renderSampleBuffer:(struct opaqueCMSampleBuffer { }*)arg1 forInput:(id)arg2;
+- (void)setAllowAllocationsAtPrepareTime:(bool)arg1;
+- (void)setAlwaysRequestsPreBracketedEV0:(bool)arg1;
+- (void)setAttachesInputBracketToOutputSampleBuffer:(bool)arg1;
+- (void)setLivePhotoSupported:(bool)arg1;
+- (void)setOISSupported:(bool)arg1;
 
 @end

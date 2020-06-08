@@ -2,48 +2,28 @@
    Image: /System/Library/PrivateFrameworks/CallHistory.framework/CallHistory
  */
 
-@class NSString;
-
-@interface CHPhoneBookIOSManager : CHLogger <CHPhoneBookManagerProtocol> {
-    BOOL _callerIdIsEmail;
-    int _multiValueId;
-    void *_record;
-    int _recordId;
-    unsigned int _recordIsSuggested;
+@interface CHPhoneBookIOSManager : NSObject <CHPhoneBookManagerProtocol> {
+    CNContactStore * _fContactsStore;
 }
 
-@property BOOL callerIdIsEmail;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property int multiValueId;
-@property void* record;
-@property int recordId;
-@property unsigned int recordIsSuggested;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) CNContactStore *fContactsStore;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-- (BOOL)callerIdIsEmail;
-- (void)dealloc;
-- (void)fetchABRecord:(id)arg1 andISOCountryCode:(id)arg2 isEmail:(BOOL)arg3;
-- (const void*)getABRecordRef;
-- (id)getCallerIdPropertyMultiValueId:(id)arg1 andISOCountryCode:(id)arg2 isEmail:(BOOL)arg3;
-- (id)getLocalizedCallerIdLabelForRecordId:(id)arg1;
-- (id)getPersonsNameForRecordId:(id)arg1;
-- (id)getRecordId:(id)arg1 andISOCountryCode:(id)arg2 isEmail:(BOOL)arg3;
++ (id)get;
+
+- (void).cxx_destruct;
+- (id)fContactsStore;
+- (id)fetchCNContact:(id)arg1 countryCode:(id)arg2 isEmail:(bool)arg3;
+- (id)fetchCNContactsMatchingPredicate:(id)arg1 keysToKetch:(id)arg2 error:(id*)arg3;
+- (id)fetchFullCNContactForContactIdentifier:(id)arg1 isEmail:(bool)arg2;
+- (id)getLocalizedCallerIdLabelForContact:(id)arg1 forCallerId:(id)arg2 withCallerIdIsEmail:(bool)arg3;
+- (id)getPersonsNameForContact:(id)arg1;
+- (id)getRecordId:(id)arg1 countryCode:(id)arg2 isEmail:(bool)arg3;
 - (id)init;
-- (BOOL)isABContactASuggestion;
-- (int)multiValueId;
-- (void*)record;
-- (int)recordId;
-- (unsigned int)recordIsSuggested;
-- (void)releaseCachedRecord;
-- (void)setABRecordId:(id)arg1;
-- (void)setABRecordMultiValueId:(id)arg1;
-- (void)setABRecordRef:(const void*)arg1;
-- (void)setCallerIdIsEmail:(BOOL)arg1;
-- (void)setMultiValueId:(int)arg1;
-- (void)setRecord:(void*)arg1;
-- (void)setRecordId:(int)arg1;
-- (void)setRecordIsSuggested:(unsigned int)arg1;
+- (bool)isABContactASuggestion;
+- (void)setFContactsStore:(id)arg1;
 
 @end

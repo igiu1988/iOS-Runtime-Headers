@@ -2,47 +2,43 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSDate, NSObject<OS_dispatch_group>, NSString;
-
 @interface CKPlaceholderOperation : NSOperation {
-    id _context;
-    id _daemonInvokeBlock;
-    NSObject<OS_dispatch_group> *_group;
-    BOOL _isExecuting;
-    BOOL _isFinished;
-    NSString *_operationID;
-    NSString *_sectionID;
-    NSDate *_startDate;
+    id  _context;
+    id /* block */  _daemonInvokeBlock;
+    NSObject<OS_dispatch_group> * _group;
+    bool  _isExecuting;
+    bool  _isFinished;
+    NSString * _operationID;
+    NSString * _sectionID;
+    NSDate * _startDate;
 }
 
-@property(retain) id context;
-@property(readonly) id daemonInvokeBlock;
-@property BOOL isExecuting;
-@property BOOL isFinished;
-@property(readonly) NSString * operationID;
-@property(retain) NSString * sectionID;
-@property(retain) NSDate * startDate;
+@property (nonatomic, retain) id context;
+@property (nonatomic, readonly) id /* block */ daemonInvokeBlock;
+@property (nonatomic) bool isExecuting;
+@property (nonatomic) bool isFinished;
+@property (nonatomic, readonly) NSString *operationID;
+@property (nonatomic, retain) NSString *sectionID;
+@property (nonatomic, retain) NSDate *startDate;
 
 - (void).cxx_destruct;
-- (id)CKPropertiesDescription;
+- (id)CKDescriptionPropertiesWithPublic:(bool)arg1 private:(bool)arg2 shouldExpand:(bool)arg3;
+- (void)_setIsExecuting:(bool)arg1;
+- (void)_setIsFinished:(bool)arg1;
 - (void)cancel;
 - (id)context;
-- (id)daemonInvokeBlock;
+- (id /* block */)daemonInvokeBlock;
 - (id)description;
-- (id)initWithOperation:(id)arg1 daemonInvocationBlock:(id)arg2;
-- (BOOL)isConcurrent;
-- (BOOL)isExecuting;
-- (BOOL)isFinished;
+- (id)initWithOperation:(id)arg1 daemonInvocationBlock:(id /* block */)arg2;
+- (bool)isConcurrent;
+- (bool)isExecuting;
+- (bool)isFinished;
 - (void)main;
 - (id)operationID;
 - (id)sectionID;
 - (void)setContext:(id)arg1;
-- (void)setIsExecuting:(BOOL)arg1;
-- (void)setIsFinished:(BOOL)arg1;
+- (void)setIsExecuting:(bool)arg1;
+- (void)setIsFinished:(bool)arg1;
 - (void)setSectionID:(id)arg1;
 - (void)setStartDate:(id)arg1;
 - (void)start;

@@ -2,15 +2,15 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSData;
-
 @interface MCChaperonePayload : MCPayload {
-    BOOL _nonChaperonePairingAllowed;
-    NSData *_pairingCertificateData;
+    bool  _nonChaperonePairingAllowed;
+    NSNumber * _nonChaperonePairingAllowedNum;
+    NSData * _pairingCertificateData;
 }
 
-@property(readonly) BOOL nonChaperonePairingAllowed;
-@property(retain,readonly) NSData * pairingCertificateData;
+@property (nonatomic, readonly) bool nonChaperonePairingAllowed;
+@property (nonatomic, readonly) NSNumber *nonChaperonePairingAllowedNum;
+@property (nonatomic, readonly, retain) NSData *pairingCertificateData;
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
@@ -19,7 +19,8 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id*)arg3;
-- (BOOL)nonChaperonePairingAllowed;
+- (bool)nonChaperonePairingAllowed;
+- (id)nonChaperonePairingAllowedNum;
 - (id)pairingCertificateData;
 - (id)payloadDescriptionKeyValueSections;
 - (id)stubDictionary;

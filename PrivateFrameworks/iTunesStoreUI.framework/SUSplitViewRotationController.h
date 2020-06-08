@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class SURotationController, UIViewController;
-
 @interface SUSplitViewRotationController : SURotationController {
-    SURotationController *_firstRotationController;
-    UIViewController *_firstViewController;
-    SURotationController *_secondRotationController;
-    UIViewController *_secondViewController;
+    SURotationController * _firstRotationController;
+    UIViewController * _firstViewController;
+    SURotationController * _secondRotationController;
+    UIViewController * _secondViewController;
 }
 
 - (id)_firstRotationController;
 - (id)_secondRotationController;
-- (void)animateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
+- (void)animateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (void)dealloc;
-- (void)finishRotationFromInterfaceOrientation:(int)arg1;
-- (void)prepareToRotateToInterfaceOrientation:(int)arg1;
+- (void)finishRotationFromInterfaceOrientation:(long long)arg1;
+- (void)prepareToRotateToInterfaceOrientation:(long long)arg1;
 
 @end

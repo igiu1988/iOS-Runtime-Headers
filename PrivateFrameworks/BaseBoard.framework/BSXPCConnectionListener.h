@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@class <BSXPCConnectionListenerHandler>, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
-
 @interface BSXPCConnectionListener : NSObject {
-    NSObject<OS_xpc_object> *_connection;
-    <BSXPCConnectionListenerHandler> *_handler;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSString *_service;
+    NSObject<OS_xpc_object> * _connection;
+    <BSXPCConnectionListenerHandler> * _handler;
+    NSObject<OS_dispatch_queue> * _queue;
+    NSString * _service;
 }
 
-@property(retain,readonly) <BSXPCConnectionListenerHandler> * handler;
-@property(readonly) NSObject<OS_dispatch_queue> * queue;
-@property(copy,readonly) NSString * service;
+@property (readonly) <BSXPCConnectionListenerHandler> *handler;
+@property (readonly) NSObject<OS_dispatch_queue> *queue;
+@property (readonly, copy) NSString *service;
 
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)description;
 - (id)handler;

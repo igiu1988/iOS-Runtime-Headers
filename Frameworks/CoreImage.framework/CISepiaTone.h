@@ -2,24 +2,21 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, NSNumber;
-
 @interface CISepiaTone : CIFilter {
-    CIImage *inputImage;
-    NSNumber *inputIntensity;
+    CIImage * inputImage;
+    NSNumber * inputIntensity;
 }
 
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputIntensity;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputIntensity;
 
 + (id)customAttributes;
 
-- (BOOL)_isIdentity;
+- (bool)_isIdentity;
 - (id)_kernel;
 - (id)inputImage;
 - (id)inputIntensity;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputImage:(id)arg1;
 - (void)setInputIntensity:(id)arg1;
 

@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/UITriggerVC.framework/UITriggerVC
  */
 
-@class NSMutableArray, NSString;
-
 @interface CSLUIPBUIPluginTriggerRequest : PBRequest <NSCopying> {
+    NSMutableArray * _dictionarys;
     struct { 
         unsigned int reason : 1; 
-    NSMutableArray *_dictionarys;
-    } _has;
-    NSString *_name;
-    int _reason;
+    }  _has;
+    NSString * _name;
+    int  _reason;
 }
 
-@property(retain) NSMutableArray * dictionarys;
-@property(readonly) BOOL hasName;
-@property BOOL hasReason;
-@property(retain) NSString * name;
-@property int reason;
+@property (nonatomic, retain) NSMutableArray *dictionarys;
+@property (nonatomic, readonly) bool hasName;
+@property (nonatomic) bool hasReason;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic) int reason;
 
 - (void).cxx_destruct;
 - (void)addDictionary:(id)arg1;
@@ -25,20 +23,20 @@
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (id)dictionaryAtIndex:(unsigned int)arg1;
+- (id)dictionaryAtIndex:(unsigned long long)arg1;
 - (id)dictionaryRepresentation;
 - (id)dictionarys;
-- (unsigned int)dictionarysCount;
-- (BOOL)hasName;
-- (BOOL)hasReason;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)dictionarysCount;
+- (bool)hasName;
+- (bool)hasReason;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)name;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (int)reason;
 - (void)setDictionarys:(id)arg1;
-- (void)setHasReason:(BOOL)arg1;
+- (void)setHasReason:(bool)arg1;
 - (void)setName:(id)arg1;
 - (void)setReason:(int)arg1;
 - (void)writeTo:(id)arg1;

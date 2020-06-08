@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
  */
 
-@class NSString;
-
 @interface FBSWorkspaceCreateSceneRequestResponseEvent : FBSWorkspaceEvent {
-    NSString *_sceneID;
+    NSString * _sceneID;
 }
 
-@property(copy) NSString * sceneID;
+@property (nonatomic, copy) NSString *sceneID;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (id)sceneID;

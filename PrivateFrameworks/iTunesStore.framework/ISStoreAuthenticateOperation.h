@@ -2,27 +2,31 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class NSNumber, NSString, SSAuthenticationContext, SSMutableAuthenticationContext;
-
 @interface ISStoreAuthenticateOperation : ISOperation <SSAuthenticateRequestDelegate> {
-    NSNumber *_authenticatedDSID;
-    SSMutableAuthenticationContext *_authenticationContext;
+    SSAuthenticateResponse * _authenticateResponse;
+    SSMutableAuthenticationContext * _authenticationContext;
+    id  _parentViewController;
 }
 
-@property(readonly) SSAuthenticationContext * authenticationContext;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly) SSAuthenticateResponse *authenticateResponse;
+@property (readonly) SSAuthenticationContext *authenticationContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (retain) id parentViewController;
+@property (readonly) Class superclass;
 
-- (id)_authenticatedDSID;
++ (bool)_copyErrorForAuthenticateResponse:(id)arg1 error:(id*)arg2;
+
 - (void)_handleAuthenticateResponse:(id)arg1;
-- (void)_setAuthenticatedDSID:(id)arg1;
+- (id)authenticateResponse;
 - (id)authenticatedAccountDSID;
 - (id)authenticationContext;
 - (void)dealloc;
 - (id)initWithAuthenticationContext:(id)arg1;
+- (id)parentViewController;
 - (void)run;
+- (void)setParentViewController:(id)arg1;
 - (id)uniqueKey;
 
 @end

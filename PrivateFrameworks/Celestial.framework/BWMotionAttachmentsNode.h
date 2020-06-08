@@ -2,23 +2,29 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSDictionary;
-
 @interface BWMotionAttachmentsNode : BWNode {
-    NSDictionary *_optionsDict;
-    struct OpaqueFigSampleBufferProcessor { } *_sampleBufferProcessor;
+    BWLimitedGMErrorLogger * _limitedGMErrorLogger;
+    BWNodeOutput * _offlineVISMotionDataOutput;
+    NSDictionary * _optionsDict;
+    struct OpaqueFigSampleBufferProcessor { } * _sampleBufferProcessor;
+    BWNodeOutput * _sourceVideoWithMotionAttachmentsOutput;
 }
+
+@property (nonatomic, readonly) BWNodeOutput *offlineVISMotionDataOutput;
+@property (nonatomic, readonly) BWNodeOutput *sourceVideoWithMotionAttachmentsOutput;
 
 + (void)initialize;
 
-- (long)_setupSampleBufferProcessor;
+- (int)_setupSampleBufferProcessor;
 - (void)dealloc;
 - (void)didReachEndOfDataForInput:(id)arg1;
 - (void)didSelectFormat:(id)arg1 forInput:(id)arg2;
-- (id)initWithSensorIDDict:(id)arg1 moduleInfo:(id)arg2 requiredFormat:(id)arg3 forPanorama:(BOOL)arg4 motionAttachmentsSource:(int)arg5;
+- (id)initWithSensorIDDictionaryByPortType:(id)arg1 cameraModuleInfoByPortType:(id)arg2 activePortTypes:(id)arg3 requiredFormat:(id)arg4 motionAttachmentsMode:(int)arg5 motionAttachmentsSource:(int)arg6 motionCallbackThreadPriority:(unsigned int)arg7 provideSourceVideoWithMotionAttachmentsOutput:(bool)arg8 provideOfflineVISMotionDataOutput:(bool)arg9;
 - (id)nodeSubType;
 - (id)nodeType;
+- (id)offlineVISMotionDataOutput;
 - (void)prepareForCurrentConfigurationToBecomeLive;
 - (void)renderSampleBuffer:(struct opaqueCMSampleBuffer { }*)arg1 forInput:(id)arg2;
+- (id)sourceVideoWithMotionAttachmentsOutput;
 
 @end

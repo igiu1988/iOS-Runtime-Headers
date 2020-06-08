@@ -2,42 +2,40 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSArray, NSFetchedResultsController, NSString;
-
 @interface _NSDefaultSectionInfo : NSObject <NSFetchedResultsSectionInfo> {
-    NSFetchedResultsController *_controller;
-    NSString *_indexTitle;
-    NSString *_name;
-    unsigned int _numberOfObjects;
-    unsigned int _oldSectionNumber;
-    id _sectionObjects;
-    unsigned int _sectionOffset;
+    NSFetchedResultsController * _controller;
+    NSString * _indexTitle;
+    NSString * _name;
+    unsigned long long  _numberOfObjects;
+    unsigned long long  _oldSectionNumber;
+    id  _sectionObjects;
+    unsigned long long  _sectionOffset;
 }
 
-@property(readonly) NSString * indexTitle;
-@property(readonly) NSString * name;
-@property(readonly) unsigned int numberOfObjects;
-@property(readonly) NSArray * objects;
-@property unsigned int oldSectionNumber;
-@property(readonly) unsigned int sectionNumber;
-@property(readonly) unsigned int sectionOffset;
+@property (nonatomic, readonly) NSString *indexTitle;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) unsigned long long numberOfObjects;
+@property (nonatomic, readonly) NSArray *objects;
+@property (nonatomic) unsigned long long oldSectionNumber;
+@property (nonatomic, readonly) unsigned long long sectionNumber;
+@property (nonatomic, readonly) unsigned long long sectionOffset;
 
 - (void)clearSectionObjectsCache;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)indexOfObject:(id)arg1;
+- (unsigned long long)indexOfObject:(id)arg1;
 - (id)indexTitle;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithController:(id)arg1 name:(id)arg2 indexTitle:(id)arg3 sectionOffset:(unsigned int)arg4;
+- (id)initWithController:(id)arg1 name:(id)arg2 indexTitle:(id)arg3 sectionOffset:(unsigned long long)arg4;
 - (id)name;
-- (unsigned int)numberOfObjects;
+- (unsigned long long)numberOfObjects;
 - (id)objects;
-- (unsigned int)oldSectionNumber;
-- (unsigned int)sectionNumber;
-- (unsigned int)sectionOffset;
+- (unsigned long long)oldSectionNumber;
+- (unsigned long long)sectionNumber;
+- (unsigned long long)sectionOffset;
 - (void)setController:(id)arg1;
-- (void)setNumberOfObjects:(unsigned int)arg1;
-- (void)setOldSectionNumber:(unsigned int)arg1;
-- (void)setSectionOffset:(unsigned int)arg1;
+- (void)setNumberOfObjects:(unsigned long long)arg1;
+- (void)setOldSectionNumber:(unsigned long long)arg1;
+- (void)setSectionOffset:(unsigned long long)arg1;
 
 @end

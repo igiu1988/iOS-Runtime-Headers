@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSData;
-
 @interface NPKProtoCatalog : PBCodable <NSCopying> {
-    NSData *_catalogData;
+    NSData * _catalogData;
 }
 
-@property(retain) NSData * catalogData;
+@property (nonatomic, retain) NSData *catalogData;
 
 - (void).cxx_destruct;
 - (id)catalogData;
@@ -16,10 +14,10 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setCatalogData:(id)arg1;
 - (void)writeTo:(id)arg1;
 

@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<OS_dispatch_queue>;
-
-@interface HMDAccessoryRetrievalCompletionTuple : NSObject {
-    id _completion;
-    NSObject<OS_dispatch_queue> *_queue;
+@interface HMDAccessoryRetrievalCompletionTuple : HMFObject {
+    id /* block */  _completion;
+    long long  _linkType;
+    NSObject<OS_dispatch_queue> * _queue;
 }
 
-@property(copy) id completion;
-@property(retain) NSObject<OS_dispatch_queue> * queue;
+@property (nonatomic, copy) id /* block */ completion;
+@property (nonatomic) long long linkType;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *queue;
 
-+ (id)tupleWithQueue:(id)arg1 completion:(id)arg2;
++ (id)tupleWithLinkType:(long long)arg1 queue:(id)arg2 completion:(id /* block */)arg3;
 
 - (void).cxx_destruct;
-- (id)completion;
+- (id /* block */)completion;
+- (long long)linkType;
 - (id)queue;
-- (void)setCompletion:(id)arg1;
+- (void)setCompletion:(id /* block */)arg1;
+- (void)setLinkType:(long long)arg1;
 - (void)setQueue:(id)arg1;
 
 @end

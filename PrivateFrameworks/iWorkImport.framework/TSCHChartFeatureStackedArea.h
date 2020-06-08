@@ -2,21 +2,23 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartFeatureStackedArea : TSCHChartFeatureArea {
-}
+@interface TSCHChartFeatureStackedArea : TSCHChartFeatureArea
 
 - (id)defaultDataFileName;
-- (BOOL)drawValueLabelsForZero;
+- (bool)drawValueLabelsForZero;
+- (bool)editableFormatForValueStrings;
 - (id)genericToSpecificPropertyMap;
-- (float)maxDepthRatio;
+- (double)maxDepthRatio;
 - (Class)presetImagerClass;
-- (BOOL)reverseSingleColumnLegendOrder;
-- (float)sageMaxDepthRatio;
+- (bool)reverseSingleColumnLegendOrder;
+- (double)sageMaxDepthRatio;
+- (double)spiceMaxDepthRatio;
 - (int)stackingSignRule;
 - (id)supportedAxisScales;
-- (BOOL)supportsInterSetDepthGap;
-- (BOOL)supportsSymbolOverhang;
-- (BOOL)supportsTrendLines;
+- (bool)supportsInterSetDepthGap;
+- (bool)supportsReferenceLines;
+- (bool)supportsSymbolOverhang;
+- (bool)supportsTrendLines;
 - (id)userInterfaceName;
 - (Class)valueAxisClassForID:(id)arg1 scale:(int)arg2;
 

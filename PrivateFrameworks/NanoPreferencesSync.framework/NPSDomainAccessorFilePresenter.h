@@ -2,37 +2,44 @@
    Image: /System/Library/PrivateFrameworks/NanoPreferencesSync.framework/NanoPreferencesSync
  */
 
-@class <NPSDomainAccessorFilePresenterDelegate>, NSOperationQueue, NSString, NSURL;
-
 @interface NPSDomainAccessorFilePresenter : NSObject <NSFilePresenter> {
-    <NPSDomainAccessorFilePresenterDelegate> *_delegate;
-    NSURL *_domainURL;
-    NSOperationQueue *_presenterOperationQueue;
+    bool  _current;
+    <NPSDomainAccessorFilePresenterDelegate> * _delegate;
+    NSURL * _domainURL;
+    NSOperationQueue * _presenterOperationQueue;
+    NSObject<OS_dispatch_queue> * _presenterUnderlyingQueue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(readonly) <NPSDomainAccessorFilePresenterDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(retain) NSURL * domainURL;
-@property(readonly) unsigned int hash;
-@property(retain,readonly) NSOperationQueue * presentedItemOperationQueue;
-@property(copy,readonly) NSURL * presentedItemURL;
-@property(retain) NSOperationQueue * presenterOperationQueue;
-@property(copy,readonly) NSURL * primaryPresentedItemURL;
-@property(readonly) Class superclass;
+@property (getter=isCurrent, nonatomic) bool current;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic, readonly) <NPSDomainAccessorFilePresenterDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSURL *domainURL;
+@property (readonly) unsigned long long hash;
+@property (readonly) NSSet *observedPresentedItemUbiquityAttributes;
+@property (readonly, retain) NSOperationQueue *presentedItemOperationQueue;
+@property (readonly, copy) NSURL *presentedItemURL;
+@property (nonatomic, retain) NSOperationQueue *presenterOperationQueue;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *presenterUnderlyingQueue;
+@property (readonly, copy) NSURL *primaryPresentedItemURL;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)delegate;
 - (id)domainURL;
 - (id)initWithDelegate:(id)arg1 domainURL:(id)arg2;
-- (BOOL)presentedItemNeedsWatching;
+- (bool)isCurrent;
+- (bool)presentedItemNeedsWatching;
 - (id)presentedItemOperationQueue;
 - (id)presentedItemURL;
 - (id)presenterOperationQueue;
-- (void)relinquishPresentedItemToWriter:(id)arg1;
+- (id)presenterUnderlyingQueue;
+- (void)relinquishPresentedItemToWriter:(id /* block */)arg1;
+- (void)setCurrent:(bool)arg1;
 - (void)setDomainURL:(id)arg1;
 - (void)setPresenterOperationQueue:(id)arg1;
-- (id)synchronizeForReadingOnly:(BOOL)arg1 handler:(id)arg2;
+- (void)setPresenterUnderlyingQueue:(id)arg1;
+- (id)synchronizeForReadingOnly:(bool)arg1 handler:(id /* block */)arg2;
 
 @end

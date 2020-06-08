@@ -2,32 +2,37 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class EKCalendar, NSDate, NSString;
+@interface EKInviteReplyNotification : EKObject
 
-@interface EKInviteReplyNotification : EKObject {
-}
+@property (nonatomic, readonly) bool alerted;
+@property (nonatomic, readonly) EKCalendar *calendar;
+@property (nonatomic, readonly) NSString *calendarName;
+@property (nonatomic, readonly) NSDate *creationDate;
+@property (nonatomic, readonly) EKCalendar *inviteReplyCalendar;
+@property (nonatomic, readonly) NSString *shareeDisplayName;
+@property (nonatomic, readonly) NSString *shareeEmailAddress;
+@property (nonatomic, readonly) NSString *shareeFirstName;
+@property (nonatomic, readonly) NSString *shareeLastName;
+@property (nonatomic, readonly) NSString *shareePhoneNumber;
+@property (nonatomic, readonly) NSURL *shareeURL;
+@property (nonatomic, readonly) unsigned long long status;
 
-@property(readonly) BOOL alerted;
-@property(readonly) EKCalendar * calendar;
-@property(readonly) NSString * calendarName;
-@property(readonly) NSDate * creationDate;
-@property(readonly) NSString * shareeAddress;
-@property(readonly) NSString * shareeDisplayName;
-@property(readonly) NSString * shareeFirstName;
-@property(readonly) NSString * shareeLastName;
-@property(readonly) int status;
++ (Class)frozenClass;
++ (id)knownRelationshipSingleValueKeys;
 
-- (id)_persistentInviteReplyNotification;
-- (BOOL)alerted;
+- (bool)alerted;
 - (id)calendar;
 - (id)calendarName;
 - (void)clearAlertedStatus;
 - (id)creationDate;
-- (id)lazyLoadRelationForKey:(id)arg1;
-- (id)shareeAddress;
+- (id)inviteReplyCalendar;
+- (id)shareeAddressURL;
 - (id)shareeDisplayName;
+- (id)shareeEmailAddress;
 - (id)shareeFirstName;
 - (id)shareeLastName;
-- (int)status;
+- (id)shareePhoneNumber;
+- (id)shareeURL;
+- (unsigned long long)status;
 
 @end

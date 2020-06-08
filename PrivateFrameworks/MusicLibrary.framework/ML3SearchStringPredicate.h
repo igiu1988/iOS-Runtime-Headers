@@ -2,17 +2,16 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSArray, NSString;
-
 @interface ML3SearchStringPredicate : ML3Predicate {
-    NSArray *_properties;
-    NSString *_searchString;
+    NSArray * _properties;
+    NSString * _searchString;
 }
 
-@property(copy) NSArray * properties;
-@property(copy) NSString * searchString;
+@property (nonatomic, copy) NSArray *properties;
+@property (nonatomic, copy) NSString *searchString;
 
 + (id)predicateWithConcatenatedProperties:(id)arg1 searchString:(id)arg2;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)SQLJoinClausesForClass:(Class)arg1;
@@ -20,11 +19,11 @@
 - (id)databaseStatementParameters;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithConcatenatedProperties:(id)arg1 searchString:(id)arg2;
-- (BOOL)isDynamicForEntityClass:(Class)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isDynamicForEntityClass:(Class)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)properties;
 - (id)searchString;
 - (void)setProperties:(id)arg1;

@@ -2,20 +2,19 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDReference;
-
 @interface EDPane : NSObject {
-    int mActivePane;
-    int mPaneState;
-    EDReference *mTopLeftCell;
-    double mXSplitPosition;
-    double mYSplitPosition;
+    int  mActivePane;
+    int  mPaneState;
+    EDReference * mTopLeftCell;
+    double  mXSplitPosition;
+    double  mYSplitPosition;
 }
 
 + (id)pane;
 
 - (int)activePane;
 - (void)dealloc;
+- (id)description;
 - (id)init;
 - (int)paneState;
 - (void)setActivePane:(int)arg1;

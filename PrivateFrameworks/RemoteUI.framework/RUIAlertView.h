@@ -2,40 +2,34 @@
    Image: /System/Library/PrivateFrameworks/RemoteUI.framework/RemoteUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSDictionary, NSString, RUIObjectModel<RUIAlertViewDelegate>, UIAlertController;
-
 @interface RUIAlertView : RUIElement {
-    UIAlertController *_alertController;
-    int _buttonIndex;
-    id _completion;
-    NSString *_message;
-    RUIObjectModel<RUIAlertViewDelegate> *_objectModel;
-    NSString *_title;
+    UIAlertController * _alertController;
+    long long  _buttonIndex;
+    id /* block */  _completion;
+    NSString * _message;
+    RUIObjectModel<RUIAlertViewDelegate> * _objectModel;
+    NSString * _title;
 }
 
-@property(retain) NSDictionary * attributes;
-@property(readonly) int buttonIndex;
-@property(copy) id completion;
-@property(retain) NSString * message;
-@property RUIObjectModel<RUIAlertViewDelegate> * objectModel;
-@property(retain) NSString * title;
+@property (nonatomic, readonly) long long buttonIndex;
+@property (nonatomic, copy) id /* block */ completion;
+@property (nonatomic, retain) NSString *message;
+@property (nonatomic) RUIObjectModel<RUIAlertViewDelegate> *objectModel;
+@property (nonatomic, retain) NSString *title;
+
++ (void)_enableTestMode;
 
 - (void).cxx_destruct;
-- (void)addButtonWithTitle:(id)arg1 URL:(id)arg2 destructive:(BOOL)arg3 attributes:(id)arg4;
+- (void)addButtonWithTitle:(id)arg1 URL:(id)arg2 style:(long long)arg3 attributes:(id)arg4;
 - (id)alertController;
-- (int)buttonIndex;
-- (id)completion;
+- (long long)buttonIndex;
+- (id /* block */)completion;
 - (void)dealloc;
-- (id)init;
+- (id)initWithAttributes:(id)arg1 parent:(id)arg2;
 - (id)message;
 - (id)objectModel;
-- (void)runAlertInController:(id)arg1 completion:(id)arg2;
-- (void)setCancelButtonTitle:(id)arg1;
-- (void)setCompletion:(id)arg1;
+- (void)runAlertInController:(id)arg1 completion:(id /* block */)arg2;
+- (void)setCompletion:(id /* block */)arg1;
 - (void)setMessage:(id)arg1;
 - (void)setObjectModel:(id)arg1;
 - (void)setTitle:(id)arg1;

@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class VKCacheNode;
-
 @interface VKCacheNode : NSObject {
     struct VKCacheKey { 
         unsigned int a; 
         unsigned int b; 
         unsigned int c; 
         unsigned int d; 
-    } _key;
-    VKCacheNode *_next;
-    VKCacheNode *_previous;
-    id _value;
+    }  _key;
+    VKCacheNode * _next;
+    VKCacheNode * _previous;
+    id  _value;
 }
 
-@property struct VKCacheKey { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; } key;
-@property(retain) VKCacheNode * next;
-@property VKCacheNode * previous;
-@property(retain) id value;
+@property (nonatomic) struct VKCacheKey { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; } key;
+@property (nonatomic, retain) VKCacheNode *next;
+@property (nonatomic) VKCacheNode *previous;
+@property (nonatomic, retain) id value;
 
-- (id).cxx_construct;
 - (void)dealloc;
 - (struct VKCacheKey { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; })key;
 - (id)next;

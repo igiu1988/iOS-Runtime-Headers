@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/ScreenReaderBrailleDriver.framework/ScreenReaderBrailleDriver
  */
 
-@class NSData;
-
 @interface SCRDKGSPacket : NSObject {
-    unsigned char _command;
-    NSData *_data;
-    unsigned char _subCommand;
+    unsigned char  _command;
+    NSData * _data;
+    unsigned char  _subCommand;
 }
 
-@property unsigned char command;
-@property(retain) NSData * data;
-@property unsigned char subCommand;
+@property (nonatomic) unsigned char command;
+@property (nonatomic, retain) NSData *data;
+@property (nonatomic) unsigned char subCommand;
 
+- (void).cxx_destruct;
 - (unsigned char)command;
 - (id)data;
-- (void)dealloc;
 - (void)setCommand:(unsigned char)arg1;
 - (void)setData:(id)arg1;
 - (void)setSubCommand:(unsigned char)arg1;

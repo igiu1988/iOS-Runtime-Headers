@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSString, PLPhotoLibrary;
-
 @interface PLCloudSharingJob : PLDaemonJob {
-    NSString *_archiveFilename;
-    PLPhotoLibrary *_photoLibrary;
-    BOOL _shouldPrioritize;
+    NSString * _archiveFilename;
+    PLPhotoLibrary * _photoLibrary;
+    bool  _shouldPrioritize;
 }
 
-@property BOOL shouldPrioritize;
-@property(retain,readonly) PLPhotoLibrary * transientPhotoLibrary;
+@property (nonatomic) bool shouldPrioritize;
+@property (nonatomic, readonly, retain) PLPhotoLibrary *transientPhotoLibrary;
 
 + (id)archiveDirectory;
 + (void)deleteAllRecoveryEvents;
@@ -24,9 +22,9 @@
 - (void)runAndWaitForMessageToBeSent;
 - (void)runDaemonSide;
 - (id)serialOperationQueue;
-- (void)setShouldPrioritize:(BOOL)arg1;
-- (BOOL)shouldArchiveXPCToDisk;
-- (BOOL)shouldPrioritize;
+- (void)setShouldPrioritize:(bool)arg1;
+- (bool)shouldArchiveXPCToDisk;
+- (bool)shouldPrioritize;
 - (id)transientPhotoLibrary;
 
 @end

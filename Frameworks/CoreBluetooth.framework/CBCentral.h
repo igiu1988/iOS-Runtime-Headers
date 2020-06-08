@@ -2,12 +2,11 @@
    Image: /System/Library/Frameworks/CoreBluetooth.framework/CoreBluetooth
  */
 
-@interface CBCentral : CBPeer {
-}
+@interface CBCentral : CBPeer
 
-@property(readonly) unsigned int maximumUpdateValueLength;
+@property (nonatomic, readonly) unsigned long long maximumUpdateValueLength;
 
 - (id)description;
-- (unsigned int)maximumUpdateValueLength;
+- (unsigned long long)maximumUpdateValueLength;
 
 @end

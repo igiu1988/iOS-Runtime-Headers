@@ -3,13 +3,18 @@
  */
 
 @interface RadioRequestContext : NSObject <NSCopying> {
-    BOOL _usesLocalNetworking;
+    SSVFairPlaySAPSession * _SAPSession;
+    bool  _usesLocalNetworking;
 }
 
-@property BOOL usesLocalNetworking;
+@property (nonatomic, retain) SSVFairPlaySAPSession *SAPSession;
+@property (nonatomic) bool usesLocalNetworking;
 
+- (void).cxx_destruct;
+- (id)SAPSession;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)setUsesLocalNetworking:(BOOL)arg1;
-- (BOOL)usesLocalNetworking;
+- (void)setSAPSession:(id)arg1;
+- (void)setUsesLocalNetworking:(bool)arg1;
+- (bool)usesLocalNetworking;
 
 @end

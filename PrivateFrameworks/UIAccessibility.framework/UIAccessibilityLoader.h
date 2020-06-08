@@ -2,22 +2,28 @@
    Image: /System/Library/PrivateFrameworks/UIAccessibility.framework/UIAccessibility
  */
 
-@interface UIAccessibilityLoader : NSObject {
-}
+@interface UIAccessibilityLoader : NSObject
 
 + (id)_accessibilityBundlesForBundle:(id)arg1;
 + (void)_accessibilityInitializeRuntimeOverrides;
-+ (void)_accessibilityLoadSubbundles:(id)arg1;
++ (void)_accessibilityInitializeSubclassRuntimeOverrides;
 + (void)_accessibilityReenabled;
-+ (BOOL)_accessibilityServerStarted;
++ (bool)_accessibilityServerStarted;
++ (void)_accessibilityStartMiniServer;
 + (void)_accessibilityStartServer;
 + (void)_accessibilityStopServer;
-+ (id)_axBundleForBundle:(id)arg1;
-+ (id)_loadAXBundleForBundle:(id)arg1 didLoad:(BOOL*)arg2 forceLoad:(BOOL)arg3 loadSubbundles:(BOOL)arg4;
-+ (id)_loadAXBundleForBundle:(id)arg1 didLoad:(BOOL*)arg2;
-+ (void)initialize;
-+ (id)loadAccessibilityBundle:(id)arg1 didLoad:(BOOL*)arg2 force:(BOOL)arg3;
-+ (id)loadAccessibilityBundle:(id)arg1 didLoad:(BOOL*)arg2;
-+ (void)loadActualAccessibilityBundle:(id)arg1 didLoad:(BOOL*)arg2 loadSubbundles:(BOOL)arg3;
++ (bool)_accessibilityStringLocalizationCategoriesLoaded;
++ (bool)_accessibilityUIKitBundleLoaded;
++ (void)_didLoadPreboardAccessibilityBundle;
++ (void)_didLoadSystemAppAccessibilityBundle;
++ (void)_performInitialAccessibilityBundleLoad:(bool)arg1 monitorForFutureLoadEvents:(bool)arg2 trackingMode:(long long)arg3;
++ (void)_stringLocalizationStarted:(id)arg1;
++ (void)loadAccessibilityBundle:(id)arg1 didLoadCallback:(id /* block */)arg2;
++ (void)loadAccessibilityBundle:(id)arg1 didLoadCallback:(id /* block */)arg2 force:(bool)arg3 loadAllAccessibilityInfo:(bool)arg4;
++ (void)loadAccessibilityBundle:(id)arg1 didLoadCallback:(id /* block */)arg2 loadSubbundles:(bool)arg3;
++ (void)loadAccessibilityBundleForBundle:(id)arg1 didLoadCallback:(id /* block */)arg2;
++ (void)loadAccessibilityBundleForBundle:(id)arg1 didLoadCallback:(id /* block */)arg2 force:(bool)arg3 loadAllAccessibilityInfo:(bool)arg4;
++ (void)loadAccessibilityBundleForBundle:(id)arg1 didLoadCallback:(id /* block */)arg2 forceLoad:(bool)arg3 loadSubbundles:(bool)arg4 loadAllAccessibilityInfo:(bool)arg5;
++ (void)loadActualAccessibilityBundle:(id)arg1 didLoadCallback:(id /* block */)arg2 loadSubbundles:(bool)arg3;
 
 @end

@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class ACAccount;
-
 @interface AASetupAssistantTermsFetchRequest : AARequest {
-    ACAccount *_account;
+    ACAccount * _account;
 }
 
 + (Class)responseClass;

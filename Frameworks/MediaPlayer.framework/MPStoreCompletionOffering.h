@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPMediaQuery, MPStoreCollectionCompletionOffering, MPStoreCompletionOfferResponse, MPStoreOfferMediaItemCollection, NSURL;
-
 @interface MPStoreCompletionOffering : NSObject <NSCopying> {
-    MPStoreCollectionCompletionOffering *_collectionWithCompletionItemsOffering;
-    MPMediaQuery *_localItemsQuery;
-    int _preferredStoreOfferVariant;
-    int _presentationStyle;
-    MPStoreCompletionOfferResponse *_storeOfferResponse;
-    NSURL *_storeURL;
+    MPStoreCollectionCompletionOffering * _collectionWithCompletionItemsOffering;
+    MPMediaQuery * _localItemsQuery;
+    long long  _preferredStoreOfferVariant;
+    long long  _presentationStyle;
+    MPStoreCompletionOfferResponse * _storeOfferResponse;
+    NSURL * _storeURL;
 }
 
-@property(readonly) MPStoreOfferMediaItemCollection * collectionWithCompletionItems;
-@property int preferredStoreOfferVariant;
-@property(readonly) int presentationStyle;
-@property(copy,readonly) NSURL * storeURL;
+@property (nonatomic, readonly) MPStoreOfferMediaItemCollection *collectionWithCompletionItems;
+@property (nonatomic) long long preferredStoreOfferVariant;
+@property (nonatomic, readonly) long long presentationStyle;
+@property (nonatomic, readonly, copy) NSURL *storeURL;
 
-+ (int)defaultOfferVariant;
++ (long long)defaultOfferVariant;
 + (id)offeringWithResponse:(id)arg1 localItemsQuery:(id)arg2;
-+ (void)setDefaultOfferVariant:(int)arg1;
++ (void)setDefaultOfferVariant:(long long)arg1;
 
 - (void).cxx_destruct;
 - (void)_loadOfferingData;
@@ -28,9 +26,9 @@
 - (id)copyByInvalidatingCalculatedContent;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)initWithResponse:(id)arg1 localItemsQuery:(id)arg2;
-- (int)preferredStoreOfferVariant;
-- (int)presentationStyle;
-- (void)setPreferredStoreOfferVariant:(int)arg1;
+- (long long)preferredStoreOfferVariant;
+- (long long)presentationStyle;
+- (void)setPreferredStoreOfferVariant:(long long)arg1;
 - (id)storeURL;
 
 @end

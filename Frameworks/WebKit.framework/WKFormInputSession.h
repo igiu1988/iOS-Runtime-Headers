@@ -2,30 +2,54 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class NSObject<NSSecureCoding>, NSString, WKContentView;
-
 @interface WKFormInputSession : NSObject <_WKFormInputSession> {
-    struct RetainPtr<NSObject<NSSecureCoding> > { 
+    bool  _accessoryViewShouldNotShow;
+    WKContentView * _contentView;
+    struct RetainPtr<UIView> { 
         void *m_ptr; 
-    WKContentView *_contentView;
-    } _userObject;
+    }  _customInputView;
+    struct RetainPtr<WKFocusedElementInfo> { 
+        void *m_ptr; 
+    }  _focusedElementInfo;
+    bool  _forceSecureTextEntry;
+    bool  _requiresStrongPasswordAssistance;
+    struct RetainPtr<NSArray<UITextSuggestion *> > { 
+        void *m_ptr; 
+    }  _suggestions;
 }
 
-@property(copy) NSString * accessoryViewCustomButtonTitle;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
-@property(readonly) NSObject<NSSecureCoding> * userObject;
-@property(getter=isValid,readonly) BOOL valid;
+@property (nonatomic, copy) NSString *accessoryViewCustomButtonTitle;
+@property (nonatomic) bool accessoryViewShouldNotShow;
+@property (nonatomic, retain) UIView *customInputView;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) <_WKFocusedElementInfo> *focusedElementInfo;
+@property (nonatomic) bool forceSecureTextEntry;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool requiresStrongPasswordAssistance;
+@property (nonatomic, copy) NSArray *suggestions;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSObject<NSSecureCoding> *userObject;
+@property (getter=isValid, nonatomic, readonly) bool valid;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)accessoryViewCustomButtonTitle;
-- (id)initWithContentView:(id)arg1 userObject:(id)arg2;
+- (bool)accessoryViewShouldNotShow;
+- (id)customInputView;
+- (id)focusedElementInfo;
+- (bool)forceSecureTextEntry;
+- (id)initWithContentView:(id)arg1 focusedElementInfo:(id)arg2 requiresStrongPasswordAssistance:(bool)arg3;
 - (void)invalidate;
-- (BOOL)isValid;
+- (bool)isValid;
+- (void)reloadFocusedElementContextView;
+- (bool)requiresStrongPasswordAssistance;
 - (void)setAccessoryViewCustomButtonTitle:(id)arg1;
+- (void)setAccessoryViewShouldNotShow:(bool)arg1;
+- (void)setCustomInputView:(id)arg1;
+- (void)setForceSecureTextEntry:(bool)arg1;
+- (void)setSuggestions:(id)arg1;
+- (id)suggestions;
 - (id)userObject;
 
 @end

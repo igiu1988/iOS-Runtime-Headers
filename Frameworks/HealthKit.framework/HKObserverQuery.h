@@ -2,23 +2,25 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@interface HKObserverQuery : HKQuery {
-    id _updateHandler;
+@interface HKObserverQuery : HKQuery <HKObserverQueryClientInterface> {
+    id /* block */  _updateHandler;
 }
 
-@property(readonly) id updateHandler;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) id /* block */ updateHandler;
+
++ (id)clientInterfaceProtocol;
 
 - (void).cxx_destruct;
-- (void)_queue_cleanupAfterDeactivation;
-- (id)_queue_errorHandler;
-- (BOOL)_queue_shouldStayAliveAfterInitialResults;
-- (void)_queue_validate;
-- (void)dataUpdatedInDatabaseWithAnchor:(id)arg1 query:(id)arg2;
-- (id)initWithSampleType:(id)arg1 predicate:(id)arg2 updateHandler:(id)arg3;
-- (id)updateHandler;
+- (void)client_dataUpdatedInDatabaseWithAnchor:(id)arg1 query:(id)arg2;
+- (id)initWithSampleType:(id)arg1 predicate:(id)arg2 updateHandler:(id /* block */)arg3;
+- (void)queue_deliverError:(id)arg1;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (bool)queue_shouldDeactivateAfterInitialResults;
+- (void)queue_validate;
+- (id /* block */)updateHandler;
 
 @end

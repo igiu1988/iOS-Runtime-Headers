@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/MediaServices.framework/MediaServices
  */
 
-@class NSString, NSUUID;
-
 @interface MSVXPCTransaction : NSObject {
-    NSUUID *_identifier;
-    NSString *_name;
+    NSUUID * _identifier;
+    NSString * _name;
 }
 
-@property(getter=isActive,readonly) BOOL active;
-@property(readonly) NSString * name;
+@property (getter=isActive, nonatomic, readonly) bool active;
+@property (nonatomic, readonly) NSString *name;
 
 + (id)activeTransactions;
 
@@ -22,7 +20,7 @@
 - (void)endTransaction;
 - (void)endTransactionOnDate:(id)arg1;
 - (id)initWithName:(id)arg1;
-- (BOOL)isActive;
+- (bool)isActive;
 - (id)name;
 
 @end

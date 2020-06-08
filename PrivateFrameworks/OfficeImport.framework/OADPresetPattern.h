@@ -3,8 +3,8 @@
  */
 
 @interface OADPresetPattern : OADPattern {
-    BOOL mIsTypeOverridden;
-    int mType;
+    bool  mIsTypeOverridden;
+    int  mType;
 }
 
 + (id)defaultProperties;
@@ -12,10 +12,12 @@
 + (id)namedBitmapDataForPresetPatternType:(int)arg1;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned int)hash;
+- (void)fixPropertiesForChangingParentPreservingEffectiveValues:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithDefaults;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isTypeOverridden;
+- (bool)isAnythingOverridden;
+- (bool)isEqual:(id)arg1;
+- (bool)isTypeOverridden;
 - (void)setType:(int)arg1;
 - (int)type;
 

@@ -3,6 +3,7 @@
  */
 
 @interface AWDWiFiMetricsManagerPowerStatsUpdateEvent : PBCodable <NSCopying> {
+    unsigned int  _associatedSleepDur;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int associatedSleepDur : 1; 
@@ -10,51 +11,50 @@
         unsigned int totalDur : 1; 
         unsigned int type : 1; 
         unsigned int unassociatedSleepDur : 1; 
-    unsigned int _associatedSleepDur;
-    } _has;
-    unsigned int _roamDur;
-    unsigned long long _timestamp;
-    unsigned int _totalDur;
-    unsigned int _type;
-    unsigned int _unassociatedSleepDur;
+    }  _has;
+    unsigned int  _roamDur;
+    unsigned long long  _timestamp;
+    unsigned int  _totalDur;
+    unsigned int  _type;
+    unsigned int  _unassociatedSleepDur;
 }
 
-@property unsigned int associatedSleepDur;
-@property BOOL hasAssociatedSleepDur;
-@property BOOL hasRoamDur;
-@property BOOL hasTimestamp;
-@property BOOL hasTotalDur;
-@property BOOL hasType;
-@property BOOL hasUnassociatedSleepDur;
-@property unsigned int roamDur;
-@property unsigned long long timestamp;
-@property unsigned int totalDur;
-@property unsigned int type;
-@property unsigned int unassociatedSleepDur;
+@property (nonatomic) unsigned int associatedSleepDur;
+@property (nonatomic) bool hasAssociatedSleepDur;
+@property (nonatomic) bool hasRoamDur;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic) bool hasTotalDur;
+@property (nonatomic) bool hasType;
+@property (nonatomic) bool hasUnassociatedSleepDur;
+@property (nonatomic) unsigned int roamDur;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic) unsigned int totalDur;
+@property (nonatomic) unsigned int type;
+@property (nonatomic) unsigned int unassociatedSleepDur;
 
 - (unsigned int)associatedSleepDur;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasAssociatedSleepDur;
-- (BOOL)hasRoamDur;
-- (BOOL)hasTimestamp;
-- (BOOL)hasTotalDur;
-- (BOOL)hasType;
-- (BOOL)hasUnassociatedSleepDur;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasAssociatedSleepDur;
+- (bool)hasRoamDur;
+- (bool)hasTimestamp;
+- (bool)hasTotalDur;
+- (bool)hasType;
+- (bool)hasUnassociatedSleepDur;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (unsigned int)roamDur;
 - (void)setAssociatedSleepDur:(unsigned int)arg1;
-- (void)setHasAssociatedSleepDur:(BOOL)arg1;
-- (void)setHasRoamDur:(BOOL)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
-- (void)setHasTotalDur:(BOOL)arg1;
-- (void)setHasType:(BOOL)arg1;
-- (void)setHasUnassociatedSleepDur:(BOOL)arg1;
+- (void)setHasAssociatedSleepDur:(bool)arg1;
+- (void)setHasRoamDur:(bool)arg1;
+- (void)setHasTimestamp:(bool)arg1;
+- (void)setHasTotalDur:(bool)arg1;
+- (void)setHasType:(bool)arg1;
+- (void)setHasUnassociatedSleepDur:(bool)arg1;
 - (void)setRoamDur:(unsigned int)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (void)setTotalDur:(unsigned int)arg1;

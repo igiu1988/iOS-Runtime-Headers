@@ -2,17 +2,14 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class NSString;
+@interface IKProgressIndicatorElement : IKViewElement
 
-@interface IKProgressIndicatorElement : IKViewElement {
-}
+@property (nonatomic, readonly) unsigned long long percentage;
+@property (nonatomic, readonly) NSString *type;
 
-@property(readonly) unsigned int percentage;
-@property(readonly) NSString * type;
++ (bool)shouldParseChildDOMElements;
 
-+ (BOOL)shouldParseChildDOMElements;
-
-- (unsigned int)percentage;
+- (unsigned long long)percentage;
 - (id)type;
 
 @end

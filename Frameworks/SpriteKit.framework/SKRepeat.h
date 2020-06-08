@@ -2,24 +2,14 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class SKAction;
-
 @interface SKRepeat : SKAction {
-    struct SKCRepeat { int (**x1)(); unsigned int x2; float x3; id x4; /* Warning: Unrecognized filer type: '?' using 'void*' */ void*x5; id x6; boolx7; double x8; double x9; float x10; float x11; double x12; boolx13; boolx14; id x15; void*x16; int x17; float x18; float x19; float x20; float x21; struct SKCAction {} *x22; unsigned int x23; unsigned int x24; BOOL x25; } *_mycaction;
-    SKAction *_repeatedAction;
+    struct SKCRepeat { int (**x1)(); unsigned int x2; float x3; id /* block */ x4; id x5; double x6; double x7; float x8; float x9; double x10; bool x11; bool x12; id /* block */ x13; long long x14; float x15; float x16; float x17; float x18; struct SKCAction {} *x19; unsigned long long x20; unsigned long long x21; bool x22; } * _mycaction;
+    SKAction * _repeatedAction;
 }
 
-+ (id)repeatAction:(id)arg1 count:(unsigned int)arg2;
++ (id)repeatAction:(id)arg1 count:(unsigned long long)arg2;
 + (id)repeatActionForever:(id)arg1;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -27,5 +17,6 @@
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)reversedAction;
+- (id)subactions;
 
 @end

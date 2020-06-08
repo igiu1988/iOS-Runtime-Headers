@@ -2,11 +2,11 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@interface NSValueTransformer : NSObject {
-}
+@interface NSValueTransformer : NSObject
 
-+ (id)_transformerRegistry;
-+ (BOOL)allowsReverseTransformation;
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
+
++ (bool)allowsReverseTransformation;
 + (void)setValueTransformer:(id)arg1 forName:(id)arg2;
 + (Class)transformedValueClass;
 + (id)valueTransformerForName:(id)arg1;
@@ -14,5 +14,9 @@
 
 - (id)reverseTransformedValue:(id)arg1;
 - (id)transformedValue:(id)arg1;
+
+// Image: /Developer/Library/PrivateFrameworks/DVTInstrumentsUtilities.framework/DVTInstrumentsUtilities
+
++ (void)xr_registerSecureUnarchiveTransformer;
 
 @end

@@ -2,36 +2,45 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@class MFMimePart;
-
-@interface MFMimeBody : MFMessageBody {
-    unsigned int _preferredAlternative : 16;
-    unsigned int _numAlternatives : 16;
-    MFMimePart *_topLevelPart;
+@interface MFMimeBody : MFMessageBody <ECMimePart> {
+    long long  _encryptedDescendantState;
+    unsigned int  _numAlternatives;
+    unsigned int  _preferredAlternative;
+    MFMimePart * _topLevelPart;
 }
+
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) bool hasEncryptedDescendantPart;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly, copy) NSString *mimeSubtype;
+@property (nonatomic, readonly, copy) NSString *mimeType;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) MFMimePart *topLevelPart;
+@property (nonatomic, readonly) unsigned long long totalTextSize;
 
 + (id)copyNewMimeBoundary;
 + (id)versionString;
 
 - (id)attachmentURLs;
 - (id)attachments;
-- (id)contentToOffset:(unsigned int)arg1 resultOffset:(unsigned int*)arg2 asHTML:(BOOL)arg3 isComplete:(BOOL*)arg4;
+- (id)contentToOffset:(unsigned long long)arg1 resultOffset:(unsigned long long*)arg2 asHTML:(bool)arg3 isComplete:(bool*)arg4;
 - (void)dealloc;
-- (id)firstPartPassingTest:(id)arg1;
+- (bool)hasEncryptedDescendantPart;
 - (id)init;
-- (BOOL)isHTML;
-- (BOOL)isRich;
+- (bool)isHTML;
+- (bool)isRich;
 - (id)mimeSubtype;
 - (id)mimeType;
-- (int)numberOfAlternatives;
-- (unsigned int)numberOfAttachmentsSigned:(BOOL*)arg1 encrypted:(BOOL*)arg2;
+- (long long)numberOfAlternatives;
+- (unsigned int)numberOfAttachmentsSigned:(bool*)arg1 encrypted:(bool*)arg2;
 - (id)partWithNumber:(id)arg1;
-- (int)preferredAlternative;
+- (long long)preferredAlternative;
 - (id)preferredBodyPart;
-- (void)setPreferredAlternative:(int)arg1;
+- (void)setPreferredAlternative:(long long)arg1;
 - (void)setTopLevelPart:(id)arg1;
 - (id)textHtmlPart;
 - (id)topLevelPart;
-- (unsigned int)totalTextSize;
+- (unsigned long long)totalTextSize;
 
 @end

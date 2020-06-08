@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVXMLData, NSDictionary, NSMutableDictionary, NSString;
-
 @interface CoreDAVMultiPutTask : CoreDAVTask {
-    NSString *_appSpecificDataProp;
-    NSString *_appSpecificNamespace;
-    NSString *_checkCTag;
-    NSMutableDictionary *_hrefToETag;
-    NSMutableDictionary *_hrefToErrorItems;
-    NSMutableDictionary *_hrefToStatus;
-    NSString *_nextCTag;
-    CoreDAVXMLData *_pushedData;
-    NSMutableDictionary *_uuidToErrorItems;
-    NSMutableDictionary *_uuidToHREF;
-    NSMutableDictionary *_uuidToStatus;
-    BOOL _validCTag;
+    NSString * _appSpecificDataProp;
+    NSString * _appSpecificNamespace;
+    NSString * _checkCTag;
+    NSMutableDictionary * _hrefToETag;
+    NSMutableDictionary * _hrefToErrorItems;
+    NSMutableDictionary * _hrefToStatus;
+    NSString * _nextCTag;
+    CoreDAVXMLData * _pushedData;
+    NSMutableDictionary * _uuidToErrorItems;
+    NSMutableDictionary * _uuidToHREF;
+    NSMutableDictionary * _uuidToStatus;
+    bool  _validCTag;
 }
 
-@property(readonly) NSDictionary * hrefToETag;
-@property(readonly) NSDictionary * hrefToErrorItems;
-@property(readonly) NSDictionary * hrefToStatus;
-@property(readonly) NSString * nextCTag;
-@property(readonly) NSDictionary * uuidToErrorItems;
-@property(readonly) NSDictionary * uuidToHREF;
-@property(readonly) NSDictionary * uuidToStatus;
+@property (nonatomic, readonly) NSDictionary *hrefToETag;
+@property (nonatomic, readonly) NSDictionary *hrefToErrorItems;
+@property (nonatomic, readonly) NSDictionary *hrefToStatus;
+@property (nonatomic, readonly) NSString *nextCTag;
+@property (nonatomic, readonly) NSDictionary *uuidToErrorItems;
+@property (nonatomic, readonly) NSDictionary *uuidToHREF;
+@property (nonatomic, readonly) NSDictionary *uuidToStatus;
 
+- (void).cxx_destruct;
 - (id)additionalHeaderValues;
 - (id)copyDefaultParserForContentType:(id)arg1;
-- (void)dealloc;
 - (void)fillOutDataWithUUIDsToAddActions:(id)arg1 hrefsToModDeleteActions:(id)arg2;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)hrefToETag;

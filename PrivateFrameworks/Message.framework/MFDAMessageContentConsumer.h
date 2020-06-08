@@ -2,32 +2,30 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class <MFCollectingDataConsumer>, <MFMessageDataConsumerFactory>, DAMailMessage, NSMutableData, NSString;
-
 @interface MFDAMessageContentConsumer : NSObject <MFDAStreamingContentConsumer> {
-    <MFCollectingDataConsumer> *_alternatePartConsumer;
-    NSMutableData *_bodyData;
-    <MFMessageDataConsumerFactory> *_consumerFactory;
-    <MFCollectingDataConsumer> *_dataConsumer;
-    BOOL _didBeginStreaming;
-    DAMailMessage *_message;
-    int _requestedFormat;
-    BOOL _succeeded;
-    double _timeOfLastActivity;
-    BOOL _triedCreatingAlternatePartConsumer;
+    <MFCollectingDataConsumer> * _alternatePartConsumer;
+    NSMutableData * _bodyData;
+    <MFMessageDataConsumerFactory> * _consumerFactory;
+    <MFCollectingDataConsumer> * _dataConsumer;
+    bool  _didBeginStreaming;
+    DAMailMessage * _message;
+    int  _requestedFormat;
+    bool  _succeeded;
+    double  _timeOfLastActivity;
+    bool  _triedCreatingAlternatePartConsumer;
 }
 
-@property(retain) <MFCollectingDataConsumer> * alternatePartConsumer;
-@property(retain,readonly) NSMutableData * bodyData;
-@property(retain) <MFMessageDataConsumerFactory> * consumerFactory;
-@property(retain) <MFCollectingDataConsumer> * dataConsumer;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain,readonly) DAMailMessage * message;
-@property int requestedFormat;
-@property(readonly) Class superclass;
-@property(readonly) double timeOfLastActivity;
+@property (nonatomic, retain) <MFCollectingDataConsumer> *alternatePartConsumer;
+@property (nonatomic, readonly, retain) NSMutableData *bodyData;
+@property (nonatomic, retain) <MFMessageDataConsumerFactory> *consumerFactory;
+@property (nonatomic, retain) <MFCollectingDataConsumer> *dataConsumer;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly, retain) DAMailMessage *message;
+@property (nonatomic) int requestedFormat;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) double timeOfLastActivity;
 
 - (id)alternatePartConsumer;
 - (id)bodyData;
@@ -37,7 +35,7 @@
 - (id)dataConsumer;
 - (id)dataConsumerForPart:(id)arg1;
 - (void)dealloc;
-- (BOOL)didBeginStreaming;
+- (bool)didBeginStreaming;
 - (void)didEndStreamingForMailMessage:(id)arg1;
 - (id)message;
 - (int)requestedFormat;
@@ -45,8 +43,8 @@
 - (void)setConsumerFactory:(id)arg1;
 - (void)setDataConsumer:(id)arg1;
 - (void)setRequestedFormat:(int)arg1;
-- (BOOL)shouldBeginStreamingForMailMessage:(id)arg1 format:(int)arg2;
-- (BOOL)succeeded;
+- (bool)shouldBeginStreamingForMailMessage:(id)arg1 format:(int)arg2;
+- (bool)succeeded;
 - (double)timeOfLastActivity;
 
 @end

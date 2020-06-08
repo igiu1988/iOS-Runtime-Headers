@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
  */
 
-@class NSObject;
-
 @interface BLTObjectCacheItem : NSObject {
-    double _lastAccessedDate;
-    NSObject *_object;
+    double  _lastAccessedDate;
+    <NSSecureCoding> * _object;
 }
 
-@property(readonly) double lastAccessedDate;
-@property(readonly) NSObject * object;
+@property (nonatomic, readonly) double lastAccessedDate;
+@property (nonatomic, readonly) <NSSecureCoding> *object;
 
 + (id)cacheItemWithObject:(id)arg1;
 

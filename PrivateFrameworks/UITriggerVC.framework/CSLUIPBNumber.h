@@ -3,57 +3,57 @@
  */
 
 @interface CSLUIPBNumber : PBCodable <NSCopying> {
+    bool  _boolValue;
+    double  _doubleValue;
+    float  _floatValue;
     struct { 
         unsigned int doubleValue : 1; 
         unsigned int int64Value : 1; 
         unsigned int floatValue : 1; 
         unsigned int int32Value : 1; 
         unsigned int boolValue : 1; 
-    BOOL _boolValue;
-    double _doubleValue;
-    float _floatValue;
-    } _has;
-    int _int32Value;
-    long long _int64Value;
+    }  _has;
+    int  _int32Value;
+    long long  _int64Value;
 }
 
-@property BOOL boolValue;
-@property double doubleValue;
-@property float floatValue;
-@property BOOL hasBoolValue;
-@property BOOL hasDoubleValue;
-@property BOOL hasFloatValue;
-@property BOOL hasInt32Value;
-@property BOOL hasInt64Value;
-@property int int32Value;
-@property long long int64Value;
+@property (nonatomic) bool boolValue;
+@property (nonatomic) double doubleValue;
+@property (nonatomic) float floatValue;
+@property (nonatomic) bool hasBoolValue;
+@property (nonatomic) bool hasDoubleValue;
+@property (nonatomic) bool hasFloatValue;
+@property (nonatomic) bool hasInt32Value;
+@property (nonatomic) bool hasInt64Value;
+@property (nonatomic) int int32Value;
+@property (nonatomic) long long int64Value;
 
-- (BOOL)boolValue;
+- (bool)boolValue;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (double)doubleValue;
 - (float)floatValue;
-- (BOOL)hasBoolValue;
-- (BOOL)hasDoubleValue;
-- (BOOL)hasFloatValue;
-- (BOOL)hasInt32Value;
-- (BOOL)hasInt64Value;
-- (unsigned int)hash;
+- (bool)hasBoolValue;
+- (bool)hasDoubleValue;
+- (bool)hasFloatValue;
+- (bool)hasInt32Value;
+- (bool)hasInt64Value;
+- (unsigned long long)hash;
 - (int)int32Value;
 - (long long)int64Value;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setBoolValue:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setBoolValue:(bool)arg1;
 - (void)setDoubleValue:(double)arg1;
 - (void)setFloatValue:(float)arg1;
-- (void)setHasBoolValue:(BOOL)arg1;
-- (void)setHasDoubleValue:(BOOL)arg1;
-- (void)setHasFloatValue:(BOOL)arg1;
-- (void)setHasInt32Value:(BOOL)arg1;
-- (void)setHasInt64Value:(BOOL)arg1;
+- (void)setHasBoolValue:(bool)arg1;
+- (void)setHasDoubleValue:(bool)arg1;
+- (void)setHasFloatValue:(bool)arg1;
+- (void)setHasInt32Value:(bool)arg1;
+- (void)setHasInt64Value:(bool)arg1;
 - (void)setInt32Value:(int)arg1;
 - (void)setInt64Value:(long long)arg1;
 - (void)writeTo:(id)arg1;

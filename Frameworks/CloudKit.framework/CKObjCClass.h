@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray, NSDictionary, NSString;
-
 @interface CKObjCClass : NSObject {
-    Class _handle;
-    NSString *_name;
-    NSDictionary *_propertiesByName;
-    NSArray *_sortedProperties;
+    Class  _handle;
+    NSString * _name;
+    NSDictionary * _propertiesByName;
+    NSArray * _sortedProperties;
 }
 
-@property(readonly) Class handle;
-@property(readonly) NSString * name;
-@property(readonly) NSDictionary * propertiesByName;
-@property(readonly) NSArray * sortedProperties;
+@property (nonatomic, readonly) Class handle;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSDictionary *propertiesByName;
+@property (nonatomic, readonly) NSArray *sortedProperties;
 
 + (id)classForHandle:(Class)arg1;
 + (id)classForObject:(id)arg1;

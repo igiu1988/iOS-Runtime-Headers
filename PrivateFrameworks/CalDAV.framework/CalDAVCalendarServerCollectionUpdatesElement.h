@@ -3,10 +3,10 @@
  */
 
 @interface CalDAVCalendarServerCollectionUpdatesElement : CalDAVCalendarServerResourceChangeElement {
-    int _state;
+    int  _state;
 }
 
-@property(readonly) int state;
+@property (nonatomic, readonly) int state;
 
 - (id)copyParseRules;
 - (void)setPublish:(id)arg1;

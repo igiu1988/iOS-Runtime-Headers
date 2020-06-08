@@ -2,48 +2,55 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@class NSString;
-
 @interface TIKeyboardLayoutState : NSObject <NSCopying, NSSecureCoding> {
-    BOOL _canMultitap;
-    BOOL _hasAccentKey;
-    BOOL _hasCandidateKey;
-    NSString *_inputMode;
-    BOOL _interfaceIdiomIsPad;
-    BOOL _isAlphabeticPlane;
-    NSString *_layoutTag;
+    bool  _canMultitap;
+    bool  _diacriticForwardCompose;
+    bool  _hasAccentKey;
+    bool  _hasCandidateKey;
+    NSString * _inputMode;
+    bool  _interfaceIdiomIsPad;
+    bool  _isAlphabeticPlane;
+    NSString * _layoutTag;
+    long long  _userInterfaceIdiom;
 }
 
-@property BOOL canMultitap;
-@property BOOL hasAccentKey;
-@property BOOL hasCandidateKey;
-@property(copy) NSString * inputMode;
-@property BOOL interfaceIdiomIsPad;
-@property BOOL isAlphabeticPlane;
-@property(copy) NSString * layoutTag;
+@property (nonatomic) bool canMultitap;
+@property (nonatomic) bool diacriticForwardCompose;
+@property (nonatomic) bool hasAccentKey;
+@property (nonatomic) bool hasCandidateKey;
+@property (nonatomic, copy) NSString *inputMode;
+@property (nonatomic) bool interfaceIdiomIsPad;
+@property (nonatomic) bool isAlphabeticPlane;
+@property (nonatomic, copy) NSString *layoutTag;
+@property (nonatomic) long long userInterfaceIdiom;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (BOOL)canMultitap;
+- (void).cxx_destruct;
+- (bool)canMultitap;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
+- (bool)diacriticForwardCompose;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)hasAccentKey;
-- (BOOL)hasCandidateKey;
-- (unsigned int)hash;
+- (bool)hasAccentKey;
+- (bool)hasCandidateKey;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)inputMode;
-- (BOOL)interfaceIdiomIsPad;
-- (BOOL)isAlphabeticPlane;
-- (BOOL)isEqual:(id)arg1;
+- (bool)interfaceIdiomIsPad;
+- (bool)isAlphabeticPlane;
+- (bool)isEqual:(id)arg1;
 - (id)layoutTag;
-- (void)setCanMultitap:(BOOL)arg1;
-- (void)setHasAccentKey:(BOOL)arg1;
-- (void)setHasCandidateKey:(BOOL)arg1;
+- (void)setCanMultitap:(bool)arg1;
+- (void)setDiacriticForwardCompose:(bool)arg1;
+- (void)setHasAccentKey:(bool)arg1;
+- (void)setHasCandidateKey:(bool)arg1;
 - (void)setInputMode:(id)arg1;
-- (void)setInterfaceIdiomIsPad:(BOOL)arg1;
-- (void)setIsAlphabeticPlane:(BOOL)arg1;
+- (void)setInterfaceIdiomIsPad;
+- (void)setInterfaceIdiomIsPad:(bool)arg1;
+- (void)setIsAlphabeticPlane:(bool)arg1;
 - (void)setLayoutTag:(id)arg1;
+- (void)setUserInterfaceIdiom:(long long)arg1;
+- (long long)userInterfaceIdiom;
 
 @end

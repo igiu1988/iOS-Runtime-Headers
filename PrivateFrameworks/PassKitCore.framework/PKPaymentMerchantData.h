@@ -2,21 +2,21 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSData, NSString;
-
 @interface PKPaymentMerchantData : NSObject {
-    NSData *_applicationData;
-    NSString *_merchantIdentifier;
+    NSData * _applicationData;
+    NSString * _merchantIdentifier;
+    PKPaymentMerchantSession * _merchantSession;
 }
 
-@property(retain) NSData * applicationData;
-@property(retain) NSString * merchantIdentifier;
+@property (nonatomic, readonly) NSData *applicationData;
+@property (nonatomic, readonly) NSString *merchantIdentifier;
 
+- (void).cxx_destruct;
 - (id)applicationData;
-- (void)dealloc;
 - (id)encode;
+- (id)init;
+- (id)initWithMerchantIdentifier:(id)arg1 applicationData:(id)arg2;
+- (id)initWithPaymentRequest:(id)arg1;
 - (id)merchantIdentifier;
-- (void)setApplicationData:(id)arg1;
-- (void)setMerchantIdentifier:(id)arg1;
 
 @end

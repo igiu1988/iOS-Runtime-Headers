@@ -2,53 +2,66 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLatLng;
-
 @interface GEORoadAccessPoint : PBCodable <NSCopying> {
+    int  _drivingDirection;
     struct { 
         unsigned int drivingDirection : 1; 
+        unsigned int significance : 1; 
         unsigned int walkingDirection : 1; 
         unsigned int isApproximate : 1; 
-    int _drivingDirection;
-    } _has;
-    BOOL _isApproximate;
-    GEOLatLng *_location;
-    int _walkingDirection;
+    }  _has;
+    bool  _isApproximate;
+    GEOLatLng * _location;
+    unsigned int  _significance;
+    PBUnknownFields * _unknownFields;
+    int  _walkingDirection;
 }
 
-@property int drivingDirection;
-@property BOOL hasDrivingDirection;
-@property BOOL hasIsApproximate;
-@property(readonly) BOOL hasLocation;
-@property BOOL hasWalkingDirection;
-@property BOOL isApproximate;
-@property(retain) GEOLatLng * location;
-@property int walkingDirection;
+@property (nonatomic) int drivingDirection;
+@property (nonatomic) bool hasDrivingDirection;
+@property (nonatomic) bool hasIsApproximate;
+@property (nonatomic, readonly) bool hasLocation;
+@property (nonatomic) bool hasSignificance;
+@property (nonatomic) bool hasWalkingDirection;
+@property (nonatomic) bool isApproximate;
+@property (nonatomic, retain) GEOLatLng *location;
+@property (nonatomic) unsigned int significance;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
+@property (nonatomic) int walkingDirection;
 
+- (void).cxx_destruct;
+- (int)StringAsDrivingDirection:(id)arg1;
+- (int)StringAsWalkingDirection:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (int)drivingDirection;
-- (BOOL)hasDrivingDirection;
-- (BOOL)hasIsApproximate;
-- (BOOL)hasLocation;
-- (BOOL)hasWalkingDirection;
-- (unsigned int)hash;
-- (BOOL)isApproximate;
-- (BOOL)isEqual:(id)arg1;
+- (id)drivingDirectionAsString:(int)arg1;
+- (bool)hasDrivingDirection;
+- (bool)hasIsApproximate;
+- (bool)hasLocation;
+- (bool)hasSignificance;
+- (bool)hasWalkingDirection;
+- (unsigned long long)hash;
+- (bool)isApproximate;
+- (bool)isEqual:(id)arg1;
 - (id)location;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setDrivingDirection:(int)arg1;
-- (void)setHasDrivingDirection:(BOOL)arg1;
-- (void)setHasIsApproximate:(BOOL)arg1;
-- (void)setHasWalkingDirection:(BOOL)arg1;
-- (void)setIsApproximate:(BOOL)arg1;
+- (void)setHasDrivingDirection:(bool)arg1;
+- (void)setHasIsApproximate:(bool)arg1;
+- (void)setHasSignificance:(bool)arg1;
+- (void)setHasWalkingDirection:(bool)arg1;
+- (void)setIsApproximate:(bool)arg1;
 - (void)setLocation:(id)arg1;
+- (void)setSignificance:(unsigned int)arg1;
 - (void)setWalkingDirection:(int)arg1;
+- (unsigned int)significance;
+- (id)unknownFields;
 - (int)walkingDirection;
+- (id)walkingDirectionAsString:(int)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

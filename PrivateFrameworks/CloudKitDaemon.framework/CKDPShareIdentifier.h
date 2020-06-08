@@ -2,33 +2,32 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPIdentifier;
-
 @interface CKDPShareIdentifier : PBCodable <NSCopying> {
-    CKDPIdentifier *_ownerIdentifier;
-    CKDPIdentifier *_value;
+    CKDPIdentifier * _value;
+    CKDPRecordZoneIdentifier * _zoneIdentifier;
 }
 
-@property(readonly) BOOL hasOwnerIdentifier;
-@property(readonly) BOOL hasValue;
-@property(retain) CKDPIdentifier * ownerIdentifier;
-@property(retain) CKDPIdentifier * value;
+@property (nonatomic, readonly) bool hasValue;
+@property (nonatomic, readonly) bool hasZoneIdentifier;
+@property (nonatomic, retain) CKDPIdentifier *value;
+@property (nonatomic, retain) CKDPRecordZoneIdentifier *zoneIdentifier;
 
 - (void).cxx_destruct;
+- (void)_CKLogToFileHandle:(id)arg1 atDepth:(int)arg2;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasOwnerIdentifier;
-- (BOOL)hasValue;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasValue;
+- (bool)hasZoneIdentifier;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (id)ownerIdentifier;
-- (BOOL)readFrom:(id)arg1;
-- (void)setOwnerIdentifier:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setValue:(id)arg1;
+- (void)setZoneIdentifier:(id)arg1;
 - (id)value;
 - (void)writeTo:(id)arg1;
+- (id)zoneIdentifier;
 
 @end

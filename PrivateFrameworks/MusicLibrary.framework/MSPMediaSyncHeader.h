@@ -6,31 +6,33 @@
     struct { 
         unsigned int syncType : 1; 
         unsigned int totalPackages : 1; 
-    } _has;
-    int _syncType;
-    int _totalPackages;
+    }  _has;
+    int  _syncType;
+    int  _totalPackages;
 }
 
-@property BOOL hasSyncType;
-@property BOOL hasTotalPackages;
-@property int syncType;
-@property int totalPackages;
+@property (nonatomic) bool hasSyncType;
+@property (nonatomic) bool hasTotalPackages;
+@property (nonatomic) int syncType;
+@property (nonatomic) int totalPackages;
 
+- (int)StringAsSyncType:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasSyncType;
-- (BOOL)hasTotalPackages;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasSyncType;
+- (bool)hasTotalPackages;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasSyncType:(BOOL)arg1;
-- (void)setHasTotalPackages:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasSyncType:(bool)arg1;
+- (void)setHasTotalPackages:(bool)arg1;
 - (void)setSyncType:(int)arg1;
 - (void)setTotalPackages:(int)arg1;
 - (int)syncType;
+- (id)syncTypeAsString:(int)arg1;
 - (int)totalPackages;
 - (void)writeTo:(id)arg1;
 

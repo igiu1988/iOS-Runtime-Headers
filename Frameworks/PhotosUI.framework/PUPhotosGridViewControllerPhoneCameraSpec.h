@@ -2,9 +2,6 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUPhotosGridViewControllerPhoneCameraSpec : PUPhotosGridViewControllerPhoneSpec {
-}
-
-- (id)photoBrowserSpec;
+@interface PUPhotosGridViewControllerPhoneCameraSpec : PUPhotosGridViewControllerPhoneSpec
 
 @end

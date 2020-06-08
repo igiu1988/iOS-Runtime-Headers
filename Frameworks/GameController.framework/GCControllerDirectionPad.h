@@ -2,28 +2,26 @@
    Image: /System/Library/Frameworks/GameController.framework/GameController
  */
 
-@class GCControllerAxisInput, GCControllerButtonInput;
+@interface GCControllerDirectionPad : GCControllerElement
 
-@interface GCControllerDirectionPad : GCControllerElement {
-}
-
-@property(readonly) GCControllerButtonInput * down;
-@property(readonly) GCControllerButtonInput * left;
-@property(readonly) GCControllerButtonInput * right;
-@property(readonly) GCControllerButtonInput * up;
-@property(copy) id valueChangedHandler;
-@property(readonly) GCControllerAxisInput * xAxis;
-@property(readonly) GCControllerAxisInput * yAxis;
+@property (nonatomic, readonly) GCControllerButtonInput *down;
+@property (nonatomic, readonly) GCControllerButtonInput *left;
+@property (nonatomic, readonly) GCControllerButtonInput *right;
+@property (nonatomic, readonly) GCControllerButtonInput *up;
+@property (nonatomic, copy) id /* block */ valueChangedHandler;
+@property (nonatomic, readonly) GCControllerAxisInput *xAxis;
+@property (nonatomic, readonly) GCControllerAxisInput *yAxis;
 
 - (id)description;
 - (id)down;
-- (id)initWithFlippedY:(BOOL)arg1 digital:(BOOL)arg2;
+- (id)initWithFlippedY:(bool)arg1 digital:(bool)arg2;
 - (id)left;
 - (id)right;
-- (BOOL)setHIDValue:(struct __IOHIDValue { }*)arg1;
-- (void)setValueChangedHandler:(id)arg1;
+- (bool)setHIDValue:(struct __IOHIDValue { }*)arg1;
+- (bool)setHIDValue:(struct __IOHIDValue { }*)arg1 queue:(id)arg2;
+- (void)setValueChangedHandler:(id /* block */)arg1;
 - (id)up;
-- (id)valueChangedHandler;
+- (id /* block */)valueChangedHandler;
 - (id)xAxis;
 - (id)yAxis;
 

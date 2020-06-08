@@ -3,29 +3,29 @@
  */
 
 @interface PUGridPinchGestureRecognizer : UIPinchGestureRecognizer {
+    double  _lastTransitionProgress;
     struct CGPoint { 
-        float x; 
-        float y; 
+        double x; 
+        double y; 
+    }  _touch0InitialLocation;
     struct CGPoint { 
-        float x; 
-        float y; 
-    float _lastTransitionProgress;
-    } _touch0InitialLocation;
-    } _touch1InitialLocation;
-    unsigned int _transitionDirection;
+        double x; 
+        double y; 
+    }  _touch1InitialLocation;
+    unsigned long long  _transitionDirection;
 }
 
-@property(readonly) struct CGSize { float x1; float x2; } centerOffset;
-@property(readonly) unsigned int transitionDirection;
-@property(readonly) float transitionProgress;
-@property(readonly) BOOL transitionShouldFinish;
+@property (nonatomic, readonly) struct CGSize { double x1; double x2; } centerOffset;
+@property (nonatomic, readonly) unsigned long long transitionDirection;
+@property (nonatomic, readonly) double transitionProgress;
+@property (nonatomic, readonly) bool transitionShouldFinish;
 
 - (void)_resetTransitionState;
-- (struct CGSize { float x1; float x2; })centerOffset;
+- (struct CGSize { double x1; double x2; })centerOffset;
 - (void)reset;
-- (void)setState:(int)arg1;
-- (unsigned int)transitionDirection;
-- (float)transitionProgress;
-- (BOOL)transitionShouldFinish;
+- (void)setState:(long long)arg1;
+- (unsigned long long)transitionDirection;
+- (double)transitionProgress;
+- (bool)transitionShouldFinish;
 
 @end

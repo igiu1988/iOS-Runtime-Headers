@@ -2,12 +2,26 @@
    Image: /System/Library/PrivateFrameworks/CompassUI.framework/CompassUI
  */
 
-@class CompassAtlas, CompassShader, EAGLContext, GLKView, NSString;
-
 @interface CompassBackgroundView : CompassRotatingView <GLKViewDelegate> {
+    double  _bearing;
     struct CGPoint { 
-        float x; 
-        float y; 
+        double x; 
+        double y; 
+    }  _compassCenter;
+    EAGLContext * _context;
+    struct CGPoint { 
+        double x; 
+        double y; 
+    }  _currentOffset;
+    GLKView * _glView;
+    CompassAtlas * _imageAtlas;
+    CompassShader * _knockoutShader;
+    unsigned int  _labelsIndexBuffer;
+    unsigned int * _labelsIndexes;
+    struct { float x1; float x2; float x3; float x4; struct { float x_5_1_1; float x_5_1_2; float x_5_1_3; float x_5_1_4; } x5; } * _labelsPoints;
+    unsigned int  _labelsVertexArray;
+    unsigned int  _labelsVertexBuffer;
+    CompassShader * _lineShader;
     union _GLKMatrix4 { 
         struct { 
             float m00; 
@@ -28,6 +42,11 @@
             float m33; 
         } ; 
         float m[16]; 
+    }  _modelViewMatrix;
+    CompassShader * _normalShader;
+    unsigned int  _otherLinesIndexBuffer;
+    unsigned int  _otherLinesVertexArray;
+    unsigned int  _otherLinesVertexBuffer;
     union _GLKMatrix4 { 
         struct { 
             float m00; 
@@ -48,67 +67,47 @@
             float m33; 
         } ; 
         float m[16]; 
-    struct CGPoint { 
-        float x; 
-        float y; 
-    float _bearing;
-    } _compassCenter;
-    EAGLContext *_context;
-    } _currentOffset;
-    GLKView *_glView;
-    CompassAtlas *_imageAtlas;
-    CompassShader *_knockoutShader;
-    unsigned int _labelsIndexBuffer;
-    unsigned int *_labelsIndexes;
-    struct { float x1; float x2; float x3; float x4; struct { float x_5_1_1; float x_5_1_2; float x_5_1_3; float x_5_1_4; } x5; } *_labelsPoints;
-    unsigned int _labelsVertexArray;
-    unsigned int _labelsVertexBuffer;
-    CompassShader *_lineShader;
-    } _modelViewMatrix;
-    CompassShader *_normalShader;
-    unsigned int _otherLinesIndexBuffer;
-    unsigned int _otherLinesVertexArray;
-    unsigned int _otherLinesVertexBuffer;
-    } _projectionMatrix;
-    BOOL _shownInCompass;
-    CompassShader *_textureShader;
-    unsigned int _ticIndexBuffer;
-    unsigned int *_ticIndexes;
-    float _ticLength;
-    struct { float x1; float x2; float x3; float x4; float x5; float x6; struct { float x_7_1_1; float x_7_1_2; float x_7_1_3; float x_7_1_4; } x7; } *_ticPoints;
-    float _ticRadius;
-    unsigned int _ticVertexArray;
-    unsigned int _ticVertexBuffer;
+    }  _projectionMatrix;
+    bool  _shownInCompass;
+    CompassShader * _textureShader;
+    unsigned int  _ticIndexBuffer;
+    unsigned int * _ticIndexes;
+    double  _ticLength;
+    struct { float x1; float x2; float x3; float x4; float x5; float x6; struct { float x_7_1_1; float x_7_1_2; float x_7_1_3; float x_7_1_4; } x7; } * _ticPoints;
+    double  _ticRadius;
+    unsigned int  _ticVertexArray;
+    unsigned int  _ticVertexBuffer;
 }
 
-@property float bearing;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
-@property(readonly) float ticLength;
-@property float ticRadius;
+@property (nonatomic) double bearing;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) double ticLength;
+@property (nonatomic) double ticRadius;
 
-- (float)bearing;
+- (void).cxx_destruct;
+- (double)bearing;
 - (void)dealloc;
 - (void)generateCompassPoints;
 - (void)generateExtraLines;
 - (void)generateNumberAtlas;
-- (void)glkView:(id)arg1 drawInRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg2;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 forCompass:(BOOL)arg2;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)glkView:(id)arg1 drawInRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg2;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 forCompass:(bool)arg2;
 - (void)layoutSubviews;
-- (void)positionLabelNamed:(id)arg1 atDegrees:(int)arg2 fromCenter:(struct CGPoint { float x1; float x2; })arg3 withRadius:(float)arg4 vertexOffset:(unsigned int)arg5 color:(struct { float x1; float x2; float x3; float x4; })arg6;
+- (void)positionLabelNamed:(id)arg1 atDegrees:(long long)arg2 fromCenter:(struct CGPoint { double x1; double x2; })arg3 withRadius:(double)arg4 vertexOffset:(unsigned long long)arg5 color:(struct { float x1; float x2; float x3; float x4; })arg6;
 - (void)positionLabels;
-- (void)renderCrosshairInRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (void)setBearing:(float)arg1;
+- (void)renderCrosshairInRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setBearing:(double)arg1;
 - (void)setCompassHeading:(double)arg1;
-- (BOOL)setCrosshairOffset:(struct CGSize { float x1; float x2; })arg1;
-- (void)setTicRadius:(float)arg1;
+- (bool)setCrosshairOffset:(struct CGSize { double x1; double x2; })arg1;
+- (void)setTicRadius:(double)arg1;
 - (void)setupGL;
 - (void)tearDownGL;
-- (float)ticLength;
-- (float)ticRadius;
+- (double)ticLength;
+- (double)ticRadius;
 - (void)updateDisplay;
 
 @end

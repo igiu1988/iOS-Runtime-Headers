@@ -3,27 +3,27 @@
  */
 
 @interface PBBProtoDidMakeAutoLockChoice : PBCodable <NSCopying> {
+    bool  _accept;
     struct { 
         unsigned int accept : 1; 
-    BOOL _accept;
-    } _has;
+    }  _has;
 }
 
-@property BOOL accept;
-@property BOOL hasAccept;
+@property (nonatomic) bool accept;
+@property (nonatomic) bool hasAccept;
 
-- (BOOL)accept;
+- (bool)accept;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasAccept;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasAccept;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setAccept:(BOOL)arg1;
-- (void)setHasAccept:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setAccept:(bool)arg1;
+- (void)setHasAccept:(bool)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

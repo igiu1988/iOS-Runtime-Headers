@@ -2,15 +2,12 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class IKViewElement;
+@interface IKListElement : IKCollectionElement
 
-@interface IKListElement : IKCollectionElement {
-}
+@property (nonatomic, readonly) bool isLeftAligned;
+@property (nonatomic, readonly, retain) IKViewElement *relatedContent;
 
-@property(readonly) BOOL isLeftAligned;
-@property(retain,readonly) IKViewElement * relatedContent;
-
-- (BOOL)isLeftAligned;
+- (bool)isLeftAligned;
 - (id)relatedContent;
 
 @end

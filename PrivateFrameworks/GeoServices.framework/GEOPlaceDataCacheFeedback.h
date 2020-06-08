@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPDPlaceRequest, NSString;
-
 @interface GEOPlaceDataCacheFeedback : PBCodable <NSCopying> {
-    NSString *_bundleIdentifier;
-    GEOPDPlaceRequest *_request;
+    NSString * _bundleIdentifier;
+    GEOPDPlaceRequest * _request;
 }
 
-@property(retain) NSString * bundleIdentifier;
-@property(readonly) BOOL hasBundleIdentifier;
-@property(readonly) BOOL hasRequest;
-@property(retain) GEOPDPlaceRequest * request;
+@property (nonatomic, retain) NSString *bundleIdentifier;
+@property (nonatomic, readonly) bool hasBundleIdentifier;
+@property (nonatomic, readonly) bool hasRequest;
+@property (nonatomic, retain) GEOPDPlaceRequest *request;
 
+- (void).cxx_destruct;
 - (id)bundleIdentifier;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasBundleIdentifier;
-- (BOOL)hasRequest;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasBundleIdentifier;
+- (bool)hasRequest;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)request;
 - (void)setBundleIdentifier:(id)arg1;
 - (void)setRequest:(id)arg1;

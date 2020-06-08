@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureInputInternal, NSArray;
-
 @interface AVCaptureInput : NSObject {
-    AVCaptureInputInternal *_inputInternal;
+    AVCaptureInputInternal * _inputInternal;
 }
 
-@property(readonly) NSArray * ports;
+@property (nonatomic, readonly) NSArray *ports;
 
 + (void)initialize;
 
@@ -18,8 +16,8 @@
 - (void)dealloc;
 - (void)detachFromFigCaptureSession:(struct OpaqueFigCaptureSession { }*)arg1;
 - (void)detachSafelyFromFigCaptureSession:(struct OpaqueFigCaptureSession { }*)arg1;
-- (id)init;
-- (void)performFigCaptureSessionOperationSafelyUsingBlock:(id)arg1;
+- (id)initSubclass;
+- (void)performFigCaptureSessionOperationSafelyUsingBlock:(id /* block */)arg1;
 - (id)ports;
 - (id)session;
 - (void)setSession:(id)arg1;

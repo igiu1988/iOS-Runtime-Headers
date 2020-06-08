@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVHrefItem, CoreDAVItem, CoreDAVItemWithNoChildren;
-
 @interface CoreDAVPrincipalItem : CoreDAVItem {
-    CoreDAVItemWithNoChildren *_all;
-    CoreDAVItemWithNoChildren *_authenticated;
-    CoreDAVHrefItem *_href;
-    CoreDAVItem *_property;
-    CoreDAVItemWithNoChildren *_selfItem;
-    CoreDAVItemWithNoChildren *_unauthenticated;
+    CoreDAVItemWithNoChildren * _all;
+    CoreDAVItemWithNoChildren * _authenticated;
+    CoreDAVHrefItem * _href;
+    CoreDAVItem * _property;
+    CoreDAVItemWithNoChildren * _selfItem;
+    CoreDAVItemWithNoChildren * _unauthenticated;
 }
 
-@property(retain) CoreDAVItemWithNoChildren * all;
-@property(retain) CoreDAVItemWithNoChildren * authenticated;
-@property(retain) CoreDAVHrefItem * href;
-@property(retain) CoreDAVItem * property;
-@property(retain) CoreDAVItemWithNoChildren * selfItem;
-@property(retain) CoreDAVItemWithNoChildren * unauthenticated;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *all;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *authenticated;
+@property (nonatomic, retain) CoreDAVHrefItem *href;
+@property (nonatomic, retain) CoreDAVItem *property;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *selfItem;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *unauthenticated;
 
 + (id)copyParseRules;
 
+- (void).cxx_destruct;
 - (id)all;
 - (id)authenticated;
-- (void)dealloc;
 - (id)description;
 - (id)hashString;
 - (id)href;

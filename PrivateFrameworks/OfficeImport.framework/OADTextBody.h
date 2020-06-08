@@ -2,30 +2,34 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray, OADTextBodyProperties, OADTextListStyle;
-
 @interface OADTextBody : NSObject {
-    NSMutableArray *mParagraphs;
-    OADTextBodyProperties *mProperties;
-    OADTextListStyle *mTextListStyle;
+    NSMutableArray * mParagraphs;
+    OADTextBodyProperties * mProperties;
+    OADTextListStyle * mTextListStyle;
 }
 
 - (id)addParagraph;
 - (void)addParagraphsFromTextBody:(id)arg1;
 - (void)applyTextListStyle:(id)arg1;
+- (void)changeParentTextListStylePreservingEffectiveValues:(id)arg1 ownTextListStyle:(bool)arg2;
 - (void)dealloc;
+- (id)description;
 - (id)findFirstTextRunOfClass:(Class)arg1;
+- (id)firstParagraphEffects;
 - (void)flattenProperties;
 - (id)init;
-- (BOOL)isEmpty;
-- (unsigned int)nonEmptyParagraphCount;
+- (bool)isEmpty;
+- (bool)isSimilarToTextBody:(id)arg1;
+- (unsigned long long)newLineCount;
+- (unsigned long long)nonEmptyParagraphCount;
 - (id)overrideTextListStyle;
-- (id)paragraphAtIndex:(unsigned int)arg1;
-- (unsigned int)paragraphCount;
+- (id)paragraphAtIndex:(unsigned long long)arg1;
+- (unsigned long long)paragraphCount;
 - (id)plainText;
-- (void)propagateActualTextStyleToTextListStyle;
+- (bool)propagateActualTextStyleToTextListStyle;
 - (id)properties;
 - (void)removeAllParagraphs;
+- (void)removeLastParagraphIfEmpty;
 - (void)removeLeadingNewlines;
 - (void)removeTrailingNewlines;
 - (void)removeUnnecessaryOverrides;

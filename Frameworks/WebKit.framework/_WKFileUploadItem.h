@@ -2,17 +2,21 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class NSURL, UIImage;
-
 @interface _WKFileUploadItem : NSObject {
+    struct RetainPtr<NSURL> { 
+        void *m_ptr; 
+    }  _fileURL;
 }
 
-@property(readonly) UIImage * displayImage;
-@property(readonly) NSURL * fileURL;
-@property(getter=isVideo,readonly) BOOL video;
+@property (nonatomic, readonly) UIImage *displayImage;
+@property (nonatomic, readonly) NSURL *fileURL;
+@property (getter=isVideo, nonatomic, readonly) bool video;
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)displayImage;
 - (id)fileURL;
-- (BOOL)isVideo;
+- (id)initWithFileURL:(id)arg1;
+- (bool)isVideo;
 
 @end

@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray;
-
 @interface ODDLayoutObjectList : ODDLayoutObject {
-    NSMutableArray *mChildren;
+    NSMutableArray * mChildren;
 }
 
 - (void)addChild:(id)arg1;

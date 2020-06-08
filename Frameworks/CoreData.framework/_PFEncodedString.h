@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@interface _PFEncodedString : _PFString {
-}
+@interface _PFEncodedString : _PFString
 
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (bool)_isDeallocating;
+- (bool)_tryRetain;
 - (Class)classForArchiver;
 - (Class)classForCoder;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -14,6 +13,6 @@
 - (id)init;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 
 @end

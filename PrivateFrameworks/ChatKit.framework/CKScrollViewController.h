@@ -2,76 +2,80 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CKScheduledUpdater, UIScrollView;
-
 @interface CKScrollViewController : CKViewController {
+    double  _bottomInsetPadding;
+    bool  _keyboardInteractionCancelled;
     struct CGRect { 
         struct CGPoint { 
-            float x; 
-            float y; 
+            double x; 
+            double y; 
         } origin; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } size; 
-    float _bottomInsetPadding;
-    BOOL _keyboardInteractionCancelled;
-    } _keyboardScreenFrame;
-    BOOL _keyboardVisible;
-    UIScrollView *_scrollView;
-    BOOL _topInsetIncludesPalette;
-    float _topInsetPadding;
-    CKScheduledUpdater *_updater;
+    }  _keyboardScreenFrame;
+    bool  _keyboardVisible;
+    double  _minimumBottomInset;
+    UIScrollView * _scrollView;
+    bool  _topInsetIncludesPalette;
+    double  _topInsetPadding;
+    IMScheduledUpdater * _updater;
 }
 
-@property(readonly) float bottomInsetPadding;
-@property(readonly) struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } keyboardFrame;
-@property BOOL keyboardInteractionCancelled;
-@property(getter=isKeyboardOnscreenWithoutAccessoryView,readonly) BOOL keyboardOnscreenWithoutAccessoryView;
-@property struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } keyboardScreenFrame;
-@property(getter=isKeyboardUndocked,readonly) BOOL keyboardUndocked;
-@property(getter=isKeyboardVisible) BOOL keyboardVisible;
-@property(readonly) UIScrollView * scrollView;
-@property(readonly) BOOL topInsetIncludesPalette;
-@property(readonly) float topInsetPadding;
-@property(retain) CKScheduledUpdater * updater;
+@property (nonatomic, readonly) double bottomInsetPadding;
+@property (nonatomic, readonly) struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } keyboardFrame;
+@property (nonatomic) bool keyboardInteractionCancelled;
+@property (getter=isKeyboardOnscreenWithoutAccessoryView, nonatomic, readonly) bool keyboardOnscreenWithoutAccessoryView;
+@property (nonatomic) struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } keyboardScreenFrame;
+@property (getter=isKeyboardUndocked, nonatomic, readonly) bool keyboardUndocked;
+@property (getter=isKeyboardVisible, nonatomic) bool keyboardVisible;
+@property (nonatomic, readonly) double minimumBottomInset;
+@property (nonatomic, readonly) UIScrollView *scrollView;
+@property (nonatomic, readonly) bool topInsetIncludesPalette;
+@property (nonatomic, readonly) double topInsetPadding;
+@property (nonatomic, retain) IMScheduledUpdater *updater;
 
-- (float)_bottomRotatingFooterHeight;
+- (void).cxx_destruct;
+- (double)_bottomRotatingFooterHeight;
 - (void)_changedStatusBarFrame:(id)arg1;
 - (void)_entryViewWillRotate:(id)arg1;
-- (void)_updateScrollGeometryWithDuration:(float)arg1;
-- (float)_visibleKeyboardHeight;
-- (float)accessoryViewHeight;
+- (void)_updateScrollGeometryWithDuration:(double)arg1;
+- (double)_visibleKeyboardHeight;
+- (double)accessoryViewHeight;
 - (void)beginHoldingScrollGeometryUpdatesForKey:(id)arg1;
-- (float)bottomInsetPadding;
-- (float)bottomInsetWithoutAccessoryView;
+- (double)bottomInsetPadding;
+- (double)bottomInsetWithoutAccessoryView;
 - (void)contentInsetDidChange;
-- (void)contentInsetWillChange:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1 animated:(BOOL)arg2 duration:(float)arg3;
+- (void)contentInsetWillChange:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1 animated:(bool)arg2 duration:(double)arg3;
 - (void)dealloc;
+- (void)endHoldingScrollGeometryUpdatesForAllKeys;
 - (void)endHoldingScrollGeometryUpdatesForKey:(id)arg1;
 - (id)init;
-- (BOOL)isKeyboardOnscreenWithoutAccessoryView;
-- (BOOL)isKeyboardUndocked;
-- (BOOL)isKeyboardVisible;
+- (bool)isHoldingScrollGeometryUpdates;
+- (bool)isKeyboardOnscreenWithoutAccessoryView;
+- (bool)isKeyboardUndocked;
+- (bool)isKeyboardVisible;
 - (void)keyboardDidChangeFrame:(id)arg1;
 - (void)keyboardDidShowOrHide:(id)arg1;
-- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })keyboardFrame;
-- (BOOL)keyboardInteractionCancelled;
-- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })keyboardScreenFrame;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })keyboardFrame;
+- (bool)keyboardInteractionCancelled;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })keyboardScreenFrame;
 - (void)keyboardVisibilityWillChange;
 - (void)keyboardWillHideViaGesture;
 - (void)keyboardWillShowOrHide:(id)arg1;
-- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })navigationBarInsets;
-- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })navigationBarInsetsWithoutPalette;
+- (double)minimumBottomInset;
+- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })navigationBarInsets;
+- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })navigationBarInsetsWithoutPalette;
 - (id)scrollView;
-- (void)setKeyboardInteractionCancelled:(BOOL)arg1;
-- (void)setKeyboardScreenFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (void)setKeyboardVisible:(BOOL)arg1;
+- (void)setKeyboardInteractionCancelled:(bool)arg1;
+- (void)setKeyboardScreenFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setKeyboardVisible:(bool)arg1;
 - (void)setUpdater:(id)arg1;
-- (BOOL)topInsetIncludesPalette;
-- (float)topInsetPadding;
+- (bool)topInsetIncludesPalette;
+- (double)topInsetPadding;
 - (void)updateScrollGeometry;
 - (id)updater;
-- (float)visibleHeightAboveKeyboard;
+- (double)visibleHeightAboveKeyboard;
 
 @end

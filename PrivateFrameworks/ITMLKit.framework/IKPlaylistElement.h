@@ -2,17 +2,10 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class IKAppPlayer, NSArray;
+@interface IKPlaylistElement : IKViewElement
 
-@interface IKPlaylistElement : IKViewElement {
-}
-
-@property(retain,readonly) NSArray * items;
-@property(retain,readonly) IKAppPlayer * player;
-
-+ (id)supportedFeatures;
+@property (nonatomic, readonly, retain) NSArray *items;
 
 - (id)items;
-- (id)player;
 
 @end

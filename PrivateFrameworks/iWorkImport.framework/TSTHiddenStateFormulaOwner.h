@@ -2,71 +2,52 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>, NSString, TSCECalculationEngine, TSTTableFilterSet, TSTTableInfo;
-
-@interface TSTHiddenStateFormulaOwner : TSPObject <TSCEFormulaOwning> {
-    struct vector<std::__1::pair<unsigned short, bool>, std::__1::allocator<std::__1::pair<unsigned short, bool> > > { 
-        struct pair<unsigned short, bool> {} *__begin_; 
-        struct pair<unsigned short, bool> {} *__end_; 
-        struct __compressed_pair<std::__1::pair<unsigned short, bool> *, std::__1::allocator<std::__1::pair<unsigned short, bool> > > { 
-            struct pair<unsigned short, bool> {} *__first_; 
-        } __end_cap_; 
-    struct vector<TSUColumnRowRect, std::__1::allocator<TSUColumnRowRect> > { 
-        struct { /* ? */ } *__begin_; 
-        struct { /* ? */ } *__end_; 
-        struct __compressed_pair<TSUColumnRowRect *, std::__1::allocator<TSUColumnRowRect> > { 
-            struct { /* ? */ } *__first_; 
-        } __end_cap_; 
-    struct vector<unsigned short, std::__1::allocator<unsigned short> > { 
-        unsigned short *__begin_; 
-        unsigned short *__end_; 
-        struct __compressed_pair<unsigned short *, std::__1::allocator<unsigned short> > { 
-            unsigned short *__first_; 
-        } __end_cap_; 
-    TSCECalculationEngine *mCalculationEngine;
-    } mCellRangesToInvalidate;
-    } mHiddenRowIndices;
-    BOOL mNeedsToUpdateFilterSetForImport;
-    struct __CFUUID { } *mOwnerID;
-    } mPendingComputedShowRowResults;
-    NSObject<OS_dispatch_queue> *mPendingComputedShowRowResultsQueue;
-    TSTTableFilterSet *mRewrittenFilterSet;
-    TSTTableInfo *mTableInfo;
-    NSMutableArray *mThresholdCellValues;
+@interface TSTHiddenStateFormulaOwner : TSPObject {
+    bool  _needsToUpdateFilterSetForImport;
+    struct UUIDData<TSP::UUIDData> { 
+        union { 
+            unsigned char _uuid[16]; 
+            struct { 
+                unsigned char byte0; 
+                unsigned char byte1; 
+                unsigned char byte2; 
+                unsigned char byte3; 
+                unsigned char byte4; 
+                unsigned char byte5; 
+                unsigned char byte6; 
+                unsigned char byte7; 
+                unsigned char byte8; 
+                unsigned char byte9; 
+                unsigned char byte10; 
+                unsigned char byte11; 
+                unsigned char byte12; 
+                unsigned char byte13; 
+                unsigned char byte14; 
+                unsigned char byte15; 
+            } _cfuuid; 
+            struct { 
+                unsigned long long _lower; 
+                unsigned long long _upper; 
+            } ; 
+        } ; 
+    }  _ownerUID;
+    NSArray * _thresholdCellValues;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (nonatomic) bool needsToUpdateFilterSetForImport;
+@property (nonatomic) struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_1_1[16]; struct { unsigned char x_2_2_1; unsigned char x_2_2_2; unsigned char x_2_2_3; unsigned char x_2_2_4; unsigned char x_2_2_5; unsigned char x_2_2_6; unsigned char x_2_2_7; unsigned char x_2_2_8; unsigned char x_2_2_9; unsigned char x_2_2_10; unsigned char x_2_2_11; unsigned char x_2_2_12; unsigned char x_2_2_13; unsigned char x_2_2_14; unsigned char x_2_2_15; unsigned char x_2_2_16; } x_1_1_2; struct { unsigned long long x_3_2_1; unsigned long long x_3_2_2; } x_1_1_3; } x1; } ownerUID;
+@property (nonatomic, retain) NSArray *thresholdCellValues;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)beginRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
-- (id)calculationEngine;
-- (struct { struct { unsigned short x_1_1_1; unsigned char x_1_1_2; unsigned char x_1_1_3; } x1; struct __CFUUID {} *x2; })cellReferenceForIndex:(unsigned short)arg1;
-- (void)dealloc;
-- (void)dirtyFilterState;
-- (id)endRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
-- (void)filterSetUpdated;
-- (void)hiddenStateChangedForIndex:(unsigned short)arg1;
-- (id)initFromUnarchiver:(id)arg1;
-- (id)initWithContext:(id)arg1 tableInfo:(id)arg2;
-- (void)invalidateForCalculationEngine:(id)arg1;
-- (struct __CFUUID { }*)ownerID;
-- (void)p_registerAllFormulaToCalculationEngine;
-- (void)p_removeAllFormulaFromCalculationEngine;
-- (struct { struct { struct { unsigned short x_1_2_1; unsigned char x_1_2_2; unsigned char x_1_2_3; } x_1_1_1; struct { unsigned short x_2_2_1; unsigned char x_2_2_2; unsigned char x_2_2_3; } x_1_1_2; } x1; struct __CFUUID {} *x2; })rangeReferenceFromIndex:(unsigned short)arg1 toIndex:(unsigned short)arg2;
-- (struct { BOOL x1; BOOL x2; })recalculateForCalculationEngine:(id)arg1 formulaID:(struct { unsigned int x1 : 24; unsigned int x2 : 8; })arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
-- (int)registerWithCalculationEngineChoosingUniqueID:(id)arg1;
-- (void)releaseForCalculationEngine:(id)arg1;
-- (void)retainForCalculationEngine:(id)arg1;
-- (void)rewriteForCalculationEngine:(id)arg1 formulaID:(struct { unsigned int x1 : 24; unsigned int x2 : 8; })arg2 rewriteSpec:(id)arg3;
+- (id)initWithContext:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
+- (bool)needsToUpdateFilterSetForImport;
+- (struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_1_1[16]; struct { unsigned char x_2_2_1; unsigned char x_2_2_2; unsigned char x_2_2_3; unsigned char x_2_2_4; unsigned char x_2_2_5; unsigned char x_2_2_6; unsigned char x_2_2_7; unsigned char x_2_2_8; unsigned char x_2_2_9; unsigned char x_2_2_10; unsigned char x_2_2_11; unsigned char x_2_2_12; unsigned char x_2_2_13; unsigned char x_2_2_14; unsigned char x_2_2_15; unsigned char x_2_2_16; } x_1_1_2; struct { unsigned long long x_3_2_1; unsigned long long x_3_2_2; } x_1_1_3; } x1; })ownerUID;
 - (void)saveToArchiver:(id)arg1;
-- (BOOL)serializeCalculations;
-- (void)setOwnerID:(struct __CFUUID { }*)arg1;
-- (void)setTableInfo:(id)arg1;
-- (id)tableInfo;
-- (void)writeResultsForCalculationEngine:(id)arg1;
+- (void)setNeedsToUpdateFilterSetForImport:(bool)arg1;
+- (void)setOwnerUID:(struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_1_1[16]; struct { unsigned char x_2_2_1; unsigned char x_2_2_2; unsigned char x_2_2_3; unsigned char x_2_2_4; unsigned char x_2_2_5; unsigned char x_2_2_6; unsigned char x_2_2_7; unsigned char x_2_2_8; unsigned char x_2_2_9; unsigned char x_2_2_10; unsigned char x_2_2_11; unsigned char x_2_2_12; unsigned char x_2_2_13; unsigned char x_2_2_14; unsigned char x_2_2_15; unsigned char x_2_2_16; } x_1_1_2; struct { unsigned long long x_3_2_1; unsigned long long x_3_2_2; } x_1_1_3; } x1; })arg1;
+- (void)setThresholdCellValues:(id)arg1;
+- (id)thresholdCellValues;
 
 @end

@@ -2,32 +2,31 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSString;
-
 @interface PLPhotoEditAdjustmentsVersion : NSObject {
-    unsigned int _majorVersion;
-    unsigned int _minorVersion;
-    NSString *_platform;
+    unsigned long long  _majorVersion;
+    unsigned long long  _minorVersion;
+    NSString * _platform;
 }
 
-@property(readonly) unsigned int majorVersion;
-@property(readonly) unsigned int minorVersion;
-@property(copy,readonly) NSString * platform;
-@property(readonly) NSString * string;
+@property (nonatomic, readonly) unsigned long long majorVersion;
+@property (nonatomic, readonly) unsigned long long minorVersion;
+@property (nonatomic, readonly, copy) NSString *platform;
+@property (nonatomic, readonly) NSString *string;
 
 + (id)versionFromString:(id)arg1;
-+ (id)versionWithMajor:(unsigned int)arg1 minor:(unsigned int)arg2 platform:(id)arg3;
++ (id)versionWithMajor:(unsigned long long)arg1 minor:(unsigned long long)arg2 platform:(id)arg3;
 
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (void)dealloc;
 - (id)description;
-- (unsigned int)hash;
-- (id)initWithMajor:(unsigned int)arg1 minor:(unsigned int)arg2 platform:(id)arg3;
-- (id)initWithMajor:(unsigned int)arg1 minor:(unsigned int)arg2;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToAdjustmentVersion:(id)arg1;
-- (unsigned int)majorVersion;
-- (unsigned int)minorVersion;
+- (unsigned long long)hash;
+- (id)init;
+- (id)initWithMajor:(unsigned long long)arg1 minor:(unsigned long long)arg2;
+- (id)initWithMajor:(unsigned long long)arg1 minor:(unsigned long long)arg2 platform:(id)arg3;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToAdjustmentVersion:(id)arg1;
+- (unsigned long long)majorVersion;
+- (unsigned long long)minorVersion;
 - (id)platform;
 - (id)string;
 

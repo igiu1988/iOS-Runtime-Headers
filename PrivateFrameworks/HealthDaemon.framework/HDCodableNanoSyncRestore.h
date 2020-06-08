@@ -2,49 +2,41 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class NSMutableArray, NSString;
-
-@interface HDCodableNanoSyncRestore : PBCodable <HDSyncObjectCollection, HDNanoSyncDescription, NSCopying> {
+@interface HDCodableNanoSyncRestore : PBCodable <NSCopying> {
     struct { 
         unsigned int objectType : 1; 
-    } _has;
-    NSMutableArray *_objectDatas;
-    int _objectType;
+    }  _has;
+    NSMutableArray * _objectDatas;
+    int  _objectType;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property BOOL hasObjectType;
-@property(readonly) unsigned int hash;
-@property(retain) NSMutableArray * objectDatas;
-@property int objectType;
-@property(readonly) Class superclass;
+@property (nonatomic) bool hasObjectType;
+@property (nonatomic, retain) NSMutableArray *objectDatas;
+@property (nonatomic) int objectType;
 
-+ (id)restoreWithNanoSyncEntityClass:(Class)arg1;
++ (Class)objectDataType;
 
 - (void).cxx_destruct;
+- (int)StringAsObjectType:(id)arg1;
 - (void)addObjectData:(id)arg1;
 - (void)clearObjectDatas;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (id)decodedObjects;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasObjectType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasObjectType;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (id)nanoSyncDescription;
-- (id)objectDataAtIndex:(unsigned int)arg1;
+- (id)objectDataAtIndex:(unsigned long long)arg1;
 - (id)objectDatas;
-- (unsigned int)objectDatasCount;
+- (unsigned long long)objectDatasCount;
 - (int)objectType;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasObjectType:(BOOL)arg1;
+- (id)objectTypeAsString:(int)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasObjectType:(bool)arg1;
 - (void)setObjectDatas:(id)arg1;
 - (void)setObjectType:(int)arg1;
-- (void)setObjects:(id)arg1;
-- (Class)syncEntityClass;
 - (void)writeTo:(id)arg1;
 
 @end

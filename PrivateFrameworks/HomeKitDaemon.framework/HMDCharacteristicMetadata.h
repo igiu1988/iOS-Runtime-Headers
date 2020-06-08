@@ -2,41 +2,50 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class NSNumber, NSString;
-
-@interface HMDCharacteristicMetadata : NSObject <NSSecureCoding> {
-    NSString *_format;
-    NSString *_manufacturerDescription;
-    NSNumber *_maxLength;
-    NSNumber *_maximumValue;
-    NSNumber *_minimumValue;
-    NSNumber *_stepValue;
-    NSString *_units;
+@interface HMDCharacteristicMetadata : HMFObject <HMFDumpState, NSSecureCoding> {
+    NSString * _format;
+    NSString * _manufacturerDescription;
+    NSNumber * _maxLength;
+    NSNumber * _maximumValue;
+    NSNumber * _minimumValue;
+    NSNumber * _stepValue;
+    NSString * _units;
+    NSArray * _validValues;
 }
 
-@property(copy,readonly) NSString * format;
-@property(copy,readonly) NSString * manufacturerDescription;
-@property(readonly) NSNumber * maxLength;
-@property(readonly) NSNumber * maximumValue;
-@property(readonly) NSNumber * minimumValue;
-@property(readonly) NSNumber * stepValue;
-@property(copy,readonly) NSString * units;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly, copy) NSString *format;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly, copy) NSString *manufacturerDescription;
+@property (nonatomic, readonly) NSNumber *maxLength;
+@property (nonatomic, readonly) NSNumber *maximumValue;
+@property (nonatomic, readonly) NSNumber *minimumValue;
+@property (nonatomic, readonly) NSNumber *stepValue;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) NSString *units;
+@property (nonatomic, copy) NSArray *validValues;
 
-+ (BOOL)isValidMetadata:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (bool)isValidMetadata:(id)arg1;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (void)configureWithCharacteristicMetadata:(id)arg1;
+- (id)_descriptionDetails;
+- (bool)configureWithCharacteristicMetadata:(id)arg1;
 - (id)description;
+- (id)dumpState;
 - (void)encodeWithCoder:(id)arg1;
 - (id)format;
+- (id)getMetadataDictionary;
 - (id)initWithCharacteristicMetadata:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)manufacturerDescription;
 - (id)maxLength;
 - (id)maximumValue;
 - (id)minimumValue;
+- (void)setValidValues:(id)arg1;
 - (id)stepValue;
 - (id)units;
+- (id)validValues;
 
 @end

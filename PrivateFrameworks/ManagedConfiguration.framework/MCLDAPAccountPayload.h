@@ -2,25 +2,27 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSArray, NSString;
-
 @interface MCLDAPAccountPayload : MCPayload {
-    NSString *_accountDescription;
-    NSString *_accountPersistentUUID;
-    NSString *_hostname;
-    NSString *_password;
-    NSArray *_searchSettings;
-    BOOL _useSSL;
-    NSString *_username;
+    NSString * _accountDescription;
+    NSString * _accountPersistentUUID;
+    NSDictionary * _communicationServiceRules;
+    NSString * _hostname;
+    NSString * _password;
+    NSArray * _searchSettings;
+    bool  _useSSL;
+    NSNumber * _useSSLNum;
+    NSString * _username;
 }
 
-@property(retain,readonly) NSString * accountDescription;
-@property(copy) NSString * accountPersistentUUID;
-@property(retain,readonly) NSString * hostname;
-@property(retain) NSString * password;
-@property(retain,readonly) NSArray * searchSettings;
-@property(readonly) BOOL useSSL;
-@property(retain) NSString * username;
+@property (nonatomic, readonly, retain) NSString *accountDescription;
+@property (nonatomic, copy) NSString *accountPersistentUUID;
+@property (nonatomic, readonly) NSDictionary *communicationServiceRules;
+@property (nonatomic, readonly, retain) NSString *hostname;
+@property (nonatomic, retain) NSString *password;
+@property (nonatomic, readonly, retain) NSArray *searchSettings;
+@property (nonatomic, readonly) bool useSSL;
+@property (nonatomic, readonly) NSNumber *useSSLNum;
+@property (nonatomic, retain) NSString *username;
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
@@ -29,11 +31,14 @@
 - (void).cxx_destruct;
 - (id)accountDescription;
 - (id)accountPersistentUUID;
+- (id)communicationServiceRules;
+- (bool)containsSensitiveUserInformation;
 - (id)description;
 - (id)hostname;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id*)arg3;
 - (id)password;
 - (id)payloadDescriptionKeyValueSections;
+- (id)restrictions;
 - (id)searchSettings;
 - (void)setAccountPersistentUUID:(id)arg1;
 - (void)setPassword:(id)arg1;
@@ -44,7 +49,8 @@
 - (id)subtitle2Description;
 - (id)subtitle2Label;
 - (id)title;
-- (BOOL)useSSL;
+- (bool)useSSL;
+- (id)useSSLNum;
 - (id)username;
 
 @end

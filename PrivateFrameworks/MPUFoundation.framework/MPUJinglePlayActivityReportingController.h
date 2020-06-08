@@ -2,34 +2,6 @@
    Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
  */
 
-@class NSObject<OS_dispatch_queue>, NSString, SSVPlayActivityController;
-
-@interface MPUJinglePlayActivityReportingController : MPUReportingController {
-    NSObject<OS_dispatch_queue> *_accessSerialQueue;
-    double _nonCatalogAggregatePlayDuration;
-    double _nonCatalogAggregateStartTime;
-    NSString *_nonCatalogDeviceName;
-    BOOL _nonCatalogOffline;
-    BOOL _nonCatalogSBEnabled;
-    unsigned int _nonCatalogSourceType;
-    unsigned long long _nonCatalogStoreAccountID;
-    SSVPlayActivityController *_playActivityController;
-    BOOL _shouldReportPlayActivityEvents;
-}
-
-@property(readonly) SSVPlayActivityController * playActivityController;
-@property BOOL shouldReportPlayActivityEvents;
-
-- (void).cxx_destruct;
-- (void)_applicationWillTerminateNotification:(id)arg1;
-- (id)_captureNonCatalogAggregatePlayActivityEvent;
-- (void)_clearNonCatalogAggregatePlayActivityEventData;
-- (void)_recordReportingEvents:(id)arg1;
-- (void)dealloc;
-- (id)init;
-- (id)initWithWritingStyle:(unsigned int)arg1;
-- (id)playActivityController;
-- (void)setShouldReportPlayActivityEvents:(BOOL)arg1;
-- (BOOL)shouldReportPlayActivityEvents;
+@interface MPUJinglePlayActivityReportingController : MPCJinglePlayActivityReportingController
 
 @end

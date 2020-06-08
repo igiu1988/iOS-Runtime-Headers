@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStyle;
-
 @interface GQDTCell : NSObject {
-    unsigned short mColumnIndex;
-    unsigned short mColumnSpan;
-    unsigned short mRowIndex;
-    unsigned short mRowSpan;
-    GQDSStyle *mStyle;
+    unsigned short  mColumnIndex;
+    unsigned short  mColumnSpan;
+    unsigned short  mRowIndex;
+    unsigned short  mRowSpan;
+    GQDSStyle * mStyle;
 }
 
 - (id)cellStyle;

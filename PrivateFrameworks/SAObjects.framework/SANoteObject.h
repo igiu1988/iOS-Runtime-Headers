@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSDate, NSString;
+@interface SANoteObject : SADomainObject
 
-@interface SANoteObject : SADomainObject {
-}
-
-@property(copy) NSString * contents;
-@property(copy) NSDate * createdDate;
-@property(copy) NSDate * lastModifiedDate;
-@property(copy) NSString * title;
+@property (nonatomic, copy) NSString *contents;
+@property (nonatomic, copy) NSDate *createdDate;
+@property (nonatomic, copy) NSDate *lastModifiedDate;
+@property (nonatomic) bool restricted;
+@property (nonatomic, copy) NSString *title;
 
 + (id)object;
 + (id)objectWithDictionary:(id)arg1 context:(id)arg2;
@@ -20,11 +18,12 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)lastModifiedDate;
+- (bool)restricted;
 - (void)setContents:(id)arg1;
 - (void)setCreatedDate:(id)arg1;
 - (void)setLastModifiedDate:(id)arg1;
+- (void)setRestricted:(bool)arg1;
 - (void)setTitle:(id)arg1;
 - (id)title;
-- (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 
 @end

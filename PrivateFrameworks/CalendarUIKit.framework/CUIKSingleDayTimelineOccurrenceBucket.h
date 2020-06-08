@@ -2,28 +2,28 @@
    Image: /System/Library/PrivateFrameworks/CalendarUIKit.framework/CalendarUIKit
  */
 
-@class <CUIKSingleDayTimelineLayoutScreenUtils>, <CUIKSingleDayTimelineViewItem>, CUIKSingleDayTimelineLayoutPartition, NSArray, NSMutableArray;
-
 @interface CUIKSingleDayTimelineOccurrenceBucket : NSObject {
-    CUIKSingleDayTimelineLayoutPartition *_correspondingPartition;
-    NSMutableArray *_currentOccurrences;
-    BOOL _ignoreFirstOccurrenceInFitnessCalculations;
-    BOOL _ignoreLastOccurrenceInFitnessCalculations;
-    BOOL _isOnlyBucket;
-    double _originalFitnessLevel;
-    BOOL _originalFitnessLevelRequiresCalculation;
-    <CUIKSingleDayTimelineLayoutScreenUtils> *_screenUtilsDelegate;
-    double _temporaryFitnessLevel;
-    BOOL _temporaryFitnessLevelRequiresCalculation;
-    <CUIKSingleDayTimelineViewItem> *_temporaryOccurrenceAtBeginning;
-    <CUIKSingleDayTimelineViewItem> *_temporaryOccurrenceAtEnd;
-    BOOL _useTemporaryFitnessLevel;
+    CUIKSingleDayTimelineLayoutPartition * _correspondingPartition;
+    NSMutableArray * _currentOccurrences;
+    <CUIKSingleDayTimelineGeometryDelegate> * _geometryDelegate;
+    bool  _ignoreFirstOccurrenceInFitnessCalculations;
+    bool  _ignoreLastOccurrenceInFitnessCalculations;
+    bool  _isOnlyBucket;
+    double  _originalFitnessLevel;
+    bool  _originalFitnessLevelRequiresCalculation;
+    <CUIKSingleDayTimelineLayoutScreenUtils> * _screenUtilsDelegate;
+    double  _temporaryFitnessLevel;
+    bool  _temporaryFitnessLevelRequiresCalculation;
+    <CUIKSingleDayTimelineViewItem> * _temporaryOccurrenceAtBeginning;
+    <CUIKSingleDayTimelineViewItem> * _temporaryOccurrenceAtEnd;
+    bool  _useTemporaryFitnessLevel;
 }
 
-@property(retain) CUIKSingleDayTimelineLayoutPartition * correspondingPartition;
-@property(retain) NSMutableArray * currentOccurrences;
-@property BOOL isOnlyBucket;
-@property(readonly) NSArray * occurrences;
+@property (nonatomic, retain) CUIKSingleDayTimelineLayoutPartition *correspondingPartition;
+@property (nonatomic, retain) NSMutableArray *currentOccurrences;
+@property <CUIKSingleDayTimelineGeometryDelegate> *geometryDelegate;
+@property (nonatomic) bool isOnlyBucket;
+@property (nonatomic, readonly) NSArray *occurrences;
 
 - (void).cxx_destruct;
 - (id)_occurrencesForFitnessLevel;
@@ -32,8 +32,10 @@
 - (id)correspondingPartition;
 - (id)currentOccurrences;
 - (id)earliestOccurrence;
+- (id)geometryDelegate;
 - (id)initWithOccurrences:(id)arg1 correspondingPartition:(id)arg2 screenUtilsDelegate:(id)arg3;
-- (BOOL)isOnlyBucket;
+- (id)initWithOccurrences:(id)arg1 correspondingPartition:(id)arg2 screenUtilsDelegate:(id)arg3 geometryDelegate:(id)arg4;
+- (bool)isOnlyBucket;
 - (void)makeTemporaryChangesPermanent;
 - (id)occurrences;
 - (void)removeOccurrenceAtBeginningTemporarily;
@@ -41,7 +43,8 @@
 - (void)revertTemporaryChanges;
 - (void)setCorrespondingPartition:(id)arg1;
 - (void)setCurrentOccurrences:(id)arg1;
-- (void)setIsOnlyBucket:(BOOL)arg1;
+- (void)setGeometryDelegate:(id)arg1;
+- (void)setIsOnlyBucket:(bool)arg1;
 - (void)stampFramesOntoOccurrences;
 
 @end

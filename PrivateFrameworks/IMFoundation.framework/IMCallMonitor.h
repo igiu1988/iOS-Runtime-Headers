@@ -2,22 +2,25 @@
    Image: /System/Library/PrivateFrameworks/IMFoundation.framework/IMFoundation
  */
 
-@class NSDate;
-
-@interface IMCallMonitor : NSObject {
-    id _callCenter;
-    NSDate *_lastCallDate;
-    BOOL _wasOnCall;
+@interface IMCallMonitor : NSObject <CXCallObserverDelegate> {
+    CXCallObserver * _callCenter;
+    NSDate * _lastCallDate;
+    bool  _wasOnCall;
 }
 
-@property(retain,readonly) NSDate * dateLastCallEnded;
-@property(readonly) BOOL isOnCall;
+@property (nonatomic, readonly, retain) NSDate *dateLastCallEnded;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isOnCall;
+@property (readonly) Class superclass;
 
 + (id)sharedInstance;
 
+- (void)callObserver:(id)arg1 callChanged:(id)arg2;
 - (id)dateLastCallEnded;
 - (void)dealloc;
 - (id)init;
-- (BOOL)isOnCall;
+- (bool)isOnCall;
 
 @end

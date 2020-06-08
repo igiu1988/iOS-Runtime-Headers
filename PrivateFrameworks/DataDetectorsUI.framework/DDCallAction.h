@@ -2,17 +2,24 @@
    Image: /System/Library/PrivateFrameworks/DataDetectorsUI.framework/DataDetectorsUI
  */
 
-@interface DDCallAction : DDTelephoneNumberAction {
-}
+@interface DDCallAction : DDTelephoneNumberAction
 
-+ (BOOL)isAvailable;
++ (bool)isAvailable;
 
-- (id)_UIDsAndLabelsMatchingPhoneNumber:(id)arg1 inAddressBook:(void*)arg2;
-- (id)_nameForPerson:(void*)arg1;
-- (bool)_retrieveNameForDestinationNumber:(id*)arg1 label:(id*)arg2;
-- (BOOL)_titleFitsInActionSheet:(id)arg1;
+- (long long)TTYType;
+- (double)_systemFontSize;
+- (bool)_titleFitsInActionSheet:(id)arg1;
+- (id)callProvider;
+- (bool)canBePerformedByOpeningURL;
+- (id)dialRequest;
 - (int)interactionType;
+- (bool)isEmail;
+- (id)localizedCallStringForName:(id)arg1 usingCallRelay:(bool)arg2;
 - (id)localizedName;
-- (void)perform;
+- (id)notificationIconBundleIdentifier;
+- (id)notificationTitle;
+- (id)notificationTitleTargetString;
+- (id)notificationURL;
+- (void)performFromView:(id)arg1;
 
 @end

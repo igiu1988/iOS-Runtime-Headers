@@ -2,28 +2,21 @@
    Image: /System/Library/PrivateFrameworks/WebBookmarks.framework/WebBookmarks
  */
 
-@class NSString, WebBookmarksXPCConnection;
-
-@interface WebBookmarksSettingsGateway : NSObject <WebBookmarksXPCConnectionDelegate> {
-    WebBookmarksXPCConnection *_connection;
+@interface WebBookmarksSettingsGateway : NSObject {
+    WebBookmarksXPCConnection * _connection;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
-
-- (void)_clearConnection;
-- (void)clearAllSafariHistory;
-- (void)connection:(id)arg1 didCloseWithError:(id)arg2;
-- (void)dealloc;
-- (void)deleteAllSafariSecurityOrigins;
-- (void)deleteSafariPersistentURLCacheStorage;
-- (void)deleteSafariSecurityOrigin:(id)arg1;
-- (void)getCellularReadingListAllowedWithCompletion:(id)arg1;
-- (id)getSafariDataUsageSummary;
-- (void)getSafariWebDataUsageWithCompletion:(id)arg1;
+- (void).cxx_destruct;
+- (void)clearAllSafariHistoryWithCompletionHandler:(id /* block */)arg1;
+- (void)deleteAllSafariSecurityOriginsWithCompletionHandler:(id /* block */)arg1;
+- (void)deleteSafariPersistentURLCacheStorageWithCompletionHandler:(id /* block */)arg1;
+- (void)deleteSafariWebsiteDataRecord:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)getSafariDataUsageByteCountWithCompletionHandler:(id /* block */)arg1;
+- (void)getSafariWebDataUsageWithCompletion:(id /* block */)arg1;
 - (id)init;
-- (void)setCellularReadingListAllowed:(BOOL)arg1;
+- (void)scheduleBookmarksDatabaseMaintenance;
+- (void)scheduleBookmarksDatabaseMigrationTask;
+- (void)scheduleHSTSSuperCookieCleanup;
+- (void)schedulePasswordIconsCleanup;
 
 @end

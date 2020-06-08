@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/WatchKit.framework/WatchKit
  */
 
-@class NSString;
-
 @interface SPStockComplicationData : SPComplicationData <NSSecureCoding> {
-    unsigned int _changeDirection;
-    NSString *_changeInPercentText;
-    NSString *_changeInPointsText;
-    NSString *_changeText;
-    NSString *_marketCapText;
-    NSString *_priceText;
-    NSString *_tickerSymbolText;
+    unsigned long long  _changeDirection;
+    NSString * _changeInPercentText;
+    NSString * _changeInPointsText;
+    NSString * _changeText;
+    NSString * _marketCapText;
+    NSString * _priceText;
+    NSString * _tickerSymbolText;
 }
 
-@property unsigned int changeDirection;
-@property(retain) NSString * changeInPercentText;
-@property(retain) NSString * changeInPointsText;
-@property(retain) NSString * changeText;
-@property(retain) NSString * marketCapText;
-@property(retain) NSString * priceText;
-@property(retain) NSString * tickerSymbolText;
+@property (nonatomic) unsigned long long changeDirection;
+@property (nonatomic, retain) NSString *changeInPercentText;
+@property (nonatomic, retain) NSString *changeInPointsText;
+@property (nonatomic, retain) NSString *changeText;
+@property (nonatomic, retain) NSString *marketCapText;
+@property (nonatomic, retain) NSString *priceText;
+@property (nonatomic, retain) NSString *tickerSymbolText;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (unsigned int)changeDirection;
+- (unsigned long long)changeDirection;
 - (id)changeInPercentText;
 - (id)changeInPointsText;
 - (id)changeText;
@@ -33,7 +31,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)marketCapText;
 - (id)priceText;
-- (void)setChangeDirection:(unsigned int)arg1;
+- (void)setChangeDirection:(unsigned long long)arg1;
 - (void)setChangeInPercentText:(id)arg1;
 - (void)setChangeInPointsText:(id)arg1;
 - (void)setChangeText:(id)arg1;

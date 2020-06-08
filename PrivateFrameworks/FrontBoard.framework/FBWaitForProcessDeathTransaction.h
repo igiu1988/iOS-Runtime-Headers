@@ -2,30 +2,29 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@class BSWatchdog, FBProcess, FBProcessManager, NSString;
-
-@interface FBWaitForProcessDeathTransaction : FBTransaction <FBProcessObserver> {
-    FBProcessManager *_manager;
-    FBProcess *_process;
-    double _timeout;
-    BSWatchdog *_watchdog;
+@interface FBWaitForProcessDeathTransaction : FBTransaction <FBProcessManagerObserver> {
+    FBProcess * _process;
+    double  _timeout;
+    BSWatchdog * _watchdog;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain,readonly) FBProcess * process;
-@property(readonly) Class superclass;
-@property(readonly) double timeout;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) FBProcess *process;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) double timeout;
 
+- (void).cxx_destruct;
 - (void)_begin;
+- (bool)_canBeInterrupted;
 - (id)_customizedDescriptionProperties;
 - (void)_didComplete;
-- (void)dealloc;
-- (id)initWithProcess:(id)arg1 timeout:(double)arg2;
 - (id)initWithProcess:(id)arg1;
+- (id)initWithProcess:(id)arg1 timeout:(double)arg2;
 - (id)process;
-- (void)processDidExit:(id)arg1;
+- (void)processManager:(id)arg1 didAddProcess:(id)arg2;
+- (void)processManager:(id)arg1 didRemoveProcess:(id)arg2;
 - (double)timeout;
 
 @end

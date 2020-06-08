@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface CMStringProperty : CMProperty {
-    NSString *wdValue;
+    NSString * wdValue;
 }
 
+- (void).cxx_destruct;
 - (id)cssStringForName:(id)arg1;
-- (void)dealloc;
 - (id)initWithString:(id)arg1;
 - (id)value;
 

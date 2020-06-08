@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AccountsDaemon.framework/AccountsDaemon
  */
 
-@class NSDictionary, NSMutableDictionary, NSSet;
-
 @interface ACDAccountNotifier : NSObject {
-    NSMutableDictionary *_instantiatedPluginsByAccountTypeID;
-    NSSet *_notificationPlugins;
-    NSDictionary *_pluginBundlesByAccountTypeID;
-    NSMutableDictionary *_principalObjectByPluginBundleURL;
+    NSMutableDictionary * _instantiatedPluginsByAccountTypeID;
+    NSSet * _notificationPlugins;
+    NSDictionary * _pluginBundlesByAccountTypeID;
+    NSMutableDictionary * _principalObjectByPluginBundleURL;
 }
 
 + (id)_presumedAccountTypeIDsByNotificationPluginID;
@@ -20,13 +18,13 @@
 - (id)_loadPrincipalObjectFromBundle:(id)arg1;
 - (id)_loadPrincipalObjectsFromBundles:(id)arg1;
 - (id)_pluginsRegisteredForAccountType:(id)arg1;
-- (BOOL)canRemoveAccount:(id)arg1 inStore:(id)arg2;
-- (BOOL)canSaveAccount:(id)arg1 inStore:(id)arg2;
+- (bool)canRemoveAccount:(id)arg1 inStore:(id)arg2;
+- (bool)canSaveAccount:(id)arg1 inStore:(id)arg2;
 - (id)init;
 - (id)notificationPlugins;
 - (void)postDidChangeNotificationForType:(int)arg1 inStore:(id)arg2 newAccount:(id)arg3 oldAccount:(id)arg4;
 - (void)postDidPerformDataclassActionsOnAccount:(id)arg1 forDataclasses:(id)arg2;
-- (BOOL)postWillChangeNotificationForType:(int)arg1 inStore:(id)arg2 newAccount:(id)arg3 oldAccount:(id)arg4;
+- (bool)postWillChangeNotificationForType:(int)arg1 inStore:(id)arg2 newAccount:(id)arg3 oldAccount:(id)arg4;
 - (void)postWillPerformDataclassActionsOnAccount:(id)arg1 forDataclasses:(id)arg2;
 
 @end

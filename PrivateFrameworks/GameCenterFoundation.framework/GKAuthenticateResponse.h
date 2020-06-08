@@ -2,46 +2,40 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class NSString, NSURL;
-
 @interface GKAuthenticateResponse : GKInternalRepresentation {
-    NSString *_accountName;
-    NSString *_authToken;
-    int _environment;
-    BOOL _loginDisabled;
-    BOOL _passwordChangeRequired;
-    NSURL *_passwordChangeURL;
-    NSString *_playerID;
-    BOOL _shouldShowLinkAccountsUI;
+    NSString * _alertMessage;
+    NSString * _alertTitle;
+    GKPlayerCredential * _credential;
+    bool  _loginDisabled;
+    bool  _passwordChangeRequired;
+    NSURL * _passwordChangeURL;
+    bool  _shouldShowLinkAccountsUI;
 }
 
-@property(retain) NSString * accountName;
-@property(retain) NSString * authToken;
-@property int environment;
-@property BOOL loginDisabled;
-@property BOOL passwordChangeRequired;
-@property(retain) NSURL * passwordChangeURL;
-@property(retain) NSString * playerID;
-@property BOOL shouldShowLinkAccountsUI;
+@property (nonatomic, retain) NSString *alertMessage;
+@property (nonatomic, retain) NSString *alertTitle;
+@property (nonatomic, retain) GKPlayerCredential *credential;
+@property (nonatomic) bool loginDisabled;
+@property (nonatomic) bool passwordChangeRequired;
+@property (nonatomic, retain) NSURL *passwordChangeURL;
+@property (nonatomic) bool shouldShowLinkAccountsUI;
 
 + (id)secureCodedPropertyKeys;
 
-- (id)accountName;
-- (id)authToken;
+- (id)alertMessage;
+- (id)alertTitle;
+- (id)credential;
 - (void)dealloc;
-- (int)environment;
-- (BOOL)loginDisabled;
-- (BOOL)passwordChangeRequired;
+- (bool)loginDisabled;
+- (bool)passwordChangeRequired;
 - (id)passwordChangeURL;
-- (id)playerID;
-- (void)setAccountName:(id)arg1;
-- (void)setAuthToken:(id)arg1;
-- (void)setEnvironment:(int)arg1;
-- (void)setLoginDisabled:(BOOL)arg1;
-- (void)setPasswordChangeRequired:(BOOL)arg1;
+- (void)setAlertMessage:(id)arg1;
+- (void)setAlertTitle:(id)arg1;
+- (void)setCredential:(id)arg1;
+- (void)setLoginDisabled:(bool)arg1;
+- (void)setPasswordChangeRequired:(bool)arg1;
 - (void)setPasswordChangeURL:(id)arg1;
-- (void)setPlayerID:(id)arg1;
-- (void)setShouldShowLinkAccountsUI:(BOOL)arg1;
-- (BOOL)shouldShowLinkAccountsUI;
+- (void)setShouldShowLinkAccountsUI:(bool)arg1;
+- (bool)shouldShowLinkAccountsUI;
 
 @end

@@ -2,15 +2,16 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureDevice, AVWeakKeyValueObserverProxy, AVWeakReference, NSArray;
-
 @interface AVCaptureDeviceInputInternal : NSObject {
-    AVWeakKeyValueObserverProxy *KVOProxy;
-    BOOL authorizedForCamera;
-    AVCaptureDevice *device;
-    NSArray *ports;
-    BOOL ready;
-    AVWeakReference *weakReference;
+    bool  builtInMicrophoneStereoAudioCaptureEnabled;
+    AVCaptureDevice * device;
+    <AVCallbackCancellation> * deviceOpenCallbackInvoker;
+    NSArray * ports;
+    bool  ready;
+    float  simulatedAperture;
+    bool  unifiedAutoExposureDefaultsEnabled;
+    bool  visionDataDeliveryEnabled;
+    AVWeakReference * weakReference;
 }
 
 - (void)dealloc;

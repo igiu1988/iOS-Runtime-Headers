@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSData;
-
 @interface PKPaymentNonceResponse : PKPaymentWebServiceResponse {
-    NSData *_nonceData;
+    NSData * _nonceData;
 }
 
-@property(retain) NSData * nonceData;
+@property (nonatomic, copy) NSData *nonceData;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithData:(id)arg1;
 - (id)nonceData;
 - (void)setNonceData:(id)arg1;

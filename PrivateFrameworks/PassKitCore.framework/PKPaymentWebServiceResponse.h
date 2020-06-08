@@ -2,16 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@interface PKPaymentWebServiceResponse : NSObject {
-    id _JSONObject;
-}
-
-@property(readonly) id JSONObject;
-
-+ (id)responseWithData:(id)arg1;
-
-- (id)JSONObject;
-- (void)dealloc;
-- (id)initWithData:(id)arg1;
+@interface PKPaymentWebServiceResponse : PKWebServiceResponse
 
 @end

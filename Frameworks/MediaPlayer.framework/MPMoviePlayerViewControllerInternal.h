@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPMoviePlayerController;
-
 @interface MPMoviePlayerViewControllerInternal : NSObject {
-    MPMoviePlayerController *_moviePlayer;
-    BOOL _wasDisplayedAnimated;
+    MPMoviePlayerController * _moviePlayer;
+    bool  _wasDisplayedAnimated;
 }
 
 - (void).cxx_destruct;

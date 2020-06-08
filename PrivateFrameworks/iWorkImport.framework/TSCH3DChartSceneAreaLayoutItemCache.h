@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSCH3DVector;
-
 @interface TSCH3DChartSceneAreaLayoutItemCache : NSObject {
+    TSCH3DVector * _containingViewportVector;
     struct TSCH3DChartSceneAreaLayoutItemCacheValues { 
         struct tvec4<float> { 
             union { 
@@ -53,20 +52,20 @@
             } ; 
         } chartBodyLayoutOffsetInChartAreaLayoutSpace; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } layoutSize; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } requestLayoutSize; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } chartBodyLayoutSize; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } requestChartBodyLayoutSize; 
         struct tvec2<int> { 
             union { 
@@ -81,49 +80,49 @@
             } ; 
         } modelSize; 
         struct { 
-            BOOL forceOmitLegend; 
-            BOOL forceOmitTitle; 
-            BOOL forceOmitAxisTitle; 
-            BOOL enable3DTightBounds; 
-            BOOL enable3DScaledDepthBounds; 
-            BOOL enable3DSageMaxDepthRatio; 
-            unsigned int max3DLimitingSeries; 
+            bool forceOmitLegend; 
+            bool forceOmitTitle; 
+            bool forceOmitAxisTitle; 
+            bool forceOmitLabelPlacement; 
+            bool forceTitleAtTop; 
+            bool enable3DTightBounds; 
+            bool enable3DScaledDepthBounds; 
+            long long maxDepthRatioType; 
+            unsigned long long max3DLimitingSeries; 
         } layoutSettings; 
-        BOOL forcedValid; 
-    TSCH3DVector *_containingViewportVector;
-    } mValues;
+        bool forcedValid; 
+    }  mValues;
 }
 
-@property(readonly) struct tvec2<float> { union { float x_1_1_1; float x_1_1_2; float x_1_1_3; } x1; union { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; } chartBodyLayoutOffsetInChartAreaLayoutSpace;
-@property(readonly) struct CGSize { float x1; float x2; } chartBodyLayoutSize;
-@property(readonly) struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; } containingViewport;
-@property(readonly) TSCH3DVector * containingViewportVector;
-@property(readonly) BOOL forcedValid;
-@property(readonly) struct tvec4<float> { union { float x_1_1_1; float x_1_1_2; float x_1_1_3; } x1; union { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; union { float x_3_1_1; float x_3_1_2; float x_3_1_3; } x3; union { float x_4_1_1; float x_4_1_2; float x_4_1_3; } x4; } infoChartScale;
-@property(readonly) struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; } layoutSettings;
-@property(readonly) struct CGSize { float x1; float x2; } layoutSize;
-@property(readonly) struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; } modelSize;
-@property(readonly) struct CGSize { float x1; float x2; } requestChartBodyLayoutSize;
-@property(readonly) struct CGSize { float x1; float x2; } requestLayoutSize;
+@property (nonatomic, readonly) struct tvec2<float> { union { float x_1_1_1; float x_1_1_2; float x_1_1_3; } x1; union { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; } chartBodyLayoutOffsetInChartAreaLayoutSpace;
+@property (nonatomic, readonly) struct CGSize { double x1; double x2; } chartBodyLayoutSize;
+@property (nonatomic, readonly) struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; } containingViewport;
+@property (nonatomic, readonly) TSCH3DVector *containingViewportVector;
+@property (nonatomic, readonly) bool forcedValid;
+@property (nonatomic, readonly) struct tvec4<float> { union { float x_1_1_1; float x_1_1_2; float x_1_1_3; } x1; union { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; union { float x_3_1_1; float x_3_1_2; float x_3_1_3; } x3; union { float x_4_1_1; float x_4_1_2; float x_4_1_3; } x4; } infoChartScale;
+@property (nonatomic, readonly) struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; } layoutSettings;
+@property (nonatomic, readonly) struct CGSize { double x1; double x2; } layoutSize;
+@property (nonatomic, readonly) struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; } modelSize;
+@property (nonatomic, readonly) struct CGSize { double x1; double x2; } requestChartBodyLayoutSize;
+@property (nonatomic, readonly) struct CGSize { double x1; double x2; } requestLayoutSize;
 
-+ (id)cacheWithCacheValues:(const struct TSCH3DChartSceneAreaLayoutItemCacheValues { struct tvec4<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_1_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_1_1_2; union { float x_3_2_1; float x_3_2_2; float x_3_2_3; } x_1_1_3; union { float x_4_2_1; float x_4_2_2; float x_4_2_3; } x_1_1_4; } x1; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_2_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_2_1_2; } x2; struct tvec2<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_3_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_3_1_2; } x3; struct CGSize { float x_4_1_1; float x_4_1_2; } x4; struct CGSize { float x_5_1_1; float x_5_1_2; } x5; struct CGSize { float x_6_1_1; float x_6_1_2; } x6; struct CGSize { float x_7_1_1; float x_7_1_2; } x7; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_8_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_8_1_2; } x8; struct { BOOL x_9_1_1; BOOL x_9_1_2; BOOL x_9_1_3; BOOL x_9_1_4; BOOL x_9_1_5; BOOL x_9_1_6; unsigned int x_9_1_7; } x9; BOOL x10; }*)arg1;
-+ (id)cacheWithInfoChartScale:(const struct tvec3<float> { union { float x_1_1_1; float x_1_1_2; float x_1_1_3; } x1; union { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; union { float x_3_1_1; float x_3_1_2; float x_3_1_3; } x3; }*)arg1 containingViewport:(const struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; }*)arg2 chartBodyLayoutOffsetInChartAreaLayoutSpace:(const struct tvec2<float> { union { float x_1_1_1; float x_1_1_2; float x_1_1_3; } x1; union { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; }*)arg3 layoutSize:(struct CGSize { float x1; float x2; })arg4 requestLayoutSize:(struct CGSize { float x1; float x2; })arg5 chartBodyLayoutSize:(struct CGSize { float x1; float x2; })arg6 requestChartBodyLayoutSize:(struct CGSize { float x1; float x2; })arg7 layoutSettings:(struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; })arg8;
++ (id)cacheWithCacheValues:(const struct TSCH3DChartSceneAreaLayoutItemCacheValues { struct tvec4<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_1_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_1_1_2; union { float x_3_2_1; float x_3_2_2; float x_3_2_3; } x_1_1_3; union { float x_4_2_1; float x_4_2_2; float x_4_2_3; } x_1_1_4; } x1; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_2_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_2_1_2; } x2; struct tvec2<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_3_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_3_1_2; } x3; struct CGSize { double x_4_1_1; double x_4_1_2; } x4; struct CGSize { double x_5_1_1; double x_5_1_2; } x5; struct CGSize { double x_6_1_1; double x_6_1_2; } x6; struct CGSize { double x_7_1_1; double x_7_1_2; } x7; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_8_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_8_1_2; } x8; struct { bool x_9_1_1; bool x_9_1_2; bool x_9_1_3; bool x_9_1_4; bool x_9_1_5; bool x_9_1_6; bool x_9_1_7; long long x_9_1_8; unsigned long long x_9_1_9; } x9; }*)arg1;
 
 - (id).cxx_construct;
 - (struct tvec2<float> { union { float x_1_1_1; float x_1_1_2; float x_1_1_3; } x1; union { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; })chartBodyLayoutOffsetInChartAreaLayoutSpace;
-- (struct CGSize { float x1; float x2; })chartBodyLayoutSize;
+- (struct CGSize { double x1; double x2; })chartBodyLayoutSize;
 - (struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; })containingViewport;
 - (id)containingViewportVector;
-- (BOOL)forcedValid;
+- (bool)forcedValid;
 - (struct tvec4<float> { union { float x_1_1_1; float x_1_1_2; float x_1_1_3; } x1; union { float x_2_1_1; float x_2_1_2; float x_2_1_3; } x2; union { float x_3_1_1; float x_3_1_2; float x_3_1_3; } x3; union { float x_4_1_1; float x_4_1_2; float x_4_1_3; } x4; })infoChartScale;
 - (id)init;
-- (id)initWithCacheValues:(const struct TSCH3DChartSceneAreaLayoutItemCacheValues { struct tvec4<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_1_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_1_1_2; union { float x_3_2_1; float x_3_2_2; float x_3_2_3; } x_1_1_3; union { float x_4_2_1; float x_4_2_2; float x_4_2_3; } x_1_1_4; } x1; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_2_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_2_1_2; } x2; struct tvec2<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_3_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_3_1_2; } x3; struct CGSize { float x_4_1_1; float x_4_1_2; } x4; struct CGSize { float x_5_1_1; float x_5_1_2; } x5; struct CGSize { float x_6_1_1; float x_6_1_2; } x6; struct CGSize { float x_7_1_1; float x_7_1_2; } x7; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_8_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_8_1_2; } x8; struct { BOOL x_9_1_1; BOOL x_9_1_2; BOOL x_9_1_3; BOOL x_9_1_4; BOOL x_9_1_5; BOOL x_9_1_6; unsigned int x_9_1_7; } x9; BOOL x10; }*)arg1;
-- (struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; })layoutSettings;
-- (struct CGSize { float x1; float x2; })layoutSize;
+- (id)initWithCacheValues:(const struct TSCH3DChartSceneAreaLayoutItemCacheValues { struct tvec4<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_1_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_1_1_2; union { float x_3_2_1; float x_3_2_2; float x_3_2_3; } x_1_1_3; union { float x_4_2_1; float x_4_2_2; float x_4_2_3; } x_1_1_4; } x1; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_2_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_2_1_2; } x2; struct tvec2<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_3_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_3_1_2; } x3; struct CGSize { double x_4_1_1; double x_4_1_2; } x4; struct CGSize { double x_5_1_1; double x_5_1_2; } x5; struct CGSize { double x_6_1_1; double x_6_1_2; } x6; struct CGSize { double x_7_1_1; double x_7_1_2; } x7; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_8_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_8_1_2; } x8; struct { bool x_9_1_1; bool x_9_1_2; bool x_9_1_3; bool x_9_1_4; bool x_9_1_5; bool x_9_1_6; bool x_9_1_7; long long x_9_1_8; unsigned long long x_9_1_9; } x9; }*)arg1;
+- (struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; })layoutSettings;
+- (struct CGSize { double x1; double x2; })layoutSize;
 - (struct tvec2<int> { union { int x_1_1_1; int x_1_1_2; int x_1_1_3; } x1; union { int x_2_1_1; int x_2_1_2; int x_2_1_3; } x2; })modelSize;
 - (void)printDebug;
-- (struct CGSize { float x1; float x2; })requestChartBodyLayoutSize;
-- (struct CGSize { float x1; float x2; })requestLayoutSize;
-- (const struct TSCH3DChartSceneAreaLayoutItemCacheValues { struct tvec4<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_1_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_1_1_2; union { float x_3_2_1; float x_3_2_2; float x_3_2_3; } x_1_1_3; union { float x_4_2_1; float x_4_2_2; float x_4_2_3; } x_1_1_4; } x1; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_2_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_2_1_2; } x2; struct tvec2<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_3_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_3_1_2; } x3; struct CGSize { float x_4_1_1; float x_4_1_2; } x4; struct CGSize { float x_5_1_1; float x_5_1_2; } x5; struct CGSize { float x_6_1_1; float x_6_1_2; } x6; struct CGSize { float x_7_1_1; float x_7_1_2; } x7; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_8_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_8_1_2; } x8; struct { BOOL x_9_1_1; BOOL x_9_1_2; BOOL x_9_1_3; BOOL x_9_1_4; BOOL x_9_1_5; BOOL x_9_1_6; unsigned int x_9_1_7; } x9; BOOL x10; }*)values;
+- (struct CGSize { double x1; double x2; })requestChartBodyLayoutSize;
+- (struct CGSize { double x1; double x2; })requestLayoutSize;
+- (const struct TSCH3DChartSceneAreaLayoutItemCacheValues { struct tvec4<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_1_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_1_1_2; union { float x_3_2_1; float x_3_2_2; float x_3_2_3; } x_1_1_3; union { float x_4_2_1; float x_4_2_2; float x_4_2_3; } x_1_1_4; } x1; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_2_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_2_1_2; } x2; struct tvec2<float> { union { float x_1_2_1; float x_1_2_2; float x_1_2_3; } x_3_1_1; union { float x_2_2_1; float x_2_2_2; float x_2_2_3; } x_3_1_2; } x3; struct CGSize { double x_4_1_1; double x_4_1_2; } x4; struct CGSize { double x_5_1_1; double x_5_1_2; } x5; struct CGSize { double x_6_1_1; double x_6_1_2; } x6; struct CGSize { double x_7_1_1; double x_7_1_2; } x7; struct tvec2<int> { union { int x_1_2_1; int x_1_2_2; int x_1_2_3; } x_8_1_1; union { int x_2_2_1; int x_2_2_2; int x_2_2_3; } x_8_1_2; } x8; struct { bool x_9_1_1; bool x_9_1_2; bool x_9_1_3; bool x_9_1_4; bool x_9_1_5; bool x_9_1_6; bool x_9_1_7; long long x_9_1_8; unsigned long long x_9_1_9; } x9; }*)values;
 
 @end

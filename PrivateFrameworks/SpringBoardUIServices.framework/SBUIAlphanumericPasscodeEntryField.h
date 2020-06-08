@@ -2,25 +2,20 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUIServices.framework/SpringBoardUIServices
  */
 
-@class UITextInputTraits, UIView;
-
 @interface SBUIAlphanumericPasscodeEntryField : SBUIPasscodeEntryField {
-    UIView *_leftPaddingView;
-    UIView *_rightPaddingView;
-    UIView *_springView;
-    UIView *_springViewParent;
+    UIView * _springView;
+    UIView * _springViewParent;
 }
 
-@property(readonly) UITextInputTraits * textInputTraits;
+@property (nonatomic, readonly) UITextInputTraits *textInputTraits;
 
-- (void)_autofillForMesaWithCompletion:(id)arg1;
-- (void)_resetForFailedPasscode:(BOOL)arg1 playUnlockFailedSound:(BOOL)arg2;
-- (void)dealloc;
-- (id)initWithDefaultSizeAndLightStyle:(BOOL)arg1;
+- (void).cxx_destruct;
+- (void)_autofillForBiometricAuthenticationWithCompletion:(id /* block */)arg1;
+- (void)_resetForFailedPasscode:(bool)arg1;
+- (struct CGSize { double x1; double x2; })_viewSize;
+- (id)initWithDefaultSizeAndLightStyle:(bool)arg1;
 - (void)layoutSubviews;
 - (void)notePasscodeFieldTextDidChange;
-- (void)setBackgroundAlpha:(float)arg1;
-- (void)setCustomBackgroundColor:(id)arg1;
 - (id)textInputTraits;
 
 @end

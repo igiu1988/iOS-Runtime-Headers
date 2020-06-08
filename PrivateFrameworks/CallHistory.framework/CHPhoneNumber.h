@@ -2,30 +2,32 @@
    Image: /System/Library/PrivateFrameworks/CallHistory.framework/CallHistory
  */
 
-@class NSString;
-
 @interface CHPhoneNumber : CHLogger {
-    NSString *_ISOCountryCode;
-    BOOL _formatted;
-    NSString *_formattedPhoneNumber;
-    NSString *_originalPhoneNumber;
+    NSString * _digits;
+    NSString * _formattedRepresentation;
+    bool  _formattedRepresentationAttempted;
+    NSString * _isoCountryCode;
+    NSString * _normalizedRepresentation;
+    bool  _normalizedRepresentationAttempted;
 }
 
-@property(copy) NSString * ISOCountryCode;
-@property BOOL formatted;
-@property(copy) NSString * formattedPhoneNumber;
-@property(copy) NSString * originalPhoneNumber;
+@property (nonatomic, readonly, copy) NSString *digits;
+@property (nonatomic, readonly, copy) NSString *formattedRepresentation;
+@property (nonatomic) bool formattedRepresentationAttempted;
+@property (nonatomic, copy) NSString *isoCountryCode;
+@property (nonatomic, readonly, copy) NSString *normalizedRepresentation;
+@property (nonatomic) bool normalizedRepresentationAttempted;
 
 - (void).cxx_destruct;
-- (id)ISOCountryCode;
-- (BOOL)formatted;
-- (id)formattedNumber;
-- (id)formattedPhoneNumber;
-- (id)initWithPhoneNumber:(id)arg1 andISOCountryCode:(id)arg2;
-- (id)originalPhoneNumber;
-- (void)setFormatted:(BOOL)arg1;
-- (void)setFormattedPhoneNumber:(id)arg1;
-- (void)setISOCountryCode:(id)arg1;
-- (void)setOriginalPhoneNumber:(id)arg1;
+- (id)digits;
+- (id)formattedRepresentation;
+- (bool)formattedRepresentationAttempted;
+- (id)initWithDigits:(id)arg1 isoCountryCode:(id)arg2;
+- (id)isoCountryCode;
+- (id)normalizedRepresentation;
+- (bool)normalizedRepresentationAttempted;
+- (void)setFormattedRepresentationAttempted:(bool)arg1;
+- (void)setIsoCountryCode:(id)arg1;
+- (void)setNormalizedRepresentationAttempted:(bool)arg1;
 
 @end

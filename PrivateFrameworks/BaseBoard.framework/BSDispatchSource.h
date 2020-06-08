@@ -2,32 +2,30 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
-
-@interface BSDispatchSource : NSObject {
-    id _cancelHandler;
-    id _eventHandler;
-    BOOL _invalidated;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSObject<OS_dispatch_source> *_source;
+@interface BSDispatchSource : NSObject <BSInvalidatable> {
+    int  _activated;
+    id /* block */  _cancelHandler;
+    id /* block */  _eventHandler;
+    int  _invalidated;
+    NSObject<OS_dispatch_source> * _source;
+    struct dispatch_source_type_s { } * _type;
 }
 
-@property(copy) id cancelHandler;
-@property(copy) id eventHandler;
-@property(retain,readonly) NSObject<OS_dispatch_queue> * queue;
+@property (nonatomic, copy) id /* block */ cancelHandler;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) id /* block */ eventHandler;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-- (id)cancelHandler;
+- (void).cxx_destruct;
+- (id /* block */)cancelHandler;
 - (void)dealloc;
-- (id)eventHandler;
-- (id)initWithType:(struct dispatch_source_type_s { }*)arg1 handle:(unsigned long)arg2 mask:(unsigned long)arg3 queue:(id)arg4 configureSourceBlock:(id)arg5;
+- (id /* block */)eventHandler;
+- (id)initWithType:(struct dispatch_source_type_s { }*)arg1 handle:(unsigned long long)arg2 mask:(unsigned long long)arg3 queue:(id)arg4 configureSourceBlock:(id /* block */)arg5;
 - (void)invalidate;
-- (id)queue;
 - (void)resume;
-- (void)setCancelHandler:(id)arg1;
-- (void)setEventHandler:(id)arg1;
+- (void)setCancelHandler:(id /* block */)arg1;
+- (void)setEventHandler:(id /* block */)arg1;
 
 @end

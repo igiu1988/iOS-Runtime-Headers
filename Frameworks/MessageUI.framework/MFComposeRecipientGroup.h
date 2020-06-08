@@ -2,11 +2,8 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class NSArray, NSString;
-
 @interface MFComposeRecipientGroup : MFComposeRecipient {
-    NSArray *_children;
-    NSString *_displayString;
+    NSArray * _children;
 }
 
 - (void)_populateSortedChildren;
@@ -19,9 +16,9 @@
 - (void)dealloc;
 - (id)displayString;
 - (id)initWithChildren:(id)arg1 displayString:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isGroup;
-- (BOOL)isRemovableFromSearchResults;
+- (bool)isEqual:(id)arg1;
+- (bool)isGroup;
+- (bool)isRemovableFromSearchResults;
 - (id)label;
 - (id)placeholderName;
 - (int)property;
@@ -29,6 +26,6 @@
 - (int)recordID;
 - (id)sortedChildren;
 - (id)unlocalizedLabel;
-- (BOOL)wasCompleteMatch;
+- (bool)wasCompleteMatch;
 
 @end

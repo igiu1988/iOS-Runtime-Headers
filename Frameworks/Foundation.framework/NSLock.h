@@ -2,26 +2,40 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSString;
-
-@interface NSLock : NSObject <NSLocking> {
-    void *_priv;
+@interface NSLock : NSObject <HMFLocking, NSLocking> {
+    void * _priv;
 }
 
-@property(copy) NSString * name;
+@property (copy) NSString *name;
+
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 
 - (void)dealloc;
 - (id)description;
-- (void)finalize;
 - (id)init;
 - (void)lock;
-- (BOOL)lockBeforeDate:(id)arg1;
-- (void)mf_waitForLock;
+- (bool)lockBeforeDate:(id)arg1;
 - (id)name;
 - (void)setName:(id)arg1;
-- (BOOL)tryLock;
+- (bool)tryLock;
 - (void)unlock;
+
+// Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
+
+- (void)hk_withLock:(id /* block */)arg1;
+
+// Image: /System/Library/Frameworks/iAd.framework/iAd
+
+- (void)_iAd_withLock:(id /* block */)arg1;
+
+// Image: /System/Library/PrivateFrameworks/HMFoundation.framework/HMFoundation
+
+- (void)performBlock:(id /* block */)arg1;
+
+// Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
+
+- (void)mf_waitForLock;
 
 @end

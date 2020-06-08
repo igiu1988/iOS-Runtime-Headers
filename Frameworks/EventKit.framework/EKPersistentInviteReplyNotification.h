@@ -2,32 +2,21 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class EKPersistentCalendar, NSDate, NSString;
-
-@interface EKPersistentInviteReplyNotification : EKPersistentObject {
-}
-
-@property(readonly) BOOL alerted;
-@property(readonly) EKPersistentCalendar * calendar;
-@property(readonly) NSString * calendarName;
-@property(readonly) NSDate * creationDate;
-@property(readonly) NSString * shareeAddress;
-@property(readonly) NSString * shareeDisplayName;
-@property(readonly) NSString * shareeFirstName;
-@property(readonly) NSString * shareeLastName;
-@property(readonly) int status;
+@interface EKPersistentInviteReplyNotification : EKPersistentObject
 
 + (id)defaultPropertiesToLoad;
 + (id)relations;
 
-- (BOOL)alerted;
+- (bool)alerted;
 - (id)calendar;
 - (id)calendarName;
 - (id)creationDate;
-- (id)shareeAddress;
+- (int)entityType;
+- (id)inviteReplyCalendar;
+- (id)shareeAddressURL;
 - (id)shareeDisplayName;
 - (id)shareeFirstName;
 - (id)shareeLastName;
-- (int)status;
+- (unsigned long long)status;
 
 @end

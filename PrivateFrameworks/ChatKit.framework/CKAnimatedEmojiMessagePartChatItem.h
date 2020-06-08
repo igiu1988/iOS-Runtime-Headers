@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@interface CKAnimatedEmojiMessagePartChatItem : CKAttachmentMessagePartChatItem {
-}
+@interface CKAnimatedEmojiMessagePartChatItem : CKAttachmentMessagePartChatItem
 
-- (id)initWithIMChatItem:(id)arg1 maxWidth:(float)arg2;
+- (id)initWithIMChatItem:(id)arg1 maxWidth:(double)arg2;
 
 @end

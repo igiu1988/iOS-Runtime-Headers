@@ -6,13 +6,13 @@
     struct _double_quad_uint { 
         unsigned long long high64; 
         unsigned long long low64; 
-    } bits;
+    }  bits;
 }
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithBytes:(char *)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 
 @end

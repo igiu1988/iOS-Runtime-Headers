@@ -2,9 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface CXCommon : NSObject {
-}
+@interface CXCommon : NSObject
 
++ (int (*)defaultExternalEntityLoader;
++ (int (*)ignoreExternalEntityLoader;
 + (void)initialize;
 
 @end

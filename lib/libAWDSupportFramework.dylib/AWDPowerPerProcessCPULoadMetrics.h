@@ -2,19 +2,19 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSMutableArray;
-
 @interface AWDPowerPerProcessCPULoadMetrics : PBCodable <NSCopying> {
     struct { 
         unsigned int timestamp : 1; 
-    } _has;
-    NSMutableArray *_loads;
-    unsigned long long _timestamp;
+    }  _has;
+    NSMutableArray * _loads;
+    unsigned long long  _timestamp;
 }
 
-@property BOOL hasTimestamp;
-@property(retain) NSMutableArray * loads;
-@property unsigned long long timestamp;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic, retain) NSMutableArray *loads;
+@property (nonatomic) unsigned long long timestamp;
+
++ (Class)loadType;
 
 - (void)addLoad:(id)arg1;
 - (void)clearLoads;
@@ -23,15 +23,15 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (id)loadAtIndex:(unsigned int)arg1;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
+- (id)loadAtIndex:(unsigned long long)arg1;
 - (id)loads;
-- (unsigned int)loadsCount;
+- (unsigned long long)loadsCount;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setLoads:(id)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (unsigned long long)timestamp;

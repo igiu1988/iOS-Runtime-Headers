@@ -2,23 +2,20 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, NSNumber;
-
 @interface CIGaussianBlur : CIFilter {
-    CIImage *inputImage;
-    NSNumber *inputRadius;
+    CIImage * inputImage;
+    NSNumber * inputRadius;
 }
 
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputRadius;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputRadius;
 
 + (id)customAttributes;
 
-- (BOOL)_isIdentity;
+- (bool)_isIdentity;
 - (id)inputImage;
 - (id)inputRadius;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputImage:(id)arg1;
 - (void)setInputRadius:(id)arg1;
 

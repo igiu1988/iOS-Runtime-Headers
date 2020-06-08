@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iPhotoMigrationSupport.framework/iPhotoMigrationSupport
  */
 
-@class PLPhotoLibrary;
-
 @interface iPhotoMigrationSupport : NSObject {
-    int _inFlightMigrationCount;
-    PLPhotoLibrary *_pl_library;
+    int  _inFlightMigrationCount;
+    PLPhotoLibrary * _pl_library;
 }
 
-@property(readonly) BOOL migrationWasInterrupted;
-@property(setter=setPL_library:,retain) PLPhotoLibrary * pl_library;
+@property (nonatomic, readonly) bool migrationWasInterrupted;
+@property (setter=setPL_library:, nonatomic, retain) PLPhotoLibrary *pl_library;
 
 + (id)sharedInstance;
 
 - (void).cxx_destruct;
-- (BOOL)_createParentDirectoryIfNecessaryWithPath:(id)arg1;
+- (bool)_createParentDirectoryIfNecessaryWithPath:(id)arg1;
 - (void)_decrementInFlightMigrationCount;
 - (void)_deleteiPhotoSubDirectoryWithDirectoryPath:(id)arg1 subDirectoryName:(id)arg2 description:(id)arg3;
 - (id)_displayableUuidWithUuid:(id)arg1;
@@ -25,16 +23,16 @@
 - (id)_iPhotoUuidsWithProjectDict:(id)arg1 type:(unsigned long long)arg2;
 - (id)_inFlightMigrationMarkerFilePath;
 - (void)_incrementInFlightMigrationCount;
-- (BOOL)_isMigrating;
+- (bool)_isMigrating;
 - (id)_migratediPhotoDir;
-- (void)_migrateiPhotoLibraryWorkerWithProgressHandler:(id)arg1 iPhotoLibraryDir:(id)arg2;
+- (void)_migrateiPhotoLibraryWorkerWithProgressHandler:(id /* block */)arg1 iPhotoLibraryDir:(id)arg2;
 - (id)_preMigratediPhotoDir;
 - (id)_premigratedProjectUuidMapTable;
-- (BOOL)_validateUuid:(id)arg1;
+- (bool)_validateUuid:(id)arg1;
 - (void)addKeywordIfDoesNotExist:(id)arg1 forAsset:(id)arg2;
-- (void)checkForUnmigratediPhotoContentWithCompletion:(id)arg1;
-- (void)fireMigrationOfiPhotoLibraryWithProgressHandler:(id)arg1;
-- (BOOL)migrationWasInterrupted;
+- (void)checkForUnmigratediPhotoContentWithCompletion:(id /* block */)arg1;
+- (void)fireMigrationOfiPhotoLibraryWithProgressHandler:(id /* block */)arg1;
+- (bool)migrationWasInterrupted;
 - (id)pl_library;
 - (void)setCaption:(id)arg1 forAsset:(id)arg2;
 - (void)setPL_library:(id)arg1;

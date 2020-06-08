@@ -2,29 +2,33 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class <MFMailComposeToFieldDelegate>, MFComposeSMIMELockButton;
-
-@interface MFMailComposeToField : MFMailComposeRecipientView {
-    MFComposeSMIMELockButton *_smimeButton;
-    BOOL _smimeButtonVisible;
-    <MFMailComposeToFieldDelegate> *_toFieldDelegate;
+@interface MFMailComposeToField : MFComposeRecipientTextView {
+    bool  _canEncrypt;
+    MFComposeSMIMELockButton * _smimeButton;
+    bool  _smimeButtonEnabled;
+    bool  _smimeButtonVisible;
+    <MFMailComposeToFieldDelegate> * _toFieldDelegate;
+    bool  _wantsEncryption;
 }
 
-@property(readonly) MFComposeSMIMELockButton * SMIMEButton;
-@property BOOL smimeButtonVisible;
-@property <MFMailComposeToFieldDelegate> * toFieldDelegate;
+@property (nonatomic, readonly) MFComposeSMIMELockButton *SMIMEButton;
+@property (nonatomic) bool smimeButtonEnabled;
+@property (nonatomic) bool smimeButtonVisible;
+@property (nonatomic) <MFMailComposeToFieldDelegate> *toFieldDelegate;
 
 - (id)SMIMEButton;
-- (void)_setSMIMEButtonVisible:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)_setSMIMEButtonVisible:(bool)arg1 animated:(bool)arg2;
 - (void)_tappedSMIMEButton:(id)arg1;
-- (id)_textContainerExclusionPathsWithAddButton:(BOOL)arg1;
+- (id)_textContainerExclusionPathsWithAddButton:(bool)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
-- (void)setFocused:(BOOL)arg1;
-- (void)setSmimeButtonVisible:(BOOL)arg1;
+- (void)setExpanded:(bool)arg1;
+- (void)setSmimeButtonEnabled:(bool)arg1;
+- (void)setSmimeButtonVisible:(bool)arg1;
 - (void)setToFieldDelegate:(id)arg1;
-- (BOOL)smimeButtonVisible;
+- (void)setWantsEncryption:(bool)arg1 canEncrypt:(bool)arg2 animated:(bool)arg3;
+- (bool)smimeButtonEnabled;
+- (bool)smimeButtonVisible;
 - (id)toFieldDelegate;
 
 @end

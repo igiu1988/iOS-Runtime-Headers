@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface ODITitlePoint : ODIHorizonalList3 {
-    NSString *mTitlePointPresentationName;
+    NSString * mTitlePointPresentationName;
 }
 
 - (void)dealloc;

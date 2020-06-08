@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@interface VKStandardRasterTileSource : VKRasterTileSource {
-}
+@interface VKStandardRasterTileSource : VKRasterTileSource
 
-- (unsigned long long)mapLayerForZoomLevelRange;
+- (unsigned char)mapLayerForZoomLevelRange;
 
 @end

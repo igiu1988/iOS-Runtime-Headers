@@ -2,27 +2,20 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface SCNActionScale : SCNAction {
-    struct SCNCActionScale { int (**x1)(); float x2; id x3; /* Warning: Unrecognized filer type: '?' using 'void*' */ void*x4; id x5; boolx6; double x7; double x8; float x9; float x10; double x11; boolx12; boolx13; id x14; void*x15; struct __CFString {} *x16; int x17; float x18; float x19; float x20; float x21; float x22; float x23; float x24; float x25; float x26; BOOL x27; BOOL x28; } *_mycaction;
+    struct SCNCActionScale { int (**x1)(); float x2; id /* block */ x3; id x4; double x5; double x6; double x7; double x8; double x9; bool x10; bool x11; id /* block */ x12; struct __CFString {} *x13; long long x14; double x15; double x16; double x17; double x18; float x19; float x20; float x21; float x22; float x23; bool x24; bool x25; } * _mycaction;
 }
 
-+ (id)scaleBy:(float)arg1 duration:(double)arg2;
-+ (id)scaleTo:(float)arg1 duration:(double)arg2;
-+ (BOOL)supportsSecureCoding;
++ (id)scaleBy:(double)arg1 duration:(double)arg2;
++ (id)scaleTo:(double)arg1 duration:(double)arg2;
++ (bool)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
+- (bool)isRelative;
+- (id)parameters;
 - (id)reversedAction;
 
 @end

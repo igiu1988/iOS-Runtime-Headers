@@ -2,68 +2,75 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class EKSource, NSArray, NSMutableArray, NSSet, NSString;
-
 @interface EKGroupInfo : NSObject {
-    NSMutableArray *_calendars;
-    int _customGroupType;
-    NSString *_customTitle;
-    NSString *_customTitleAtBeginningOfSentence;
-    BOOL _selected;
-    BOOL _showSelectAllButton;
-    EKSource *_source;
-    NSString *_title;
-    NSString *_titleForBeginningOfSentence;
-    NSString *_typeTitle;
+    NSMutableArray * _calendars;
+    int  _customGroupType;
+    NSString * _customTitle;
+    NSString * _customTitleAtBeginningOfSentence;
+    NSString * _footer;
+    bool  _selected;
+    bool  _showSelectAllButton;
+    bool  _showVerifyAccountButton;
+    EKSource * _source;
+    NSString * _title;
+    NSString * _titleForBeginningOfSentence;
+    NSString * _typeTitle;
 }
 
-@property(retain,readonly) NSArray * calendarInfos;
-@property(copy,readonly) NSSet * calendarSet;
-@property(readonly) BOOL isSubscribed;
-@property(readonly) unsigned int numCalendars;
-@property(readonly) unsigned int numSelectableCalendars;
-@property(readonly) unsigned int numSelectedCalendars;
-@property BOOL selected;
-@property(copy,readonly) NSSet * selectedCalendarSet;
-@property(readonly) BOOL showAddCalendarButton;
-@property(readonly) BOOL showCalendarNameIfSolitary;
-@property BOOL showSelectAllButton;
-@property(readonly) int sortOrder;
-@property(retain) EKSource * source;
-@property(copy,readonly) NSString * title;
-@property(copy,readonly) NSString * typeTitle;
+@property (nonatomic, readonly, retain) NSArray *calendarInfos;
+@property (nonatomic, readonly, copy) NSSet *calendarSet;
+@property (nonatomic, retain) NSString *footer;
+@property (nonatomic, readonly) bool isSubscribed;
+@property (nonatomic, readonly) unsigned long long numCalendars;
+@property (nonatomic, readonly) unsigned long long numSelectableCalendars;
+@property (nonatomic, readonly) unsigned long long numSelectedCalendars;
+@property (nonatomic) bool selected;
+@property (nonatomic, readonly, copy) NSSet *selectedCalendarSet;
+@property (nonatomic, readonly) bool showAddCalendarButton;
+@property (nonatomic, readonly) bool showCalendarNameIfSolitary;
+@property (nonatomic) bool showSelectAllButton;
+@property (nonatomic) bool showVerifyAccountButton;
+@property (nonatomic, readonly) int sortOrder;
+@property (nonatomic, retain) EKSource *source;
+@property (nonatomic, readonly) EKSource *sourceForSyncError;
+@property (nonatomic, readonly, copy) NSString *title;
+@property (nonatomic, readonly, copy) NSString *typeTitle;
 
 - (void).cxx_destruct;
-- (id)calendarAtIndex:(unsigned int)arg1;
+- (id)calendarAtIndex:(unsigned long long)arg1;
 - (id)calendarInfos;
 - (id)calendarSet;
 - (id)copyCalendars;
 - (id)description;
+- (id)footer;
 - (id)init;
 - (id)initWithCustomGroupType:(int)arg1;
 - (id)initWithSource:(id)arg1;
 - (void)insertCalendarInfo:(id)arg1;
-- (void)insertDeclinedEventsItem;
-- (BOOL)isSubscribed;
-- (unsigned int)numCalendars;
-- (unsigned int)numSelectableCalendars;
-- (unsigned int)numSelectedCalendars;
+- (bool)isSubscribed;
+- (unsigned long long)numCalendars;
+- (unsigned long long)numSelectableCalendars;
+- (unsigned long long)numSelectedCalendars;
 - (void)removeCalendar:(id)arg1;
 - (void)selectAll;
 - (void)selectNone;
-- (BOOL)selected;
+- (bool)selected;
 - (id)selectedCalendarSet;
 - (void)setCustomTitle:(id)arg1 forBeginningOfSentence:(id)arg2;
-- (void)setSelected:(BOOL)arg1;
-- (void)setShowSelectAllButton:(BOOL)arg1;
+- (void)setFooter:(id)arg1;
+- (void)setSelected:(bool)arg1;
+- (void)setShowSelectAllButton:(bool)arg1;
+- (void)setShowVerifyAccountButton:(bool)arg1;
 - (void)setSource:(id)arg1;
-- (BOOL)showAddCalendarButton;
-- (BOOL)showCalendarNameIfSolitary;
-- (BOOL)showSelectAllButton;
+- (bool)showAddCalendarButton;
+- (bool)showCalendarNameIfSolitary;
+- (bool)showSelectAllButton;
+- (bool)showVerifyAccountButton;
 - (int)sortOrder;
 - (id)source;
+- (id)sourceForSyncError;
 - (id)title;
-- (id)titleForBeginningOfSentence:(BOOL)arg1;
+- (id)titleForBeginningOfSentence:(bool)arg1;
 - (id)typeTitle;
 
 @end

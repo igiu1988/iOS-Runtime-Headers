@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary;
-
 @interface MFPObjectTable : NSObject {
-    NSMutableDictionary *mObjects;
+    NSMutableDictionary * mObjects;
 }
 
 - (void)dealloc;

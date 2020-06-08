@@ -2,17 +2,17 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray;
-
 @interface OADTableRow : NSObject {
-    NSMutableArray *mCells;
-    float mHeight;
+    NSMutableArray * mCells;
+    float  mHeight;
 }
 
 - (id)addCell;
-- (id)cellAtIndex:(unsigned int)arg1;
-- (unsigned int)cellCount;
+- (id)cellAtIndex:(unsigned long long)arg1;
+- (unsigned long long)cellCount;
 - (void)dealloc;
+- (id)description;
+- (void)flipCellsRTL;
 - (float)height;
 - (id)init;
 - (void)setHeight:(float)arg1;

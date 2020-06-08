@@ -3,14 +3,15 @@
  */
 
 @interface ML3BitMaskPredicate : ML3PropertyPredicate {
-    long long _mask;
-    long long _value;
+    long long  _mask;
+    long long  _value;
 }
 
-@property long long mask;
-@property long long value;
+@property (nonatomic) long long mask;
+@property (nonatomic) long long value;
 
 + (id)predicateWithProperty:(id)arg1 mask:(long long)arg2 value:(long long)arg3;
++ (bool)supportsSecureCoding;
 
 - (void)appendSQLToMutableString:(id)arg1 entityClass:(Class)arg2;
 - (id)databaseStatementParameters;
@@ -18,7 +19,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithProperty:(id)arg1 mask:(long long)arg2 value:(long long)arg3;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (long long)mask;
 - (void)setMask:(long long)arg1;
 - (void)setValue:(long long)arg1;

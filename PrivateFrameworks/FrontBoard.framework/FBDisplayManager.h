@@ -2,35 +2,32 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@class FBSDisplay, NSHashTable, NSMapTable, NSMutableSet;
-
-@interface FBDisplayManager : NSObject {
-    NSMapTable *_displayIDToFBSDisplayMap;
-    NSMutableSet *_displaysDebouncing;
-    FBSDisplay *_mainDisplay;
-    NSHashTable *_observers;
+@interface FBDisplayManager : FBSDisplayMonitor <FBSDisplayMonitorDelegate> {
+    <FBDisplayManagerDelegate> * _displayManagerDelegate;
+    bool  _mainConnected;
 }
 
-@property(retain) FBSDisplay * mainDisplay;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) <FBDisplayManagerDelegate> *displayManagerDelegate;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly, copy) FBSDisplayConfiguration *mainDisplay;
+@property (readonly) Class superclass;
 
++ (id)mainConfiguration;
 + (id)mainDisplay;
++ (id)mainIdentity;
 + (id)sharedInstance;
 
-- (void)_broadcastFBSDisplayDidConnect:(id)arg1;
-- (void)_caDisplayDidConnect:(id)arg1 debounce:(BOOL)arg2 broadcast:(BOOL)arg3;
-- (void)_caDisplayDidDisconnect:(id)arg1;
-- (BOOL)_caDisplayIsMainDisplay:(id)arg1;
-- (void)_debounceDisplay:(id)arg1 broadcast:(BOOL)arg2;
-- (void)_displayDidDebounce:(id)arg1 broadcast:(BOOL)arg2;
-- (id)_fbsDisplayForCADisplay:(id)arg1;
-- (void)_initializeDisplays;
-- (void)addObserver:(id)arg1;
-- (id)description;
-- (id)displays;
+- (void).cxx_destruct;
+- (id)_init;
+- (void)dealloc;
+- (id)displayManagerDelegate;
+- (bool)displayMonitor:(id)arg1 shouldConnectDisplay:(id)arg2;
 - (id)init;
+- (void)invalidate;
 - (id)mainDisplay;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
-- (void)removeObserver:(id)arg1;
-- (void)setMainDisplay:(id)arg1;
+- (void)postMainDisplayConnection;
+- (void)setDisplayManagerDelegate:(id)arg1;
 
 @end

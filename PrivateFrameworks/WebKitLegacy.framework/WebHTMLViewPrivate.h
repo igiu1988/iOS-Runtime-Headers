@@ -2,42 +2,41 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class NSArray, NSString, NSTimer, WAKView, WebDataSource, WebEvent, WebPluginController;
-
 @interface WebHTMLViewPrivate : NSObject {
+    bool  closed;
+    struct RetainPtr<WebDataSource> { 
+        void *m_ptr; 
+    }  dataSource;
+    bool  exposeInputContext;
+    bool  handlingMouseDownEvent;
+    bool  ignoringMouseDraggedEvents;
+    bool  inScrollPositionChanged;
+    struct WebHTMLViewInterpretKeyEventsParameters { struct KeyboardEvent {} *x1; bool x2; bool x3; bool x4; bool x5; } * interpretKeyEventsParameters;
+    struct RetainPtr<WebEvent> { 
+        void *m_ptr; 
+    }  keyDownEvent;
     struct CGPoint { 
-        float x; 
-        float y; 
-    NSTimer *autoscrollTimer;
-    WebEvent *autoscrollTriggerEvent;
-    BOOL closed;
-    WebDataSource *dataSource;
-    BOOL drawingIntoLayer;
-    BOOL exposeInputContext;
-    BOOL handlingMouseDownEvent;
-    BOOL ignoringMouseDraggedEvents;
-    BOOL inScrollPositionChanged;
-    struct WebHTMLViewInterpretKeyEventsParameters { struct KeyboardEvent {} *x1; boolx2; boolx3; boolx4; boolx5; } *interpretKeyEventsParameters;
-    WebEvent *keyDownEvent;
-    } lastScrollPosition;
-    WAKView *layerHostingView;
-    WebEvent *mouseDownEvent;
-    NSArray *pageRects;
-    BOOL paginateScreenContent;
-    WebPluginController *pluginController;
-    BOOL printing;
-    SEL selectorForDoCommandBySelector;
-    NSString *toolTip;
-    id trackingRectOwner;
-    void *trackingRectUserData;
-    BOOL transparentBackground;
+        double x; 
+        double y; 
+    }  lastScrollPosition;
+    WAKView * layerHostingView;
+    struct RetainPtr<WebEvent> { 
+        void *m_ptr; 
+    }  mouseDownEvent;
+    struct RetainPtr<NSArray> { 
+        void *m_ptr; 
+    }  pageRects;
+    bool  paginateScreenContent;
+    struct RetainPtr<WebPluginController> { 
+        void *m_ptr; 
+    }  pluginController;
+    bool  printing;
+    SEL  selectorForDoCommandBySelector;
 }
 
-+ (void)initialize;
-
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)clear;
 - (void)dealloc;
-- (void)finalize;
 
 @end

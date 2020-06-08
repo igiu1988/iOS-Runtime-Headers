@@ -2,38 +2,50 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSArray, NSString, PKImage;
-
 @interface PKPassContent : PKContent <NSSecureCoding> {
-    NSArray *_backFieldBuckets;
-    PKImage *_footerImage;
-    NSArray *_frontFieldBuckets;
-    NSString *_logoText;
-    int _transitType;
+    NSDictionary * _allSemantics;
+    NSArray * _backFieldBuckets;
+    PKImage * _footerImage;
+    NSArray * _frontFieldBuckets;
+    NSString * _logoText;
+    PKPassPersonalization * _personalization;
+    NSDictionary * _semantics;
+    long long  _transitType;
 }
 
-@property(copy) NSArray * backFieldBuckets;
-@property(retain) PKImage * footerImage;
-@property(copy) NSArray * frontFieldBuckets;
-@property(copy) NSString * logoText;
-@property int transitType;
+@property (nonatomic, copy) NSDictionary *allSemantics;
+@property (nonatomic, copy) NSArray *backFieldBuckets;
+@property (nonatomic, retain) PKImage *footerImage;
+@property (nonatomic, copy) NSArray *frontFieldBuckets;
+@property (nonatomic, copy) NSString *logoText;
+@property (nonatomic, copy) PKPassPersonalization *personalization;
+@property (nonatomic, readonly) NSArray *primaryFields;
+@property (nonatomic, copy) NSDictionary *semantics;
+@property (nonatomic) long long transitType;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
+- (void).cxx_destruct;
+- (id)allSemantics;
 - (id)backFieldBuckets;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)flushFormattedFieldValues;
 - (id)footerImage;
 - (id)frontFieldBuckets;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDictionary:(id)arg1 bundle:(id)arg2;
+- (id)initWithDictionary:(id)arg1 bundle:(id)arg2 privateBundle:(id)arg3;
 - (id)logoText;
+- (id)personalization;
+- (id)primaryFields;
+- (id)semantics;
+- (void)setAllSemantics:(id)arg1;
 - (void)setBackFieldBuckets:(id)arg1;
 - (void)setFooterImage:(id)arg1;
 - (void)setFrontFieldBuckets:(id)arg1;
 - (void)setLogoText:(id)arg1;
-- (void)setTransitType:(int)arg1;
-- (int)transitType;
+- (void)setPersonalization:(id)arg1;
+- (void)setSemantics:(id)arg1;
+- (void)setTransitType:(long long)arg1;
+- (long long)transitType;
 
 @end

@@ -2,23 +2,17 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-@interface MTLVertexBufferLayoutDescriptor : NSObject <NSCopying> {
-    unsigned int _instanceStepRate;
-    unsigned int _stepFunction;
-    unsigned int _stride;
-}
+@interface MTLVertexBufferLayoutDescriptor : NSObject <NSCopying>
 
-@property unsigned int stepFunction;
-@property unsigned int stepRate;
-@property unsigned int stride;
+@property (nonatomic) unsigned long long stepFunction;
+@property (nonatomic) unsigned long long stepRate;
+@property (nonatomic) unsigned long long stride;
+
++ (id)alloc;
++ (id)allocWithZone:(struct _NSZone { }*)arg1;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (id)init;
-- (void)setStepFunction:(unsigned int)arg1;
-- (void)setStepRate:(unsigned int)arg1;
-- (void)setStride:(unsigned int)arg1;
-- (unsigned int)stepFunction;
-- (unsigned int)stepRate;
-- (unsigned int)stride;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 
 @end

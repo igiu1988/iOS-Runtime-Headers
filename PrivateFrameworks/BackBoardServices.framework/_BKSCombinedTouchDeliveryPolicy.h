@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/BackBoardServices.framework/BackBoardServices
  */
 
-@class NSArray;
-
 @interface _BKSCombinedTouchDeliveryPolicy : BKSTouchDeliveryPolicy {
-    NSArray *_policies;
+    NSArray * _policies;
 }
 
-@property(readonly) NSArray * policies;
+@property (nonatomic, readonly) NSArray *policies;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
+- (void).cxx_destruct;
 - (id)assertionEndpoint;
-- (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPolicies:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (id)matchSharingTouchesPolicy:(id)arg1 orCancelTouchesPolicy:(id)arg2 orCombinedPolicy:(id)arg3;
+- (bool)isEqual:(id)arg1;
+- (id)matchSharingTouchesPolicy:(id /* block */)arg1 orCancelTouchesPolicy:(id /* block */)arg2 orCombinedPolicy:(id /* block */)arg3;
 - (id)policies;
 - (void)setAssertionEndpoint:(id)arg1;
 

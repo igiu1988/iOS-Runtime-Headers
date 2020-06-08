@@ -2,77 +2,112 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSDictionary, NSMutableDictionary;
-
-@interface CKFetchRecordsOperation : CKDatabaseOperation {
-    NSArray *_desiredKeys;
-    NSDictionary *_desiredPackageFileIndices;
-    id _fetchRecordsCompletionBlock;
-    BOOL _isFetchCurrentUserOperation;
-    id _perRecordCompletionBlock;
-    id _perRecordProgressBlock;
-    NSMutableDictionary *_recordErrors;
-    NSArray *_recordIDs;
-    NSMutableDictionary *_recordIDsToRecords;
-    NSDictionary *_recordIDsToVersionETags;
-    BOOL _shouldFetchAssetContent;
-    NSMutableDictionary *_signaturesOfAssetsByRecordIDAndKey;
-    NSDictionary *_webSharingIdentityDataByRecordID;
+@interface CKFetchRecordsOperation : CKDatabaseOperation <MSPCloudRequest> {
+    NSMutableDictionary * _assetInfoByArrayIndexByRecordKeyByRecordID;
+    NSDictionary * _assetTransferOptionsByRecordTypeAndKey;
+    NSArray * _desiredKeys;
+    NSDictionary * _desiredPackageFileIndices;
+    bool  _dropInMemoryAssetContentASAP;
+    id /* block */  _fetchRecordsCompletionBlock;
+    bool  _isFetchCurrentUserOperation;
+    NSMutableSet * _packagesToDestroy;
+    id /* block */  _perRecordCompletionBlock;
+    id /* block */  _perRecordProgressBlock;
+    NSMutableDictionary * _recordErrors;
+    NSArray * _recordIDs;
+    NSDictionary * _recordIDsToETags;
+    NSMutableDictionary * _recordIDsToRecords;
+    NSDictionary * _recordIDsToVersionETags;
+    bool  _shouldFetchAssetContent;
+    bool  _shouldFetchAssetContentInMemory;
+    NSDictionary * _webSharingIdentityDataByRecordID;
 }
 
-@property(copy) NSArray * desiredKeys;
-@property(copy) NSDictionary * desiredPackageFileIndices;
-@property(copy) id fetchRecordsCompletionBlock;
-@property BOOL isFetchCurrentUserOperation;
-@property(copy) id perRecordCompletionBlock;
-@property(copy) id perRecordProgressBlock;
-@property(retain) NSMutableDictionary * recordErrors;
-@property(copy) NSArray * recordIDs;
-@property(retain) NSMutableDictionary * recordIDsToRecords;
-@property(retain) NSDictionary * recordIDsToVersionETags;
-@property BOOL shouldFetchAssetContent;
-@property(retain) NSMutableDictionary * signaturesOfAssetsByRecordIDAndKey;
-@property(retain) NSDictionary * webSharingIdentityDataByRecordID;
+@property (nonatomic, retain) NSMutableDictionary *assetInfoByArrayIndexByRecordKeyByRecordID;
+@property (nonatomic, retain) NSDictionary *assetTransferOptionsByRecordTypeAndKey;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSArray *desiredKeys;
+@property (nonatomic, copy) NSDictionary *desiredPackageFileIndices;
+@property (nonatomic) bool dropInMemoryAssetContentASAP;
+@property (nonatomic, copy) id /* block */ fetchRecordsCompletionBlock;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) bool isFetchCurrentUserOperation;
+@property (nonatomic, retain) NSMutableSet *packagesToDestroy;
+@property (nonatomic, copy) id /* block */ perRecordCompletionBlock;
+@property (nonatomic, copy) id /* block */ perRecordProgressBlock;
+@property (nonatomic, retain) NSMutableDictionary *recordErrors;
+@property (nonatomic, copy) NSArray *recordIDs;
+@property (nonatomic, retain) NSDictionary *recordIDsToETags;
+@property (nonatomic, retain) NSMutableDictionary *recordIDsToRecords;
+@property (nonatomic, retain) NSDictionary *recordIDsToVersionETags;
+@property (nonatomic, readonly) bool shouldEnqueueDependenciesWhenPerformingAsCloudRequest;
+@property (nonatomic) bool shouldFetchAssetContent;
+@property (nonatomic) bool shouldFetchAssetContentInMemory;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSDictionary *webSharingIdentityDataByRecordID;
+
+// Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
 
 + (id)fetchCurrentUserRecordOperation;
 
 - (void).cxx_destruct;
-- (BOOL)CKOperationShouldRun:(id*)arg1;
+- (bool)CKOperationShouldRun:(id*)arg1;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)_handleProgressCallback:(id)arg1;
+- (id)activityCreate;
+- (id)assetInfoByArrayIndexByRecordKeyByRecordID;
+- (id)assetInfoForRecordID:(id)arg1 recordKey:(id)arg2 arrayIndex:(id)arg3;
+- (id)assetTransferOptionsByRecordTypeAndKey;
+- (bool)claimPackagesInRecord:(id)arg1 error:(id*)arg2;
 - (id)desiredKeys;
 - (id)desiredPackageFileIndices;
-- (id)fetchRecordsCompletionBlock;
+- (bool)dropInMemoryAssetContentASAP;
+- (id /* block */)fetchRecordsCompletionBlock;
+- (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
+- (bool)hasCKOperationCallbacksSet;
 - (id)init;
 - (id)initWithRecordIDs:(id)arg1;
-- (BOOL)isFetchCurrentUserOperation;
-- (id)perRecordCompletionBlock;
-- (id)perRecordProgressBlock;
+- (bool)isFetchCurrentUserOperation;
+- (id)packagesToDestroy;
+- (id /* block */)perRecordCompletionBlock;
+- (id /* block */)perRecordProgressBlock;
 - (void)performCKOperation;
 - (id)recordErrors;
 - (id)recordIDs;
+- (id)recordIDsToETags;
 - (id)recordIDsToRecords;
 - (id)recordIDsToVersionETags;
+- (void)setAssetInfoByArrayIndexByRecordKeyByRecordID:(id)arg1;
+- (void)setAssetTransferOptionsByRecordTypeAndKey:(id)arg1;
 - (void)setDesiredKeys:(id)arg1;
 - (void)setDesiredPackageFileIndices:(id)arg1;
-- (void)setFetchRecordsCompletionBlock:(id)arg1;
-- (void)setIsFetchCurrentUserOperation:(BOOL)arg1;
-- (void)setPerRecordCompletionBlock:(id)arg1;
-- (void)setPerRecordProgressBlock:(id)arg1;
+- (void)setDropInMemoryAssetContentASAP:(bool)arg1;
+- (void)setFetchRecordsCompletionBlock:(id /* block */)arg1;
+- (void)setIsFetchCurrentUserOperation:(bool)arg1;
+- (void)setPackagesToDestroy:(id)arg1;
+- (void)setPerRecordCompletionBlock:(id /* block */)arg1;
+- (void)setPerRecordProgressBlock:(id /* block */)arg1;
 - (void)setRecordErrors:(id)arg1;
 - (void)setRecordIDs:(id)arg1;
+- (void)setRecordIDsToETags:(id)arg1;
 - (void)setRecordIDsToRecords:(id)arg1;
 - (void)setRecordIDsToVersionETags:(id)arg1;
-- (void)setShouldFetchAssetContent:(BOOL)arg1;
-- (void)setSignaturesOfAssetsByRecordIDAndKey:(id)arg1;
+- (void)setShouldFetchAssetContent:(bool)arg1;
+- (void)setShouldFetchAssetContentInMemory:(bool)arg1;
 - (void)setWebSharingIdentityDataByRecordID:(id)arg1;
-- (BOOL)shouldFetchAssetContent;
-- (id)signaturesOfAssetsByRecordIDAndKey;
+- (bool)shouldFetchAssetContent;
+- (bool)shouldFetchAssetContentInMemory;
 - (id)webSharingIdentityDataByRecordID;
+
+// Image: /System/Library/PrivateFrameworks/MapsSupport.framework/MapsSupport
+
+- (void)addCloudAccessCompletionBlock:(id /* block */)arg1;
+- (void)setNetworkBehaviorIsDiscretionary:(bool)arg1;
+
+// Image: /System/Library/PrivateFrameworks/NotesShared.framework/NotesShared
+
+- (void)ic_removeAllCompletionBlocks;
 
 @end

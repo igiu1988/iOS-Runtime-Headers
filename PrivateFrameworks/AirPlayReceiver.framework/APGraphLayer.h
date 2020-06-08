@@ -3,16 +3,16 @@
  */
 
 @interface APGraphLayer : CALayer {
-    struct __CTFont { } *_Font;
-    struct CGPoint { float x1; float x2; } *_Lines;
-    int _MaxLength;
-    float *_Maxes;
-    float *_Mins;
-    int _NumGraphs;
-    int *_NumValues;
-    int *_StartIndex;
-    struct __CFDictionary { } *_TextAttributes;
-    float **_Values;
+    struct __CTFont { } * _Font;
+    struct CGPoint { double x1; double x2; } * _Lines;
+    int  _MaxLength;
+    float * _Maxes;
+    float * _Mins;
+    int  _NumGraphs;
+    int * _NumValues;
+    int * _StartIndex;
+    struct __CFDictionary { } * _TextAttributes;
+    float ** _Values;
 }
 
 + (struct CGColor { }*)copyGraphColorWithIndex:(int)arg1;

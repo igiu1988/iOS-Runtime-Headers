@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
  */
 
-@class NSData;
-
 @interface BLTPBImage : PBCodable <NSCopying> {
-    NSData *_data;
+    NSData * _data;
 }
 
-@property(retain) NSData * data;
+@property (nonatomic, retain) NSData *data;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -16,10 +14,10 @@
 - (id)data;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setData:(id)arg1;
 - (void)writeTo:(id)arg1;
 

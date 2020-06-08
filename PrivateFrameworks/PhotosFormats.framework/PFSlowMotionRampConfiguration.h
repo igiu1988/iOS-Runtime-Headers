@@ -3,35 +3,35 @@
  */
 
 @interface PFSlowMotionRampConfiguration : NSObject {
-    unsigned int _exportNumIntermediateSteps;
-    float _exportRampCurveExponent;
-    double _introTime;
-    double _outroTime;
-    unsigned int _playbackNumIntermediateSteps;
-    float _playbackRampCurveExponent;
-    double _rampTime;
-    double _volumeSuppressionIntroTime;
-    double _volumeSuppressionOutroTime;
+    unsigned long long  _exportNumIntermediateSteps;
+    float  _exportRampCurveExponent;
+    double  _introTime;
+    double  _outroTime;
+    unsigned long long  _playbackNumIntermediateSteps;
+    float  _playbackRampCurveExponent;
+    double  _rampTime;
+    double  _volumeSuppressionIntroTime;
+    double  _volumeSuppressionOutroTime;
 }
 
-@property(readonly) unsigned int exportNumIntermediateSteps;
-@property(readonly) float exportRampCurveExponent;
-@property(readonly) double introTime;
-@property(readonly) double outroTime;
-@property(readonly) unsigned int playbackNumIntermediateSteps;
-@property(readonly) float playbackRampCurveExponent;
-@property(readonly) double rampTime;
-@property(readonly) double volumeSuppressionIntroTime;
-@property(readonly) double volumeSuppressionOutroTime;
+@property (nonatomic, readonly) unsigned long long exportNumIntermediateSteps;
+@property (nonatomic, readonly) float exportRampCurveExponent;
+@property (nonatomic, readonly) double introTime;
+@property (nonatomic, readonly) double outroTime;
+@property (nonatomic, readonly) unsigned long long playbackNumIntermediateSteps;
+@property (nonatomic, readonly) float playbackRampCurveExponent;
+@property (nonatomic, readonly) double rampTime;
+@property (nonatomic, readonly) double volumeSuppressionIntroTime;
+@property (nonatomic, readonly) double volumeSuppressionOutroTime;
 
-- (void)computeRampToTargetRate:(float)arg1 forExport:(BOOL)arg2 outTimeSteps:(id*)arg3 outIntermediateRates:(id*)arg4;
-- (unsigned int)exportNumIntermediateSteps;
+- (void)computeRampToTargetRate:(float)arg1 forExport:(bool)arg2 outTimeSteps:(id*)arg3 outIntermediateRates:(id*)arg4;
+- (unsigned long long)exportNumIntermediateSteps;
 - (float)exportRampCurveExponent;
 - (id)init;
-- (id)initForRampDown:(BOOL)arg1;
+- (id)initForRampDown:(bool)arg1;
 - (double)introTime;
 - (double)outroTime;
-- (unsigned int)playbackNumIntermediateSteps;
+- (unsigned long long)playbackNumIntermediateSteps;
 - (float)playbackRampCurveExponent;
 - (double)rampTime;
 - (double)volumeSuppressionIntroTime;

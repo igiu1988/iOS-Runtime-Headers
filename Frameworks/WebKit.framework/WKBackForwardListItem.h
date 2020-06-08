@@ -2,41 +2,41 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString, NSURL;
-
 @interface WKBackForwardListItem : NSObject <WKObject> {
     struct ObjectStorage<WebKit::WebBackForwardListItem> { 
         struct type { 
-            unsigned char __lx[188]; 
+            unsigned char __lx[288]; 
         } data; 
-    } _item;
+    }  _item;
 }
 
-@property(readonly) struct WebBackForwardListItem { int (**x1)(); id x2; struct BackForwardListItemState { unsigned long long x_3_1_1; struct PageState { struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_4_1; } x_1_3_1; } x_2_2_1; struct FrameState { struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_5_1; } x_1_4_1; } x_2_3_1; struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_5_1; } x_2_4_1; } x_2_3_2; struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_5_1; } x_3_4_1; } x_2_3_3; struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_5_1; } x_4_4_1; } x_2_3_4; /* Warning: unhandled struct encoding: '{Vector<WTF::String' */ struct x_2_3_5; void*x_2_3_6; void*x_2_3_7; void*x_2_3_8; void*x_2_3_9; void*x_2_3_10; void*x_2_3_11; float x_2_3_12; void*x_2_3_13; void*x_2_3_14; void*x_2_3_15; void*x_2_3_16; void*x_2_3_17; const void*x_2_3_18; void*x_2_3_19; void*x_2_3_20; void*x_2_3_21; void*x_2_3_22; void*x_2_3_23; void*x_2_3_24; void*x_2_3_25; void*x_2_3_26; SEL x_2_3_27; void*x_2_3_28; SEL x_2_3_29; void*x_2_3_30; unsigned short x_2_3_31; void*x_2_3_32; void*x_2_3_33; void*x_2_3_34; const void*x_2_3_35; int x_2_3_36; void*x_2_3_37; in void*x_2_3_38; void*x_2_3_39; void*x_2_3_40; unsigned int x_2_3_41; void*x_2_3_42; void*x_2_3_43; void*x_2_3_44; void*x_2_3_45; void*x_2_3_46; long x_2_3_47; void*x_2_3_48; void*x_2_3_49; void*x_2_3_50; void*x_2_3_51; void*x_2_3_52; struct x_2_3_53; void*x_2_3_54; void*x_2_3_55; void*x_2_3_56; short x_2_3_57; void*x_2_3_58; void*x_2_3_59; void*x_2_3_60; const void*x_2_3_61; void*x_2_3_62; void*x_2_3_63; BOOL x_2_3_64; void*x_2_3_65; void*x_2_3_66; void*x_2_3_67; void*x_2_3_68; void*x_2_3_69; unsigned short x_2_3_70; void*x_2_3_71; void*x_2_3_72; void*x_2_3_73; const void*x_2_3_74; int x_2_3_75; void*x_2_3_76; in void*x_2_3_77; void*x_2_3_78; void*x_2_3_79; unsigned int x_2_3_80; void*x_2_3_81; void*x_2_3_82; void*x_2_3_83; void*x_2_3_84; void*x_2_3_85; long x_2_3_86; void*x_2_3_87; void*x_2_3_88; void*x_2_3_89; struct x_2_3_90; void*x_2_3_91; } x_2_2_2; void*x_2_2_3; void*x_2_2_4; void*x_2_2_5; char *x_2_2_6; void*x_2_2_7; void*x_2_2_8; void*x_2_2_9; void*x_2_2_10; void*x_2_2_11; void*x_2_2_12; void*x_2_2_13; void*x_2_2_14; void*x_2_2_15; void*x_2_2_16; void*x_2_2_17; void*x_2_2_18; void*x_2_2_19; void*x_2_2_20; void*x_2_2_21; void*x_2_2_22; void*x_2_2_23; void*x_2_2_24; void*x_2_2_25; } x_3_1_2; void*x_3_1_3; void*x_3_1_4; void*x_3_1_5; void*x_3_1_6; void*x_3_1_7; void*x_3_1_8; void*x_3_1_9; void*x_3_1_10; void*x_3_1_11; void*x_3_1_12; void*x_3_1_13; void*x_3_1_14; void*x_3_1_15; union x_3_1_16; void*x_3_1_17; void*x_3_1_18; void*x_3_1_19; void*x_3_1_20; void*x_3_1_21; void*x_3_1_22; void*x_3_1_23; void*x_3_1_24; void*x_3_1_25; void*x_3_1_26; void*x_3_1_27; void*x_3_1_28; void*x_3_1_29; void*x_3_1_30; void*x_3_1_31; void*x_3_1_32; int x_3_1_33; void*x_3_1_34; void*x_3_1_35; void*x_3_1_36; void*x_3_1_37; void*x_3_1_38; void*x_3_1_39; void*x_3_1_40; void*x_3_1_41; void*x_3_1_42; void*x_3_1_43; void*x_3_1_44; void*x_3_1_45; void*x_3_1_46; void*x_3_1_47; void*x_3_1_48; void*x_3_1_49; void*x_3_1_50; void*x_3_1_51; void*x_3_1_52; void*x_3_1_53; void*x_3_1_54; void*x_3_1_55; void*x_3_1_56; void*x_3_1_57; void*x_3_1_58; void*x_3_1_59; void*x_3_1_60; void*x_3_1_61; void*x_3_1_62; void*x_3_1_63; void*x_3_1_64; void*x_3_1_65; void*x_3_1_66; void*x_3_1_67; void*x_3_1_68; void*x_3_1_69; void*x_3_1_70; void*x_3_1_71; void*x_3_1_72; void*x_3_1_73; void*x_3_1_74; void*x_3_1_75; void*x_3_1_76; void*x_3_1_77; void*x_3_1_78; void*x_3_1_79; void*x_3_1_80; } x3; void*x4; void*x5; void*x6; void*x7; void*x8; void*x9; void*x10; void*x11; void*x12; void*x13; void*x14; void*x15; void*x16; void*x17; void*x18; void*x19; void*x20; void*x21; void*x22; void*x23; void*x24; void*x25; void*x26; void*x27; void*x28; void*x29; void*x30; void*x31; void*x32; void*x33; void*x34; void*x35; int x36; void*x37; void*x38; void*x39; void*x40; void*x41; char *x42; void*x43; int x44; void*x45; void*x46; void*x47; void*x48; void*x49; void*x50; }* _item; /* unknown property attribute:  WTF::CrashOnOverflow>=^{FrameState}II}}}{RefPtr<WebKit::ViewSnapshot>=^{ViewSnapshot}}}Q} */
-@property(copy,readonly) NSURL * URL;
-@property(readonly) struct Object { int (**x1)(); id x2; }* _apiObject;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy,readonly) NSURL * initialURL;
-@property(readonly) Class superclass;
-@property(copy,readonly) NSString * title;
+@property (readonly, copy) NSURL *URL;
+@property (readonly) /* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*_apiObject;
+@property (readonly) struct WebBackForwardListItem { int (**x1)(); id x2; bool x3; /* Warning: Unrecognized filer type: 'a' using 'void*' */ void*x4; BOOL x5; void*x6; void*x7; out const void*x8; void*x9; const double x10; unsigned long x11; int x12; short x13; void*x14; unsigned int x15; void*x16; void*x17; void*x18; unsigned short x19; void*x20; void*x21; void*x22; void*x23; void*x24; struct BackForwardItemIdentifier { struct ObjectIdentifier<WebCore::ProcessIdentifierType> { unsigned long long x_1_2_1; } x_25_1_1; struct ObjectIdentifier<WebCore::BackForwardItemIdentifier::ItemIdentifierType> { unsigned long long x_2_2_1; } x_25_1_2; } x25; struct x26; }*_item; /* unknown property attribute:  WTF::DumbPtrTraits<WebKit::ViewSnapshot> >=^{ViewSnapshot}}}Q^{SuspendedPageProxy}} */
+@property (setter=_sf_setQuickLookDocument:, nonatomic, retain) _SFQuickLookDocument *_sf_quickLookDocument;
+@property (setter=_sf_setSecurityInfo:, nonatomic, retain) _SFSecurityInfo *_sf_securityInfo;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly, copy) NSURL *initialURL;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *title;
 
-- (struct WebBackForwardListItem { int (**x1)(); id x2; struct BackForwardListItemState { unsigned long long x_3_1_1; struct PageState { struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_4_1; } x_1_3_1; } x_2_2_1; struct FrameState { struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_5_1; } x_1_4_1; } x_2_3_1; struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_5_1; } x_2_4_1; } x_2_3_2; struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_5_1; } x_3_4_1; } x_2_3_3; struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_5_1; } x_4_4_1; } x_2_3_4; struct Vector<WTF::String, 0, WTF::CrashOnOverflow> { struct String {} *x_5_4_1; unsigned int x_5_4_2; unsigned int x_5_4_3; } x_2_3_5; struct Optional<WTF::Vector<unsigned char, 0, WTF::CrashOnOverflow> > { boolx_6_4_1; union { struct Vector<unsigned char, 0, WTF::CrashOnOverflow> { char *x_1_6_1; unsigned int x_1_6_2; unsigned int x_1_6_3; } x_2_5_1; } x_6_4_2; } x_2_3_6; long long x_2_3_7; long long x_2_3_8; struct IntPoint { int x_9_4_1; int x_9_4_2; } x_2_3_9; float x_2_3_10; struct Optional<WebKit::HTTPBody> { boolx_11_4_1; union { struct HTTPBody { struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_8_1; } x_1_7_1; } x_1_6_1; struct Vector<WebKit::HTTPBody::Element, 0, WTF::CrashOnOverflow> { struct Element {} *x_2_7_1; unsigned int x_2_7_2; unsigned int x_2_7_3; } x_1_6_2; } x_2_5_1; } x_11_4_2; } x_2_3_11; struct FloatRect { struct FloatPoint { float x_1_5_1; float x_1_5_2; } x_12_4_1; struct FloatSize { float x_2_5_1; float x_2_5_2; } x_12_4_2; } x_2_3_12; struct IntRect { struct IntPoint { int x_1_5_1; int x_1_5_2; } x_13_4_1; struct IntSize { int x_2_5_1; int x_2_5_2; } x_13_4_2; } x_2_3_13; struct FloatSize { float x_14_4_1; float x_14_4_2; } x_2_3_14; struct IntSize { int x_15_4_1; int x_15_4_2; } x_2_3_15; boolx_2_3_16; struct Vector<WebKit::FrameState, 0, WTF::CrashOnOverflow> { struct FrameState {} *x_17_4_1; unsigned int x_17_4_2; unsigned int x_17_4_3; } x_2_3_17; } x_2_2_2; } x_3_1_2; struct RefPtr<WebKit::ViewSnapshot> { struct ViewSnapshot {} *x_3_2_1; } x_3_1_3; } x3; unsigned long long x4; }*)_item;
-- (struct Object { int (**x1)(); id x2; }*)_apiObject;
-- (id).cxx_construct;
+// Image: /System/Library/Frameworks/WebKit.framework/WebKit
+
 - (id)URL;
+- (/* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*)_apiObject;
+- (struct CGImage { }*)_copySnapshotForTesting;
+- (struct WebBackForwardListItem { int (**x1)(); id x2; bool x3; /* Warning: Unrecognized filer type: 'a' using 'void*' */ void*x4; BOOL x5; void*x6; void*x7; out const void*x8; void*x9; const double x10; unsigned long x11; int x12; short x13; void*x14; unsigned int x15; void*x16; void*x17; void*x18; unsigned short x19; void*x20; void*x21; void*x22; void*x23; void*x24; struct BackForwardItemIdentifier { struct ObjectIdentifier<WebCore::ProcessIdentifierType> { unsigned long long x_1_2_1; } x_25_1_1; struct ObjectIdentifier<WebCore::BackForwardItemIdentifier::ItemIdentifierType> { unsigned long long x_2_2_1; } x_25_1_2; } x25; struct PageState { struct String { struct RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<WTF::StringImpl> > { struct StringImpl {} *x_1_3_1; } x_1_2_1; } x_26_1_1; struct FrameState { struct String { struct RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<WTF::StringImpl> > { struct StringImpl {} *x_1_4_1; } x_1_3_1; } x_2_2_1; struct String { struct RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<WTF::StringImpl> > { struct StringImpl {} *x_1_4_1; } x_2_3_1; } x_2_2_2; struct String { struct RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<WTF::StringImpl> > { struct StringImpl {} *x_1_4_1; } x_3_3_1; } x_2_2_3; struct String { struct RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<WTF::StringImpl> > { struct StringImpl {} *x_1_4_1; } x_4_3_1; } x_2_2_4; struct Vector<WTF::String, 0, WTF::CrashOnOverflow, 16> { struct String {} *x_5_3_1; unsigned int x_5_3_2; unsigned int x_5_3_3; } x_2_2_5; struct optional<WTF::Vector<unsigned char, 0, WTF::CrashOnOverflow, 16> > { bool x_6_3_1; union storage_t<WTF::Vector<unsigned char, 0, WTF::CrashOnOverflow, 16> > { unsigned char x_2_4_1; struct Vector<unsigned char, 0, WTF::CrashOnOverflow, 16> { char *x_2_5_1; unsigned int x_2_5_2; unsigned int x_2_5_3; } x_2_4_2; } x_6_3_2; } x_2_2_6; } x_26_1_2; } x26; }*)_item;
 - (void)dealloc;
 - (id)initialURL;
 - (id)title;
+
+// Image: /System/Library/Frameworks/SafariServices.framework/SafariServices
+
+- (id)_sf_quickLookDocument;
+- (id)_sf_securityInfo;
+- (void)_sf_setQuickLookDocument:(id)arg1;
+- (void)_sf_setSecurityInfo:(id)arg1;
 
 @end

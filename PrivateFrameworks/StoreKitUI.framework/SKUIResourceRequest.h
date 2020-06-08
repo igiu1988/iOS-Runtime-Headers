@@ -3,27 +3,27 @@
  */
 
 @interface SKUIResourceRequest : NSObject <NSCopying> {
-    id _cacheKey;
-    unsigned int _requestID;
+    id  _cacheKey;
+    unsigned long long  _requestID;
 }
 
-@property(retain) id cacheKey;
-@property(readonly) BOOL cachesInMemory;
-@property unsigned int requestIdentifier;
+@property (nonatomic, retain) id cacheKey;
+@property (nonatomic, readonly) bool cachesInMemory;
+@property (nonatomic) unsigned long long requestIdentifier;
 
 - (void).cxx_destruct;
 - (id)_initSKUIResourceRequest;
 - (id)cacheKey;
-- (BOOL)cachesInMemory;
+- (bool)cachesInMemory;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (void)finishWithResource:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)newLoadOperation;
-- (unsigned int)requestIdentifier;
+- (unsigned long long)requestIdentifier;
 - (void)setCacheKey:(id)arg1;
-- (void)setRequestIdentifier:(unsigned int)arg1;
+- (void)setRequestIdentifier:(unsigned long long)arg1;
 
 @end

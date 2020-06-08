@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSURLFileTypeMappingsInternal;
-
 @interface NSURLFileTypeMappings : NSObject {
-    NSURLFileTypeMappingsInternal *_internal;
+    NSURLFileTypeMappingsInternal * _internal;
 }
 
 + (id)sharedMappings;

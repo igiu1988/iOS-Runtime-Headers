@@ -2,40 +2,54 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSMutableArray, NSString;
-
-@interface GEOResourceLoader : NSObject {
-    NSString *_additionalDirectoryToConsider;
-    NSString *_baseURLString;
-    BOOL _canceled;
-    id _completionHandler;
-    NSString *_directory;
-    NSMutableArray *_loadedResources;
-    unsigned int _maxConcurrentLoads;
-    int _numberOfCopiesInProgress;
-    int _numberOfDownloadsInProgress;
-    id _progressHandler;
-    long _queuePriority;
-    NSArray *_resourceInfos;
-    NSMutableArray *_resourcesToLoad;
+@interface GEOResourceLoader : NSObject <NSProgressReporting> {
+    NSString * _additionalDirectoryToConsider;
+    bool  _allowResumingPartialDownloads;
+    GEOApplicationAuditToken * _auditToken;
+    NSURL * _authProxyURL;
+    NSURL * _baseURL;
+    NSObject<OS_dispatch_queue> * _callbackQueue;
+    bool  _canceled;
+    id /* block */  _completionHandler;
+    NSString * _directory;
+    NSMapTable * _inProgressResourceDownloads;
+    NSMutableArray * _loadedResources;
+    unsigned long long  _maxConcurrentLoads;
+    long long  _numberOfCopiesInProgress;
+    long long  _numberOfDownloadsInProgress;
+    GEOPowerAssertion * _powerAssertion;
+    GEOReportedProgress * _progress;
+    NSURL * _proxyURL;
+    bool  _requiresWiFi;
+    NSArray * _resourceInfos;
+    NSMutableArray * _resourcesToLoad;
+    NSObject<OS_dispatch_queue> * _workQueue;
 }
 
-@property(readonly) NSArray * loadedResources;
+@property (nonatomic, retain) GEOApplicationAuditToken *auditToken;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) NSProgress *progress;
+@property (nonatomic) bool requiresWiFi;
+@property (readonly) Class superclass;
 
++ (Class)resourceLoadOperationClass;
+
+- (void).cxx_destruct;
 - (void)_cleanup;
-- (BOOL)_establishHardLinkIfPossibleForResource:(id)arg1 toResource:(id)arg2 error:(id*)arg3;
-- (void)_loadNextResource;
-- (void)_loadResourceFromNetwork:(id)arg1 completionHandler:(id)arg2;
-- (id)_urlForResource:(id)arg1;
-- (void)_writeResourceToDisk:(id)arg1 withData:(id)arg2 orExistingPathOnDisk:(id)arg3 allowCreatingHardLink:(BOOL)arg4 checksum:(id)arg5 completionHandler:(id)arg6;
+- (bool)_copyResource:(id)arg1 fromPath:(id)arg2 allowCreatingHardLink:(bool)arg3 error:(id*)arg4;
+- (bool)_establishHardLinkIfPossibleForResource:(id)arg1 toResource:(id)arg2 error:(id*)arg3;
+- (void)_loadNextResourceFromNetwork;
+- (void)_loadResourcesFromDisk;
+- (void)_writeResourceToDisk:(id)arg1 withData:(id)arg2 checksum:(id)arg3 completionHandler:(id /* block */)arg4 callbackQueue:(id)arg5;
+- (id)auditToken;
 - (void)cancel;
-- (void)dealloc;
-- (id)initWithTargetDirectory:(id)arg1 baseURLString:(id)arg2 resources:(id)arg3 maximumConcurrentLoads:(unsigned int)arg4 additionalDirectoryToConsider:(id)arg5;
-- (id)loadedResources;
-- (void)startWithProgressHandler:(id)arg1 completionHandler:(id)arg2 priority:(long)arg3;
+- (id)initWithTargetDirectory:(id)arg1 baseURL:(id)arg2 proxyURL:(id)arg3 resources:(id)arg4 maximumConcurrentLoads:(unsigned long long)arg5 additionalDirectoryToConsider:(id)arg6;
+- (id)progress;
+- (bool)requiresWiFi;
+- (void)setAuditToken:(id)arg1;
+- (void)setRequiresWiFi:(bool)arg1;
+- (void)startWithCompletionHandler:(id /* block */)arg1 callbackQueue:(id)arg2;
 
 @end

@@ -2,59 +2,63 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-@class NSArray, NSLinguisticTagger, NSMutableArray, NSMutableOrderedSet, NSString;
-
 @interface AXLanguageTaggedContent : NSObject {
+    NSString * _contentString;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
-    } _currentChunk;
-    NSArray *_currentDialects;
-    NSLinguisticTagger *_linguisticTagger;
-    BOOL _predictedByTagger;
-    BOOL _splitContentOnNewlines;
-    BOOL _tagged;
-    NSMutableArray *_tags;
-    NSMutableOrderedSet *_unpredictedAmbiguousLangMaps;
-    NSString *_userPreferredLangID;
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _currentChunk;
+    NSArray * _currentDialects;
+    bool  _predictedByTagger;
+    NSMutableOrderedSet * _predictedSecondaryLangMaps;
+    bool  _tagged;
+    NSMutableArray * _tags;
+    NSMutableOrderedSet * _unpredictedAmbiguousLangMaps;
+    NSString * _userPreferredLangID;
 }
 
-@property(readonly) NSString * content;
-@property(retain) NSArray * currentDialects;
-@property(retain) NSLinguisticTagger * linguisticTagger;
-@property BOOL splitContentOnNewlines;
-@property(getter=isTagged) BOOL tagged;
-@property(retain) NSMutableArray * tags;
-@property(retain) NSMutableOrderedSet * unpredictedAmbiguousLangMaps;
-@property(copy) NSString * userPreferredLangID;
+@property (nonatomic, readonly) NSString *content;
+@property (nonatomic, copy) NSString *contentString;
+@property (nonatomic, retain) NSArray *currentDialects;
+@property (nonatomic, retain) NSMutableOrderedSet *predictedSecondaryLangMaps;
+@property (getter=isTagged, nonatomic) bool tagged;
+@property (nonatomic, retain) NSMutableArray *tags;
+@property (nonatomic, retain) NSMutableOrderedSet *unpredictedAmbiguousLangMaps;
+@property (nonatomic, copy) NSString *userPreferredLangID;
 
+- (void).cxx_destruct;
+- (bool)_addLanguageTagForCurrentChunk;
 - (void)_addTag;
-- (void)_manuallyProcessContentWithRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
+- (id)_allLangIDs;
+- (bool)_isStringCombinationOfCommonAndEmoji:(id)arg1;
+- (struct { int x1; float x2; }*)_languageHintsEvenlyDistributedWithProbability:(float)arg1 excludingHints:(id)arg2;
+- (void)_manuallyProcessContentWithRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
 - (id)ambiguousLangMaps;
 - (id)content;
+- (id)contentString;
 - (id)currentDialects;
-- (void)dealloc;
 - (id)description;
-- (void)enumeratePredictedTags:(id)arg1;
-- (void)enumerateUnpredictedTags:(id)arg1;
-- (BOOL)hasOnlyNonWesternLangMaps;
-- (BOOL)hasOnlyWesternLangMaps;
+- (void)enumeratePredictedTags:(id /* block */)arg1;
+- (void)enumerateUnpredictedTags:(id /* block */)arg1;
+- (bool)hasOnlyNonWesternLangMaps;
+- (bool)hasOnlyWesternLangMaps;
 - (id)initWithContent:(id)arg1;
-- (BOOL)isTagged;
-- (BOOL)langMapIsSignificant:(id)arg1;
-- (id)linguisticTagger;
+- (bool)isTagged;
+- (id)langCodeForlangId:(int)arg1;
+- (int)langIDforLangCode:(id)arg1;
+- (bool)langMapIsSignificant:(id)arg1;
+- (id)predictedSecondaryLangMaps;
 - (id)primaryAmbiguousDialect;
 - (id)primaryUnambiguousDialect;
+- (void)setContentString:(id)arg1;
 - (void)setCurrentDialects:(id)arg1;
-- (void)setLinguisticTagger:(id)arg1;
-- (void)setSplitContentOnNewlines:(BOOL)arg1;
-- (void)setTagged:(BOOL)arg1;
+- (void)setPredictedSecondaryLangMaps:(id)arg1;
+- (void)setTagged:(bool)arg1;
 - (void)setTags:(id)arg1;
 - (void)setUnpredictedAmbiguousLangMaps:(id)arg1;
 - (void)setUserPreferredLangID:(id)arg1;
 - (id)significantAmbiguousLangMaps;
 - (id)significantAmbiguousLangMapsForUserKeyboards;
-- (BOOL)splitContentOnNewlines;
 - (void)tagContent;
 - (id)tags;
 - (id)unambiguousLangMaps;

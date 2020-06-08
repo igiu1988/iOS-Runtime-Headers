@@ -2,48 +2,67 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestions.framework/CoreSuggestions
  */
 
-@class NSString;
-
-@interface SGLocation : NSObject <SGObject> {
-    double _accuracy;
-    NSString *_address;
-    NSString *_label;
-    double _latitude;
-    unsigned int _locationType;
-    double _longitude;
-    double _quality;
+@interface SGLocation : SGObject <NSCopying, NSSecureCoding, SGEventLocationForGeocode> {
+    double  _accuracy;
+    NSString * _address;
+    NSString * _airportCode;
+    NSData * _handle;
+    NSString * _label;
+    double  _latitude;
+    unsigned long long  _locationType;
+    double  _longitude;
+    double  _quality;
 }
 
-@property(readonly) double accuracy;
-@property(readonly) NSString * address;
-@property(getter=isGeocoded,readonly) BOOL geocoded;
-@property(readonly) NSString * label;
-@property(readonly) double latitude;
-@property(readonly) unsigned int locationType;
-@property(readonly) double longitude;
-@property(readonly) double quality;
+@property (nonatomic, readonly) double accuracy;
+@property (nonatomic, readonly) NSString *address;
+@property (nonatomic, readonly) NSString *airportCode;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isGeocoded, nonatomic, readonly) bool geocoded;
+@property (nonatomic, readonly) NSData *handle;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSString *label;
+@property (nonatomic, readonly) double latitude;
+@property (nonatomic, readonly) unsigned long long locationType;
+@property (nonatomic, readonly) double longitude;
+@property (nonatomic, readonly) double quality;
+@property (readonly) Class superclass;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (double)accuracy;
 - (id)address;
-- (int)compare:(id)arg1;
+- (id)airportCode;
+- (long long)compare:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (double)geocodeAccuracy;
+- (id)geocodeAddress;
+- (id)geocodeAirportCode;
+- (id)geocodeHandle;
+- (bool)geocodeIsEnd;
+- (bool)geocodeIsStart;
+- (id)geocodeLabel;
+- (double)geocodeLatitude;
+- (double)geocodeLongitude;
+- (id)geocodedLocationWithLabel:(id)arg1 address:(id)arg2 latitude:(double)arg3 longitude:(double)arg4 accuracy:(double)arg5 handle:(id)arg6;
+- (id)geocodedLocationWithLatitude:(double)arg1 longitude:(double)arg2 accuracy:(double)arg3 handle:(id)arg4;
+- (id)handle;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithLocation:(id)arg1 latitude:(double)arg2 longitude:(double)arg3 accuracy:(double)arg4;
-- (id)initWithType:(unsigned int)arg1 label:(id)arg2 address:(id)arg3 accuracy:(double)arg4 quality:(double)arg5;
-- (id)initWithType:(unsigned int)arg1 label:(id)arg2 address:(id)arg3 latitude:(double)arg4 longitude:(double)arg5 accuracy:(double)arg6 quality:(double)arg7;
-- (id)initWithType:(unsigned int)arg1 label:(id)arg2 latitude:(double)arg3 longitude:(double)arg4 accuracy:(double)arg5 quality:(double)arg6;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToLocation:(id)arg1;
-- (BOOL)isGeocoded;
+- (id)initWithId:(id)arg1 origin:(id)arg2 type:(unsigned long long)arg3 label:(id)arg4 address:(id)arg5 airportCode:(id)arg6 accuracy:(double)arg7 quality:(double)arg8;
+- (id)initWithId:(id)arg1 origin:(id)arg2 type:(unsigned long long)arg3 label:(id)arg4 address:(id)arg5 airportCode:(id)arg6 latitude:(double)arg7 longitude:(double)arg8 accuracy:(double)arg9 quality:(double)arg10 handle:(id)arg11;
+- (id)initWithId:(id)arg1 origin:(id)arg2 type:(unsigned long long)arg3 label:(id)arg4 airportCode:(id)arg5 latitude:(double)arg6 longitude:(double)arg7 accuracy:(double)arg8 quality:(double)arg9;
+- (id)initWithLocation:(id)arg1 latitude:(double)arg2 longitude:(double)arg3 accuracy:(double)arg4 handle:(id)arg5;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToLocation:(id)arg1;
+- (bool)isGeocoded;
 - (id)label;
 - (double)latitude;
-- (unsigned int)locationType;
+- (unsigned long long)locationType;
 - (double)longitude;
 - (double)quality;
 

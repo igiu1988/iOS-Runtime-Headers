@@ -2,19 +2,22 @@
    Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
  */
 
-@class NSArray;
-
 @interface IMAggregateMessagePartChatItem : IMTextMessagePartChatItem {
-    NSArray *_subparts;
+    NSArray * _subparts;
 }
 
-@property(copy,readonly) NSArray * subparts;
+@property (nonatomic, readonly, copy) NSArray *subparts;
 
-- (Class)__ck_chatItemClass;
-- (id)_initWithItem:(id)arg1 subparts:(id)arg2;
+// Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
+
+- (void).cxx_destruct;
+- (id)_initWithItem:(id)arg1 messagePartRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg2 subparts:(id)arg3;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)subparts;
+
+// Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
+
+- (Class)__ck_chatItemClass;
 
 @end

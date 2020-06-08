@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDTCell;
-
 @interface GQDTFormulaCell : GQDTCell {
-    GQDTCell *mResultCell;
+    GQDTCell * mResultCell;
 }
 
 - (void)dealloc;

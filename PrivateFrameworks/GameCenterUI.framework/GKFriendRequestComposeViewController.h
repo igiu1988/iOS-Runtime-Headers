@@ -2,54 +2,48 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class <GKFriendRequestComposeViewControllerDelegate>, GKComposeHostedViewController, NSString, UIAlertController;
-
 @interface GKFriendRequestComposeViewController : UINavigationController {
-    UIAlertController *_alertController;
-    GKComposeHostedViewController *_composeController;
-    <GKFriendRequestComposeViewControllerDelegate> *_composeViewDelegateWeak;
-    NSString *_message;
-    unsigned int _recipientCount;
+    UIAlertController * _alertController;
+    <GKFriendRequestComposeViewControllerDelegate> * _composeViewDelegateWeak;
+    NSString * _message;
+    unsigned long long  _recipientCount;
+    unsigned int  _rid;
 }
 
-@property(retain) UIAlertController * alertController;
-@property(retain) GKComposeHostedViewController * composeController;
-@property <GKFriendRequestComposeViewControllerDelegate> * composeViewDelegate;
-@property(retain) NSString * message;
-@property unsigned int recipientCount;
-@property unsigned int rid;
+@property (nonatomic, retain) UIAlertController *alertController;
+@property (nonatomic) <GKFriendRequestComposeViewControllerDelegate> *composeViewDelegate;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic) unsigned long long recipientCount;
+@property (nonatomic) unsigned int rid;
 
-+ (BOOL)_preventsAppearanceProxyCustomization;
-+ (unsigned int)maxNumberOfRecipients;
++ (bool)_preventsAppearanceProxyCustomization;
++ (unsigned long long)maxNumberOfRecipients;
 
-- (void)__viewControllerWillBePresented:(BOOL)arg1;
+- (void)_addRecipientInternals:(id)arg1;
+- (void)_setupChildViewController;
 - (void)addRecipientPlayers:(id)arg1;
 - (void)addRecipientsWithEmailAddresses:(id)arg1;
 - (void)addRecipientsWithPlayerIDs:(id)arg1;
 - (id)alertController;
-- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
-- (id)composeController;
+- (bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (id)composeViewDelegate;
 - (void)dealloc;
 - (id)init;
 - (id)message;
-- (BOOL)navigationBarHidden;
 - (void)prepareForNewRecipients:(id)arg1;
-- (unsigned int)recipientCount;
+- (unsigned long long)recipientCount;
 - (unsigned int)rid;
-- (void)sendFinishedMessageToDelegateCancelled:(BOOL)arg1;
+- (void)sendFinishedMessageToDelegateCancelled:(bool)arg1;
 - (void)setAlertController:(id)arg1;
-- (void)setComposeController:(id)arg1;
 - (void)setComposeViewDelegate:(id)arg1;
 - (void)setMessage:(id)arg1;
-- (void)setRecipientCount:(unsigned int)arg1;
+- (void)setRecipientCount:(unsigned long long)arg1;
 - (void)setRid:(unsigned int)arg1;
-- (BOOL)shouldAutomaticallyForwardAppearanceMethods;
-- (BOOL)shouldAutomaticallyForwardRotationMethods;
-- (unsigned int)supportedInterfaceOrientations;
-- (void)viewDidAppear:(BOOL)arg1;
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (bool)shouldAutomaticallyForwardAppearanceMethods;
+- (bool)shouldAutomaticallyForwardRotationMethods;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewDidAppear:(bool)arg1;
+- (void)viewDidDisappear:(bool)arg1;
+- (void)viewWillAppear:(bool)arg1;
 
 @end

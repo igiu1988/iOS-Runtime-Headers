@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSConditionLock, NSMutableArray;
-
 @interface MFRequestQueue : NSObject {
-    NSConditionLock *_condition;
-    NSMutableArray *_consumers;
-    NSMutableArray *_requests;
-    unsigned int _waitingInside;
-    unsigned int _waitingOutside;
+    NSConditionLock * _condition;
+    NSMutableArray * _consumers;
+    NSMutableArray * _requests;
+    unsigned int  _waitingInside;
+    unsigned int  _waitingOutside;
 }
 
 - (void)_processRequests:(id)arg1 consumers:(id)arg2;

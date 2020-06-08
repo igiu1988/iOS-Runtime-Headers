@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface PDAnimationSoundTarget : PDAnimationShapeTarget {
-    NSString *mSoundFile;
+    NSString * mSoundFile;
 }
 
 - (void)dealloc;

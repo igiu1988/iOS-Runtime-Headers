@@ -2,53 +2,56 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray, NSDictionary, NSSet, NSString;
-
 @interface KNAnimationInfo : NSObject {
-    Class mAnimationClass;
-    NSSet *mValidAnimationTypes;
+    Class  _animationClass;
+    NSSet * _validAnimationTypes;
 }
 
-@property(readonly) Class animationClass;
-@property(readonly) NSString * animationFilter;
-@property(readonly) int category;
-@property(readonly) NSDictionary * customAttributeDefaults;
-@property(readonly) NSArray * customAttributes;
-@property(readonly) NSDictionary * defaultAttributes;
-@property(readonly) unsigned int directionType;
-@property(readonly) NSString * effectIdentifier;
-@property(readonly) BOOL isDrift;
-@property(readonly) NSString * localizedActionBuildName;
-@property(readonly) NSString * localizedBuildInName;
-@property(readonly) NSString * localizedBuildOutName;
-@property(readonly) NSString * localizedTransitionName;
-@property(readonly) NSSet * validAnimationTypes;
+@property (nonatomic, retain) Class animationClass;
+@property (nonatomic, readonly) NSString *animationFilter;
+@property (nonatomic, readonly) long long category;
+@property (nonatomic, readonly) NSDictionary *customAttributeDefaults;
+@property (nonatomic, readonly) NSArray *customAttributes;
+@property (nonatomic, readonly) NSDictionary *defaultAttributes;
+@property (nonatomic, readonly) unsigned long long directionType;
+@property (nonatomic, readonly) NSString *effectIdentifier;
+@property (nonatomic, readonly) bool isDrift;
+@property (nonatomic, readonly) NSString *localizedActionBuildName;
+@property (nonatomic, readonly) NSString *localizedBuildInName;
+@property (nonatomic, readonly) NSString *localizedBuildOutName;
+@property (nonatomic, readonly) NSString *localizedContentBuildName;
+@property (nonatomic, readonly) NSString *localizedTransitionName;
+@property (nonatomic, retain) NSSet *validAnimationTypes;
 
 + (id)effectIdentifiersForAnimationInfos:(id)arg1;
-+ (id)localizedEffectNamesForAnimationInfos:(id)arg1 animationType:(int)arg2;
++ (id)localizedEffectNamesForAnimationInfos:(id)arg1 animationType:(long long)arg2;
 
+- (void).cxx_destruct;
 - (Class)animationClass;
 - (id)animationFilter;
-- (int)category;
+- (long long)category;
 - (id)customAttributeDefaults;
 - (id)customAttributes;
 - (id)customAttributesForAttributeKey:(id)arg1;
-- (void)dealloc;
+- (id)customEffectTimingCurveDisplayParametersForAttributes:(id)arg1 layoutStyleOnly:(bool)arg2;
 - (id)defaultAttributes;
 - (id)description;
-- (unsigned int)directionType;
+- (unsigned long long)directionType;
 - (id)effectIdentifier;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithAnimationClass:(Class)arg1;
-- (BOOL)isDrift;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isType:(int)arg1;
+- (bool)isDrift;
+- (bool)isEqual:(id)arg1;
 - (id)localizedActionBuildName;
 - (id)localizedBuildInName;
 - (id)localizedBuildOutName;
-- (id)localizedNameForType:(int)arg1;
+- (id)localizedContentBuildName;
+- (id)localizedNameForType:(long long)arg1;
 - (id)localizedTransitionName;
-- (id)thumbnailImageNameForType:(int)arg1;
+- (void)setAnimationClass:(Class)arg1;
+- (void)setValidAnimationTypes:(id)arg1;
+- (bool)supportsAnimationType:(long long)arg1;
+- (id)thumbnailImageNameForType:(long long)arg1;
 - (id)validAnimationTypes;
 
 @end

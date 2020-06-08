@@ -2,17 +2,21 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSURL;
-
 @interface PKPaymentProvisioningResponse : PKPaymentWebServiceResponse {
-    NSURL *_passURL;
+    NSArray * _moreInfoURLs;
+    NSURL * _passURL;
+    bool  _willProvisionWithAuthenticationDisabled;
 }
 
-@property(retain) NSURL * passURL;
+@property (nonatomic, readonly, copy) NSArray *moreInfoURLs;
+@property (nonatomic, copy) NSURL *passURL;
+@property (nonatomic, readonly) bool willProvisionWithAuthenticationDisabled;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithData:(id)arg1;
+- (id)moreInfoURLs;
 - (id)passURL;
 - (void)setPassURL:(id)arg1;
+- (bool)willProvisionWithAuthenticationDisabled;
 
 @end

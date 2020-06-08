@@ -2,80 +2,99 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@class HKQuantity, NSArray, NSData, NSDate, NSNumber, NSString;
-
-@interface _HKMedicalIDData : NSObject <NSSecureCoding, NSCopying> {
-    NSString *_allergyInfo;
-    NSDate *_birthdate;
-    int _bloodType;
-    NSDate *_dateSaved;
-    NSArray *_emergencyContacts;
-    HKQuantity *_height;
-    BOOL _isDisabled;
-    NSNumber *_isOrganDonor;
-    NSString *_medicalConditions;
-    NSString *_medicalNotes;
-    NSString *_medicationInfo;
-    NSString *_name;
-    NSData *_pictureData;
-    int _schemaVersion;
-    HKQuantity *_weight;
+@interface _HKMedicalIDData : NSObject <NSCopying, NSSecureCoding> {
+    NSString * _allergyInfo;
+    NSDate * _birthdate;
+    long long  _bloodType;
+    NSDate * _dateSaved;
+    NSArray * _emergencyContacts;
+    NSDate * _gmtBirthdate;
+    HKQuantity * _height;
+    bool  _isDisabled;
+    NSNumber * _isOrganDonor;
+    NSString * _medicalConditions;
+    NSString * _medicalNotes;
+    NSString * _medicationInfo;
+    NSString * _name;
+    NSData * _pictureData;
+    long long  _schemaVersion;
+    HKQuantity * _weight;
 }
 
-@property(retain) NSString * allergyInfo;
-@property(retain) NSDate * birthdate;
-@property int bloodType;
-@property(retain) NSDate * dateSaved;
-@property(retain) NSArray * emergencyContacts;
-@property(retain) HKQuantity * height;
-@property BOOL isDisabled;
-@property(retain) NSNumber * isOrganDonor;
-@property(retain) NSString * medicalConditions;
-@property(retain) NSString * medicalNotes;
-@property(retain) NSString * medicationInfo;
-@property(retain) NSString * name;
-@property(retain) NSData * pictureData;
-@property int schemaVersion;
-@property(retain) HKQuantity * weight;
+@property (nonatomic, copy) NSString *allergyInfo;
+@property (nonatomic, retain) NSDate *birthdate;
+@property (nonatomic) long long bloodType;
+@property (nonatomic, retain) NSDate *dateSaved;
+@property (nonatomic, copy) NSArray *emergencyContacts;
+@property (nonatomic, retain) NSDate *gmtBirthdate;
+@property (nonatomic, copy) NSDateComponents *gregorianBirthday;
+@property (nonatomic, retain) HKQuantity *height;
+@property (nonatomic) bool isDisabled;
+@property (nonatomic, retain) NSNumber *isOrganDonor;
+@property (nonatomic, copy) NSString *medicalConditions;
+@property (nonatomic, copy) NSString *medicalNotes;
+@property (nonatomic, copy) NSString *medicationInfo;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSData *pictureData;
+@property (nonatomic) long long schemaVersion;
+@property (nonatomic, retain) HKQuantity *weight;
 
-+ (BOOL)supportsSecureCoding;
+// Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
+
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
+- (id)_gregorianUtcCalendar;
 - (id)allergyInfo;
 - (id)birthdate;
-- (int)bloodType;
+- (long long)bloodType;
+- (id)consolidatedSOSContactsWithSOSContactsManager:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)dateSaved;
 - (id)emergencyContacts;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)hasAnyData;
+- (id)gmtBirthdate;
+- (id)gregorianBirthday;
+- (bool)hasAnyData;
 - (id)height;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isDisabled;
+- (bool)isDisabled;
+- (bool)isEqual:(id)arg1;
 - (id)isOrganDonor;
-- (void)loadDataFromABPerson:(void*)arg1;
 - (id)medicalConditions;
 - (id)medicalNotes;
 - (id)medicationInfo;
 - (id)name;
 - (id)pictureData;
-- (int)schemaVersion;
+- (void)recordFieldPresenceStatistics;
+- (long long)schemaVersion;
 - (void)setAllergyInfo:(id)arg1;
 - (void)setBirthdate:(id)arg1;
-- (void)setBloodType:(int)arg1;
+- (void)setBloodType:(long long)arg1;
 - (void)setDateSaved:(id)arg1;
 - (void)setEmergencyContacts:(id)arg1;
+- (void)setGmtBirthdate:(id)arg1;
+- (void)setGregorianBirthday:(id)arg1;
 - (void)setHeight:(id)arg1;
-- (void)setIsDisabled:(BOOL)arg1;
+- (void)setIsDisabled:(bool)arg1;
 - (void)setIsOrganDonor:(id)arg1;
 - (void)setMedicalConditions:(id)arg1;
 - (void)setMedicalNotes:(id)arg1;
 - (void)setMedicationInfo:(id)arg1;
 - (void)setName:(id)arg1;
 - (void)setPictureData:(id)arg1;
-- (void)setSchemaVersion:(int)arg1;
+- (void)setSchemaVersion:(long long)arg1;
 - (void)setWeight:(id)arg1;
 - (id)weight;
+
+// Image: /System/Library/PrivateFrameworks/HealthUI.framework/HealthUI
+
++ (id)contactKeysToLoadForMedicalID;
+
+- (id)_contactKeysToFetch;
+- (bool)_updateIdentifierByPhoneNumberForEmergencyContact:(id)arg1 contactStore:(id)arg2;
+- (void)loadDataFromCNContact:(id)arg1;
+- (bool)updateEmergencyContacts;
 
 @end

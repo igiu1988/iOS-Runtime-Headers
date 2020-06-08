@@ -2,40 +2,43 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-@class NSData, NSDate;
-
 @interface PHMoment : PHAssetCollection {
-    NSData *_approximateLocationData;
-    short _generationType;
-    NSDate *_representativeDate;
-    NSData *_reverseLocationData;
-    BOOL _reverseLocationDataIsValid;
+    short  _generationType;
+    NSDate * _modificationDate;
+    NSDate * _representativeDate;
+    NSData * _reverseLocationData;
+    bool  _reverseLocationDataContainsLocation;
+    bool  _reverseLocationDataIsValid;
 }
 
-@property(readonly) short generationType;
-@property(readonly) NSDate * representativeDate;
+@property (nonatomic, readonly) short generationType;
+@property (nonatomic, readonly) NSDate *modificationDate;
+@property (nonatomic, readonly) NSDate *representativeDate;
 
-+ (id)_transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
-+ (id)entityKeyForPropertyKey:(id)arg1;
-+ (id)fetchPredicateFromComparisonPredicate:(id)arg1;
++ (id)entityKeyMap;
++ (id)fetchType;
 + (id)identifierCode;
 + (id)managedEntityName;
-+ (BOOL)managedObjectSupportsTrashedState;
-+ (id)propertiesToFetchWithHint:(unsigned int)arg1;
++ (bool)managedObjectSupportsTrashedState;
++ (id)propertiesToFetchWithHint:(unsigned long long)arg1;
++ (id)transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 
 - (void).cxx_destruct;
+- (void)_cacheLocationWithCoordinate:(struct CLLocationCoordinate2D { double x1; double x2; })arg1;
 - (void)_decodeTitlesIfNeeded;
-- (id)approximateLocation;
-- (BOOL)canPerformEditOperation:(int)arg1;
-- (BOOL)canShowAvalancheStacks;
+- (bool)canPerformEditOperation:(long long)arg1;
+- (bool)canShowAvalancheStacks;
 - (Class)changeRequestClass;
-- (BOOL)collectionHasFixedOrder;
+- (bool)collectionHasFixedOrder;
 - (id)description;
 - (short)generationType;
-- (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned int)arg2 photoLibrary:(id)arg3;
-- (BOOL)isMeaningful;
+- (bool)hasLocalizedTitle;
+- (bool)hasLocationInfo;
+- (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned long long)arg2 photoLibrary:(id)arg3;
+- (bool)isMeaningful;
 - (id)localizedLocationNames;
 - (id)localizedTitle;
+- (id)modificationDate;
 - (id)representativeDate;
 
 @end

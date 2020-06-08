@@ -2,24 +2,28 @@
    Image: /System/Library/PrivateFrameworks/MobileBackup.framework/MobileBackup
  */
 
-@class NSArray, NSError, NSMutableDictionary, NSObject<NSCoding><NSCopying>, NSObject<OS_xpc_object>, NSString;
-
-@interface MBMessage : NSObject {
-    NSMutableDictionary *_messageInfo;
-    NSMutableDictionary *_replyInfo;
-    NSObject<OS_xpc_object> *_xpcObject;
+@interface MBMessage : NSObject <NSKeyedArchiverDelegate> {
+    NSMutableDictionary * _messageInfo;
+    NSMutableDictionary * _replyInfo;
+    NSObject<OS_xpc_object> * _xpcObject;
 }
 
-@property(readonly) NSArray * arguments;
-@property(copy) NSError * error;
-@property(readonly) NSString * name;
-@property(copy) NSObject<NSCoding><NSCopying> * reply;
-@property(copy) NSError * replyError;
+@property (nonatomic, readonly) NSArray *arguments;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSError *error;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, copy) NSObject<NSSecureCoding><NSCopying> *reply;
+@property (nonatomic, copy) NSError *replyError;
+@property (readonly) Class superclass;
 
 + (id)messageWithName:(id)arg1 arguments:(id)arg2;
 
+- (id)_allowedClasses;
 - (id)_initWithXPCObject:(id)arg1;
 - (id)_xpcObject;
+- (void)archiver:(id)arg1 didEncodeObject:(id)arg2;
 - (id)arguments;
 - (void)dealloc;
 - (id)description;

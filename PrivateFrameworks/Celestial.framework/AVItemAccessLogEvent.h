@@ -2,28 +2,28 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class AVItemAccessLogEventInternal, NSDate, NSString;
-
 @interface AVItemAccessLogEvent : NSObject <NSCopying> {
-    AVItemAccessLogEventInternal *_playerItemAccessLogEvent;
+    AVItemAccessLogEventInternal * _playerItemAccessLogEvent;
 }
 
-@property(readonly) NSString * URI;
-@property(readonly) double durationWatched;
-@property(readonly) double indicatedBitrate;
-@property(readonly) long long numberOfBytesTransferred;
-@property(readonly) int numberOfDroppedVideoFrames;
-@property(readonly) int numberOfSegmentsDownloaded;
-@property(readonly) int numberOfServerAddressChanges;
-@property(readonly) int numberOfStalls;
-@property(readonly) double observedBitrate;
-@property(readonly) NSString * playbackSessionID;
-@property(readonly) NSDate * playbackStartDate;
-@property(readonly) double playbackStartOffset;
-@property(readonly) double segmentsDownloadedDuration;
-@property(readonly) NSString * serverAddress;
+@property (nonatomic, readonly) NSString *URI;
+@property (nonatomic, readonly) double durationWatched;
+@property (nonatomic, readonly) double indicatedBitrate;
+@property (nonatomic, readonly) long long numberOfBytesTransferred;
+@property (nonatomic, readonly) long long numberOfDroppedVideoFrames;
+@property (nonatomic, readonly) long long numberOfSegmentsDownloaded;
+@property (nonatomic, readonly) long long numberOfServerAddressChanges;
+@property (nonatomic, readonly) long long numberOfStalls;
+@property (nonatomic, readonly) double observedBitrate;
+@property (nonatomic, readonly) NSString *playbackSessionID;
+@property (nonatomic, readonly) NSDate *playbackStartDate;
+@property (nonatomic, readonly) double playbackStartOffset;
+@property (nonatomic, readonly) double segmentsDownloadedDuration;
+@property (nonatomic, readonly) NSString *serverAddress;
 
 - (id)URI;
+- (double)averageAudioBitrate;
+- (double)averageVideoBitrate;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (double)durationWatched;
@@ -32,10 +32,10 @@
 - (id)init;
 - (id)initWithDictionary:(id)arg1;
 - (long long)numberOfBytesTransferred;
-- (int)numberOfDroppedVideoFrames;
-- (int)numberOfSegmentsDownloaded;
-- (int)numberOfServerAddressChanges;
-- (int)numberOfStalls;
+- (long long)numberOfDroppedVideoFrames;
+- (long long)numberOfSegmentsDownloaded;
+- (long long)numberOfServerAddressChanges;
+- (long long)numberOfStalls;
 - (double)observedBitrate;
 - (id)playbackSessionID;
 - (id)playbackStartDate;

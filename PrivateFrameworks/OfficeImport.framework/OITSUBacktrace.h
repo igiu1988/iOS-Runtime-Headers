@@ -3,9 +3,9 @@
  */
 
 @interface OITSUBacktrace : NSObject {
-    void **_callstack;
-    int _frames;
-    int _initAdjustment;
+    void ** _callstack;
+    int  _frames;
+    int  _initAdjustment;
 }
 
 + (id)backtrace;
@@ -16,10 +16,11 @@
 - (id)backtraceString;
 - (id)callee;
 - (id)caller;
-- (id)callerAtIndex:(int)arg1;
+- (id)callerAtIndex:(long long)arg1;
 - (void)dealloc;
+- (unsigned long long)hash;
 - (id)init;
 - (id)initWithAdjustment:(int)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 
 @end

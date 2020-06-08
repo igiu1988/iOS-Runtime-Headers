@@ -2,26 +2,25 @@
    Image: /System/Library/PrivateFrameworks/PhotoEditSupport.framework/PhotoEditSupport
  */
 
-@class NSMutableArray;
-
 @interface BLImagePatchList : NSObject {
+    struct CGImage { } * _baseImage;
+    NSMutableArray * _patchArray;
     struct CGSize { 
-        float width; 
-        float height; 
-    struct CGImage { } *_baseImage;
-    NSMutableArray *_patchArray;
-    } _size;
+        double width; 
+        double height; 
+    }  _size;
 }
 
 + (id)imagePatchListWithSingleImage:(struct CGImage { }*)arg1;
 
+- (void).cxx_destruct;
 - (void)addPatch:(id)arg1;
-- (int)count;
+- (long long)count;
 - (void)dealloc;
 - (id)description;
 - (void)drawInContext:(struct CGContext { }*)arg1;
 - (id)initWithImage:(struct CGImage { }*)arg1;
 - (void)removeAllPatches;
-- (struct CGSize { float x1; float x2; })size;
+- (struct CGSize { double x1; double x2; })size;
 
 @end

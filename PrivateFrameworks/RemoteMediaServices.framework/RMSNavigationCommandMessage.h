@@ -6,30 +6,30 @@
     struct { 
         unsigned int navigationCommand : 1; 
         unsigned int sessionIdentifier : 1; 
-    } _has;
-    int _navigationCommand;
-    int _sessionIdentifier;
+    }  _has;
+    int  _navigationCommand;
+    int  _sessionIdentifier;
 }
 
-@property BOOL hasNavigationCommand;
-@property BOOL hasSessionIdentifier;
-@property int navigationCommand;
-@property int sessionIdentifier;
+@property (nonatomic) bool hasNavigationCommand;
+@property (nonatomic) bool hasSessionIdentifier;
+@property (nonatomic) int navigationCommand;
+@property (nonatomic) int sessionIdentifier;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasNavigationCommand;
-- (BOOL)hasSessionIdentifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasNavigationCommand;
+- (bool)hasSessionIdentifier;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (int)navigationCommand;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (int)sessionIdentifier;
-- (void)setHasNavigationCommand:(BOOL)arg1;
-- (void)setHasSessionIdentifier:(BOOL)arg1;
+- (void)setHasNavigationCommand:(bool)arg1;
+- (void)setHasSessionIdentifier:(bool)arg1;
 - (void)setNavigationCommand:(int)arg1;
 - (void)setSessionIdentifier:(int)arg1;
 - (void)writeTo:(id)arg1;

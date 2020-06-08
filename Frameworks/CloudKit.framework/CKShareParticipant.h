@@ -2,73 +2,99 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class CKRecordID, NSString;
-
-@interface CKShareParticipant : NSObject <NSSecureCoding, NSCopying> {
-    int _acceptanceStatus;
-    NSString *_emailAddress;
-    NSString *_firstName;
-    BOOL _isCurrentUser;
-    int _itemPermission;
-    NSString *_lastName;
-    int _listPermission;
-    int _originalAcceptanceStatus;
-    int _originalItemPermission;
-    int _originalListPermission;
-    NSString *_participantID;
-    CKRecordID *_userRecordID;
+@interface CKShareParticipant : NSObject <NSCopying, NSSecureCoding> {
+    long long  _acceptanceStatus;
+    bool  _acceptedInProcess;
+    bool  _createdInProcess;
+    NSData * _encryptedPersonalInfo;
+    NSString * _inviterID;
+    bool  _isCurrentUser;
+    bool  _isOrgAdminUser;
+    long long  _originalAcceptanceStatus;
+    long long  _originalParticipantRole;
+    long long  _originalPermission;
+    NSString * _participantID;
+    long long  _permission;
+    NSData * _protectionInfo;
+    long long  _role;
+    CKRecordID * _shareRecordID;
+    CKUserIdentity * _userIdentity;
 }
 
-@property int acceptanceStatus;
-@property(copy) NSString * emailAddress;
-@property(copy) NSString * firstName;
-@property BOOL isCurrentUser;
-@property int itemPermission;
-@property(copy) NSString * lastName;
-@property int listPermission;
-@property int originalAcceptanceStatus;
-@property int originalItemPermission;
-@property int originalListPermission;
-@property(copy) NSString * participantID;
-@property(copy) CKRecordID * userRecordID;
+@property (nonatomic) long long acceptanceStatus;
+@property (nonatomic) bool acceptedInProcess;
+@property (nonatomic) bool createdInProcess;
+@property (nonatomic, retain) NSData *encryptedPersonalInfo;
+@property (nonatomic, retain) NSString *inviterID;
+@property (nonatomic) bool isCurrentUser;
+@property (nonatomic) bool isOrgAdminUser;
+@property (nonatomic) long long originalAcceptanceStatus;
+@property (nonatomic) long long originalParticipantRole;
+@property (nonatomic) long long originalPermission;
+@property (nonatomic, retain) NSString *participantID;
+@property (nonatomic) long long permission;
+@property (nonatomic, retain) NSData *protectionInfo;
+@property (nonatomic) long long role;
+@property (nonatomic, retain) CKRecordID *shareRecordID;
+@property (nonatomic) long long type;
+@property (nonatomic, retain) CKUserIdentity *userIdentity;
 
-+ (BOOL)supportsSecureCoding;
+// Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
+
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (id)CKPropertiesDescription;
-- (id)_initWithUserRecordID:(id)arg1 participantID:(id)arg2 emailAddress:(id)arg3 acceptanceStatus:(int)arg4 itemPermission:(int)arg5 listPermission:(int)arg6;
-- (int)acceptanceStatus;
+- (id)CKDescriptionPropertiesWithPublic:(bool)arg1 private:(bool)arg2 shouldExpand:(bool)arg3;
+- (id)_init;
+- (id)_initWithUserIdentity:(id)arg1;
+- (void)_stripPersonalInfo;
+- (long long)acceptanceStatus;
+- (bool)acceptedInProcess;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (bool)createdInProcess;
 - (id)debugDescription;
 - (id)description;
-- (id)emailAddress;
 - (void)encodeWithCoder:(id)arg1;
-- (id)firstName;
-- (unsigned int)hash;
-- (id)init;
+- (id)encryptedPersonalInfo;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isCurrentUser;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEquivalentToParticipant:(id)arg1;
-- (int)itemPermission;
-- (id)lastName;
-- (int)listPermission;
-- (int)originalAcceptanceStatus;
-- (int)originalItemPermission;
-- (int)originalListPermission;
+- (id)inviterID;
+- (bool)isCurrentUser;
+- (bool)isEqual:(id)arg1;
+- (bool)isOrgAdminUser;
+- (long long)originalAcceptanceStatus;
+- (long long)originalParticipantRole;
+- (long long)originalPermission;
 - (id)participantID;
-- (void)setAcceptanceStatus:(int)arg1;
-- (void)setEmailAddress:(id)arg1;
-- (void)setFirstName:(id)arg1;
-- (void)setIsCurrentUser:(BOOL)arg1;
-- (void)setItemPermission:(int)arg1;
-- (void)setLastName:(id)arg1;
-- (void)setListPermission:(int)arg1;
-- (void)setOriginalAcceptanceStatus:(int)arg1;
-- (void)setOriginalItemPermission:(int)arg1;
-- (void)setOriginalListPermission:(int)arg1;
+- (long long)permission;
+- (id)protectionInfo;
+- (long long)role;
+- (void)setAcceptanceStatus:(long long)arg1;
+- (void)setAcceptedInProcess:(bool)arg1;
+- (void)setCreatedInProcess:(bool)arg1;
+- (void)setEncryptedPersonalInfo:(id)arg1;
+- (void)setInviterID:(id)arg1;
+- (void)setIsCurrentUser:(bool)arg1;
+- (void)setIsOrgAdminUser:(bool)arg1;
+- (void)setOriginalAcceptanceStatus:(long long)arg1;
+- (void)setOriginalParticipantRole:(long long)arg1;
+- (void)setOriginalPermission:(long long)arg1;
 - (void)setParticipantID:(id)arg1;
-- (void)setUserRecordID:(id)arg1;
-- (id)userRecordID;
+- (void)setPermission:(long long)arg1;
+- (void)setProtectionInfo:(id)arg1;
+- (void)setRole:(long long)arg1;
+- (void)setShareRecordID:(id)arg1;
+- (void)setType:(long long)arg1;
+- (void)setUserIdentity:(id)arg1;
+- (id)shareRecordID;
+- (long long)type;
+- (id)unifiedContactsInStore:(id)arg1 keysToFetch:(id)arg2 error:(id*)arg3;
+- (id)userIdentity;
+
+// Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
+
+- (void)_decryptPersonalInfoWithPCSBlob:(struct _OpaquePCSShareProtection { }*)arg1 inShareWithID:(id)arg2 pcsManager:(id)arg3;
+- (void)_encryptPersonalInfoWithPCSBlob:(struct _OpaquePCSShareProtection { }*)arg1 inShareWithID:(id)arg2 pcsManager:(id)arg3;
+- (bool)hasEncryptedPersonalInfo;
 
 @end

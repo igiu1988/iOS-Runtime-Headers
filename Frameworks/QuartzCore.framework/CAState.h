@@ -2,29 +2,28 @@
    Image: /System/Library/Frameworks/QuartzCore.framework/QuartzCore
  */
 
-@class NSArray, NSMutableArray, NSString;
-
-@interface CAState : NSObject <NSCoding, NSCopying> {
-    NSString *_basedOn;
-    NSMutableArray *_elements;
-    BOOL _enabled;
-    BOOL _initial;
-    BOOL _locked;
-    NSString *_name;
-    double _nextDelay;
-    double _previousDelay;
+@interface CAState : NSObject <NSCopying, NSSecureCoding> {
+    NSString * _basedOn;
+    NSMutableArray * _elements;
+    bool  _enabled;
+    bool  _initial;
+    bool  _locked;
+    NSString * _name;
+    double  _nextDelay;
+    double  _previousDelay;
 }
 
-@property(copy) NSString * basedOn;
-@property(copy) NSArray * elements;
-@property(getter=isEnabled) BOOL enabled;
-@property(getter=isInitial) BOOL initial;
-@property(getter=isLocked) BOOL locked;
-@property(copy) NSString * name;
+@property (copy) NSString *basedOn;
+@property (nonatomic, copy) NSArray *elements;
+@property (getter=isEnabled) bool enabled;
+@property (getter=isInitial) bool initial;
+@property (getter=isLocked, nonatomic) bool locked;
+@property (nonatomic, copy) NSString *name;
 @property double nextDelay;
 @property double previousDelay;
 
 + (void)CAMLParserStartElement:(id)arg1;
++ (bool)supportsSecureCoding;
 
 - (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)CAMLTypeForKey:(id)arg1;
@@ -36,21 +35,21 @@
 - (id)elements;
 - (void)encodeWithCAMLWriter:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)foreachLayer:(id)arg1;
+- (void)foreachLayer:(id /* block */)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEnabled;
-- (BOOL)isInitial;
-- (BOOL)isLocked;
+- (bool)isEnabled;
+- (bool)isInitial;
+- (bool)isLocked;
 - (id)name;
 - (double)nextDelay;
 - (double)previousDelay;
 - (void)removeElement:(id)arg1;
 - (void)setBasedOn:(id)arg1;
 - (void)setElements:(id)arg1;
-- (void)setEnabled:(BOOL)arg1;
-- (void)setInitial:(BOOL)arg1;
-- (void)setLocked:(BOOL)arg1;
+- (void)setEnabled:(bool)arg1;
+- (void)setInitial:(bool)arg1;
+- (void)setLocked:(bool)arg1;
 - (void)setName:(id)arg1;
 - (void)setNextDelay:(double)arg1;
 - (void)setPreviousDelay:(double)arg1;

@@ -2,39 +2,41 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference, NSDictionary, NSMutableArray;
-
 @interface AVCaptureStillImageOutputInternal : NSObject {
-    struct CGSize { 
-        float width; 
-        float height; 
+    bool  EV0CaptureEnabled;
+    long long  HDRCaptureMode;
+    bool  SISActive;
+    bool  SISEnabled;
+    bool  SISSupported;
+    bool  bravoImageFusionSupported;
+    struct ct_green_tea_logger_s { } * greenTeaLogger;
+    bool  highResStillEnabled;
+    unsigned int  imageDataFormatType;
+    bool  isCapturingPhoto;
+    float  jpegQuality;
+    bool  jpegQualitySpecified;
+    bool  lensStabilizationDuringBracketedCaptureEnabled;
+    bool  lensStabilizationDuringBracketedCaptureSupported;
+    unsigned long long  maxBracketedCaptureCount;
+    bool  noiseReductionEnabled;
+    NSDictionary * outputSettings;
+    NSMutableArray * prepareRequests;
     struct { 
         unsigned int imageCount; 
         int outputFormat; 
         unsigned int outputWidth; 
         unsigned int outputHeight; 
-    BOOL EV0CaptureEnabled;
-    int HDRCaptureMode;
-    BOOL SISActive;
-    BOOL SISEnabled;
-    BOOL SISSupported;
-    BOOL highResStillEnabled;
-    unsigned long imageDataFormatType;
-    BOOL isCapturingPhoto;
-    float jpegQuality;
-    BOOL jpegQualitySpecified;
-    unsigned int maxBracketedCaptureCount;
-    BOOL noiseReductionEnabled;
-    NSDictionary *outputSettings;
-    NSMutableArray *prepareRequests;
-    } preparedBracket;
-    } previewImageSize;
-    BOOL rawCaptureEnabled;
-    unsigned long shutterSoundID;
-    BOOL squareCropEnabled;
-    NSMutableArray *stillImageRequests;
-    BOOL suspendsVideoProcessingDuringCapture;
-    AVWeakReference *weakReference;
+    }  preparedBracket;
+    struct CGSize { 
+        double width; 
+        double height; 
+    }  previewImageSize;
+    bool  rawCaptureEnabled;
+    unsigned int  shutterSoundID;
+    bool  squareCropEnabled;
+    NSMutableArray * stillImageRequests;
+    bool  suspendsVideoProcessingDuringCapture;
+    AVWeakReference * weakReference;
 }
 
 - (void)dealloc;

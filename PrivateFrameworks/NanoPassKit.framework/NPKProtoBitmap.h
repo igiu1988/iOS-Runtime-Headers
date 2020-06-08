@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSData;
-
 @interface NPKProtoBitmap : PBCodable <NSCopying> {
-    NSData *_bitmapData;
-    unsigned int _bitmapInfo;
-    unsigned long long _bitsPerComponent;
-    unsigned long long _bitsPerPixel;
-    unsigned long long _bytesPerRow;
-    unsigned long long _height;
-    unsigned long long _width;
+    NSData * _bitmapData;
+    unsigned int  _bitmapInfo;
+    unsigned long long  _bitsPerComponent;
+    unsigned long long  _bitsPerPixel;
+    unsigned long long  _bytesPerRow;
+    unsigned long long  _height;
+    unsigned long long  _width;
 }
 
-@property(retain) NSData * bitmapData;
-@property unsigned int bitmapInfo;
-@property unsigned long long bitsPerComponent;
-@property unsigned long long bitsPerPixel;
-@property unsigned long long bytesPerRow;
-@property unsigned long long height;
-@property unsigned long long width;
+@property (nonatomic, retain) NSData *bitmapData;
+@property (nonatomic) unsigned int bitmapInfo;
+@property (nonatomic) unsigned long long bitsPerComponent;
+@property (nonatomic) unsigned long long bitsPerPixel;
+@property (nonatomic) unsigned long long bytesPerRow;
+@property (nonatomic) unsigned long long height;
+@property (nonatomic) unsigned long long width;
 
 - (void).cxx_destruct;
 - (id)bitmapData;
@@ -32,11 +30,11 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (unsigned long long)height;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setBitmapData:(id)arg1;
 - (void)setBitmapInfo:(unsigned int)arg1;
 - (void)setBitsPerComponent:(unsigned long long)arg1;

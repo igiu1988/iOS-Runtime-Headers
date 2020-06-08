@@ -2,21 +2,6 @@
    Image: /System/Library/PrivateFrameworks/PrototypeTools.framework/PrototypeTools
  */
 
-@class NSString;
-
-@interface PTSRestoreDefaultSettingsRowAction : PTSRowAction {
-    NSString *_settingsKeyPath;
-}
-
-@property(copy) NSString * settingsKeyPath;
-
-+ (id)actionWithSettingsKeyPath:(id)arg1;
-
-- (void).cxx_destruct;
-- (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (id)init;
-- (void)resolveTemplatesWithIndex:(unsigned int)arg1;
-- (void)setSettingsKeyPath:(id)arg1;
-- (id)settingsKeyPath;
+@interface PTSRestoreDefaultSettingsRowAction : PTRestoreDefaultSettingsRowAction
 
 @end

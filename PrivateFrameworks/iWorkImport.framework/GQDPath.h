@@ -3,17 +3,17 @@
  */
 
 @interface GQDPath : NSObject {
-    char *mPathString;
+    char * mPathString;
 }
 
 - (struct CGPath { }*)createBezierPath;
 - (void)dealloc;
-- (BOOL)hasHorizontalFlip;
-- (BOOL)hasVerticalFlip;
-- (BOOL)horizontalFlip;
-- (BOOL)isRect;
-- (BOOL)isRectangular;
+- (bool)hasHorizontalFlip;
+- (bool)hasVerticalFlip;
+- (bool)horizontalFlip;
+- (bool)isRect;
+- (bool)isRectangular;
 - (char *)pathStr;
-- (BOOL)verticalFlip;
+- (bool)verticalFlip;
 
 @end

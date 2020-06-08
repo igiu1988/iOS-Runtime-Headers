@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class NSMutableArray;
-
 @interface CPRotatedText : NSObject {
-    NSMutableArray *zones;
+    NSMutableArray * zones;
 }
 
 - (void)addRotationZonesTo:(id)arg1;

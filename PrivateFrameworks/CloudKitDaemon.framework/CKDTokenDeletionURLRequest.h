@@ -2,26 +2,28 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSData, NSString;
-
 @interface CKDTokenDeletionURLRequest : CKDURLRequest {
-    NSString *_bundleID;
-    NSData *_token;
+    NSString * _apsEnvironmentString;
+    NSData * _apsToken;
+    NSString * _bundleID;
 }
 
-@property(retain) NSString * bundleID;
-@property(retain) NSData * token;
+@property (nonatomic, retain) NSString *apsEnvironmentString;
+@property (nonatomic, retain) NSData *apsToken;
+@property (nonatomic, retain) NSString *bundleID;
 
 - (void).cxx_destruct;
+- (id)apsEnvironmentString;
+- (id)apsToken;
 - (id)bundleID;
-- (id)initWithToken:(id)arg1 bundleID:(id)arg2;
+- (id)generateRequestOperations;
+- (id)initWithApsToken:(id)arg1 apsEnvironmentString:(id)arg2 bundleID:(id)arg3;
 - (int)operationType;
 - (id)requestDidParseProtobufObject:(id)arg1;
 - (id)requestOperationClasses;
-- (id)requestOperations;
-- (BOOL)requiresTokenRegistration;
+- (bool)requiresTokenRegistration;
+- (void)setApsEnvironmentString:(id)arg1;
+- (void)setApsToken:(id)arg1;
 - (void)setBundleID:(id)arg1;
-- (void)setToken:(id)arg1;
-- (id)token;
 
 @end

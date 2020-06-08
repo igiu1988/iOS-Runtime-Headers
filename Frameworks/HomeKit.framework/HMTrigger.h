@@ -2,77 +2,102 @@
    Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
  */
 
-@class HMHome, HMMessageDispatcher, NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, NSUUID;
-
-@interface HMTrigger : NSObject <HMMessageReceiver, NSSecureCoding> {
-    NSMutableArray *_currentActionSets;
-    BOOL _enabled;
-    HMHome *_home;
-    NSDate *_lastFireDate;
-    HMMessageDispatcher *_msgDispatcher;
-    NSString *_name;
-    NSMutableDictionary *_pendingRequests;
-    NSUUID *_uuid;
-    NSObject<OS_dispatch_queue> *_workQueue;
+@interface HMTrigger : NSObject <HFStateDumpBuildable, HMFMessageReceiver, HMObjectMerge, NSSecureCoding> {
+    _HMContext * _context;
+    HMMutableArray * _currentActionSets;
+    bool  _enabled;
+    HMHome * _home;
+    NSDate * _lastFireDate;
+    HMFUnfairLock * _lock;
+    NSString * _name;
+    HMUser * _owner;
+    HMDevice * _ownerDevice;
+    NSUUID * _uniqueIdentifier;
+    NSUUID * _uuid;
 }
 
-@property(copy,readonly) NSArray * actionSets;
-@property(retain) NSMutableArray * currentActionSets;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isEnabled) BOOL enabled;
-@property(readonly) unsigned int hash;
-@property HMHome * home;
-@property(copy) NSDate * lastFireDate;
-@property(readonly) NSObject<OS_dispatch_queue> * messageReceiveQueue;
-@property(readonly) NSUUID * messageTargetUUID;
-@property(retain) HMMessageDispatcher * msgDispatcher;
-@property(copy) NSString * name;
-@property(retain) NSMutableDictionary * pendingRequests;
-@property(readonly) Class superclass;
-@property(retain) NSUUID * uuid;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
+@property (nonatomic, readonly, copy) NSArray *actionSets;
+@property (nonatomic, readonly) _HMContext *context;
+@property (nonatomic, retain) HMMutableArray *currentActionSets;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isEnabled, nonatomic) bool enabled;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool hf_requiresConfirmationToRun;
+@property (nonatomic) HMHome *home;
+@property (nonatomic, copy) NSDate *lastFireDate;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property (nonatomic, readonly) NSUUID *messageTargetUUID;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic) HMUser *owner;
+@property (nonatomic, retain) HMDevice *ownerDevice;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) NSUUID *uniqueIdentifier;
+@property (nonatomic, retain) NSUUID *uuid;
 
-+ (BOOL)supportsSecureCoding;
+// Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
+
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
+- (void)__configureWithContext:(id)arg1 home:(id)arg2;
+- (void)_addActionSet:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)_addActionSetWithCompletionHandler:(id /* block */)arg1;
+- (void)_enable:(bool)arg1 completionHandler:(id /* block */)arg2;
+- (void)_handleTriggerActivatedNotification:(id)arg1;
 - (void)_handleTriggerFired:(id)arg1;
+- (void)_handleTriggerFiredNotification:(id)arg1;
+- (void)_handleTriggerRenamedNotification:(id)arg1;
+- (void)_handleUpdatedActionSetNotification:(id)arg1;
+- (void)_invalidate;
+- (bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (void)_registerNotificationHandlers;
-- (void)_updateActionSet:(id)arg1 add:(BOOL)arg2 completionHandler:(id)arg3;
+- (void)_removeActionSet:(id)arg1 completionHandler:(id /* block */)arg2;
+- (id)_serializeForAdd;
+- (void)_unconfigure;
+- (void)_updateActionSet:(id)arg1 add:(bool)arg2 completionHandler:(id /* block */)arg3;
+- (void)_updateName:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)actionSets;
-- (void)addActionSet:(id)arg1 completionHandler:(id)arg2;
-- (void)configure:(id)arg1 uuid:(id)arg2 messageDispatcher:(id)arg3;
+- (void)addActionSet:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)addActionSetWithCompletionHandler:(id /* block */)arg1;
+- (bool)compatibleWithApp;
+- (id)context;
+- (id)creator;
+- (id)creatorDevice;
 - (id)currentActionSets;
-- (void)enable:(BOOL)arg1 completionHandler:(id)arg2;
+- (void)dealloc;
+- (void)enable:(bool)arg1 completionHandler:(id /* block */)arg2;
 - (void)encodeWithCoder:(id)arg1;
-- (void)handleTriggerActivatedNotification:(id)arg1;
-- (void)handleTriggerFiredNotification:(id)arg1;
-- (void)handleTriggerRenamedNotification:(id)arg1;
-- (void)handleUpdatedActionSetNotification:(id)arg1;
 - (id)home;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithName:(id)arg1;
-- (void)invalidate;
-- (BOOL)isEnabled;
+- (bool)isEnabled;
 - (id)lastFireDate;
 - (id)messageReceiveQueue;
 - (id)messageTargetUUID;
-- (id)msgDispatcher;
 - (id)name;
-- (id)pendingRequests;
-- (void)removeActionSet:(id)arg1 completionHandler:(id)arg2;
-- (id)serializeForAdd;
+- (id)owner;
+- (id)ownerDevice;
+- (void)removeActionSet:(id)arg1 completionHandler:(id /* block */)arg2;
 - (void)setCurrentActionSets:(id)arg1;
-- (void)setEnabled:(BOOL)arg1;
+- (void)setEnabled:(bool)arg1;
 - (void)setHome:(id)arg1;
 - (void)setLastFireDate:(id)arg1;
-- (void)setMsgDispatcher:(id)arg1;
 - (void)setName:(id)arg1;
-- (void)setPendingRequests:(id)arg1;
+- (void)setOwner:(id)arg1;
+- (void)setOwnerDevice:(id)arg1;
 - (void)setUuid:(id)arg1;
-- (void)setWorkQueue:(id)arg1;
-- (void)updateName:(id)arg1 completionHandler:(id)arg2;
+- (id)uniqueIdentifier;
+- (void)updateName:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)uuid;
-- (id)workQueue;
+
+// Image: /System/Library/PrivateFrameworks/Home.framework/Home
+
++ (id)hf_localizedStringForSignficantEvent:(id)arg1 offset:(id)arg2;
++ (id)hf_sanitizeTriggerName:(id)arg1 home:(id)arg2;
+
+- (id)hf_forceDisableReasons;
+- (bool)hf_requiresConfirmationToRun;
+- (id)hf_stateDumpBuilderWithContext:(id)arg1;
 
 @end

@@ -2,28 +2,27 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPLocationBound, CKDPRecordFieldIdentifier, CKDPRecordFieldValue;
-
 @interface CKDPQueryFilter : PBCodable <NSCopying> {
+    CKDPLocationBound * _bounds;
+    CKDPRecordFieldIdentifier * _fieldName;
+    CKDPRecordFieldValue * _fieldValue;
     struct { 
         unsigned int type : 1; 
-    CKDPLocationBound *_bounds;
-    CKDPRecordFieldIdentifier *_fieldName;
-    CKDPRecordFieldValue *_fieldValue;
-    } _has;
-    int _type;
+    }  _has;
+    int  _type;
 }
 
-@property(retain) CKDPLocationBound * bounds;
-@property(retain) CKDPRecordFieldIdentifier * fieldName;
-@property(retain) CKDPRecordFieldValue * fieldValue;
-@property(readonly) BOOL hasBounds;
-@property(readonly) BOOL hasFieldName;
-@property(readonly) BOOL hasFieldValue;
-@property BOOL hasType;
-@property int type;
+@property (nonatomic, retain) CKDPLocationBound *bounds;
+@property (nonatomic, retain) CKDPRecordFieldIdentifier *fieldName;
+@property (nonatomic, retain) CKDPRecordFieldValue *fieldValue;
+@property (nonatomic, readonly) bool hasBounds;
+@property (nonatomic, readonly) bool hasFieldName;
+@property (nonatomic, readonly) bool hasFieldValue;
+@property (nonatomic) bool hasType;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
+- (int)StringAsType:(id)arg1;
 - (id)bounds;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -31,20 +30,21 @@
 - (id)dictionaryRepresentation;
 - (id)fieldName;
 - (id)fieldValue;
-- (BOOL)hasBounds;
-- (BOOL)hasFieldName;
-- (BOOL)hasFieldValue;
-- (BOOL)hasType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasBounds;
+- (bool)hasFieldName;
+- (bool)hasFieldValue;
+- (bool)hasType;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setBounds:(id)arg1;
 - (void)setFieldName:(id)arg1;
 - (void)setFieldValue:(id)arg1;
-- (void)setHasType:(BOOL)arg1;
+- (void)setHasType:(bool)arg1;
 - (void)setType:(int)arg1;
 - (int)type;
+- (id)typeAsString:(int)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

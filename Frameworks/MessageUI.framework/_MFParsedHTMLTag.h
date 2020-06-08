@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class NSString;
-
 @interface _MFParsedHTMLTag : _MFParsedHTMLNode {
-    NSString *_tagName;
+    NSString * _tagName;
 }
 
 - (id)copyConsumableNodesAndAppendInnerTextToStringAccumulator:(id)arg1;

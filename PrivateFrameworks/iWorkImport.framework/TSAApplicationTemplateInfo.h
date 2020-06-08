@@ -2,53 +2,52 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSBundle, NSString, NSURL;
-
 @interface TSAApplicationTemplateInfo : TSATemplateInfo <NSCopying> {
-    NSString *_documentVariant;
-    NSString *_name;
-    NSString *_previewVariant;
+    NSURL * _bundledDocumentContainerURL;
+    NSString * _documentVariant;
+    NSString * _name;
+    NSString * _previewImageLocalization;
+    NSString * _previewVariant;
 }
 
-@property(readonly) NSURL * bundledDocumentContainerURL;
-@property(readonly) NSURL * documentContainerURL;
-@property(readonly) NSString * documentVariant;
-@property(readonly) int downloadState;
-@property(readonly) NSURL * downloadedDocumentContainerURL;
-@property(readonly) NSString * name;
-@property(readonly) NSBundle * previewBundle;
-@property(readonly) NSString * previewVariant;
-@property(readonly) NSURL * templateZipURL;
+@property (nonatomic, readonly) NSString *assetName;
+@property (nonatomic, readonly) NSURL *bundledDocumentContainerURL;
+@property (nonatomic, readonly) NSString *documentVariant;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSBundle *previewBundle;
+@property (nonatomic, copy) NSString *previewImageLocalization;
+@property (nonatomic, readonly) NSString *previewVariant;
 
-+ (id)bundledDocumentContainerDirectoryURL;
-+ (id)documentURLWithDocumentContainerURL:(id)arg1 variant:(id)arg2;
-+ (id)downloadedDocumentContainerDirectoryURL;
-+ (id)localizationBundleForDocumentContainerURL:(id)arg1;
-+ (id)localizationBundleForDocumentURL:(id)arg1;
-+ (id)templateZipURLForTemplateName:(id)arg1;
++ (id)bundledTemplatesDirectoryURL;
++ (id)cachedTemplatesDirectoryURL;
++ (id)localizationBundleForTemplateName:(id)arg1;
++ (id)localizationBundleForTemplateURL:(id)arg1;
++ (id)localizationBundleURLForTemplateName:(id)arg1;
++ (void)setBundledTemplatesDirectoryURL:(id)arg1;
 
+- (void).cxx_destruct;
+- (id)assetName;
 - (id)bundledDocumentContainerURL;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
-- (id)documentContainerURL;
 - (id)documentURL;
-- (id)documentURLWithDocumentContainerURL:(id)arg1;
 - (id)documentVariant;
-- (int)downloadState;
-- (id)downloadedDocumentContainerURL;
-- (id)initHeadlessWithName:(id)arg1 variant:(unsigned int)arg2 locale:(struct __CFLocale { }*)arg3;
-- (id)initHeadlessWithName:(id)arg1 variant:(unsigned int)arg2;
 - (id)initHeadlessWithName:(id)arg1;
+- (id)initHeadlessWithName:(id)arg1 documentVariant:(id)arg2 previewVariant:(id)arg3;
+- (id)initHeadlessWithName:(id)arg1 variant:(unsigned long long)arg2;
+- (id)initHeadlessWithName:(id)arg1 variant:(unsigned long long)arg2 locale:(struct __CFLocale { }*)arg3;
 - (id)initWithDisplayName:(id)arg1 name:(id)arg2 documentVariant:(id)arg3 previewVariant:(id)arg4;
-- (id)initWithPropertyList:(id)arg1 documentVariant:(id)arg2 previewVariant:(id)arg3;
-- (BOOL)isAvailable;
+- (id)initWithPropertyList:(id)arg1 documentLocale:(id)arg2 documentVariant:(id)arg3 previewVariant:(id)arg4;
 - (id)localizationBundle;
 - (id)makeIdentifier;
 - (id)name;
+- (void)prepareWithCompletionQueue:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)previewBundle;
+- (id)previewImageLocalization;
 - (id)previewImageURL;
 - (id)previewVariant;
-- (id)templateZipURL;
+- (void)setPreviewImageLocalization:(id)arg1;
+- (id)tags;
+- (id)templateURLWithContainerURL:(id)arg1;
 
 @end

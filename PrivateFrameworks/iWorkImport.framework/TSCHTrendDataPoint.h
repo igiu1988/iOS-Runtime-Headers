@@ -3,15 +3,15 @@
  */
 
 @interface TSCHTrendDataPoint : NSObject {
-    double mDataPointX;
-    double mDataPointY;
-    unsigned int mGroupIndex;
+    double  mDataPointX;
+    double  mDataPointY;
+    unsigned long long  mGroupIndex;
 }
 
 - (double)dataPointX;
 - (double)dataPointY;
-- (unsigned int)groupIndex;
-- (id)initWithPointX:(double)arg1 pointY:(double)arg2 forGroup:(unsigned int)arg3;
-- (int)xValueCompare:(id)arg1;
+- (unsigned long long)groupIndex;
+- (id)initWithPointX:(double)arg1 pointY:(double)arg2 forGroup:(unsigned long long)arg3;
+- (long long)xValueCompare:(id)arg1;
 
 @end

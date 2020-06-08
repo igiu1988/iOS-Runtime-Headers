@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDTable, WMBordersProperty, WMTableColumnInfo, WMTableStyle;
-
 @interface WMTableMapper : CMMapper {
-    WMTableColumnInfo *mColumnInfo;
-    WMBordersProperty *mInsideBorders;
-    WMTableStyle *mStyle;
-    WDTable *mWdTable;
+    WMTableColumnInfo * mColumnInfo;
+    WMBordersProperty * mInsideBorders;
+    WMTableStyle * mStyle;
+    WDTable * mWdTable;
 }
 
-+ (BOOL)isTableDeleted:(id)arg1;
++ (bool)isTableDeleted:(id)arg1;
 
+- (void).cxx_destruct;
 - (id)columnInfo;
 - (id)copyColumnInfo;
-- (id)copyStopArrayForRow:(unsigned int)arg1;
-- (void)dealloc;
+- (id)copyStopArrayForRow:(unsigned long long)arg1;
 - (id)initWithWDTable:(id)arg1 parent:(id)arg2;
 - (id)insideBorders;
 - (void)mapAt:(id)arg1 withState:(id)arg2;

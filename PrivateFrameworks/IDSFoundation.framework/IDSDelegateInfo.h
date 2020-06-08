@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/IDSFoundation.framework/IDSFoundation
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface IDSDelegateInfo : NSObject {
-    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> * _queue;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)queue;
 - (void)setQueue:(id)arg1;
 

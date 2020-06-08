@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class CPShape;
-
-@interface CPZoneBorderNeighbor : NSObject <NSCopying, CPCopying> {
-    CPShape *neighborShape;
-    int shapeSide;
+@interface CPZoneBorderNeighbor : NSObject <CPCopying, NSCopying> {
+    CPShape * neighborShape;
+    int  shapeSide;
 }
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;

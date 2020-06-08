@@ -2,35 +2,36 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class BRCAccountSession, BRCItemID, BRCLocalContainer, NSMutableIndexSet, NSObject<OS_dispatch_group>;
-
 @interface BRCTreeEnumerator : NSObject {
-    BRCLocalContainer *_container;
-    NSObject<OS_dispatch_group> *_group;
-    id _handler;
-    BRCItemID *_parentID;
-    unsigned int _rowID;
-    NSMutableIndexSet *_seen;
-    BRCAccountSession *_session;
-    NSMutableIndexSet *_toVisit;
-    id _whenDone;
+    BRCAppLibrary * _appLibrary;
+    id /* block */  _completionHandler;
+    NSObject<OS_dispatch_group> * _group;
+    id /* block */  _handler;
+    bool  _isCancelled;
+    BRCItemID * _parentID;
+    unsigned long long  _rowID;
+    NSMutableIndexSet * _seen;
+    BRCAccountSession * _session;
+    id  _strongSelf;
+    NSMutableIndexSet * _toVisit;
+    brc_task_tracker * _tracker;
 }
 
-@property(copy) id whenDone;
+@property (nonatomic, copy) id /* block */ completionHandler;
 
 - (void).cxx_destruct;
-- (void)_iterate:(unsigned int)arg1;
-- (void)_iterateWithoutParent:(unsigned int)arg1;
+- (unsigned long long)__iterate:(unsigned long long)arg1;
+- (void)_doneWithError:(id)arg1;
+- (void)_iterate:(unsigned long long)arg1;
 - (void)_scheduleAsync;
-- (void)_visitNewParent:(unsigned int)arg1;
-- (void)done;
-- (void)enumerateBelow:(id)arg1 group:(id)arg2;
-- (id)initWithContainer:(id)arg1 handler:(id)arg2;
-- (void)setWhenDone:(id)arg1;
-- (id)whenDone;
+- (bool)_visitNewParent;
+- (void)cancel;
+- (id /* block */)completionHandler;
+- (void)enumerateBelow:(id)arg1 appLibrary:(id)arg2 handler:(id /* block */)arg3;
+- (bool)finishIfCancelled;
+- (id)initWithSession:(id)arg1;
+- (id)initWithSession:(id)arg1 group:(id)arg2;
+- (id)initWithSession:(id)arg1 tracker:(id)arg2;
+- (void)setCompletionHandler:(id /* block */)arg1;
 
 @end

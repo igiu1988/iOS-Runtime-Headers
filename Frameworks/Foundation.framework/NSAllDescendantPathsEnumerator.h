@@ -2,29 +2,27 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSAllDescendantPathsEnumerator, NSArray, NSFileAttributes, NSString;
-
 @interface NSAllDescendantPathsEnumerator : NSDirectoryEnumerator {
-    BOOL _padding[3];
-    NSArray *contents;
-    BOOL cross;
-    unsigned int depth;
-    NSFileAttributes *directoryAttributes;
-    unsigned int idx;
-    NSString *path;
-    NSString *pathToLastReportedItem;
-    NSString *prepend;
-    NSAllDescendantPathsEnumerator *under;
+    BOOL  _padding;
+    NSArray * contents;
+    bool  cross;
+    unsigned long long  depth;
+    NSFileAttributes * directoryAttributes;
+    unsigned long long  idx;
+    NSString * path;
+    NSString * pathToLastReportedItem;
+    NSString * prepend;
+    NSAllDescendantPathsEnumerator * under;
 }
 
-+ (id)newWithPath:(id)arg1 prepend:(id)arg2 attributes:(id)arg3 cross:(BOOL)arg4 depth:(unsigned int)arg5;
++ (id)newWithPath:(id)arg1 prepend:(id)arg2 attributes:(id)arg3 cross:(bool)arg4 depth:(unsigned long long)arg5;
 
 - (id)_under;
 - (id)currentSubdirectoryAttributes;
 - (void)dealloc;
 - (id)directoryAttributes;
 - (id)fileAttributes;
-- (unsigned int)level;
+- (unsigned long long)level;
 - (id)nextObject;
 - (void)skipDescendants;
 - (void)skipDescendents;

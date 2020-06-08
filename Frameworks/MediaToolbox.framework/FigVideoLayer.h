@@ -2,19 +2,20 @@
    Image: /System/Library/Frameworks/MediaToolbox.framework/MediaToolbox
  */
 
-@class FigVideoLayerInternal;
-
-@interface FigVideoLayer : CALayer {
-    FigVideoLayerInternal *_videoLayer;
+@interface FigVideoLayer : FigBaseCALayer {
+    FigVideoLayerInternal * _videoLayer;
 }
 
++ (id)defaultActionForKey:(id)arg1;
+
 - (void)_sendVideoLayerIsBeingServicedNotification;
+- (id)actionForKey:(id)arg1;
 - (void)dealloc;
 - (void)finalize;
 - (id)init;
 - (id)initWithLayer:(id)arg1;
-- (BOOL)isVideoLayerBeingServiced;
-- (void)layerDidBecomeVisible:(BOOL)arg1;
+- (bool)isVideoLayerBeingServiced;
+- (void)layerDidBecomeVisible:(bool)arg1;
 - (id)layerDisplayName;
 - (void)notificationBarrier;
 

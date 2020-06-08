@@ -2,62 +2,73 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString, SCNOrderedDictionary;
-
 @interface SCNConstraint : NSObject <NSCopying, NSSecureCoding, SCNAnimatable> {
-    SCNOrderedDictionary *_animations;
-    struct __C3DConstraint { struct __C3DEntity { struct __CFRuntimeBase { unsigned int x_1_2_1; unsigned char x_1_2_2[4]; } x_1_1_1; void *x_1_1_2; struct __CFString {} *x_1_1_3; struct __CFString {} *x_1_1_4; struct __CFDictionary {} *x_1_1_5; int x_1_1_6; int x_1_1_7; } x1; struct __CFString {} *x2; struct { int (*x_3_1_1)(); int (*x_3_1_2)(); } x3; float x4; boolx5; } *_constraintRef;
-    id _constraintReserved;
-    BOOL _enabled;
-    float _influenceFactor;
+    SCNOrderedDictionary * _animations;
+    NSMutableDictionary * _bindings;
+    struct __C3DConstraint { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x_1_2_1; unsigned long long x_1_2_2; } x_1_1_1; void *x_1_1_2; struct __CFString {} *x_1_1_3; struct __CFString {} *x_1_1_4; struct __CFDictionary {} *x_1_1_5; struct __C3DScene {} *x_1_1_6; long long x_1_1_7; } x1; struct __CFString {} *x2; float x3; bool x4; bool x5; struct { int (*x_6_1_1)(); int (*x_6_1_2)(); int (*x_6_1_3)(); int (*x_6_1_4)(); int (*x_6_1_5)(); int (*x_6_1_6)(); } x6; void *x7; } * _constraintRef;
+    bool  _enabled;
+    bool  _incremental;
+    double  _influenceFactor;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property float influenceFactor;
-@property(readonly) Class superclass;
+@property (readonly) NSArray *animationKeys;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isEnabled, nonatomic) bool enabled;
+@property (readonly) unsigned long long hash;
+@property (getter=isIncremental, nonatomic) bool incremental;
+@property (nonatomic) double influenceFactor;
+@property (readonly) Class superclass;
 
-+ (id)SCNJSExportProtocol;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (struct __C3DConstraint { struct __C3DEntity { struct __CFRuntimeBase { unsigned int x_1_2_1; unsigned char x_1_2_2[4]; } x_1_1_1; void *x_1_1_2; struct __CFString {} *x_1_1_3; struct __CFString {} *x_1_1_4; struct __CFDictionary {} *x_1_1_5; int x_1_1_6; int x_1_1_7; } x1; struct __CFString {} *x2; struct { int (*x_3_1_1)(); int (*x_3_1_2)(); } x3; float x4; boolx5; }*)constraintRef;
-- (void*)__CFObject;
-- (void)__removeAnimation:(id)arg1 forKey:(id)arg2;
-- (void)_pauseAnimation:(BOOL)arg1 forKey:(id)arg2;
+- (const void*)__CFObject;
+- (bool)__removeAnimation:(id)arg1 forKey:(id)arg2;
+- (void)_copyAnimationsFrom:(id)arg1;
+- (void)_pauseAnimation:(bool)arg1 forKey:(id)arg2 pausedByNode:(bool)arg3;
+- (id)_scnAnimationForKey:(id)arg1;
+- (id)_scnBindings;
 - (void)_syncObjCAnimations;
-- (void)addAnimation:(id)arg1 forKey:(id)arg2;
 - (void)addAnimation:(id)arg1;
+- (void)addAnimation:(id)arg1 forKey:(id)arg2;
+- (void)addAnimationPlayer:(id)arg1 forKey:(id)arg2;
 - (id)animationForKey:(id)arg1;
 - (id)animationKeys;
-- (struct __C3DAnimationManager { struct __CFRuntimeBase { unsigned int x_1_1_1; unsigned char x_1_1_2[4]; } x1; struct __C3DModelValueStorage {} *x2; struct __CFDictionary {} *x3; struct __CFDictionary {} *x4; struct __CFSet {} *x5; struct __CFArray {} *x6; boolx7; boolx8; boolx9; struct _C3DAnimationPendingEvent {} *x10; struct __C3DAllocator {} *x11; struct __CFDictionary {} *x12; struct __CFArray {} *x13; double x14; double x15; struct _opaque_pthread_mutex_t { long x_16_1_1; BOOL x_16_1_2[40]; } x16; int x17; int x18; int x19; int x20; }*)animationManager;
+- (struct __C3DAnimationManager { }*)animationManager;
+- (id)animationPlayerForKey:(id)arg1;
+- (void)bindAnimatablePath:(id)arg1 toObject:(id)arg2 withKeyPath:(id)arg3 options:(id)arg4;
+- (void)commonInit;
+- (struct __C3DConstraint { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x_1_2_1; unsigned long long x_1_2_2; } x_1_1_1; void *x_1_1_2; struct __CFString {} *x_1_1_3; struct __CFString {} *x_1_1_4; struct __CFDictionary {} *x_1_1_5; struct __C3DScene {} *x_1_1_6; long long x_1_1_7; } x1; struct __CFString {} *x2; float x3; bool x4; bool x5; struct { int (*x_6_1_1)(); int (*x_6_1_2)(); int (*x_6_1_3)(); int (*x_6_1_4)(); int (*x_6_1_5)(); int (*x_6_1_6)(); } x6; void *x7; }*)constraintRef;
 - (id)copy;
+- (id)copyAnimationChannelForKeyPath:(id)arg1 animation:(id)arg2;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)finalizeDecodeConstraint:(id)arg1;
-- (float)influenceFactor;
+- (double)influenceFactor;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isAnimationForKeyPaused:(id)arg1;
-- (BOOL)isEnabled;
+- (bool)isAnimationForKeyPaused:(id)arg1;
+- (bool)isEnabled;
+- (bool)isIncremental;
+- (bool)isPausedOrPausedByInheritance;
 - (id)name;
 - (void)pauseAnimationForKey:(id)arg1;
 - (void)removeAllAnimations;
-- (void)removeAnimationForKey:(id)arg1 fadeOutDuration:(float)arg2;
+- (void)removeAllBindings;
 - (void)removeAnimationForKey:(id)arg1;
+- (void)removeAnimationForKey:(id)arg1 blendOutDuration:(double)arg2;
+- (void)removeAnimationForKey:(id)arg1 fadeOutDuration:(double)arg2;
 - (void)resumeAnimationForKey:(id)arg1;
 - (id)scene;
 - (struct __C3DScene { }*)sceneRef;
-- (void)setConstraintRef:(struct __C3DConstraint { struct __C3DEntity { struct __CFRuntimeBase { unsigned int x_1_2_1; unsigned char x_1_2_2[4]; } x_1_1_1; void *x_1_1_2; struct __CFString {} *x_1_1_3; struct __CFString {} *x_1_1_4; struct __CFDictionary {} *x_1_1_5; int x_1_1_6; int x_1_1_7; } x1; struct __CFString {} *x2; struct { int (*x_3_1_1)(); int (*x_3_1_2)(); } x3; float x4; boolx5; }*)arg1;
-- (void)setEnabled:(BOOL)arg1;
-- (void)setInfluenceFactor:(float)arg1;
+- (void)setConstraintRef:(struct __C3DConstraint { struct __C3DEntity { struct __CFRuntimeBase { unsigned long long x_1_2_1; unsigned long long x_1_2_2; } x_1_1_1; void *x_1_1_2; struct __CFString {} *x_1_1_3; struct __CFString {} *x_1_1_4; struct __CFDictionary {} *x_1_1_5; struct __C3DScene {} *x_1_1_6; long long x_1_1_7; } x1; struct __CFString {} *x2; float x3; bool x4; bool x5; struct { int (*x_6_1_1)(); int (*x_6_1_2)(); int (*x_6_1_3)(); int (*x_6_1_4)(); int (*x_6_1_5)(); int (*x_6_1_6)(); } x6; void *x7; }*)arg1;
+- (void)setEnabled:(bool)arg1;
+- (void)setIncremental:(bool)arg1;
+- (void)setInfluenceFactor:(double)arg1;
 - (void)setName:(id)arg1;
+- (void)setSpeed:(double)arg1 forAnimationKey:(id)arg2;
+- (void)unbindAnimatablePath:(id)arg1;
 
 @end

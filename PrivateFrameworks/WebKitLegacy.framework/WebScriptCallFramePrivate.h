@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class WebScriptObject;
-
 @interface WebScriptCallFramePrivate : NSObject {
-    struct String { 
-        struct RefPtr<WTF::StringImpl> { 
-            struct StringImpl {} *m_ptr; 
-        } m_impl; 
     struct JSValue { 
         union EncodedValueDescriptor { 
             long long asInt64; 
-            double asDouble; 
+            struct JSCell {} *ptr; 
             struct { 
                 int payload; 
                 int tag; 
             } asBits; 
         } u; 
-    } exceptionValue;
-    } functionName;
-    WebScriptObject *globalObject;
+    }  exceptionValue;
+    struct String { 
+        struct RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<WTF::StringImpl> > { 
+            struct StringImpl {} *m_ptr; 
+        } m_impl; 
+    }  functionName;
+    WebScriptObject * globalObject;
 }
 
 - (id).cxx_construct;

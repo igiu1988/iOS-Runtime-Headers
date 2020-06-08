@@ -2,48 +2,41 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class <KeychainSyncPasscodeFieldDelegate>, NSString, PSPasscodeField;
-
-@interface PasscodeFieldCell : PSTableCell <UIKeyInput, PSPasscodeFieldDelegate> {
-    BOOL _convertsNumeralsToASCII;
-    <KeychainSyncPasscodeFieldDelegate> *_delegate;
-    BOOL _denyFirstResponder;
-    PSPasscodeField *_passcodeField;
+@interface PasscodeFieldCell : PSTableCell <PSPasscodeFieldDelegate> {
+    bool  _convertsNumeralsToASCII;
+    <KeychainSyncPasscodeFieldDelegate> * _delegate;
+    bool  _denyFirstResponder;
+    PSPasscodeField * _passcodeField;
 }
 
-@property int autocapitalizationType;
-@property int autocorrectionType;
-@property BOOL convertsNumeralsToASCII;
-@property(copy,readonly) NSString * debugDescription;
-@property <KeychainSyncPasscodeFieldDelegate> * delegate;
-@property BOOL denyFirstResponder;
-@property(copy,readonly) NSString * description;
-@property BOOL enablesReturnKeyAutomatically;
-@property(readonly) unsigned int hash;
-@property int keyboardAppearance;
-@property int keyboardType;
-@property int returnKeyType;
-@property(getter=isSecureTextEntry) BOOL secureTextEntry;
-@property int spellCheckingType;
-@property(readonly) Class superclass;
+@property (nonatomic) bool convertsNumeralsToASCII;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <KeychainSyncPasscodeFieldDelegate> *delegate;
+@property (nonatomic) bool denyFirstResponder;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) PSPasscodeField *passcodeField;
+@property (readonly) Class superclass;
 
-- (void)_setSecureTextEntry:(BOOL)arg1;
-- (BOOL)becomeFirstResponder;
-- (BOOL)convertsNumeralsToASCII;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (void)_setSecureTextEntry:(bool)arg1;
+- (bool)becomeFirstResponder;
+- (void)cellTapped:(id)arg1;
+- (bool)convertsNumeralsToASCII;
 - (id)delegate;
 - (void)deleteBackward;
-- (BOOL)denyFirstResponder;
-- (BOOL)hasText;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
-- (void)insertText:(id)arg1;
-- (int)keyboardType;
+- (bool)denyFirstResponder;
+- (bool)hasText;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (long long)keyboardType;
 - (void)layoutSubviews;
+- (id)passcodeField;
 - (void)passcodeField:(id)arg1 enteredPasscode:(id)arg2;
+- (id)passcodeField:(id)arg1 shouldInsertText:(id)arg2;
 - (id)passcodeText;
-- (void)setConvertsNumeralsToASCII:(BOOL)arg1;
+- (void)setConvertsNumeralsToASCII:(bool)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setDenyFirstResponder:(BOOL)arg1;
+- (void)setDenyFirstResponder:(bool)arg1;
 - (void)setPasscodeText:(id)arg1;
 
 @end

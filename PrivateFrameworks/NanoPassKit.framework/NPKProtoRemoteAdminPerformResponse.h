@@ -2,29 +2,37 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSData;
-
 @interface NPKProtoRemoteAdminPerformResponse : PBCodable <NSCopying> {
-    NSData *_responseDictionary;
-    unsigned int _resultCode;
+    struct { 
+        unsigned int httpStatus : 1; 
+    }  _has;
+    int  _httpStatus;
+    NSData * _responseDictionary;
+    unsigned int  _resultCode;
 }
 
-@property(readonly) BOOL hasResponseDictionary;
-@property(retain) NSData * responseDictionary;
-@property unsigned int resultCode;
+@property (nonatomic) bool hasHttpStatus;
+@property (nonatomic, readonly) bool hasResponseDictionary;
+@property (nonatomic) int httpStatus;
+@property (nonatomic, retain) NSData *responseDictionary;
+@property (nonatomic) unsigned int resultCode;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasResponseDictionary;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasHttpStatus;
+- (bool)hasResponseDictionary;
+- (unsigned long long)hash;
+- (int)httpStatus;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)responseDictionary;
 - (unsigned int)resultCode;
+- (void)setHasHttpStatus:(bool)arg1;
+- (void)setHttpStatus:(int)arg1;
 - (void)setResponseDictionary:(id)arg1;
 - (void)setResultCode:(unsigned int)arg1;
 - (void)writeTo:(id)arg1;

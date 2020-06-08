@@ -2,38 +2,36 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSCH3DAxisLabelKind, TSCH3DValueEnumerator;
-
 @interface TSCH3DAxisLabelCachedEnumerator : TSCH3DValueEnumerator {
     struct vector<TSCH3D::AxisLabelCacheItem, std::__1::allocator<TSCH3D::AxisLabelCacheItem> > { 
         struct AxisLabelCacheItem {} *__begin_; 
         struct AxisLabelCacheItem {} *__end_; 
         struct __compressed_pair<TSCH3D::AxisLabelCacheItem *, std::__1::allocator<TSCH3D::AxisLabelCacheItem> > { 
-            struct AxisLabelCacheItem {} *__first_; 
+            struct AxisLabelCacheItem {} *__value_; 
         } __end_cap_; 
-    } mCache;
-    TSCH3DValueEnumerator *mCachee;
-    unsigned int mCount;
-    TSCH3DAxisLabelKind *mKind;
-    int mLabelPosition;
-    BOOL mShouldRender;
-    BOOL mValid;
+    }  mCache;
+    TSCH3DValueEnumerator * mCachee;
+    unsigned long long  mCount;
+    TSCH3DAxisLabelKind * mKind;
+    int  mLabelPosition;
+    bool  mShouldRender;
+    bool  mValid;
 }
 
-@property(readonly) TSCH3DAxisLabelKind * kind;
+@property (nonatomic, readonly) TSCH3DAxisLabelKind *kind;
 
 + (id)enumeratorWithAxisLabelEnumerator:(id)arg1;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)cache;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
 - (id)enumerator;
 - (id)initWithAxisLabelEnumerator:(id)arg1;
 - (id)kind;
 - (int)labelPosition;
-- (BOOL)shouldRender;
+- (bool)shouldRender;
 - (id)string;
 - (void)update;
 

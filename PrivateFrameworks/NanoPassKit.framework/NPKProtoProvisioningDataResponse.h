@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSData;
-
 @interface NPKProtoProvisioningDataResponse : PBCodable <NSCopying> {
     struct { 
         unsigned int pending : 1; 
-    } _has;
-    BOOL _pending;
-    NSData *_provisioningDataBytes;
+    }  _has;
+    bool  _pending;
+    NSData * _provisioningDataBytes;
 }
 
-@property BOOL hasPending;
-@property(readonly) BOOL hasProvisioningDataBytes;
-@property BOOL pending;
-@property(retain) NSData * provisioningDataBytes;
+@property (nonatomic) bool hasPending;
+@property (nonatomic, readonly) bool hasProvisioningDataBytes;
+@property (nonatomic) bool pending;
+@property (nonatomic, retain) NSData *provisioningDataBytes;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasPending;
-- (BOOL)hasProvisioningDataBytes;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasPending;
+- (bool)hasProvisioningDataBytes;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)pending;
+- (bool)pending;
 - (id)provisioningDataBytes;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasPending:(BOOL)arg1;
-- (void)setPending:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasPending:(bool)arg1;
+- (void)setPending:(bool)arg1;
 - (void)setProvisioningDataBytes:(id)arg1;
 - (void)writeTo:(id)arg1;
 

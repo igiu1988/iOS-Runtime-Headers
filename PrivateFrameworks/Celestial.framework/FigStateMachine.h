@@ -2,26 +2,26 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSString;
-
 @interface FigStateMachine : NSObject {
-    unsigned int _currentState;
-    NSString *_label;
-    int _lock;
-    id _owner;
-    BOOL _performsAtomicStateTransitions;
-    struct FigStateMachineStateConfiguration { BOOL x1; id x2; id x3; id x4; } *_stateConfigurations;
-    BOOL _stateCount;
+    unsigned int  _currentState;
+    NSString * _label;
+    struct os_unfair_lock_s { 
+        unsigned int _os_unfair_lock_opaque; 
+    }  _lock;
+    id  _owner;
+    bool  _performsAtomicStateTransitions;
+    /* Warning: unhandled struct encoding: '{FigStateMachineStateConfiguration=B@@@}' */ struct FigStateMachineStateConfiguration { bool x1; id x2; id x3; } * _stateConfigurations;
+    BOOL  _stateCount;
 }
 
-@property(readonly) unsigned int currentState;
-@property(readonly) NSString * currentStateLabel;
-@property(readonly) NSString * label;
-@property BOOL performsAtomicStateTransitions;
+@property (readonly) unsigned int currentState;
+@property (readonly) NSString *currentStateLabel;
+@property (readonly) NSString *label;
+@property (nonatomic) bool performsAtomicStateTransitions;
 
 + (void)initialize;
 
-- (BOOL)_transitionToState:(unsigned int)arg1 fromStates:(unsigned int)arg2 errorStatus:(long)arg3;
+- (bool)_transitionToState:(unsigned int)arg1 fromStates:(unsigned int)arg2 errorStatus:(int)arg3;
 - (unsigned int)currentState;
 - (id)currentStateLabel;
 - (void)dealloc;
@@ -30,17 +30,17 @@
 - (id)label;
 - (id)labelForState:(unsigned int)arg1;
 - (void)markStateAsTerminal:(unsigned int)arg1;
-- (BOOL)performsAtomicStateTransitions;
+- (bool)performsAtomicStateTransitions;
 - (void)setLabel:(id)arg1 forState:(unsigned int)arg2;
-- (void)setPerformsAtomicStateTransitions:(BOOL)arg1;
-- (BOOL)transitionToState:(unsigned int)arg1 errorStatus:(long)arg2;
-- (BOOL)transitionToState:(unsigned int)arg1 fromState:(unsigned int)arg2;
-- (BOOL)transitionToState:(unsigned int)arg1 fromStates:(unsigned int)arg2;
-- (BOOL)transitionToState:(unsigned int)arg1;
-- (void)whenTransitioningFromState:(unsigned int)arg1 toState:(unsigned int)arg2 callHandler:(id)arg3;
-- (void)whenTransitioningToState:(unsigned int)arg1 callHandler:(id)arg2;
-- (void)whenTransitioningToStateFails:(unsigned int)arg1 callHandler:(id)arg2;
-- (void)whenTransitioningToStates:(unsigned int)arg1 callHandler:(id)arg2;
-- (void)whenTransitioningToStatesFail:(unsigned int)arg1 callHandler:(id)arg2;
+- (void)setPerformsAtomicStateTransitions:(bool)arg1;
+- (bool)transitionToState:(unsigned int)arg1;
+- (bool)transitionToState:(unsigned int)arg1 errorStatus:(int)arg2;
+- (bool)transitionToState:(unsigned int)arg1 fromState:(unsigned int)arg2;
+- (bool)transitionToState:(unsigned int)arg1 fromStates:(unsigned int)arg2;
+- (void)whenTransitioningFromState:(unsigned int)arg1 toState:(unsigned int)arg2 callHandler:(id /* block */)arg3;
+- (void)whenTransitioningToState:(unsigned int)arg1 callHandler:(id /* block */)arg2;
+- (void)whenTransitioningToStateFails:(unsigned int)arg1 callHandler:(id /* block */)arg2;
+- (void)whenTransitioningToStates:(unsigned int)arg1 callHandler:(id /* block */)arg2;
+- (void)whenTransitioningToStatesFail:(unsigned int)arg1 callHandler:(id /* block */)arg2;
 
 @end

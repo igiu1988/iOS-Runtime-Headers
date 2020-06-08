@@ -2,21 +2,21 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class UIImage, VKMapSnapshot;
-
 @interface MKMapSnapshot : NSObject {
-    UIImage *_image;
-    VKMapSnapshot *_snapshot;
+    UIImage * _image;
+    VKMapSnapshot * _snapshot;
 }
 
-@property(readonly) UIImage * image;
+@property (nonatomic, readonly) UIImage *image;
 
 - (void).cxx_destruct;
-- (struct { double x1; double x2; })_coordinateForPoint:(struct CGPoint { float x1; float x2; })arg1;
-- (id)_initWithSnapshot:(id)arg1;
+- (struct CLLocationCoordinate2D { double x1; double x2; })_coordinateForPoint:(struct CGPoint { double x1; double x2; })arg1;
+- (bool)_hasNoDataPlaceholders;
+- (id)_initWithSnapshot:(id)arg1 desiredScale:(double)arg2;
+- (void)_prepareForRenderWithAnnotationViews:(id)arg1;
 - (id)image;
-- (struct CGPoint { float x1; float x2; })pointForCoordinate:(struct { double x1; double x2; })arg1;
-- (id)snapshotWithAnnotationView:(id)arg1 atCoordinate:(struct { double x1; double x2; })arg2;
-- (id)snapshotWithAnnotationView:(id)arg1 atPoint:(struct CGPoint { float x1; float x2; })arg2;
+- (struct CGPoint { double x1; double x2; })pointForCoordinate:(struct CLLocationCoordinate2D { double x1; double x2; })arg1;
+- (id)snapshotWithAnnotationView:(id)arg1 atCoordinate:(struct CLLocationCoordinate2D { double x1; double x2; })arg2;
+- (id)snapshotWithAnnotationView:(id)arg1 atPoint:(struct CGPoint { double x1; double x2; })arg2;
 
 @end

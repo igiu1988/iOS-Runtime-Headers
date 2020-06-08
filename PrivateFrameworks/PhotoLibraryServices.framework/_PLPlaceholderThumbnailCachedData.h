@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSData;
-
 @interface _PLPlaceholderThumbnailCachedData : NSObject {
-    int _bytesPerRow;
-    int _dataHeight;
-    int _dataWidth;
-    int _height;
-    NSData *_imageData;
-    int _imageDataOffset;
-    int _width;
+    int  _bytesPerRow;
+    int  _dataHeight;
+    int  _dataWidth;
+    int  _height;
+    NSData * _imageData;
+    int  _imageDataOffset;
+    int  _width;
 }
 
 - (void)dealloc;

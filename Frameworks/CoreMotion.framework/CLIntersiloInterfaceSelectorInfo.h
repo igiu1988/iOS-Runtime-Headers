@@ -2,35 +2,26 @@
    Image: /System/Library/Frameworks/CoreMotion.framework/CoreMotion
  */
 
-@class NSMethodSignature, NSString;
-
 @interface CLIntersiloInterfaceSelectorInfo : NSObject {
-    int _numArguments;
-    int _replyBlockIndex;
-    int _returnAddressIndex;
-    int _returnValueSize;
-    SEL _sel;
-    NSMethodSignature *_sig;
-    NSString *_str;
+    int  _replyBlockIndex;
+    int  _returnAddressIndex;
+    SEL  _sel;
+    NSMethodSignature * _sig;
 }
 
-@property(readonly) int numArguments;
-@property(readonly) int replyBlockIndex;
-@property(readonly) int returnAddressIndex;
-@property(readonly) int returnValueSize;
-@property(readonly) SEL sel;
-@property(retain,readonly) NSMethodSignature * sig;
-@property(retain,readonly) NSString * str;
+@property (nonatomic, readonly) int replyBlockIndex;
+@property (nonatomic, readonly) int returnAddressIndex;
+@property (nonatomic, readonly) SEL sel;
+@property (nonatomic, readonly, retain) NSMethodSignature *sig;
+@property (nonatomic, readonly, copy) NSString *typeStr;
 
 - (void).cxx_destruct;
 - (id)description;
 - (id)initWithSelector:(SEL)arg1 andMethodSignature:(id)arg2;
-- (int)numArguments;
 - (int)replyBlockIndex;
 - (int)returnAddressIndex;
-- (int)returnValueSize;
 - (SEL)sel;
 - (id)sig;
-- (id)str;
+- (id)typeStr;
 
 @end

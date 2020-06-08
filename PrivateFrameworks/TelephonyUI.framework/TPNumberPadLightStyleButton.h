@@ -2,24 +2,15 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUI.framework/TelephonyUI
  */
 
-@interface TPNumberPadLightStyleButton : TPNumberPadButton {
-}
+@interface TPNumberPadLightStyleButton : TPNumberPadButton
 
-+ (float)highlightCrossfadeHighlightBeginTime;
-+ (float)highlightCrossfadeHighlightFadeDuration;
-+ (float)highlightCrossfadeNormalBeginTime;
-+ (float)highlightCrossfadeNormalFadeDuration;
-+ (float)horizontalPadding;
-+ (id)imageForCharacter:(unsigned int)arg1 highlighted:(BOOL)arg2;
++ (double)highlightedCircleViewAlpha;
 + (id)imageForCharacter:(unsigned int)arg1;
-+ (float)unhighlightCrossfadeHighlightBeginTime;
-+ (float)unhighlightCrossfadeHighlightFadeDuration;
-+ (float)unhighlightCrossfadeNormalBeginTime;
-+ (float)unhighlightCrossfadeNormalFadeDuration;
-+ (BOOL)usesTelephonyGlyphsWhereAvailable;
-+ (float)verticalPadding;
++ (id)imageForCharacter:(unsigned int)arg1 highlighted:(bool)arg2;
++ (double)unhighlightedCircleViewAlpha;
++ (bool)usesTelephonyGlyphsWhereAvailable;
 
+- (id)buttonColor;
 - (id)defaultColor;
-- (id)initForCharacter:(unsigned int)arg1;
 
 @end

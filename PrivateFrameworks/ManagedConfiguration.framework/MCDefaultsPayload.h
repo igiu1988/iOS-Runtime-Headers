@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSDictionary;
-
 @interface MCDefaultsPayload : MCPayload {
-    NSDictionary *_defaultsByDomain;
+    NSDictionary * _defaultsByDomain;
 }
 
 + (id)localizedPluralForm;
@@ -17,7 +15,7 @@
 - (id)description;
 - (id)domains;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id*)arg3;
-- (BOOL)isAllowedToWriteDefaults;
+- (bool)isAllowedToWriteDefaults;
 - (id)stubDictionary;
 - (id)title;
 

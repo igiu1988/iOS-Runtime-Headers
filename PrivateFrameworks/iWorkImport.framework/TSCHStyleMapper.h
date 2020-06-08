@@ -2,30 +2,36 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <TSKStyleMapper>, NSString;
-
 @interface TSCHStyleMapper : NSObject <TSKStyleMapper> {
-    <TSKStyleMapper> *mUnderlyingMapper;
-    unsigned int mVaryInThemeStylesheet;
+    bool  mForceMatchStyle;
+    <TSKStyleMapper> * mUnderlyingMapper;
 }
 
-@property(readonly) BOOL clientsMustRemap;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) bool clientsMustRemap;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) bool forceMatchStyle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly) <TSKStyleMapper> *underlyingMapper;
 
-- (BOOL)clientsMustRemap;
++ (id)mappedStyleWithMapper:(id)arg1 forStyle:(id)arg2 bakeComputable:(bool)arg3;
++ (id)mappedStylesWithMapper:(id)arg1 forStyles:(id)arg2 bakeComputable:(bool)arg3;
++ (id)mapperWithMapper:(id)arg1;
++ (void)replaceReferencedStylesInMap:(id)arg1 withMapper:(id)arg2;
+
+- (void).cxx_destruct;
+- (bool)clientsMustRemap;
 - (void)dealloc;
-- (id)init;
+- (bool)forceMatchStyle;
 - (id)initWithMapper:(id)arg1;
-- (id)mappedStyleForStyle:(id)arg1 bakeComputable:(BOOL)arg2;
-- (id)mappedStyleForStyle:(id)arg1 inThemeStylesheet:(BOOL)arg2;
 - (id)mappedStyleForStyle:(id)arg1;
+- (id)mappedStyleForStyle:(id)arg1 bakeComputable:(bool)arg2;
 - (void)popMappingContext:(id)arg1;
 - (void)pushMappingContext:(id)arg1;
+- (void)replaceReferencedStylesInMap:(id)arg1;
+- (void)setForceMatchStyle:(bool)arg1;
 - (id)targetStylesheet;
-- (void)varyInThemeStylesheetForDurationOfBlock:(id)arg1;
-- (void)varyInThemeStylesheetIf:(BOOL)arg1 forDurationOfBlock:(id)arg2;
+- (id)underlyingMapper;
 
 @end

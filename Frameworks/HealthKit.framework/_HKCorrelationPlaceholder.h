@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@interface _HKCorrelationPlaceholder : HKCorrelation {
-}
+@interface _HKCorrelationPlaceholder : HKCorrelation
 
-+ (BOOL)_allowEmptyCorrelations;
-+ (id)_correlationWithUUID:(id)arg1 metadata:(id)arg2 sourceBundleIdentifier:(id)arg3 creationDate:(id)arg4 correlationType:(id)arg5 startDate:(id)arg6 endDate:(id)arg7;
++ (bool)_allowEmptyCorrelations;
 
 @end

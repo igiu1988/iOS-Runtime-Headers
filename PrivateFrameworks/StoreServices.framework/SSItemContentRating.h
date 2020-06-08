@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSDictionary, NSMutableDictionary, NSString, SSItemArtworkImage;
-
-@interface SSItemContentRating : NSObject <SSXPCCoding, NSCopying> {
-    NSMutableDictionary *_dictionary;
+@interface SSItemContentRating : NSObject <NSCopying, SSXPCCoding> {
+    NSMutableDictionary * _dictionary;
 }
 
-@property(readonly) NSDictionary * contentRatingDictionary;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isExplicitContent,readonly) BOOL explicitContent;
-@property(readonly) unsigned int hash;
-@property int rank;
-@property(copy) NSString * ratingDescription;
-@property(copy) NSString * ratingLabel;
-@property int ratingSystem;
-@property(readonly) SSItemArtworkImage * ratingSystemLogo;
-@property(getter=isRestricted,readonly) BOOL restricted;
-@property BOOL shouldHideWhenRestricted;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) NSDictionary *contentRatingDictionary;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isExplicitContent, nonatomic, readonly) bool explicitContent;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) long long rank;
+@property (nonatomic, copy) NSString *ratingDescription;
+@property (nonatomic, copy) NSString *ratingLabel;
+@property (nonatomic) long long ratingSystem;
+@property (nonatomic, readonly) SSItemArtworkImage *ratingSystemLogo;
+@property (getter=isRestricted, nonatomic, readonly) bool restricted;
+@property (nonatomic) bool shouldHideWhenRestricted;
+@property (readonly) Class superclass;
 
-+ (int)ratingSystemFromString:(id)arg1;
-+ (id)stringForRatingSystem:(int)arg1;
++ (long long)ratingSystemFromString:(id)arg1;
++ (id)stringForRatingSystem:(long long)arg1;
 
-- (BOOL)_isRatingSystemForApps:(int)arg1;
-- (BOOL)_isRatingSystemForMovies:(int)arg1;
-- (BOOL)_isRatingSystemForMusic:(int)arg1;
-- (BOOL)_isRatingSystemForTV:(int)arg1;
+- (bool)_isRatingSystemForApps:(long long)arg1;
+- (bool)_isRatingSystemForMovies:(long long)arg1;
+- (bool)_isRatingSystemForMusic:(long long)arg1;
+- (bool)_isRatingSystemForTV:(long long)arg1;
 - (void)_setValue:(id)arg1 forProperty:(id)arg2;
 - (void)_setValueCopy:(id)arg1 forProperty:(id)arg2;
 - (id)contentRatingDictionary;
@@ -38,19 +36,19 @@
 - (id)init;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
-- (BOOL)isExplicitContent;
-- (BOOL)isRestricted;
-- (int)rank;
+- (bool)isExplicitContent;
+- (bool)isRestricted;
+- (long long)rank;
 - (id)ratingDescription;
 - (id)ratingLabel;
-- (int)ratingSystem;
+- (long long)ratingSystem;
 - (id)ratingSystemLogo;
-- (void)setRank:(int)arg1;
+- (void)setRank:(long long)arg1;
 - (void)setRatingDescription:(id)arg1;
 - (void)setRatingLabel:(id)arg1;
-- (void)setRatingSystem:(int)arg1;
-- (void)setShouldHideWhenRestricted:(BOOL)arg1;
-- (BOOL)shouldHideWhenRestricted;
+- (void)setRatingSystem:(long long)arg1;
+- (void)setShouldHideWhenRestricted:(bool)arg1;
+- (bool)shouldHideWhenRestricted;
 - (id)valueForProperty:(id)arg1;
 
 @end

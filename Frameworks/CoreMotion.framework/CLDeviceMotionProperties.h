@@ -3,17 +3,14 @@
  */
 
 @interface CLDeviceMotionProperties : NSObject {
-    boolfWantsPowerConservativeDeviceMotion;
-    int fMode;
+    int  _mode;
 }
 
-@property int mode;
-@property(readonly) bool wantsPowerConservativeDeviceMotion;
+@property (nonatomic) int mode;
 
 - (id)description;
-- (id)initWithMode:(int)arg1 andPowerConservation:(bool)arg2;
+- (id)initWithMode:(int)arg1;
 - (int)mode;
 - (void)setMode:(int)arg1;
-- (bool)wantsPowerConservativeDeviceMotion;
 
 @end

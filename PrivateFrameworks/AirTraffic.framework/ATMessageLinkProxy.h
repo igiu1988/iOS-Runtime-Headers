@@ -2,29 +2,28 @@
    Image: /System/Library/PrivateFrameworks/AirTraffic.framework/AirTraffic
  */
 
-@class NSHashTable, NSMutableDictionary, NSString, NSXPCConnection, NSXPCListenerEndpoint;
-
-@interface ATMessageLinkProxy : NSObject <NSSecureCoding, ATMessageLinkObserver, ATMessageLinkRequestHandler, ATMessageLink> {
-    NSXPCConnection *_connection;
-    NSXPCListenerEndpoint *_endpoint;
-    int _endpointType;
-    BOOL _initialized;
-    NSString *_libraryIdentifier;
-    NSHashTable *_observers;
-    BOOL _open;
-    NSMutableDictionary *_requestHandlers;
+@interface ATMessageLinkProxy : ATMessageLink <ATMessageLinkObserver, ATMessageLinkRequestHandler, NSSecureCoding> {
+    NSXPCConnection * _connection;
+    NSXPCListenerEndpoint * _endpoint;
+    int  _endpointType;
+    NSString * _identifier;
+    bool  _initialized;
+    NSHashTable * _observers;
+    bool  _open;
+    NSMutableDictionary * _requestHandlers;
+    NSMutableSet * _streams;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property int endpointType;
-@property(readonly) unsigned int hash;
-@property(getter=isInitialized) BOOL initialized;
-@property(copy) NSString * libraryIdentifier;
-@property(getter=isOpen) BOOL open;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) int endpointType;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSString *identifier;
+@property (getter=isInitialized, nonatomic) bool initialized;
+@property (getter=isOpen, nonatomic) bool open;
+@property (readonly) Class superclass;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)addObserver:(id)arg1;
@@ -33,22 +32,22 @@
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (int)endpointType;
+- (id)identifier;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithEndpoint:(id)arg1;
-- (BOOL)isInitialized;
-- (BOOL)isOpen;
-- (id)libraryIdentifier;
-- (void)messageLink:(id)arg1 didReceiveRequest:(id)arg2 completion:(id)arg3;
+- (bool)isInitialized;
+- (bool)isOpen;
+- (void)messageLink:(id)arg1 didReceiveRequest:(id)arg2 completion:(id /* block */)arg3;
 - (void)messageLinkWasClosed:(id)arg1;
 - (void)messageLinkWasInitialized:(id)arg1;
 - (void)messageLinkWasOpened:(id)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)removeRequestHandlerForDataClass:(id)arg1;
-- (void)sendRequest:(id)arg1 withCompletion:(id)arg2;
-- (void)sendResponse:(id)arg1 withCompletion:(id)arg2;
+- (void)sendRequest:(id)arg1 withCompletion:(id /* block */)arg2;
+- (void)sendResponse:(id)arg1 withCompletion:(id /* block */)arg2;
 - (void)setEndpointType:(int)arg1;
-- (void)setInitialized:(BOOL)arg1;
-- (void)setLibraryIdentifier:(id)arg1;
-- (void)setOpen:(BOOL)arg1;
+- (void)setIdentifier:(id)arg1;
+- (void)setInitialized:(bool)arg1;
+- (void)setOpen:(bool)arg1;
 
 @end

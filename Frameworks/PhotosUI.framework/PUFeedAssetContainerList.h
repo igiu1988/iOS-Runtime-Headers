@@ -2,27 +2,27 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSOrderedSet, NSString;
-
 @interface PUFeedAssetContainerList : NSObject <PLAssetContainerList> {
-    NSOrderedSet *_sectionInfos;
-    NSString *_transientIdentifier;
+    NSOrderedSet * _sectionInfos;
+    NSString * _transientIdentifier;
 }
 
-@property(readonly) unsigned int containersCount;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) NSOrderedSet * sectionInfos;
-@property(readonly) Class superclass;
-@property(readonly) NSString * transientIdentifier;
+@property (nonatomic, readonly) unsigned long long containersCount;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) NSOrderedSet *sectionInfos;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSString *transientIdentifier;
 
 - (void).cxx_destruct;
-- (BOOL)canEditContainers;
+- (bool)canEditContainers;
 - (id)containers;
-- (unsigned int)containersCount;
+- (unsigned long long)containersCount;
 - (id)containersRelationshipName;
-- (BOOL)isEmpty;
+- (unsigned long long)hash;
+- (bool)isEmpty;
+- (bool)isEqual:(id)arg1;
 - (id)managedObjectContext;
 - (id)photoLibrary;
 - (id)sectionInfos;

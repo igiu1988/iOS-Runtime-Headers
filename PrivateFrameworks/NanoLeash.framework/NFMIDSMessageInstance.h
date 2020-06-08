@@ -2,29 +2,25 @@
    Image: /System/Library/PrivateFrameworks/NanoLeash.framework/NanoLeash
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface NFMIDSMessageInstance : NSObject {
-    id _retryAction;
-    int _retryCount;
-    double _retryInterval;
+    id /* block */  _retryAction;
+    long long  _retryCount;
+    double  _retryInterval;
 }
 
-@property(copy) id retryAction;
-@property int retryCount;
-@property double retryInterval;
+@property (nonatomic, copy) id /* block */ retryAction;
+@property (nonatomic) long long retryCount;
+@property (nonatomic) double retryInterval;
 
-+ (id)newMessageInstanceWithAction:(id)arg1 retryCount:(int)arg2 retryInterval:(double)arg3;
++ (id)newMessageInstanceWithAction:(id /* block */)arg1 retryCount:(long long)arg2 retryInterval:(double)arg3;
 
 - (void).cxx_destruct;
 - (id)description;
-- (id)retryAction;
-- (int)retryCount;
+- (id /* block */)retryAction;
+- (long long)retryCount;
 - (double)retryInterval;
-- (void)setRetryAction:(id)arg1;
-- (void)setRetryCount:(int)arg1;
+- (void)setRetryAction:(id /* block */)arg1;
+- (void)setRetryCount:(long long)arg1;
 - (void)setRetryInterval:(double)arg1;
 
 @end

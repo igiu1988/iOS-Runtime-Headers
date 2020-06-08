@@ -2,10 +2,10 @@
    Image: /System/Library/PrivateFrameworks/Symbolication.framework/Symbolication
  */
 
-@interface VMUCallTreePseudoNode : VMUCallTreeNode {
-}
+@interface VMUCallTreePseudoNode : VMUCallTreeNode
 
-- (BOOL)isPseudo;
+- (void)addChildCountsIntoNode;
+- (bool)isPseudo;
 - (id)largestTopOfStackPath;
 - (id)pseudoNodeTopOfStackChild;
 - (id)sortedChildrenWithPseudoNode;

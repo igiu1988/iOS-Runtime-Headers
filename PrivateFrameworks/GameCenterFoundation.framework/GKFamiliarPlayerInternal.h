@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class NSString;
-
 @interface GKFamiliarPlayerInternal : GKPlayerInternal {
-    NSString *_compositeName;
-    NSString *_firstName;
-    NSString *_lastName;
+    NSString * _compositeName;
+    NSString * _firstName;
+    NSString * _lastName;
 }
 
 + (id)secureCodedPropertyKeys;
++ (bool)supportsSecureCoding;
 
 - (id)compositeName;
 - (void)dealloc;

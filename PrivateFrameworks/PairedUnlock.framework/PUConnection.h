@@ -2,47 +2,49 @@
    Image: /System/Library/PrivateFrameworks/PairedUnlock.framework/PairedUnlock
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <PUConnectionDelegate>, NSString, NSXPCConnection;
-
-@interface PUConnection : NSObject <PUUnlockClient> {
-    NSXPCConnection *_connection;
-    <PUConnectionDelegate> *_delegate;
-    id _getRemoteDevicePasscodeStateHandler;
-    id _remoteDeviceRemoveLockoutHandler;
+@interface PUConnection : NSObject {
+    <PUConnectionDelegate> * _delegate;
+    NSObject<OS_dispatch_queue> * _delegateQueue;
+    id /* block */  _remoteDeviceRemoveLockoutHandler;
+    NSXPCConnection * _serverConnection;
+    NSObject<OS_dispatch_queue> * _serverConnectionQueue;
+    PUConnectionUnlockClient * _unlockClient;
 }
 
-@property(readonly) NSXPCConnection * connection;
-@property(copy,readonly) NSString * debugDescription;
-@property <PUConnectionDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property <PUConnectionDelegate> *delegate;
+@property (nonatomic, copy) id /* block */ remoteDeviceRemoveLockoutHandler;
+
++ (void)syncPasscodeState;
 
 - (void).cxx_destruct;
-- (id)connection;
 - (void)dealloc;
 - (id)delegate;
-- (void)didDisableOnlyRemoteUnlock:(BOOL)arg1 error:(id)arg2;
-- (void)didEnableOnlyRemoteUnlock:(BOOL)arg1 error:(id)arg2;
-- (void)didGetRemoteDeviceHasPasscode:(BOOL)arg1 isLocked:(BOOL)arg2 isUnlockOnly:(BOOL)arg3 error:(id)arg4;
-- (void)didPairForUnlock:(BOOL)arg1 error:(id)arg2;
-- (void)didUnpairForUnlock:(BOOL)arg1 error:(id)arg2;
+- (id)delegateIfRespondsToSelector:(SEL)arg1;
+- (void)didDisableOnlyRemoteUnlock:(bool)arg1 error:(id)arg2;
+- (void)didEnableOnlyRemoteUnlock:(bool)arg1 error:(id)arg2;
+- (void)didGetRemoteDeviceState:(id)arg1 error:(id)arg2;
+- (void)didPairForUnlock:(bool)arg1 error:(id)arg2;
+- (void)didUnpairForUnlock:(bool)arg1 error:(id)arg2;
 - (void)disableOnlyRemoteUnlock;
 - (void)enableOnlyRemoteUnlockWithPasscode:(id)arg1;
-- (void)getRemoteDeviceState:(id)arg1;
+- (void)getRemoteDeviceState:(id /* block */)arg1;
 - (id)init;
+- (id)initWithDelegate:(id)arg1;
 - (void)pairForUnlockWithPasscode:(id)arg1;
-- (void)remoteDeviceDidCompletePasscodeAction:(BOOL)arg1 error:(id)arg2;
-- (void)remoteDeviceDidRemoveLockout:(BOOL)arg1 error:(id)arg2;
+- (void)queryRemoteDeviceState:(id /* block */)arg1;
+- (const char *)queueNameWithSuffix:(id)arg1;
+- (void)remoteDeviceDidCompleteRemoteAction:(bool)arg1 remoteDeviceState:(id)arg2 error:(id)arg3;
+- (void)remoteDeviceDidRemoveLockout:(bool)arg1 error:(id)arg2;
 - (void)remoteDeviceDidUnlock;
-- (void)requestRemoteDevicePasscodeAction:(int)arg1 type:(int)arg2;
-- (void)requestRemoteDeviceRemoveLockout:(id)arg1;
+- (id /* block */)remoteDeviceRemoveLockoutHandler;
+- (void)requestDeviceSetWristDetectionDisabled:(bool)arg1 completion:(id /* block */)arg2;
+- (void)requestRemoteDeviceRemoteAction:(long long)arg1 type:(long long)arg2;
+- (void)requestRemoteDeviceRemoveLockout:(id /* block */)arg1;
 - (void)requestRemoteDeviceUnlockNotification;
+- (id)serverConnection;
 - (void)setDelegate:(id)arg1;
+- (void)setRemoteDeviceRemoveLockoutHandler:(id /* block */)arg1;
+- (void)setServerConnection:(id)arg1;
 - (void)unpairForUnlock;
 
 @end

@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OITSUBasicProgressStorage;
-
 @interface OITSUBasicProgress : OITSUProgress {
-    OITSUBasicProgressStorage *mStorage;
+    OITSUBasicProgressStorage * mStorage;
 }
 
-@property(getter=isIndeterminate) BOOL indeterminate;
+@property (getter=isIndeterminate) bool indeterminate;
 @property double value;
 
 - (void)dealloc;
 - (id)init;
 - (id)initWithMaxValue:(double)arg1;
-- (BOOL)isIndeterminate;
+- (bool)isIndeterminate;
 - (double)maxValue;
-- (void)setIndeterminate:(BOOL)arg1;
+- (void)setIndeterminate:(bool)arg1;
 - (void)setValue:(double)arg1;
 - (double)value;
 

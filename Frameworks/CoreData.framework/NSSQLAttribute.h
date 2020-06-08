@@ -2,13 +2,24 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@interface NSSQLAttribute : NSSQLColumn {
-}
+@interface NSSQLAttribute : NSSQLColumn
 
-- (unsigned int)_sqlTypeForAttributeType:(unsigned int)arg1 flags:(unsigned int)arg2;
+@property (getter=isConstrained, nonatomic) bool constrained;
+@property (nonatomic, readonly) NSSet *triggerKeys;
+
+- (void)_setIsBackedByTrigger:(bool)arg1;
+- (unsigned char)_sqlTypeForAttributeType:(unsigned long long)arg1 flags:(unsigned long long)arg2;
+- (void)addKeyForTriggerOnRelationship:(id)arg1;
 - (id)attributeDescription;
+- (void)dealloc;
 - (id)initForReadOnlyFetchWithExpression:(id)arg1;
 - (id)initWithEntity:(id)arg1 propertyDescription:(id)arg2;
-- (BOOL)shouldIndex;
+- (bool)isBackedByTrigger;
+- (bool)isConstrained;
+- (bool)isFileBackedFuture;
+- (bool)isUnique;
+- (void)setConstrained:(bool)arg1;
+- (bool)shouldIndex;
+- (id)triggerKeys;
 
 @end

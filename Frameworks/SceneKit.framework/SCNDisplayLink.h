@@ -2,45 +2,40 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CADisplayLink, NSObject<OS_dispatch_queue>;
-
 @interface SCNDisplayLink : NSObject {
-    BOOL _asynchronous;
-    id _block;
-    CADisplayLink *_caDisplayLink;
-    int _frameInterval;
-    BOOL _invalidated;
-    double _lastVideoOutput;
-    id _owner;
-    BOOL _paused;
-    NSObject<OS_dispatch_queue> *_queue;
-    int _queuedFrameCount;
-    id _reserved;
+    id /* block */  _adaptativeFrameDuration;
+    id /* block */  _block;
+    CADisplayLink * _caDisplayLink;
+    bool  _invalidated;
+    double  _lastFrameTime;
+    bool  _paused;
+    float  _preferredFrameRate;
+    NSObject<OS_dispatch_queue> * _queue;
+    int  _queuedFrameCount;
+    SCNRecursiveLock * _runningLock;
+    bool  _supportTargetTimestamp;
 }
 
-@property int frameInterval;
-@property(getter=isPaused) BOOL paused;
+@property (nonatomic, copy) id /* block */ adaptativeFrameRate;
+@property (getter=isPaused, nonatomic) bool paused;
+@property (nonatomic) float preferredFrameRate;
 
 - (void)_caDisplayLinkCallback;
-- (void)_callbackWithTime:(double)arg1 andDeltaTime:(double)arg2;
-- (BOOL)_isInvalidated;
-- (void)_pause;
-- (void)_resume;
-- (void)_teardown;
+- (void)_callbackWithTime:(double)arg1;
+- (void)_cleanup;
+- (bool)_isInvalidated;
+- (id /* block */)adaptativeFrameRate;
 - (void)dealloc;
-- (int)frameInterval;
 - (id)init;
-- (id)initWithOwner:(id)arg1 queue:(id)arg2 block:(id)arg3;
+- (id)initWithQueue:(id)arg1 block:(id /* block */)arg2;
 - (void)invalidate;
-- (BOOL)isPaused;
+- (bool)isPaused;
+- (float)preferredFrameRate;
 - (int)queuedFrameCount;
-- (void)setFrameInterval:(int)arg1;
-- (void)setPaused:(BOOL)arg1 nextFrameTimeHint:(double)arg2;
-- (void)setPaused:(BOOL)arg1;
-- (void)willDie;
+- (void)setAdaptativeFrameRate:(id /* block */)arg1;
+- (void)setNeedsDisplay;
+- (void)setPaused:(bool)arg1;
+- (bool)setPaused:(bool)arg1 nextFrameTimeHint:(double)arg2 lastUpdate:(double)arg3;
+- (void)setPreferredFrameRate:(float)arg1;
 
 @end

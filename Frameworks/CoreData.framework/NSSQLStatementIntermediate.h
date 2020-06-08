@@ -2,24 +2,23 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSSQLEntity, NSSQLLimitIntermediate, NSSQLOrderIntermediate, NSSQLWhereIntermediate, NSString;
-
 @interface NSSQLStatementIntermediate : NSSQLIntermediate {
-    NSString *_correlationToken;
-    NSString *_governingAlias;
-    NSSQLEntity *_governingEntity;
-    NSSQLLimitIntermediate *_limitClause;
-    NSSQLOrderIntermediate *_orderIntermediate;
-    NSSQLWhereIntermediate *_whereClause;
+    NSString * _correlationToken;
+    NSString * _governingAlias;
+    NSSQLEntity * _governingEntity;
+    NSSQLLimitIntermediate * _limitClause;
+    NSSQLOrderIntermediate * _orderIntermediate;
+    NSSQLWhereIntermediate * _whereClause;
 }
 
+- (id)correlationToken;
 - (void)dealloc;
 - (id)governingAlias;
 - (id)governingAliasForKeypathExpression:(id)arg1;
 - (id)governingEntity;
 - (id)governingEntityForKeypathExpression:(id)arg1;
 - (id)initWithEntity:(id)arg1 alias:(id)arg2 inScope:(id)arg3;
-- (BOOL)keypathExpressionIsSafeLHSForIn:(id)arg1;
+- (bool)keypathExpressionIsSafeLHSForIn:(id)arg1;
 - (id)limitIntermediate;
 - (id)orderIntermediate;
 - (void)setCorrelationToken:(id)arg1;

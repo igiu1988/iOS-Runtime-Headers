@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSArray, NSString, NSURL, PKBarcode;
-
 @interface PKContent : NSObject <NSSecureCoding> {
-    NSURL *_appLaunchURL;
-    PKBarcode *_barcode;
-    NSString *_localizedDescription;
-    NSArray *_storeIdentifiers;
+    NSURL * _appLaunchURL;
+    PKBarcode * _barcode;
+    NSString * _localizedDescription;
+    NSArray * _storeIdentifiers;
 }
 
-@property(copy) NSURL * appLaunchURL;
-@property(retain) PKBarcode * barcode;
-@property(copy) NSString * localizedDescription;
-@property(copy) NSArray * storeIdentifiers;
+@property (nonatomic, copy) NSURL *appLaunchURL;
+@property (nonatomic, retain) PKBarcode *barcode;
+@property (nonatomic, copy) NSString *localizedDescription;
+@property (nonatomic, copy) NSArray *storeIdentifiers;
 
 + (id)contentWithFileURL:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
+- (void).cxx_destruct;
 - (id)appLaunchURL;
 - (id)barcode;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)flushFormattedFieldValues;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDictionary:(id)arg1 bundle:(id)arg2;
+- (id)initWithDictionary:(id)arg1 bundle:(id)arg2 privateBundle:(id)arg3;
 - (id)localizedDescription;
 - (void)setAppLaunchURL:(id)arg1;
 - (void)setBarcode:(id)arg1;

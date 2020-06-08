@@ -2,31 +2,35 @@
    Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
  */
 
-@class NSData, NSString;
-
 @interface BLTPBBulletinSummaryKey : PBCodable <NSCopying> {
-    NSString *_key;
-    NSData *_value;
+    NSString * _key;
+    NSData * _value;
+    NSData * _valueNulls;
 }
 
-@property(readonly) BOOL hasValue;
-@property(retain) NSString * key;
-@property(retain) NSData * value;
+@property (nonatomic, readonly) bool hasValue;
+@property (nonatomic, readonly) bool hasValueNulls;
+@property (nonatomic, retain) NSString *key;
+@property (nonatomic, retain) NSData *value;
+@property (nonatomic, retain) NSData *valueNulls;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasValue;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasValue;
+- (bool)hasValueNulls;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)key;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setKey:(id)arg1;
 - (void)setValue:(id)arg1;
+- (void)setValueNulls:(id)arg1;
 - (id)value;
+- (id)valueNulls;
 - (void)writeTo:(id)arg1;
 
 @end

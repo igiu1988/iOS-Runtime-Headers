@@ -2,84 +2,82 @@
    Image: /System/Library/Frameworks/CoreBluetooth.framework/CoreBluetooth
  */
 
-@class <CBCentralManagerDelegate>, CBPairingAgent, CBXpcConnection, NSMapTable, NSString;
-
-@interface CBCentralManager : NSObject <CBPairingAgentParentDelegate, CBXpcConnectionDelegate> {
+@interface CBCentralManager : CBManager {
+    <CBCentralManagerDelegate> * _delegate;
     struct { 
         unsigned int willRestoreState : 1; 
-        unsigned int didRetrievePeripherals : 1; 
-        unsigned int didRetrieveConnectedPeripherals : 1; 
         unsigned int didDiscoverPeripheral : 1; 
         unsigned int didConnectPeripheral : 1; 
         unsigned int didFailToConnectPeripheral : 1; 
         unsigned int didDisconnectPeripheral : 1; 
         unsigned int didUpdatePeripheralConnectionState : 1; 
+        unsigned int didFindPeripheral : 1; 
+        unsigned int didLosePeripheral : 1; 
         unsigned int didLoseZone : 1; 
         unsigned int didUpdateConnectionParameters : 1; 
-    CBXpcConnection *_connection;
-    <CBCentralManagerDelegate> *_delegate;
-    } _delegateFlags;
-    BOOL _isScanning;
-    CBPairingAgent *_pairingAgent;
-    NSMapTable *_peripherals;
-    int _state;
+        unsigned int connectionEventDidOccur : 1; 
+    }  _delegateFlags;
+    bool  _isScanning;
+    NSMapTable * _peripherals;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <CBCentralManagerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property BOOL isScanning;
-@property(readonly) CBPairingAgent * sharedPairingAgent;
-@property int state;
-@property(readonly) Class superclass;
+@property (nonatomic) <CBCentralManagerDelegate> *delegate;
+@property (nonatomic) bool isScanning;
+@property (nonatomic, readonly, retain) NSMapTable *peripherals;
 
-- (void)cancelPeripheralConnection:(id)arg1 force:(BOOL)arg2;
+- (void).cxx_destruct;
 - (void)cancelPeripheralConnection:(id)arg1;
+- (void)cancelPeripheralConnection:(id)arg1 force:(bool)arg2;
 - (void)connectPeripheral:(id)arg1 options:(id)arg2;
 - (id)dataArrayToUUIDArray:(id)arg1;
 - (void)dealloc;
 - (id)delegate;
-- (void)forEachPeripheral:(id)arg1;
-- (void)handleConnectedPeripheralsRetrieved:(id)arg1;
+- (void)enablePrivateModeForPeripheral:(id)arg1 forDuration:(unsigned short)arg2;
+- (void)forEachPeripheral:(id /* block */)arg1;
+- (void)handleAdvertisingAddressChanged:(id)arg1;
+- (void)handleApplicationActivityEvent:(id)arg1;
+- (void)handleApplicationConnectionEventDidOccur:(id)arg1;
 - (void)handleConnectionParametersUpdated:(id)arg1;
+- (void)handleMsg:(unsigned short)arg1 args:(id)arg2;
 - (void)handlePeripheralConnectionCompleted:(id)arg1;
 - (void)handlePeripheralConnectionStateUpdated:(id)arg1;
 - (void)handlePeripheralDisconnectionCompleted:(id)arg1;
 - (void)handlePeripheralDiscovered:(id)arg1;
-- (void)handlePeripheralMsg:(int)arg1 args:(id)arg2;
-- (void)handlePeripheralsRetrieved:(id)arg1;
+- (void)handlePeripheralTrackingUpdated:(id)arg1;
+- (void)handleReadyForUpdates:(id)arg1;
 - (void)handleRestoringState:(id)arg1;
-- (void)handleStateUpdated:(id)arg1;
 - (void)handleZoneLost:(id)arg1;
-- (id)initWithDelegate:(id)arg1 queue:(id)arg2 options:(id)arg3;
+- (id)init;
 - (id)initWithDelegate:(id)arg1 queue:(id)arg2;
-- (BOOL)isMsgAllowedAlways:(int)arg1;
-- (BOOL)isMsgAllowedWhenOff:(int)arg1;
-- (BOOL)isScanning;
+- (id)initWithDelegate:(id)arg1 queue:(id)arg2 options:(id)arg3;
+- (bool)isMsgAllowedAlways:(unsigned short)arg1;
+- (bool)isMsgAllowedWhenOff:(unsigned short)arg1;
+- (bool)isScanning;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (void)orphanPeripherals;
+- (void)pauseLeConnectionManager;
+- (void)pauseScans;
 - (id)peerWithInfo:(id)arg1;
 - (id)peripheralWithIdentifier:(id)arg1;
 - (id)peripheralWithInfo:(id)arg1;
-- (oneway void)release;
+- (id)peripherals;
+- (void)randomizeAFHMapForPeripheral:(id)arg1;
+- (void)resumeLeConnectionManager;
+- (void)resumeScans;
 - (void)retrieveConnectedPeripherals;
-- (id)retrieveConnectedPeripheralsWithServices:(id)arg1 allowAll:(BOOL)arg2;
 - (id)retrieveConnectedPeripheralsWithServices:(id)arg1;
+- (id)retrieveConnectedPeripheralsWithServices:(id)arg1 allowAll:(bool)arg2;
+- (id)retrievePeripheralWithAddress:(id)arg1;
 - (void)retrievePeripherals:(id)arg1;
 - (id)retrievePeripheralsWithIdentifiers:(id)arg1;
+- (id)retrieveState;
 - (void)scanForPeripheralsWithServices:(id)arg1 options:(id)arg2;
-- (BOOL)sendMsg:(int)arg1 args:(id)arg2;
-- (id)sendSyncMsg:(int)arg1 args:(id)arg2;
+- (void)setConnectionEventOptions:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setDesiredConnectionLatency:(int)arg1 forPeripheral:(id)arg2;
-- (void)setIsScanning:(BOOL)arg1;
-- (void)setState:(int)arg1;
-- (id)sharedPairingAgent;
-- (int)state;
+- (void)setDesiredConnectionLatency:(long long)arg1 forPeripheral:(id)arg2;
+- (void)setIsScanning:(bool)arg1;
+- (void)startTrackingPeripheral:(id)arg1 options:(id)arg2;
 - (void)stopScan;
-- (void)xpcConnection:(id)arg1 didReceiveMsg:(unsigned short)arg2 args:(id)arg3;
-- (void)xpcConnectionDidFinalize:(id)arg1;
-- (void)xpcConnectionDidReset:(id)arg1;
-- (void)xpcConnectionIsInvalid:(id)arg1;
+- (void)stopTrackingPeripheral:(id)arg1 options:(id)arg2;
 
 @end

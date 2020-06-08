@@ -2,52 +2,51 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSString, PSListController, UIColor;
-
-@interface PSEditableTableCell : PSTableCell <UITextViewDelegate, UITextFieldDelegate> {
-    PSListController *_controllerDelegate;
-    BOOL _delaySpecifierRelease;
-    id _delegate;
-    BOOL _forceFirstResponder;
-    id _realTarget;
-    BOOL _returnKeyTapped;
-    SEL _targetSetter;
-    UIColor *_textColor;
-    BOOL _valueChanged;
+@interface PSEditableTableCell : PSTableCell <UITextFieldDelegate, UITextViewDelegate> {
+    PSListController * _controllerDelegate;
+    bool  _delaySpecifierRelease;
+    id  _delegate;
+    bool  _forceFirstResponder;
+    id  _realTarget;
+    bool  _returnKeyTapped;
+    SEL  _targetSetter;
+    UIColor * _textColor;
+    bool  _valueChanged;
 }
 
-@property PSListController * controllerDelegate;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) BOOL returnKeyTapped;
-@property(readonly) Class superclass;
+@property (nonatomic) PSListController *controllerDelegate;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool returnKeyTapped;
+@property (readonly) Class superclass;
 
-+ (int)cellStyle;
++ (long long)cellStyle;
 
-- (BOOL)_cellIsEditing;
+- (void).cxx_destruct;
+- (bool)_cellIsEditing;
 - (id)_defaultTextColor;
 - (void)_saveForExit;
 - (void)_setValueChanged;
-- (BOOL)becomeFirstResponder;
-- (BOOL)canBecomeFirstResponder;
-- (BOOL)canReload;
-- (BOOL)canResignFirstResponder;
+- (bool)becomeFirstResponder;
+- (bool)canBecomeFirstResponder;
+- (bool)canReload;
+- (bool)canResignFirstResponder;
 - (void)cellRemovedFromView;
 - (void)controlChanged:(id)arg1;
 - (id)controllerDelegate;
 - (void)dealloc;
 - (void)endEditingAndSave;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
-- (BOOL)isEditing;
-- (BOOL)isFirstResponder;
-- (BOOL)isTextFieldEditing;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (bool)isEditing;
+- (bool)isFirstResponder;
+- (bool)isTextFieldEditing;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
-- (BOOL)resignFirstResponder;
-- (BOOL)returnKeyTapped;
-- (void)setCellEnabled:(BOOL)arg1;
+- (bool)resignFirstResponder;
+- (bool)returnKeyTapped;
+- (void)setCellEnabled:(bool)arg1;
 - (void)setControllerDelegate:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setPlaceholderText:(id)arg1;
@@ -57,8 +56,8 @@
 - (id)textField;
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
-- (BOOL)textFieldShouldClear:(id)arg1;
-- (BOOL)textFieldShouldReturn:(id)arg1;
+- (bool)textFieldShouldClear:(id)arg1;
+- (bool)textFieldShouldReturn:(id)arg1;
 - (id)value;
 
 @end

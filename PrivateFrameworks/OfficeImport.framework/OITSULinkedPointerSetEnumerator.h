@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OITSULinkedPointerSetEntry;
-
 @interface OITSULinkedPointerSetEnumerator : NSEnumerator {
-    OITSULinkedPointerSetEntry *mHead;
-    OITSULinkedPointerSetEntry *mLastUsed;
+    OITSULinkedPointerSetEntry * mHead;
+    OITSULinkedPointerSetEntry * mLastUsed;
 }
 
 - (id)initWithFirstEntry:(id)arg1;

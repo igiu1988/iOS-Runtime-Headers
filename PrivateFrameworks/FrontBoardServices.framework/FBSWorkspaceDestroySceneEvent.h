@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
  */
 
-@class FBSSceneTransitionContext;
-
 @interface FBSWorkspaceDestroySceneEvent : FBSWorkspaceSceneEvent {
-    FBSSceneTransitionContext *_transitionContext;
+    FBSSceneTransitionContext * _transitionContext;
 }
 
-@property(retain) FBSSceneTransitionContext * transitionContext;
+@property (nonatomic, retain) FBSSceneTransitionContext *transitionContext;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (void)setTransitionContext:(id)arg1;

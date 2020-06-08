@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSString;
-
 @interface CKDPNotificationMarkReadRequest : PBRequest <NSCopying> {
-    NSString *_uuid;
+    NSString * _uuid;
 }
 
-@property(readonly) BOOL hasUuid;
-@property(retain) NSString * uuid;
+@property (nonatomic, readonly) bool hasUuid;
+@property (nonatomic, retain) NSString *uuid;
 
 + (id)options;
 
@@ -18,11 +16,13 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasUuid;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasUuid;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
+- (unsigned int)requestTypeCode;
+- (Class)responseClass;
 - (void)setUuid:(id)arg1;
 - (id)uuid;
 - (void)writeTo:(id)arg1;

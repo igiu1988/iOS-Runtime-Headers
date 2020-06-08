@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKRecord;
-
 @interface CKDGetUserRecordOperation : CKDFetchRecordsOperation {
-    CKRecord *_userRecord;
+    CKRecord * _userRecord;
 }
 
-@property(retain) CKRecord * userRecord;
+@property (nonatomic, retain) CKRecord *userRecord;
 
 - (void).cxx_destruct;
-- (void)_fetchRecords;
+- (void)fetchRecordsWithIDs:(id)arg1 andFullRecords:(id)arg2;
 - (void)main;
 - (void)setUserRecord:(id)arg1;
 - (id)userRecord;

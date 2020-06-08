@@ -2,40 +2,47 @@
    Image: /System/Library/Frameworks/CoreBluetooth.framework/CoreBluetooth
  */
 
-@class NSUUID;
-
 @interface CBPeer : NSObject <NSCopying> {
-    struct __CFUUID { } *_UUID;
-    int _hostState;
-    NSUUID *_identifier;
-    BOOL _isLinkEncrypted;
-    unsigned int _mtuLength;
-    int _pairingState;
+    unsigned char  _connectedTransport;
+    long long  _hostState;
+    NSUUID * _identifier;
+    bool  _isLinkEncrypted;
+    CBManager * _manager;
+    unsigned long long  _mtuLength;
+    long long  _pairingState;
+    long long  _role;
 }
 
-@property(readonly) struct __CFUUID { }* UUID;
-@property int hostState;
-@property(readonly) NSUUID * identifier;
-@property BOOL isLinkEncrypted;
-@property unsigned int mtuLength;
-@property int pairingState;
+@property (nonatomic) unsigned char connectedTransport;
+@property (nonatomic) long long hostState;
+@property (nonatomic, readonly) NSUUID *identifier;
+@property (nonatomic) bool isLinkEncrypted;
+@property (nonatomic) CBManager *manager;
+@property (nonatomic) unsigned long long mtuLength;
+@property (nonatomic) long long pairingState;
+@property (nonatomic) long long role;
 
-- (struct __CFUUID { }*)UUID;
+- (void).cxx_destruct;
+- (unsigned char)connectedTransport;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (void)handleHostStateUpdated:(id)arg1;
 - (void)handleLinkEncryptionChanged:(id)arg1;
 - (void)handleMTUChanged:(id)arg1;
 - (void)handleMsg:(int)arg1 args:(id)arg2;
-- (int)hostState;
+- (long long)hostState;
 - (id)identifier;
-- (id)initWithInfo:(id)arg1;
-- (BOOL)isLinkEncrypted;
-- (unsigned int)mtuLength;
-- (int)pairingState;
-- (void)setHostState:(int)arg1;
-- (void)setIsLinkEncrypted:(BOOL)arg1;
-- (void)setMtuLength:(unsigned int)arg1;
-- (void)setPairingState:(int)arg1;
+- (id)initWithInfo:(id)arg1 manager:(id)arg2;
+- (bool)isLinkEncrypted;
+- (id)manager;
+- (unsigned long long)mtuLength;
+- (long long)pairingState;
+- (long long)role;
+- (void)setConnectedTransport:(unsigned char)arg1;
+- (void)setHostState:(long long)arg1;
+- (void)setIsLinkEncrypted:(bool)arg1;
+- (void)setManager:(id)arg1;
+- (void)setMtuLength:(unsigned long long)arg1;
+- (void)setPairingState:(long long)arg1;
+- (void)setRole:(long long)arg1;
 
 @end

@@ -2,39 +2,41 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardServices.framework/SpringBoardServices
  */
 
-@class NSString;
-
 @interface SBSStatusBarStyleOverridesAssertionData : NSObject <NSSecureCoding> {
-    BOOL _exclusive;
-    BOOL _isExclusive;
-    int _pid;
-    int _statusBarStyleOverrides;
-    NSString *_uniqueIdentifier;
+    bool  _exclusive;
+    int  _pid;
+    bool  _showsWhenForeground;
+    int  _statusBarStyleOverrides;
+    NSString * _statusString;
+    NSString * _uniqueIdentifier;
 }
 
-@property(getter=isExclusive) BOOL exclusive;
-@property(readonly) BOOL isExclusive;
-@property int pid;
-@property int statusBarStyleOverrides;
-@property(copy) NSString * uniqueIdentifier;
+@property (getter=isExclusive, nonatomic) bool exclusive;
+@property (nonatomic) int pid;
+@property (nonatomic) bool showsWhenForeground;
+@property (nonatomic) int statusBarStyleOverrides;
+@property (nonatomic, copy) NSString *statusString;
+@property (nonatomic, copy) NSString *uniqueIdentifier;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithStatusBarStyleOverrides:(int)arg1 forPID:(int)arg2 exclusive:(BOOL)arg3 uniqueIdentifier:(id)arg4;
-- (id)initWithStatusBarStyleOverrides:(int)arg1 forPID:(int)arg2 exclusive:(BOOL)arg3;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isExclusive;
-- (BOOL)isExclusive;
+- (id)initWithStatusBarStyleOverrides:(int)arg1 forPID:(int)arg2 exclusive:(bool)arg3 showsWhenForeground:(bool)arg4;
+- (id)initWithStatusBarStyleOverrides:(int)arg1 forPID:(int)arg2 exclusive:(bool)arg3 showsWhenForeground:(bool)arg4 uniqueIdentifier:(id)arg5;
+- (bool)isExclusive;
 - (int)pid;
-- (void)setExclusive:(BOOL)arg1;
+- (void)setExclusive:(bool)arg1;
 - (void)setPid:(int)arg1;
+- (void)setShowsWhenForeground:(bool)arg1;
 - (void)setStatusBarStyleOverrides:(int)arg1;
+- (void)setStatusString:(id)arg1;
 - (void)setUniqueIdentifier:(id)arg1;
+- (bool)showsWhenForeground;
 - (int)statusBarStyleOverrides;
+- (id)statusString;
 - (id)uniqueIdentifier;
 
 @end

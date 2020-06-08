@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class NSMutableArray;
-
 @interface CPDocument : NSObject {
-    NSMutableArray *pages;
+    NSMutableArray * pages;
 }
 
 - (void)addPage:(id)arg1;

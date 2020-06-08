@@ -3,9 +3,9 @@
  */
 
 @interface GQHStyle : NSObject {
-    struct __CFString { } *mCachedCssStyleName;
-    struct __CFString { } *mCssClassAttribute;
-    struct __CFDictionary { } *mStyles;
+    struct __CFString { } * mCachedCssStyleName;
+    struct __CFString { } * mCssClassAttribute;
+    struct __CFDictionary { } * mStyles;
 }
 
 + (void)appendParentClass:(struct __CFString {}**)arg1 style:(id)arg2 classType:(Class)arg3 state:(id)arg4;
@@ -23,13 +23,13 @@
 - (void)addClass:(struct __CFString { }*)arg1;
 - (struct __CFString { }*)createNamedStyle:(struct __CFString { }*)arg1;
 - (void)dealloc;
-- (BOOL)getAttribute:(struct __CFString { }*)arg1 intValue:(int*)arg2;
-- (BOOL)getAttribute:(struct __CFString { }*)arg1 trblValue:(id*)arg2;
-- (BOOL)getAttribute:(struct __CFString { }*)arg1 value:(const struct __CFString {}**)arg2;
+- (bool)getAttribute:(struct __CFString { }*)arg1 intValue:(int*)arg2;
+- (bool)getAttribute:(struct __CFString { }*)arg1 trblValue:(id*)arg2;
+- (bool)getAttribute:(struct __CFString { }*)arg1 value:(const struct __CFString {}**)arg2;
 - (id)init;
+- (void)setStyleOnCurrentNode:(id)arg1;
 - (void)setStyleOnCurrentNode:(id)arg1 mappingBaseStyleClass:(id)arg2 baseClassType:(Class)arg3;
 - (void)setStyleOnCurrentNode:(id)arg1 mappingBaseStyleClasses:(struct __CFArray { }*)arg2 baseClassTypes:(struct __CFArray { }*)arg3;
-- (void)setStyleOnCurrentNode:(id)arg1;
 - (void)setupCssClassAttribute:(id)arg1;
 
 @end

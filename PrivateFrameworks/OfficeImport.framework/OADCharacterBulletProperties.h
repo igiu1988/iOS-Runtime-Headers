@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface OADCharacterBulletProperties : OADBulletProperties {
-    NSString *mBullet;
+    NSString * mBullet;
 }
 
 - (id)bullet;
 - (void)dealloc;
+- (unsigned long long)hash;
 - (id)initWithBullet:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 
 @end

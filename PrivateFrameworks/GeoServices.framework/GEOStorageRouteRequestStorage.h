@@ -2,48 +2,61 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOURLRouteHandle, NSMutableArray, PBUnknownFields;
-
-@interface GEOStorageRouteRequestStorage : PBCodable <NSCopying> {
+@interface GEOStorageRouteRequestStorage : PBCodable <MSPRouteInformationSource, NSCopying> {
     struct { 
         unsigned int transportType : 1; 
-    } _has;
-    GEOURLRouteHandle *_routeHandle;
-    int _transportType;
-    PBUnknownFields *_unknownFields;
-    NSMutableArray *_waypoints;
+    }  _has;
+    GEOURLRouteHandle * _routeHandle;
+    int  _transportType;
+    PBUnknownFields * _unknownFields;
+    NSMutableArray * _waypoints;
 }
 
-@property(readonly) BOOL hasRouteHandle;
-@property BOOL hasTransportType;
-@property(retain) GEOURLRouteHandle * routeHandle;
-@property int transportType;
-@property(readonly) PBUnknownFields * unknownFields;
-@property(retain) NSMutableArray * waypoints;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) bool hasRouteHandle;
+@property (nonatomic) bool hasTransportType;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) GEOURLRouteHandle *routeHandle;
+@property (readonly) Class superclass;
+@property (nonatomic) int transportType;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
+@property (nonatomic, retain) NSMutableArray *waypoints;
 
+// Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
+
++ (Class)waypointsType;
+
+- (void).cxx_destruct;
+- (int)StringAsTransportType:(id)arg1;
 - (void)addWaypoints:(id)arg1;
 - (void)clearWaypoints;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasRouteHandle;
-- (BOOL)hasTransportType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasRouteHandle;
+- (bool)hasTransportType;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)routeHandle;
-- (void)setHasTransportType:(BOOL)arg1;
+- (void)setHasTransportType:(bool)arg1;
 - (void)setRouteHandle:(id)arg1;
 - (void)setTransportType:(int)arg1;
 - (void)setWaypoints:(id)arg1;
 - (int)transportType;
+- (id)transportTypeAsString:(int)arg1;
 - (id)unknownFields;
 - (id)waypoints;
-- (id)waypointsAtIndex:(unsigned int)arg1;
-- (unsigned int)waypointsCount;
+- (id)waypointsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)waypointsCount;
 - (void)writeTo:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/MapsSupport.framework/MapsSupport
+
+- (id)ifGEOStorageRouteRequestStorage;
+- (id)ifRidesharingInformationSource;
 
 @end

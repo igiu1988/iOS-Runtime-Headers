@@ -2,64 +2,55 @@
    Image: /System/Library/PrivateFrameworks/ToneLibrary.framework/ToneLibrary
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<OS_dispatch_queue>, NSString, NSTimer;
-
 @interface TLAlert : NSObject {
-    NSString *_accountIdentifier;
-    NSTimer *_completionFallbackTimer;
-    id _completionHandler;
-    BOOL _shouldOverrideMasterSwitches;
-    NSObject<OS_dispatch_queue> *_targetQueue;
-    NSString *_toneIdentifier;
-    int _type;
-    NSString *_vibrationIdentifier;
+    TLAlertConfiguration * _configuration;
+    long long  _instanceIndex;
+    <TLAlertPlaybackObserver> * _playbackObserver;
+    NSString * _toneIdentifier;
+    long long  _type;
+    NSString * _vibrationIdentifier;
 }
 
-@property(setter=_setCompletionFallbackTimer:,retain) NSTimer * _completionFallbackTimer;
-@property(setter=_setCompletionHandler:,copy) id _completionHandler;
-@property(setter=_setShouldOverrideMasterSwitches:) BOOL _shouldOverrideMasterSwitches;
-@property(setter=_setTargetQueue:) NSObject<OS_dispatch_queue> * _targetQueue;
-@property(copy) NSString * accountIdentifier;
-@property(copy) NSString * toneIdentifier;
-@property int type;
-@property(copy) NSString * vibrationIdentifier;
+@property (nonatomic, readonly) TLAlertConfiguration *configuration;
+@property (nonatomic) <TLAlertPlaybackObserver> *playbackObserver;
+@property (nonatomic, readonly) NSString *toneIdentifier;
+@property (nonatomic, readonly) long long type;
+@property (nonatomic, readonly) NSString *vibrationIdentifier;
 
-+ (void)_playToneAndVibrationForType:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3 shouldOverrideMasterSwitches:(BOOL)arg4;
-+ (void)_setWatchPrefersSalientToneAndVibration:(BOOL)arg1;
-+ (BOOL)_watchPrefersSalientToneAndVibration;
-+ (void)playToneAndVibrationForType:(int)arg1 accountIdentifier:(id)arg2;
-+ (void)playToneAndVibrationForType:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3;
-+ (void)playToneAndVibrationForType:(int)arg1;
+// Image: /System/Library/PrivateFrameworks/ToneLibrary.framework/ToneLibrary
 
-- (id)_completionFallbackTimer;
-- (id)_completionHandler;
-- (void)_setAccountIdentifier:(id)arg1;
-- (void)_setCompletionFallbackTimer:(id)arg1;
-- (void)_setCompletionHandler:(id)arg1;
-- (void)_setShouldOverrideMasterSwitches:(BOOL)arg1;
-- (void)_setTargetQueue:(id)arg1;
-- (void)_setToneIdentifier:(id)arg1;
-- (void)_setType:(int)arg1;
-- (void)_setVibrationIdentifier:(id)arg1;
-- (BOOL)_shouldOverrideMasterSwitches;
-- (id)_targetQueue;
-- (id)accountIdentifier;
-- (void)dealloc;
++ (long long)_currentOverridePolicyForType:(long long)arg1;
++ (void)_setCurrentOverridePolicy:(long long)arg1 forType:(long long)arg2;
++ (void)_setWatchPrefersSalientToneAndVibration:(bool)arg1;
++ (bool)_stopAllAlerts;
++ (bool)_watchPrefersSalientToneAndVibration;
++ (id)alertWithConfiguration:(id)arg1;
++ (void)playAlertForType:(long long)arg1;
++ (void)playToneAndVibrationForType:(long long)arg1;
+
+- (void).cxx_destruct;
+- (id)_descriptionForDebugging:(bool)arg1;
+- (id)_initWithConfiguration:(id)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3;
+- (void)_updateAudioVolumeDynamicallyToValue:(float)arg1;
+- (id)configuration;
+- (id)debugDescription;
 - (id)description;
-- (id)initWithType:(int)arg1 accountIdentifier:(id)arg2;
-- (id)initWithType:(int)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3;
-- (id)initWithType:(int)arg1;
-- (BOOL)playWithCompletionHandler:(id)arg1 targetQueue:(id)arg2;
-- (void)startPlayingRepeatedly;
+- (id)initWithType:(long long)arg1;
+- (id)initWithType:(long long)arg1 accountIdentifier:(id)arg2;
+- (id)initWithType:(long long)arg1 toneIdentifier:(id)arg2 vibrationIdentifier:(id)arg3;
+- (void)play;
+- (void)playWithCompletionHandler:(id /* block */)arg1;
+- (bool)playWithCompletionHandler:(id /* block */)arg1 targetQueue:(id)arg2;
+- (id)playbackObserver;
+- (void)setPlaybackObserver:(id)arg1;
 - (void)stop;
-- (void)stopPlayingRepeatedlyWithOptions:(unsigned int)arg1 completionHandler:(id)arg2 targetQueue:(id)arg3;
-- (void)stopWithFadeOutDuration:(double)arg1;
+- (void)stopWithOptions:(id)arg1;
 - (id)toneIdentifier;
-- (int)type;
+- (long long)type;
 - (id)vibrationIdentifier;
+
+// Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
+
++ (long long)bb_toneLibraryAlertTypeForSectionID:(id)arg1;
 
 @end

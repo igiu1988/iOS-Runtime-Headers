@@ -2,32 +2,33 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSData, NSString;
-
 @interface OADMovie : OCDDelayedMedia {
-    BOOL loop;
-    NSData *mData;
-    float mEnd;
-    NSString *mName;
-    float mStart;
+    bool  loop;
+    NSData * mData;
+    float  mEnd;
+    bool  mIsAudioOnly;
+    NSString * mName;
+    float  mStart;
 }
 
-@property(retain) NSData * data;
-@property(readonly) BOOL isAudioOnly;
-@property BOOL loop;
+@property (retain) NSData *data;
+@property bool isAudioOnly;
+@property bool loop;
 @property float movieEndPoint;
 @property float movieStartPoint;
-@property(retain) NSString * name;
+@property (retain) NSString *name;
 
 - (id)data;
 - (void)dealloc;
-- (BOOL)isAudioOnly;
-- (BOOL)loop;
+- (id)description;
+- (bool)isAudioOnly;
+- (bool)loop;
 - (float)movieEndPoint;
 - (float)movieStartPoint;
 - (id)name;
 - (void)setData:(id)arg1;
-- (void)setLoop:(BOOL)arg1;
+- (void)setIsAudioOnly:(bool)arg1;
+- (void)setLoop:(bool)arg1;
 - (void)setMovieEndPoint:(float)arg1;
 - (void)setMovieStartPoint:(float)arg1;
 - (void)setName:(id)arg1;

@@ -3,11 +3,11 @@
  */
 
 @interface MFPlainTextFragment : NSObject {
+    unsigned int  _quoteLevel;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
-    unsigned int _quoteLevel;
-    } _range;
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _range;
 }
 
 @end

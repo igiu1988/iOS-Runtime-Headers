@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class ODDColorTransform, ODDNodePoint, ODDStyleDefinition;
-
 @interface ODDDiagram : OADDrawable {
-    ODDColorTransform *mColorTransform;
-    ODDNodePoint *mDocumentPoint;
-    ODDStyleDefinition *mStyleDefinition;
+    ODDColorTransform * mColorTransform;
+    ODDNodePoint * mDocumentPoint;
+    ODDStyleDefinition * mStyleDefinition;
 }
 
 - (id)colorTransform;

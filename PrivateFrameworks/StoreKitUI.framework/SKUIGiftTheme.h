@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, NSURL, UIColor, UIImage;
-
 @interface SKUIGiftTheme : NSObject <NSCopying> {
-    UIColor *_backgroundColor;
-    UIColor *_bodyTextColor;
-    UIImage *_headerImage;
-    NSURL *_headerImageURL;
-    UIColor *_primaryTextColor;
-    long long _themeIdentifier;
-    NSString *_themeName;
+    UIColor * _backgroundColor;
+    UIColor * _bodyTextColor;
+    UIImage * _headerImage;
+    NSURL * _headerImageURL;
+    UIColor * _primaryTextColor;
+    long long  _themeIdentifier;
+    NSString * _themeName;
 }
 
-@property(copy) UIColor * backgroundColor;
-@property(copy) UIColor * bodyTextColor;
-@property(retain) UIImage * headerImage;
-@property(copy) NSURL * headerImageURL;
-@property(copy) UIColor * primaryTextColor;
-@property long long themeIdentifier;
-@property(copy) NSString * themeName;
+@property (nonatomic, copy) UIColor *backgroundColor;
+@property (nonatomic, copy) UIColor *bodyTextColor;
+@property (nonatomic, retain) UIImage *headerImage;
+@property (nonatomic, copy) NSURL *headerImageURL;
+@property (nonatomic, copy) UIColor *primaryTextColor;
+@property (nonatomic) long long themeIdentifier;
+@property (nonatomic, copy) NSString *themeName;
 
 - (void).cxx_destruct;
 - (id)backgroundColor;

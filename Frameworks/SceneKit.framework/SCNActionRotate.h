@@ -2,30 +2,23 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface SCNActionRotate : SCNAction {
-    struct SCNCActionRotate { int (**x1)(); float x2; id x3; /* Warning: Unrecognized filer type: '?' using 'void*' */ void*x4; id x5; boolx6; double x7; double x8; float x9; float x10; double x11; boolx12; boolx13; id x14; void*x15; struct __CFString {} *x16; int x17; float x18; float x19; float x20; float x21; float x22; struct __C3DQuaternion { float x_23_1_1; float x_23_1_2; float x_23_1_3; float x_23_1_4; } x23; struct __C3DQuaternion { float x_24_1_1; float x_24_1_2; float x_24_1_3; float x_24_1_4; } x24; BOOL x25; BOOL x26; BOOL x27; BOOL x28; } *_mycaction;
+    struct SCNCActionRotate { int (**x1)(); float x2; id /* block */ x3; id x4; double x5; double x6; double x7; double x8; double x9; bool x10; bool x11; id /* block */ x12; struct __CFString {} *x13; long long x14; double x15; double x16; double x17; double x18; float x19; bool x20; bool x21; bool x22; bool x23; bool x24; } * _mycaction;
 }
 
-+ (id)rotateByAngle:(float)arg1 aroundAxis:(struct SCNVector3 { float x1; float x2; float x3; })arg2 duration:(double)arg3;
-+ (id)rotateByX:(float)arg1 y:(float)arg2 z:(float)arg3 duration:(double)arg4;
++ (id)rotateByAngle:(double)arg1 aroundAxis:(struct SCNVector3 { float x1; float x2; float x3; })arg2 duration:(double)arg3;
++ (id)rotateByX:(double)arg1 y:(double)arg2 z:(double)arg3 duration:(double)arg4;
 + (id)rotateToAxisAngle:(struct SCNVector4 { float x1; float x2; float x3; float x4; })arg1 duration:(double)arg2;
-+ (id)rotateToX:(float)arg1 y:(float)arg2 z:(float)arg3 duration:(double)arg4 shortestUnitArc:(BOOL)arg5;
-+ (id)rotateToX:(float)arg1 y:(float)arg2 z:(float)arg3 duration:(double)arg4;
-+ (BOOL)supportsSecureCoding;
++ (id)rotateToX:(double)arg1 y:(double)arg2 z:(double)arg3 duration:(double)arg4;
++ (id)rotateToX:(double)arg1 y:(double)arg2 z:(double)arg3 duration:(double)arg4 shortestUnitArc:(bool)arg5;
++ (bool)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
+- (bool)isRelative;
+- (id)parameters;
 - (id)reversedAction;
 
 @end

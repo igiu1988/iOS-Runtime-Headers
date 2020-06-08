@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, CIVector, NSNumber;
-
 @interface CIBumpDistortionLinear : CIFilter {
-    NSNumber *inputAngle;
-    CIVector *inputCenter;
-    CIImage *inputImage;
-    NSNumber *inputRadius;
-    NSNumber *inputScale;
+    NSNumber * inputAngle;
+    CIVector * inputCenter;
+    CIImage * inputImage;
+    NSNumber * inputRadius;
+    NSNumber * inputScale;
 }
 
-@property(retain) NSNumber * inputAngle;
-@property(retain) CIVector * inputCenter;
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputRadius;
-@property(retain) NSNumber * inputScale;
+@property (nonatomic, retain) NSNumber *inputAngle;
+@property (nonatomic, retain) CIVector *inputCenter;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputRadius;
+@property (nonatomic, retain) NSNumber *inputScale;
 
 + (id)customAttributes;
 

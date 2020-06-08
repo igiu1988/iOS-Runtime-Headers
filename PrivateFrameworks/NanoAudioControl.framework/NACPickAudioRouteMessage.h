@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/NanoAudioControl.framework/NanoAudioControl
  */
 
-@class NSString;
-
 @interface NACPickAudioRouteMessage : PBCodable <NSCopying> {
-    NSString *_category;
-    NSString *_identifier;
+    NSString * _category;
+    NSString * _identifier;
 }
 
-@property(retain) NSString * category;
-@property(readonly) BOOL hasCategory;
-@property(readonly) BOOL hasIdentifier;
-@property(retain) NSString * identifier;
+@property (nonatomic, retain) NSString *category;
+@property (nonatomic, readonly) bool hasCategory;
+@property (nonatomic, readonly) bool hasIdentifier;
+@property (nonatomic, retain) NSString *identifier;
 
 - (void).cxx_destruct;
 - (id)category;
@@ -20,13 +18,13 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasCategory;
-- (BOOL)hasIdentifier;
-- (unsigned int)hash;
+- (bool)hasCategory;
+- (bool)hasIdentifier;
+- (unsigned long long)hash;
 - (id)identifier;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setCategory:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)writeTo:(id)arg1;

@@ -2,65 +2,104 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSArray, NSString;
-
-@interface NSOperation : NSObject {
-    int _private1;
-    id _private;
+@interface NSOperation : NSObject <FCOperationIdentifying, ICLoggable, RCOperationIdentifying> {
+    id  _private;
+    int  _private1;
+    int  _private1b;
 }
 
-@property(getter=isAsynchronous,readonly) BOOL asynchronous;
-@property(getter=isCancelled,readonly) BOOL cancelled;
-@property(copy) id completionBlock;
-@property(getter=isConcurrent,readonly) BOOL concurrent;
-@property(copy,readonly) NSArray * dependencies;
-@property(getter=isExecuting,readonly) BOOL executing;
-@property(getter=isFinished,readonly) BOOL finished;
-@property(copy) NSString * name;
-@property int qualityOfService;
-@property int queuePriority;
-@property(getter=isReady,readonly) BOOL ready;
-@property unsigned int tag;
+@property (getter=isAsynchronous, readonly) bool asynchronous;
+@property (getter=isCancelled, readonly) bool cancelled;
+@property (copy) id /* block */ completionBlock;
+@property (getter=isConcurrent, readonly) bool concurrent;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSArray *dependencies;
+@property (readonly, copy) NSString *description;
+@property (getter=isExecuting, readonly) bool executing;
+@property (getter=isFinished, readonly) bool finished;
+@property (readonly) unsigned long long hash;
+@property (copy) NSString *name;
+@property long long qualityOfService;
+@property long long queuePriority;
+@property (getter=isReady, readonly) bool ready;
+@property (nonatomic) bool shouldEnqueueDependenciesWhenPerformingAsCloudRequest;
+@property (readonly) Class superclass;
 @property double threadPriority;
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
-+ (id)currentOperation;
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
-- (id)__;
++ (bool)_removesDependenciesAfterFinish;
++ (bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (id)currentOperation;
++ (id)keyPathsForValuesAffectingCancelled;
++ (id)keyPathsForValuesAffectingExecuting;
++ (id)keyPathsForValuesAffectingFinished;
++ (id)keyPathsForValuesAffectingIsCancelled;
++ (id)keyPathsForValuesAffectingIsExecuting;
++ (id)keyPathsForValuesAffectingIsFinished;
++ (id)keyPathsForValuesAffectingIsReady;
++ (id)keyPathsForValuesAffectingReady;
+
+- (id)__graphDescription:(unsigned long long)arg1;
 - (id)_activity;
-- (int)_effQoS;
+- (id /* block */)_copyCompletionBlock;
 - (id)_implicitObservationInfo;
 - (void)addDependency:(id)arg1;
+- (void)addObserver:(id)arg1 forKeyPath:(id)arg2 options:(unsigned long long)arg3 context:(void*)arg4;
 - (void)cancel;
-- (id)completionBlock;
+- (id /* block */)completionBlock;
 - (void)dealloc;
+- (id)debugDescription;
 - (id)dependencies;
 - (id)description;
-- (void)finalize;
 - (id)init;
-- (BOOL)isAsynchronous;
-- (BOOL)isCancelled;
-- (BOOL)isConcurrent;
-- (BOOL)isExecuting;
-- (BOOL)isFinished;
-- (BOOL)isReady;
+- (bool)isAsynchronous;
+- (bool)isCancelled;
+- (bool)isConcurrent;
+- (bool)isExecuting;
+- (bool)isFinished;
+- (bool)isReady;
 - (void)main;
 - (id)name;
 - (void*)observationInfo;
-- (int)qualityOfService;
-- (int)queuePriority;
+- (long long)qualityOfService;
+- (long long)queuePriority;
+- (void)removeAllDependencies;
 - (void)removeDependency:(id)arg1;
-- (void)setCompletionBlock:(id)arg1;
+- (void)removeObserver:(id)arg1 forKeyPath:(id)arg2;
+- (void)setCompletionBlock:(id /* block */)arg1;
 - (void)setName:(id)arg1;
 - (void)setObservationInfo:(void*)arg1;
-- (void)setQualityOfService:(int)arg1;
-- (void)setQueuePriority:(int)arg1;
-- (void)setTag:(unsigned int)arg1;
+- (void)setQualityOfService:(long long)arg1;
+- (void)setQueuePriority:(long long)arg1;
 - (void)setThreadPriority:(double)arg1;
 - (void)start;
-- (unsigned int)tag;
 - (double)threadPriority;
 - (void)waitUntilFinished;
 - (void)waitUntilFinishedOrTimeout:(double)arg1;
+
+// Image: /System/Library/PrivateFrameworks/Catalyst.framework/Catalyst
+
+- (void)cat_addDependencies:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/MapsSupport.framework/MapsSupport
+
+- (void)setShouldEnqueueDependenciesWhenPerformingAsCloudRequest:(bool)arg1;
+- (bool)shouldEnqueueDependenciesWhenPerformingAsCloudRequest;
+
+// Image: /System/Library/PrivateFrameworks/NewsCore.framework/NewsCore
+
+- (id)longOperationDescription;
+- (id)shortOperationDescription;
+
+// Image: /System/Library/PrivateFrameworks/NotesShared.framework/NotesShared
+
+- (id)ic_loggingIdentifier;
+- (id)ic_loggingValues;
+
+// Image: /System/Library/PrivateFrameworks/RemoteConfiguration.framework/RemoteConfiguration
+
+- (id)longOperationDescription;
+- (id)shortOperationDescription;
 
 @end

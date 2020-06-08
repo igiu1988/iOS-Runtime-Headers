@@ -2,44 +2,41 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class CPLLibraryManager, CPLPlatformObject, NSProgress, NSString;
-
 @interface CPLChangeSession : NSObject <CPLAbstractObject> {
-    CPLLibraryManager *_libraryManager;
-    CPLPlatformObject *_platformObject;
-    NSString *_sessionIdentifier;
-    NSProgress *_sessionProgress;
-    unsigned int _state;
+    CPLLibraryManager * _libraryManager;
+    CPLPlatformObject * _platformObject;
+    NSString * _sessionIdentifier;
+    NSProgress * _sessionProgress;
+    unsigned long long  _state;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) CPLLibraryManager * libraryManager;
-@property(readonly) CPLPlatformObject * platformObject;
-@property(readonly) NSString * sessionIdentifier;
-@property(readonly) NSProgress * sessionProgress;
-@property unsigned int state;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) CPLLibraryManager *libraryManager;
+@property (nonatomic, readonly) CPLPlatformObject *platformObject;
+@property (nonatomic, readonly) NSString *sessionIdentifier;
+@property (nonatomic, readonly) NSProgress *sessionProgress;
+@property (nonatomic) unsigned long long state;
+@property (readonly) Class superclass;
 
 + (id)platformImplementationProtocol;
-+ (id)stateDescriptionForState:(unsigned int)arg1;
++ (id)shortDescription;
++ (id)stateDescriptionForState:(unsigned long long)arg1;
 
 - (void).cxx_destruct;
-- (id)_sessionLogDomain;
-- (void)beginSessionWithKnownLibraryVersion:(id)arg1 completionHandler:(id)arg2;
+- (void)beginSessionWithKnownLibraryVersion:(id)arg1 resetTracker:(id)arg2 completionHandler:(id /* block */)arg3;
+- (id)createSessionContext;
 - (void)dealloc;
-- (void)finalizeWithCompletionHandler:(id)arg1;
+- (void)finalizeWithCompletionHandler:(id /* block */)arg1;
 - (id)init;
 - (id)initWithLibraryManager:(id)arg1;
 - (id)libraryManager;
-- (void)pause;
 - (id)platformObject;
-- (void)resume;
 - (id)sessionIdentifier;
 - (id)sessionProgress;
-- (void)setState:(unsigned int)arg1;
-- (unsigned int)state;
-- (void)tearDownWithCompletionHandler:(id)arg1;
+- (void)setState:(unsigned long long)arg1;
+- (unsigned long long)state;
+- (void)tearDownWithCompletionHandler:(id /* block */)arg1;
 
 @end

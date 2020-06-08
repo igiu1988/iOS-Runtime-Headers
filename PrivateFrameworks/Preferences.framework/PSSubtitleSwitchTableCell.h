@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@interface PSSubtitleSwitchTableCell : PSSwitchTableCell {
-}
+@interface PSSubtitleSwitchTableCell : PSSwitchTableCell
 
-+ (int)cellStyle;
++ (long long)cellStyle;
 
-- (BOOL)canReload;
+- (bool)canReload;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 
 @end

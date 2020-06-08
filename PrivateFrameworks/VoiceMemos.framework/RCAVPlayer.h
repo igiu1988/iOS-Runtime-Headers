@@ -2,33 +2,34 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class <RCAVPlayerDelegate>, AVPlayerItem;
-
 @interface RCAVPlayer : AVPlayer {
-    AVPlayerItem *_AVPlayerItemBeingObserved;
-    <RCAVPlayerDelegate> *_delegate;
-    id _periodicTimeObserverToken;
-    double _updateRate;
-    BOOL _valid;
+    AVPlayerItem * _AVPlayerItemBeingObserved;
+    <RCAVPlayerDelegate> * _delegate;
+    id  _periodicTimeObserverToken;
+    bool  _scrubbing;
+    double  _updateRate;
+    bool  _valid;
 }
 
-@property <RCAVPlayerDelegate> * delegate;
-@property(readonly) BOOL isReadyToPlay;
-@property double updateRate;
+@property (nonatomic) <RCAVPlayerDelegate> *delegate;
+@property (nonatomic, readonly) bool isReadyToPlay;
+@property (nonatomic) double updateRate;
 
 - (void).cxx_destruct;
 - (void)_AVAudioSessionMediaServicesWereLostNotification:(id)arg1;
 - (void)_AVAudioSessionMediaServicesWereResetNotification:(id)arg1;
 - (void)_beginObservingPlayerItem:(id)arg1;
+- (void)_beginScrubbing;
 - (void)_currentItemBecameReadyToPlay;
 - (void)_endObservingObservedPlayerItem;
+- (void)_endScrubbing;
 - (void)_invalidate;
 - (void)_periodicTimeUpdate;
 - (void)_rateDidChange;
 - (void)dealloc;
 - (id)delegate;
 - (id)init;
-- (BOOL)isReadyToPlay;
+- (bool)isReadyToPlay;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (void)replaceCurrentItemWithPlayerItem:(id)arg1;
 - (void)setDelegate:(id)arg1;

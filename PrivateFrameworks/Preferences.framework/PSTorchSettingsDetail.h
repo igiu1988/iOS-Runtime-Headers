@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSString;
+@interface PSTorchSettingsDetail : NSObject <PSSettingsBoolDetail>
 
-@interface PSTorchSettingsDetail : NSObject <PSSettingsBoolDetail> {
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)iconImage;
-+ (BOOL)isEnabled;
++ (bool)isEnabled;
 + (id)preferencesURL;
-+ (void)setEnabled:(BOOL)arg1;
-+ (int)torchState;
++ (void)setEnabled:(bool)arg1;
++ (long long)torchState;
 
 @end

@@ -2,36 +2,34 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDFaceTimeCallRelayUpdateSent : PBCodable <NSCopying> {
+    int  _errorCode;
+    NSString * _guid;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int errorCode : 1; 
         unsigned int isVideo : 1; 
         unsigned int onLockScreen : 1; 
         unsigned int sendDuration : 1; 
-    int _errorCode;
-    NSString *_guid;
-    } _has;
-    unsigned int _isVideo;
-    unsigned int _onLockScreen;
-    unsigned int _sendDuration;
-    unsigned long long _timestamp;
+    }  _has;
+    unsigned int  _isVideo;
+    unsigned int  _onLockScreen;
+    unsigned int  _sendDuration;
+    unsigned long long  _timestamp;
 }
 
-@property int errorCode;
-@property(retain) NSString * guid;
-@property BOOL hasErrorCode;
-@property(readonly) BOOL hasGuid;
-@property BOOL hasIsVideo;
-@property BOOL hasOnLockScreen;
-@property BOOL hasSendDuration;
-@property BOOL hasTimestamp;
-@property unsigned int isVideo;
-@property unsigned int onLockScreen;
-@property unsigned int sendDuration;
-@property unsigned long long timestamp;
+@property (nonatomic) int errorCode;
+@property (nonatomic, retain) NSString *guid;
+@property (nonatomic) bool hasErrorCode;
+@property (nonatomic, readonly) bool hasGuid;
+@property (nonatomic) bool hasIsVideo;
+@property (nonatomic) bool hasOnLockScreen;
+@property (nonatomic) bool hasSendDuration;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic) unsigned int isVideo;
+@property (nonatomic) unsigned int onLockScreen;
+@property (nonatomic) unsigned int sendDuration;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -40,26 +38,26 @@
 - (id)dictionaryRepresentation;
 - (int)errorCode;
 - (id)guid;
-- (BOOL)hasErrorCode;
-- (BOOL)hasGuid;
-- (BOOL)hasIsVideo;
-- (BOOL)hasOnLockScreen;
-- (BOOL)hasSendDuration;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasErrorCode;
+- (bool)hasGuid;
+- (bool)hasIsVideo;
+- (bool)hasOnLockScreen;
+- (bool)hasSendDuration;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (unsigned int)isVideo;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)onLockScreen;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (unsigned int)sendDuration;
 - (void)setErrorCode:(int)arg1;
 - (void)setGuid:(id)arg1;
-- (void)setHasErrorCode:(BOOL)arg1;
-- (void)setHasIsVideo:(BOOL)arg1;
-- (void)setHasOnLockScreen:(BOOL)arg1;
-- (void)setHasSendDuration:(BOOL)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasErrorCode:(bool)arg1;
+- (void)setHasIsVideo:(bool)arg1;
+- (void)setHasOnLockScreen:(bool)arg1;
+- (void)setHasSendDuration:(bool)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setIsVideo:(unsigned int)arg1;
 - (void)setOnLockScreen:(unsigned int)arg1;
 - (void)setSendDuration:(unsigned int)arg1;

@@ -3,10 +3,10 @@
  */
 
 @interface PUMaximumChangeRateValueFilter : PUDynamicValueFilter {
-    double _maximumChangeRate;
+    double  _maximumChangeRate;
 }
 
-@property double maximumChangeRate;
+@property (nonatomic) double maximumChangeRate;
 
 - (double)maximumChangeRate;
 - (void)setMaximumChangeRate:(double)arg1;

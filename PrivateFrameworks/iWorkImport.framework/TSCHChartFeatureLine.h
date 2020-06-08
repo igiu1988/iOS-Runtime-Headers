@@ -2,23 +2,23 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartFeatureLine : TSCHChartFeatureCategory {
-}
+@interface TSCHChartFeatureLine : TSCHChartFeatureCategory
 
 - (id)categoryLabelPositioner;
 - (id)defaultDataFileName;
 - (int)deprecated3DShadowSpecificProperty;
 - (id)genericToSpecificPropertyMap;
 - (int)labelOrientation;
-- (float)maxDepthRatio;
+- (double)maxDepthRatio;
 - (Class)presetImagerClass;
-- (float)sageMaxDepthRatio;
+- (double)sageMaxDepthRatio;
+- (double)spiceMaxDepthRatio;
 - (Class)stageClass;
 - (id)supportedAxisScales;
-- (BOOL)supportsConnectingLines;
-- (BOOL)supportsElementChunking;
-- (BOOL)supportsInterSetDepthGap;
-- (BOOL)supportsSymbolOverhang;
+- (bool)supportsConnectingLines;
+- (bool)supportsElementChunking;
+- (bool)supportsInterSetDepthGap;
+- (bool)supportsSymbolOverhang;
 - (id)userInterfaceName;
 - (Class)valueAxisClassForID:(id)arg1 scale:(int)arg2;
 

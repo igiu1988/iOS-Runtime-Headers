@@ -3,12 +3,11 @@
  */
 
 @interface NSScalarObjectID48 : _NSScalarObjectID {
-    unsigned long long _referenceData48_cd_rc16;
+    unsigned long long  _referenceData48_cd_rc16;
 }
 
 + (char *)generatedNameSuffix;
 
-- (id)initWithPK64:(long long)arg1;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 
 @end

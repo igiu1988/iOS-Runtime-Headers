@@ -2,17 +2,14 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class NSString;
+@interface IKShelfElement : IKCollectionElement
 
-@interface IKShelfElement : IKCollectionElement {
-}
+@property (nonatomic, readonly) unsigned long long columnCount;
+@property (nonatomic, readonly) bool isCentered;
+@property (nonatomic, readonly) NSString *rowHeight;
 
-@property(readonly) unsigned int columnCount;
-@property(readonly) BOOL isCentered;
-@property(readonly) NSString * rowHeight;
-
-- (unsigned int)columnCount;
-- (BOOL)isCentered;
+- (unsigned long long)columnCount;
+- (bool)isCentered;
 - (id)rowHeight;
 
 @end

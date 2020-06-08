@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSArray;
-
 @interface AFSetSettingsRequest : AFSiriRequest {
-    BOOL _applyChanges;
-    NSArray *_settings;
+    bool  _applyChanges;
+    NSArray * _settings;
 }
 
-@property BOOL applyChanges;
-@property(copy) NSArray * settings;
+@property (setter=_setApplyChanges:, nonatomic) bool applyChanges;
+@property (setter=_setSettings:, nonatomic, copy) NSArray *settings;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (void)_setApplyChanges:(BOOL)arg1;
+- (void)_setApplyChanges:(bool)arg1;
 - (void)_setSettings:(id)arg1;
-- (BOOL)applyChanges;
+- (bool)applyChanges;
 - (id)createResponse;
 - (id)createResponseWithSettingChanges:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

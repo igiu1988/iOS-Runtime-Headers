@@ -2,61 +2,52 @@
    Image: /System/Library/PrivateFrameworks/NanoMailKitServer.framework/NanoMailKitServer
  */
 
-@class IDSService, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
-
-@interface NNMKSyncServiceEndpoint : NSObject <IDSServiceDelegate> {
-    IDSService *_idsService;
-    NSString *_idsServiceName;
-    BOOL _isConnected;
-    NSObject<OS_dispatch_source> *_repeatPreventionCleanupTimer;
-    NSMutableDictionary *_repeatPreventionRecords;
-    NSObject<OS_dispatch_queue> *_serviceQueue;
+@interface NNMKSyncServiceEndpoint : NSObject {
+    NSString * _idsServiceName;
+    NSObject<OS_dispatch_source> * _repeatPreventionCleanupTimer;
+    NSMutableDictionary * _repeatPreventionRecords;
+    NSObject<OS_dispatch_queue> * _serviceQueue;
+    <NNMKSyncServiceTransport> * _serviceTransport;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) IDSService * idsService;
-@property(retain) NSString * idsServiceName;
-@property BOOL isConnected;
-@property(retain) NSObject<OS_dispatch_source> * repeatPreventionCleanupTimer;
-@property(retain) NSMutableDictionary * repeatPreventionRecords;
-@property(retain) NSObject<OS_dispatch_queue> * serviceQueue;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) unsigned long long connectivityState;
+@property (nonatomic, retain) NSString *idsServiceName;
+@property (nonatomic, retain) NSObject<OS_dispatch_source> *repeatPreventionCleanupTimer;
+@property (nonatomic, retain) NSMutableDictionary *repeatPreventionRecords;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *serviceQueue;
+@property (nonatomic, retain) <NNMKSyncServiceTransport> *serviceTransport;
 
 - (void).cxx_destruct;
-- (void)_handleConnectivityChange;
-- (BOOL)_isConnected;
+- (void)_initializeServiceTransport;
 - (void)_removeExpiredRepeatPreventionRecords;
-- (id)_sendProtobufData:(id)arg1 type:(unsigned int)arg2 priority:(unsigned int)arg3 shortTimeout:(BOOL)arg4;
-- (void)_storeRepeatPreventionId:(id)arg1 priority:(unsigned int)arg2;
-- (BOOL)_willIdRepeat:(id)arg1;
+- (void)_storeRepeatPreventionId:(id)arg1 priority:(unsigned long long)arg2;
+- (bool)_willIdRepeat:(id)arg1;
 - (void)connectivityChanged;
+- (unsigned long long)connectivityState;
 - (void)dealloc;
-- (void)failedSendingProtobufWithIDSIdentifier:(id)arg1 errorCode:(int)arg2;
-- (id)idsService;
+- (void)failedSendingProtobufWithIDSIdentifier:(id)arg1 errorCode:(long long)arg2;
 - (id)idsServiceName;
 - (id)initWithIDSServiceName:(id)arg1 queue:(id)arg2;
-- (BOOL)isConnected;
-- (void)readProtobufData:(id)arg1 type:(unsigned int)arg2;
+- (void)readProtobufData:(id)arg1 type:(unsigned long long)arg2;
 - (id)repeatPreventionCleanupTimer;
 - (id)repeatPreventionRecords;
 - (void)resetRepeatPreventionHistory;
-- (id)sendProtobufData:(id)arg1 type:(unsigned int)arg2 priority:(unsigned int)arg3 repeatPreventionId:(id)arg4 shortTimeout:(BOOL)arg5;
-- (id)sendProtobufData:(id)arg1 type:(unsigned int)arg2 priority:(unsigned int)arg3 shortTimeout:(BOOL)arg4;
-- (void)service:(id)arg1 account:(id)arg2 identifier:(id)arg3 didSendWithSuccess:(BOOL)arg4 error:(id)arg5;
-- (void)service:(id)arg1 account:(id)arg2 identifier:(id)arg3 hasBeenDeliveredWithContext:(id)arg4;
-- (void)service:(id)arg1 account:(id)arg2 incomingUnhandledProtobuf:(id)arg3 fromID:(id)arg4 context:(id)arg5;
-- (void)service:(id)arg1 activeAccountsChanged:(id)arg2;
-- (void)service:(id)arg1 devicesChanged:(id)arg2;
-- (void)service:(id)arg1 nearbyDevicesChanged:(id)arg2;
+- (id)sendProtobufData:(id)arg1 type:(unsigned long long)arg2 priority:(unsigned long long)arg3 repeatPreventionId:(id)arg4 shortTimeout:(bool)arg5 allowCloudDelivery:(bool)arg6;
+- (id)sendProtobufData:(id)arg1 type:(unsigned long long)arg2 priority:(unsigned long long)arg3 shortTimeout:(bool)arg4 allowCloudDelivery:(bool)arg5;
+- (id)sendProtobufData:(id)arg1 type:(unsigned long long)arg2 priority:(unsigned long long)arg3 timeout:(double)arg4 allowCloudDelivery:(bool)arg5;
 - (id)serviceQueue;
-- (void)setIdsService:(id)arg1;
+- (id)serviceTransport;
 - (void)setIdsServiceName:(id)arg1;
-- (void)setIsConnected:(BOOL)arg1;
 - (void)setRepeatPreventionCleanupTimer:(id)arg1;
 - (void)setRepeatPreventionRecords:(id)arg1;
 - (void)setServiceQueue:(id)arg1;
+- (void)setServiceTransport:(id)arg1;
+- (void)spaceBecameAvailable;
 - (void)successfullySentProtobufWithIDSIdentifier:(id)arg1;
+- (void)syncServiceTransport:(id)arg1 didFailSendingProtobufWithIdentifier:(id)arg2 errorCode:(long long)arg3;
+- (void)syncServiceTransport:(id)arg1 didReadProtobufData:(id)arg2 type:(unsigned long long)arg3;
+- (void)syncServiceTransport:(id)arg1 didSendProtobufSuccessfullyWithIdentifier:(id)arg2;
+- (void)syncServiceTransportDidChangeConnectivity:(id)arg1;
+- (void)syncServiceTransportDidReportSpaceBecameAvailable:(id)arg1;
 
 @end

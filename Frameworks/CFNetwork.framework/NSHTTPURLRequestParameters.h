@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-@class NSArray, NSData, NSMutableDictionary, NSString;
-
 @interface NSHTTPURLRequestParameters : NSObject {
-    BOOL _pad1;
-    BOOL _pad2;
-    BOOL _pad3;
-    NSData *data;
-    NSArray *extraCookies;
-    NSMutableDictionary *fields;
-    NSString *method;
-    unsigned int pageNotFoundCacheLifetime;
-    BOOL shouldHandleCookies;
+    bool  _pad1;
+    bool  _pad2;
+    bool  _pad3;
+    NSData * data;
+    NSArray * extraCookies;
+    NSMutableDictionary * fields;
+    NSString * method;
+    unsigned long long  pageNotFoundCacheLifetime;
+    bool  shouldHandleCookies;
 }
 
 - (void)dealloc;

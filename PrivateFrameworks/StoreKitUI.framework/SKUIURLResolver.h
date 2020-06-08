@@ -2,34 +2,33 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class <SKUIURLResolverDelegate>, <UINavigationControllerDelegate>, NSOperationQueue, NSString, SKUIClientContext, SKUIPassbookLoader;
-
 @interface SKUIURLResolver : NSObject <SKUIPassbookLoaderDelegate> {
-    SKUIClientContext *_clientContext;
-    <SKUIURLResolverDelegate> *_delegate;
-    <UINavigationControllerDelegate> *_navigationControllerDelegate;
-    NSOperationQueue *_operationQueue;
-    SKUIPassbookLoader *_passbookLoader;
+    SKUIClientContext * _clientContext;
+    <SKUIURLResolverDelegate> * _delegate;
+    <UINavigationControllerDelegate> * _navigationControllerDelegate;
+    NSOperationQueue * _operationQueue;
+    SKUIPassbookLoader * _passbookLoader;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <SKUIURLResolverDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property <UINavigationControllerDelegate> * navigationControllerDelegate;
-@property(retain) NSOperationQueue * operationQueue;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SKUIURLResolverDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) <UINavigationControllerDelegate> *navigationControllerDelegate;
+@property (nonatomic, retain) NSOperationQueue *operationQueue;
+@property (readonly) Class superclass;
 
 + (id)tabIdentifierForURL:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)_addPassbookPassWithURL:(id)arg1;
+- (void)_handleSafariScriptDataUpdate:(id)arg1;
 - (id)_newHTMLViewControllerWithSection:(id)arg1;
 - (void)_performLookupWithURL:(id)arg1;
 - (void)_presentViewController:(id)arg1;
 - (void)_resolveURLRequest:(id)arg1 withOriginURL:(id)arg2;
 - (void)_selectTabWithIdentifier:(id)arg1;
-- (void)_sendDidFinishWithResult:(BOOL)arg1;
+- (void)_sendDidFinishWithResult:(bool)arg1;
 - (void)_showAccountViewControllerWithURL:(id)arg1;
 - (void)_showBagURLWithURL:(id)arg1;
 - (void)_showDonationViewControllerWithURL:(id)arg1;

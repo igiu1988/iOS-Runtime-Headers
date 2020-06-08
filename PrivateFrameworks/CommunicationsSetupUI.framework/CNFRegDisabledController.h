@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@class PSSpecifier;
-
 @interface CNFRegDisabledController : CNFRegFirstRunController {
-    PSSpecifier *_spinner;
-    PSSpecifier *_turnOnButton;
+    PSSpecifier * _spinner;
+    PSSpecifier * _turnOnButton;
 }
 
+- (void).cxx_destruct;
 - (void)_activateSpinner;
 - (void)_deactivateSpinner;
 - (id)_rightButtonItem;
 - (void)_setupAccountHandlersForDisabledOperation;
 - (id)bundle;
-- (void)dealloc;
 - (id)getAccountNameForSpecifier:(id)arg1;
 - (id)specifierList;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)turnOnTapped:(id)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillDisappear:(bool)arg1;
 
 @end

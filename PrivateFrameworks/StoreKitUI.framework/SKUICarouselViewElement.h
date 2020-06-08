@@ -3,15 +3,17 @@
  */
 
 @interface SKUICarouselViewElement : SKUIViewElement {
-    double _displayInterval;
+    double  _displayInterval;
 }
 
-@property(readonly) double displayInterval;
+@property (nonatomic, readonly) double displayInterval;
+@property (nonatomic, readonly) SKUIProgressIndicatorViewElement *progressIndicatorElement;
 
 - (id)applyUpdatesWithElement:(id)arg1;
 - (double)displayInterval;
-- (void)enumerateChildrenUsingBlock:(id)arg1;
+- (void)enumerateChildrenUsingBlock:(id /* block */)arg1;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
-- (int)pageComponentType;
+- (long long)pageComponentType;
+- (id)progressIndicatorElement;
 
 @end

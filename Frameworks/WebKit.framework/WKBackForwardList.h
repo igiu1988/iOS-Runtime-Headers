@@ -2,34 +2,26 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSArray, NSString, WKBackForwardListItem;
-
 @interface WKBackForwardList : NSObject <WKObject> {
     struct ObjectStorage<WebKit::WebBackForwardList> { 
         struct type { 
-            unsigned char __lx[36]; 
+            unsigned char __lx[64]; 
         } data; 
-    } _list;
+    }  _list;
 }
 
-@property(readonly) struct Object { int (**x1)(); id x2; }* _apiObject;
-@property(readonly) WKBackForwardListItem * backItem;
-@property(copy,readonly) NSArray * backList;
-@property(readonly) WKBackForwardListItem * currentItem;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) WKBackForwardListItem * forwardItem;
-@property(copy,readonly) NSArray * forwardList;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly) /* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*_apiObject;
+@property (nonatomic, readonly) WKBackForwardListItem *backItem;
+@property (nonatomic, readonly, copy) NSArray *backList;
+@property (nonatomic, readonly) WKBackForwardListItem *currentItem;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) WKBackForwardListItem *forwardItem;
+@property (nonatomic, readonly, copy) NSArray *forwardList;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-- (struct Object { int (**x1)(); id x2; }*)_apiObject;
-- (id).cxx_construct;
+- (/* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*)_apiObject;
 - (void)_clear;
 - (void)_removeAllItems;
 - (id)backItem;
@@ -38,6 +30,6 @@
 - (void)dealloc;
 - (id)forwardItem;
 - (id)forwardList;
-- (id)itemAtIndex:(int)arg1;
+- (id)itemAtIndex:(long long)arg1;
 
 @end

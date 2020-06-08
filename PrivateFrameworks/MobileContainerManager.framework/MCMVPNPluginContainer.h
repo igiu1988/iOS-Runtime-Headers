@@ -2,7 +2,8 @@
    Image: /System/Library/PrivateFrameworks/MobileContainerManager.framework/MobileContainerManager
  */
 
-@interface MCMVPNPluginContainer : MCMContainer {
-}
+@interface MCMVPNPluginContainer : MCMContainer
+
++ (long long)typeContainerClass;
 
 @end

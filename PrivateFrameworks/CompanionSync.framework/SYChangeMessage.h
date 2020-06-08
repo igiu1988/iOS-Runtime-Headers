@@ -2,31 +2,31 @@
    Image: /System/Library/PrivateFrameworks/CompanionSync.framework/CompanionSync
  */
 
-@class NSMutableArray, SYMessageHeader;
-
 @interface SYChangeMessage : PBCodable <NSCopying> {
-    NSMutableArray *_changes;
-    SYMessageHeader *_header;
+    NSMutableArray * _changes;
+    SYMessageHeader * _header;
 }
 
-@property(retain) NSMutableArray * changes;
-@property(retain) SYMessageHeader * header;
+@property (nonatomic, retain) NSMutableArray *changes;
+@property (nonatomic, retain) SYMessageHeader *header;
+
++ (Class)changesType;
 
 - (void).cxx_destruct;
 - (void)addChanges:(id)arg1;
 - (id)changes;
-- (id)changesAtIndex:(unsigned int)arg1;
-- (unsigned int)changesCount;
+- (id)changesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)changesCount;
 - (void)clearChanges;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)header;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setChanges:(id)arg1;
 - (void)setHeader:(id)arg1;
 - (void)writeTo:(id)arg1;

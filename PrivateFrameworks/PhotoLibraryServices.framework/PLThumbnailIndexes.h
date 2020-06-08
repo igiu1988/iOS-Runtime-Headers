@@ -2,25 +2,24 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableIndexSet, NSObject<OS_dispatch_queue>;
-
 @interface PLThumbnailIndexes : NSObject {
-    unsigned long long _fetchTimestamp;
-    NSObject<OS_dispatch_queue> *isolation;
-    NSMutableIndexSet *unusedIndexes;
-    int usedMax;
+    unsigned long long  _fetchTimestamp;
+    NSObject<OS_dispatch_queue> * isolation;
+    NSMutableIndexSet * unusedIndexes;
+    long long  usedMax;
 }
 
-+ (void)getAvailableThumbnailIndexWithHandler:(id)arg1;
-+ (void)getAvailableThumbnailIndexesWithCount:(unsigned int)arg1 handler:(id)arg2;
-+ (unsigned int)nextAvailableThumbnailIndex;
-+ (void)recycleThumbnailIndexes:(id)arg1 timestamp:(unsigned long long)arg2;
++ (void)getAvailableThumbnailIndexInLibrary:(id)arg1 withHandler:(id /* block */)arg2;
++ (void)getAvailableThumbnailIndexesInLibrary:(id)arg1 withCount:(unsigned long long)arg2 handler:(id /* block */)arg3;
++ (unsigned long long)nextAvailableThumbnailIndexInLibrary:(id)arg1;
 + (void)recycleThumbnailIndexes:(id)arg1;
++ (void)recycleThumbnailIndexes:(id)arg1 timestamp:(unsigned long long)arg2;
 + (id)sharedInstance;
 
 - (id)fetchOccupiedThumbnailIndexesWithLibrary:(id)arg1;
-- (void)getAvailableThumbnailIndexesFromDatabase;
-- (void)getAvailableThumbnailIndexesWithCount:(unsigned int)arg1 handler:(id)arg2;
+- (void)getAvailableThumbnailIndexesFromLibrary:(id)arg1;
+- (id)getAvailableThumbnailIndexesWithCount:(unsigned long long)arg1 inLibrary:(id)arg2;
+- (void)getAvailableThumbnailIndexesWithCount:(unsigned long long)arg1 inLibrary:(id)arg2 handler:(id /* block */)arg3;
 - (id)init;
 - (void)recycleThumbnailIndexes:(id)arg1 timestamp:(unsigned long long)arg2;
 

@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSString;
-
 @interface MLEQPreset : NSObject {
-    int _builtInPresetType;
-    NSString *_localizedName;
-    NSString *_name;
+    int  _builtInPresetType;
+    NSString * _localizedName;
+    NSString * _name;
 }
 
 + (id)eqPresetForBuiltInPresetType:(int)arg1;

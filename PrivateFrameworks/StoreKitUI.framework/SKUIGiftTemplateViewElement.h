@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKUIItem;
-
 @interface SKUIGiftTemplateViewElement : SKUIViewElement {
-    int _giftType;
-    NSString *_productBuyParams;
-    long long _productItemIdentifier;
+    long long  _giftType;
+    NSString * _productBuyParams;
+    long long  _productItemIdentifier;
 }
 
-@property(readonly) int giftType;
-@property(readonly) SKUIItem * productItem;
+@property (nonatomic, readonly) long long giftType;
+@property (nonatomic, readonly) SKUIItem *productItem;
 
 - (void).cxx_destruct;
 - (id)applyUpdatesWithElement:(id)arg1;
-- (int)giftType;
+- (long long)giftType;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
 - (id)productItem;
 

@@ -2,11 +2,10 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@interface NSISUnrestrictedVariable : NSISVariable {
-}
+@interface NSISUnrestrictedVariable : NSISVariable
 
 - (id)markedConstraint;
-- (BOOL)shouldBeMinimized;
+- (bool)shouldBeMinimized;
 - (int)valueRestriction;
 
 @end

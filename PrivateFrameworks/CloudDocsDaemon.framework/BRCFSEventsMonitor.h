@@ -2,62 +2,77 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <BRCFSEventsDelegate>, BRCAccountSession, BRCFSEventsPersistedState, BRCRelativePath, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSObject<OS_dispatch_source>, NSString, PQLConnection;
-
-@interface BRCFSEventsMonitor : NSObject <BRCModule, BRCLowDiskDelegate> {
-    PQLConnection *_db;
-    <BRCFSEventsDelegate> *_delegate;
-    NSString *_devicePath;
-    BOOL _drainEvents;
-    NSObject<OS_dispatch_source> *_historicalEventSource;
-    BRCFSEventsPersistedState *_persistedState;
-    BRCFSEventsPersistedState *_rendezVous;
-    BRCRelativePath *_root;
-    NSString *_rootPathRelativeToDevice;
-    NSObject<OS_dispatch_source> *_rootVnodeWatcher;
-    NSObject<OS_dispatch_semaphore> *_semaphore;
-    BRCAccountSession *_session;
-    struct __FSEventStream { } *_stream;
-    NSObject<OS_dispatch_queue> *_streamQueue;
-    BOOL _volumeHasLowDiskSpace;
-    BOOL _volumeIsCaseSensitive;
-    /* Warning: Unrecognized filer type: 'A' using 'void*' */ void*_resetCount;
-    /* Warning: Unrecognized filer type: 'A' using 'void*' */ void*_suspendCount;
+@interface BRCFSEventsMonitor : NSObject <BRCModule, BRCSuspendable> {
+    PQLConnection * _db;
+    <BRCFSEventsDelegate> * _delegate;
+    NSString * _devicePath;
+    bool  _drainEvents;
+    unsigned long long  _fseventProcessBatchSize;
+    BRCFairSource * _fseventsProcessSource;
+    NSMutableArray * _fseventsToProcess;
+    bool  _hasMarkSelf;
+    NSObject<OS_dispatch_source> * _historicalEventSource;
+    bool  _isCancelled;
+    unsigned long long  _maxFSEventQueueSize;
+    NSString * _name;
+    BRCFSEventsPersistedState * _persistedState;
+    NSObject<OS_dispatch_queue> * _processQueue;
+    BRCFSEventsPersistedState * _rendezVous;
+    int  _resetCount;
+    BRCRelativePath * _root;
+    NSString * _rootPathRelativeToDevice;
+    NSObject<OS_dispatch_source> * _rootVnodeWatcher;
+    NSObject<OS_dispatch_semaphore> * _semaphore;
+    BRCAccountSession * _session;
+    struct __FSEventStream { } * _stream;
+    NSObject<OS_dispatch_queue> * _streamQueue;
+    int  _suspendCount;
+    BRCVolume * _volume;
 }
 
-@property(setter=setDB:,retain) PQLConnection * db;
-@property(copy,readonly) NSString * debugDescription;
-@property <BRCFSEventsDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) BRCRelativePath * root;
-@property(readonly) Class superclass;
-@property(readonly) BOOL volumeIsCaseSensitive;
+@property (setter=setDB:, nonatomic, retain) PQLConnection *db;
+@property (readonly, copy) NSString *debugDescription;
+@property <BRCFSEventsDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isCancelled;
+@property (nonatomic, readonly) BRCRelativePath *root;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) bool volumeIsCaseSensitive;
 
 - (void).cxx_destruct;
 - (void)_cancel;
+- (void)_close;
+- (bool)_queueEvents:(id)arg1 markSelfEncountered:(bool)arg2;
+- (void)_updatePersistedStateWithState:(id)arg1;
+- (void)cancel;
 - (void)close;
 - (id)db;
 - (void)dealloc;
 - (id)delegate;
+- (id)description;
 - (void)didProcessEventID:(unsigned long long)arg1;
-- (void)fseventAtPath:(id)arg1 withFlags:(unsigned long)arg2 andID:(unsigned long long)arg3 eventIndex:(unsigned int)arg4 eventCount:(unsigned int)arg5 initialScan:(BOOL)arg6;
+- (void)flushStream;
+- (void)fseventAtPath:(id)arg1 withFlags:(unsigned int)arg2 andID:(unsigned long long)arg3 eventIndex:(unsigned int)arg4 eventCount:(unsigned int)arg5 initialScan:(bool)arg6;
+- (void)fseventOnRootWithEventID:(unsigned long long)arg1 andReason:(id)arg2;
 - (id)initWithAccountSession:(id)arg1;
-- (void)lowDiskStatusChangedForDevice:(int)arg1 hasEnoughSpace:(BOOL)arg2;
-- (BOOL)openWithRootPath:(id)arg1 error:(id*)arg2;
-- (void)reset;
+- (id)initWithAccountSession:(id)arg1 name:(id)arg2;
+- (bool)isCancelled;
+- (bool)openWithRoot:(id)arg1 isImmutableRoot:(bool)arg2 volume:(id)arg3 error:(id*)arg4;
+- (bool)openWithRoot:(id)arg1 volume:(id)arg2 error:(id*)arg3;
+- (void)processFseventBatch;
+- (void)queueEvents:(id)arg1 markSelfEncountered:(bool)arg2;
+- (void)resetWithReason:(id)arg1;
+- (void)resetWithReason:(id)arg1 dropFSEventID:(bool)arg2;
 - (void)resume;
 - (id)root;
 - (void)setDB:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (BOOL)setUpRootAtPath:(id)arg1 error:(id*)arg2;
-- (BOOL)setUpStreamSynchronously:(BOOL)arg1 error:(id*)arg2;
+- (bool)setUpRoot:(id)arg1 isImmutableRoot:(bool)arg2 volume:(id)arg3 error:(id*)arg4;
+- (bool)setUpStreamSynchronously:(bool)arg1 reason:(id)arg2 error:(id*)arg3;
 - (void)signalAfterCurrentFSEvent:(id)arg1;
+- (void)stopWatcher;
 - (void)suspend;
-- (BOOL)volumeIsCaseSensitive;
+- (bool)volumeIsCaseSensitive;
 
 @end

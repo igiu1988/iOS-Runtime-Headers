@@ -2,13 +2,14 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CKTypingIndicatorLayer;
-
 @interface CKTypingView : UIView {
+    CALayer<IMTypingIndicatorLayerProtocol> * _indicatorLayer;
 }
 
-@property(retain,readonly) CKTypingIndicatorLayer * layer;
+@property (nonatomic, retain) CALayer<IMTypingIndicatorLayerProtocol> *indicatorLayer;
 
-+ (Class)layerClass;
+- (void).cxx_destruct;
+- (id)indicatorLayer;
+- (void)setIndicatorLayer:(id)arg1;
 
 @end

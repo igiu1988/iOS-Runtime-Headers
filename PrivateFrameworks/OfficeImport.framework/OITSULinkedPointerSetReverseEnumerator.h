@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OITSULinkedPointerSetEntry;
-
 @interface OITSULinkedPointerSetReverseEnumerator : NSEnumerator {
-    OITSULinkedPointerSetEntry *mLastUsed;
-    OITSULinkedPointerSetEntry *mTail;
+    OITSULinkedPointerSetEntry * mLastUsed;
+    OITSULinkedPointerSetEntry * mTail;
 }
 
 - (id)initWithLastEntry:(id)arg1;

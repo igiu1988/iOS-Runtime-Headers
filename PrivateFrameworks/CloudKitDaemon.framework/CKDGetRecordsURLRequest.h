@@ -2,64 +2,67 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSDictionary, NSMutableDictionary, NSSet;
-
 @interface CKDGetRecordsURLRequest : CKDURLRequest {
-    unsigned int _URLOptions;
-    NSSet *_assetFieldNamesToPublishURLs;
-    NSSet *_desiredKeys;
-    unsigned int _recordCount;
-    id _recordFetchedBlock;
-    NSMutableDictionary *_recordIDByRequestID;
-    NSArray *_recordIDs;
-    NSDictionary *_recordIDsToETags;
-    NSDictionary *_recordIDsToVersionETags;
-    unsigned int _requestedTTL;
+    unsigned long long  _URLOptions;
+    NSSet * _assetFieldNamesToPublishURLs;
+    NSSet * _desiredAssetKeys;
+    NSSet * _desiredKeys;
+    unsigned long long  _recordCount;
+    id /* block */  _recordFetchedBlock;
+    NSMutableDictionary * _recordIDByRequestID;
+    NSArray * _recordIDs;
+    NSDictionary * _recordIDsToETags;
+    NSDictionary * _recordIDsToVersionETags;
+    unsigned long long  _requestedTTL;
+    bool  _shouldFetchAssetContent;
 }
 
-@property unsigned int URLOptions;
-@property(retain) NSSet * assetFieldNamesToPublishURLs;
-@property(retain) NSSet * desiredKeys;
-@property unsigned int recordCount;
-@property(copy) id recordFetchedBlock;
-@property(retain) NSMutableDictionary * recordIDByRequestID;
-@property(retain) NSArray * recordIDs;
-@property(retain) NSDictionary * recordIDsToETags;
-@property(retain) NSDictionary * recordIDsToVersionETags;
-@property unsigned int requestedTTL;
+@property (nonatomic) unsigned long long URLOptions;
+@property (nonatomic, retain) NSSet *assetFieldNamesToPublishURLs;
+@property (nonatomic, retain) NSSet *desiredAssetKeys;
+@property (nonatomic, retain) NSSet *desiredKeys;
+@property (nonatomic) unsigned long long recordCount;
+@property (nonatomic, copy) id /* block */ recordFetchedBlock;
+@property (nonatomic, retain) NSMutableDictionary *recordIDByRequestID;
+@property (nonatomic, retain) NSArray *recordIDs;
+@property (nonatomic, retain) NSDictionary *recordIDsToETags;
+@property (nonatomic, retain) NSDictionary *recordIDsToVersionETags;
+@property (nonatomic) unsigned long long requestedTTL;
+@property (nonatomic) bool shouldFetchAssetContent;
 
 - (void).cxx_destruct;
-- (unsigned int)URLOptions;
-- (BOOL)allowsAnonymousAccount;
+- (unsigned long long)URLOptions;
+- (bool)allowsAnonymousAccount;
 - (id)assetFieldNamesToPublishURLs;
+- (id)desiredAssetKeys;
 - (id)desiredKeys;
+- (id)generateRequestOperations;
 - (id)initWithRecordIDs:(id)arg1 recordIDsToEtags:(id)arg2 recordIDsToVersionETags:(id)arg3 desiredKeys:(id)arg4;
 - (int)operationType;
-- (unsigned int)recordCount;
-- (id)recordFetchedBlock;
+- (unsigned long long)recordCount;
+- (id /* block */)recordFetchedBlock;
 - (id)recordIDByRequestID;
 - (id)recordIDs;
 - (id)recordIDsToETags;
 - (id)recordIDsToVersionETags;
 - (void)requestDidParseNodeFailure:(id)arg1;
 - (id)requestDidParseProtobufObject:(id)arg1;
+- (bool)requestGETPreAuth;
 - (id)requestOperationClasses;
-- (id)requestOperations;
-- (unsigned int)requestedTTL;
+- (unsigned long long)requestedTTL;
 - (void)setAssetFieldNamesToPublishURLs:(id)arg1;
+- (void)setDesiredAssetKeys:(id)arg1;
 - (void)setDesiredKeys:(id)arg1;
-- (void)setRecordCount:(unsigned int)arg1;
-- (void)setRecordFetchedBlock:(id)arg1;
+- (void)setRecordCount:(unsigned long long)arg1;
+- (void)setRecordFetchedBlock:(id /* block */)arg1;
 - (void)setRecordIDByRequestID:(id)arg1;
 - (void)setRecordIDs:(id)arg1;
 - (void)setRecordIDsToETags:(id)arg1;
 - (void)setRecordIDsToVersionETags:(id)arg1;
-- (void)setRequestedTTL:(unsigned int)arg1;
-- (void)setURLOptions:(unsigned int)arg1;
+- (void)setRequestedTTL:(unsigned long long)arg1;
+- (void)setShouldFetchAssetContent:(bool)arg1;
+- (void)setURLOptions:(unsigned long long)arg1;
+- (bool)shouldFetchAssetContent;
 - (id)zoneIDsToLock;
 
 @end

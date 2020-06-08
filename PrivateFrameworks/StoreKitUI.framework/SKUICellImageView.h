@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class UIColor;
-
 @interface SKUICellImageView : UIImageView {
-    UIColor *_cachedBackgroundColor;
+    UIColor * _cachedBackgroundColor;
 }
 
 - (void).cxx_destruct;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setHighlighted:(bool)arg1;
 
 @end

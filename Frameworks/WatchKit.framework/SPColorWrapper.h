@@ -2,19 +2,18 @@
    Image: /System/Library/Frameworks/WatchKit.framework/WatchKit
  */
 
-@class UIColor;
-
-@interface SPColorWrapper : NSObject <NSSecureCoding> {
-    UIColor *_color;
+@interface SPColorWrapper : NSObject <NSCopying, NSSecureCoding> {
+    UIColor * _color;
 }
 
-@property(readonly) UIColor * color;
+@property (nonatomic, readonly) UIColor *color;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 + (id)wrapperForColor:(id)arg1;
 
 - (void).cxx_destruct;
 - (id)color;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

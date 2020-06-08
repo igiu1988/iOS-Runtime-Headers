@@ -2,32 +2,35 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAStructuredDictationFailed : SABaseClientBoundCommand
 
-@interface SAStructuredDictationFailed : SABaseClientBoundCommand {
-}
+@property (nonatomic, copy) NSString *dialogIdentifier;
+@property (nonatomic) long long errorCode;
+@property (nonatomic, copy) NSString *recognition;
+@property (nonatomic, copy) NSString *userFacingReasonDescription;
+@property (nonatomic, copy) NSString *userFacingReasonTitle;
 
-@property(copy) NSString * dialogIdentifier;
-@property int errorCode;
-@property(copy) NSString * recognition;
-@property(copy) NSString * userFacingReasonDescription;
-@property(copy) NSString * userFacingReasonTitle;
+// Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
 
 + (id)structuredDictationFailed;
 + (id)structuredDictationFailedWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)dialogIdentifier;
 - (id)encodedClassName;
-- (int)errorCode;
+- (long long)errorCode;
 - (id)groupIdentifier;
 - (id)recognition;
-- (BOOL)requiresResponse;
+- (bool)requiresResponse;
 - (void)setDialogIdentifier:(id)arg1;
-- (void)setErrorCode:(int)arg1;
+- (void)setErrorCode:(long long)arg1;
 - (void)setRecognition:(id)arg1;
 - (void)setUserFacingReasonDescription:(id)arg1;
 - (void)setUserFacingReasonTitle:(id)arg1;
 - (id)userFacingReasonDescription;
 - (id)userFacingReasonTitle;
+
+// Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
+
+- (id)af_dialogIdentifier;
 
 @end

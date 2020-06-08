@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUIServices.framework/SpringBoardUIServices
  */
 
-@interface SBWhiteBackdropSettings : _UIBackdropViewSettings {
-}
+@interface SBWhiteBackdropSettings : _UIBackdropViewSettings
 
-- (float)blurRadius;
+- (double)blurRadius;
 - (id)combinedTintColor;
 
 @end

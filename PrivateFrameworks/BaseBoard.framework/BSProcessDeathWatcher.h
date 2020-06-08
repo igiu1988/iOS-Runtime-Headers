@@ -2,19 +2,14 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class BSDispatchSource;
-
 @interface BSProcessDeathWatcher : NSObject {
-    id _deathHandler;
-    BSDispatchSource *_source;
+    id /* block */  _deathHandler;
+    BSDispatchSource * _source;
 }
 
+- (void).cxx_destruct;
 - (void)dealloc;
-- (id)initWithPID:(int)arg1 queue:(id)arg2 deathHandler:(id)arg3;
+- (id)initWithPID:(int)arg1 queue:(id)arg2 deathHandler:(id /* block */)arg3;
 - (void)invalidate;
 
 @end

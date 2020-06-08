@@ -2,48 +2,46 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-@class NSData, UIImage;
-
 @interface PHImage : NSObject {
-    unsigned int _bytesPerRow;
-    NSData *_data;
-    unsigned int _dataHeight;
-    unsigned int _dataOffset;
-    unsigned int _dataWidth;
-    int _format;
-    unsigned int _height;
-    BOOL _isPlaceholder;
-    UIImage *_uiImage;
-    unsigned int _width;
+    unsigned long long  _bytesPerRow;
+    NSData * _data;
+    unsigned long long  _dataHeight;
+    unsigned long long  _dataOffset;
+    unsigned long long  _dataWidth;
+    int  _format;
+    unsigned long long  _height;
+    bool  _isPlaceholder;
+    UIImage * _uiImage;
+    unsigned long long  _width;
 }
 
-@property(readonly) unsigned int bytesPerRow;
-@property(readonly) NSData * data;
-@property(readonly) unsigned int dataHeight;
-@property(readonly) unsigned int dataOffset;
-@property(readonly) unsigned int dataWidth;
-@property(readonly) int format;
-@property(readonly) unsigned int height;
-@property(readonly) BOOL isPlaceholder;
-@property(readonly) UIImage * uiImage;
-@property(readonly) unsigned int width;
+@property (nonatomic, readonly) unsigned long long bytesPerRow;
+@property (nonatomic, readonly) NSData *data;
+@property (nonatomic, readonly) unsigned long long dataHeight;
+@property (nonatomic, readonly) unsigned long long dataOffset;
+@property (nonatomic, readonly) unsigned long long dataWidth;
+@property (nonatomic, readonly) int format;
+@property (nonatomic, readonly) unsigned long long height;
+@property (nonatomic, readonly) bool isPlaceholder;
+@property (nonatomic, readonly) UIImage *uiImage;
+@property (nonatomic, readonly) unsigned long long width;
 
-+ (id)imageWithData:(id)arg1 width:(unsigned int)arg2 height:(unsigned int)arg3 bytesPerRow:(unsigned int)arg4 dataWidth:(unsigned int)arg5 dataHeight:(unsigned int)arg6 dataOffset:(unsigned int)arg7 format:(int)arg8 isPlaceholder:(BOOL)arg9;
-+ (id)imageWithUIImage:(id)arg1 format:(int)arg2 isPlaceholder:(BOOL)arg3;
++ (id)imageWithData:(id)arg1 width:(unsigned long long)arg2 height:(unsigned long long)arg3 bytesPerRow:(unsigned long long)arg4 dataWidth:(unsigned long long)arg5 dataHeight:(unsigned long long)arg6 dataOffset:(unsigned long long)arg7 format:(int)arg8 isPlaceholder:(bool)arg9;
++ (id)imageWithUIImage:(id)arg1 format:(int)arg2 isPlaceholder:(bool)arg3;
 
 - (void).cxx_destruct;
-- (unsigned int)bytesPerRow;
+- (unsigned long long)bytesPerRow;
 - (id)data;
-- (unsigned int)dataHeight;
-- (unsigned int)dataOffset;
-- (unsigned int)dataWidth;
+- (unsigned long long)dataHeight;
+- (unsigned long long)dataOffset;
+- (unsigned long long)dataWidth;
 - (id)description;
 - (int)format;
-- (unsigned int)height;
-- (id)initWithData:(id)arg1 width:(unsigned int)arg2 height:(unsigned int)arg3 bytesPerRow:(unsigned int)arg4 dataWidth:(unsigned int)arg5 dataHeight:(unsigned int)arg6 dataOffset:(unsigned int)arg7 format:(int)arg8 isPlaceholder:(BOOL)arg9;
-- (id)initWithUIImage:(id)arg1 format:(int)arg2 isPlaceholder:(BOOL)arg3;
-- (BOOL)isPlaceholder;
+- (unsigned long long)height;
+- (id)initWithData:(id)arg1 width:(unsigned long long)arg2 height:(unsigned long long)arg3 bytesPerRow:(unsigned long long)arg4 dataWidth:(unsigned long long)arg5 dataHeight:(unsigned long long)arg6 dataOffset:(unsigned long long)arg7 format:(int)arg8 isPlaceholder:(bool)arg9;
+- (id)initWithUIImage:(id)arg1 format:(int)arg2 isPlaceholder:(bool)arg3;
+- (bool)isPlaceholder;
 - (id)uiImage;
-- (unsigned int)width;
+- (unsigned long long)width;
 
 @end

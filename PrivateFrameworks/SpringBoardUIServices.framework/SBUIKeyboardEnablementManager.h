@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUIServices.framework/SpringBoardUIServices
  */
 
-@class NSHashTable;
-
 @interface SBUIKeyboardEnablementManager : NSObject {
-    BOOL _disabled;
-    NSHashTable *_disabledContexts;
+    bool  _disabled;
+    NSHashTable * _disabledContexts;
 }
 
 + (id)sharedInstance;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 - (void)disableAutomaticAppearanceForContext:(id)arg1;
 - (void)enableAutomaticAppearanceForContext:(id)arg1;

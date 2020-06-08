@@ -2,21 +2,13 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface SKFalloff : SKAction {
-    struct SKCFalloff { int (**x1)(); unsigned int x2; float x3; id x4; /* Warning: Unrecognized filer type: '?' using 'void*' */ void*x5; id x6; boolx7; double x8; double x9; float x10; float x11; double x12; boolx13; boolx14; id x15; void*x16; int x17; float x18; float x19; float x20; float x21; float x22; float x23; float x24; float x25; float x26; BOOL x27; BOOL x28; } *_mycaction;
+    struct SKCFalloff { int (**x1)(); unsigned int x2; float x3; id /* block */ x4; id x5; double x6; double x7; float x8; float x9; double x10; bool x11; bool x12; id /* block */ x13; long long x14; float x15; float x16; float x17; float x18; float x19; float x20; float x21; float x22; float x23; bool x24; bool x25; } * _mycaction;
 }
 
-+ (id)falloffBy:(float)arg1 duration:(double)arg2;
-+ (id)falloffTo:(float)arg1 duration:(double)arg2;
++ (id)falloffBy:(double)arg1 duration:(double)arg2;
++ (id)falloffTo:(double)arg1 duration:(double)arg2;
++ (bool)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;

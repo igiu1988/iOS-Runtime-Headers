@@ -2,8 +2,6 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSCH3DScene, TSCHChartInfo, TSCHChartSeriesType, TSCHChartType;
-
 @interface TSCH3DChartScene : NSObject {
     struct ChartSceneInfo { 
         TSCH3DScene *scene; 
@@ -11,21 +9,22 @@
         TSCHChartType *chartType; 
         TSCHChartSeriesType *seriesType; 
         struct { 
-            BOOL forceOmitLegend; 
-            BOOL forceOmitTitle; 
-            BOOL forceOmitAxisTitle; 
-            BOOL enable3DTightBounds; 
-            BOOL enable3DScaledDepthBounds; 
-            BOOL enable3DSageMaxDepthRatio; 
-            unsigned int max3DLimitingSeries; 
+            bool forceOmitLegend; 
+            bool forceOmitTitle; 
+            bool forceOmitAxisTitle; 
+            bool forceOmitLabelPlacement; 
+            bool forceTitleAtTop; 
+            bool enable3DTightBounds; 
+            bool enable3DScaledDepthBounds; 
+            long long maxDepthRatioType; 
+            unsigned long long max3DLimitingSeries; 
         } layoutSettings; 
-    } mSceneInfo;
+    }  mSceneInfo;
 }
 
-+ (void)addObjectsToSceneWithSceneInfo:(const struct ChartSceneInfo { id x1; id x2; id x3; id x4; struct { BOOL x_5_1_1; BOOL x_5_1_2; BOOL x_5_1_3; BOOL x_5_1_4; BOOL x_5_1_5; BOOL x_5_1_6; unsigned int x_5_1_7; } x5; }*)arg1;
-+ (BOOL)supportsValueAxisLabelAlignmentCaching;
++ (void)addObjectsToSceneWithSceneInfo:(const struct ChartSceneInfo { id x1; id x2; struct { bool x_3_1_1; bool x_3_1_2; bool x_3_1_3; bool x_3_1_4; bool x_3_1_5; bool x_3_1_6; bool x_3_1_7; long long x_3_1_8; unsigned long long x_3_1_9; } x3; }*)arg1;
++ (bool)supportsValueAxisLabelAlignmentCaching;
 
-- (id).cxx_construct;
 - (void)addAllLabelsToScene;
 - (void)addAllObjectsToScene;
 - (void)addChartTitlesToScene;
@@ -35,8 +34,8 @@
 - (void)adjustSceneSettings;
 - (id)chartInfo;
 - (id)chartType;
-- (id)initWithSceneInfo:(const struct ChartSceneInfo { id x1; id x2; id x3; id x4; struct { BOOL x_5_1_1; BOOL x_5_1_2; BOOL x_5_1_3; BOOL x_5_1_4; BOOL x_5_1_5; BOOL x_5_1_6; unsigned int x_5_1_7; } x5; }*)arg1;
-- (const struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; }*)layoutSettings;
+- (id)initWithSceneInfo:(const struct ChartSceneInfo { id x1; id x2; struct { bool x_3_1_1; bool x_3_1_2; bool x_3_1_3; bool x_3_1_4; bool x_3_1_5; bool x_3_1_6; bool x_3_1_7; long long x_3_1_8; unsigned long long x_3_1_9; } x3; }*)arg1;
+- (const struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; }*)layoutSettings;
 - (id)scene;
 - (id)seriesType;
 

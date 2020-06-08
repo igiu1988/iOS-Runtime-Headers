@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, CIVector, NSNumber;
-
 @interface CIVignetteEffect : CIFilter {
-    CIVector *inputCenter;
-    NSNumber *inputFalloff;
-    CIImage *inputImage;
-    NSNumber *inputIntensity;
-    NSNumber *inputRadius;
+    CIVector * inputCenter;
+    NSNumber * inputFalloff;
+    CIImage * inputImage;
+    NSNumber * inputIntensity;
+    NSNumber * inputRadius;
 }
 
-@property(retain) CIVector * inputCenter;
-@property(retain) NSNumber * inputFalloff;
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputIntensity;
-@property(retain) NSNumber * inputRadius;
+@property (nonatomic, retain) CIVector *inputCenter;
+@property (nonatomic, retain) NSNumber *inputFalloff;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputIntensity;
+@property (nonatomic, retain) NSNumber *inputRadius;
 
 + (id)customAttributes;
 
-- (BOOL)_isIdentity;
+- (bool)_isIdentity;
 - (id)_negkernel;
 - (id)_poskernel;
 - (id)inputCenter;
@@ -29,7 +27,6 @@
 - (id)inputIntensity;
 - (id)inputRadius;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputCenter:(id)arg1;
 - (void)setInputFalloff:(id)arg1;
 - (void)setInputImage:(id)arg1;

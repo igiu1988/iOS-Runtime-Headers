@@ -2,26 +2,27 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString, SUClientInterface, SUSectionsResponse;
-
 @interface SULoadSectionsOperation : ISOperation <ISURLOperationDelegate> {
-    NSString *_activeSectionVersionString;
-    SUClientInterface *_clientInterface;
-    SUSectionsResponse *_sectionsResponse;
-    BOOL _shouldUseCache;
+    NSString * _activeSectionVersionString;
+    SUClientInterface * _clientInterface;
+    SUSectionsResponse * _sectionsResponse;
+    bool  _shouldUseCache;
 }
 
-@property(copy) NSString * activeSectionVersionString;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) SUSectionsResponse * sectionsResponse;
-@property BOOL shouldUseCache;
-@property(readonly) Class superclass;
+@property (copy) NSString *activeSectionVersionString;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSNumber *metricsLoadURLSamplingPercentage;
+@property (nonatomic, readonly) NSNumber *metricsLoadURLSamplingPercentageCachedResponses;
+@property (nonatomic, readonly) NSNumber *metricsLoadURLSessionDuration;
+@property (readonly) SUSectionsResponse *sectionsResponse;
+@property bool shouldUseCache;
+@property (readonly) Class superclass;
 
-- (id)_cachePathForVersion:(id)arg1 create:(BOOL)arg2;
-- (BOOL)_loadSectionsFromCacheForVersion:(id)arg1;
-- (BOOL)_loadSectionsFromNetworkWithDictionary:(id)arg1;
+- (id)_cachePathForVersion:(id)arg1 create:(bool)arg2;
+- (bool)_loadSectionsFromCacheForVersion:(id)arg1;
+- (bool)_loadSectionsFromNetworkWithDictionary:(id)arg1;
 - (void)_setSectionsResponse:(id)arg1;
 - (void)_writeSectionsResponseToCache:(id)arg1 forVersion:(id)arg2;
 - (id)activeSectionVersionString;
@@ -31,7 +32,7 @@
 - (void)run;
 - (id)sectionsResponse;
 - (void)setActiveSectionVersionString:(id)arg1;
-- (void)setShouldUseCache:(BOOL)arg1;
-- (BOOL)shouldUseCache;
+- (void)setShouldUseCache:(bool)arg1;
+- (bool)shouldUseCache;
 
 @end

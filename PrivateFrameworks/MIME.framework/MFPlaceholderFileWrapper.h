@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@interface MFPlaceholderFileWrapper : MFMessageFileWrapper {
-}
+@interface MFPlaceholderFileWrapper : MFMessageFileWrapper
 
-- (BOOL)isPlaceholder;
+- (bool)isPlaceholder;
 
 @end

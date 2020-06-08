@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVExternalDevice;
-
 @interface AVExternalDeviceTurnByTurnToken : NSObject {
-    AVExternalDevice *_externalDevice;
+    AVExternalDevice * _externalDevice;
 }
 
 - (void)dealloc;

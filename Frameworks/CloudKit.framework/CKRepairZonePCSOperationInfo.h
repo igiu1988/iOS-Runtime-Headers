@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray;
-
 @interface CKRepairZonePCSOperationInfo : CKDatabaseOperationInfo <NSSecureCoding> {
-    NSArray *_zoneIDs;
+    NSArray * _zoneIDs;
 }
 
-@property(retain) NSArray * zoneIDs;
+@property (nonatomic, retain) NSArray *zoneIDs;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

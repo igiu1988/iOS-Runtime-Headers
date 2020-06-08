@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString;
-
 @interface SUMarkupCellContext : SUItemCellContext {
-    int _pendingWebViewLoads;
-    NSString *_stylesheet;
-    struct __CFDictionary { } *_webViewCache;
-    float _webViewWidth;
+    long long  _pendingWebViewLoads;
+    NSString * _stylesheet;
+    struct __CFDictionary { } * _webViewCache;
+    double  _webViewWidth;
 }
 
-@property(retain) NSString * stylesheet;
-@property float webViewWidth;
+@property (nonatomic, retain) NSString *stylesheet;
+@property (nonatomic) double webViewWidth;
 
 - (void)dealloc;
 - (void)setStylesheet:(id)arg1;
-- (void)setWebViewWidth:(float)arg1;
+- (void)setWebViewWidth:(double)arg1;
 - (id)stylesheet;
 - (void)webViewDidFinishLoading:(id)arg1;
 - (id)webViewForMarkup:(id)arg1;
-- (float)webViewWidth;
+- (double)webViewWidth;
 
 @end

@@ -2,45 +2,45 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUtilities.framework/TelephonyUtilities
  */
 
-@interface TUCallModel : NSObject {
-    BOOL _addCallAllowed;
-    int _ambiguityState;
-    BOOL _ambiguous;
-    BOOL _endAndAnswerAllowed;
-    BOOL _hardPauseAvailable;
-    BOOL _holdAllowed;
-    BOOL _holdAndAnswerAllowed;
-    BOOL _mergeable;
-    BOOL _sendToVoicemailAllowed;
-    BOOL _swappable;
-    BOOL _takingCallsPrivateAllowed;
+@interface TUCallModel : NSObject <NSCopying, NSSecureCoding> {
+    bool  _supportsAddCall;
+    bool  _supportsDTMF;
+    bool  _supportsGrouping;
+    bool  _supportsHolding;
+    bool  _supportsSendingToVoicemail;
+    bool  _supportsUnambiguousMultiPartyState;
+    bool  _supportsUngrouping;
 }
 
-@property(getter=isAddCallAllowed,readonly) BOOL addCallAllowed;
-@property(readonly) int ambiguityState;
-@property(getter=isAmbiguous,readonly) BOOL ambiguous;
-@property(getter=isEndAndAnswerAllowed,readonly) BOOL endAndAnswerAllowed;
-@property(getter=isHardPauseAvailable,readonly) BOOL hardPauseAvailable;
-@property(getter=isHoldAllowed,readonly) BOOL holdAllowed;
-@property(getter=isHoldAndAnswerAllowed,readonly) BOOL holdAndAnswerAllowed;
-@property(getter=isMergeable,readonly) BOOL mergeable;
-@property(getter=isSendToVoicemailAllowed,readonly) BOOL sendToVoicemailAllowed;
-@property(getter=isSwappable,readonly) BOOL swappable;
-@property(getter=isTakingCallsPrivateAllowed,readonly) BOOL takingCallsPrivateAllowed;
+@property (nonatomic) bool supportsAddCall;
+@property (nonatomic) bool supportsDTMF;
+@property (nonatomic) bool supportsGrouping;
+@property (nonatomic) bool supportsHolding;
+@property (nonatomic) bool supportsSendingToVoicemail;
+@property (nonatomic) bool supportsUnambiguousMultiPartyState;
+@property (nonatomic) bool supportsUngrouping;
 
-+ (id)sharedInstance;
++ (bool)supportsSecureCoding;
 
-- (int)ambiguityState;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (BOOL)isAddCallAllowed;
-- (BOOL)isAmbiguous;
-- (BOOL)isEndAndAnswerAllowed;
-- (BOOL)isHardPauseAvailable;
-- (BOOL)isHoldAllowed;
-- (BOOL)isHoldAndAnswerAllowed;
-- (BOOL)isMergeable;
-- (BOOL)isSendToVoicemailAllowed;
-- (BOOL)isSwappable;
-- (BOOL)isTakingCallsPrivateAllowed;
+- (void)encodeWithCoder:(id)arg1;
+- (unsigned long long)hash;
+- (id)initWithCoder:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (void)setSupportsAddCall:(bool)arg1;
+- (void)setSupportsDTMF:(bool)arg1;
+- (void)setSupportsGrouping:(bool)arg1;
+- (void)setSupportsHolding:(bool)arg1;
+- (void)setSupportsSendingToVoicemail:(bool)arg1;
+- (void)setSupportsUnambiguousMultiPartyState:(bool)arg1;
+- (void)setSupportsUngrouping:(bool)arg1;
+- (bool)supportsAddCall;
+- (bool)supportsDTMF;
+- (bool)supportsGrouping;
+- (bool)supportsHolding;
+- (bool)supportsSendingToVoicemail;
+- (bool)supportsUnambiguousMultiPartyState;
+- (bool)supportsUngrouping;
 
 @end

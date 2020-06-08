@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>;
-
 @interface SUQueueSessionManager : NSObject {
-    NSObject<OS_dispatch_queue> *_dispatchQueue;
-    NSMutableArray *_downloadManagers;
-    NSMutableArray *_preorderManagers;
+    NSObject<OS_dispatch_queue> * _dispatchQueue;
+    NSMutableArray * _downloadManagers;
+    NSMutableArray * _preorderManagers;
 }
 
 - (void)_endQueueSession:(id)arg1 fromArray:(id)arg2;

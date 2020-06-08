@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSString;
-
 @interface NPKProtoUpdatePushTokenRequest : PBRequest <NSCopying> {
-    NSString *_pushToken;
+    NSString * _pushToken;
 }
 
-@property(readonly) BOOL hasPushToken;
-@property(retain) NSString * pushToken;
+@property (nonatomic, readonly) bool hasPushToken;
+@property (nonatomic, retain) NSString *pushToken;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasPushToken;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasPushToken;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)pushToken;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setPushToken:(id)arg1;
 - (void)writeTo:(id)arg1;
 

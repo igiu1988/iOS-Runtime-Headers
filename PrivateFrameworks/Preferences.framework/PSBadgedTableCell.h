@@ -2,28 +2,27 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class UIImageView, UILabel;
-
 @interface PSBadgedTableCell : PSTableCell {
-    UIImageView *_badgeImageView;
-    int _badgeInt;
-    UILabel *_badgeNumberLabel;
+    UIImageView * _badgeImageView;
+    long long  _badgeInt;
+    UILabel * _badgeNumberLabel;
 }
 
-+ (id)badgeNumberLabelHighlightedTextColor;
 + (id)badgeNumberLabelTextColor;
-+ (float)badgePadding;
-+ (id)reuseIdentifierForClassAndType:(int)arg1;
-+ (id)unreadBubbleHighlightedImage;
++ (double)badgePadding;
++ (id)reuseIdentifierForClassAndType:(long long)arg1;
 + (id)unreadBubbleImage;
 
-- (void)badgeWithInteger:(int)arg1;
+- (void).cxx_destruct;
+- (bool)_shouldUseRoundStyle;
+- (void)badgeWithInteger:(long long)arg1;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 - (void)layoutSubviews;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 - (void)resetLocale;
-- (void)setHighlighted:(BOOL)arg1 animated:(BOOL)arg2;
-- (void)setSelected:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setHighlighted:(bool)arg1 animated:(bool)arg2;
+- (void)setSelected:(bool)arg1 animated:(bool)arg2;
+- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
 
 @end

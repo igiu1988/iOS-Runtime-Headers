@@ -3,16 +3,16 @@
  */
 
 @interface OADLuminanceEffect : OADBlipEffect {
-    float mBrightness;
-    float mContrast;
+    float  mBrightness;
+    float  mContrast;
 }
 
 - (float)brightness;
 - (float)contrast;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)setBrightness:(float)arg1;
 - (void)setContrast:(float)arg1;
 

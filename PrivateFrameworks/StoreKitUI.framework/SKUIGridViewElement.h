@@ -3,18 +3,25 @@
  */
 
 @interface SKUIGridViewElement : SKUIViewElement {
-    id _persistenceKey;
-    BOOL _showsEditMode;
+    id  _persistenceKey;
+    bool  _showsEditMode;
 }
 
-@property(readonly) BOOL showsEditMode;
+@property (nonatomic, readonly) bool allowsMultipleSelectionDuringEditing;
+@property (nonatomic, readonly) SKUICollectionDOMFeature *collectionFeature;
+@property (nonatomic, readonly) bool showsEditMode;
+
++ (id)supportedFeatures;
 
 - (void).cxx_destruct;
+- (long long)_countOfInputCheckboxesWithBaseElement:(id)arg1 limit:(long long)arg2;
+- (bool)allowsMultipleSelectionDuringEditing;
 - (id)applyUpdatesWithElement:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(id)arg1;
+- (id)collectionFeature;
+- (void)enumerateChildrenUsingBlock:(id /* block */)arg1;
 - (id)initWithDOMElement:(id)arg1 parent:(id)arg2 elementFactory:(id)arg3;
-- (int)pageComponentType;
+- (long long)pageComponentType;
 - (id)persistenceKey;
-- (BOOL)showsEditMode;
+- (bool)showsEditMode;
 
 @end

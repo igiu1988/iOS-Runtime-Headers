@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/CoreMIDI.framework/CoreMIDI
  */
 
-@class NSString;
-
 @interface MIDINetworkHost : NSObject {
-    struct _MIDINetworkHostImpl { id x1; id x2; unsigned int x3; id x4; id x5; } *_impl;
+    void * _imp;
 }
 
-@property(retain,readonly) NSString * address;
-@property(retain,readonly) NSString * name;
-@property(retain,readonly) NSString * netServiceDomain;
-@property(retain,readonly) NSString * netServiceName;
-@property(readonly) unsigned int port;
+@property (nonatomic, readonly) NSString *address;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSString *netServiceDomain;
+@property (nonatomic, readonly) NSString *netServiceName;
+@property (nonatomic, readonly) unsigned long long port;
 
 + (id)fromAddressAsText:(id)arg1 withName:(id)arg2;
-+ (id)hostWithName:(id)arg1 address:(id)arg2 port:(unsigned int)arg3;
++ (id)hostWithName:(id)arg1 address:(id)arg2 port:(unsigned long long)arg3;
 + (id)hostWithName:(id)arg1 netService:(id)arg2;
 + (id)hostWithName:(id)arg1 netServiceName:(id)arg2 netServiceDomain:(id)arg3;
 
@@ -24,13 +22,13 @@
 - (void)dealloc;
 - (id)description;
 - (id)displayName;
-- (BOOL)hasSameAddressAs:(id)arg1;
+- (bool)hasSameAddressAs:(id)arg1;
 - (id)host;
 - (id)init;
 - (id)name;
 - (id)netServiceDomain;
 - (id)netServiceName;
-- (unsigned int)port;
+- (unsigned long long)port;
 - (void)setName:(id)arg1;
 
 @end

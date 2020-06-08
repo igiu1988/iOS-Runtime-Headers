@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/Stocks.framework/Stocks
  */
 
-@class NSDate, NSString, NSURL;
-
 @interface StockNewsItem : NSObject {
-    NSDate *_date;
-    NSString *_headline;
-    NSURL *_link;
-    NSString *_localizedDateString;
-    NSString *_source;
-    NSString *_summary;
+    NSDate * _date;
+    NSString * _headline;
+    NSURL * _link;
+    NSString * _localizedDateString;
+    NSString * _source;
+    NSString * _summary;
 }
 
-@property(retain) NSDate * date;
-@property(retain) NSString * headline;
-@property(retain) NSURL * link;
-@property(retain,readonly) NSString * localizedDateString;
-@property(retain) NSString * source;
-@property(retain) NSString * summary;
+@property (nonatomic, retain) NSDate *date;
+@property (nonatomic, retain) NSString *headline;
+@property (nonatomic, retain) NSURL *link;
+@property (nonatomic, readonly, retain) NSString *localizedDateString;
+@property (nonatomic, retain) NSString *source;
+@property (nonatomic, retain) NSString *summary;
 
 + (id)localizedStringForDate:(id)arg1;
 
 - (void).cxx_destruct;
 - (id)archiveDictionary;
-- (int)chronologicalComparisonWithNewsItem:(id)arg1;
+- (long long)chronologicalComparisonWithNewsItem:(id)arg1;
 - (id)date;
 - (id)description;
 - (id)headline;

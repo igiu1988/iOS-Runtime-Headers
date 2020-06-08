@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class UIImageView;
-
 @interface PSSoftwareUpdateAnimatedIcon : UIView {
-    BOOL _animating;
-    UIImageView *_innerGearView;
-    UIImageView *_outerGearShadowView;
-    UIImageView *_outerGearView;
+    bool  _animating;
+    UIImageView * _innerGearView;
+    UIImageView * _outerGearShadowView;
+    UIImageView * _outerGearView;
 }
 
-@property(readonly) UIImageView * innerGearView;
-@property(readonly) UIImageView * outerGearShadowView;
-@property(readonly) UIImageView * outerGearView;
+@property (nonatomic, readonly) UIImageView *innerGearView;
+@property (nonatomic, readonly) UIImageView *outerGearShadowView;
+@property (nonatomic, readonly) UIImageView *outerGearView;
 
-- (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void).cxx_destruct;
+- (void)createConstraints;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (id)innerGearView;
-- (void)layoutSubviews;
 - (id)outerGearShadowView;
 - (id)outerGearView;
-- (void)setAnimating:(BOOL)arg1;
+- (void)setAnimating:(bool)arg1;
 
 @end

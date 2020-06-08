@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class ODDLayoutVariablePropertySet;
-
 @interface ODDLayoutNode : ODDLayoutObjectList {
-    ODDLayoutVariablePropertySet *mVariableList;
+    ODDLayoutVariablePropertySet * mVariableList;
 }
 
 - (void)dealloc;

@@ -2,16 +2,15 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPRemotePlaybackQueue;
-
 @interface MPSetPlaybackQueueCommandEvent : MPRemoteCommandEvent {
-    MPRemotePlaybackQueue *_playbackQueue;
+    MPRemotePlaybackQueue * _playbackQueue;
 }
 
-@property(readonly) MPRemotePlaybackQueue * playbackQueue;
+@property (nonatomic, readonly) MPRemotePlaybackQueue *playbackQueue;
 
 - (void).cxx_destruct;
 - (id)initWithCommand:(id)arg1 mediaRemoteType:(unsigned int)arg2 options:(id)arg3;
+- (id)initWithCommand:(id)arg1 playbackQueue:(id)arg2;
 - (id)playbackQueue;
 
 @end

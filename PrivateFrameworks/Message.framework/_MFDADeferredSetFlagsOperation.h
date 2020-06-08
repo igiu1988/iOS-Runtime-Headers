@@ -2,19 +2,19 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSString;
-
 @interface _MFDADeferredSetFlagsOperation : MFOfflineCacheOperation <MFDAOfflineCacheOperation> {
-    NSString *_messageID;
-    unsigned long long _offFlags;
-    unsigned long long _onFlags;
+    NSString * _messageID;
+    unsigned long long  _offFlags;
+    unsigned long long  _onFlags;
 }
+
++ (bool)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithSetFlagsRequest:(id)arg1;
-- (BOOL)performWithAccount:(id)arg1 offlineCache:(id)arg2;
+- (bool)performWithAccount:(id)arg1 offlineCache:(id)arg2;
 
 @end

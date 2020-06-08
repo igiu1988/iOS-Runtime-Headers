@@ -2,20 +2,17 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUAvalancheReviewControllerSpec : NSObject {
-    float _interItemSpacing;
-}
+@interface PUAvalancheReviewControllerSpec : NSObject
 
-@property(readonly) float interItemSpacing;
-@property(readonly) unsigned int selectionBadgeCorner;
-@property(readonly) struct UIOffset { float x1; float x2; } selectionBadgeOffset;
-@property(readonly) struct CGSize { float x1; float x2; } selectionBadgeSize;
+@property (nonatomic, readonly) double interItemSpacing;
+@property (nonatomic, readonly) unsigned long long selectionBadgeCorner;
+@property (nonatomic, readonly) struct UIOffset { double x1; double x2; } selectionBadgeOffset;
+@property (nonatomic, readonly) struct CGSize { double x1; double x2; } selectionBadgeSize;
 
-- (BOOL)allowsInterfaceRotation;
-- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })collectionViewLayoutContentInsetForOrientation:(int)arg1;
-- (float)interItemSpacing;
-- (unsigned int)selectionBadgeCorner;
-- (struct UIOffset { float x1; float x2; })selectionBadgeOffset;
-- (struct CGSize { float x1; float x2; })selectionBadgeSize;
+- (bool)allowsInterfaceRotation;
+- (double)interItemSpacing;
+- (unsigned long long)selectionBadgeCorner;
+- (struct UIOffset { double x1; double x2; })selectionBadgeOffset;
+- (struct CGSize { double x1; double x2; })selectionBadgeSize;
 
 @end

@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSDate, NSString, WDText;
-
 @interface WDAnnotationData : NSObject {
-    NSDate *mDate;
-    NSString *mOwner;
-    WDText *mText;
+    NSDate * mDate;
+    NSString * mOwner;
+    WDText * mText;
 }
 
 - (id)date;

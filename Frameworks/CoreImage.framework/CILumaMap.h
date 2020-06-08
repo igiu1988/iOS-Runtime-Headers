@@ -2,18 +2,17 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage;
-
 @interface CILumaMap : CIFilter {
-    CIImage *_tableImage;
-    CIImage *inputImage;
+    CIImage * _tableImage;
+    CIImage * inputImage;
 }
 
-@property(retain) CIImage * inputImage;
+@property (nonatomic, retain) CIImage *inputImage;
 
 + (id)customAttributes;
 
 - (id)_kernel;
+- (void)dealloc;
 - (id)inputImage;
 - (const char *)lumaTable;
 - (id)outputImage;

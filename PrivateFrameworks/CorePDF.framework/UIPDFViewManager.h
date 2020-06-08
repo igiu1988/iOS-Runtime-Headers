@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class UIView;
-
 @interface UIPDFViewManager : NSObject {
-    UIView *_activeView;
+    UIView * _activeView;
 }
 
 + (id)sharedViewManager;

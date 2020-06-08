@@ -2,24 +2,23 @@
    Image: /System/Library/PrivateFrameworks/VisualVoicemail.framework/VisualVoicemail
  */
 
-@class NSDictionary;
-
 @interface VVCarrierParameters : NSObject {
-    NSDictionary *_parameterValues;
+    NSDictionary * _parameterValues;
 }
 
+@property (nonatomic, readonly) NSDictionary *parameterValues;
+
 + (id)carrierServiceName;
-+ (BOOL)ignoresRoamingSwitch;
++ (bool)ignoresRoamingSwitch;
 + (id)messageNotificationFallbackTimeout;
 + (id)retryIntervals;
-+ (BOOL)supportsDetachedStorage;
-+ (BOOL)supportsGreetingChanges;
-+ (BOOL)supportsPasswordChanges;
++ (bool)supportsDetachedStorage;
++ (bool)supportsGreetingChanges;
++ (bool)supportsPasswordChanges;
 
-- (void)_initForBundle:(id)arg1;
-- (void)dealloc;
-- (id)initForService:(id)arg1;
-- (id)initForServiceBundleId:(id)arg1;
+- (void).cxx_destruct;
+- (id)initWithSubscriptionContext:(id)arg1 service:(id)arg2;
 - (id)parameterValueForKey:(id)arg1;
+- (id)parameterValues;
 
 @end

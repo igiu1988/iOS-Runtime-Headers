@@ -2,52 +2,56 @@
    Image: /System/Library/PrivateFrameworks/PersistentConnection.framework/PersistentConnection
  */
 
-@class <PCInterfaceUsabilityMonitorProtocol>, NSMapTable, NSString;
-
-@interface PCInterfaceMonitor : NSObject <PCInterfaceUsabilityMonitorDelegate, PCInterfaceMonitorProtocol> {
-    NSMapTable *_delegateMap;
-    <PCInterfaceUsabilityMonitorProtocol> *_internal;
+@interface PCInterfaceMonitor : NSObject <PCInterfaceMonitorProtocol, PCInterfaceUsabilityMonitorDelegate> {
+    NSMapTable * _delegateMap;
+    <PCInterfaceUsabilityMonitorProtocol> * _internal;
 }
 
-@property(readonly) struct __CFString { }* currentRAT;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) int interfaceIdentifier;
-@property(readonly) BOOL isBadLinkQuality;
-@property(readonly) BOOL isInterfaceHistoricallyUsable;
-@property(readonly) BOOL isInterfaceUsable;
-@property(readonly) BOOL isInternetReachable;
-@property(readonly) BOOL isLTEWithCDRX;
-@property(readonly) BOOL isPoorLinkQuality;
-@property(readonly) BOOL isRadioHot;
-@property(readonly) int linkQuality;
-@property(retain,readonly) NSString * linkQualityString;
-@property(readonly) Class superclass;
-@property(readonly) struct __CFString { }* wwanInterfaceName;
+@property (nonatomic, readonly) int currentRAT;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) long long interfaceIdentifier;
+@property (nonatomic, readonly) bool isBadLinkQuality;
+@property (nonatomic, readonly) bool isInterfaceHistoricallyUsable;
+@property (nonatomic, readonly) bool isInterfaceUsable;
+@property (nonatomic, readonly) bool isInternetReachable;
+@property (nonatomic, readonly) bool isLTEWithCDRX;
+@property (nonatomic, readonly) bool isNetworkingPowerExpensiveToUse;
+@property (nonatomic, readonly) bool isPoorLinkQuality;
+@property (nonatomic, readonly) bool isRadioHot;
+@property (nonatomic, readonly) int linkQuality;
+@property (nonatomic, readonly, retain) NSString *linkQualityString;
+@property (nonatomic, readonly) NSString *networkCode;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) struct __CFString { }*wwanInterfaceName;
 
-+ (BOOL)isBadLinkQuality:(int)arg1;
-+ (BOOL)isPoorLinkQuality:(int)arg1;
-+ (id)sharedInstanceForIdentifier:(int)arg1;
++ (bool)isBadLinkQuality:(int)arg1;
++ (bool)isNetworkingPowerExpensiveToUse;
++ (bool)isPoorLinkQuality:(int)arg1;
++ (id)sharedInstanceForIdentifier:(long long)arg1;
 + (id)stringForLinkQuality:(int)arg1;
 
+- (void).cxx_destruct;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
-- (struct __CFString { }*)currentRAT;
+- (int)currentRAT;
 - (void)dealloc;
-- (id)initWithInterfaceIdentifier:(int)arg1;
-- (int)interfaceIdentifier;
+- (id)initWithInterfaceIdentifier:(long long)arg1;
+- (long long)interfaceIdentifier;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)interfaceRadioHotnessChanged:(id)arg1;
 - (void)interfaceReachabilityChanged:(id)arg1;
-- (BOOL)isBadLinkQuality;
-- (BOOL)isInterfaceHistoricallyUsable;
-- (BOOL)isInterfaceUsable;
-- (BOOL)isInternetReachable;
-- (BOOL)isLTEWithCDRX;
-- (BOOL)isPoorLinkQuality;
-- (BOOL)isRadioHot;
+- (bool)isBadLinkQuality;
+- (bool)isInterfaceHistoricallyUsable;
+- (bool)isInterfaceUsable;
+- (bool)isInternetReachable;
+- (bool)isLTEWithCDRX;
+- (bool)isNetworkingPowerExpensiveToUse;
+- (bool)isPoorLinkQuality;
+- (bool)isRadioHot;
 - (int)linkQuality;
 - (id)linkQualityString;
+- (id)networkCode;
 - (void)removeDelegate:(id)arg1;
 - (struct __CFString { }*)wwanInterfaceName;
 

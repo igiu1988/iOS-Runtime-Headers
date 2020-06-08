@@ -2,10 +2,10 @@
    Image: /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
  */
 
-@interface __NSMessageBuilder {
-    id *_addr;
-    id _target;
-    Class isa;
+@interface __NSMessageBuilder  {
+    id * _addr;
+    id  _target;
+    Class  isa;
 }
 
 + (void)initialize;

@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class <SKRequestDelegate>, SKPaymentQueueClient;
-
 @interface SKRequest : NSObject {
-    id _requestInternal;
+    id  _requestInternal;
 }
 
-@property <SKRequestDelegate> * delegate;
-@property(copy) SKPaymentQueueClient * paymentQueueClient;
+@property (nonatomic) <SKRequestDelegate> *delegate;
+@property (nonatomic, copy) SKPaymentQueueClient *paymentQueueClient;
 
+- (void).cxx_destruct;
 - (void)_beginBackgroundTask;
 - (void)_endBackgroundTask;
-- (void)_sendXPCMessage;
 - (void)_shutdownRequest;
-- (void)_startWithMessage:(id)arg1 replyBlock:(id)arg2;
+- (void)_start;
+- (void)_startWithMessage:(id)arg1 replyBlock:(id /* block */)arg2;
 - (void)cancel;
-- (void)dealloc;
 - (id)delegate;
 - (id)init;
 - (id)paymentQueueClient;

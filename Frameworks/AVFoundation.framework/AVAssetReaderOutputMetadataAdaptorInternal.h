@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetReaderTrackOutput;
-
 @interface AVAssetReaderOutputMetadataAdaptorInternal : NSObject {
-    AVAssetReaderTrackOutput *trackOutput;
+    AVAssetReaderTrackOutput * trackOutput;
 }
 
 @end

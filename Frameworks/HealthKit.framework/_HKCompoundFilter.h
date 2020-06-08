@@ -2,27 +2,32 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@class NSArray;
-
 @interface _HKCompoundFilter : _HKFilter {
-    unsigned int _compoundType;
-    NSArray *_subfilters;
+    unsigned long long  _compoundType;
+    NSArray * _subfilters;
 }
 
-@property(readonly) unsigned int compoundType;
-@property(readonly) NSArray * subfilters;
+@property (nonatomic, readonly) unsigned long long compoundType;
+@property (nonatomic, readonly, copy) NSArray *subfilters;
 
-+ (id)filterWithSubfilters:(id)arg1 compoundType:(unsigned int)arg2;
-+ (BOOL)supportsSecureCoding;
+// Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
+
++ (id)filterWithSubfilters:(id)arg1 compoundType:(unsigned long long)arg2;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (BOOL)acceptsDataObject:(id)arg1;
-- (unsigned int)compoundType;
+- (id)_copyWithZone:(struct _NSZone { }*)arg1 subfilters:(id)arg2;
+- (id)_subfilters;
+- (bool)acceptsDataObject:(id)arg1;
+- (unsigned long long)compoundType;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (id)predicateWithHealthDaemon:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)subfilters;
+
+// Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
+
+- (id)predicateWithProfile:(id)arg1;
 
 @end

@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class EKAvailabilitySpan, NSDate;
-
 @interface EKAvailabilityCachedSpan : NSObject {
-    NSDate *_creationDate;
-    EKAvailabilitySpan *_span;
+    NSDate * _creationDate;
+    EKAvailabilitySpan * _span;
 }
 
-@property(retain) NSDate * creationDate;
-@property(retain) EKAvailabilitySpan * span;
+@property (nonatomic, retain) NSDate *creationDate;
+@property (nonatomic, retain) EKAvailabilitySpan *span;
 
+- (void).cxx_destruct;
 - (id)creationDate;
-- (void)dealloc;
 - (id)description;
 - (void)setCreationDate:(id)arg1;
 - (void)setSpan:(id)arg1;

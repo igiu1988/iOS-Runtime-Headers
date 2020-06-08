@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CalendarFoundation.framework/CalendarFoundation
  */
 
-@class NSString;
-
 @interface CalLogEnvelope : NSObject {
-    NSString *_function;
-    int _level;
-    NSString *_logName;
-    unsigned int _machPort;
-    NSString *_message;
-    int _processID;
-    NSString *_processName;
-    double _timestamp;
+    NSString * _function;
+    int  _level;
+    NSString * _logName;
+    unsigned int  _machPort;
+    NSString * _message;
+    int  _processID;
+    NSString * _processName;
+    double  _timestamp;
 }
 
-@property(retain) NSString * function;
-@property int level;
-@property(retain) NSString * logName;
-@property unsigned int machPort;
-@property(retain) NSString * message;
-@property int processID;
-@property(retain) NSString * processName;
-@property double timestamp;
+@property (nonatomic, retain) NSString *function;
+@property (nonatomic) int level;
+@property (nonatomic, retain) NSString *logName;
+@property (nonatomic) unsigned int machPort;
+@property (nonatomic, retain) NSString *message;
+@property (nonatomic) int processID;
+@property (nonatomic, retain) NSString *processName;
+@property (nonatomic) double timestamp;
 
 - (void).cxx_destruct;
 - (id)description;

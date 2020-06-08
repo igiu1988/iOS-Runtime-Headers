@@ -2,18 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSDate, NSNumber, NSString;
+@interface SANotificationObject : SADomainObject
 
-@interface SANotificationObject : SADomainObject {
-}
-
-@property(copy) NSString * applicationId;
-@property(copy) NSDate * date;
-@property(copy) NSNumber * dateIsAllDay;
-@property(copy) NSDate * endDate;
-@property(copy) NSDate * recencyDate;
-@property(copy) NSString * timeZoneId;
-@property(copy) NSString * type;
+@property (nonatomic, copy) NSString *applicationId;
+@property (nonatomic, copy) NSDate *date;
+@property (nonatomic, copy) NSNumber *dateIsAllDay;
+@property (nonatomic, copy) NSDate *endDate;
+@property (nonatomic, copy) NSString *notificationId;
+@property (nonatomic, copy) NSNumber *previewRestricted;
+@property (nonatomic, copy) NSDate *recencyDate;
+@property (nonatomic, copy) NSString *timeZoneId;
+@property (nonatomic, copy) NSString *type;
 
 + (id)object;
 + (id)objectWithDictionary:(id)arg1 context:(id)arg2;
@@ -24,16 +23,19 @@
 - (id)encodedClassName;
 - (id)endDate;
 - (id)groupIdentifier;
+- (id)notificationId;
+- (id)previewRestricted;
 - (id)recencyDate;
 - (void)setApplicationId:(id)arg1;
 - (void)setDate:(id)arg1;
 - (void)setDateIsAllDay:(id)arg1;
 - (void)setEndDate:(id)arg1;
+- (void)setNotificationId:(id)arg1;
+- (void)setPreviewRestricted:(id)arg1;
 - (void)setRecencyDate:(id)arg1;
 - (void)setTimeZoneId:(id)arg1;
 - (void)setType:(id)arg1;
 - (id)timeZoneId;
 - (id)type;
-- (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 
 @end

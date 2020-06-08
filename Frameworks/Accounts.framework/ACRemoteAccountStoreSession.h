@@ -2,28 +2,35 @@
    Image: /System/Library/Frameworks/Accounts.framework/Accounts
  */
 
-@class NSString, NSXPCConnection;
-
 @interface ACRemoteAccountStoreSession : NSObject <NSXPCProxyCreating> {
-    NSXPCConnection *_connection;
-    BOOL _hasConfiguredRemoteAccountStore;
-    BOOL _notificationsEnabled;
-    NSString *_spoofedBundleID;
+    NSXPCConnection * _connection;
+    struct os_unfair_lock_s { 
+        unsigned int _os_unfair_lock_opaque; 
+    }  _connectionLock;
+    bool  _hasConfiguredRemoteAccountStore;
+    bool  _notificationsEnabled;
+    NSString * _spoofedBundleID;
+    bool  _xpcConnectionHasBeenInvalidated;
 }
 
-@property BOOL notificationsEnabled;
-@property(copy) NSString * spoofedBundleID;
+@property (nonatomic) bool notificationsEnabled;
+@property (nonatomic, copy) NSString *spoofedBundleID;
 
 - (void).cxx_destruct;
+- (void)_configureConnection;
 - (void)_configureRemoteAccountStoreIfNecessary;
+- (id)_connection;
+- (void)_setConnectionInterrupted;
+- (void)_setConnectionInvalidated;
 - (void)connect;
 - (void)disconnect;
 - (id)initWithXPCConnection:(id)arg1;
-- (BOOL)notificationsEnabled;
+- (bool)notificationsEnabled;
 - (id)remoteObjectProxy;
-- (id)remoteObjectProxyWithErrorHandler:(id)arg1;
-- (void)setNotificationsEnabled:(BOOL)arg1;
+- (id)remoteObjectProxyWithErrorHandler:(id /* block */)arg1;
+- (void)setNotificationsEnabled:(bool)arg1;
 - (void)setSpoofedBundleID:(id)arg1;
 - (id)spoofedBundleID;
+- (id)synchronousRemoteObjectProxyWithErrorHandler:(id /* block */)arg1;
 
 @end

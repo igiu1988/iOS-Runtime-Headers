@@ -2,47 +2,51 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class BRFieldPkgItem;
-
 @interface BRFieldPkgLocalItem : PBCodable <NSCopying> {
+    long long  _fileID;
+    unsigned int  _generationID;
     struct { 
         unsigned int size : 1; 
         unsigned int generationID : 1; 
-    long long _fileID;
-    unsigned int _generationID;
-    } _has;
-    BRFieldPkgItem *_item;
-    long long _size;
+    }  _has;
+    BRFieldPkgItem * _item;
+    long long  _size;
+    NSData * _xattrs;
 }
 
-@property long long fileID;
-@property unsigned int generationID;
-@property BOOL hasGenerationID;
-@property BOOL hasSize;
-@property(retain) BRFieldPkgItem * item;
-@property long long size;
+@property (nonatomic) long long fileID;
+@property (nonatomic) unsigned int generationID;
+@property (nonatomic) bool hasGenerationID;
+@property (nonatomic) bool hasSize;
+@property (nonatomic, readonly) bool hasXattrs;
+@property (nonatomic, retain) BRFieldPkgItem *item;
+@property (nonatomic) long long size;
+@property (nonatomic, retain) NSData *xattrs;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (long long)fileID;
 - (unsigned int)generationID;
-- (BOOL)hasGenerationID;
-- (BOOL)hasSize;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasGenerationID;
+- (bool)hasSize;
+- (bool)hasXattrs;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)item;
-- (BOOL)readFrom:(id)arg1;
+- (void)mergeFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setFileID:(long long)arg1;
 - (void)setGenerationID:(unsigned int)arg1;
-- (void)setHasGenerationID:(BOOL)arg1;
-- (void)setHasSize:(BOOL)arg1;
+- (void)setHasGenerationID:(bool)arg1;
+- (void)setHasSize:(bool)arg1;
 - (void)setItem:(id)arg1;
 - (void)setSize:(long long)arg1;
+- (void)setXattrs:(id)arg1;
 - (long long)size;
 - (void)writeTo:(id)arg1;
+- (id)xattrs;
 
 @end

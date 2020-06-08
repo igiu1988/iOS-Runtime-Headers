@@ -2,15 +2,20 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class PDAnimationTarget;
-
 @interface PDAnimateBehavior : PDTimeNode {
-    PDAnimationTarget *mTgtElement;
+    NSMutableArray * mAttributeNames;
+    PDAnimationTarget * mTgtElement;
 }
 
+@property (nonatomic, retain) NSMutableArray *attributeNames;
+
+- (id)attributeNames;
 - (void)dealloc;
+- (id)description;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (void)setAttributeNames:(id)arg1;
 - (void)setTarget:(id)arg1;
 - (id)target;
 

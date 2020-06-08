@@ -2,38 +2,38 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOURLCamera, PBUnknownFields;
-
 @interface GEOStorageCameraView : PBCodable <NSCopying> {
+    GEOURLCamera * _camera;
     struct { 
         unsigned int mapType : 1; 
-    GEOURLCamera *_camera;
-    } _has;
-    int _mapType;
-    PBUnknownFields *_unknownFields;
+    }  _has;
+    int  _mapType;
+    PBUnknownFields * _unknownFields;
 }
 
-@property(retain) GEOURLCamera * camera;
-@property(readonly) BOOL hasCamera;
-@property BOOL hasMapType;
-@property int mapType;
-@property(readonly) PBUnknownFields * unknownFields;
+@property (nonatomic, retain) GEOURLCamera *camera;
+@property (nonatomic, readonly) bool hasCamera;
+@property (nonatomic) bool hasMapType;
+@property (nonatomic) int mapType;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
+- (void).cxx_destruct;
+- (int)StringAsMapType:(id)arg1;
 - (id)camera;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasCamera;
-- (BOOL)hasMapType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasCamera;
+- (bool)hasMapType;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (int)mapType;
+- (id)mapTypeAsString:(int)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setCamera:(id)arg1;
-- (void)setHasMapType:(BOOL)arg1;
+- (void)setHasMapType:(bool)arg1;
 - (void)setMapType:(int)arg1;
 - (id)unknownFields;
 - (void)writeTo:(id)arg1;

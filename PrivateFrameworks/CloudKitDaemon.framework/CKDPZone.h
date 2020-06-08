@@ -2,51 +2,43 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPProtectionInfo, CKDPRecordZoneIdentifier, CKDPShareIdentifier, NSString;
-
 @interface CKDPZone : PBCodable <NSCopying> {
-    NSString *_etag;
-    CKDPProtectionInfo *_protectionInfo;
-    CKDPShareIdentifier *_shareId;
-    CKDPRecordZoneIdentifier *_zoneIdentifier;
-    NSString *_zoneProtectionInfoTag;
+    NSData * _encryptedLastZoneishPCSRollDate;
+    CKDPProtectionInfo * _protectionInfo;
+    CKDPProtectionInfo * _recordProtectionInfo;
+    CKDPRecordZoneIdentifier * _zoneIdentifier;
 }
 
-@property(retain) NSString * etag;
-@property(readonly) BOOL hasEtag;
-@property(readonly) BOOL hasProtectionInfo;
-@property(readonly) BOOL hasShareId;
-@property(readonly) BOOL hasZoneIdentifier;
-@property(readonly) BOOL hasZoneProtectionInfoTag;
-@property(retain) CKDPProtectionInfo * protectionInfo;
-@property(retain) CKDPShareIdentifier * shareId;
-@property(retain) CKDPRecordZoneIdentifier * zoneIdentifier;
-@property(retain) NSString * zoneProtectionInfoTag;
+@property (nonatomic, retain) NSData *encryptedLastZoneishPCSRollDate;
+@property (nonatomic, readonly) bool hasEncryptedLastZoneishPCSRollDate;
+@property (nonatomic, readonly) bool hasProtectionInfo;
+@property (nonatomic, readonly) bool hasRecordProtectionInfo;
+@property (nonatomic, readonly) bool hasZoneIdentifier;
+@property (nonatomic, retain) CKDPProtectionInfo *protectionInfo;
+@property (nonatomic, retain) CKDPProtectionInfo *recordProtectionInfo;
+@property (nonatomic, retain) CKDPRecordZoneIdentifier *zoneIdentifier;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (id)etag;
-- (BOOL)hasEtag;
-- (BOOL)hasProtectionInfo;
-- (BOOL)hasShareId;
-- (BOOL)hasZoneIdentifier;
-- (BOOL)hasZoneProtectionInfoTag;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (id)encryptedLastZoneishPCSRollDate;
+- (bool)hasEncryptedLastZoneishPCSRollDate;
+- (bool)hasProtectionInfo;
+- (bool)hasRecordProtectionInfo;
+- (bool)hasZoneIdentifier;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)protectionInfo;
-- (BOOL)readFrom:(id)arg1;
-- (void)setEtag:(id)arg1;
+- (bool)readFrom:(id)arg1;
+- (id)recordProtectionInfo;
+- (void)setEncryptedLastZoneishPCSRollDate:(id)arg1;
 - (void)setProtectionInfo:(id)arg1;
-- (void)setShareId:(id)arg1;
+- (void)setRecordProtectionInfo:(id)arg1;
 - (void)setZoneIdentifier:(id)arg1;
-- (void)setZoneProtectionInfoTag:(id)arg1;
-- (id)shareId;
 - (void)writeTo:(id)arg1;
 - (id)zoneIdentifier;
-- (id)zoneProtectionInfoTag;
 
 @end

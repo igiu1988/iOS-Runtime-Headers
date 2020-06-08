@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSOperationQueue, NSString, SKUIClientContext, SKUIContentRatingArtworkResourceLoader, SKUIProductInformationView, SKUIProductPageItem, SKUIProductPageProductInfo;
-
 @interface SKUIProductPageInformationViewController : UIViewController <SKUIContentRatingArtworkLoaderObserver> {
-    SKUIClientContext *_clientContext;
-    SKUIContentRatingArtworkResourceLoader *_contentRatingArtworkLoader;
-    SKUIProductInformationView *_informationView;
-    SKUIProductPageItem *_item;
-    NSOperationQueue *_operationQueue;
-    SKUIProductPageProductInfo *_productInfo;
+    SKUIClientContext * _clientContext;
+    SKUIContentRatingArtworkResourceLoader * _contentRatingArtworkLoader;
+    SKUIProductInformationView * _informationView;
+    SKUIProductPageItem * _item;
+    NSOperationQueue * _operationQueue;
+    SKUIProductPageProductInfo * _productInfo;
 }
 
-@property(readonly) SKUIClientContext * clientContext;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) SKUIProductPageItem * item;
-@property(retain) NSOperationQueue * operationQueue;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) SKUIClientContext *clientContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) SKUIProductPageItem *item;
+@property (nonatomic, retain) NSOperationQueue *operationQueue;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_contentRatingResourceLoader;

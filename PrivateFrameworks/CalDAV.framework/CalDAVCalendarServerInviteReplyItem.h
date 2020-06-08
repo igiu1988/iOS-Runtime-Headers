@@ -2,31 +2,29 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class CoreDAVHrefItem, CoreDAVItemWithHrefChildItem, CoreDAVItemWithNoChildren, CoreDAVLeafItem, NSString, NSURL;
-
 @interface CalDAVCalendarServerInviteReplyItem : CoreDAVItem {
-    NSURL *_acceptedURL;
-    NSString *_firstName;
-    CoreDAVItemWithHrefChildItem *_hostURL;
-    CoreDAVHrefItem *_href;
-    CoreDAVLeafItem *_inReplyTo;
-    CoreDAVItemWithNoChildren *_inviteStatus;
-    NSString *_lastName;
-    CoreDAVLeafItem *_summary;
+    NSURL * _acceptedURL;
+    NSString * _firstName;
+    CoreDAVItemWithHrefChildItem * _hostURL;
+    CoreDAVHrefItem * _href;
+    CoreDAVLeafItem * _inReplyTo;
+    CoreDAVItemWithNoChildren * _inviteStatus;
+    NSString * _lastName;
+    CoreDAVLeafItem * _summary;
 }
 
-@property(retain) NSURL * acceptedURL;
-@property(retain) NSString * firstName;
-@property(retain) CoreDAVItemWithHrefChildItem * hostURL;
-@property(retain) CoreDAVHrefItem * href;
-@property(retain) CoreDAVLeafItem * inReplyTo;
-@property(retain) CoreDAVItemWithNoChildren * inviteStatus;
-@property(retain) NSString * lastName;
-@property(retain) CoreDAVLeafItem * summary;
+@property (nonatomic, retain) NSURL *acceptedURL;
+@property (nonatomic, retain) NSString *firstName;
+@property (nonatomic, retain) CoreDAVItemWithHrefChildItem *hostURL;
+@property (nonatomic, retain) CoreDAVHrefItem *href;
+@property (nonatomic, retain) CoreDAVLeafItem *inReplyTo;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *inviteStatus;
+@property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) CoreDAVLeafItem *summary;
 
+- (void).cxx_destruct;
 - (id)acceptedURL;
 - (id)copyParseRules;
-- (void)dealloc;
 - (id)firstName;
 - (id)hostURL;
 - (id)href;

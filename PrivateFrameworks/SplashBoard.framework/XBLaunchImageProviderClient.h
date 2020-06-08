@@ -3,13 +3,14 @@
  */
 
 @interface XBLaunchImageProviderClient : BSBaseXPCClient {
+    XBApplicationLaunchCompatibilityInfo * _appInfo;
 }
 
-- (id)_connectionInstanceUUID;
-- (void)_sendMessageType:(int)arg1 withMessage:(id)arg2 withReplyHandler:(id)arg3 waitForReply:(BOOL)arg4;
++ (void)preheatServiceWithTimeout:(double)arg1;
+
+- (void).cxx_destruct;
+- (unsigned int)generateImageWithContext:(id)arg1 error:(id*)arg2;
 - (id)init;
-- (id)initWithEndpoint:(id)arg1;
-- (void)killService;
-- (void)launchImageForApplicationWithCompatibilityInfo:(id)arg1 launchRequest:(id)arg2 completionHandler:(id)arg3;
+- (id)initWithApplicationInfo:(id)arg1;
 
 @end

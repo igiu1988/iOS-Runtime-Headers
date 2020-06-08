@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@class UIActivityIndicatorView;
-
 @interface CNFRegSpinnerCell : PSTableCell {
-    UIActivityIndicatorView *_activityIndicator;
+    UIActivityIndicatorView * _activityIndicator;
 }
 
-- (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2;
+- (void).cxx_destruct;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 - (void)layoutSubviews;
 
 @end

@@ -2,14 +2,14 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SASettingSetBrightness : SASettingSetFloat {
-}
+@interface SASettingSetBrightness : SASettingSetFloat
 
 + (id)setBrightness;
 + (id)setBrightnessWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (BOOL)requiresResponse;
+- (bool)mutatingCommand;
+- (bool)requiresResponse;
 
 @end

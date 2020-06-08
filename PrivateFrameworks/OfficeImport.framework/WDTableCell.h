@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString, WDTableCellProperties, WDTableRow, WDText;
-
 @interface WDTableCell : NSObject {
-    NSString *mIdentifier;
-    unsigned int mIndex;
-    WDTableCellProperties *mProperties;
-    WDTableRow *mRow;
-    WDText *mText;
-    BOOL mUseTrackedProperties;
+    NSString * mIdentifier;
+    unsigned long long  mIndex;
+    WDTableCellProperties * mProperties;
+    WDTableRow * mRow;
+    WDText * mText;
+    bool  mUseTrackedProperties;
 }
 
-- (double)cellWidth;
 - (void)clearProperties;
-- (int)compareIndex:(id)arg1;
+- (long long)compareIndex:(id)arg1;
 - (void)dealloc;
+- (id)description;
 - (id)identifier;
-- (unsigned int)index;
-- (id)initWithRow:(id)arg1 at:(unsigned int)arg2;
+- (unsigned long long)index;
+- (id)initWithRow:(id)arg1 at:(unsigned long long)arg2;
 - (id)properties;
 - (id)row;
 - (void)setIdentifier:(id)arg1;
-- (void)setUseTrackedProperties:(BOOL)arg1;
+- (void)setUseTrackedProperties:(bool)arg1;
 - (id)text;
-- (BOOL)useTrackedProperties;
+- (bool)useTrackedProperties;
 
 @end

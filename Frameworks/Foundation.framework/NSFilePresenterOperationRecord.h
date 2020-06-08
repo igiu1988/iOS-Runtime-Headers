@@ -2,20 +2,19 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSString;
-
 @interface NSFilePresenterOperationRecord : NSObject {
-    NSString *operationDescription;
-    id reactor;
-    int state;
+    NSString * operationDescription;
+    id  reactor;
+    long long  state;
 }
 
-@property(readonly) NSString * operationDescription;
+@property (readonly) NSString *operationDescription;
 @property id reactor;
-@property(readonly) int state;
+@property (readonly) long long state;
 
 + (id)operationRecordWithDescription:(id)arg1;
 
+- (id)_reactorQueue;
 - (void)dealloc;
 - (id)description;
 - (void)didBegin;
@@ -23,7 +22,7 @@
 - (id)operationDescription;
 - (id)reactor;
 - (void)setReactor:(id)arg1;
-- (int)state;
+- (long long)state;
 - (void)willEnd;
 
 @end

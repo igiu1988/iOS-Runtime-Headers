@@ -3,16 +3,15 @@
  */
 
 @interface CIColorCubeWithColorSpace : CIColorCube {
-    id inputColorSpace;
+    id  inputColorSpace;
 }
 
-@property(retain) id inputColorSpace;
+@property (nonatomic, retain) id inputColorSpace;
 
 + (id)customAttributes;
 
 - (id)inputColorSpace;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputColorSpace:(id)arg1;
 
 @end

@@ -2,11 +2,12 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-@class NSMutableDictionary;
-
-@interface SKThreadSafeMutableDictionary : NSObject <NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration> {
-    NSMutableDictionary *_storage;
-    int _storageLock;
+@interface SKThreadSafeMutableDictionary : NSObject <NSCopying, NSFastEnumeration, NSMutableCopying, NSSecureCoding> {
+    NSMutableDictionary * _storage;
+    struct _opaque_pthread_mutex_t { 
+        long long __sig; 
+        BOOL __opaque[56]; 
+    }  _storageLock;
 }
 
 - (void).cxx_destruct;

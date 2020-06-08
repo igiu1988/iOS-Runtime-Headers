@@ -2,17 +2,16 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSManagedObjectID, NSMutableDictionary, NSPersistentStoreMap, NSString;
-
 @interface NSStoreMapNode : NSObject {
-    NSString *_entityName;
-    NSPersistentStoreMap *_map;
-    NSManagedObjectID *_objectID;
-    NSMutableDictionary *_relatedNodes;
-    unsigned int _version;
+    NSString * _entityName;
+    NSPersistentStoreMap * _map;
+    NSManagedObjectID * _objectID;
+    NSMutableDictionary * _relatedNodes;
+    unsigned int  _version;
 }
 
 + (void)initialize;
++ (bool)supportsSecureCoding;
 
 - (id)_relatedNodes;
 - (void)_setMap:(id)arg1;
@@ -26,7 +25,7 @@
 - (id)entity;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithObjectID:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)key;
 - (const id*)knownKeyValuesPointer;
 - (id)objectID;

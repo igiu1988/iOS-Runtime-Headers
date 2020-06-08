@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface KNPlaceholderLayout : TSWPShapeLayout {
-}
+@interface KNPlaceholderLayout : TSWPShapeLayout
 
-- (BOOL)canBeIntersected;
+- (bool)canBeIntersected;
 
 @end

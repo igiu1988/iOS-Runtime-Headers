@@ -2,61 +2,69 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSDictionary;
-
 @interface BWVideoFormat : BWFormat {
-    unsigned long _bytesPerRowAlignment;
-    unsigned int _cacheMode;
-    unsigned long _extendedHeight;
-    unsigned long _extendedWidth;
-    unsigned long _height;
-    NSDictionary *_pixelBufferAttributes;
-    unsigned long _pixelFormat;
-    unsigned long _planeAlignment;
-    BOOL _prewireBuffers;
-    unsigned long _width;
+    unsigned long long  _bytesPerRowAlignment;
+    unsigned int  _cacheMode;
+    int  _colorSpaceProperties;
+    unsigned long long  _extendedHeight;
+    unsigned long long  _extendedWidth;
+    unsigned long long  _height;
+    bool  _memoryPoolUseAllowed;
+    NSDictionary * _pixelBufferAttributes;
+    unsigned int  _pixelFormat;
+    unsigned long long  _planeAlignment;
+    bool  _prewireBuffers;
+    unsigned long long  _width;
 }
 
-@property unsigned long bytesPerRowAlignment;
-@property unsigned int cacheMode;
-@property unsigned long extendedHeight;
-@property unsigned long extendedWidth;
-@property unsigned long height;
-@property(readonly) NSDictionary * pixelBufferAttributes;
-@property unsigned long pixelFormat;
-@property unsigned long planeAlignment;
-@property BOOL prewireBuffers;
-@property unsigned long width;
+@property (nonatomic) unsigned long long bytesPerRowAlignment;
+@property (nonatomic) unsigned int cacheMode;
+@property (nonatomic, readonly) int colorSpaceProperties;
+@property (nonatomic) unsigned long long extendedHeight;
+@property (nonatomic) unsigned long long extendedWidth;
+@property (nonatomic) unsigned long long height;
+@property (nonatomic) bool memoryPoolUseAllowed;
+@property (nonatomic, readonly) NSDictionary *pixelBufferAttributes;
+@property (nonatomic) unsigned int pixelFormat;
+@property (nonatomic) unsigned long long planeAlignment;
+@property (nonatomic) bool prewireBuffers;
+@property (nonatomic) unsigned long long width;
 
 + (id)_formatRequirementsByResolvingFormatRequirements:(id)arg1 withFormatRequirements:(id)arg2;
++ (int)colorSpacePropertiesForSourceThatSupportsWideColor:(bool)arg1 sourceColorSpace:(int)arg2 sourcePixelFormat:(unsigned int)arg3 sourceDimensions:(struct { int x1; int x2; })arg4 requestedPixelFormat:(unsigned int)arg5;
++ (int)colorSpacePropertiesWithSourceColorSpace:(int)arg1 sourcePixelFormat:(unsigned int)arg2 sourceDimensions:(struct { int x1; int x2; })arg3 requestedPixelFormat:(unsigned int)arg4;
 + (id)formatByResolvingRequirements:(id)arg1;
 + (void)initialize;
++ (id)pixelBufferAttachmentsForColorSpaceProperties:(int)arg1;
 
-- (id)_initWithResolvedPixelBufferAttributes:(id)arg1;
-- (unsigned long)bytesPerRowAlignment;
+- (id)_initWithResolvedPixelBufferAttributes:(id)arg1 colorSpaceProperties:(int)arg2 memoryPoolUseAllowed:(bool)arg3;
+- (unsigned long long)bytesPerRowAlignment;
 - (unsigned int)cacheMode;
+- (int)colorSpaceProperties;
 - (void)dealloc;
 - (id)debugDescription;
 - (id)description;
-- (unsigned long)extendedHeight;
-- (unsigned long)extendedWidth;
+- (unsigned long long)extendedHeight;
+- (unsigned long long)extendedWidth;
 - (struct opaqueCMFormatDescription { }*)formatDescription;
-- (unsigned long)height;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned long)mediaType;
+- (unsigned long long)height;
+- (bool)isEqual:(id)arg1;
+- (unsigned int)mediaType;
+- (bool)memoryPoolUseAllowed;
 - (id)pixelBufferAttributes;
-- (unsigned long)pixelFormat;
-- (unsigned long)planeAlignment;
-- (BOOL)prewireBuffers;
-- (void)setBytesPerRowAlignment:(unsigned long)arg1;
+- (unsigned int)pixelFormat;
+- (unsigned long long)planeAlignment;
+- (bool)prewireBuffers;
+- (void)setBytesPerRowAlignment:(unsigned long long)arg1;
 - (void)setCacheMode:(unsigned int)arg1;
-- (void)setExtendedHeight:(unsigned long)arg1;
-- (void)setExtendedWidth:(unsigned long)arg1;
-- (void)setHeight:(unsigned long)arg1;
-- (void)setPixelFormat:(unsigned long)arg1;
-- (void)setPlaneAlignment:(unsigned long)arg1;
-- (void)setPrewireBuffers:(BOOL)arg1;
-- (void)setWidth:(unsigned long)arg1;
-- (unsigned long)width;
+- (void)setExtendedHeight:(unsigned long long)arg1;
+- (void)setExtendedWidth:(unsigned long long)arg1;
+- (void)setHeight:(unsigned long long)arg1;
+- (void)setMemoryPoolUseAllowed:(bool)arg1;
+- (void)setPixelFormat:(unsigned int)arg1;
+- (void)setPlaneAlignment:(unsigned long long)arg1;
+- (void)setPrewireBuffers:(bool)arg1;
+- (void)setWidth:(unsigned long long)arg1;
+- (unsigned long long)width;
 
 @end

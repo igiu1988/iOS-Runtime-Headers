@@ -2,81 +2,139 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class GEOVectorTile, NSString, UIView;
-
-@interface VKLabelMarker : NSObject <MKCalloutSource> {
-    struct shared_ptr<vk::LabelManager> { 
-        struct LabelManager {} *__ptr_; 
+@interface VKLabelMarker : VKFeatureMarker <GEOTransitArtworkDataSource> {
+    struct shared_ptr<md::LabelMarker> { 
+        struct LabelMarker {} *__ptr_; 
         struct __shared_weak_count {} *__cntrl_; 
-    struct shared_ptr<vk::InfoLabel> { 
-        struct InfoLabel {} *__ptr_; 
-        struct __shared_weak_count {} *__cntrl_; 
-    struct _retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> { 
-        int (**_vptr$_retain_ptr)(); 
-        GEOVectorTile *_obj; 
-        struct _retain_objc { } _retain; 
-        struct _release_objc { } _release; 
-    float _contentScale;
-    unsigned long long _featureID;
-    } _featureTile;
-    int _featureType;
-    } _label;
-    } _manager;
-    NSString *_subtitle;
+    }  _labelMarker;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) UIView * detailCalloutAccessoryView;
-@property(readonly) unsigned int hash;
-@property(retain) UIView * leftCalloutAccessoryView;
-@property(retain) UIView * rightCalloutAccessoryView;
-@property(copy,readonly) NSString * subtitle;
-@property(copy) NSString * subtitle;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) NSString *accessibilityText;
+@property (nonatomic, readonly) long long artworkSourceType;
+@property (nonatomic, readonly) long long artworkUseType;
+@property (nonatomic, readonly) NSArray *dataIconImageKeys;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) UIView *detailCalloutAccessoryView;
+@property (nonatomic, readonly) MKMapItemIdentifier *flyoverTourIdentifier;
+@property (nonatomic, readonly) bool hasRoutingIncidentBadge;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) <GEOTransitIconDataSource> *iconDataSource;
+@property (nonatomic, readonly) <GEOTransitShieldDataSource> *iconFallbackShieldDataSource;
+@property (nonatomic, readonly) NSArray *iconImageKeys;
+@property (nonatomic, readonly) MKMapItemIdentifier *identifier;
+@property (nonatomic, readonly) NSArray *imageKeys;
+@property (nonatomic) bool isDragged;
+@property (nonatomic, retain) UIView *leftCalloutAccessoryView;
+@property (nonatomic, readonly) NSArray *relatedSubTexts;
+@property (nonatomic, readonly) NSArray *relatedTexts;
+@property (nonatomic, retain) UIView *rightCalloutAccessoryView;
+@property (nonatomic, readonly) <GEOTransitShieldDataSource> *shieldDataSource;
+@property (nonatomic, readonly) NSArray *shields;
+@property (nonatomic, copy) NSString *subtitle;
+@property (readonly) Class superclass;
+@property (nonatomic) bool suppressCallout;
+@property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) NSArray *transitSystems;
+
+// Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
+
++ (id)markerWithLabelMarker:(const struct shared_ptr<md::LabelMarker> { struct LabelMarker {} *x1; struct __shared_weak_count {} *x2; }*)arg1;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (struct { double x1; double x2; double x3; double x4; })_bounds;
+- (struct Box<double, 2> { struct Matrix<double, 2, 1> { double x_1_1_1[2]; } x1; struct Matrix<double, 2, 1> { double x_2_1_1[2]; } x2; })_bounds;
 - (unsigned long long)animationID;
 - (unsigned long long)businessID;
-- (struct CGPoint { float x1; float x2; })calloutAnchorPointWithCanvasSize:(struct CGSize { float x1; float x2; })arg1 canvasScale:(float)arg2 snapToPixels:(BOOL)arg3;
-- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })calloutAnchorRect;
+- (struct CGPoint { double x1; double x2; })calloutAnchorPointWithCanvasSize:(struct CGSize { double x1; double x2; })arg1 canvasScale:(double)arg2 snapToPixels:(bool)arg3;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })calloutAnchorRect;
+- (id)clusterContentBounds;
+- (id)clusterFeatureAnnotations;
+- (unsigned long long)clusterFeatureCount;
 - (struct { double x1; double x2; })coordinate;
-- (void)dealloc;
+- (unsigned long long)countFeatureIDs;
+- (id)dataIconImageKeys;
 - (id)debugAnchorPointString;
-- (id)detailCalloutAccessoryView;
+- (unsigned long long)elementCount;
+- (id)featureAnnotation;
 - (id)featureHandles;
-- (unsigned long long)featureID;
+- (const unsigned long long*)featureIDs;
 - (id)featureTile;
 - (int)featureType;
-- (BOOL)hasBusinessID;
-- (id)iconName;
+- (bool)hasBusinessID;
+- (id)iconImageKeys;
+- (id)imageKeys;
 - (id)incident;
-- (struct shared_ptr<vk::InfoLabel> { struct InfoLabel {} *x1; struct __shared_weak_count {} *x2; })infoLabel;
-- (id)initWithManager:(const struct shared_ptr<vk::LabelManager> { struct LabelManager {} *x1; struct __shared_weak_count {} *x2; }*)arg1 infoLabel:(const struct shared_ptr<vk::InfoLabel> { struct InfoLabel {} *x1; struct __shared_weak_count {} *x2; }*)arg2 contentScale:(float)arg3 featureInfo:(const struct LabelFeatureInfo { unsigned long long x1; unsigned char x2; struct _retain_ptr<GEOVectorTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> { int (**x_3_1_1)(); id x_3_1_2; struct _retain_objc { } x_3_1_3; struct _release_objc { } x_3_1_4; } x3; }*)arg4;
-- (BOOL)isFlyoverTour;
-- (BOOL)isOneWayArrow;
-- (BOOL)isSelectable;
-- (BOOL)isTrafficIncident;
-- (id)leftCalloutAccessoryView;
+- (id)initWithFeatureMarkerPtr:(const struct shared_ptr<md::FeatureMarker> { struct FeatureMarker {} *x1; struct __shared_weak_count {} *x2; }*)arg1;
+- (id)initWithLabelMarkerPtr:(const struct shared_ptr<md::LabelMarker> { struct LabelMarker {} *x1; struct __shared_weak_count {} *x2; }*)arg1;
+- (bool)isAlongSelectedTransitLine;
+- (bool)isCluster;
+- (bool)isClusterChild;
+- (bool)isDragged;
+- (bool)isFlyoverTour;
+- (bool)isLabelHitAtScreenPoint:(struct CGPoint { double x1; double x2; })arg1 selectableLabelsOnly:(bool)arg2;
+- (bool)isLeafCluster;
+- (bool)isOnRoute;
+- (bool)isOneWayArrow;
+- (bool)isRouteEta;
+- (bool)isSelectable;
+- (bool)isSelected;
+- (bool)isTextVisible;
+- (bool)isTrafficCamera;
+- (bool)isTrafficIncident;
+- (bool)isTransit;
+- (bool)isTransitLine;
+- (bool)isVenueButton;
+- (bool)isVisible;
+- (const struct shared_ptr<md::LabelMarker> { struct LabelMarker {} *x1; struct __shared_weak_count {} *x2; }*)labelMarkerImpl;
 - (id)mapRegion;
-- (id)rightCalloutAccessoryView;
-- (struct CGPoint { float x1; float x2; })screenPointToScrollRelativeToWithCanvasSize:(struct CGSize { float x1; float x2; })arg1 canvasScale:(float)arg2;
+- (id)parentClusterLabelMarker;
+- (unsigned char)pickedLabelBalloonBehavior;
+- (bool)positionOfInterest:(struct { double x1; double x2; }*)arg1 zoom:(float*)arg2;
+- (id)relatedSubTexts;
+- (id)relatedTexts;
+- (id)routeInfo;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })screenCollisionBounds;
+- (struct CGPoint { double x1; double x2; })screenPointToScrollRelativeToWithCanvasSize:(struct CGSize { double x1; double x2; })arg1 canvasScale:(double)arg2;
 - (int)selectionType;
+- (void)setIsDragged:(bool)arg1;
+- (void)setIsPickedIconDrawnExternally:(bool)arg1;
+- (void)setLabelPressed:(bool)arg1;
+- (id)shields;
+- (int)sortKey;
+- (id)subtext;
+- (id)text;
+- (id)trafficCamera;
+- (id)transitSystems;
+- (unsigned long long)venueBuildingID;
+- (unsigned long long)venueComponentID;
+- (unsigned char)venueComponentType;
+- (short)venueFloorOrdinal;
+- (unsigned long long)venueID;
+- (unsigned long long)venueLevelID;
+
+// Image: /System/Library/Frameworks/MapKit.framework/MapKit
+
+- (id)_annotationTitle;
+- (id)accessibilityText;
+- (long long)artworkSourceType;
+- (long long)artworkUseType;
+- (id)detailCalloutAccessoryView;
+- (id)flyoverTourIdentifier;
+- (bool)hasRoutingIncidentBadge;
+- (id)iconDataSource;
+- (id)iconFallbackShieldDataSource;
+- (id)identifier;
+- (id)leftCalloutAccessoryView;
+- (id)rightCalloutAccessoryView;
 - (void)setDetailCalloutAccessoryView:(id)arg1;
-- (void)setLabelPressed:(BOOL)arg1;
-- (void)setLabelSelected:(BOOL)arg1;
 - (void)setLeftCalloutAccessoryView:(id)arg1;
 - (void)setRightCalloutAccessoryView:(id)arg1;
 - (void)setSubtitle:(id)arg1;
-- (BOOL)shouldActivateFeatureSelectionMode;
+- (void)setSuppressCallout:(bool)arg1;
+- (id)shieldDataSource;
 - (id)subtitle;
+- (bool)suppressCallout;
 - (id)title;
 
 @end

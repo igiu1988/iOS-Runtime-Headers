@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface OCDSummary : NSObject {
-    NSString *mAuthor;
-    NSString *mComments;
-    NSString *mHyperlinkBase;
-    NSString *mKeywords;
-    NSString *mTitle;
+    NSString * mAuthor;
+    NSString * mComments;
+    NSString * mHyperlinkBase;
+    NSString * mKeywords;
+    NSString * mTitle;
 }
 
 - (id)author;

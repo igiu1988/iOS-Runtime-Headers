@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSURL;
-
 @interface SKUIImageViewElementCacheKey : NSObject {
+    long long  _imageTreatment;
     struct CGSize { 
-        float width; 
-        float height; 
-    int _imageTreatment;
-    } _size;
-    NSURL *_url;
+        double width; 
+        double height; 
+    }  _size;
+    NSURL * _url;
 }
 
 - (void).cxx_destruct;
-- (unsigned int)hash;
-- (id)initWithURL:(id)arg1 size:(struct CGSize { float x1; float x2; })arg2 imageTreatment:(id)arg3;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (id)initWithURL:(id)arg1 size:(struct CGSize { double x1; double x2; })arg2 imageTreatment:(id)arg3;
+- (bool)isEqual:(id)arg1;
 
 @end

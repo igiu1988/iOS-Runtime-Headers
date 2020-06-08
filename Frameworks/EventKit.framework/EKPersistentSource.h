@@ -2,54 +2,59 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class EKSourceConstraints, NSNumber, NSString;
+@interface EKPersistentSource : EKPersistentObject
 
-@interface EKPersistentSource : EKPersistentObject {
-    EKSourceConstraints *_constraints;
-}
+@property (nonatomic, retain) NSString *UUID;
+@property (nonatomic, readonly) NSString *UUID;
+@property (nonatomic, readonly) CDBSourceConstraints *constraints;
+@property (nonatomic, copy) NSNumber *defaultAlarmOffset;
+@property (nonatomic) bool disabled;
+@property (nonatomic, copy) NSString *externalID;
+@property (nonatomic, copy) NSString *externalModificationTag;
+@property (nonatomic) bool onlyCreatorCanModify;
+@property (nonatomic) int preferredEventPrivateValue;
+@property (nonatomic) long long sourceType;
+@property (nonatomic) int strictestEventPrivateValue;
+@property (nonatomic, copy) NSString *title;
 
-@property NSString * UUID;
-@property(readonly) EKSourceConstraints * constraints;
-@property(copy) NSNumber * defaultAlarmOffset;
-@property(getter=isEnabled) BOOL enabled;
-@property(copy) NSString * externalID;
-@property(copy) NSString * externalModificationTag;
-@property BOOL onlyCreatorCanModify;
-@property int preferredEventPrivateValue;
-@property int sourceType;
-@property int strictestEventPrivateValue;
-@property(copy) NSString * title;
-
-+ (int)_calEventPrivacyLevelToEKPrivacyLevel:(int)arg1;
-+ (int)_ekPrivacyLevelToCalEventPrivacyLevel:(int)arg1;
 + (id)defaultPropertiesToLoad;
 + (id)relations;
 
 - (id)UUID;
 - (id)constraints;
-- (void)dealloc;
+- (id)constraintsDescriptionPath;
+- (id)creatorBundleID;
+- (id)creatorCodeSigningIdentity;
 - (id)defaultAlarmOffset;
 - (id)description;
+- (bool)disabled;
 - (int)entityType;
 - (id)externalID;
 - (id)externalModificationTag;
-- (id)init;
-- (BOOL)isEnabled;
-- (BOOL)onlyCreatorCanModify;
+- (int)flags;
+- (id)lastSyncEndDate;
+- (unsigned long long)lastSyncError;
+- (id)lastSyncStartDate;
+- (bool)onlyCreatorCanModify;
 - (int)preferredEventPrivateValue;
-- (BOOL)refresh;
-- (void)reset;
+- (void)setConstraintsDescriptionPath:(id)arg1;
+- (void)setCreatorBundleID:(id)arg1;
+- (void)setCreatorCodeSigningIdentity:(id)arg1;
 - (void)setDefaultAlarmOffset:(id)arg1;
-- (void)setEnabled:(BOOL)arg1;
+- (void)setDisabled:(bool)arg1;
 - (void)setExternalID:(id)arg1;
 - (void)setExternalModificationTag:(id)arg1;
-- (void)setOnlyCreatorCanModify:(BOOL)arg1;
+- (void)setFlags:(int)arg1;
+- (void)setLastSyncEndDate:(id)arg1;
+- (void)setLastSyncError:(unsigned long long)arg1;
+- (void)setLastSyncStartDate:(id)arg1;
+- (void)setOnlyCreatorCanModify:(bool)arg1;
 - (void)setPreferredEventPrivateValue:(int)arg1;
-- (void)setSourceType:(int)arg1;
+- (void)setSourceType:(long long)arg1;
 - (void)setStrictestEventPrivateValue:(int)arg1;
 - (void)setTitle:(id)arg1;
 - (void)setUUID:(id)arg1;
-- (int)sourceType;
+- (long long)sourceType;
 - (int)strictestEventPrivateValue;
 - (id)title;
 

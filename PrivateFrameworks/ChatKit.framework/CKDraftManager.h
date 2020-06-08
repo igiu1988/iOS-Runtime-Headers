@@ -2,16 +2,15 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSArray, NSMutableDictionary, NSMutableSet;
-
 @interface CKDraftManager : NSObject {
-    NSMutableDictionary *_cachedDrafts;
-    NSMutableSet *_dirtyDraftIDs;
-    NSArray *_pendingRecipients;
+    NSMutableDictionary * _cachedDrafts;
+    NSMutableSet * _dirtyDraftIDs;
+    NSArray * _pendingRecipients;
 }
 
 + (id)sharedInstance;
 
+- (void).cxx_destruct;
 - (void)_clearDraftForConversation:(id)arg1;
 - (id)_draftForKey:(id)arg1;
 - (id)_pendingRecipients;
@@ -22,7 +21,8 @@
 - (void)dealloc;
 - (id)draftForConversation:(id)arg1;
 - (id)draftForPendingConversationWithRecipients:(id*)arg1;
-- (void)save:(BOOL)arg1;
+- (void)flushCache;
+- (void)save:(bool)arg1;
 - (void)setDraft:(id)arg1 forConversation:(id)arg2;
 - (void)setDraftForPendingConversation:(id)arg1 withRecipients:(id)arg2;
 

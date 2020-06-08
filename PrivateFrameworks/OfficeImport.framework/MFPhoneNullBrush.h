@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface MFPhoneNullBrush : MFPhoneBrush {
-}
+@interface MFPhoneNullBrush : MFPhoneBrush
 
 + (id)nullBrush;
 
-- (void)fillPath:(id)arg1 :(id)arg2;
+- (void)fillPath:(id)arg1 in_path:(id)arg2;
 
 @end

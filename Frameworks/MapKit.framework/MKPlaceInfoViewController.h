@@ -2,78 +2,57 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class <MKPlaceInfoViewControllerDelegate>, ABCardGroup, MKMapItem, MKYelpDeal, NSArray, NSAttributedString, NSString, UIImage, _MKPlaceInfoViewControllerRouter, _MKPlaceViewController;
-
-@interface MKPlaceInfoViewController : ABContactViewController <ABContactViewControllerDelegate, MKStackingViewControllerPreferredSizeUse, MKPlaceAttributionCellProvider> {
-    _MKPlaceInfoViewControllerRouter *_actionsProxy;
-    ABCardGroup *_businessInfoGroup;
-    NSArray *_businessInfoOrder;
-    MKYelpDeal *_deal;
-    ABCardGroup *_dealsGroup;
-    <MKPlaceInfoViewControllerDelegate> *_infoDelegate;
-    UIImage *_inlineMap;
-    ABCardGroup *_inlineMapGroup;
-    MKMapItem *_mapItem;
-    _MKPlaceViewController *_owner;
-    BOOL _showAttribution;
+@interface MKPlaceInfoViewController : MKPlaceSectionViewController <MKModuleViewControllerProtocol, MKOfflineModeViewController, UIGestureRecognizerDelegate, _MKInfoCardChildViewControllerAnalyticsDelegate> {
+    <MKPlaceActionManagerProtocol> * _actionDelegate;
+    bool  _bottomHairlineHidden;
+    UILongPressGestureRecognizer * _longPressRecognizer;
+    MKMapItem * _mapItem;
+    bool  _offlineMode;
+    <_MKPlaceItem> * _placeItem;
+    NSMutableArray * _rows;
+    MKPlaceSectionRowView * _selectedRow;
 }
 
-@property(retain) _MKPlaceInfoViewControllerRouter * actionsProxy;
-@property(retain) NSArray * businessInfoOrder;
-@property(retain) MKYelpDeal * deal;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) NSAttributedString * infoAttributionString;
-@property <MKPlaceInfoViewControllerDelegate> * infoDelegate;
-@property(retain) UIImage * inlineMap;
-@property(retain) MKMapItem * mapItem;
-@property _MKPlaceViewController * owner;
-@property(readonly) BOOL requiresPreferredContentSizeInStackingView;
-@property BOOL showAttribution;
-@property(readonly) Class superclass;
+@property (nonatomic) <MKPlaceActionManagerProtocol> *actionDelegate;
+@property (nonatomic) bool bottomHairlineHidden;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) bool hasContent;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) MKMapItem *mapItem;
+@property (nonatomic) bool offlineMode;
+@property (nonatomic, retain) <_MKPlaceItem> *placeItem;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (void)_directionsFromAddress:(id)arg1;
-- (void)_directionsToAddress:(id)arg1;
-- (void)_flyoverTour:(id)arg1;
-- (void)_handleBusinessAttributionRequest;
-- (void)_launchMaps;
+- (void)_addContactRow:(id)arg1 ofType:(unsigned long long)arg2 toViews:(id)arg3 defaultTitle:(id)arg4;
+- (id)_addRowForType:(unsigned long long)arg1 withValue:(id)arg2 toViews:(id)arg3;
+- (void)_configureRow:(id)arg1 ofType:(unsigned long long)arg2 withValue:(id)arg3;
+- (id)_createViewForInfoRow:(unsigned long long)arg1;
 - (void)_launchMapsDirectionsWithSource:(id)arg1 destination:(id)arg2 directionsMode:(id)arg3;
-- (void)_setupActions;
-- (void)_setupBusinessInfo;
-- (void)_showDeal;
-- (void)_updatePreferredContentSize;
-- (id)actionsProxy;
-- (id)businessInfoOrder;
-- (id)contactHeaderView;
-- (id)contactView:(id)arg1 cellForItemAtIndex:(int)arg2 inGroup:(id)arg3;
-- (float)contactView:(id)arg1 heightForItemAtIndex:(int)arg2 inGroup:(id)arg3;
-- (int)contactView:(id)arg1 numberOfItemsInGroup:(id)arg2;
-- (BOOL)contactViewController:(id)arg1 shouldPerformDefaultActionForContact:(id)arg2 property:(id)arg3 labeledValue:(id)arg4;
-- (id)deal;
-- (id)infoAttributionString;
-- (id)infoDelegate;
-- (id)initWithContact:(id)arg1;
-- (id)inlineMap;
+- (void)_menuDismissed:(id)arg1;
+- (void)_rowLongPressed:(id)arg1;
+- (void)_shareAddress:(id)arg1 fromView:(id)arg2;
+- (void)_updateViewsAnimated:(bool)arg1;
+- (id)actionDelegate;
+- (unsigned long long)actionTypeFromRowType:(unsigned long long)arg1;
+- (bool)bottomHairlineHidden;
+- (id)contact;
+- (id)draggableContent;
+- (bool)gestureRecognizerShouldBegin:(id)arg1;
+- (bool)hasContent;
+- (id)infoCardChildPossibleActions;
+- (id)initWithPlaceItem:(id)arg1;
 - (id)mapItem;
-- (id)owner;
-- (BOOL)requiresPreferredContentSizeInStackingView;
-- (void)setActionsProxy:(id)arg1;
-- (void)setBusinessInfoOrder:(id)arg1;
-- (void)setDeal:(id)arg1;
-- (void)setInfoDelegate:(id)arg1;
-- (void)setInlineMap:(id)arg1;
+- (bool)offlineMode;
+- (id)placeItem;
+- (void)sectionView:(id)arg1 didSelectRow:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)setActionDelegate:(id)arg1;
+- (void)setBottomHairlineHidden:(bool)arg1;
 - (void)setMapItem:(id)arg1;
-- (void)setOwner:(id)arg1;
-- (void)setShowAttribution:(BOOL)arg1;
-- (BOOL)showAttribution;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForFooterInSection:(int)arg2;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)tableViewDidFinishReload:(id)arg1;
-- (void)updateInlineMapWithRefinedMapItem:(id)arg1;
-- (void)viewDidLayoutSubviews;
+- (void)setOfflineMode:(bool)arg1;
+- (void)setPlaceItem:(id)arg1;
+- (bool)shouldShowDetails;
 - (void)viewDidLoad;
 
 @end

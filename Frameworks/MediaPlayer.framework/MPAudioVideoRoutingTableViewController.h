@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPAVRoutingController, NSArray, NSString;
-
 @interface MPAudioVideoRoutingTableViewController : UITableViewController <MPAVRoutingControllerDelegate> {
-    int _airPlayPasswordAlertDidAppearToken;
-    BOOL _airPlayPasswordAlertDidAppearTokenIsValid;
-    int _airPlayPasswordAlertDidCancelToken;
-    unsigned int _avItemType;
-    BOOL _displayMirroringRoutes;
-    NSArray *_displayedRoutes;
-    MPAVRoutingController *_routingController;
-    BOOL _wirelessDisplayCapableRouteIsPicked;
-    BOOL _wirelessDisplayRouteIsPendingAsPicked;
+    int  _airPlayPasswordAlertDidAppearToken;
+    bool  _airPlayPasswordAlertDidAppearTokenIsValid;
+    int  _airPlayPasswordAlertDidCancelToken;
+    long long  _avItemType;
+    bool  _displayMirroringRoutes;
+    NSArray * _displayedRoutes;
+    MPAVRoutingController * _routingController;
+    bool  _wirelessDisplayCapableRouteIsPicked;
+    bool  _wirelessDisplayRouteIsPendingAsPicked;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) MPAVRoutingController * routingController;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) MPAVRoutingController *routingController;
+@property (readonly) Class superclass;
 
 + (id)routesPreferringMirroring;
 
@@ -28,18 +26,18 @@
 - (id)_availableRoutes;
 - (void)_debugButtonAction:(id)arg1;
 - (id)_displayedRoutes;
-- (id)_effectivePickedRouteReturningActualPickedRouteType:(int*)arg1;
+- (id)_effectivePickedRouteReturningActualPickedRouteType:(long long*)arg1;
 - (void)_mirroringSwitchValueDidChange:(id)arg1;
 - (id)_pickedRoute;
-- (BOOL)_wirelessDisplayCapableRouteIsPicked;
+- (bool)_wirelessDisplayCapableRouteIsPicked;
 - (void)dealloc;
-- (id)initWithType:(unsigned int)arg1 displayMirroringRoutes:(BOOL)arg2;
+- (id)initWithType:(long long)arg1 displayMirroringRoutes:(bool)arg2;
 - (id)routingController;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
-- (void)viewDidAppear:(BOOL)arg1;
+- (void)viewDidAppear:(bool)arg1;
 
 @end

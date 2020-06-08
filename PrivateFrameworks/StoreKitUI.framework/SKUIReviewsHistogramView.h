@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSMutableDictionary, NSString, SKUIClientContext, SKUIColorScheme, SKUIStarRatingControl, UIButton, UIControl, UIImageView, UILabel, UISegmentedControl, UIView;
-
 @interface SKUIReviewsHistogramView : UIView {
-    UIButton *_appSupportButton;
-    UIView *_bottomSeparatorView;
-    SKUIClientContext *_clientContext;
-    SKUIColorScheme *_colorScheme;
-    UILabel *_countLabel;
-    UIImageView *_histogramImageView;
-    NSArray *_histogramValues;
-    int _numberOfUserRatings;
-    NSMutableDictionary *_ratings;
-    UISegmentedControl *_segmentedControl;
-    SKUIStarRatingControl *_starRatingControl;
-    UILabel *_starRatingControlLabel;
-    UILabel *_titleLabel;
-    float _userRating;
-    UIImageView *_userRatingStarsView;
-    NSString *_versionString;
-    UIButton *_writeAReviewButton;
+    UIButton * _appSupportButton;
+    UIView * _bottomSeparatorView;
+    SKUIClientContext * _clientContext;
+    SKUIColorScheme * _colorScheme;
+    UILabel * _countLabel;
+    UIImageView * _histogramImageView;
+    NSArray * _histogramValues;
+    long long  _numberOfUserRatings;
+    NSMutableDictionary * _ratings;
+    UISegmentedControl * _segmentedControl;
+    SKUIStarRatingControl * _starRatingControl;
+    UILabel * _starRatingControlLabel;
+    UILabel * _titleLabel;
+    double  _userRating;
+    UIImageView * _userRatingStarsView;
+    NSString * _versionString;
+    UIButton * _writeAReviewButton;
 }
 
-@property(readonly) UIControl * appSupportButton;
-@property(retain) SKUIColorScheme * colorScheme;
-@property(retain) NSArray * histogramValues;
-@property int numberOfUserRatings;
-@property int personalStarRating;
-@property(readonly) UIControl * segmentedControl;
-@property(copy) NSArray * segmentedControlTitles;
-@property int selectedSegmentIndex;
-@property(readonly) UIControl * starRatingControl;
-@property(copy) NSString * title;
-@property float userRating;
-@property(copy) NSString * versionString;
-@property(readonly) UIControl * writeAReviewButton;
+@property (nonatomic, readonly) UIControl *appSupportButton;
+@property (nonatomic, retain) SKUIColorScheme *colorScheme;
+@property (nonatomic, retain) NSArray *histogramValues;
+@property (nonatomic) long long numberOfUserRatings;
+@property (nonatomic) long long personalStarRating;
+@property (nonatomic, readonly) UIControl *segmentedControl;
+@property (nonatomic, copy) NSArray *segmentedControlTitles;
+@property (nonatomic) long long selectedSegmentIndex;
+@property (nonatomic, readonly) UIControl *starRatingControl;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic) double userRating;
+@property (nonatomic, copy) NSString *versionString;
+@property (nonatomic, readonly) UIControl *writeAReviewButton;
 
 - (void).cxx_destruct;
 - (id)_countLabelString;
@@ -46,25 +44,25 @@
 - (id)histogramValues;
 - (id)initWithClientContext:(id)arg1;
 - (void)layoutSubviews;
-- (int)numberOfUserRatings;
-- (int)personalStarRating;
+- (long long)numberOfUserRatings;
+- (long long)personalStarRating;
 - (id)segmentedControl;
 - (id)segmentedControlTitles;
-- (int)selectedSegmentIndex;
+- (long long)selectedSegmentIndex;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setColorScheme:(id)arg1;
 - (void)setHistogramValues:(id)arg1;
-- (void)setNumberOfUserRatings:(int)arg1;
-- (void)setPersonalStarRating:(int)arg1;
+- (void)setNumberOfUserRatings:(long long)arg1;
+- (void)setPersonalStarRating:(long long)arg1;
 - (void)setSegmentedControlTitles:(id)arg1;
-- (void)setSelectedSegmentIndex:(int)arg1;
+- (void)setSelectedSegmentIndex:(long long)arg1;
 - (void)setTitle:(id)arg1;
-- (void)setUserRating:(float)arg1;
+- (void)setUserRating:(double)arg1;
 - (void)setVersionString:(id)arg1;
-- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
+- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
 - (id)starRatingControl;
 - (id)title;
-- (float)userRating;
+- (double)userRating;
 - (id)versionString;
 - (id)writeAReviewButton;
 

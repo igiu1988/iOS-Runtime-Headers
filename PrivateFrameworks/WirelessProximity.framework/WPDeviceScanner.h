@@ -2,46 +2,46 @@
    Image: /System/Library/PrivateFrameworks/WirelessProximity.framework/WirelessProximity
  */
 
-@class <WPDeviceScannerDelegate>, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, XPCClient;
-
-@interface WPDeviceScanner : NSObject <XPCClientDelegate> {
-    NSMutableDictionary *_activeScans;
-    <WPDeviceScannerDelegate> *_delegate;
-    NSMutableArray *_liveDevices;
-    NSObject<OS_dispatch_queue> *_queue;
-    int _state;
-    XPCClient *_xpcClient;
+@interface WPDeviceScanner : WPClient {
+    NSMutableDictionary * _activeScans;
+    bool  _anyScanResultsRequested;
+    <WPDeviceScannerDelegate> * _delegate;
+    NSMutableArray * _liveDevices;
 }
 
-@property(retain) NSMutableDictionary * activeScans;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) NSMutableArray * liveDevices;
-@property(retain) NSObject<OS_dispatch_queue> * queue;
-@property int state;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSMutableDictionary *activeScans;
+@property (nonatomic) bool anyScanResultsRequested;
+@property (nonatomic) <WPDeviceScannerDelegate> *delegate;
+@property (nonatomic, retain) NSMutableArray *liveDevices;
 
 - (void).cxx_destruct;
 - (id)activeScans;
-- (void)changeState:(int)arg1;
-- (void)connectionDied;
-- (void)connectionInterrupted;
-- (void)dealloc;
+- (void)addPuckType:(id)arg1 toDictionary:(id)arg2;
+- (void)anyDiscoveredDevice:(id)arg1;
+- (bool)anyScanResultsRequested;
+- (id)clientAsString;
+- (id)delegate;
 - (id)description;
-- (id)initWithDelegate:(id)arg1 queue:(id)arg2;
+- (void)deviceDiscovered:(id)arg1;
 - (id)initWithDelegate:(id)arg1;
+- (id)initWithDelegate:(id)arg1 queue:(id)arg2;
+- (void)invalidate;
 - (id)liveDevices;
-- (void)messageArrived:(id)arg1;
+- (void)parseAirPrint:(char *)arg1 forSize:(int)arg2 intoDictionary:(id)arg3;
+- (void)parseCompanyData:(char *)arg1 forSize:(int)arg2 intoDictionary:(id)arg3;
+- (bool)parseType:(unsigned char)arg1 atOffset:(char *)arg2 withSize:(int)arg3 intoDictionary:(id)arg4;
 - (void)postDevice:(id)arg1;
 - (void)postDevices:(id)arg1;
-- (id)queue;
+- (void)registerForAnyScanResults:(bool)arg1;
 - (void)registerForDevicesMatching:(id)arg1 options:(id)arg2;
+- (void)scanningFailedToStart:(id)arg1 ofType:(unsigned char)arg2;
+- (void)scanningStartedOfType:(unsigned char)arg1;
+- (void)scanningStoppedOfType:(unsigned char)arg1;
 - (void)setActiveScans:(id)arg1;
+- (void)setAnyScanResultsRequested:(bool)arg1;
+- (void)setDelegate:(id)arg1;
 - (void)setLiveDevices:(id)arg1;
-- (void)setQueue:(id)arg1;
-- (void)setState:(int)arg1;
-- (int)state;
+- (void)stateDidChange:(long long)arg1;
 - (void)timerFinished:(id)arg1;
 - (void)unregisterAllDeviceChanges;
 - (void)unregisterForDevices:(id)arg1;

@@ -2,15 +2,19 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@interface HDDataTypeSourceOrderEntity : HDHealthEntity {
-}
+@interface HDDataTypeSourceOrderEntity : HDHealthEntity
 
-+ (id)_predicateForSourceID:(id)arg1;
-+ (id)createTableSQL;
++ (id)_orderedSourceIDsForType:(id)arg1 userOrdered:(bool*)arg2 database:(id)arg3 error:(id*)arg4;
++ (bool)_saveOrderedSourceIDs:(id)arg1 dataTypeCode:(long long)arg2 userOrdered:(bool)arg3 syncProvenance:(long long)arg4 database:(id)arg5 error:(id*)arg6;
++ (const struct { id x1; unsigned char x2; }*)columnDefinitionsWithCount:(unsigned long long*)arg1;
 + (id)databaseTable;
-+ (id)orderedSourceIDsForType:(id)arg1 userOrdered:(BOOL*)arg2 healthDaemon:(id)arg3 error:(id*)arg4;
-+ (int)protectionClass;
-+ (BOOL)removeSourceID:(id)arg1 healthDaemon:(id)arg2 error:(id*)arg3;
-+ (BOOL)saveOrderedSourceIDs:(id)arg1 type:(id)arg2 userOrdered:(BOOL)arg3 healthDaemon:(id)arg4 error:(id*)arg5;
++ (id)foreignKeys;
++ (id)indices;
++ (id)joinClausesForProperty:(id)arg1;
++ (id)orderedSourceIDsForType:(id)arg1 userOrdered:(bool*)arg2 profile:(id)arg3 error:(id*)arg4;
++ (id)propertyForSyncProvenance;
++ (long long)protectionClass;
++ (bool)saveOrderedSourceIDs:(id)arg1 type:(id)arg2 userOrdered:(bool)arg3 profile:(id)arg4 error:(id*)arg5;
++ (id)tableAliases;
 
 @end

@@ -2,20 +2,21 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class NSArray, NSDecimalNumber, NSLocale, NSString;
-
 @interface SKProductInternal : NSObject {
-    NSString *_contentVersion;
-    NSArray *_downloadContentLengths;
-    BOOL _downloadable;
-    NSString *_localeIdentifier;
-    NSString *_localizedDescription;
-    NSString *_localizedTitle;
-    NSDecimalNumber *_price;
-    NSLocale *_priceLocale;
-    NSString *_productIdentifier;
+    NSString * _contentVersion;
+    NSArray * _downloadContentLengths;
+    bool  _downloadable;
+    SKProductDiscount * _introductoryPrice;
+    NSString * _localeIdentifier;
+    NSString * _localizedDescription;
+    NSString * _localizedTitle;
+    NSDecimalNumber * _price;
+    NSLocale * _priceLocale;
+    NSString * _productIdentifier;
+    NSString * _subscriptionGroupIdentifier;
+    SKProductSubscriptionPeriod * _subscriptionPeriod;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end

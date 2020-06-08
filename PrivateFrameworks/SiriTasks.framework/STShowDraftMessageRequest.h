@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/SiriTasks.framework/SiriTasks
  */
 
-@class NSURL;
-
 @interface STShowDraftMessageRequest : AFSiriRequest {
-    NSURL *_draftMessageIdentifier;
+    NSURL * _draftMessageIdentifier;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_initWithDraftMessageIdentifier:(id)arg1;

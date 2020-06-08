@@ -2,22 +2,21 @@
    Image: /System/Library/PrivateFrameworks/GenerationalStorage.framework/GenerationalStorage
  */
 
-@class GSDaemonProxySync, GSPermanentStorage, NSArray, NSError, NSString;
-
 @interface GSPermanentAdditionEnumerator : NSEnumerator <GSAdditionEnumerating> {
-    NSArray *_array;
-    NSError *_error;
-    NSString *_nameSpace;
-    unsigned int _pos;
-    GSDaemonProxySync *_proxy;
-    GSPermanentStorage *_storage;
-    id _token;
-    unsigned long long _withOptions;
-    unsigned long long _withoutOptions;
+    NSArray * _array;
+    NSError * _error;
+    NSString * _nameSpace;
+    unsigned long long  _pos;
+    GSDaemonProxySync * _proxy;
+    GSPermanentStorage * _storage;
+    id  _token;
+    unsigned long long  _withOptions;
+    unsigned long long  _withoutOptions;
 }
 
-@property(readonly) NSError * error;
+@property (nonatomic, readonly) NSError *error;
 
+- (void).cxx_destruct;
 - (void)_fetchNextBatch;
 - (void)dealloc;
 - (id)error;

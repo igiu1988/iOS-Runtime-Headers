@@ -2,28 +2,13 @@
    Image: /System/Library/PrivateFrameworks/PrototypeTools.framework/PrototypeTools
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@interface PTSRowAction : NSObject <NSCopying> {
-    BOOL _deselectRowOnSuccess;
-    id _handler;
+@interface PTSRowAction : PTRowAction {
+    bool  _deselectRowOnSuccess;
 }
 
-@property BOOL deselectRowOnSuccess;
-@property(copy) id handler;
+@property bool deselectRowOnSuccess;
 
-+ (id)action;
-+ (id)actionWithHandler:(id)arg1;
-
-- (void).cxx_destruct;
-- (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (BOOL)deselectRowOnSuccess;
-- (id)handler;
-- (id)init;
-- (void)resolveTemplatesWithIndex:(unsigned int)arg1;
-- (void)setDeselectRowOnSuccess:(BOOL)arg1;
-- (void)setHandler:(id)arg1;
+- (bool)deselectRowOnSuccess;
+- (void)setDeselectRowOnSuccess:(bool)arg1;
 
 @end

@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class AASigningSession, ACAccount, NSDictionary;
-
 @interface AASetupAssistantCreateRequest : AARequest {
-    ACAccount *_account;
-    NSDictionary *appleIDParameters;
-    AASigningSession *signingSession;
+    ACAccount * _account;
+    NSDictionary * appleIDParameters;
+    AASigningSession * signingSession;
 }
 
 + (Class)responseClass;

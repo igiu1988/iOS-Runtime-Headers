@@ -2,19 +2,21 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface WMListLevelTextToken : NSObject {
-    int m_level;
-    NSString *m_string;
+    CMNumberFormatter * _formatter;
+    int  _level;
+    NSString * _string;
 }
 
-+ (id)tokenWithString:(id)arg1 andLevel:(int)arg2;
+@property (readonly) int level;
+@property (readonly) NSString *string;
 
-- (void)dealloc;
-- (id)initWithString:(id)arg1 andLevel:(int)arg2;
++ (id)tokenWithString:(id)arg1 level:(int)arg2 formatter:(id)arg3;
+
+- (void).cxx_destruct;
+- (id)initWithString:(id)arg1 level:(int)arg2 formatter:(id)arg3;
 - (int)level;
 - (id)string;
-- (id)stringForIndex:(unsigned int)arg1 withFormat:(int)arg2 orNumberFormatter:(void**)arg3 initialNumber:(unsigned int)arg4;
+- (id)stringForIndex:(unsigned long long)arg1;
 
 @end

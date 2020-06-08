@@ -2,7 +2,8 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@interface HKSampleType : HKObjectType {
-}
+@interface HKSampleType : HKObjectType
+
+- (bool)_validateMetadata:(id)arg1 error:(id*)arg2;
 
 @end

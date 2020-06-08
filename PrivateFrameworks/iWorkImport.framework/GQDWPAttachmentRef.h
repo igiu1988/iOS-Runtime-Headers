@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDRoot;
-
 @interface GQDWPAttachmentRef : GQDWPAttachment {
-    GQDRoot *mRoot;
-    char *mUID;
+    GQDRoot * mRoot;
+    char * mUID;
 }
 
 - (void)dealloc;

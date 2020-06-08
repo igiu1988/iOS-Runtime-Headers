@@ -2,17 +2,14 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class IKImageElement, IKTextElement, NSString;
+@interface IKButtonElement : IKViewElement
 
-@interface IKButtonElement : IKViewElement {
-}
+@property (nonatomic, readonly) long long buttonType;
+@property (nonatomic, readonly, copy) NSString *confirmationText;
+@property (nonatomic, readonly, retain) IKImageElement *image;
+@property (nonatomic, readonly, retain) IKTextElement *text;
 
-@property(readonly) int buttonType;
-@property(copy,readonly) NSString * confirmationText;
-@property(retain,readonly) IKImageElement * image;
-@property(retain,readonly) IKTextElement * text;
-
-- (int)buttonType;
+- (long long)buttonType;
 - (id)confirmationText;
 - (id)image;
 - (id)text;

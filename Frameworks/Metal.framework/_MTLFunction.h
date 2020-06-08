@@ -2,75 +2,72 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class <MTLDevice>, NSArray, NSString;
-
 @interface _MTLFunction : NSObject <MTLFunctionSPI> {
-    struct MTLFunctionOffsets { 
-        unsigned long long publicArguments; 
-        unsigned long long privateArguments; 
-    struct MTLFunctionVersions { 
-        unsigned short airMajorVersion; 
-        unsigned short airMinorVersion; 
-        unsigned short languageMajorVersion; 
-        unsigned short languageMinorVersion; 
-    struct { 
-        unsigned char key[32]; 
-    int _bitCodeOffset;
-    } _bitcodeHash;
-    <MTLDevice> *_device;
-    NSString *_filePath;
-    unsigned int _functionType;
-    struct MTLLibraryData { int (**x1)(); int x2; id x3; } *_libraryData;
-    int _lineNumber;
-    NSString *_name;
-    } _offsets;
-    unsigned char _privateMetadataInitialized;
-    id _vendorPrivate;
-    } _versions;
-    NSArray *_vertexAttributes;
-    unsigned char _vertexAttributesInitialized;
+    NSArray * _arguments;
+    <MTLDevice> * _device;
+    NSDictionary * _functionConstantDictionary;
+    NSArray * _functionConstants;
+    unsigned long long  _functionType;
+    NSString * _label;
+    struct MTLLibraryData { int (**x1)(); int x2; id x3; } * _libraryData;
+    NSString * _name;
+    MTLType * _returnType;
+    NSString * _unpackedFilePath;
+    id  _vendorPrivate;
+    NSArray * _vertexAttributes;
 }
 
-@property int bitCodeOffset;
-@property(readonly) struct { unsigned char x1[32]; } bitcodeHash;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) <MTLDevice> * device;
-@property(copy) NSString * filePath;
-@property(readonly) unsigned int functionType;
-@property(readonly) const struct MTLFunctionVersions { unsigned short x1; unsigned short x2; unsigned short x3; unsigned short x4; }* functionVersions;
-@property(readonly) unsigned int hash;
-@property(readonly) struct MTLLibraryData { int (**x1)(); int x2; id x3; }* libraryData;
-@property int lineNumber;
-@property(readonly) NSString * name;
-@property(readonly) Class superclass;
-@property(readonly) id vendorPrivate;
-@property(readonly) NSArray * vertexAttributes;
+@property NSArray *arguments;
+@property (readonly) unsigned long long bitCodeOffset;
+@property (readonly) unsigned char bitcodeType;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) <MTLDevice> *device;
+@property (copy) NSString *filePath;
+@property NSArray *functionConstants;
+@property (readonly) NSDictionary *functionConstantsDictionary;
+@property (readonly) NSObject<OS_dispatch_data> *functionInputs;
+@property (readonly) unsigned long long functionType;
+@property (readonly) unsigned long long hash;
+@property (copy) NSString *label;
+@property (readonly) struct MTLLibraryData { int (**x1)(); int x2; id x3; }*libraryData;
+@property long long lineNumber;
+@property (readonly) NSString *name;
+@property (readonly) bool needsFunctionConstantValues;
+@property (readonly) long long patchControlPointCount;
+@property (readonly) unsigned long long patchType;
+@property (readonly) unsigned long long renderTargetArrayIndexType;
+@property MTLType *returnType;
+@property (readonly) NSArray *stageInputAttributes;
+@property (readonly) Class superclass;
+@property (copy) NSString *unpackedFilePath;
+@property (readonly) id vendorPrivate;
+@property NSArray *vertexAttributes;
 
-- (struct MTLLibraryData { int (**x1)(); int x2; id x3; }*)libraryData;
-- (id).cxx_construct;
-- (int)bitCodeOffset;
-- (struct { unsigned char x1[32]; })bitcodeHash;
+- (unsigned long long)bitCodeFileSize;
+- (const struct { unsigned char x1[32]; }*)bitCodeHash;
+- (id)bitcodeData;
 - (void)dealloc;
 - (id)description;
 - (id)device;
-- (id)filePath;
-- (unsigned int)functionType;
-- (const struct MTLFunctionVersions { unsigned short x1; unsigned short x2; unsigned short x3; unsigned short x4; }*)functionVersions;
-- (id)initWithName:(id)arg1 bitcodeHash:(const struct { unsigned char x1[32]; }*)arg2 type:(unsigned int)arg3 libraryData:(struct MTLLibraryData { int (**x1)(); int x2; id x3; }*)arg4 offsets:(struct MTLFunctionOffsets { unsigned long long x1; unsigned long long x2; }*)arg5 versions:(struct MTLFunctionVersions { unsigned short x1; unsigned short x2; unsigned short x3; unsigned short x4; }*)arg6 device:(id)arg7;
-- (void)initializePrivateMetadata;
-- (int)lineNumber;
+- (id)formattedDescription:(unsigned long long)arg1;
+- (id)functionConstantsDictionary;
+- (unsigned long long)functionType;
+- (id)initWithName:(id)arg1 type:(unsigned long long)arg2 libraryData:(struct MTLLibraryData { int (**x1)(); int x2; id x3; }*)arg3 device:(id)arg4;
+- (id)label;
+- (struct MTLLibraryData { int (**x1)(); int x2; id x3; }*)libraryData;
 - (id)name;
-- (void)setBitCodeOffset:(int)arg1;
-- (void)setFilePath:(id)arg1;
-- (void)setLineNumber:(int)arg1;
+- (id)newArgumentEncoderWithBufferIndex:(unsigned long long)arg1;
+- (id)newArgumentEncoderWithBufferIndex:(unsigned long long)arg1 reflection:(id*)arg2;
+- (id)newIndirectArgumentEncoderWithBufferIndex:(unsigned long long)arg1;
+- (id)newIndirectArgumentEncoderWithBufferIndex:(unsigned long long)arg1 reflection:(id*)arg2;
+- (id)newSerializedVertexDataWithVertexDescriptor:(id)arg1;
+- (id)reflectionWithOptions:(unsigned long long)arg1;
+- (void)reflectionWithOptions:(unsigned long long)arg1 completionHandler:(id /* block */)arg2;
+- (void)setLabel:(id)arg1;
+- (void)setUnpackedFilePath:(id)arg1;
 - (void)setVendorPrivate:(id)arg1;
+- (id)unpackedFilePath;
 - (id)vendorPrivate;
-- (id)vertexAttributes;
 
 @end

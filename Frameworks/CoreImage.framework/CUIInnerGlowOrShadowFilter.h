@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIColor, CIImage, CIVector, NSNumber;
-
 @interface CUIInnerGlowOrShadowFilter : CIFilter {
-    CIColor *inputColor;
-    CIImage *inputImage;
-    CIVector *inputOffset;
-    NSNumber *inputRadius;
-    NSNumber *inputRange;
+    CIColor * inputColor;
+    CIImage * inputImage;
+    CIVector * inputOffset;
+    NSNumber * inputRadius;
+    NSNumber * inputRange;
 }
 
-@property(retain) CIColor * inputColor;
-@property(retain) CIImage * inputImage;
-@property(retain) CIVector * inputOffset;
-@property(retain) NSNumber * inputRadius;
-@property(retain) NSNumber * inputRange;
+@property (nonatomic, retain) CIColor *inputColor;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) CIVector *inputOffset;
+@property (nonatomic, retain) NSNumber *inputRadius;
+@property (nonatomic, retain) NSNumber *inputRange;
 
 + (id)customAttributes;
 
@@ -27,7 +25,6 @@
 - (id)inputRadius;
 - (id)inputRange;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputColor:(id)arg1;
 - (void)setInputImage:(id)arg1;
 - (void)setInputOffset:(id)arg1;

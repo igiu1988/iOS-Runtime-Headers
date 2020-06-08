@@ -2,40 +2,36 @@
    Image: /System/Library/PrivateFrameworks/GameKitServices.framework/GameKitServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
-
 @interface GKAsyncSocketInternal : GKAsyncSocket {
-    id _connectedHandler;
-    int _connectionSocket;
-    NSMutableData *_dataToSend;
-    BOOL _invalidated;
-    id _receiveDataHandler;
-    NSObject<OS_dispatch_source> *_receiveSource;
-    NSObject<OS_dispatch_source> *_sendSource;
-    BOOL _sendSourceSuspended;
-    NSString *_socketName;
-    NSObject<OS_dispatch_queue> *_syncQueue;
-    NSObject<OS_dispatch_queue> *_targetQueue;
+    id /* block */  _connectedHandler;
+    int  _connectionSocket;
+    NSMutableData * _dataToSend;
+    bool  _invalidated;
+    id /* block */  _receiveDataHandler;
+    NSObject<OS_dispatch_source> * _receiveSource;
+    NSObject<OS_dispatch_source> * _sendSource;
+    bool  _sendSourceSuspended;
+    NSString * _socketName;
+    NSObject<OS_dispatch_queue> * _syncQueue;
+    NSObject<OS_dispatch_queue> * _targetQueue;
 }
 
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *targetQueue;
+
 - (void)closeConnectionNow;
-- (id)connectedHandler;
+- (id /* block */)connectedHandler;
 - (void)dealloc;
 - (id)init;
 - (void)invalidate;
 - (void)receiveData;
-- (id)receiveDataHandler;
-- (void)sendData:(id)arg1 withCompletionHandler:(id)arg2;
+- (id /* block */)receiveDataHandler;
 - (void)sendData;
-- (void)setConnectedHandler:(id)arg1;
-- (void)setReceiveDataHandler:(id)arg1;
+- (void)sendData:(id)arg1 withCompletionHandler:(id /* block */)arg2;
+- (void)setConnectedHandler:(id /* block */)arg1;
+- (void)setReceiveDataHandler:(id /* block */)arg1;
 - (void)setSocketName:(id)arg1;
 - (void)setTargetQueue:(id)arg1;
-- (BOOL)setupSourcesWithSocket:(int)arg1 receiveEventHandler:(id)arg2 sendEventHandler:(id)arg3;
+- (bool)setupSourcesWithSocket:(int)arg1 receiveEventHandler:(id /* block */)arg2 sendEventHandler:(id /* block */)arg3;
 - (id)socketName;
 - (id)targetQueue;
 - (void)tcpAttachSocketDescriptor:(int)arg1;

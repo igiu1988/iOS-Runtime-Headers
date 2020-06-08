@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class AVPlayerItemAccessLog, NSArray, NSData;
-
 @interface MPMovieAccessLog : NSObject <NSCopying> {
-    AVPlayerItemAccessLog *_accessLog;
+    AVPlayerItemAccessLog * _accessLog;
 }
 
-@property(readonly) NSArray * events;
-@property(readonly) NSData * extendedLogData;
-@property(readonly) unsigned int extendedLogDataStringEncoding;
+@property (nonatomic, readonly) NSArray *events;
+@property (nonatomic, readonly) NSData *extendedLogData;
+@property (nonatomic, readonly) unsigned long long extendedLogDataStringEncoding;
 
 - (void).cxx_destruct;
 - (id)_initWithAVItemAccessLog:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)events;
 - (id)extendedLogData;
-- (unsigned int)extendedLogDataStringEncoding;
+- (unsigned long long)extendedLogDataStringEncoding;
 
 @end

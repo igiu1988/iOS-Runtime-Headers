@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSDictionary, NSError, NSHashTable, NSURL;
-
 @interface NSFileWrapperMoreIVars : NSObject {
-    BOOL attributesMustBeWrittenSoNoHardLinking;
-    NSDictionary *cachedDirectoryChildrenAsDictionary;
-    NSError *contentsLazyReadingError;
-    BOOL contentsMustBeReadWithoutMapping;
-    NSURL *contentsURL;
-    NSHashTable *parents;
+    bool  attributesMustBeWrittenSoNoHardLinking;
+    NSDictionary * cachedDirectoryChildrenAsDictionary;
+    NSError * contentsLazyReadingError;
+    bool  contentsMustBeReadWithoutMapping;
+    NSURL * contentsURL;
+    NSHashTable * parents;
 }
 
 @end

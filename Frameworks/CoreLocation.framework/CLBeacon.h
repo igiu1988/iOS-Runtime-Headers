@@ -2,25 +2,18 @@
    Image: /System/Library/Frameworks/CoreLocation.framework/CoreLocation
  */
 
-@class NSNumber, NSUUID;
-
 @interface CLBeacon : NSObject <NSCopying, NSSecureCoding> {
-    double _accuracy;
-    NSNumber *_major;
-    NSNumber *_minor;
-    int _proximity;
-    NSUUID *_proximityUUID;
-    int _rssi;
+    CLBeaconInternal * _internal;
 }
 
-@property(readonly) double accuracy;
-@property(readonly) NSNumber * major;
-@property(readonly) NSNumber * minor;
-@property(readonly) int proximity;
-@property(readonly) NSUUID * proximityUUID;
-@property(readonly) int rssi;
+@property (nonatomic, readonly) double accuracy;
+@property (nonatomic, readonly, copy) NSNumber *major;
+@property (nonatomic, readonly, copy) NSNumber *minor;
+@property (nonatomic, readonly) long long proximity;
+@property (nonatomic, readonly, copy) NSUUID *proximityUUID;
+@property (nonatomic, readonly) long long rssi;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (double)accuracy;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -28,11 +21,11 @@
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithProximityUUID:(id)arg1 major:(id)arg2 minor:(id)arg3 proximity:(int)arg4 accuracy:(double)arg5 rssi:(int)arg6;
+- (id)initWithProximityUUID:(id)arg1 major:(id)arg2 minor:(id)arg3 proximity:(long long)arg4 accuracy:(double)arg5 rssi:(long long)arg6;
 - (id)major;
 - (id)minor;
-- (int)proximity;
+- (long long)proximity;
 - (id)proximityUUID;
-- (int)rssi;
+- (long long)rssi;
 
 @end

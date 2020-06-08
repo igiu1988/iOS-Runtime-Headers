@@ -2,8 +2,6 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDIDSLocalDeliveryMessageReceived : PBCodable <NSCopying> {
     struct { 
         unsigned int isFromDefaultPairedDevice : 1; 
@@ -11,53 +9,53 @@
         unsigned int messageSize : 1; 
         unsigned int priority : 1; 
         unsigned int timestamp : 1; 
-    } _has;
-    unsigned long long _isFromDefaultPairedDevice;
-    unsigned long long _linkType;
-    unsigned long long _messageSize;
-    unsigned long long _priority;
-    NSString *_service;
-    unsigned long long _timestamp;
+    }  _has;
+    unsigned long long  _isFromDefaultPairedDevice;
+    unsigned long long  _linkType;
+    unsigned long long  _messageSize;
+    unsigned long long  _priority;
+    NSString * _service;
+    unsigned long long  _timestamp;
 }
 
-@property BOOL hasIsFromDefaultPairedDevice;
-@property BOOL hasLinkType;
-@property BOOL hasMessageSize;
-@property BOOL hasPriority;
-@property(readonly) BOOL hasService;
-@property BOOL hasTimestamp;
-@property unsigned long long isFromDefaultPairedDevice;
-@property unsigned long long linkType;
-@property unsigned long long messageSize;
-@property unsigned long long priority;
-@property(retain) NSString * service;
-@property unsigned long long timestamp;
+@property (nonatomic) bool hasIsFromDefaultPairedDevice;
+@property (nonatomic) bool hasLinkType;
+@property (nonatomic) bool hasMessageSize;
+@property (nonatomic) bool hasPriority;
+@property (nonatomic, readonly) bool hasService;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic) unsigned long long isFromDefaultPairedDevice;
+@property (nonatomic) unsigned long long linkType;
+@property (nonatomic) unsigned long long messageSize;
+@property (nonatomic) unsigned long long priority;
+@property (nonatomic, retain) NSString *service;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasIsFromDefaultPairedDevice;
-- (BOOL)hasLinkType;
-- (BOOL)hasMessageSize;
-- (BOOL)hasPriority;
-- (BOOL)hasService;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasIsFromDefaultPairedDevice;
+- (bool)hasLinkType;
+- (bool)hasMessageSize;
+- (bool)hasPriority;
+- (bool)hasService;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (unsigned long long)isFromDefaultPairedDevice;
 - (unsigned long long)linkType;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)messageSize;
 - (unsigned long long)priority;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)service;
-- (void)setHasIsFromDefaultPairedDevice:(BOOL)arg1;
-- (void)setHasLinkType:(BOOL)arg1;
-- (void)setHasMessageSize:(BOOL)arg1;
-- (void)setHasPriority:(BOOL)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasIsFromDefaultPairedDevice:(bool)arg1;
+- (void)setHasLinkType:(bool)arg1;
+- (void)setHasMessageSize:(bool)arg1;
+- (void)setHasPriority:(bool)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setIsFromDefaultPairedDevice:(unsigned long long)arg1;
 - (void)setLinkType:(unsigned long long)arg1;
 - (void)setMessageSize:(unsigned long long)arg1;

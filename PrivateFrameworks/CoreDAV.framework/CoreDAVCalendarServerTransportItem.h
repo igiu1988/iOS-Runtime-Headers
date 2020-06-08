@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVItemWithHrefChildItem, CoreDAVLeafItem;
-
 @interface CoreDAVCalendarServerTransportItem : CoreDAVItem {
-    CoreDAVLeafItem *_apsBundleID;
-    CoreDAVLeafItem *_apsEnv;
-    CoreDAVLeafItem *_courierServer;
-    CoreDAVLeafItem *_refreshInterval;
-    CoreDAVItemWithHrefChildItem *_subscriptionURL;
-    CoreDAVItemWithHrefChildItem *_tokenURL;
-    CoreDAVLeafItem *_xmppServer;
-    CoreDAVLeafItem *_xmppURI;
+    CoreDAVLeafItem * _apsBundleID;
+    CoreDAVLeafItem * _apsEnv;
+    CoreDAVLeafItem * _courierServer;
+    CoreDAVLeafItem * _refreshInterval;
+    CoreDAVItemWithHrefChildItem * _subscriptionURL;
+    CoreDAVItemWithHrefChildItem * _tokenURL;
+    CoreDAVLeafItem * _xmppServer;
+    CoreDAVLeafItem * _xmppURI;
 }
 
-@property(retain) CoreDAVLeafItem * apsBundleID;
-@property(retain) CoreDAVLeafItem * apsEnv;
-@property(retain) CoreDAVLeafItem * courierServer;
-@property(retain) CoreDAVLeafItem * refreshInterval;
-@property(retain) CoreDAVItemWithHrefChildItem * subscriptionURL;
-@property(retain) CoreDAVItemWithHrefChildItem * tokenURL;
-@property(retain) CoreDAVLeafItem * xmppServer;
-@property(retain) CoreDAVLeafItem * xmppURI;
+@property (nonatomic, retain) CoreDAVLeafItem *apsBundleID;
+@property (nonatomic, retain) CoreDAVLeafItem *apsEnv;
+@property (nonatomic, retain) CoreDAVLeafItem *courierServer;
+@property (nonatomic, retain) CoreDAVLeafItem *refreshInterval;
+@property (nonatomic, retain) CoreDAVItemWithHrefChildItem *subscriptionURL;
+@property (nonatomic, retain) CoreDAVItemWithHrefChildItem *tokenURL;
+@property (nonatomic, retain) CoreDAVLeafItem *xmppServer;
+@property (nonatomic, retain) CoreDAVLeafItem *xmppURI;
 
 + (id)copyParseRules;
 
+- (void).cxx_destruct;
 - (id)apsBundleID;
 - (id)apsEnv;
 - (id)courierServer;
-- (void)dealloc;
 - (id)description;
 - (id)init;
 - (id)refreshInterval;

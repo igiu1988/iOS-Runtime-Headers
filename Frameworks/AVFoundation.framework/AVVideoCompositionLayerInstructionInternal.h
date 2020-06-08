@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSMutableArray;
-
 @interface AVVideoCompositionLayerInstructionInternal : NSObject {
-    NSMutableArray *cropRectangleRamps;
-    NSMutableArray *opacityRamps;
-    int trackID;
-    NSMutableArray *transformRamps;
+    NSMutableArray * cropRectangleRamps;
+    NSMutableArray * opacityRamps;
+    int  trackID;
+    NSMutableArray * transformRamps;
 }
 
 @end

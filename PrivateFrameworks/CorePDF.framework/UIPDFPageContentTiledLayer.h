@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/CorePDF.framework/CorePDF
  */
 
-@class CALayer;
-
 @interface UIPDFPageContentTiledLayer : CATiledLayer <UIPDFSelectionLayer> {
-    CALayer *_selectionLayer;
+    CALayer * _selectionLayer;
 }
 
 - (void)dealloc;

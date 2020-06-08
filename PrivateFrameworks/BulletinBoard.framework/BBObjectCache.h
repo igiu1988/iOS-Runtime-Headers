@@ -2,31 +2,12 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface BBObjectCache : NSObject {
-    struct _opaque_pthread_mutex_t { 
-        long __sig; 
-        BOOL __opaque[40]; 
-    NSMutableDictionary *_cache;
-    } _cacheMutex;
-    NSString *_identifier;
+    NSHashTable * _cache;
 }
 
-@property(copy) NSString * identifier;
-
-+ (id)description;
-+ (id)objectCacheForIdentifier:(id)arg1;
-
-- (id)_descriptionForObject:(id)arg1 uniqueID:(id)arg2;
+- (void).cxx_destruct;
 - (id)cacheObject:(id)arg1;
-- (id)cachedObjectForUniqueID:(id)arg1;
-- (void)dealloc;
-- (id)debugDescription;
-- (id)description;
-- (id)identifier;
 - (id)init;
-- (void)removeCachedObject:(id)arg1;
-- (void)setIdentifier:(id)arg1;
 
 @end

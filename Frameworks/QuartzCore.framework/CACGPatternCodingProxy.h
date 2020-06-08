@@ -3,8 +3,10 @@
  */
 
 @interface CACGPatternCodingProxy : CACodingProxy {
-    struct CGPattern { } *_pattern;
+    struct CGPattern { } * _pattern;
 }
+
++ (bool)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)decodedObject;

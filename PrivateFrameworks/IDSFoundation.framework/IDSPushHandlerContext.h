@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/IDSFoundation.framework/IDSFoundation
  */
 
-@class NSObject<OS_dispatch_queue>, NSSet;
-
 @interface IDSPushHandlerContext : NSObject {
-    NSSet *_commands;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSSet *_topics;
+    NSSet * _commands;
+    NSObject<OS_dispatch_queue> * _queue;
+    NSSet * _topics;
 }
 
-@property(copy) NSSet * commands;
-@property(readonly) NSObject<OS_dispatch_queue> * queue;
-@property(copy) NSSet * topics;
+@property (nonatomic, copy) NSSet *commands;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *queue;
+@property (nonatomic, copy) NSSet *topics;
 
+- (void).cxx_destruct;
 - (id)commands;
-- (void)dealloc;
 - (id)initWithQueue:(id)arg1 topics:(id)arg2 commands:(id)arg3;
 - (id)queue;
 - (void)setCommands:(id)arg1;

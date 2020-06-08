@@ -2,45 +2,42 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <TSKModel>, NSDate, NSString, TSDCommentStorage, TSDDrawableInfo, TSKAnnotationAuthor;
-
-@interface TSDDrawableComment : NSObject <TSDAnnotationHosting, TSDCommentStorageDelegate> {
-    TSDDrawableInfo *mParent;
-    TSDCommentStorage *mStorage;
+@interface TSDDrawableComment : TSKSosBase <TSDComment> {
+    NSString * _annotationUUID;
+    TSDDrawableInfo * _parent;
+    TSDCommentStorage * mStorage;
 }
 
-@property(readonly) int annotationDisplayStringType;
-@property(readonly) int annotationType;
-@property(readonly) TSKAnnotationAuthor * author;
-@property(readonly) NSString * changeTrackingContentFormatString;
-@property(readonly) NSString * changeTrackingContentString;
-@property(readonly) NSString * changeTrackingTitleString;
-@property(readonly) NSDate * date;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property <TSKModel> * hostingModel;
-@property TSDDrawableInfo * parent;
-@property(copy) TSDCommentStorage * storage;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) int annotationDisplayStringType;
+@property (nonatomic, readonly) int annotationType;
+@property (nonatomic, retain) NSString *annotationUUID;
+@property (nonatomic, retain) TSKAnnotationAuthor *author;
+@property (nonatomic, readonly) NSDate *date;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isHighlight;
+@property (nonatomic) TSDDrawableInfo *parent;
+@property (nonatomic, copy) TSDCommentStorage *storage;
+@property (readonly) Class superclass;
 
+- (void).cxx_destruct;
 - (int)annotationDisplayStringType;
 - (int)annotationType;
+- (id)annotationUUID;
 - (id)author;
-- (id)commandForDeletingComment;
-- (void)commentStorageTextDidChange:(id)arg1;
-- (void)commitText:(id)arg1;
+- (void)commentWillBeAddedToDocumentRoot;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)date;
-- (void)dealloc;
 - (id)description;
-- (Class)editorClass;
-- (id)hostingModel;
 - (id)initWithParent:(id)arg1 storage:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isFloatingComment;
+- (bool)isHighlight;
+- (bool)isInDocument;
+- (void)p_updateAnnotationUUID;
 - (id)parent;
+- (void)setAnnotationUUID:(id)arg1;
 - (void)setAuthor:(id)arg1;
-- (void)setHostingModel:(id)arg1;
 - (void)setParent:(id)arg1;
 - (void)setStorage:(id)arg1;
 - (id)storage;

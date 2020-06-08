@@ -2,45 +2,39 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString, UIPickerView;
-
 @interface EKUICustomRecurrenceIntervalViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
-    id _changeBlock;
-    int _frequency;
-    int _interval;
-    BOOL _maximumInterval;
-    UIPickerView *_pickerView;
+    id /* block */  _changeBlock;
+    long long  _frequency;
+    long long  _interval;
+    bool  _maximumInterval;
+    UIPickerView * _pickerView;
 }
 
-@property(copy) id changeBlock;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property int frequency;
-@property(readonly) unsigned int hash;
-@property int interval;
-@property BOOL maximumInterval;
-@property(readonly) Class superclass;
+@property (copy) id /* block */ changeBlock;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) long long frequency;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) long long interval;
+@property (nonatomic) bool maximumInterval;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (id)changeBlock;
-- (int)frequency;
-- (id)initWithSelectedInterval:(int)arg1 frequency:(int)arg2 changeBlock:(id)arg3;
-- (int)interval;
+- (id /* block */)changeBlock;
+- (long long)frequency;
+- (id)initWithSelectedInterval:(long long)arg1 frequency:(long long)arg2 changeBlock:(id /* block */)arg3;
+- (long long)interval;
 - (void)loadView;
-- (BOOL)maximumInterval;
-- (int)numberOfComponentsInPickerView:(id)arg1;
-- (void)pickerView:(id)arg1 didSelectRow:(int)arg2 inComponent:(int)arg3;
-- (int)pickerView:(id)arg1 numberOfRowsInComponent:(int)arg2;
-- (id)pickerView:(id)arg1 titleForRow:(int)arg2 forComponent:(int)arg3;
+- (bool)maximumInterval;
+- (long long)numberOfComponentsInPickerView:(id)arg1;
 - (id)pickerView;
-- (void)setChangeBlock:(id)arg1;
-- (void)setFrequency:(int)arg1;
-- (void)setInterval:(int)arg1;
-- (void)setMaximumInterval:(BOOL)arg1;
+- (void)pickerView:(id)arg1 didSelectRow:(long long)arg2 inComponent:(long long)arg3;
+- (long long)pickerView:(id)arg1 numberOfRowsInComponent:(long long)arg2;
+- (id)pickerView:(id)arg1 titleForRow:(long long)arg2 forComponent:(long long)arg3;
+- (void)setChangeBlock:(id /* block */)arg1;
+- (void)setFrequency:(long long)arg1;
+- (void)setInterval:(long long)arg1;
+- (void)setMaximumInterval:(bool)arg1;
 - (void)viewDidLoad;
 
 @end

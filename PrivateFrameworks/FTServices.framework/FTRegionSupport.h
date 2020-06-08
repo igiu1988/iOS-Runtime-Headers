@@ -2,32 +2,29 @@
    Image: /System/Library/PrivateFrameworks/FTServices.framework/FTServices
  */
 
-@class FTMessageDelivery, NSArray;
-
 @interface FTRegionSupport : NSObject {
-    FTMessageDelivery *_delivery;
-    NSArray *_regions;
+    FTMessageDelivery * _delivery;
+    NSArray * _regions;
 }
 
-@property(retain) FTMessageDelivery * _delivery;
-@property(retain) NSArray * _regions;
-@property(readonly) BOOL isLoaded;
-@property(readonly) BOOL isLoading;
-@property(readonly) NSArray * regions;
+@property (retain) FTMessageDelivery *delivery;
+@property (readonly) bool isLoaded;
+@property (readonly) bool isLoading;
+@property (retain) NSArray *regions;
 
 + (id)sharedInstance;
 
+- (void).cxx_destruct;
 - (void)_buildMessageDeliveryIfNeeded;
-- (id)_delivery;
-- (id)_regions;
 - (void)dealloc;
+- (id)delivery;
 - (void)flushRegions;
-- (BOOL)isLoaded;
-- (BOOL)isLoading;
+- (bool)isLoaded;
+- (bool)isLoading;
 - (id)regionForID:(id)arg1;
 - (id)regions;
-- (void)set_delivery:(id)arg1;
-- (void)set_regions:(id)arg1;
+- (void)setDelivery:(id)arg1;
+- (void)setRegions:(id)arg1;
 - (void)startLoading;
 
 @end

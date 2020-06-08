@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/AccountsDaemon.framework/AccountsDaemon
  */
 
-@class ACDDatabase;
-
 @interface ACDClientAuthorizationManager : NSObject {
-    ACDDatabase *_database;
+    ACDDatabase * _database;
 }
 
 - (void).cxx_destruct;

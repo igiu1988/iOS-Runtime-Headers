@@ -2,43 +2,46 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSDictionary, NSError, NSMutableArray, NSObject<OS_dispatch_queue>, NSString, SSDownload, SSPurchase, SSPurchaseResponse;
-
 @interface MPStoreDownload : NSObject {
-    SSDownload *_SSDownload;
-    SSPurchase *_SSPurchase;
-    SSPurchaseResponse *_SSPurchaseResponse;
-    NSObject<OS_dispatch_queue> *_accessQueue;
-    NSDictionary *_attributes;
-    BOOL _canceled;
-    NSMutableArray *_overridePhaseIdentifiers;
-    int _type;
+    SSDownload * _SSDownload;
+    SSPurchase * _SSPurchase;
+    SSPurchaseResponse * _SSPurchaseResponse;
+    NSObject<OS_dispatch_queue> * _accessQueue;
+    NSDictionary * _attributes;
+    bool  _canceled;
+    NSString * _downloadFilePath;
+    NSMutableArray * _overridePhaseIdentifiers;
+    long long  _type;
 }
 
-@property(readonly) NSDictionary * attributes;
-@property(readonly) long long bytesDownloaded;
-@property(readonly) long long bytesTotal;
-@property(getter=isCanceled,readonly) BOOL canceled;
-@property(readonly) long long downloadIdentifier;
-@property(readonly) long long downloadSizeLimit;
-@property(readonly) NSError * failureError;
-@property(getter=isFinished,readonly) BOOL finished;
-@property(readonly) unsigned long long libraryItemIdentifier;
-@property(getter=isPaused,readonly) BOOL paused;
-@property(readonly) double percentComplete;
-@property(readonly) NSString * phaseIdentifier;
-@property(readonly) NSError * purchaseError;
-@property(getter=isPurchasing,readonly) BOOL purchasing;
-@property(getter=isRestore,readonly) BOOL restore;
-@property(readonly) long long storeItemIdentifier;
-@property(readonly) int type;
+@property (nonatomic, readonly) NSDictionary *attributes;
+@property (nonatomic, readonly) long long bytesDownloaded;
+@property (nonatomic, readonly) long long bytesTotal;
+@property (getter=isCanceled, nonatomic, readonly) bool canceled;
+@property (nonatomic, readonly) long long downloadIdentifier;
+@property (nonatomic, readonly) long long downloadSizeLimit;
+@property (nonatomic, readonly) NSError *failureError;
+@property (getter=isFinished, nonatomic, readonly) bool finished;
+@property (nonatomic, readonly) unsigned long long libraryItemIdentifier;
+@property (getter=isPaused, nonatomic, readonly) bool paused;
+@property (nonatomic, readonly) double percentComplete;
+@property (nonatomic, readonly) NSString *phaseIdentifier;
+@property (nonatomic, readonly) NSError *purchaseError;
+@property (getter=isPurchasing, nonatomic, readonly) bool purchasing;
+@property (nonatomic, readonly) long long reason;
+@property (nonatomic, readonly) NSDictionary *rentalInformation;
+@property (getter=isRestore, nonatomic, readonly) bool restore;
+@property (nonatomic, readonly) long long storeItemIdentifier;
+@property (nonatomic, readonly) long long type;
 
-+ (id)_SSPurchaseForType:(int)arg1 attributes:(id)arg2 buyParameters:(id)arg3 purchaseValuesForDownloadProperties:(id)arg4 URLBagKeyOverride:(id)arg5;
-+ (id)_storeDownloadForCompletionOffer:(id)arg1 type:(int)arg2 attributes:(id)arg3;
-+ (id)_storeDownloadForContext:(id)arg1 type:(int)arg2 attributes:(id)arg3;
-+ (id)storeDownloadForCompletionOffering:(id)arg1 type:(int)arg2 attributes:(id)arg3;
++ (id)_SSPurchaseForType:(long long)arg1 attributes:(id)arg2;
++ (bool)_getEffectiveStoreDownloadAttributes:(id*)arg1 forPlaybackItemMetadata:(id)arg2 attributes:(id)arg3;
++ (bool)canCreateStoreDownloadForPlaybackItemMetadata:(id)arg1 type:(long long)arg2 attributes:(id)arg3;
++ (id)storeDownloadForMediaItem:(id)arg1 type:(long long)arg2 attributes:(id)arg3;
++ (id)storeDownloadForPlaybackItemMetadata:(id)arg1 type:(long long)arg2 attributes:(id)arg3;
 + (id)storeDownloadForStoreItemOffer:(id)arg1 attributes:(id)arg2;
-+ (id)storeDownloadsForContexts:(id)arg1 type:(int)arg2 attributes:(id)arg3;
++ (id)storeDownloadForStoreOffer:(id)arg1 type:(long long)arg2 attributes:(id)arg3;
++ (id)storeDownloadWithDownloadIdentifier:(long long)arg1;
 
 - (void).cxx_destruct;
 - (id)_SSDownload;
@@ -46,9 +49,11 @@
 - (id)_SSPurchaseResponse;
 - (void)_addOverridePhaseIdentifier:(id)arg1;
 - (id)_currentOverridePhaseIdentifier;
-- (BOOL)_isCanceled;
+- (id)_getDownloadFilePath;
+- (bool)_isCanceled;
 - (void)_removeOverridePhaseIdentifier:(id)arg1;
-- (void)_setCanceled:(BOOL)arg1;
+- (void)_setCanceled:(bool)arg1;
+- (void)_setDownloadFilePath:(id)arg1;
 - (void)_setSSDownload:(id)arg1;
 - (void)_setSSPurchase:(id)arg1 SSPurchaseResponse:(id)arg2;
 - (id)_valueForDownloadProperty:(id)arg1;
@@ -60,17 +65,20 @@
 - (long long)downloadIdentifier;
 - (long long)downloadSizeLimit;
 - (id)failureError;
-- (id)initWithType:(int)arg1 attributes:(id)arg2;
-- (BOOL)isCanceled;
-- (BOOL)isFinished;
-- (BOOL)isPaused;
-- (BOOL)isPurchasing;
-- (BOOL)isRestore;
+- (id)initWithType:(long long)arg1 attributes:(id)arg2;
+- (bool)isCanceled;
+- (bool)isFinished;
+- (bool)isPaused;
+- (bool)isPurchasing;
+- (bool)isRestore;
 - (unsigned long long)libraryItemIdentifier;
 - (double)percentComplete;
 - (id)phaseIdentifier;
 - (id)purchaseError;
+- (long long)reason;
+- (id)rentalInformation;
+- (void)resetCachedRentalInformation;
 - (long long)storeItemIdentifier;
-- (int)type;
+- (long long)type;
 
 @end

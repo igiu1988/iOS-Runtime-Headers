@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVItem;
-
 @interface CoreDAVBulkRequestsSupportedItem : CoreDAVItem {
-    CoreDAVItem *_supported;
+    CoreDAVItem * _supported;
 }
 
-@property(retain) CoreDAVItem * supported;
+@property (nonatomic, retain) CoreDAVItem *supported;
 
 + (id)copyParseRules;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 - (id)init;
 - (void)setSupported:(id)arg1;

@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSCH3DBarExtrusionGeometry;
-
 @interface TSCH3DBarVertexResource : TSCH3DAbstractBarVertexResource {
-    TSCH3DBarExtrusionGeometry *mGeometry;
+    TSCH3DBarExtrusionGeometry * mGeometry;
 }
 
-- (int)capOffset;
+- (long long)capOffset;
 - (void)dealloc;
 - (id)geometry;
 - (id)get;
 - (id)initWithGeometry:(id)arg1;
-- (int)numCapVertices;
-- (int)numVertices;
-- (int)verticesOffset;
+- (long long)numCapVertices;
+- (long long)numVertices;
+- (long long)verticesOffset;
 
 @end

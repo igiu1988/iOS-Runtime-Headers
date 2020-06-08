@@ -2,60 +2,46 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class <GEOTileRequesterDelegate>, GEOResourceManifestConfiguration, GEOTileKeyList, GEOTileKeyMap, NSData, NSLocale, NSString, NSThread;
-
 @interface GEOTileRequester : NSObject {
-    NSData *_auditToken;
-    NSString *_bundleIdentifier;
-    NSString *_bundleVersion;
-    GEOTileKeyMap *_cachedData;
-    GEOTileKeyMap *_cachedEtags;
-    id _context;
-    <GEOTileRequesterDelegate> *_delegate;
-    GEOTileKeyList *_keyList;
-    NSLocale *_locale;
-    GEOResourceManifestConfiguration *_manifestConfiguration;
-    BOOL _requireWiFi;
-    NSThread *_thread;
+    id  _context;
+    <GEOTileRequesterDelegate> * _delegate;
+    NSObject<OS_dispatch_queue> * _delegateQueue;
+    NSString * _deviceCountry;
+    NSString * _deviceRegion;
+    NSThread * _thread;
+    GEOTileRequest * _tileRequest;
 }
 
-@property(retain) NSData * auditToken;
-@property(retain) NSString * bundleIdentifier;
-@property(retain) NSString * bundleVersion;
-@property(readonly) GEOTileKeyMap * cachedData;
-@property(readonly) GEOTileKeyMap * cachedEtags;
-@property(retain) id context;
-@property(retain) <GEOTileRequesterDelegate> * delegate;
-@property(readonly) GEOTileKeyList * keyList;
-@property BOOL requireWiFi;
-@property(retain) NSThread * thread;
+@property (nonatomic, retain) id context;
+@property (nonatomic, readonly) <GEOTileRequesterDelegate> *delegate;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *delegateQueue;
+@property (nonatomic, retain) NSString *deviceCountry;
+@property (nonatomic, retain) NSString *deviceRegion;
+@property (nonatomic, readonly) GEOResourceManifestManager *resourceManifestManager;
+@property (nonatomic, readonly) GEOTileRequest *tileRequest;
 
-+ (unsigned int)expiringTilesetsCount;
++ (unsigned long long)expiringTilesetsCount;
 + (struct { unsigned int x1; double x2; }*)newExpiringTilesets;
-+ (BOOL)skipNetworkForKeysWhenPreloading:(id)arg1;
++ (bool)skipNetworkForKeysWhenPreloading:(id)arg1;
 + (unsigned char)tileProviderIdentifier;
 
-- (id)auditToken;
-- (id)bundleIdentifier;
-- (id)bundleVersion;
-- (id)cachedData;
-- (id)cachedEtags;
+- (void).cxx_destruct;
 - (void)cancel;
+- (void)cancelKey:(const struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg1;
 - (id)context;
-- (void)dealloc;
 - (id)delegate;
-- (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 cachedEtags:(id)arg4 cachedData:(id)arg5;
-- (id)keyList;
-- (BOOL)requireWiFi;
-- (void)setAuditToken:(id)arg1;
-- (void)setBundleIdentifier:(id)arg1;
-- (void)setBundleVersion:(id)arg1;
+- (id)delegateQueue;
+- (id)deviceCountry;
+- (id)deviceRegion;
+- (id)initWithTileRequest:(id)arg1 delegateQueue:(id)arg2 delegate:(id)arg3;
+- (void)reprioritizeKey:(const struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg1 newPriority:(unsigned int)arg2;
+- (id)resourceManifestManager;
 - (void)setContext:(id)arg1;
-- (void)setDelegate:(id)arg1;
-- (void)setRequireWiFi:(BOOL)arg1;
-- (void)setThread:(id)arg1;
+- (void)setDeviceCountry:(id)arg1;
+- (void)setDeviceRegion:(id)arg1;
 - (void)start;
-- (id)thread;
+- (void)tearDown;
+- (id)tileRequest;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey { unsigned int x1 : 6; unsigned int x2 : 26; unsigned int x3 : 26; unsigned int x4 : 6; unsigned int x5 : 8; unsigned int x6 : 8; unsigned int x7 : 8; unsigned int x8 : 1; unsigned int x9 : 7; unsigned char x10[4]; }*)arg1;
 
 @end

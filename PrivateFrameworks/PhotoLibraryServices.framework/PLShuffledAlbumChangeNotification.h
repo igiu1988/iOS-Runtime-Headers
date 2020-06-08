@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSIndexSet, NSOrderedSet, PLAssetContainerChangeNotification, PLShuffledAlbum;
-
 @interface PLShuffledAlbumChangeNotification : PLAssetContainerChangeNotification {
-    PLShuffledAlbum *_album;
-    PLAssetContainerChangeNotification *_backingNotification;
-    NSIndexSet *_changedIndexes;
-    NSOrderedSet *_newSet;
+    PLShuffledAlbum * _album;
+    PLAssetContainerChangeNotification * _backingNotification;
+    NSIndexSet * _changedIndexes;
+    NSOrderedSet * _newSet;
 }
 
 + (id)notificationForDerivedObject:(id)arg1 priorChangeState:(id)arg2 forBackingObjectNotification:(id)arg3;
@@ -16,19 +14,19 @@
 - (void)_calculateDiffs;
 - (id)_changedObjects;
 - (id)_diffDescription;
-- (BOOL)_getOldSet:(id*)arg1 newSet:(id*)arg2;
+- (bool)_getOldSet:(id*)arg1 newSet:(id*)arg2;
 - (id)album;
 - (id)changedIndexes;
-- (BOOL)countDidChange;
+- (bool)countDidChange;
 - (void)dealloc;
 - (id)deletedIndexes;
 - (id)description;
 - (id)init;
 - (id)initWithShuffledAlbum:(id)arg1 albumChangeNotification:(id)arg2;
 - (id)insertedIndexes;
-- (BOOL)keyAssetDidChange;
+- (bool)keyAssetDidChange;
 - (id)object;
-- (BOOL)shouldReload;
-- (BOOL)titleDidChange;
+- (bool)shouldReload;
+- (bool)titleDidChange;
 
 @end

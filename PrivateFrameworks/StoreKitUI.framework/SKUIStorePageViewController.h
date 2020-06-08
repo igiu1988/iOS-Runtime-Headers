@@ -2,43 +2,41 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class <SKUIStorePageDelegate>, NSDictionary, NSOperationQueue, NSString, NSURLRequest, SKUIClientContext, SKUIColorScheme, SKUIMetricsController, SKUIStorePage, SKUIStorePageSectionsViewController, SSMetricsPageEvent, SSVLoadURLOperation, UIRefreshControl;
-
-@interface SKUIStorePageViewController : UIViewController <SKUIStorePageSectionsDelegate, SKUIViewControllerTesting, SKUIMetricsViewController, UIViewControllerRestoration> {
-    SKUIClientContext *_clientContext;
-    <SKUIStorePageDelegate> *_delegate;
-    NSString *_lastDataConsumerClassName;
-    SSMetricsPageEvent *_lastPageEvent;
-    NSURLRequest *_lastRequest;
-    BOOL _loadOnAppear;
-    SSVLoadURLOperation *_loadOperation;
-    SKUIMetricsController *_metricsController;
-    NSOperationQueue *_operationQueue;
-    NSString *_performanceTestName;
-    NSDictionary *_performanceTestOptions;
-    SKUIColorScheme *_placeholderColorScheme;
-    UIRefreshControl *_refreshControl;
-    SKUIStorePageSectionsViewController *_sectionsViewController;
-    SKUIStorePage *_storePage;
+@interface SKUIStorePageViewController : UIViewController <SKUIMetricsViewController, SKUIStorePageSectionsDelegate, SKUIViewControllerTesting, UIViewControllerRestoration> {
+    SKUIClientContext * _clientContext;
+    <SKUIStorePageDelegate> * _delegate;
+    NSString * _lastDataConsumerClassName;
+    SSMetricsPageEvent * _lastPageEvent;
+    NSURLRequest * _lastRequest;
+    bool  _loadOnAppear;
+    SSVLoadURLOperation * _loadOperation;
+    SKUIMetricsController * _metricsController;
+    NSOperationQueue * _operationQueue;
+    NSString * _performanceTestName;
+    NSDictionary * _performanceTestOptions;
+    SKUIColorScheme * _placeholderColorScheme;
+    UIRefreshControl * _refreshControl;
+    SKUIStorePageSectionsViewController * _sectionsViewController;
+    SKUIStorePage * _storePage;
 }
 
-@property(retain) SKUIClientContext * clientContext;
-@property(copy,readonly) NSString * debugDescription;
-@property <SKUIStorePageDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(getter=isLoading,readonly) BOOL loading;
-@property(retain) NSOperationQueue * operationQueue;
-@property(retain) UIRefreshControl * refreshControl;
-@property(copy) SKUIStorePage * storePage;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SKUIStorePageDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) NSOperationQueue *operationQueue;
+@property (nonatomic, retain) UIRefreshControl *refreshControl;
+@property (getter=isSkLoading, nonatomic, readonly) bool skLoading;
+@property (nonatomic, copy) SKUIStorePage *storePage;
+@property (readonly) Class superclass;
 
-+ (BOOL)_shouldForwardViewWillTransitionToSize;
++ (bool)_shouldForwardViewWillTransitionToSize;
 + (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
 
 - (void).cxx_destruct;
 - (id)_colorScheme;
-- (void)_loadWithOperation:(id)arg1 completionBlock:(id)arg2;
+- (void)_loadWithOperation:(id)arg1 completionBlock:(id /* block */)arg2;
 - (void)_metricsEnterEventNotification:(id)arg1;
 - (void)_recordMetricsPageEvent:(id)arg1 forStorePage:(id)arg2;
 - (void)_reloadStorePage;
@@ -55,21 +53,21 @@
 - (void)dealloc;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (id)delegate;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (BOOL)isLoading;
-- (void)loadURL:(id)arg1 withCompletionBlock:(id)arg2;
-- (void)loadURL:(id)arg1 withDataConsumer:(id)arg2 completionBlock:(id)arg3;
-- (void)loadURLRequest:(id)arg1 withCompletionBlock:(id)arg2;
-- (void)loadURLRequest:(id)arg1 withDataConsumer:(id)arg2 completionBlock:(id)arg3;
+- (bool)isSkLoading;
+- (void)loadURL:(id)arg1 withCompletionBlock:(id /* block */)arg2;
+- (void)loadURL:(id)arg1 withDataConsumer:(id)arg2 completionBlock:(id /* block */)arg3;
+- (void)loadURLRequest:(id)arg1 withCompletionBlock:(id /* block */)arg2;
+- (void)loadURLRequest:(id)arg1 withDataConsumer:(id)arg2 completionBlock:(id /* block */)arg3;
 - (void)loadView;
-- (void)loadWithJSONData:(id)arg1 fromOperation:(id)arg2 completionBlock:(id)arg3;
+- (void)loadWithJSONData:(id)arg1 fromOperation:(id)arg2 completionBlock:(id /* block */)arg3;
 - (id)operationQueue;
-- (BOOL)performTestWithName:(id)arg1 options:(id)arg2;
+- (bool)performTestWithName:(id)arg1 options:(id)arg2;
 - (id)refreshControl;
-- (BOOL)sectionsViewController:(id)arg1 showProductPageForItem:(id)arg2;
-- (BOOL)sectionsViewController:(id)arg1 showStorePageForURL:(id)arg2;
+- (bool)sectionsViewController:(id)arg1 showProductPageForItem:(id)arg2;
+- (bool)sectionsViewController:(id)arg1 showStorePageForURL:(id)arg2;
 - (void)sectionsViewControllerDidDismissOverlayController:(id)arg1;
 - (void)setClientContext:(id)arg1;
 - (void)setDelegate:(id)arg1;
@@ -78,7 +76,7 @@
 - (void)setRefreshControl:(id)arg1;
 - (void)setStorePage:(id)arg1;
 - (id)storePage;
-- (unsigned int)supportedInterfaceOrientations;
-- (void)viewWillAppear:(BOOL)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewWillAppear:(bool)arg1;
 
 @end

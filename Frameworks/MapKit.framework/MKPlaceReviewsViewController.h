@@ -2,71 +2,43 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class <MKPlaceCardReviewsControllerDelegate>, ABMonogrammer, GEORating, MKMapItem, NSString, _MKPlaceViewController;
-
-@interface MKPlaceReviewsViewController : UITableViewController <MKPlaceReviewsViewCheckInWriteCellDelegate, MKStackingViewControllerPreferredSizeUse, MKPlaceAttributionCellProvider> {
-    BOOL _hasAttribution;
-    MKMapItem *_mapItem;
-    ABMonogrammer *_monogrammer;
-    _MKPlaceViewController *_owner;
-    GEORating *_rating;
-    <MKPlaceCardReviewsControllerDelegate> *_reviewsControllerDelegate;
-    BOOL _showAttribution;
-    BOOL _showCheckInAndWriteReviewButtons;
-    BOOL _showMoreReviewsButton;
+@interface MKPlaceReviewsViewController : MKPlaceSectionViewController <MKModuleViewControllerProtocol, _MKInfoCardChildViewControllerAnalyticsDelegate> {
+    MKPlaceReviewAvatarGenerator * _avatarGenerator;
+    NSMutableArray * _cells;
+    MKMapItem * _mapItem;
+    <MKPlaceCardReviewsControllerDelegate><MKPlaceCardActionControllerDelegate> * _reviewsControllerDelegate;
+    NSArray * _userSnippets;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property BOOL hasAttribution;
-@property(readonly) unsigned int hash;
-@property(retain) MKMapItem * mapItem;
-@property(retain) ABMonogrammer * monogrammer;
-@property _MKPlaceViewController * owner;
-@property(retain) GEORating * rating;
-@property(readonly) BOOL requiresPreferredContentSizeInStackingView;
-@property <MKPlaceCardReviewsControllerDelegate> * reviewsControllerDelegate;
-@property BOOL showAttribution;
-@property(readonly) BOOL showAttributionButtons;
-@property BOOL showCheckInAndWriteReviewButtons;
-@property BOOL showMoreReviewsButton;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) MKPlaceReviewAvatarGenerator *avatarGenerator;
+@property (nonatomic, retain) NSMutableArray *cells;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) MKMapItem *mapItem;
+@property (nonatomic) <MKPlaceCardReviewsControllerDelegate><MKPlaceCardActionControllerDelegate> *reviewsControllerDelegate;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSArray *userSnippets;
 
 - (void).cxx_destruct;
-- (void)_showReviewWithID:(id)arg1;
+- (void)_showReview:(id)arg1 index:(unsigned long long)arg2;
+- (void)_updateAttribution;
 - (void)_viewAllReviews;
-- (void)checkInWriteReviewCellDidSelectCheckIn:(id)arg1;
-- (void)checkInWriteReviewCellDidSelectWriteReview:(id)arg1;
-- (BOOL)hasAttribution;
-- (id)init;
+- (id)avatarGenerator;
+- (id)cells;
+- (id)infoCardChildPossibleActions;
+- (void)loadCells;
 - (id)mapItem;
-- (id)monogrammer;
-- (int)numberOfSectionsInTableView:(id)arg1;
-- (id)owner;
-- (id)rating;
-- (BOOL)requiresPreferredContentSizeInStackingView;
+- (id)reviewAtIndex:(unsigned long long)arg1;
 - (id)reviewsControllerDelegate;
-- (void)setHasAttribution:(BOOL)arg1;
+- (unsigned long long)reviewsCount;
+- (void)sectionView:(id)arg1 didSelectRow:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)setAvatarGenerator:(id)arg1;
+- (void)setCells:(id)arg1;
 - (void)setMapItem:(id)arg1;
-- (void)setMonogrammer:(id)arg1;
-- (void)setOwner:(id)arg1;
-- (void)setRating:(id)arg1;
 - (void)setReviewsControllerDelegate:(id)arg1;
-- (void)setShowAttribution:(BOOL)arg1;
-- (void)setShowCheckInAndWriteReviewButtons:(BOOL)arg1;
-- (void)setShowMoreReviewsButton:(BOOL)arg1;
-- (BOOL)showAttribution;
-- (BOOL)showAttributionButtons;
-- (BOOL)showCheckInAndWriteReviewButtons;
-- (BOOL)showMoreReviewsButton;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (float)tableView:(id)arg1 heightForHeaderInSection:(int)arg2;
-- (float)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
-- (int)tableView:(id)arg1 numberOfRowsInSection:(int)arg2;
-- (id)tableView:(id)arg1 viewForHeaderInSection:(int)arg2;
-- (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)viewDidLayoutSubviews;
+- (void)setUserSnippets:(id)arg1;
+- (id)userSnippets;
 - (void)viewDidLoad;
 
 @end

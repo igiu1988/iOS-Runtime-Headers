@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSString;
-
 @interface AVRetainReleaseWeakReference : AVWeakReference {
-    NSString *_cachedReferencedObjectDescription;
-    id _weakStorage;
+    NSString * _cachedReferencedObjectDescription;
+    id  _weakStorage;
 }
 
 - (void)dealloc;

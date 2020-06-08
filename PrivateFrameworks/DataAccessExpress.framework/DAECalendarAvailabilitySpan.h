@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/DataAccessExpress.framework/DataAccessExpress
  */
 
-@class NSDate;
-
 @interface DAECalendarAvailabilitySpan : NSObject <NSSecureCoding> {
-    NSDate *_endDate;
-    NSDate *_startDate;
-    int _type;
+    NSDate * _endDate;
+    NSDate * _startDate;
+    long long  _type;
 }
 
-@property(readonly) NSDate * endDate;
-@property(readonly) NSDate * startDate;
-@property(readonly) int type;
+@property (nonatomic, readonly) NSDate *endDate;
+@property (nonatomic, readonly) NSDate *startDate;
+@property (nonatomic, readonly) long long type;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)description;
@@ -22,8 +20,8 @@
 - (id)endDate;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithStartDate:(id)arg1 endDate:(id)arg2 type:(int)arg3;
+- (id)initWithStartDate:(id)arg1 endDate:(id)arg2 type:(long long)arg3;
 - (id)startDate;
-- (int)type;
+- (long long)type;
 
 @end

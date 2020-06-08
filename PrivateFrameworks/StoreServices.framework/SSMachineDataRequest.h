@@ -2,40 +2,47 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSData, NSNumber, NSString;
-
 @interface SSMachineDataRequest : SSRequest <SSXPCCoding> {
-    NSNumber *_accountID;
-    NSData *_actionData;
-    NSString *_actionName;
-    BOOL _allowsBootstrapCellularData;
-    BOOL _waitsForPurchaseOperations;
+    NSNumber * _accountID;
+    NSData * _actionData;
+    NSString * _actionName;
+    bool  _allowsBootstrapCellularData;
+    long long  _protocolVersion;
+    NSString * _userAgent;
+    bool  _waitsForPurchaseOperations;
 }
 
-@property(copy) NSNumber * accountIdentifier;
-@property(copy) NSData * actionData;
-@property(copy) NSString * actionName;
-@property BOOL allowsBootstrapCellularData;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
-@property BOOL waitsForPurchaseOperations;
+@property (copy) NSNumber *accountIdentifier;
+@property (copy) NSData *actionData;
+@property (copy) NSString *actionName;
+@property bool allowsBootstrapCellularData;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property long long protocolVersion;
+@property (readonly) Class superclass;
+@property (copy) NSString *userAgent;
+@property bool waitsForPurchaseOperations;
 
+- (void).cxx_destruct;
 - (id)accountIdentifier;
 - (id)actionData;
 - (id)actionName;
-- (BOOL)allowsBootstrapCellularData;
+- (bool)allowsBootstrapCellularData;
 - (id)copyXPCEncoding;
-- (void)dealloc;
 - (id)initWithURLResponse:(id)arg1;
 - (id)initWithXPCEncoding:(id)arg1;
+- (long long)protocolVersion;
 - (void)setAccountIdentifier:(id)arg1;
 - (void)setActionData:(id)arg1;
 - (void)setActionName:(id)arg1;
-- (void)setAllowsBootstrapCellularData:(BOOL)arg1;
-- (void)setWaitsForPurchaseOperations:(BOOL)arg1;
-- (void)startWithCompletionBlock:(id)arg1;
-- (BOOL)waitsForPurchaseOperations;
+- (void)setAllowsBootstrapCellularData:(bool)arg1;
+- (void)setProtocolVersion:(long long)arg1;
+- (void)setUserAgent:(id)arg1;
+- (void)setWaitsForPurchaseOperations:(bool)arg1;
+- (void)startWithCompletionBlock:(id /* block */)arg1;
+- (void)startWithDetailedCompletionBlock:(id /* block */)arg1;
+- (id)userAgent;
+- (bool)waitsForPurchaseOperations;
 
 @end

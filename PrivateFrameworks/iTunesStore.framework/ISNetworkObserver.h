@@ -2,55 +2,63 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
-
 @interface ISNetworkObserver : NSObject <SSDownloadQueueObserver> {
-    NSString *_dataStatusIndicator;
-    NSObject<OS_dispatch_queue> *_dispatchQueue;
-    BOOL _isCellularRestricted;
-    double _lastNetworkTypeChangeTime;
-    int _networkType;
-    int _networkUsageCount;
-    NSObject<OS_dispatch_queue> *_notificationQueue;
-    NSMutableSet *_observedDownloadQueues;
-    NSString *_operatorName;
-    struct __SCNetworkReachability { } *_reachability;
-    NSString *_registrationStatus;
-    struct __CTServerConnection { } *_telephonyServer;
+    NSString * _dataStatusIndicator;
+    NSObject<OS_dispatch_queue> * _dispatchQueue;
+    bool  _isCellularRestricted;
+    double  _lastNetworkTypeChangeTime;
+    unsigned int  _networkReachabilityFlags;
+    long long  _networkType;
+    long long  _networkUsageCount;
+    NSObject<OS_dispatch_queue> * _notificationQueue;
+    NSMutableSet * _observedDownloadQueues;
+    NSString * _operatorName;
+    struct __SCNetworkReachability { } * _reachability;
+    NSString * _registrationStatus;
+    struct __CTServerConnection { } * _telephonyServer;
 }
 
-@property(readonly) NSString * connectionTypeHeader;
-@property(readonly) NSString * dataStatusIndicator;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) double lastNetworkTypeChangeTime;
-@property(readonly) NSString * modemRegistrationStatus;
-@property int networkType;
-@property(readonly) NSString * operatorName;
-@property(readonly) BOOL shouldShowCellularAutomaticDownloadsSwitch;
-@property(readonly) Class superclass;
-@property(getter=isUsingNetwork,readonly) BOOL usingNetwork;
-@property(getter=isWiFiEnabled,readonly) BOOL wifiEnabled;
+@property (readonly) NSString *connectionTypeHeader;
+@property (readonly) NSString *dataStatusIndicator;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) double lastNetworkTypeChangeTime;
+@property (readonly) NSString *mobileSubscriberCountryCode;
+@property (readonly) NSString *mobileSubscriberNetworkCode;
+@property (readonly) NSString *modemRegistrationStatus;
+@property (readonly) unsigned int networkReachabilityFlags;
+@property long long networkType;
+@property (readonly) NSString *operatorName;
+@property (readonly) NSString *phoneNumber;
+@property (readonly) NSString *providerName;
+@property (readonly) bool shouldShowCellularAutomaticDownloadsSwitch;
+@property (readonly) Class superclass;
+@property (getter=isUsingNetwork, readonly) bool usingNetwork;
+@property (getter=isWiFiEnabled, readonly) bool wifiEnabled;
 
-+ (void)set3GEnabled:(BOOL)arg1;
-+ (void)setAirplaneModeEnabled:(BOOL)arg1;
-+ (void)setWiFiEnabled:(BOOL)arg1;
++ (bool)isLikelyToReachRemoteServerWithReachabilityFlags:(unsigned int)arg1;
++ (void)set3GEnabled:(bool)arg1;
++ (void)setAirplaneModeEnabled:(bool)arg1;
++ (void)setWiFiEnabled:(bool)arg1;
 + (id)sharedInstance;
 
-- (void)_applicationWillEnterForegroundNotification:(id)arg1;
-- (int)_currentNetworkType;
+- (void)_applicationForegroundNotification:(id)arg1;
+- (void)_copyConnectionDataStatus:(id /* block */)arg1;
+- (unsigned int)_currentNetworkReachabilityFlags;
 - (id)_dataStatusIndicator;
 - (void)_handleTelephonyNotificationWithName:(struct __CFString { }*)arg1 userInfo:(struct __CFDictionary { }*)arg2;
-- (int)_networkTypeForReachabilityFlags:(unsigned int)arg1;
-- (int)_networkTypeFromDataIndicator:(id)arg1;
-- (BOOL)_ntsIsUsingNetwork;
-- (void)_postTypeChangedNotificationFromValue:(int)arg1 toValue:(int)arg2;
-- (void)_postUsageChangedToValue:(BOOL)arg1;
+- (long long)_networkTypeForReachabilityFlags:(unsigned int)arg1;
+- (long long)_networkTypeFromDataIndicator:(id)arg1;
+- (bool)_ntsIsUsingNetwork;
+- (void)_postReachabilityFlagsChangedNotificationFromValue:(unsigned int)arg1 toValue:(unsigned int)arg2;
+- (void)_postTypeChangedNotificationFromValue:(long long)arg1 toValue:(long long)arg2;
+- (void)_postUsageChangedToValue:(bool)arg1;
 - (void)_reloadCellularRestriction;
+- (void)_reloadDataStatusIndicator;
 - (void)_reloadNetworkType;
 - (void)_reloadNetworkTypeWithReachabilityFlags:(unsigned int)arg1;
-- (int)_setNetworkType:(int)arg1;
+- (long long)_setNetworkType:(long long)arg1;
 - (void)beginObservingDownloadQueue:(id)arg1;
 - (void)beginUsingNetwork;
 - (id)connectionTypeHeader;
@@ -62,15 +70,20 @@
 - (void)endObservingDownloadQueue:(id)arg1;
 - (void)endUsingNetwork;
 - (id)init;
-- (BOOL)isCellularDataEnabledForBundleIdentifier:(id)arg1;
-- (BOOL)isUsingNetwork;
-- (BOOL)isWiFiEnabled;
+- (bool)isCellularDataEnabledForBundleIdentifier:(id)arg1;
+- (bool)isUsingNetwork;
+- (bool)isWiFiEnabled;
 - (double)lastNetworkTypeChangeTime;
+- (id)mobileSubscriberCountryCode;
+- (id)mobileSubscriberNetworkCode;
 - (id)modemRegistrationStatus;
-- (int)networkType;
+- (unsigned int)networkReachabilityFlags;
+- (long long)networkType;
 - (id)operatorName;
+- (id)phoneNumber;
+- (id)providerName;
 - (void)reloadNetworkType;
-- (void)setNetworkType:(int)arg1;
-- (BOOL)shouldShowCellularAutomaticDownloadsSwitch;
+- (void)setNetworkType:(long long)arg1;
+- (bool)shouldShowCellularAutomaticDownloadsSwitch;
 
 @end

@@ -2,43 +2,79 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <CKComposeRecipientSelectionControllerDelegate>, NSArray, NSString;
-
-@interface CKComposeRecipientSelectionController : CKRecipientSelectionController <UITextFieldDelegate> {
-    id _sendBlock;
+@interface CKComposeRecipientSelectionController : CKRecipientSelectionController <TPPillViewDelegate, UITextFieldDelegate> {
+    bool  _firstAppear;
+    CNGeminiManager * _geminiManager;
+    bool  _hasUserSetContextPreference;
+    UIView * _pillContainerView;
+    TPPillView * _pillView;
+    CTXPCServiceSubscriptionContext * _selectedSubscriptionContext;
+    id /* block */  _sendBlock;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <CKComposeRecipientSelectionControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(retain,readonly) NSArray * expandedRecipients;
-@property(readonly) unsigned int hash;
-@property(retain,readonly) NSArray * proposedRecipients;
-@property(copy) id sendBlock;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CKComposeRecipientSelectionControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) NSArray *expandedRecipients;
+@property (getter=isFirstAppear, nonatomic) bool firstAppear;
+@property (nonatomic, retain) CNGeminiManager *geminiManager;
+@property (nonatomic) bool hasUserSetContextPreference;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) UIView *pillContainerView;
+@property (nonatomic, retain) TPPillView *pillView;
+@property (nonatomic, readonly) NSArray *proposedRecipients;
+@property (nonatomic, retain) CTXPCServiceSubscriptionContext *selectedSubscriptionContext;
+@property (nonatomic, copy) id /* block */ sendBlock;
+@property (readonly) Class superclass;
 
-- (void)_updateBackfillForNewRecipients;
+- (void).cxx_destruct;
+- (id)_getSubscriptionContextToDisplay;
+- (id)_handlesForRecipients:(id)arg1;
+- (bool)_hasExistingConversationWithAddedRecipient:(id)arg1;
+- (bool)_isOniMessageService:(id)arg1;
+- (void)_layoutPillViewKeepHidden:(bool)arg1;
+- (void)_legacyAddRecipient:(id)arg1;
+- (unsigned long long)_pillViewThemeForCurrentService;
+- (id)_senderIdentityForSubscriptionContext:(id)arg1;
+- (bool)_updateBackfillForNewRecipients;
+- (void)_updatePillViewForContext:(id)arg1;
+- (void)_updatePillViewIfIsNewConversation:(bool)arg1;
+- (void)_updatePillViewIfNeededIfIsNewConversation:(bool)arg1;
 - (void)addRecipient:(id)arg1;
-- (BOOL)alwaysShowSearchResultsTable;
-- (void)atomizeAndInvokeBlock:(id)arg1;
+- (bool)alwaysShowSearchResultsTable;
+- (void)atomizeAndInvokeBlock:(id /* block */)arg1;
 - (void)atomizeAndSendTimeoutHandler;
+- (void)configureSubscriptionContextForRecipients:(id)arg1;
 - (void)dealloc;
 - (id)expandedRecipients;
-- (BOOL)homogenizePreferredServiceForiMessage;
-- (BOOL)peoplePickerShouldUsePopovers;
+- (id)geminiManager;
+- (bool)hasUserSetContextPreference;
+- (bool)homogenizePreferredServiceForiMessage;
+- (bool)isFirstAppear;
+- (void)loadView;
+- (id)pillContainerView;
+- (id)pillView;
+- (void)pillViewWasTapped:(id)arg1;
+- (void)presentContextSelectionAlertForRecipient:(id)arg1 completion:(id /* block */)arg2;
 - (id)proposedRecipients;
 - (void)recipientSelectionControllerDidChange;
 - (void)reset;
-- (BOOL)searchListShouldUsePopvoers;
-- (id)sendBlock;
-- (void)setSendBlock:(id)arg1;
-- (BOOL)shouldAtomizeToConversationName;
-- (BOOL)shouldSuppressSearchResultsTable;
-- (BOOL)textFieldShouldReturn:(id)arg1;
-- (void)viewDidDisappear:(BOOL)arg1;
+- (id)selectedSubscriptionContext;
+- (id /* block */)sendBlock;
+- (void)setFirstAppear:(bool)arg1;
+- (void)setGeminiManager:(id)arg1;
+- (void)setHasUserSetContextPreference:(bool)arg1;
+- (void)setPillContainerView:(id)arg1;
+- (void)setPillView:(id)arg1;
+- (void)setSelectedSubscriptionContext:(id)arg1;
+- (void)setSelectedSubscriptionContext:(id)arg1 updatePillView:(bool)arg2;
+- (void)setSendBlock:(id /* block */)arg1;
+- (bool)shouldAtomizeToConversationName;
+- (bool)shouldSuppressSearchResultsTable;
+- (id)subscriptionContextForSenderIdentity:(id)arg1;
+- (bool)textFieldShouldReturn:(id)arg1;
+- (void)viewDidAppearDeferredSetup;
+- (void)viewDidDisappear:(bool)arg1;
+- (void)viewDidLayoutSubviews;
 
 @end

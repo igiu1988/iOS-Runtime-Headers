@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSArray, SGMicrodataDocument, SGMicrodataParserStackItem;
-
 @interface SGMicrodataParserStackItem : NSObject {
-    SGMicrodataDocument *_document;
-    NSArray *_itemScopes;
-    SGMicrodataParserStackItem *_parent;
-    NSArray *_textConsumers;
+    SGMicrodataDocument * _document;
+    NSArray * _itemScopes;
+    SGMicrodataParserStackItem * _parent;
+    NSArray * _textConsumers;
 }
 
-@property(readonly) SGMicrodataDocument * document;
-@property(readonly) NSArray * itemScopes;
-@property(readonly) SGMicrodataParserStackItem * parent;
-@property(readonly) NSArray * textConsumers;
+@property (readonly) SGMicrodataDocument *document;
+@property (readonly) NSArray *itemScopes;
+@property (readonly) SGMicrodataParserStackItem *parent;
+@property (readonly) NSArray *textConsumers;
 
 - (void).cxx_destruct;
 - (id)document;

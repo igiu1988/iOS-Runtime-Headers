@@ -2,19 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class SUDOMElement;
-
-@interface SUOverlayTransition : NSObject <NSCoding, NSCopying> {
-    double _duration;
-    SUDOMElement *_sourceElement;
-    int _type;
+@interface SUOverlayTransition : NSObject <NSCopying, NSSecureCoding> {
+    double  _duration;
+    SUDOMElement * _sourceElement;
+    long long  _type;
 }
 
-@property double duration;
-@property(retain) SUDOMElement * sourceElement;
-@property int type;
+@property (nonatomic) double duration;
+@property (nonatomic, retain) SUDOMElement *sourceElement;
+@property (nonatomic) long long type;
 
-+ (int)transitionTypeFromString:(id)arg1;
++ (bool)supportsSecureCoding;
++ (long long)transitionTypeFromString:(id)arg1;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
@@ -24,8 +23,8 @@
 - (id)initWithCoder:(id)arg1;
 - (void)setDuration:(double)arg1;
 - (void)setSourceElement:(id)arg1;
-- (void)setType:(int)arg1;
+- (void)setType:(long long)arg1;
 - (id)sourceElement;
-- (int)type;
+- (long long)type;
 
 @end

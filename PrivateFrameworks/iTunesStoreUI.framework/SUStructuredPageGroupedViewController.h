@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class SULoadingView;
-
 @interface SUStructuredPageGroupedViewController : SUStructuredPageViewController {
-    SULoadingView *_loadingView;
+    SULoadingView * _loadingView;
 }
 
-- (BOOL)_addPurchaseBatch:(id)arg1 forIndexPath:(id)arg2;
+- (bool)_addPurchaseBatch:(id)arg1 forIndexPath:(id)arg2;
 - (void)_performPurchaseAnimationForIndexPath:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)itemAtIndexPath:(id)arg1;
 - (id)newNoItemsOverlayLabel;
-- (BOOL)openDocumentForItemAtIndexPath:(id)arg1 withApplication:(id)arg2;
-- (BOOL)purchaseItemAtIndexPath:(id)arg1;
-- (void)setLoading:(BOOL)arg1;
+- (bool)openDocumentForItemAtIndexPath:(id)arg1 withApplication:(id)arg2;
+- (bool)purchaseItemAtIndexPath:(id)arg1;
+- (void)setSkLoading:(bool)arg1;
 
 @end

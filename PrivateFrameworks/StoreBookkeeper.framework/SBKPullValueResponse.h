@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/StoreBookkeeper.framework/StoreBookkeeper
  */
 
-@class NSData, NSString;
-
 @interface SBKPullValueResponse : SBKResponse {
-    NSString *_domainVersion;
-    NSString *_itemKey;
-    NSData *_itemValuePayload;
-    NSString *_itemVersion;
+    NSString * _domainVersion;
+    NSString * _itemKey;
+    NSData * _itemValuePayload;
+    NSString * _itemVersion;
 }
 
-@property(readonly) NSString * domainVersion;
-@property(readonly) NSString * itemKey;
-@property(readonly) NSData * itemValuePayload;
-@property(readonly) NSString * itemVersion;
+@property (readonly) NSString *domainVersion;
+@property (readonly) NSString *itemKey;
+@property (readonly) NSData *itemValuePayload;
+@property (readonly) NSString *itemVersion;
 
 + (id)responseWithResponse:(id)arg1 transaction:(id)arg2;
 

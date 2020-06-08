@@ -3,10 +3,10 @@
  */
 
 @interface CUIColor : NSObject <NSCopying> {
-    struct CGColor { } *_cgColor;
+    struct CGColor { } * _cgColor;
 }
 
-@property(readonly) struct CGColor { }* CGColor;
+@property (nonatomic, readonly) struct CGColor { }*CGColor;
 
 + (id)colorWithCGColor:(struct CGColor { }*)arg1;
 + (id)colorWithCIColor:(id)arg1;

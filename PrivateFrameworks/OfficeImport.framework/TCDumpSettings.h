@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface TCDumpSettings : NSObject {
-}
+@interface TCDumpSettings : NSObject
 
-+ (BOOL)isDumpForQA;
-+ (void)setDumpForQA:(BOOL)arg1;
++ (bool)isDumpForQA;
++ (void)setDumpForQA:(bool)arg1;
 
 @end

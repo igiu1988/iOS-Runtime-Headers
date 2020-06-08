@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADColor;
-
 @interface OADSolidFill : OADFill {
-    OADColor *mColor;
-    BOOL mIsColorOverridden;
+    OADColor * mColor;
+    bool  mIsColorOverridden;
 }
 
 + (id)blackFill;
@@ -16,11 +14,15 @@
 - (id)color;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (unsigned int)hash;
+- (void)fixPropertiesForChangingParentPreservingEffectiveValues:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithDefaults;
-- (BOOL)isColorOverridden;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isAnythingOverridden;
+- (bool)isColorOverridden;
+- (bool)isEqual:(id)arg1;
+- (void)removeUnnecessaryOverrides;
 - (void)setColor:(id)arg1;
 - (void)setStyleColor:(id)arg1;
+- (bool)usesPlaceholderColor;
 
 @end

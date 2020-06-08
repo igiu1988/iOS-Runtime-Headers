@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/NanoMailKitServer.framework/NanoMailKitServer
  */
 
-@class NSString;
-
 @interface NNMKProtoContentRequest : PBRequest <NSCopying> {
+    unsigned int  _fullSyncVersion;
     struct { 
         unsigned int fullSyncVersion : 1; 
         unsigned int highPriority : 1; 
-    unsigned int _fullSyncVersion;
-    } _has;
-    BOOL _highPriority;
-    NSString *_messageId;
+    }  _has;
+    bool  _highPriority;
+    NSString * _messageId;
 }
 
-@property unsigned int fullSyncVersion;
-@property BOOL hasFullSyncVersion;
-@property BOOL hasHighPriority;
-@property(readonly) BOOL hasMessageId;
-@property BOOL highPriority;
-@property(retain) NSString * messageId;
+@property (nonatomic) unsigned int fullSyncVersion;
+@property (nonatomic) bool hasFullSyncVersion;
+@property (nonatomic) bool hasHighPriority;
+@property (nonatomic, readonly) bool hasMessageId;
+@property (nonatomic) bool highPriority;
+@property (nonatomic, retain) NSString *messageId;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -27,19 +25,19 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)fullSyncVersion;
-- (BOOL)hasFullSyncVersion;
-- (BOOL)hasHighPriority;
-- (BOOL)hasMessageId;
-- (unsigned int)hash;
-- (BOOL)highPriority;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasFullSyncVersion;
+- (bool)hasHighPriority;
+- (bool)hasMessageId;
+- (unsigned long long)hash;
+- (bool)highPriority;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)messageId;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setFullSyncVersion:(unsigned int)arg1;
-- (void)setHasFullSyncVersion:(BOOL)arg1;
-- (void)setHasHighPriority:(BOOL)arg1;
-- (void)setHighPriority:(BOOL)arg1;
+- (void)setHasFullSyncVersion:(bool)arg1;
+- (void)setHasHighPriority:(bool)arg1;
+- (void)setHighPriority:(bool)arg1;
 - (void)setMessageId:(id)arg1;
 - (void)writeTo:(id)arg1;
 

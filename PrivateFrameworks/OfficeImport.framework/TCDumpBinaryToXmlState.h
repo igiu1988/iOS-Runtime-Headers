@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface TCDumpBinaryToXmlState : NSObject {
-    NSString *mCurrentFieldName;
-    NSMutableDictionary *mFieldNameToValueMap;
+    NSString * mCurrentFieldName;
+    NSMutableDictionary * mFieldNameToValueMap;
 }
 
 - (void)cacheValueforCurrentField:(id)arg1;

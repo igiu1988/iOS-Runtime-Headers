@@ -2,57 +2,43 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CADisplayLink, NSObject<OS_dispatch_queue>, NSTimer;
-
 @interface SKDisplayLink : NSObject {
-    BOOL _asynchronous;
-    float _averageFrameTime;
-    id _block;
-    CADisplayLink *_caDisplayLink;
-    int _frameCount;
-    double _frameCountBeginTime;
-    int _frameInterval;
-    unsigned int _maxQueuedFrameCount;
-    unsigned int _mode;
-    BOOL _paused;
-    double _previousFrameTime;
-    NSObject<OS_dispatch_queue> *_queue;
-    int _queuedFrameCount;
-    NSTimer *_timer;
+    float  _averageFrameTime;
+    id /* block */  _block;
+    CADisplayLink * _caDisplayLink;
+    bool  _callbackAlreadyInProgress;
+    id  _client;
+    CADisplay * _display;
+    long long  _frameCount;
+    double  _frameCountBeginTime;
+    bool  _paused;
+    float  _preferredFramesPerSecond;
+    double  _previousFrameTime;
+    NSTimer * _timer;
 }
 
-@property BOOL asynchronous;
-@property int frameInterval;
-@property unsigned int maxQueuedFrameCount;
-@property unsigned int mode;
-@property(getter=isPaused) BOOL paused;
+@property (nonatomic, retain) CADisplay *display;
+@property (getter=isPaused, nonatomic) bool paused;
+@property (nonatomic) long long preferredFramesPerSecond;
 
-+ (id)displayLinkWithBlock:(id)arg1 queue:(id)arg2;
++ (id)displayLinkWithDisplay:(id)arg1 handler:(id /* block */)arg2 client:(id)arg3;
 
 - (void).cxx_destruct;
 - (void)_caDisplayLinkCallback;
+- (bool)_callbackAlreadyInProgress;
 - (void)_callbackForNextFrame:(double)arg1;
-- (void)_nsTimerCallback;
-- (void)_restart;
+- (void)_setCallbackAlreadyInProgress:(bool)arg1;
 - (void)_setup;
-- (void)_start;
 - (void)_teardown;
-- (BOOL)asynchronous;
 - (void)dealloc;
-- (int)frameInterval;
+- (id)display;
 - (id)init;
-- (id)initWithBlock:(id)arg1 queue:(id)arg2;
-- (BOOL)isPaused;
-- (unsigned int)maxQueuedFrameCount;
-- (unsigned int)mode;
-- (void)setAsynchronous:(BOOL)arg1;
-- (void)setFrameInterval:(int)arg1;
-- (void)setMaxQueuedFrameCount:(unsigned int)arg1;
-- (void)setMode:(unsigned int)arg1;
-- (void)setPaused:(BOOL)arg1;
+- (id)initWithDisplay:(id)arg1 handler:(id /* block */)arg2 client:(id)arg3;
+- (void)invalidate;
+- (bool)isPaused;
+- (long long)preferredFramesPerSecond;
+- (void)setDisplay:(id)arg1;
+- (void)setPaused:(bool)arg1;
+- (void)setPreferredFramesPerSecond:(long long)arg1;
 
 @end

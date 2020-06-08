@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class NSMutableSet;
-
 @interface CoreDAVGrantItem : CoreDAVItem {
-    NSMutableSet *_privileges;
+    NSMutableSet * _privileges;
 }
 
-@property(retain) NSMutableSet * privileges;
+@property (nonatomic, retain) NSMutableSet *privileges;
 
 + (id)copyParseRules;
 
+- (void).cxx_destruct;
 - (void)addPrivilege:(id)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)init;
 - (id)privileges;

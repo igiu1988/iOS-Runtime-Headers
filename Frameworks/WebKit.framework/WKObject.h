@@ -2,36 +2,44 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSObject, NSString;
-
-@interface WKObject : NSObject <WKObject> {
-    BOOL _hasInitializedTarget;
-    NSObject *_target;
+@interface WKObject : NSProxy <WKObject> {
+    bool  _hasInitializedTarget;
+    NSObject * _target;
 }
 
-@property(readonly) struct Object { int (**x1)(); id x2; }* _apiObject;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly) /* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*_apiObject;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-- (struct Object { int (**x1)(); id x2; }*)_apiObject;
+- (/* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*)_apiObject;
 - (id)_web_createTarget;
 - (Class)classForCoder;
 - (Class)classForKeyedArchiver;
-- (BOOL)conformsToProtocol:(id)arg1;
+- (bool)conformsToProtocol:(id)arg1;
 - (void)dealloc;
+- (id)debugDescription;
 - (id)description;
+- (void)forwardInvocation:(id)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isKindOfClass:(Class)arg1;
-- (BOOL)isMemberOfClass:(Class)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
+- (bool)isKindOfClass:(Class)arg1;
+- (bool)isMemberOfClass:(Class)arg1;
+- (bool)isNSArray__;
+- (bool)isNSCFConstantString__;
+- (bool)isNSData__;
+- (bool)isNSDate__;
+- (bool)isNSDictionary__;
+- (bool)isNSNumber__;
+- (bool)isNSObject__;
+- (bool)isNSOrderedSet__;
+- (bool)isNSSet__;
+- (bool)isNSString__;
+- (bool)isNSTimeZone__;
+- (bool)isNSValue__;
+- (id)methodSignatureForSelector:(SEL)arg1;
+- (bool)respondsToSelector:(SEL)arg1;
 
 @end

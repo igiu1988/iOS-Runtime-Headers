@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDCollection, EDColorsCollection, EDContentFormatsCollection, EDFontsCollection, EDLinksCollection, EDStylesCollection, EDTableStylesCollection;
-
 @interface EDResources : NSObject {
-    EDCollection *mAlignmentInfos;
-    EDCollection *mBorder;
-    EDCollection *mBorders;
-    EDColorsCollection *mColors;
-    EDContentFormatsCollection *mContentFormats;
-    EDCollection *mDifferentialStyles;
-    EDCollection *mFills;
-    EDFontsCollection *mFonts;
-    EDLinksCollection *mLinks;
-    EDCollection *mNames;
-    EDCollection *mStrings;
-    EDStylesCollection *mStyles;
-    EDTableStylesCollection *mTableStyles;
-    EDColorsCollection *mThemes;
+    EDCollection * mAlignmentInfos;
+    EDCollection * mBorder;
+    EDCollection * mBorders;
+    EDColorsCollection * mColors;
+    EDContentFormatsCollection * mContentFormats;
+    EDCollection * mDifferentialStyles;
+    EDCollection * mFills;
+    EDFontsCollection * mFonts;
+    EDLinksCollection * mLinks;
+    EDCollection * mNames;
+    EDCollection * mStrings;
+    EDStylesCollection * mStyles;
+    EDTableStylesCollection * mTableStyles;
+    EDColorsCollection * mThemes;
 }
 
 - (id)alignmentInfos;
@@ -27,6 +25,7 @@
 - (id)colors;
 - (id)contentFormats;
 - (void)dealloc;
+- (id)description;
 - (id)differentialStyles;
 - (id)fills;
 - (id)fonts;

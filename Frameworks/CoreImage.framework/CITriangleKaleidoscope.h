@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, CIVector, NSNumber;
-
 @interface CITriangleKaleidoscope : CIFilter {
-    NSNumber *inputDecay;
-    CIImage *inputImage;
-    CIVector *inputPoint;
-    NSNumber *inputRotation;
-    NSNumber *inputSize;
+    NSNumber * inputDecay;
+    CIImage * inputImage;
+    CIVector * inputPoint;
+    NSNumber * inputRotation;
+    NSNumber * inputSize;
 }
 
-@property(retain) NSNumber * inputDecay;
-@property(retain) CIImage * inputImage;
-@property(retain) CIVector * inputPoint;
-@property(retain) NSNumber * inputRotation;
-@property(retain) NSNumber * inputSize;
+@property (nonatomic, retain) NSNumber *inputDecay;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) CIVector *inputPoint;
+@property (nonatomic, retain) NSNumber *inputRotation;
+@property (nonatomic, retain) NSNumber *inputSize;
 
 + (id)customAttributes;
 
@@ -28,7 +26,6 @@
 - (id)inputRotation;
 - (id)inputSize;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputDecay:(id)arg1;
 - (void)setInputImage:(id)arg1;
 - (void)setInputPoint:(id)arg1;

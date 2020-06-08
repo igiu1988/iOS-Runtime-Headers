@@ -2,22 +2,22 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-@class NSMutableDictionary, SKScene;
-
 @interface SCNSpriteKitEventHandler : NSObject {
-    SKScene *_scene;
-    NSMutableDictionary *_touchMap;
+    bool  _mouseIsDown;
+    bool  _rightMouseIsDown;
+    SKScene * _scene;
+    NSMutableDictionary * _touchMap;
 }
 
-@property(retain) SKScene * scene;
+@property (nonatomic, retain) SKScene *scene;
 
 - (void)dealloc;
 - (id)init;
 - (id)scene;
 - (void)setScene:(id)arg1;
-- (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
-- (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
+- (bool)touchesBegan:(id)arg1 withEvent:(id)arg2;
+- (bool)touchesCancelled:(id)arg1 withEvent:(id)arg2;
+- (bool)touchesEnded:(id)arg1 withEvent:(id)arg2;
+- (bool)touchesMoved:(id)arg1 withEvent:(id)arg2;
 
 @end

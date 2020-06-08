@@ -2,38 +2,41 @@
    Image: /System/Library/PrivateFrameworks/BookmarkDAV.framework/BookmarkDAV
  */
 
-@class CoreDAVErrorItem, NSArray, NSData, NSDictionary, NSMutableString, NSString, NSURL;
-
 @interface BookmarkDAVBookmark : NSObject <CoreDAVLeafDataPayload, NSXMLParserDelegate> {
-    NSMutableString *_appleAttributeString;
-    NSDictionary *_appleAttributes;
-    NSURL *_bookmarkURL;
-    CoreDAVErrorItem *_bulkUploadErrorItem;
-    int _ignoreLevel;
-    NSString *_name;
-    int _parseState;
-    NSURL *_serverID;
-    NSString *_syncKey;
+    NSMutableString * _appleAttributeString;
+    NSDictionary * _appleAttributes;
+    NSURL * _bookmarkURL;
+    CoreDAVErrorItem * _bulkUploadErrorItem;
+    NSURL * _destinationURL;
+    int  _ignoreLevel;
+    NSString * _name;
+    int  _parseState;
+    NSURL * _serverID;
+    NSURL * _sourceURL;
+    NSString * _syncKey;
 }
 
-@property(retain,readonly) NSDictionary * appleAttributes;
-@property(retain,readonly) NSURL * bookmarkURL;
-@property(retain) CoreDAVErrorItem * bulkUploadErrorItem;
-@property(readonly) NSArray * childrenOrder;
-@property(readonly) NSData * dataPayload;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain,readonly) NSString * name;
-@property(retain) NSURL * serverID;
-@property(readonly) Class superclass;
-@property(readonly) NSString * syncKey;
+@property (nonatomic, readonly, retain) NSDictionary *appleAttributes;
+@property (nonatomic, readonly, retain) NSURL *bookmarkURL;
+@property (nonatomic, retain) CoreDAVErrorItem *bulkUploadErrorItem;
+@property (nonatomic, readonly) NSArray *childrenOrder;
+@property (nonatomic, readonly) NSData *dataPayload;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSURL *destinationURL;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly, retain) NSString *name;
+@property (nonatomic, retain) NSURL *serverID;
+@property (nonatomic, retain) NSURL *sourceURL;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSString *syncKey;
 
 - (id)appleAttributes;
 - (id)bookmarkURL;
 - (id)bulkUploadErrorItem;
 - (id)dataPayload;
 - (void)dealloc;
+- (id)destinationURL;
 - (id)initWithBookmarkURL:(id)arg1 serverID:(id)arg2 name:(id)arg3 syncKey:(id)arg4 appleAttributes:(id)arg5;
 - (id)initWithURL:(id)arg1 eTag:(id)arg2 dataPayload:(id)arg3 inContainerWithURL:(id)arg4 withAccountInfoProvider:(id)arg5;
 - (id)name;
@@ -43,8 +46,11 @@
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;
 - (id)serverID;
 - (void)setBulkUploadErrorItem:(id)arg1;
+- (void)setDestinationURL:(id)arg1;
 - (void)setPropertiesFromXBEL:(id)arg1;
 - (void)setServerID:(id)arg1;
+- (void)setSourceURL:(id)arg1;
+- (id)sourceURL;
 - (id)syncKey;
 
 @end

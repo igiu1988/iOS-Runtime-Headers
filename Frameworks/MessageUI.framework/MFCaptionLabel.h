@@ -2,58 +2,42 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class NSArray, NSString, UIButton, UIFont, UILabel;
-
-@interface MFCaptionLabel : UIView {
-    void *_addressBook;
-    NSArray *_bccRecipients;
-    NSArray *_ccRecipients;
-    UIButton *_moreButton;
-    BOOL _needsLabelUpdate;
-    UILabel *_recipientLabel;
-    NSArray *_toRecipients;
+@interface MFCaptionLabel : UILabel {
+    NSArray * _bccRecipients;
+    NSArray * _ccRecipients;
+    <MFCaptionLabelDataSource> * _dataSource;
+    NSArray * _fromSenders;
+    bool  _needsLabelUpdate;
+    NSArray * _toRecipients;
 }
 
-@property void* addressBook;
-@property(readonly) struct CGPoint { float x1; float x2; } baselinePoint;
-@property(retain) NSArray * bccRecipients;
-@property(retain) NSArray * ccRecipients;
-@property(retain) UIFont * font;
-@property(readonly) UIButton * moreButton;
-@property(readonly) UILabel * recipientLabel;
-@property(retain) NSString * text;
-@property(retain) NSArray * toRecipients;
+@property (nonatomic, retain) NSArray *bccRecipients;
+@property (nonatomic, retain) NSArray *ccRecipients;
+@property (nonatomic) <MFCaptionLabelDataSource> *dataSource;
+@property (nonatomic, retain) NSArray *fromSenders;
+@property (nonatomic, retain) NSArray *toRecipients;
 
-+ (id)_propertiesThatNeedLabelUpdates;
-+ (id)defaultFont;
++ (id)attributedStringsCache;
 
+- (void).cxx_destruct;
+- (id)_formattedAttributedString;
 - (void)_setNeedsLabelUpdate;
-- (id)_stringAtIndexForCombinedRecipientLists:(unsigned int)arg1;
-- (void)_updateLabel;
-- (void*)addressBook;
-- (struct CGPoint { float x1; float x2; })baselinePoint;
+- (id)_stringAtIndexForCombinedRecipientLists:(unsigned long long)arg1;
 - (id)bccRecipients;
 - (id)ccRecipients;
-- (void)clear;
+- (id)dataSource;
 - (void)dealloc;
-- (id)font;
-- (id)initWithAddressBook:(void*)arg1;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (id)fromSenders;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
-- (id)moreButton;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
-- (id)recipientLabel;
-- (void)setAddressBook:(void*)arg1;
 - (void)setBccRecipients:(id)arg1;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (void)setCcRecipients:(id)arg1;
-- (void)setFont:(id)arg1;
-- (void)setFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (void)setText:(id)arg1;
+- (void)setDataSource:(id)arg1;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setFromSenders:(id)arg1;
 - (void)setToRecipients:(id)arg1;
-- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
-- (void)sizeToFit;
-- (id)text;
 - (id)toRecipients;
-- (id)viewForBaselineLayout;
+- (void)updateLabelNow;
 
 @end

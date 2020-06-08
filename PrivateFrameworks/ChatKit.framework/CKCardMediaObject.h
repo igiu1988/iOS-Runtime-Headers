@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@interface CKCardMediaObject : CKMediaObject {
-}
+@interface CKCardMediaObject : CKMediaObject
 
-- (BOOL)shouldBeQuickLooked;
-- (BOOL)shouldShowDisclosure;
-- (BOOL)shouldShowViewer;
+- (bool)shouldBeQuickLooked;
+- (bool)shouldShowDisclosure;
+- (bool)shouldShowViewer;
 
 @end

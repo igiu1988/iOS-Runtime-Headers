@@ -2,44 +2,42 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class <SKUIProductPageHeaderViewDelegate>, NSOperationQueue, NSString, SKUIClientContext, SKUIContentRatingArtworkResourceLoader, SKUIItem, SKUIItemArtworkContext, SKUIItemOffer, SKUIProductPage, SKUIProductPageHeaderFloatingView, SKUIProductPageHeaderView, SSVLoadURLOperation, UIImage, UIPopoverController;
-
 @interface SKUIProductPageHeaderViewController : UIViewController <SKUIItemStateCenterObserver, UIPopoverControllerDelegate> {
-    UIPopoverController *_activityPopoverController;
-    SKUIItemArtworkContext *_artworkContext;
-    BOOL _askPermission;
-    SKUIClientContext *_clientContext;
-    SKUIContentRatingArtworkResourceLoader *_contentRatingArtworkLoader;
-    <SKUIProductPageHeaderViewDelegate> *_delegate;
-    SKUIProductPageHeaderFloatingView *_floatingView;
-    SKUIProductPageHeaderView *_headerView;
-    UIImage *_iconImage;
-    SKUIItem *_item;
-    long long _itemIdentifier;
-    SSVLoadURLOperation *_loadIconOperation;
-    SSVLoadURLOperation *_loadUberOperation;
-    NSOperationQueue *_operationQueue;
-    BOOL _performArtistActionOnLoad;
-    int _personalizationState;
-    SKUIItemOffer *_personalizedOffer;
-    UIImage *_placeholderImage;
-    SKUIProductPage *_productPage;
-    UIImage *_uberImage;
-    BOOL _wantsActivityViewController;
+    UIPopoverController * _activityPopoverController;
+    SKUIItemArtworkContext * _artworkContext;
+    bool  _askPermission;
+    SKUIClientContext * _clientContext;
+    SKUIContentRatingArtworkResourceLoader * _contentRatingArtworkLoader;
+    <SKUIProductPageHeaderViewDelegate> * _delegate;
+    SKUIProductPageHeaderFloatingView * _floatingView;
+    SKUIProductPageHeaderView * _headerView;
+    UIImage * _iconImage;
+    SKUIItem * _item;
+    long long  _itemIdentifier;
+    SSVLoadURLOperation * _loadIconOperation;
+    SSVLoadURLOperation * _loadUberOperation;
+    NSOperationQueue * _operationQueue;
+    bool  _performArtistActionOnLoad;
+    long long  _personalizationState;
+    SKUIItemOffer * _personalizedOffer;
+    UIImage * _placeholderImage;
+    SKUIProductPage * _productPage;
+    UIImage * _uberImage;
+    bool  _wantsActivityViewController;
 }
 
-@property BOOL askPermission;
-@property(retain) SKUIClientContext * clientContext;
-@property(copy,readonly) NSString * debugDescription;
-@property <SKUIProductPageHeaderViewDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) SKUIProductPageHeaderFloatingView * floatingView;
-@property(readonly) unsigned int hash;
-@property(readonly) UIImage * iconImage;
-@property(readonly) SKUIItem * item;
-@property(retain) NSOperationQueue * operationQueue;
-@property int selectedSectionIndex;
-@property(readonly) Class superclass;
+@property (nonatomic) bool askPermission;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SKUIProductPageHeaderViewDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) SKUIProductPageHeaderFloatingView *floatingView;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) UIImage *iconImage;
+@property (nonatomic, readonly) SKUIItem *item;
+@property (nonatomic, retain) NSOperationQueue *operationQueue;
+@property (nonatomic) long long selectedSectionIndex;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_activeItem;
@@ -48,27 +46,27 @@
 - (id)_artworkContext;
 - (id)_contentRatingResourceLoader;
 - (void)_destroyPopoverController;
-- (void)_disableItemOfferButtonWithTitle:(id)arg1 animated:(BOOL)arg2;
-- (BOOL)_isRestricted;
+- (void)_disableItemOfferButtonWithTitle:(id)arg1 animated:(bool)arg2;
+- (bool)_isRestricted;
 - (void)_itemOfferButtonAction:(id)arg1;
 - (void)_loadUberImageIfAvailable;
-- (void)_reloadItemStateAnimated:(BOOL)arg1;
+- (void)_reloadItemStateAnimated:(bool)arg1;
 - (void)_sectionControlAction:(id)arg1;
 - (id)_segmentedControlTitles;
 - (void)_sendDidReloadOffer;
 - (void)_setArtworkWithImage:(id)arg1 error:(id)arg2;
-- (void)_setItemState:(id)arg1 animated:(BOOL)arg2;
+- (void)_setItemState:(id)arg1 animated:(bool)arg2;
 - (void)_setPersonalizedOffer:(id)arg1;
 - (void)_setUberWithImage:(id)arg1 error:(id)arg2;
 - (void)_shareButtonAction:(id)arg1;
 - (void)_showActivityViewControllerFromView:(id)arg1;
 - (void)_showAskPermissionBanner;
-- (void)_showSynthesizedItemStateWithFlag:(unsigned int)arg1 animated:(BOOL)arg2;
-- (BOOL)askPermission;
+- (void)_showSynthesizedItemStateWithFlag:(unsigned long long)arg1 animated:(bool)arg2;
+- (bool)askPermission;
 - (id)clientContext;
 - (void)dealloc;
 - (id)delegate;
-- (void)didRotateFromInterfaceOrientation:(int)arg1;
+- (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (id)floatingView;
 - (id)iconImage;
 - (id)initWithItem:(id)arg1;
@@ -79,14 +77,14 @@
 - (id)operationQueue;
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)reloadData;
-- (int)selectedSectionIndex;
-- (void)setAskPermission:(BOOL)arg1;
+- (long long)selectedSectionIndex;
+- (void)setAskPermission:(bool)arg1;
 - (void)setClientContext:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setOperationQueue:(id)arg1;
 - (void)setProductPage:(id)arg1;
-- (void)setSelectedSectionIndex:(int)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)setSelectedSectionIndex:(long long)arg1;
+- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillDisappear:(bool)arg1;
 
 @end

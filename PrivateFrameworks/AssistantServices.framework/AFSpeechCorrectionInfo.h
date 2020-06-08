@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSString;
-
 @interface AFSpeechCorrectionInfo : NSObject <NSSecureCoding> {
-    int _alternativeSelectionCount;
-    int _characterModificationCount;
-    NSString *_correctedText;
+    long long  _alternativeSelectionCount;
+    long long  _characterModificationCount;
+    NSString * _correctedText;
 }
 
-@property int alternativeSelectionCount;
-@property int characterModificationCount;
-@property(copy) NSString * correctedText;
+@property (nonatomic) long long alternativeSelectionCount;
+@property (nonatomic) long long characterModificationCount;
+@property (nonatomic, copy) NSString *correctedText;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (int)alternativeSelectionCount;
-- (int)characterModificationCount;
+- (long long)alternativeSelectionCount;
+- (long long)characterModificationCount;
 - (id)correctedText;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)setAlternativeSelectionCount:(int)arg1;
-- (void)setCharacterModificationCount:(int)arg1;
+- (void)setAlternativeSelectionCount:(long long)arg1;
+- (void)setCharacterModificationCount:(long long)arg1;
 - (void)setCorrectedText:(id)arg1;
 
 @end

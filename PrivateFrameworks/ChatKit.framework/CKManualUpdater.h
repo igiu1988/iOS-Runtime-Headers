@@ -3,22 +3,22 @@
  */
 
 @interface CKManualUpdater : NSObject {
-    SEL _action;
-    BOOL _needsUpdate;
-    id _target;
+    SEL  _action;
+    bool  _needsUpdate;
+    id  _target;
 }
 
-@property SEL action;
-@property BOOL needsUpdate;
-@property id target;
+@property (nonatomic) SEL action;
+@property (nonatomic) bool needsUpdate;
+@property (nonatomic) id target;
 
 - (SEL)action;
 - (id)description;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
-- (BOOL)needsUpdate;
+- (bool)needsUpdate;
 - (void)setAction:(SEL)arg1;
-- (void)setNeedsUpdate:(BOOL)arg1;
 - (void)setNeedsUpdate;
+- (void)setNeedsUpdate:(bool)arg1;
 - (void)setTarget:(id)arg1;
 - (id)target;
 - (void)updateIfNeeded;

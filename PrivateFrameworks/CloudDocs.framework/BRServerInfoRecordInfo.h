@@ -2,66 +2,65 @@
    Image: /System/Library/PrivateFrameworks/CloudDocs.framework/CloudDocs
  */
 
-@class NSData, NSString;
-
 @interface BRServerInfoRecordInfo : PBCodable <NSCopying> {
+    unsigned long long  _bounceNo;
+    NSData * _encryptedBasename;
+    NSString * _etag;
+    NSString * _extension;
     struct { 
         unsigned int bounceNo : 1; 
-    unsigned long long _bounceNo;
-    NSData *_encryptedBasename;
-    NSString *_etag;
-    NSString *_extension;
-    } _has;
-    NSString *_recordID;
-    NSData *_recordProtectionInfo;
-    NSString *_zoneName;
-    NSData *_zoneProtectionInfo;
+    }  _has;
+    NSString * _recordID;
+    NSData * _recordProtectionInfo;
+    NSString * _zoneName;
+    NSData * _zoneProtectionInfo;
 }
 
-@property unsigned long long bounceNo;
-@property(retain) NSData * encryptedBasename;
-@property(retain) NSString * etag;
-@property(retain) NSString * extension;
-@property BOOL hasBounceNo;
-@property(readonly) BOOL hasEncryptedBasename;
-@property(readonly) BOOL hasEtag;
-@property(readonly) BOOL hasExtension;
-@property(readonly) BOOL hasRecordID;
-@property(readonly) BOOL hasRecordProtectionInfo;
-@property(readonly) BOOL hasZoneName;
-@property(readonly) BOOL hasZoneProtectionInfo;
-@property(retain) NSString * recordID;
-@property(retain) NSData * recordProtectionInfo;
-@property(retain) NSString * zoneName;
-@property(retain) NSData * zoneProtectionInfo;
+@property (nonatomic) unsigned long long bounceNo;
+@property (nonatomic, retain) NSData *encryptedBasename;
+@property (nonatomic, retain) NSString *etag;
+@property (nonatomic, retain) NSString *extension;
+@property (nonatomic) bool hasBounceNo;
+@property (nonatomic, readonly) bool hasEncryptedBasename;
+@property (nonatomic, readonly) bool hasEtag;
+@property (nonatomic, readonly) bool hasExtension;
+@property (nonatomic, readonly) bool hasRecordID;
+@property (nonatomic, readonly) bool hasRecordProtectionInfo;
+@property (nonatomic, readonly) bool hasZoneName;
+@property (nonatomic, readonly) bool hasZoneProtectionInfo;
+@property (nonatomic, retain) NSString *recordID;
+@property (nonatomic, retain) NSData *recordProtectionInfo;
+@property (nonatomic, retain) NSString *zoneName;
+@property (nonatomic, retain) NSData *zoneProtectionInfo;
 
+- (void).cxx_destruct;
 - (unsigned long long)bounceNo;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)encryptedBasename;
 - (id)etag;
 - (id)extension;
-- (BOOL)hasBounceNo;
-- (BOOL)hasEncryptedBasename;
-- (BOOL)hasEtag;
-- (BOOL)hasExtension;
-- (BOOL)hasRecordID;
-- (BOOL)hasRecordProtectionInfo;
-- (BOOL)hasZoneName;
-- (BOOL)hasZoneProtectionInfo;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)hasBounceNo;
+- (bool)hasEncryptedBasename;
+- (bool)hasEtag;
+- (bool)hasExtension;
+- (bool)hasRecordID;
+- (bool)hasRecordProtectionInfo;
+- (bool)hasZoneName;
+- (bool)hasZoneProtectionInfo;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
+- (void)mergeFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)recordID;
 - (id)recordProtectionInfo;
 - (void)setBounceNo:(unsigned long long)arg1;
 - (void)setEncryptedBasename:(id)arg1;
 - (void)setEtag:(id)arg1;
 - (void)setExtension:(id)arg1;
-- (void)setHasBounceNo:(BOOL)arg1;
+- (void)setHasBounceNo:(bool)arg1;
 - (void)setRecordID:(id)arg1;
 - (void)setRecordProtectionInfo:(id)arg1;
 - (void)setZoneName:(id)arg1;

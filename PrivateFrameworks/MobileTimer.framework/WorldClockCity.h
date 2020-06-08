@@ -2,56 +2,56 @@
    Image: /System/Library/PrivateFrameworks/MobileTimer.framework/MobileTimer
  */
 
-@class ALCity, City, NSDictionary, NSNumber, NSString, NSURL;
-
 @interface WorldClockCity : NSObject {
-    ALCity *_alCity;
-    NSString *_countryCode;
-    NSString *_countryName;
-    NSString *_name;
-    NSString *_timeZone;
-    NSString *_unlocalizedCountryName;
-    NSString *_unlocalizedName;
-    City *_weatherCity;
+    ALCity * _alCity;
+    NSString * _countryCode;
+    NSString * _countryName;
+    NSString * _name;
+    NSString * _timeZone;
+    NSString * _unlocalizedCountryName;
+    NSString * _unlocalizedName;
 }
 
-@property(readonly) NSString * abbreviation;
-@property(readonly) ALCity * alCity;
-@property(readonly) NSNumber * alCityId;
-@property(readonly) NSString * countryCode;
-@property(readonly) NSString * countryName;
-@property(readonly) NSURL * idUrl;
-@property(readonly) NSString * name;
-@property(readonly) NSDictionary * properties;
-@property(readonly) NSString * timeZone;
-@property(readonly) NSString * unlocalizedCityName;
-@property(readonly) NSString * unlocalizedCountryName;
-@property(retain) City * weatherCity;
+@property (nonatomic, readonly) NSString *abbreviation;
+@property (nonatomic, readonly) ALCity *alCity;
+@property (nonatomic, readonly) NSNumber *alCityId;
+@property (nonatomic, readonly) NSString *countryCode;
+@property (nonatomic, readonly) NSString *countryName;
+@property (nonatomic, readonly) NSURL *idUrl;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSDictionary *properties;
+@property (nonatomic, readonly) NSString *timeZone;
+@property (nonatomic, readonly) NSString *unlocalizedCityName;
+@property (nonatomic, readonly) NSString *unlocalizedCountryName;
 
-+ (BOOL)isWorldClockCityProperties:(id)arg1;
+// Image: /System/Library/PrivateFrameworks/MobileTimer.framework/MobileTimer
 
-- (id)_bundleWithAbbreviations;
-- (id)_filePathForAbbreviationsResource;
-- (id)abbreviation;
++ (bool)isCachedLanguageStaleForProperties:(id)arg1;
++ (bool)isCachedLanguageStaleForProperties:(id)arg1 systemLanguage:(id)arg2;
++ (bool)isWorldClockCityProperties:(id)arg1;
++ (id)unlocalizedExampleCity;
+
+- (void).cxx_destruct;
 - (id)alCity;
 - (id)alCityId;
 - (id)countryCode;
 - (id)countryName;
-- (void)dealloc;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)idUrl;
 - (id)initWithALCity:(id)arg1;
 - (id)initWithALCityIdentifier:(int)arg1;
 - (id)initWithProperties:(id)arg1;
 - (id)initWithTimeZone:(id)arg1 countryCode:(id)arg2 name:(id)arg3 countryName:(id)arg4 unlocalizedName:(id)arg5 unlocalizedCountryName:(id)arg6;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)name;
 - (id)properties;
-- (void)setWeatherCity:(id)arg1;
 - (id)timeZone;
 - (id)unlocalizedCityName;
 - (id)unlocalizedCountryName;
-- (id)weatherCity;
+
+// Image: /System/Library/PrivateFrameworks/NanoTimeKitCompanion.framework/NanoTimeKitCompanion
+
+- (id)abbreviation;
 
 @end

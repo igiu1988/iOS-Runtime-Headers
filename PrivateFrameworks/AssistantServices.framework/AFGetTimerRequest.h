@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@interface AFGetTimerRequest : AFSiriRequest {
-}
+@interface AFGetTimerRequest : AFSiriRequest
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (id)createResponseWithTimer:(id)arg1;
 

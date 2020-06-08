@@ -3,29 +3,24 @@
  */
 
 @interface AXDisplayLinkManagerTargetAction : NSObject {
-    SEL _actionSelector;
-    unsigned int _displayDidRefreshCount;
-    unsigned int _frameInterval;
-    id _target;
+    SEL  _actionSelector;
+    unsigned long long  _displayDidRefreshCount;
+    id  _target;
 }
 
-@property SEL actionSelector;
-@property unsigned int displayDidRefreshCount;
-@property unsigned int frameInterval;
-@property(retain) id target;
+@property (nonatomic) SEL actionSelector;
+@property (nonatomic) unsigned long long displayDidRefreshCount;
+@property (nonatomic, retain) id target;
 
+- (void).cxx_destruct;
 - (SEL)actionSelector;
-- (void)dealloc;
 - (void)displayDidRefresh:(id)arg1;
-- (unsigned int)displayDidRefreshCount;
-- (unsigned int)frameInterval;
-- (unsigned int)hash;
-- (id)initWithTarget:(id)arg1 actionSelector:(SEL)arg2 frameInterval:(unsigned int)arg3;
+- (unsigned long long)displayDidRefreshCount;
+- (unsigned long long)hash;
 - (id)initWithTarget:(id)arg1 actionSelector:(SEL)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)setActionSelector:(SEL)arg1;
-- (void)setDisplayDidRefreshCount:(unsigned int)arg1;
-- (void)setFrameInterval:(unsigned int)arg1;
+- (void)setDisplayDidRefreshCount:(unsigned long long)arg1;
 - (void)setTarget:(id)arg1;
 - (id)target;
 

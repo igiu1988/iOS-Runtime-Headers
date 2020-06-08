@@ -2,61 +2,67 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSDictionary, NSMutableDictionary, NSNumber, NSString;
-
-@interface SSURLBagContext : NSObject <SSXPCCoding, NSCopying> {
-    int _allowedRetryCount;
-    BOOL _allowsBootstrapCellularData;
-    BOOL _allowsExpiredBags;
-    int _bagType;
-    NSMutableDictionary *_httpHeaders;
-    BOOL _ignoresCaches;
-    NSNumber *_userIdentifier;
-    BOOL _usesCachedBagsOnly;
+@interface SSURLBagContext : NSObject <NSCopying, SSXPCCoding> {
+    long long  _allowedRetryCount;
+    bool  _allowsBootstrapCellularData;
+    bool  _allowsExpiredBags;
+    long long  _bagType;
+    NSData * _clientAuditTokenData;
+    NSMutableDictionary * _httpHeaders;
+    bool  _ignoresCaches;
+    NSLock * _lock;
+    NSNumber * _userIdentifier;
+    bool  _usesCachedBagsOnly;
 }
 
-@property(copy) NSDictionary * allHTTPHeaders;
-@property int allowedRetryCount;
-@property BOOL allowsBootstrapCellularData;
-@property BOOL allowsExpiredBags;
-@property int bagType;
-@property(readonly) NSString * cacheKey;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property BOOL ignoresCaches;
-@property(readonly) Class superclass;
-@property(retain) NSNumber * userIdentifier;
-@property BOOL usesCachedBagsOnly;
+@property (nonatomic, copy) NSDictionary *allHTTPHeaders;
+@property (nonatomic) long long allowedRetryCount;
+@property (nonatomic) bool allowsBootstrapCellularData;
+@property (nonatomic) bool allowsExpiredBags;
+@property (nonatomic) long long bagType;
+@property (nonatomic, readonly) NSString *cacheKey;
+@property (nonatomic, retain) NSData *clientAuditTokenData;
+@property (nonatomic, readonly) NSString *clientBundleIdentifier;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) bool ignoresCaches;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSNumber *userIdentifier;
+@property (nonatomic) bool usesCachedBagsOnly;
 
-+ (id)contextWithBagType:(int)arg1;
++ (id)contextWithBagType:(long long)arg1;
 
+- (id)_init;
 - (id)allHTTPHeaders;
-- (int)allowedRetryCount;
-- (BOOL)allowsBootstrapCellularData;
-- (BOOL)allowsExpiredBags;
-- (int)bagType;
+- (long long)allowedRetryCount;
+- (bool)allowsBootstrapCellularData;
+- (bool)allowsExpiredBags;
+- (long long)bagType;
 - (id)cacheKey;
+- (id)clientAuditTokenData;
+- (id)clientBundleIdentifier;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)copyXPCEncoding;
 - (void)dealloc;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)ignoresCaches;
+- (unsigned long long)hash;
+- (bool)ignoresCaches;
 - (id)init;
 - (id)initWithXPCEncoding:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)setAllHTTPHeaders:(id)arg1;
-- (void)setAllowedRetryCount:(int)arg1;
-- (void)setAllowsBootstrapCellularData:(BOOL)arg1;
-- (void)setAllowsExpiredBags:(BOOL)arg1;
-- (void)setBagType:(int)arg1;
-- (void)setIgnoresCaches:(BOOL)arg1;
+- (void)setAllowedRetryCount:(long long)arg1;
+- (void)setAllowsBootstrapCellularData:(bool)arg1;
+- (void)setAllowsExpiredBags:(bool)arg1;
+- (void)setBagType:(long long)arg1;
+- (void)setClientAuditTokenData:(id)arg1;
+- (void)setIgnoresCaches:(bool)arg1;
 - (void)setUserIdentifier:(id)arg1;
-- (void)setUsesCachedBagsOnly:(BOOL)arg1;
+- (void)setUsesCachedBagsOnly:(bool)arg1;
 - (void)setValue:(id)arg1 forHTTPHeaderField:(id)arg2;
 - (id)userIdentifier;
-- (BOOL)usesCachedBagsOnly;
+- (bool)usesCachedBagsOnly;
 - (id)valueForHTTPHeaderField:(id)arg1;
 
 @end

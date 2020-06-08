@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class NSURLResponse;
-
 @interface ISURLRequestPerformance : NSObject {
-    double _finishTime;
-    double _receivedResponseTime;
-    double _renderBeginTime;
-    double _renderEndTime;
-    double _startTime;
-    NSURLResponse *_urlResponse;
+    double  _finishTime;
+    double  _receivedResponseTime;
+    double  _renderBeginTime;
+    double  _renderEndTime;
+    double  _startTime;
+    NSURLResponse * _urlResponse;
 }
 
-@property(copy) NSURLResponse * URLResponse;
-@property(readonly) double finishInterval;
-@property(readonly) double receivedResponseInterval;
-@property(readonly) double renderBeginInterval;
-@property(readonly) double renderEndInterval;
-@property double startTime;
+@property (nonatomic, copy) NSURLResponse *URLResponse;
+@property (nonatomic, readonly) double finishInterval;
+@property (nonatomic, readonly) double receivedResponseInterval;
+@property (nonatomic, readonly) double renderBeginInterval;
+@property (nonatomic, readonly) double renderEndInterval;
+@property (nonatomic) double startTime;
 
 - (id)URLResponse;
 - (void)dealloc;

@@ -2,34 +2,58 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class BRCAccountSession, NSObject<OS_dispatch_queue>;
-
-@interface BRCDiskSpaceReclaimer : NSObject {
-    BOOL _isClosed;
-    NSObject<OS_dispatch_queue> *_queue;
-    BRCAccountSession *_session;
+@interface BRCDiskSpaceReclaimer : NSObject <BRCLowDiskDelegate> {
+    bool  _computingPurgable;
+    bool  _isClosed;
+    br_pacer * _purgePacer;
+    struct CacheDeleteToken { } * _purgeRequest;
+    NSObject<OS_dispatch_queue> * _queue;
+    BRCAccountSession * _session;
 }
 
-@property(readonly) NSObject<OS_dispatch_queue> * queue;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *queue;
+@property (readonly) Class superclass;
 
-+ (BOOL)createTablesWithDB:(id)arg1;
++ (double)accessTimeDeltaForUrgency:(int)arg1;
++ (double)onDiskAccessTimeDeltaForUrgency:(int)arg1;
++ (int)urgencyForCacheDeleteUrgency:(int)arg1;
 
 - (void).cxx_destruct;
-- (void)_enumerateItemsForEvictSyncWithBlock:(id)arg1 withUrgency:(int)arg2;
+- (void)_asyncAutovacuumIfNeeds:(id)arg1;
+- (long long)_dbAutovacuumableSpaceInBytes:(id)arg1;
+- (long long)_dbSizeInBytes:(id)arg1;
+- (long long)_doIncrementalVacuum:(id)arg1 amount:(long long)arg2;
+- (void)_enumerateItemsForEvictSyncWithBlock:(id /* block */)arg1 withTimeDelta:(double)arg2 onDiskAccessTimeDelta:(double)arg3;
+- (void)_enumerateItemsForEvictSyncWithBlock:(id /* block */)arg1 withUrgency:(int)arg2;
+- (long long)_fullVacuumIfPossible:(id)arg1;
 - (long long)_purgeSpaceUnderQueue:(long long)arg1 withUrgency:(int)arg2;
+- (void)_requestPurgeSpace;
+- (void)_updateNonPurgeableCachedSizeByAddingBytes:(long long)arg1;
+- (void)_updateNonPurgeableCachedSizeForDocument:(id)arg1;
+- (long long)_vacuumDB:(id)arg1 amount:(long long)arg2 withUrgency:(int)arg3;
+- (id)accessTimestampForDocument:(id)arg1;
+- (void)cachedPurgeableSpaceForAllUrgencies:(id*)arg1 nonPurgeableSpace:(id*)arg2 error:(id*)arg3;
 - (void)close;
-- (long long)computePurgableSpaceWithUrgency:(int)arg1;
-- (BOOL)containerWasReset:(id)arg1;
+- (void)computePurgeableSpaceForAllUrgenciesWithReply:(id /* block */)arg1;
 - (id)descriptionForItem:(id)arg1 context:(id)arg2;
-- (BOOL)documentChangedEvictability:(id)arg1;
-- (void)documentWasAccessed:(id)arg1;
-- (BOOL)documentWasCreated:(id)arg1;
-- (BOOL)documentWasDeleted:(id)arg1;
+- (void)didAccessDocument:(id)arg1;
+- (bool)documentUpdateEvictability:(id)arg1;
+- (bool)documentWasAccessedRecently:(id)arg1;
+- (bool)documentWasCreated:(id)arg1;
+- (bool)documentWasDeleted:(id)arg1;
+- (bool)documentWasUpdated:(id)arg1 diffs:(unsigned long long)arg2;
 - (id)initWithAccountSession:(id)arg1;
-- (long long)periodicReclaimSpace:(long long)arg1 withUrgency:(int)arg2;
+- (void)lowDiskStatusChangedForDevice:(int)arg1 hasEnoughSpace:(bool)arg2;
+- (bool)overwriteDocumentAccessTime:(id)arg1 atime:(unsigned long long)arg2;
+- (bool)performOptimizeStorageWithTimeDelta:(double)arg1 onDiskAccessTimeDelta:(double)arg2 error:(id*)arg3;
+- (long long)periodicReclaimSpace;
 - (long long)purgeSpace:(long long)arg1 withUrgency:(int)arg2;
 - (id)queue;
-- (BOOL)renameAndUnlinkInBackgroundItemAtPath:(id)arg1;
-- (void)unlinkInBackgroundItemsRenamedBeforeRestart;
+- (bool)renameAndUnlinkInBackgroundItemAt:(int)arg1 path:(id)arg2;
+- (bool)renameAndUnlinkInBackgroundItemAtRelpath:(id)arg1;
+- (void)requestPurgeSpace;
 
 @end

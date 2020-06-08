@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@interface CKNavigationController : UINavigationController {
-}
+@interface CKNavigationController : UINavigationController
 
-- (BOOL)shouldAutorotate;
+- (bool)shouldAutorotate;
 
 @end

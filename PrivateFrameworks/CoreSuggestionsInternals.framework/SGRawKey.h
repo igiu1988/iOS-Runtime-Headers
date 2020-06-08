@@ -2,24 +2,23 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSString;
-
 @interface SGRawKey : NSObject <SGEntityKey> {
-    NSString *_seralized;
+    NSString * _serialized;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-+ (BOOL)isSupportedEntityType:(long long)arg1;
++ (bool)isSupportedEntityType:(long long)arg1;
 
 - (void).cxx_destruct;
-- (unsigned int)hash;
+- (id)description;
+- (unsigned long long)hash;
 - (id)initWithSerialized:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToRawKey:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToRawKey:(id)arg1;
 - (id)serialize;
 
 @end

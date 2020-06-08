@@ -2,40 +2,74 @@
    Image: /System/Library/PrivateFrameworks/IDSFoundation.framework/IDSFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<OS_xpc_object>, NSString, NSURLRequest;
-
-@interface IDSRemoteURLConnection : NSObject {
-    id _block;
-    NSString *_bundleIdentifierForDataUsage;
-    BOOL _cancelled;
-    NSObject<OS_xpc_object> *_connection;
-    BOOL _forceCellularIfPossible;
-    BOOL _loading;
-    NSURLRequest *_request;
-    BOOL _requiresIDSHost;
-    int _retries;
+@interface IDSRemoteURLConnection : NSObject <FTMessageDeliveryRemoteURLConnection> {
+    bool  _alwaysForceCellular;
+    id /* block */  _block;
+    NSString * _bundleIdentifierForDataUsage;
+    bool  _cancelled;
+    int  _concurrentConnections;
+    NSObject<OS_xpc_object> * _connection;
+    bool  _disableKeepAlive;
+    bool  _forceCellularIfPossible;
+    int  _keepAliveCell;
+    int  _keepAliveWifi;
+    bool  _loading;
+    NSURLRequest * _request;
+    bool  _requireIDSHost;
+    int  _retries;
+    bool  _shouldReturnTimingData;
+    bool  _shouldUsePipelining;
 }
 
-@property(retain) NSString * bundleIdentifierForDataUsage;
-@property BOOL forceCellularIfPossible;
-@property BOOL requiresIDSHost;
+@property bool alwaysForceCellular;
+@property (copy) id /* block */ block;
+@property (retain) NSString *bundleIdentifierForDataUsage;
+@property int concurrentConnections;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property bool disableKeepAlive;
+@property bool forceCellularIfPossible;
+@property (readonly) unsigned long long hash;
+@property int keepAliveCell;
+@property int keepAliveWifi;
+@property (retain) NSURLRequest *request;
+@property bool requireIDSHost;
+@property bool shouldReturnTimingData;
+@property bool shouldUsePipelining;
+@property (readonly) Class superclass;
 
-- (BOOL)_connect;
-- (BOOL)_disconnect;
+- (void).cxx_destruct;
+- (bool)_connect;
+- (bool)_disconnect;
 - (void)_disconnected;
+- (bool)alwaysForceCellular;
+- (id /* block */)block;
 - (id)bundleIdentifierForDataUsage;
 - (void)cancel;
+- (int)concurrentConnections;
 - (void)dealloc;
-- (BOOL)forceCellularIfPossible;
-- (id)initWithURLRequest:(id)arg1 completionBlock:(id)arg2;
+- (bool)disableKeepAlive;
+- (bool)forceCellularIfPossible;
+- (id)initWithURLRequest:(id)arg1 completionBlock:(id /* block */)arg2;
+- (id)initWithURLRequest:(id)arg1 completionBlockWithTimingData:(id /* block */)arg2;
+- (int)keepAliveCell;
+- (int)keepAliveWifi;
 - (void)load;
-- (BOOL)requiresIDSHost;
+- (id)request;
+- (bool)requireIDSHost;
+- (void)setAlwaysForceCellular:(bool)arg1;
+- (void)setBlock:(id /* block */)arg1;
 - (void)setBundleIdentifierForDataUsage:(id)arg1;
-- (void)setForceCellularIfPossible:(BOOL)arg1;
-- (void)setRequiresIDSHost:(BOOL)arg1;
+- (void)setConcurrentConnections:(int)arg1;
+- (void)setDisableKeepAlive:(bool)arg1;
+- (void)setForceCellularIfPossible:(bool)arg1;
+- (void)setKeepAliveCell:(int)arg1;
+- (void)setKeepAliveWifi:(int)arg1;
+- (void)setRequest:(id)arg1;
+- (void)setRequireIDSHost:(bool)arg1;
+- (void)setShouldReturnTimingData:(bool)arg1;
+- (void)setShouldUsePipelining:(bool)arg1;
+- (bool)shouldReturnTimingData;
+- (bool)shouldUsePipelining;
 
 @end

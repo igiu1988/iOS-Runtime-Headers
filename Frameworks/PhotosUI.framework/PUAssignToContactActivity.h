@@ -2,18 +2,16 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSString;
+@interface PUAssignToContactActivity : UIAssignToContactActivity <UINavigationControllerDelegate>
 
-@interface PUAssignToContactActivity : UIAssignToContactActivity <UINavigationControllerDelegate> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
-
+- (id)_activityBundleImageConfiguration;
 - (id)_embeddedActivityViewController;
 - (id)activityViewController;
-- (unsigned int)navigationControllerSupportedInterfaceOrientations:(id)arg1;
+- (unsigned long long)navigationControllerSupportedInterfaceOrientations:(id)arg1;
 
 @end

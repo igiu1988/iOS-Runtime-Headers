@@ -2,18 +2,20 @@
    Image: /System/Library/PrivateFrameworks/iCloudNotification.framework/iCloudNotification
  */
 
-@class NSXPCConnection;
-
 @interface INDaemonConnection : NSObject {
-    NSXPCConnection *_connection;
+    NSXPCConnection * _connection;
 }
 
 - (void).cxx_destruct;
-- (BOOL)clearAllRegistrationDigestsWithError:(id*)arg1;
+- (bool)clearAllRegistrationDigestsWithError:(id*)arg1;
 - (void)dealloc;
 - (id)diagnosticReport;
+- (id)iCloudServerOfferForAccount:(id)arg1 error:(id*)arg2;
+- (id)iCloudServerOfferForAccount:(id)arg1 options:(id)arg2 error:(id*)arg3;
 - (id)init;
-- (BOOL)registerAccount:(id)arg1 foriCloudNotificationsWithReason:(unsigned int)arg2 error:(id*)arg3;
-- (BOOL)unregisterAccount:(id)arg1 fromiCloudNotificationsWithError:(id*)arg2;
+- (void)notifyDeviceStorageLevel:(long long)arg1 completion:(id /* block */)arg2;
+- (bool)registerAccount:(id)arg1 foriCloudNotificationsWithReason:(unsigned long long)arg2 error:(id*)arg3;
+- (bool)unregisterAccount:(id)arg1 fromiCloudNotificationsWithError:(id*)arg2;
+- (void)updateOfferForAccount:(id)arg1 offerId:(id)arg2 buttonId:(id)arg3 info:(id)arg4 completion:(id /* block */)arg5;
 
 @end

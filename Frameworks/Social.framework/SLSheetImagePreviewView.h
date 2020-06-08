@@ -2,39 +2,30 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class NSArray, NSMutableDictionary, UIImage, UIImageView;
-
 @interface SLSheetImagePreviewView : UIView {
-    UIImage *_image;
-    UIImageView *_imageView;
-    NSMutableDictionary *_intrinsicSizes;
-    NSArray *_principalAttachments;
-    int _verticalSizeClass;
+    UIImage * _image;
+    UIImageView * _imageView;
+    NSArray * _principalAttachments;
 }
 
-@property(retain) UIImage * image;
-@property(retain) UIImageView * imageView;
-@property(retain) NSArray * principalAttachments;
-@property int verticalSizeClass;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) UIImageView *imageView;
+@property (nonatomic, retain) NSArray *principalAttachments;
 
 + (id)fallbackPreviewImage;
 
 - (void).cxx_destruct;
 - (void)ensurePlaceholderPreviewImage;
-- (BOOL)generatePreviewImageFromAttachments;
+- (bool)generatePreviewImageFromAttachments;
 - (id)image;
 - (id)imageView;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (struct CGSize { float x1; float x2; })intrinsicContentSize;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (struct CGSize { double x1; double x2; })intrinsicContentSize;
 - (id)principalAttachments;
 - (void)setImage:(id)arg1;
 - (void)setImageView:(id)arg1;
 - (void)setPreviewImage:(id)arg1 forAttachment:(id)arg2;
 - (void)setPrincipalAttachments:(id)arg1;
-- (void)setSize:(struct CGSize { float x1; float x2; })arg1 forVerticalSizeClass:(int)arg2;
-- (void)setVerticalSizeClass:(int)arg1;
-- (struct CGSize { float x1; float x2; })sizeForVerticalSizeClass:(int)arg1;
-- (int)verticalSizeClass;
-- (void)verticalSizeClassDidChange;
+- (void)traitCollectionDidChange:(id)arg1;
 
 @end

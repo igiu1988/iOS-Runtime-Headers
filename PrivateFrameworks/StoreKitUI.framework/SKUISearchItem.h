@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSMutableDictionary, SKUIScreenshot;
-
 @interface SKUISearchItem : SKUIItem {
-    NSArray *_childItemIdentifiers;
-    NSMutableDictionary *_loadedChildItems;
-    SKUIScreenshot *_primaryScreenshot;
-    NSArray *_screenshots;
+    NSArray * _childItemIdentifiers;
+    NSMutableDictionary * _loadedChildItems;
+    SKUIScreenshot * _primaryScreenshot;
+    NSArray * _screenshots;
 }
 
-@property(readonly) SKUIScreenshot * primaryScreenshot;
-@property(readonly) NSArray * screenshots;
+@property (nonatomic, readonly) SKUIScreenshot *primaryScreenshot;
+@property (nonatomic, readonly) NSArray *screenshots;
 
 - (void).cxx_destruct;
 - (id)childItemForIdentifier:(id)arg1;

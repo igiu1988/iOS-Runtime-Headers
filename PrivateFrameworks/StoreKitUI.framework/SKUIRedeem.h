@@ -2,56 +2,70 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSDictionary, NSString, NSURL, SKUIArtworkList, UIImage;
-
-@interface SKUIRedeem : NSObject {
-    double _ITunesPassLearnMoreAlertInterval;
-    NSString *_balance;
-    NSString *_credit;
-    SKUIArtworkList *_headerArtworkList;
-    UIImage *_headerImage;
-    BOOL _hideItemView;
-    NSString *_inAppPurchase;
-    NSArray *_items;
-    NSArray *_links;
-    NSString *_message;
-    NSURL *_redirectURL;
-    NSDictionary *_thankYouDictionary;
-    NSString *_title;
+@interface SKUIRedeem : NSObject <NSSecureCoding> {
+    double  _ITunesPassLearnMoreAlertInterval;
+    NSString * _balance;
+    NSString * _credit;
+    NSString * _creditDisplay;
+    NSURL * _customizedThankyouURL;
+    NSArray * _downloads;
+    <SKUIArtworkProviding> * _headerArtworkProvider;
+    UIImage * _headerImage;
+    bool  _hideItemView;
+    NSString * _inAppPurchase;
+    NSArray * _items;
+    NSArray * _links;
+    NSString * _message;
+    NSURL * _redirectURL;
+    NSDictionary * _thankYouDictionary;
+    NSString * _title;
 }
 
-@property double ITunesPassLearnMoreAlertInterval;
-@property(copy) NSString * balance;
-@property(copy) NSString * credit;
-@property(retain) SKUIArtworkList * headerArtworkList;
-@property(retain) UIImage * headerImage;
-@property BOOL hideItemView;
-@property(retain) NSString * inAppPurchase;
-@property(retain) NSArray * items;
-@property(retain) NSArray * links;
-@property(copy) NSString * message;
-@property(retain) NSURL * redirectURL;
-@property(retain) NSDictionary * thankYouDictionary;
-@property(copy) NSString * title;
+@property (nonatomic) double ITunesPassLearnMoreAlertInterval;
+@property (nonatomic, copy) NSString *balance;
+@property (nonatomic, copy) NSString *credit;
+@property (nonatomic, copy) NSString *creditDisplay;
+@property (nonatomic, retain) NSURL *customizedThankyouURL;
+@property (nonatomic, retain) NSArray *downloads;
+@property (nonatomic, retain) <SKUIArtworkProviding> *headerArtworkProvider;
+@property (nonatomic, retain) UIImage *headerImage;
+@property (nonatomic) bool hideItemView;
+@property (nonatomic, retain) NSString *inAppPurchase;
+@property (nonatomic, retain) NSArray *items;
+@property (nonatomic, retain) NSArray *links;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic, retain) NSURL *redirectURL;
+@property (nonatomic, retain) NSDictionary *thankYouDictionary;
+@property (nonatomic, copy) NSString *title;
+
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (double)ITunesPassLearnMoreAlertInterval;
 - (id)balance;
 - (id)credit;
-- (id)headerArtworkList;
+- (id)creditDisplay;
+- (id)customizedThankyouURL;
+- (id)downloads;
+- (void)encodeWithCoder:(id)arg1;
+- (id)headerArtworkProvider;
 - (id)headerImage;
-- (BOOL)hideItemView;
+- (bool)hideItemView;
 - (id)inAppPurchase;
 - (id)init;
+- (id)initWithCoder:(id)arg1;
 - (id)items;
 - (id)links;
 - (id)message;
 - (id)redirectURL;
 - (void)setBalance:(id)arg1;
 - (void)setCredit:(id)arg1;
-- (void)setHeaderArtworkList:(id)arg1;
+- (void)setCreditDisplay:(id)arg1;
+- (void)setCustomizedThankyouURL:(id)arg1;
+- (void)setDownloads:(id)arg1;
+- (void)setHeaderArtworkProvider:(id)arg1;
 - (void)setHeaderImage:(id)arg1;
-- (void)setHideItemView:(BOOL)arg1;
+- (void)setHideItemView:(bool)arg1;
 - (void)setITunesPassLearnMoreAlertInterval:(double)arg1;
 - (void)setInAppPurchase:(id)arg1;
 - (void)setItems:(id)arg1;

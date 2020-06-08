@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSNumber, NSString;
-
 @interface MCAPNInfo : NSObject {
-    NSString *_apnName;
-    NSString *_password;
-    NSString *_proxy;
-    NSNumber *_proxyPort;
-    NSString *_username;
+    NSString * _apnName;
+    NSString * _password;
+    NSString * _proxy;
+    NSNumber * _proxyPort;
+    NSString * _username;
 }
 
-@property(retain) NSString * apnName;
-@property(retain) NSString * password;
-@property(retain) NSString * proxy;
-@property(retain) NSNumber * proxyPort;
-@property(retain) NSString * username;
+@property (nonatomic, retain) NSString *apnName;
+@property (nonatomic, retain) NSString *password;
+@property (nonatomic, retain) NSString *proxy;
+@property (nonatomic, retain) NSNumber *proxyPort;
+@property (nonatomic, retain) NSString *username;
 
 - (void).cxx_destruct;
 - (id)apnName;

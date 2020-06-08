@@ -2,44 +2,50 @@
    Image: /System/Library/PrivateFrameworks/MediaServices.framework/MediaServices
  */
 
-@class NSString;
-
 @interface MSVSystemDialogOptions : NSObject {
-    NSString *_alertHeader;
-    NSString *_alertMessage;
-    NSString *_alternateButtonTitle;
-    NSString *_defaultButtonTitle;
-    BOOL _dismissOverlaysOnLockscreen;
-    BOOL _forceModalAlertAppearance;
-    BOOL _showAsTopmost;
-    BOOL _showOnLockscreen;
+    NSString * _alertHeader;
+    NSURL * _alertIconURL;
+    NSString * _alertMessage;
+    NSArray * _allowedApplicationBundleIDs;
+    NSString * _alternateButtonTitle;
+    NSString * _defaultButtonTitle;
+    bool  _dismissOverlaysOnLockscreen;
+    bool  _forceModalAlertAppearance;
+    bool  _showAsTopmost;
+    bool  _showOnLockscreen;
 }
 
-@property(copy) NSString * alertHeader;
-@property(copy) NSString * alertMessage;
-@property(copy) NSString * alternateButtonTitle;
-@property(copy) NSString * defaultButtonTitle;
-@property BOOL dismissOverlaysOnLockscreen;
-@property BOOL forceModalAlertAppearance;
-@property BOOL showAsTopmost;
-@property BOOL showOnLockscreen;
+@property (nonatomic, copy) NSString *alertHeader;
+@property (nonatomic, copy) NSURL *alertIconURL;
+@property (nonatomic, copy) NSString *alertMessage;
+@property (nonatomic, copy) NSArray *allowedApplicationBundleIDs;
+@property (nonatomic, copy) NSString *alternateButtonTitle;
+@property (nonatomic, copy) NSString *defaultButtonTitle;
+@property (nonatomic) bool dismissOverlaysOnLockscreen;
+@property (nonatomic) bool forceModalAlertAppearance;
+@property (nonatomic) bool showAsTopmost;
+@property (nonatomic) bool showOnLockscreen;
 
 - (void).cxx_destruct;
 - (id)alertHeader;
+- (id)alertIconURL;
 - (id)alertMessage;
+- (id)allowedApplicationBundleIDs;
 - (id)alternateButtonTitle;
 - (id)defaultButtonTitle;
-- (BOOL)dismissOverlaysOnLockscreen;
-- (BOOL)forceModalAlertAppearance;
+- (bool)dismissOverlaysOnLockscreen;
+- (bool)forceModalAlertAppearance;
 - (void)setAlertHeader:(id)arg1;
+- (void)setAlertIconURL:(id)arg1;
 - (void)setAlertMessage:(id)arg1;
+- (void)setAllowedApplicationBundleIDs:(id)arg1;
 - (void)setAlternateButtonTitle:(id)arg1;
 - (void)setDefaultButtonTitle:(id)arg1;
-- (void)setDismissOverlaysOnLockscreen:(BOOL)arg1;
-- (void)setForceModalAlertAppearance:(BOOL)arg1;
-- (void)setShowAsTopmost:(BOOL)arg1;
-- (void)setShowOnLockscreen:(BOOL)arg1;
-- (BOOL)showAsTopmost;
-- (BOOL)showOnLockscreen;
+- (void)setDismissOverlaysOnLockscreen:(bool)arg1;
+- (void)setForceModalAlertAppearance:(bool)arg1;
+- (void)setShowAsTopmost:(bool)arg1;
+- (void)setShowOnLockscreen:(bool)arg1;
+- (bool)showAsTopmost;
+- (bool)showOnLockscreen;
 
 @end

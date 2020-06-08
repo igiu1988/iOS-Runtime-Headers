@@ -2,20 +2,22 @@
    Image: /System/Library/PrivateFrameworks/NanoAudioControl.framework/NanoAudioControl
  */
 
-@class NSString;
-
 @interface NACEUVolumeLimitMessage : PBCodable <NSCopying> {
+    NSString * _category;
+    float  _eUVolumeLimit;
     struct { 
         unsigned int eUVolumeLimit : 1; 
-    NSString *_category;
-    float _eUVolumeLimit;
-    } _has;
+        unsigned int originIdentifier : 1; 
+    }  _has;
+    int  _originIdentifier;
 }
 
-@property(retain) NSString * category;
-@property float eUVolumeLimit;
-@property(readonly) BOOL hasCategory;
-@property BOOL hasEUVolumeLimit;
+@property (nonatomic, retain) NSString *category;
+@property (nonatomic) float eUVolumeLimit;
+@property (nonatomic, readonly) bool hasCategory;
+@property (nonatomic) bool hasEUVolumeLimit;
+@property (nonatomic) bool hasOriginIdentifier;
+@property (nonatomic) int originIdentifier;
 
 - (void).cxx_destruct;
 - (id)category;
@@ -24,15 +26,19 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (float)eUVolumeLimit;
-- (BOOL)hasCategory;
-- (BOOL)hasEUVolumeLimit;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasCategory;
+- (bool)hasEUVolumeLimit;
+- (bool)hasOriginIdentifier;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (int)originIdentifier;
+- (bool)readFrom:(id)arg1;
 - (void)setCategory:(id)arg1;
 - (void)setEUVolumeLimit:(float)arg1;
-- (void)setHasEUVolumeLimit:(BOOL)arg1;
+- (void)setHasEUVolumeLimit:(bool)arg1;
+- (void)setHasOriginIdentifier:(bool)arg1;
+- (void)setOriginIdentifier:(int)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

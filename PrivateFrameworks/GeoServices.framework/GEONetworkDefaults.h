@@ -2,24 +2,30 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSDictionary, NSLock, NSMutableArray, NSString;
-
-@interface GEONetworkDefaults : NSObject {
-    NSString *_cacheFilePath;
-    NSMutableArray *_completionHandlers;
-    BOOL _isRegistering;
-    NSDictionary *_networkDefaults;
-    NSLock *_networkDefaultsLock;
+@interface GEONetworkDefaults : NSObject <_GEONetworkDefaultsServerProxyDelegate> {
+    NSMutableArray * _completionHandlers;
+    NSDictionary * _networkDefaults;
+    NSObject<OS_dispatch_queue> * _networkDefaultsIsolation;
+    <_GEONetworkDefaultsServerProxy> * _serverProxy;
 }
 
-+ (id)sharedNetworkDefaults;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-- (void)_registrationComplete;
-- (void)dealloc;
++ (void)_ib_disableServerConnection;
++ (void)setUseLocalProxy:(bool)arg1;
++ (id)sharedNetworkDefaults;
++ (bool)useLocalProxy;
+
+- (void).cxx_destruct;
+- (bool)_needsUpdate;
+- (id)allKeys;
 - (id)init;
-- (BOOL)needsUpdate;
-- (void)refreshNetworkDefaults;
-- (void)registerNetworkDefaults:(id)arg1;
+- (void)serverProxy:(id)arg1 networkDefaultsDidChange:(id)arg2;
+- (void)updateIfNecessary:(id /* block */)arg1;
+- (void)updateNetworkDefaults:(id /* block */)arg1;
 - (id)valueForKey:(id)arg1;
 
 @end

@@ -2,62 +2,60 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKUIArtworkList, SKUILink;
-
 @interface SKUIMediaComponent : SKUIPageComponent <SSMetricsEventFieldProvider> {
-    NSString *_accessibilityLabel;
-    int _alignment;
-    double _duration;
-    SKUILink *_link;
-    int _mediaAppearance;
-    long long _mediaIdentifier;
-    int _mediaType;
-    NSString *_mediaURLString;
-    SKUIArtworkList *_thumbnailArtworkList;
-    NSString *_title;
-    float _titleFontSize;
-    int _titleFontWeight;
+    NSString * _accessibilityLabel;
+    long long  _alignment;
+    double  _duration;
+    SKUILink * _link;
+    long long  _mediaAppearance;
+    long long  _mediaIdentifier;
+    long long  _mediaType;
+    NSString * _mediaURLString;
+    <SKUIArtworkProviding> * _thumbnailArtworkProvider;
+    NSString * _title;
+    float  _titleFontSize;
+    long long  _titleFontWeight;
 }
 
-@property(readonly) NSString * accessibilityLabel;
-@property(readonly) int alignment;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) double duration;
-@property(readonly) unsigned int hash;
-@property(readonly) SKUILink * link;
-@property(readonly) int mediaAppearance;
-@property(readonly) long long mediaIdentifier;
-@property(readonly) int mediaType;
-@property(readonly) NSString * mediaURLString;
-@property(readonly) Class superclass;
-@property(readonly) SKUIArtworkList * thumbnailArtworkList;
-@property(readonly) NSString * title;
-@property(readonly) float titleFontSize;
-@property(readonly) int titleFontWeight;
+@property (nonatomic, readonly) NSString *accessibilityLabel;
+@property (nonatomic, readonly) long long alignment;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) double duration;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) SKUILink *link;
+@property (nonatomic, readonly) long long mediaAppearance;
+@property (nonatomic, readonly) long long mediaIdentifier;
+@property (nonatomic, readonly) long long mediaType;
+@property (nonatomic, readonly) NSString *mediaURLString;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) <SKUIArtworkProviding> *thumbnailArtworkProvider;
+@property (nonatomic, readonly) NSString *title;
+@property (nonatomic, readonly) float titleFontSize;
+@property (nonatomic, readonly) long long titleFontWeight;
 
 - (void).cxx_destruct;
 - (id)accessibilityLabel;
-- (int)alignment;
+- (long long)alignment;
 - (id)bestThumbnailArtwork;
-- (id)bestThumbnailForWidth:(float)arg1;
-- (int)componentType;
+- (id)bestThumbnailForWidth:(double)arg1;
+- (long long)componentType;
 - (double)duration;
 - (id)initWithArtwork:(id)arg1;
-- (id)initWithArtworkList:(id)arg1 appearance:(int)arg2;
-- (id)initWithArtworkList:(id)arg1;
+- (id)initWithArtworkProvider:(id)arg1;
+- (id)initWithArtworkProvider:(id)arg1 appearance:(long long)arg2;
 - (id)initWithCustomPageContext:(id)arg1;
-- (id)initWithFeaturedContentContext:(id)arg1 kind:(int)arg2;
+- (id)initWithFeaturedContentContext:(id)arg1 kind:(long long)arg2;
 - (id)link;
-- (int)mediaAppearance;
+- (long long)mediaAppearance;
 - (long long)mediaIdentifier;
-- (int)mediaType;
+- (long long)mediaType;
 - (id)mediaURLString;
 - (id)metricsElementName;
-- (id)thumbnailArtworkList;
+- (id)thumbnailArtworkProvider;
 - (id)title;
 - (float)titleFontSize;
-- (int)titleFontWeight;
+- (long long)titleFontWeight;
 - (id)valueForMetricsField:(id)arg1;
 
 @end

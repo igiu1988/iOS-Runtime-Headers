@@ -2,31 +2,49 @@
    Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
  */
 
-@class HMActionSet, NSUUID;
-
-@interface HMAction : NSObject {
-    HMActionSet *_actionSet;
-    unsigned int _actionType;
-    NSUUID *_uuid;
+@interface HMAction : NSObject <HFStateDumpBuildable, HMObjectMerge> {
+    HMActionSet * _actionSet;
+    unsigned long long  _actionType;
+    _HMContext * _context;
+    HMFUnfairLock * _lock;
+    NSUUID * _uniqueIdentifier;
+    NSUUID * _uuid;
 }
 
-@property HMActionSet * actionSet;
-@property unsigned int actionType;
-@property(retain) NSUUID * uuid;
+@property HMActionSet *actionSet;
+@property (nonatomic) unsigned long long actionType;
+@property (nonatomic, retain) _HMContext *context;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) NSUUID *uniqueIdentifier;
+@property (copy) NSUUID *uuid;
 
-+ (id)actionWithInfo:(id)arg1 home:(id)arg2;
-+ (id)lookupActionWithInfo:(id)arg1 inArray:(id)arg2;
+// Image: /System/Library/Frameworks/HomeKit.framework/HomeKit
+
++ (id)_actionWithInfo:(id)arg1 home:(id)arg2;
++ (id)_lookupActionWithInfo:(id)arg1 inArray:(id)arg2;
 
 - (void).cxx_destruct;
+- (void)__configureWithContext:(id)arg1 actionSet:(id)arg2;
+- (bool)_handleUpdates:(id)arg1;
+- (void)_invalidate;
+- (bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
+- (id)_serializeForAdd;
 - (id)actionSet;
-- (unsigned int)actionType;
-- (void)configure:(id)arg1 actionSet:(id)arg2;
-- (BOOL)handleUpdates:(id)arg1;
-- (void)invalidate;
-- (id)serializeForAdd;
+- (unsigned long long)actionType;
+- (id)context;
+- (id)init;
 - (void)setActionSet:(id)arg1;
-- (void)setActionType:(unsigned int)arg1;
+- (void)setActionType:(unsigned long long)arg1;
+- (void)setContext:(id)arg1;
 - (void)setUuid:(id)arg1;
+- (id)uniqueIdentifier;
 - (id)uuid;
+
+// Image: /System/Library/PrivateFrameworks/Home.framework/Home
+
+- (id)hf_stateDumpBuilderWithContext:(id)arg1;
 
 @end

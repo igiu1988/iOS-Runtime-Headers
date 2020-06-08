@@ -2,46 +2,71 @@
    Image: /System/Library/PrivateFrameworks/SoftwareUpdateServices.framework/SoftwareUpdateServices
  */
 
-@class NSDate, NSString, SUDescriptor, SUDownload;
-
 @interface SUState : NSObject <NSKeyedUnarchiverDelegate> {
-    BOOL _autodownloadNeedsOneTimeRetry;
-    SUDownload *_lastDownload;
-    NSString *_lastProductBuild;
-    NSString *_lastProductType;
-    NSString *_lastProductVersion;
-    NSString *_lastReleaseType;
-    SUDescriptor *_lastScannedDescriptor;
-    NSDate *_lastScannedDescriptorTime;
-    NSDate *_scheduledAutodownloadPolicyChangeTime;
-    NSDate *_scheduledAutodownloadWifiPeriodEndTime;
-    NSDate *_scheduledManualDownloadWifiPeriodEndTime;
+    bool  _autodownloadNeedsOneTimeRetry;
+    SUDescriptor * _currentDescriptor;
+    SUDescriptor * _failedPatchDescriptor;
+    SUInstallPolicy * _installPolicy;
+    _SUAutoInstallOperationModel * _lastAutoInstallOperationModel;
+    NSString * _lastDeletedSUAssetID;
+    SUDownload * _lastDownload;
+    NSString * _lastProductBuild;
+    NSString * _lastProductType;
+    NSString * _lastProductVersion;
+    NSString * _lastReleaseType;
+    SUDescriptor * _lastScannedDescriptor;
+    NSDate * _lastScannedDescriptorTime;
+    NSDictionary * _mandatoryUpdateDict;
+    bool  _manifestSubmitted;
+    SUManagedDeviceUpdateDelay * _mdmDelay;
+    NSDate * _scheduledAutodownloadPolicyChangeTime;
+    NSDate * _scheduledAutodownloadWifiPeriodEndTime;
+    NSDate * _scheduledManualDownloadWifiPeriodEndTime;
+    NSString * _sessionID;
+    bool  _stashbagPersisted;
+    NSDictionary * _unlockCallbacks;
 }
 
-@property BOOL autodownloadNeedsOneTimeRetry;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) SUDownload * lastDownload;
-@property(retain) NSString * lastProductBuild;
-@property(retain) NSString * lastProductType;
-@property(retain) NSString * lastProductVersion;
-@property(retain) NSString * lastReleaseType;
-@property(copy) SUDescriptor * lastScannedDescriptor;
-@property(retain) NSDate * lastScannedDescriptorTime;
-@property(retain) NSDate * scheduledAutodownloadPolicyChangeTime;
-@property(retain) NSDate * scheduledAutodownloadWifiPeriodEndTime;
-@property(retain) NSDate * scheduledManualDownloadWifiPeriodEndTime;
-@property(readonly) Class superclass;
+@property (nonatomic) bool autodownloadNeedsOneTimeRetry;
+@property (nonatomic, copy) SUDescriptor *currentDescriptor;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) SUDescriptor *failedPatchDescriptor;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) SUInstallPolicy *installPolicy;
+@property (nonatomic, retain) _SUAutoInstallOperationModel *lastAutoInstallOperationModel;
+@property (nonatomic, retain) NSString *lastDeletedSUAssetID;
+@property (nonatomic, copy) SUDownload *lastDownload;
+@property (nonatomic, retain) NSString *lastProductBuild;
+@property (nonatomic, retain) NSString *lastProductType;
+@property (nonatomic, retain) NSString *lastProductVersion;
+@property (nonatomic, retain) NSString *lastReleaseType;
+@property (nonatomic, copy) SUDescriptor *lastScannedDescriptor;
+@property (nonatomic, retain) NSDate *lastScannedDescriptorTime;
+@property (nonatomic, retain) NSDictionary *mandatoryUpdateDict;
+@property (nonatomic) bool manifestSubmitted;
+@property (nonatomic, retain) SUManagedDeviceUpdateDelay *mdmDelay;
+@property (nonatomic, retain) NSDate *scheduledAutodownloadPolicyChangeTime;
+@property (nonatomic, retain) NSDate *scheduledAutodownloadWifiPeriodEndTime;
+@property (nonatomic, retain) NSDate *scheduledManualDownloadWifiPeriodEndTime;
+@property (nonatomic, retain) NSString *sessionID;
+@property (nonatomic) bool stashbagPersisted;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) NSDictionary *unlockCallbacks;
 
 + (id)currentState;
 + (id)statePath;
 
 - (id)_stateAsDictionary;
-- (BOOL)autodownloadNeedsOneTimeRetry;
+- (bool)autodownloadNeedsOneTimeRetry;
+- (id)currentDescriptor;
 - (void)dealloc;
 - (id)description;
+- (id)failedPatchDescriptor;
 - (id)init;
+- (id)installPolicy;
+- (id)lastAutoInstallOperationModel;
+- (id)lastDeletedSUAssetID;
 - (id)lastDownload;
 - (id)lastProductBuild;
 - (id)lastProductType;
@@ -50,13 +75,22 @@
 - (id)lastScannedDescriptor;
 - (id)lastScannedDescriptorTime;
 - (void)load;
+- (id)mandatoryUpdateDict;
+- (bool)manifestSubmitted;
+- (id)mdmDelay;
 - (void)resetAllHistory;
 - (void)resetDownloadAndScanHistory;
 - (void)save;
 - (id)scheduledAutodownloadPolicyChangeTime;
 - (id)scheduledAutodownloadWifiPeriodEndTime;
 - (id)scheduledManualDownloadWifiPeriodEndTime;
-- (void)setAutodownloadNeedsOneTimeRetry:(BOOL)arg1;
+- (id)sessionID;
+- (void)setAutodownloadNeedsOneTimeRetry:(bool)arg1;
+- (void)setCurrentDescriptor:(id)arg1;
+- (void)setFailedPatchDescriptor:(id)arg1;
+- (void)setInstallPolicy:(id)arg1;
+- (void)setLastAutoInstallOperationModel:(id)arg1;
+- (void)setLastDeletedSUAssetID:(id)arg1;
 - (void)setLastDownload:(id)arg1;
 - (void)setLastProductBuild:(id)arg1;
 - (void)setLastProductType:(id)arg1;
@@ -64,9 +98,17 @@
 - (void)setLastReleaseType:(id)arg1;
 - (void)setLastScannedDescriptor:(id)arg1;
 - (void)setLastScannedDescriptorTime:(id)arg1;
+- (void)setMandatoryUpdateDict:(id)arg1;
+- (void)setManifestSubmitted:(bool)arg1;
+- (void)setMdmDelay:(id)arg1;
 - (void)setScheduledAutodownloadPolicyChangeTime:(id)arg1;
 - (void)setScheduledAutodownloadWifiPeriodEndTime:(id)arg1;
 - (void)setScheduledManualDownloadWifiPeriodEndTime:(id)arg1;
+- (void)setSessionID:(id)arg1;
+- (void)setStashbagPersisted:(bool)arg1;
+- (void)setUnlockCallbacks:(id)arg1;
+- (bool)stashbagPersisted;
 - (Class)unarchiver:(id)arg1 cannotDecodeObjectOfClassName:(id)arg2 originalClasses:(id)arg3;
+- (id)unlockCallbacks;
 
 @end

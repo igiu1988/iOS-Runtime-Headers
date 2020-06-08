@@ -2,29 +2,26 @@
    Image: /System/Library/PrivateFrameworks/SplashBoard.framework/SplashBoard
  */
 
-@class FBApplicationLibrary, NSString;
-
-@interface XBApplicationController : NSObject <FBApplicationLibraryPreInstallClient> {
-    FBApplicationLibrary *_applicationLibrary;
+@interface XBApplicationController : NSObject {
+    FBSDisplayConfiguration * _mainDisplayConfiguration;
 }
-
-@property(retain) FBApplicationLibrary * applicationLibrary;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
 
 + (id)sharedInstance;
 
-- (void)_captureOrUpdateLaunchImagesForApplications:(id)arg1 firstImageIsReady:(id)arg2;
-- (void)_removeAllCachedLaunchImages;
-- (void)_removeCachedLaunchImagesForApplications:(id)arg1 forgetApp:(BOOL)arg2;
-- (void)applicationLibrary:(id)arg1 _willNotify_didAddApplications:(id)arg2 completion:(id)arg3;
-- (void)applicationLibrary:(id)arg1 _willNotify_didReplaceApplications:(id)arg2 withApplications:(id)arg3 completion:(id)arg4;
-- (void)applicationLibrary:(id)arg1 didRemoveApplications:(id)arg2 completion:(id)arg3;
-- (id)applicationLibrary;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (id)_allApplications;
+- (id)_allApplicationsFilteredBySystem:(bool)arg1 bySplashBoard:(bool)arg2;
+- (void)_captureOrUpdateLaunchImagesForApplications:(id)arg1 firstImageIsReady:(id /* block */)arg2;
+- (void)_captureOrUpdateLaunchImagesForApplications:(id)arg1 firstImageIsReady:(id /* block */)arg2 completion:(id /* block */)arg3;
+- (void)_migrateDataIfNeeded;
+- (void)_removeCachedLaunchImagesForApplications:(id)arg1 forgettingApps:(bool)arg2;
+- (void)_removeLaunchImagesMatchingPredicate:(id)arg1 forApplications:(id)arg2 forgettingApps:(bool)arg3;
+- (id)allSplashBoardApplications;
+- (id)allSplashBoardSystemApplications;
 - (id)init;
-- (void)setApplicationLibrary:(id)arg1;
+- (id)launchRequestsForApplication:(id)arg1 withCompatibilityInfo:(id)arg2;
+- (void)removeAllGeneratedLaunchImages;
+- (void)removeAllGeneratedLaunchImagesAndSnapshots;
+- (void)resetEverything;
 
 @end

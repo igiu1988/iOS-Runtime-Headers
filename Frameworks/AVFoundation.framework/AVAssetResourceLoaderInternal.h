@@ -2,18 +2,25 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference, NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface AVAssetResourceLoaderInternal : NSObject {
-    NSMutableDictionary *contentInformationCache;
-    NSObject<OS_dispatch_queue> *contentInformationCachingQueue;
-    NSObject<OS_dispatch_queue> *delegateQueue;
-    int loadingCancelled;
-    NSMutableDictionary *pendingRequests;
-    NSObject<OS_dispatch_queue> *stateQueue;
-    AVWeakReference *weakReference;
-    AVWeakReference *weakReferenceToAsset;
-    AVWeakReference *weakReferenceToDelegate;
+    AVAssetClientURLRequestHelper * URLRequestHelper;
+    NSURLSession * URLSession;
+    NSOperationQueue * URLSessionOperationQueue;
+    struct OpaqueFigCustomURLHandler { } * authHandler;
+    AVAssetCustomURLBridgeForNSURLSession * bridgeBetweenHandlerAndSession;
+    NSMutableDictionary * contentInformationCache;
+    NSObject<OS_dispatch_queue> * contentInformationCachingQueue;
+    struct OpaqueFigCustomURLHandler { } * contentKeySessionCustomURLHandler;
+    struct OpaqueFigCustomURLHandler { } * customURLHandler;
+    struct OpaqueFigCustomURLLoader { } * customURLLoader;
+    NSObject<OS_dispatch_queue> * delegateQueue;
+    int  loadingCancelled;
+    long long  makeResourceLoaderURLSessionSupportStuffOnlyOnce;
+    NSMutableDictionary * pendingRequests;
+    bool  preloadsEligibleContentKeys;
+    NSObject<OS_dispatch_queue> * stateQueue;
+    AVWeakReference * weakReferenceToAsset;
+    AVWeakReference * weakReferenceToDelegate;
 }
 
 @end

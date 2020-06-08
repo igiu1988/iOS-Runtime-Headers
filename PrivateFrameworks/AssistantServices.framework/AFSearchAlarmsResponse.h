@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSArray;
-
 @interface AFSearchAlarmsResponse : AFSiriResponse {
-    NSArray *_results;
+    NSArray * _results;
 }
 
-@property(copy) NSArray * results;
+@property (nonatomic, copy) NSArray *results;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

@@ -2,39 +2,37 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSMutableSet, NSObject<OS_dispatch_queue>, NSPersistentStoreCoordinator, NSSQLCore, NSSet, NSString, PFUbiquityBaselineHeuristics, PFUbiquityLocation, PFUbiquityRecordsImporterSchedulingContext, PFUbiquitySwitchboardCacheWrapper, _PFUbiquityRecordsExporter, _PFUbiquityRecordsImporter;
-
 @interface PFUbiquitySwitchboardEntryMetadata : NSObject {
-    NSString *_activeModelVersionHash;
-    PFUbiquityBaselineHeuristics *_baselineHeuristics;
-    PFUbiquitySwitchboardCacheWrapper *_cacheWrapper;
-    _PFUbiquityRecordsExporter *_exporter;
-    _PFUbiquityRecordsImporter *_importer;
-    NSString *_localPeerID;
-    PFUbiquityLocation *_localRootLocation;
-    NSPersistentStoreCoordinator *_privatePSC;
-    NSObject<OS_dispatch_queue> *_privateQueue;
-    NSSQLCore *_privateStore;
-    PFUbiquityRecordsImporterSchedulingContext *_schedulingContext;
-    NSString *_storeName;
-    NSMutableSet *_stores;
-    PFUbiquityLocation *_ubiquityRootLocation;
-    BOOL _useLocaAccount;
-    BOOL _useLocalStorage;
+    NSString * _activeModelVersionHash;
+    PFUbiquityBaselineHeuristics * _baselineHeuristics;
+    PFUbiquitySwitchboardCacheWrapper * _cacheWrapper;
+    _PFUbiquityRecordsExporter * _exporter;
+    _PFUbiquityRecordsImporter * _importer;
+    NSString * _localPeerID;
+    PFUbiquityLocation * _localRootLocation;
+    NSPersistentStoreCoordinator * _privatePSC;
+    NSObject<OS_dispatch_queue> * _privateQueue;
+    NSSQLCore * _privateStore;
+    PFUbiquityRecordsImporterSchedulingContext * _schedulingContext;
+    NSString * _storeName;
+    NSMutableSet * _stores;
+    PFUbiquityLocation * _ubiquityRootLocation;
+    bool  _useLocaAccount;
+    bool  _useLocalStorage;
 }
 
-@property(readonly) NSString * activeModelVersionHash;
-@property(readonly) PFUbiquityBaselineHeuristics * baselineHeuristics;
-@property(retain) PFUbiquitySwitchboardCacheWrapper * cacheWrapper;
-@property(readonly) _PFUbiquityRecordsExporter * exporter;
-@property(readonly) _PFUbiquityRecordsImporter * importer;
-@property(readonly) NSPersistentStoreCoordinator * privatePSC;
-@property(readonly) NSSQLCore * privateStore;
-@property(readonly) PFUbiquityRecordsImporterSchedulingContext * schedulingContext;
-@property(readonly) NSSet * stores;
-@property(retain) PFUbiquityLocation * ubiquityRootLocation;
-@property BOOL useLocalAccount;
-@property BOOL useLocalStorage;
+@property (nonatomic, readonly) NSString *activeModelVersionHash;
+@property (nonatomic, readonly) PFUbiquityBaselineHeuristics *baselineHeuristics;
+@property (nonatomic, retain) PFUbiquitySwitchboardCacheWrapper *cacheWrapper;
+@property (nonatomic, readonly) _PFUbiquityRecordsExporter *exporter;
+@property (nonatomic, readonly) _PFUbiquityRecordsImporter *importer;
+@property (nonatomic, readonly) NSPersistentStoreCoordinator *privatePSC;
+@property (nonatomic, readonly) NSSQLCore *privateStore;
+@property (nonatomic, readonly) PFUbiquityRecordsImporterSchedulingContext *schedulingContext;
+@property (nonatomic, readonly) NSSet *stores;
+@property (nonatomic, retain) PFUbiquityLocation *ubiquityRootLocation;
+@property (nonatomic) bool useLocalAccount;
+@property (nonatomic) bool useLocalStorage;
 
 - (id)activeModelVersionHash;
 - (void)addPersistentStore:(id)arg1;
@@ -50,12 +48,12 @@
 - (id)schedulingContext;
 - (void)setCacheWrapper:(id)arg1;
 - (void)setUbiquityRootLocation:(id)arg1;
-- (void)setUseLocalAccount:(BOOL)arg1;
-- (void)setUseLocalStorage:(BOOL)arg1;
+- (void)setUseLocalAccount:(bool)arg1;
+- (void)setUseLocalStorage:(bool)arg1;
 - (id)stores;
 - (void)tearDown;
 - (id)ubiquityRootLocation;
-- (BOOL)useLocalAccount;
-- (BOOL)useLocalStorage;
+- (bool)useLocalAccount;
+- (bool)useLocalStorage;
 
 @end

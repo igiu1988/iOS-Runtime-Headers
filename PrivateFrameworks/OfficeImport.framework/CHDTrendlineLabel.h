@@ -2,37 +2,39 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class CHDFormula, EDResources, OADGraphicProperties;
-
 @interface CHDTrendlineLabel : NSObject {
-    boolmAutomaticLabelDeleted;
-    boolmGeneratedText;
-    unsigned int mContentFormatId;
-    OADGraphicProperties *mGraphicProperties;
-    unsigned int mLastCachedNameStringIndex;
-    CHDFormula *mName;
-    EDResources *mResources;
+    bool  mAutomaticLabelDeleted;
+    bool  mContentFormatDerived;
+    unsigned long long  mContentFormatId;
+    bool  mGeneratedText;
+    OADGraphicProperties * mGraphicProperties;
+    unsigned long long  mLastCachedNameStringIndex;
+    CHDFormula * mName;
+    EDResources * mResources;
 }
 
 + (id)trendlineLabelWithResources:(id)arg1;
 
 - (id)contentFormat;
-- (unsigned int)contentFormatId;
+- (unsigned long long)contentFormatId;
 - (void)dealloc;
+- (id)description;
 - (id)graphicProperties;
 - (id)initWithResources:(id)arg1;
 - (bool)isAutomaticLabelDeleted;
+- (bool)isContentFormatDerivedFromDataPoints;
 - (bool)isGeneratedText;
 - (id)lastCachedName;
 - (id)name;
 - (void)setAutomaticLabelDeleted:(bool)arg1;
 - (void)setContentFormat:(id)arg1;
-- (void)setContentFormatId:(unsigned int)arg1;
+- (void)setContentFormatId:(unsigned long long)arg1;
 - (void)setGeneratedText:(bool)arg1;
 - (void)setGraphicProperties:(id)arg1;
+- (void)setIsContentFormatDerivedFromDataPoints:(bool)arg1;
 - (void)setLastCachedName:(id)arg1;
 - (void)setName:(id)arg1 chart:(id)arg2;
-- (void)setStringIndex:(unsigned int)arg1;
-- (unsigned int)stringIndex;
+- (void)setStringIndex:(unsigned long long)arg1;
+- (unsigned long long)stringIndex;
 
 @end

@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/ConstantClasses.framework/ConstantClasses
  */
 
-@interface _NSConstantDate : NSDate {
-}
+@interface _NSConstantDate : NSDate
 
 + (id)alloc;
 + (void)load;
@@ -11,7 +10,7 @@
 - (void)dealloc;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (double)timeIntervalSinceReferenceDate;
 
 @end

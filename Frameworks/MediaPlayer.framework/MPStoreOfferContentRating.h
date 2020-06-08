@@ -2,49 +2,47 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSDictionary, NSString;
-
 @interface MPStoreOfferContentRating : NSObject <NSCoding> {
-    NSDictionary *_dictionary;
-    NSString *_ratingDescription;
-    NSString *_ratingLabel;
-    int _ratingLevel;
-    unsigned int _ratingSystem;
+    NSDictionary * _dictionary;
+    NSString * _ratingDescription;
+    NSString * _ratingLabel;
+    long long  _ratingLevel;
+    unsigned long long  _ratingSystem;
 }
 
-@property(getter=isExplicitContent,readonly) BOOL explicitContent;
-@property(readonly) id mediaPropertyContentRatingValue;
-@property(copy) NSString * ratingDescription;
-@property(copy) NSString * ratingLabel;
-@property int ratingLevel;
-@property unsigned int ratingSystem;
-@property(getter=isRestrictedContent,readonly) BOOL restrictedContent;
-@property(getter=isRestrictedPurchase,readonly) BOOL restrictedPurchase;
+@property (getter=isExplicitContent, nonatomic, readonly) bool explicitContent;
+@property (nonatomic, readonly) id mediaPropertyContentRatingValue;
+@property (nonatomic, copy) NSString *ratingDescription;
+@property (nonatomic, copy) NSString *ratingLabel;
+@property (nonatomic) long long ratingLevel;
+@property (nonatomic) unsigned long long ratingSystem;
+@property (getter=isRestrictedContent, nonatomic, readonly) bool restrictedContent;
+@property (getter=isRestrictedPurchase, nonatomic, readonly) bool restrictedPurchase;
 
-+ (unsigned int)ratingSystemFromString:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (unsigned long long)ratingSystemFromString:(id)arg1;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (BOOL)_isRatingSystemForApps:(unsigned int)arg1;
-- (BOOL)_isRatingSystemForMovies:(unsigned int)arg1;
-- (BOOL)_isRatingSystemForMusic:(unsigned int)arg1;
-- (BOOL)_isRatingSystemForTV:(unsigned int)arg1;
+- (bool)_isRatingSystemForApps:(unsigned long long)arg1;
+- (bool)_isRatingSystemForMovies:(unsigned long long)arg1;
+- (bool)_isRatingSystemForMusic:(unsigned long long)arg1;
+- (bool)_isRatingSystemForTV:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
-- (BOOL)isExplicitContent;
-- (BOOL)isRestrictedContent;
-- (BOOL)isRestrictedPurchase;
+- (bool)isExplicitContent;
+- (bool)isRestrictedContent;
+- (bool)isRestrictedPurchase;
 - (id)mediaPropertyContentRatingValue;
 - (id)ratingDescription;
 - (id)ratingLabel;
-- (int)ratingLevel;
-- (unsigned int)ratingSystem;
+- (long long)ratingLevel;
+- (unsigned long long)ratingSystem;
 - (void)setRatingDescription:(id)arg1;
 - (void)setRatingLabel:(id)arg1;
-- (void)setRatingLevel:(int)arg1;
-- (void)setRatingSystem:(unsigned int)arg1;
+- (void)setRatingLevel:(long long)arg1;
+- (void)setRatingSystem:(unsigned long long)arg1;
 - (id)valueForProperty:(id)arg1;
 
 @end

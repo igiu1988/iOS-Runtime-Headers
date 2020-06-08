@@ -2,19 +2,18 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-@class NSDictionary, NSString;
-
 @interface SCNProgramSemanticInfo : NSObject <NSSecureCoding> {
-    NSDictionary *_options;
-    NSString *_semantic;
+    NSDictionary * _options;
+    NSString * _semantic;
 }
 
-@property(retain) NSDictionary * options;
-@property(copy) NSString * semantic;
+@property (nonatomic, retain) NSDictionary *options;
+@property (nonatomic, copy) NSString *semantic;
 
 + (id)infoWithSemantic:(id)arg1 options:(id)arg2;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
+- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)options;

@@ -6,28 +6,28 @@
     struct { 
         unsigned int timeToSucceed : 1; 
         unsigned int timestamp : 1; 
-    } _has;
-    long long _timeToSucceed;
-    unsigned long long _timestamp;
+    }  _has;
+    long long  _timeToSucceed;
+    unsigned long long  _timestamp;
 }
 
-@property BOOL hasTimeToSucceed;
-@property BOOL hasTimestamp;
-@property long long timeToSucceed;
-@property unsigned long long timestamp;
+@property (nonatomic) bool hasTimeToSucceed;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic) long long timeToSucceed;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasTimeToSucceed;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasTimeToSucceed;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasTimeToSucceed:(BOOL)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasTimeToSucceed:(bool)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setTimeToSucceed:(long long)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (long long)timeToSucceed;

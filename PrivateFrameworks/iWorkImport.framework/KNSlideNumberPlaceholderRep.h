@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface KNSlideNumberPlaceholderRep : KNPlaceholderRep {
-}
+@interface KNSlideNumberPlaceholderRep : KNPlaceholderRep
 
 + (id)mixableObjectClasses;
 
-- (BOOL)canBeginEditingChildRepOnDoubleTap:(id)arg1;
-- (BOOL)handleSingleTapAtPoint:(struct CGPoint { float x1; float x2; })arg1 withRecognizer:(id)arg2;
-- (BOOL)isDraggable;
-- (BOOL)isSelectable;
-- (BOOL)shouldBeginEditingOnSingleClick;
+- (bool)canBeginEditingChildRepOnDoubleTap:(id)arg1;
+- (bool)canMakePathEditable;
+- (bool)handleSingleTapAtPoint:(struct CGPoint { double x1; double x2; })arg1 withRecognizer:(id)arg2;
+- (bool)shouldBeginEditingOnSingleClick;
 
 @end

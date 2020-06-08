@@ -2,29 +2,27 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class NSObject<GKTurnBasedEventHandlerDelegate>, NSObject<OS_dispatch_queue>;
-
 @interface GKTurnBasedEventHandler : NSObject {
-    NSObject<GKTurnBasedEventHandlerDelegate> *_delegateWeak;
-    BOOL _didBecomeActive;
-    NSObject<OS_dispatch_queue> *_lookForEventQueue;
+    NSObject<GKTurnBasedEventHandlerDelegate> * _delegateWeak;
+    bool  _didBecomeActive;
+    NSObject<OS_dispatch_queue> * _lookForEventQueue;
 }
 
-@property NSObject<GKTurnBasedEventHandlerDelegate> * delegate;
-@property BOOL didBecomeActive;
-@property NSObject<OS_dispatch_queue> * lookForEventQueue;
+@property (nonatomic) NSObject<GKTurnBasedEventHandlerDelegate> *delegate;
+@property (nonatomic) bool didBecomeActive;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *lookForEventQueue;
 
 + (id)sharedTurnBasedEventHandler;
 
-- (void)callTurnEventForMatch:(id)arg1 userTapped:(BOOL)arg2;
+- (void)callTurnEventForMatch:(id)arg1 userTapped:(bool)arg2;
 - (void)dealloc;
 - (id)delegate;
-- (BOOL)didBecomeActive;
+- (bool)didBecomeActive;
 - (id)init;
 - (void)lookForEvent;
 - (id)lookForEventQueue;
 - (void)setDelegate:(id)arg1;
-- (void)setDidBecomeActive:(BOOL)arg1;
+- (void)setDidBecomeActive:(bool)arg1;
 - (void)setLookForEventQueue:(id)arg1;
 
 @end

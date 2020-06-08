@@ -2,23 +2,24 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class NSString;
-
 @interface CKDSaveUserPrivacySettingsOperation : CKDOperation {
-    NSString *_applicationBundleID;
-    int _discoverable;
+    NSString * _applicationBundleID;
+    long long  _discoverable;
 }
 
-@property(copy) NSString * applicationBundleID;
-@property int discoverable;
+@property (nonatomic, copy) NSString *applicationBundleID;
+@property (nonatomic) long long discoverable;
+
++ (long long)isPredominatelyDownload;
 
 - (void).cxx_destruct;
+- (id)activityCreate;
 - (id)applicationBundleID;
-- (int)discoverable;
+- (long long)discoverable;
 - (id)initWithOperationInfo:(id)arg1 clientContext:(id)arg2;
 - (void)main;
 - (void)setApplicationBundleID:(id)arg1;
-- (void)setDiscoverable:(int)arg1;
-- (BOOL)shouldCheckAppVersion;
+- (void)setDiscoverable:(long long)arg1;
+- (bool)shouldCheckAppVersion;
 
 @end

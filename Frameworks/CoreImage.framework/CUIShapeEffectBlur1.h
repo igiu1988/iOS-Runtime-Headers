@@ -2,31 +2,29 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIColor, CIImage, CIVector, NSNumber;
-
 @interface CUIShapeEffectBlur1 : CIFilter {
-    CIImage *inputFill;
-    CIColor *inputGlowColorInner;
-    CIColor *inputGlowColorOuter;
-    CIImage *inputImage;
-    CIVector *inputOffset;
-    NSNumber *inputRadius;
-    NSNumber *inputShadowBlurInner;
-    NSNumber *inputShadowBlurOuter;
-    CIColor *inputShadowColorInner;
-    CIColor *inputShadowColorOuter;
+    CIImage * inputFill;
+    CIColor * inputGlowColorInner;
+    CIColor * inputGlowColorOuter;
+    CIImage * inputImage;
+    CIVector * inputOffset;
+    NSNumber * inputRadius;
+    NSNumber * inputShadowBlurInner;
+    NSNumber * inputShadowBlurOuter;
+    CIColor * inputShadowColorInner;
+    CIColor * inputShadowColorOuter;
 }
 
-@property(retain) CIImage * inputFill;
-@property(retain) CIColor * inputGlowColorInner;
-@property(retain) CIColor * inputGlowColorOuter;
-@property(retain) CIImage * inputImage;
-@property(retain) CIVector * inputOffset;
-@property(retain) NSNumber * inputRadius;
-@property(retain) NSNumber * inputShadowBlurInner;
-@property(retain) NSNumber * inputShadowBlurOuter;
-@property(retain) CIColor * inputShadowColorInner;
-@property(retain) CIColor * inputShadowColorOuter;
+@property (nonatomic, retain) CIImage *inputFill;
+@property (nonatomic, retain) CIColor *inputGlowColorInner;
+@property (nonatomic, retain) CIColor *inputGlowColorOuter;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) CIVector *inputOffset;
+@property (nonatomic, retain) NSNumber *inputRadius;
+@property (nonatomic, retain) NSNumber *inputShadowBlurInner;
+@property (nonatomic, retain) NSNumber *inputShadowBlurOuter;
+@property (nonatomic, retain) CIColor *inputShadowColorInner;
+@property (nonatomic, retain) CIColor *inputShadowColorOuter;
 
 + (id)customAttributes;
 
@@ -42,7 +40,6 @@
 - (id)inputShadowColorInner;
 - (id)inputShadowColorOuter;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputFill:(id)arg1;
 - (void)setInputGlowColorInner:(id)arg1;
 - (void)setInputGlowColorOuter:(id)arg1;

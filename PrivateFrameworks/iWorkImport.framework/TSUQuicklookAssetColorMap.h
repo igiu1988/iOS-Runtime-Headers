@@ -2,18 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface TSUQuicklookAssetColorMap : NSObject {
-    NSString *mAppAssetPath;
-    NSMutableDictionary *mAssetMap;
+    NSString * mAppAssetPath;
+    NSMutableDictionary * mAssetMap;
 }
 
-@property(retain) NSString * appAssetPath;
-@property(retain) NSMutableDictionary * assetMap;
+@property (nonatomic, retain) NSString *appAssetPath;
+@property (nonatomic, retain) NSMutableDictionary *assetMap;
 
++ (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (id)colorForResource:(id)arg1;
-+ (BOOL)hasAppAssets;
++ (bool)hasAppAssets;
++ (id)locatorForSageChartTextureSet:(id)arg1 image:(id)arg2;
 + (id)quicklookAssetMap;
 
 - (id)appAssetPath;
@@ -22,7 +22,7 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (void)setAppAssetPath:(id)arg1;
 - (void)setAssetMap:(id)arg1;
 

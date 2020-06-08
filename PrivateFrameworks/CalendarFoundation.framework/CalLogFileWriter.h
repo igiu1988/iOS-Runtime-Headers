@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CalendarFoundation.framework/CalendarFoundation
  */
 
-@class NSString;
-
 @interface CalLogFileWriter : CalLogWriter {
-    int _fileDescriptor;
-    BOOL _fileDescriptorIsValid;
-    NSString *_path;
+    int  _fileDescriptor;
+    bool  _fileDescriptorIsValid;
+    NSString * _path;
 }
 
-@property int fileDescriptor;
-@property BOOL fileDescriptorIsValid;
-@property(retain) NSString * path;
+@property (nonatomic) int fileDescriptor;
+@property (nonatomic) bool fileDescriptorIsValid;
+@property (nonatomic, retain) NSString *path;
 
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)description;
 - (int)fileDescriptor;
-- (BOOL)fileDescriptorIsValid;
+- (bool)fileDescriptorIsValid;
 - (id)initWithParameters:(id)arg1;
 - (id)path;
 - (void)setFileDescriptor:(int)arg1;
-- (void)setFileDescriptorIsValid:(BOOL)arg1;
+- (void)setFileDescriptorIsValid:(bool)arg1;
 - (void)setPath:(id)arg1;
 - (void)write:(id)arg1;
 

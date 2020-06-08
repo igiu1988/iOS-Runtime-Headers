@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CoreBrightness.framework/CoreBrightness
  */
 
-@class BrightnessSystemInternal;
-
 @interface BrightnessSystem : NSObject {
-    BrightnessSystemInternal *bsi;
+    BrightnessSystemInternal * bsi;
 }
 
 - (id)copyPropertyForKey:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (BOOL)isAlsSupported;
-- (void)registerNotificationBlock:(id)arg1;
-- (BOOL)setProperty:(id)arg1 forKey:(id)arg2;
+- (bool)isAlsSupported;
+- (void)registerNotificationBlock:(id /* block */)arg1;
+- (bool)setProperty:(id)arg1 forKey:(id)arg2;
 
 @end

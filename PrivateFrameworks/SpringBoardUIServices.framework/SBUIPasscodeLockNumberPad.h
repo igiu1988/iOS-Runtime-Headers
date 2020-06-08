@@ -2,65 +2,74 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUIServices.framework/SpringBoardUIServices
  */
 
-@class <SBUIPasscodeLockNumberPadDelegate>, NSArray, NSString, SBNumberPadWithDelegate, SBUIButton, UIColor, UIControl<SBUIPasscodeNumberPadButton>, UIView;
-
-@interface SBUIPasscodeLockNumberPad : UIView <SBNumberPadDelegate> {
-    SBUIButton *_backspaceButton;
-    UIView *_bottomPaddingView;
-    SBUIButton *_cancelButton;
-    UIColor *_customBackgroundColor;
-    <SBUIPasscodeLockNumberPadDelegate> *_delegate;
-    UIControl<SBUIPasscodeNumberPadButton> *_downButton;
-    SBUIButton *_emergencyCallButton;
-    UIView *_leftPaddingView;
-    SBNumberPadWithDelegate *_numberPad;
-    UIView *_rightPaddingView;
-    BOOL _showsBackspaceButton;
-    BOOL _showsCancelButton;
-    BOOL _showsEmergencyCallButton;
-    BOOL _useLightStyle;
+@interface SBUIPasscodeLockNumberPad : UIView <CAAnimationDelegate, SBNumberPadDelegate> {
+    double  _ancillaryButtonOffset;
+    SBUIButton * _backspaceButton;
+    SBUIButton * _cancelButton;
+    UIColor * _customBackgroundColor;
+    <SBUIPasscodeLockNumberPadDelegate> * _delegate;
+    UIControl<SBUIPasscodeNumberPadButton> * _downButton;
+    SBUIButton * _emergencyCallButton;
+    SBNumberPadWithDelegate * _numberPad;
+    UIColor * _reduceTransparencyButtonColor;
+    bool  _showsBackspaceButton;
+    bool  _showsCancelButton;
+    bool  _showsEmergencyCallButton;
+    bool  _useLightStyle;
+    bool  _visible;
 }
 
-@property(readonly) NSArray * buttons;
-@property(copy,readonly) NSString * debugDescription;
-@property <SBUIPasscodeLockNumberPadDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(retain) UIControl<SBUIPasscodeNumberPadButton> * downButton;
-@property(readonly) unsigned int hash;
-@property BOOL showsBackspaceButton;
-@property BOOL showsCancelButton;
-@property BOOL showsEmergencyCallButton;
-@property(readonly) Class superclass;
+@property (nonatomic) double ancillaryButtonOffset;
+@property (nonatomic, readonly) SBUIButton *backspaceButton;
+@property (nonatomic, readonly) NSArray *buttons;
+@property (nonatomic, readonly) SBUIButton *cancelButton;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SBUIPasscodeLockNumberPadDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) UIControl<SBUIPasscodeNumberPadButton> *downButton;
+@property (nonatomic, readonly) SBUIButton *emergencyCallButton;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) UIColor *reduceTransparencyButtonColor;
+@property (nonatomic) bool showsBackspaceButton;
+@property (nonatomic) bool showsCancelButton;
+@property (nonatomic) bool showsEmergencyCallButton;
+@property (readonly) Class superclass;
 
-+ (id)_buttonForCharacter:(unsigned int)arg1 withLightStyle:(BOOL)arg2;
-+ (struct CGSize { float x1; float x2; })_inputButtonCircleSize;
-+ (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })_inputButtonCircleSpacing;
++ (id)_buttonForCharacter:(unsigned int)arg1 withLightStyle:(bool)arg2;
++ (struct CGSize { double x1; double x2; })_inputButtonCircleSize;
++ (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })_inputButtonCircleSpacing;
 
+- (void).cxx_destruct;
 - (void)_backspaceButtonHit;
 - (void)_cancelButtonHit;
 - (void)_configureAdditionalButtons;
-- (float)_distanceToTopOfFirstButton;
+- (double)_distanceToTopOfFirstButton;
 - (void)_emergencyCallButtonHit;
 - (id)_fontForAncillaryButton;
 - (void)_numberPadTouchCancelled:(id)arg1 forEvent:(id)arg2;
 - (void)_numberPadTouchDown:(id)arg1 forEvent:(id)arg2;
 - (void)_numberPadTouchDrag:(id)arg1 forEvent:(id)arg2;
 - (void)_numberPadTouchUp:(id)arg1 forEvent:(id)arg2;
-- (void)_setLuminosityBoost:(float)arg1;
+- (double)ancillaryButtonOffset;
+- (id)backspaceButton;
 - (id)buttons;
-- (void)dealloc;
+- (id)cancelButton;
 - (id)delegate;
 - (id)downButton;
-- (id)initWithDefaultSizeAndLightStyle:(BOOL)arg1;
-- (void)setBackgroundAlpha:(float)arg1;
-- (void)setCustomBackgroundColor:(id)arg1;
+- (id)emergencyCallButton;
+- (id)initWithDefaultSizeAndLightStyle:(bool)arg1;
+- (id)reduceTransparencyButtonColor;
+- (void)setAncillaryButtonOffset:(double)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setDownButton:(id)arg1;
-- (void)setShowsBackspaceButton:(BOOL)arg1;
-- (void)setShowsCancelButton:(BOOL)arg1;
-- (void)setShowsEmergencyCallButton:(BOOL)arg1;
-- (BOOL)showsBackspaceButton;
-- (BOOL)showsCancelButton;
-- (BOOL)showsEmergencyCallButton;
+- (void)setReduceTransparencyButtonColor:(id)arg1;
+- (void)setShowsBackspaceButton:(bool)arg1;
+- (void)setShowsCancelButton:(bool)arg1;
+- (void)setShowsEmergencyCallButton:(bool)arg1;
+- (void)setVisible:(bool)arg1 animated:(bool)arg2;
+- (bool)showsBackspaceButton;
+- (bool)showsCancelButton;
+- (bool)showsEmergencyCallButton;
+- (void)traitCollectionDidChange:(id)arg1;
 
 @end

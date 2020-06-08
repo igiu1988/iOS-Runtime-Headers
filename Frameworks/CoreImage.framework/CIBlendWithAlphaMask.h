@@ -2,29 +2,12 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage;
-
-@interface CIBlendWithAlphaMask : CIFilter {
-    CIImage *inputBackgroundImage;
-    CIImage *inputImage;
-    CIImage *inputMaskImage;
-}
-
-@property(retain) CIImage * inputBackgroundImage;
-@property(retain) CIImage * inputImage;
-@property(retain) CIImage * inputMaskImage;
+@interface CIBlendWithAlphaMask : CIBlendWithMask
 
 + (id)customAttributes;
 
 - (id)_kernel;
-- (id)_kernelNoB;
-- (id)_kernelNoF;
-- (id)inputBackgroundImage;
-- (id)inputImage;
-- (id)inputMaskImage;
-- (id)outputImage;
-- (void)setInputBackgroundImage:(id)arg1;
-- (void)setInputImage:(id)arg1;
-- (void)setInputMaskImage:(id)arg1;
+- (id)_kernelB0;
+- (float)_maskFillColorValue;
 
 @end

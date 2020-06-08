@@ -2,25 +2,29 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CKAnimatedImage, NSArray, NSString;
-
 @interface CKAnimatedImageView : UIImageView <CKAnimationTimerObserver> {
-    CKAnimatedImage *_animatedImage;
-    NSArray *_frames;
+    CKAnimatedImage * _animatedImage;
+    bool  _automaticallyObserveWindowForAnimationTimer;
+    NSArray * _frames;
 }
 
-@property(retain) CKAnimatedImage * animatedImage;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(copy) NSArray * frames;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) CKAnimatedImage *animatedImage;
+@property (nonatomic) bool automaticallyObserveWindowForAnimationTimer;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, copy) NSArray *frames;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
+- (void).cxx_destruct;
 - (id)animatedImage;
-- (void)animationTimerFired:(unsigned int)arg1;
+- (void)animationTimerFired:(unsigned long long)arg1;
+- (bool)automaticallyObserveWindowForAnimationTimer;
 - (void)dealloc;
+- (void)didMoveToWindow;
 - (id)frames;
 - (void)setAnimatedImage:(id)arg1;
+- (void)setAutomaticallyObserveWindowForAnimationTimer:(bool)arg1;
 - (void)setFrames:(id)arg1;
 - (void)updateAnimationTimerObserving;
 

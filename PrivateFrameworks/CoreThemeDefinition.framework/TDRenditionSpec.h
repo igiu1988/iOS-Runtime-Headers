@@ -2,20 +2,34 @@
    Image: /System/Library/PrivateFrameworks/CoreThemeDefinition.framework/CoreThemeDefinition
  */
 
-@class NSDate, TDElementProduction, TDRenditionKeySpec, TDRenditionType;
+@interface TDRenditionSpec : NSManagedObject
 
-@interface TDRenditionSpec : NSManagedObject {
-}
-
-@property(retain) NSDate * dateOfLastChange;
-@property(retain) TDRenditionKeySpec * keySpec;
-@property(retain) TDElementProduction * production;
-@property(retain) TDRenditionType * renditionType;
+@property (nonatomic) bool alphaCrop;
+@property (nonatomic, retain) NSDate *dateOfLastChange;
+@property (nonatomic) int height;
+@property (nonatomic, retain) TDRenditionKeySpec *keySpec;
+@property (nonatomic) bool monochrome;
+@property (nonatomic) bool opaque;
+@property (nonatomic) struct CGPoint { double x1; double x2; } packedPoint;
+@property (nonatomic) int packedPointX;
+@property (nonatomic) int packedPointY;
+@property (nonatomic, retain) NSSet *packedRenditions;
+@property (nonatomic, retain) TDRenditionSpec *parentRendition;
+@property (nonatomic, retain) TDElementProduction *production;
+@property (nonatomic, retain) NSSet *properties;
+@property (nonatomic, retain) TDRenditionType *renditionType;
+@property (nonatomic) int width;
 
 - (void)awakeFromInsert;
-- (id)createCSIRepresentationWithCompression:(BOOL)arg1 colorSpaceID:(unsigned int)arg2 document:(id)arg3;
+- (bool)canBePackedWithDocument:(id)arg1;
+- (id)createCSIRepresentationWithCompression:(bool)arg1 colorSpaceID:(unsigned long long)arg2 document:(id)arg3;
+- (void)drawPackableRenditionInContext:(struct CGContext { }*)arg1 withDocument:(id)arg2;
+- (struct CGPoint { double x1; double x2; })packedPoint;
+- (id)propertiesAsDictionary;
 - (id)renditionType;
 - (void)resetToBaseKeySpec;
+- (void)setPackedPoint:(struct CGPoint { double x1; double x2; })arg1;
 - (void)setRenditionType:(id)arg1;
+- (bool)updatePackingPropertiesWithDocument:(id)arg1;
 
 @end

@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUI.framework/TelephonyUI
  */
 
-@class TPButton;
-
 @interface TPBottomSingleButtonBar : TPBottomBar {
-    TPButton *_button;
-    id _delegate;
+    TPButton * _button;
+    id  _delegate;
 }
 
 + (id)_backgroundImage;
 
+- (void).cxx_destruct;
 - (id)button;
-- (float)buttonWidth;
-- (void)dealloc;
-- (void)setButton:(id)arg1 andStyle:(BOOL)arg2;
+- (double)buttonWidth;
+- (void)setButton:(id)arg1 andStyle:(bool)arg2;
 
 @end

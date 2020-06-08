@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference;
-
 @interface AVMediaSelectionGroupInternal : NSObject {
-    AVWeakReference *weakReference;
+    AVWeakReference * weakReference;
 }
 
 @end

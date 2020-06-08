@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSString;
-
 @interface AFSiriTaskUsageResult : NSObject <NSSecureCoding> {
-    NSString *_originatingAceID;
+    NSString * _originatingAceID;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_initWithOriginatingAceID:(id)arg1;

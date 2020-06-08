@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADGraphicProperties;
-
 @interface CHDMarker : NSObject {
-    OADGraphicProperties *mGraphicProperties;
-    unsigned int mSize;
-    int mStyle;
+    OADGraphicProperties * mGraphicProperties;
+    unsigned int  mSize;
+    int  mStyle;
 }
 
 - (void)dealloc;
+- (id)description;
 - (id)graphicProperties;
 - (id)init;
 - (void)setGraphicProperties:(id)arg1;

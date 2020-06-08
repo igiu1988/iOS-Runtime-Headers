@@ -2,31 +2,30 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface EDPivotDataField : NSObject {
-    long mBaseField;
-    unsigned long mBaseItem;
-    unsigned long mFieldId;
-    int mFormat;
-    NSString *mName;
-    unsigned long mNumFmtId;
+    long long  mBaseField;
+    unsigned long long  mBaseItem;
+    unsigned long long  mFieldId;
+    int  mFormat;
+    NSString * mName;
+    unsigned long long  mNumFmtId;
 }
 
 + (id)pivotDataField;
 
-- (long)baseField;
-- (unsigned long)baseItem;
+- (long long)baseField;
+- (unsigned long long)baseItem;
 - (void)dealloc;
-- (unsigned long)fieldId;
+- (id)description;
+- (unsigned long long)fieldId;
 - (id)init;
 - (id)name;
-- (unsigned long)numFmtId;
-- (void)setBaseField:(long)arg1;
-- (void)setBaseItem:(unsigned long)arg1;
-- (void)setFieldId:(unsigned long)arg1;
+- (unsigned long long)numFmtId;
+- (void)setBaseField:(long long)arg1;
+- (void)setBaseItem:(unsigned long long)arg1;
+- (void)setFieldId:(unsigned long long)arg1;
 - (void)setName:(id)arg1;
-- (void)setNumFmtId:(unsigned long)arg1;
+- (void)setNumFmtId:(unsigned long long)arg1;
 - (void)setShowDataAs:(int)arg1;
 - (int)showDataAs;
 

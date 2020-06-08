@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSKeyValueGetter, NSKeyValueMutatingCollectionMethodSet;
-
 @interface NSKeyValueFastMutableCollection2Getter : NSKeyValueProxyGetter {
-    NSKeyValueGetter *_baseGetter;
-    NSKeyValueMutatingCollectionMethodSet *_mutatingMethods;
+    NSKeyValueGetter * _baseGetter;
+    NSKeyValueMutatingCollectionMethodSet * _mutatingMethods;
 }
 
 - (id)baseGetter;

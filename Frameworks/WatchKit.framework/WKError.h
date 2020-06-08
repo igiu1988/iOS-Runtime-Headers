@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/WatchKit.framework/WatchKit
  */
 
-@interface WKError : NSObject {
-}
+@interface WKError : NSObject
 
-+ (id)errorWithCode:(int)arg1;
++ (id)errorWithCode:(long long)arg1;
 
 @end

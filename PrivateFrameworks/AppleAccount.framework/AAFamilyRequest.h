@@ -2,18 +2,20 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class AAGrandSlamSigner;
-
 @interface AAFamilyRequest : AARequest {
-    AAGrandSlamSigner *_grandSlamSigner;
+    ACAccount * _appleAccount;
+    AAGrandSlamSigner * _familyGrandSlamSigner;
+    AAGrandSlamSigner * _grandSlamSigner;
 }
 
-@property(readonly) BOOL isUserInitiated;
+@property (nonatomic, readonly) bool isUserInitiated;
 
 - (void).cxx_destruct;
+- (id)_familyGrandSlamSigner;
 - (id)initWithAppleAccount:(id)arg1 grandSlamAccount:(id)arg2 accountStore:(id)arg3;
+- (id)initWithGrandSlamAccount:(id)arg1 accountStore:(id)arg2;
 - (id)initWithGrandSlamSigner:(id)arg1;
-- (BOOL)isUserInitiated;
+- (bool)isUserInitiated;
 - (id)urlRequest;
 
 @end

@@ -2,34 +2,30 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class ACAccountStore, NSString, PSCloudStorageOffersManager, PUCloudPhotoWelcomeView, UIBarButtonItem;
-
-@interface PUCloudPhotoWelcomeViewController : UIViewController <PUCloudPhotoWelcomeViewDelegate, PSCloudStorageOffersManagerDelegate> {
-    ACAccountStore *_accountStore;
-    UIBarButtonItem *_betaGoButtonItem;
-    BOOL _enableOnAppear;
-    PSCloudStorageOffersManager *_offersManager;
-    BOOL _requireStorageUpgrade;
-    UIBarButtonItem *_skipBarButtonItem;
-    PUCloudPhotoWelcomeView *_welcomeView;
+@interface PUCloudPhotoWelcomeViewController : PUWelcomeViewController <AAUIGenericTermsRemoteUIDelegate, PSCloudStorageOffersManagerDelegate, PXCloudPhotoWelcomeNavigationControllerDismissDelegate, PXCloudPhotoWelcomeViewDelegate> {
+    id /* block */  __completionHandler;
+    bool  _enableOnAppear;
+    PSCloudStorageOffersManager * _offersManager;
+    bool  _requireStorageUpgrade;
+    AAUIGenericTermsRemoteUI * _termsManager;
+    PXCloudPhotoWelcomeView * _welcomeView;
 }
 
-@property(retain) ACAccountStore * accountStore;
-@property(readonly) UIBarButtonItem * betaGoButtonItem;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) UIBarButtonItem * skipBarButtonItem;
-@property(readonly) Class superclass;
-@property(retain) PUCloudPhotoWelcomeView * welcomeView;
+@property (setter=_setCompletionHandler:, nonatomic, copy) id /* block */ _completionHandler;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) PXCloudPhotoWelcomeView *welcomeView;
 
-+ (void)_disablePhotoStream;
-+ (BOOL)_isPhotoStreamEnabled;
-+ (void)showIfNecessaryWithPresentingViewController:(id)arg1;
-+ (void)showWithPresentingViewController:(id)arg1;
++ (bool)_isPhotoStreamEnabled;
++ (void)_showWithPresentingViewController:(id)arg1 completionHandler:(id /* block */)arg2;
++ (void)presentIfNecessaryFromViewController:(id)arg1 completionHandler:(id /* block */)arg2;
++ (void)resetLastPresentationInfo;
 
 - (void).cxx_destruct;
-- (void)_betaGoButtonTapped:(id)arg1;
+- (void)_applicationWillEnterForeground:(id)arg1;
+- (id /* block */)_completionHandler;
 - (void)_continueWithoutStoragePurchase:(id)arg1;
 - (void)_dismiss;
 - (void)_enableButtons;
@@ -38,24 +34,26 @@
 - (void)_handleEnableError:(id)arg1;
 - (void)_handleGoButtonTapped;
 - (void)_presentStoragePurchaseController;
-- (void)_skipButtonTapped:(id)arg1;
-- (id)accountStore;
-- (id)betaGoButtonItem;
+- (void)_setCompletionHandler:(id /* block */)arg1;
+- (void)_updateCurrentActivity;
 - (void)cloudPhotoWelcomeViewGoButtonTapped:(id)arg1;
 - (void)cloudPhotoWelcomeViewLearnMoreTapped:(id)arg1;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)cloudPhotoWelcomeViewNotNowButtonTapped:(id)arg1;
+- (void)dismissViewControllerAnimated:(bool)arg1 completion:(id /* block */)arg2;
+- (void)genericTermsRemoteUI:(id)arg1 didFinishWithSuccess:(bool)arg2;
 - (void)manager:(id)arg1 loadDidFailWithError:(id)arg2;
 - (void)manager:(id)arg1 willPresentViewController:(id)arg2;
 - (void)managerDidCancel:(id)arg1;
-- (struct CGSize { float x1; float x2; })preferredContentSize;
-- (int)preferredInterfaceOrientationForPresentation;
-- (void)setAccountStore:(id)arg1;
+- (void)navigationControllerDidDismissViewController:(id)arg1;
+- (struct CGSize { double x1; double x2; })preferredContentSize;
+- (long long)preferredInterfaceOrientationForPresentation;
+- (id)presentingViewControllerTraitCollection;
 - (void)setWelcomeView:(id)arg1;
-- (BOOL)shouldAutorotate;
-- (id)skipBarButtonItem;
-- (unsigned int)supportedInterfaceOrientations;
+- (bool)shouldAutorotate;
+- (unsigned long long)supportedInterfaceOrientations;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillLayoutSubviews;
 - (id)welcomeView;
 
 @end

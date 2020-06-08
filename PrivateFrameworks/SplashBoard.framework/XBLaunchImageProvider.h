@@ -2,25 +2,25 @@
    Image: /System/Library/PrivateFrameworks/SplashBoard.framework/SplashBoard
  */
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface XBLaunchImageProvider : NSObject {
-    NSMutableDictionary *_clients;
-    NSObject<OS_dispatch_queue> *_workQueue;
+    NSObject<OS_dispatch_queue> * _accessQueue;
+    NSMutableSet * _blacklistedBundleIdentifiers;
+    <BSInvalidatable> * _stateCaptureAssertion;
+    NSObject<OS_dispatch_queue> * _workQueue;
 }
 
-@property(retain) NSMutableDictionary * clients;
-
-+ (void*)createIOSurfaceWithContextIds:(const unsigned int*)arg1 count:(unsigned int)arg2 frame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg3 scale:(float)arg4 orientation:(int)arg5 outTransform:(struct CGAffineTransform { float x1; float x2; float x3; float x4; float x5; float x6; }*)arg6;
 + (id)sharedInstance;
 
-- (id)_clientForApplicationWithBundleID:(id)arg1;
-- (void)captureLaunchImageApplicationWithCompatibilityInfo:(id)arg1 launchRequests:(id)arg2 firstImageIsReady:(id)arg3;
-- (id)clients;
+- (void).cxx_destruct;
+- (void)_addStateCaptureHandler;
+- (void)_blacklistApp:(id)arg1 forError:(id)arg2;
+- (void)_clearBlacklistForApp:(id)arg1;
+- (void)_generateImageForSnapshot:(id)arg1 inManifest:(id)arg2 withContext:(id)arg3 dataProvider:(id)arg4 completion:(id /* block */)arg5;
+- (bool)_isAppBlacklisted:(id)arg1;
+- (void)captureLaunchImageForManifest:(id)arg1 withCompatibilityInfo:(id)arg2 launchRequests:(id)arg3 firstImageIsReady:(id /* block */)arg4 withCompletionHandler:(id /* block */)arg5;
+- (id /* block */)createLaunchImageGeneratorWithContext:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (void)launchImageViewDidGetRemovedFromViewHierarchy:(id)arg1 forApplicationWithBundleID:(id)arg2;
-- (id)launchImageViewForApplicationWithCompatibilityInfo:(id)arg1 launchRequest:(id)arg2;
-- (void)setClients:(id)arg1;
+- (void)preheatServiceWithTimeout:(double)arg1;
 
 @end

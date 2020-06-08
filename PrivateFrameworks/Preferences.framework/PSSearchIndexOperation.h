@@ -2,22 +2,25 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class <PSSearchIndexOperationDelegate>, PSSearchEntry;
-
 @interface PSSearchIndexOperation : NSOperation {
-    <PSSearchIndexOperationDelegate> *_delegate;
-    PSSearchEntry *_searchEntry;
+    <PSSearchIndexOperationDelegate> * _delegate;
+    PSSearchEntry * _searchEntry;
 }
 
-@property <PSSearchIndexOperationDelegate> * delegate;
-@property(readonly) PSSearchEntry * searchEntry;
+@property <PSSearchIndexOperationDelegate> *delegate;
+@property (nonatomic, readonly) PSSearchEntry *searchEntry;
 
-+ (id)_bundleForSearchEntry:(id)arg1 thirdPartyApp:(BOOL*)arg2 checkManifest:(BOOL*)arg3;
++ (id)_bundleForSearchEntry:(id)arg1 thirdPartyApp:(bool*)arg2;
 + (id)_loadSearchEntriesFromPlistForEntry:(id)arg1 bundle:(id)arg2;
 + (id)_loadThirdPartySearchEntriesForEntry:(id)arg1 bundle:(id)arg2;
++ (id)possibleBundleRoots;
++ (void)setPossibleBundleRoots:(id)arg1;
++ (void)setTopLevelManifestBundlePath:(id)arg1;
++ (id)topLevelManifestBundlePath;
 
+- (void).cxx_destruct;
 - (void)_cancel;
-- (void)_finishedIndexingWithEntries:(id)arg1 cancelled:(BOOL)arg2;
+- (void)_finishedIndexingWithEntries:(id)arg1 cancelled:(bool)arg2;
 - (void)dealloc;
 - (id)delegate;
 - (id)initWithSearchEntry:(id)arg1 delegate:(id)arg2;

@@ -2,49 +2,46 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableIndexSet, NSString, TSWPShapeRep;
-
 @interface TSWPShapeRepMagicMoveTextChunk : NSObject {
+    bool  _hasListLabel;
+    bool  _isVisible;
+    double  _opacityFromRenderer;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
-    BOOL _hasListLabel;
-    BOOL _isVisible;
-    float _opacityFromRenderer;
-    } _range;
-    TSWPShapeRep *_rep;
-    int _stageIndex;
-    NSString *_stringValue;
-    NSMutableIndexSet *_unhandledIndexSet;
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _range;
+    TSWPShapeRep * _rep;
+    long long  _stageIndex;
+    NSString * _stringValue;
+    NSMutableIndexSet * _unhandledIndexSet;
 }
 
-@property BOOL hasListLabel;
-@property BOOL isVisible;
-@property float opacityFromRenderer;
-@property struct _NSRange { unsigned int x1; unsigned int x2; } range;
-@property TSWPShapeRep * rep;
-@property int stageIndex;
-@property(copy) NSString * stringValue;
-@property(retain) NSMutableIndexSet * unhandledIndexSet;
+@property (nonatomic) bool hasListLabel;
+@property (nonatomic) bool isVisible;
+@property (nonatomic) double opacityFromRenderer;
+@property (nonatomic) struct _NSRange { unsigned long long x1; unsigned long long x2; } range;
+@property (nonatomic) TSWPShapeRep *rep;
+@property (nonatomic) long long stageIndex;
+@property (nonatomic, copy) NSString *stringValue;
+@property (nonatomic, retain) NSMutableIndexSet *unhandledIndexSet;
 
-- (id).cxx_construct;
 - (void)dealloc;
 - (id)description;
-- (BOOL)hasListLabel;
+- (bool)hasListLabel;
 - (id)init;
-- (BOOL)isVisible;
-- (float)opacityFromRenderer;
-- (struct _NSRange { unsigned int x1; unsigned int x2; })range;
+- (bool)isVisible;
+- (double)opacityFromRenderer;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })range;
 - (id)rep;
-- (void)setHasListLabel:(BOOL)arg1;
-- (void)setIsVisible:(BOOL)arg1;
-- (void)setOpacityFromRenderer:(float)arg1;
-- (void)setRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
+- (void)setHasListLabel:(bool)arg1;
+- (void)setIsVisible:(bool)arg1;
+- (void)setOpacityFromRenderer:(double)arg1;
+- (void)setRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
 - (void)setRep:(id)arg1;
-- (void)setStageIndex:(int)arg1;
+- (void)setStageIndex:(long long)arg1;
 - (void)setStringValue:(id)arg1;
 - (void)setUnhandledIndexSet:(id)arg1;
-- (int)stageIndex;
+- (long long)stageIndex;
 - (id)stringValue;
 - (id)unhandledIndexSet;
 

@@ -2,45 +2,45 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, RCComposition, _RCTimeRangeFileInputWaveformDataSource;
-
 @interface RCCompositionWaveformDataSource : RCWaveformDataSource <RCWaveformDataSourceObserver> {
-    _RCTimeRangeFileInputWaveformDataSource *_activeFragmentDataSource;
-    RCComposition *_composition;
-    NSOperationQueue *_fragmentLoadingOperationQueue;
-    BOOL _highlightLastDecomposedFragment;
-    BOOL _preferLoadingFragmentWaveforms;
-    float _progressOfFinishedFragments;
-    float _progressWeightPerFragment;
-    BOOL _saveGeneratedWaveform;
-    NSObject<OS_dispatch_queue> *_searialQueue;
+    _RCTimeRangeFileInputWaveformDataSource * _activeFragmentDataSource;
+    RCComposition * _composition;
+    NSOperationQueue * _fragmentLoadingOperationQueue;
+    bool  _highlightLastDecomposedFragment;
+    bool  _preferLoadingFragmentWaveforms;
+    float  _progressOfFinishedFragments;
+    float  _progressWeightPerFragment;
+    bool  _saveGeneratedWaveform;
+    NSObject<OS_dispatch_queue> * _searialQueue;
 }
 
-@property(readonly) RCComposition * composition;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSOperationQueue * fragmentLoadingOperationQueue;
-@property(readonly) unsigned int hash;
-@property BOOL highlightLastDecomposedFragment;
-@property(readonly) BOOL preferLoadingFragmentWaveforms;
-@property BOOL saveGeneratedWaveform;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) RCComposition *composition;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSOperationQueue *fragmentLoadingOperationQueue;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) bool highlightLastDecomposedFragment;
+@property (nonatomic, readonly) bool preferLoadingFragmentWaveforms;
+@property (nonatomic) bool saveGeneratedWaveform;
+@property (readonly) Class superclass;
+
++ (id)fragmentLoadingOperationQueue;
 
 - (void).cxx_destruct;
-- (BOOL)_synchronouslyAppendSegmentsForAVContentURL:(id)arg1 isDecomposedFragment:(BOOL)arg2 sourceTimeRange:(struct { double x1; double x2; })arg3 destinationTime:(double)arg4;
+- (bool)_synchronouslyAppendSegmentsForAVContentURL:(id)arg1 isDecomposedFragment:(bool)arg2 sourceTimeRange:(struct { double x1; double x2; })arg3 destinationTime:(double)arg4;
 - (id)composition;
 - (double)duration;
-- (void)finishLoadingWithCompletionTimeoutDate:(id)arg1 completionBlock:(id)arg2;
+- (void)finishLoadingWithCompletionTimeout:(unsigned long long)arg1 completionBlock:(id /* block */)arg2;
 - (id)fragmentLoadingOperationQueue;
-- (BOOL)highlightLastDecomposedFragment;
+- (bool)highlightLastDecomposedFragment;
 - (id)initWithComposition:(id)arg1;
 - (float)loadingProgress;
-- (BOOL)preferLoadingFragmentWaveforms;
-- (BOOL)saveGeneratedWaveform;
+- (bool)preferLoadingFragmentWaveforms;
+- (bool)saveGeneratedWaveform;
 - (id)saveableWaveform;
 - (void)setFragmentLoadingOperationQueue:(id)arg1;
-- (void)setHighlightLastDecomposedFragment:(BOOL)arg1;
-- (void)setSaveGeneratedWaveform:(BOOL)arg1;
+- (void)setHighlightLastDecomposedFragment:(bool)arg1;
+- (void)setSaveGeneratedWaveform:(bool)arg1;
 - (void)startLoading;
 - (id)synchronouslyApproximateWaveformSegmentsByReadingCurrentFileAheadTimeRange:(struct { double x1; double x2; })arg1;
 - (struct { double x1; double x2; })timeRangeToHighlight;

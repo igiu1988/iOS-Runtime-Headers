@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@class NSLock, NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface BSXPCConnectionListenerManager : NSObject {
-    NSObject<OS_dispatch_queue> *_defaultHandlerQueue;
-    NSObject<OS_dispatch_queue> *_listeningQueue;
-    NSMutableDictionary *_services;
-    NSLock *_servicesLock;
+    NSObject<OS_dispatch_queue> * _defaultHandlerQueue;
+    NSObject<OS_dispatch_queue> * _listeningQueue;
+    NSMutableDictionary * _services;
+    NSLock * _servicesLock;
 }
 
 + (id)defaultHandlerQueue;
@@ -16,6 +14,7 @@
 + (id)sharedInstance;
 + (void)stopListeningForService:(id)arg1;
 
+- (void).cxx_destruct;
 - (void)_addService:(id)arg1 withHandler:(id)arg2 onQueue:(id)arg3;
 - (id)_defaultHandlerQueue;
 - (id)_init;

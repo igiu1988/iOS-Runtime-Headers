@@ -2,16 +2,15 @@
    Image: /System/Library/PrivateFrameworks/TextInput.framework/TextInput
  */
 
-@interface TIKeyboardBehaviors : NSObject <NSCopying, NSSecureCoding> {
-}
+@interface TIKeyboardBehaviors : NSObject <NSCopying, NSSecureCoding>
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)keyBehaviorsForState:(id)arg1;
 
 @end

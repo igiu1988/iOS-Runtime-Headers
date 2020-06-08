@@ -2,36 +2,30 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString;
-
 @interface _CKDispatchQueueBlock : NSObject {
-    id _block;
-    unsigned int _fifo;
-    NSString *_key;
-    int _priority;
+    id /* block */  _block;
+    unsigned long long  _fifo;
+    NSString * _key;
+    long long  _priority;
 }
 
-@property(copy) id block;
-@property unsigned int fifo;
-@property(copy) NSString * key;
-@property int priority;
+@property (nonatomic, copy) id /* block */ block;
+@property (setter=setFIFO:, nonatomic) unsigned long long fifo;
+@property (nonatomic, copy) NSString *key;
+@property (nonatomic) long long priority;
 
-- (id)block;
+- (void).cxx_destruct;
+- (id /* block */)block;
 - (void)cancel;
-- (int)compare:(id)arg1;
-- (void)dealloc;
+- (long long)compare:(id)arg1;
 - (id)description;
-- (unsigned int)fifo;
-- (id)initWithBlock:(id)arg1 key:(id)arg2 priority:(int)arg3 fifo:(unsigned int)arg4;
+- (unsigned long long)fifo;
+- (id)initWithBlock:(id /* block */)arg1 key:(id)arg2 priority:(long long)arg3 fifo:(unsigned long long)arg4;
 - (id)key;
-- (int)priority;
-- (void)setBlock:(id)arg1;
-- (void)setFIFO:(unsigned int)arg1;
+- (long long)priority;
+- (void)setBlock:(id /* block */)arg1;
+- (void)setFIFO:(unsigned long long)arg1;
 - (void)setKey:(id)arg1;
-- (void)setPriority:(int)arg1;
+- (void)setPriority:(long long)arg1;
 
 @end

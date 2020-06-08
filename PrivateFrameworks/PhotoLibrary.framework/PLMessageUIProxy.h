@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@interface PLMessageUIProxy : NSObject {
-}
+@interface PLMessageUIProxy : NSObject
 
 + (Class)MFComposeRecipientClass;
 + (Class)MFComposeRecipientViewClass;
@@ -12,8 +11,8 @@
 + (Class)MFMailComposeViewControllerClass;
 + (Class)MFRecipientTableViewCellClass;
 + (Class)MFSearchShadowViewClass;
-+ (BOOL)canSendMail;
-+ (id)newABUnknownPersonViewControllerWithEmailAddress:(id)arg1;
++ (bool)canSendMail;
++ (id)newCNUnknownPersonViewControllerWithEmailAddress:(id)arg1;
 + (id)newComposeViewController;
 
 @end

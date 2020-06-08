@@ -2,19 +2,13 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSString, PLCloudSharedAlbum, PUPhotoStreamRecipientViewController, UIBarButtonItem;
-
-@interface PUAddSubscribersViewController : UIViewController <UIAlertViewDelegate> {
-    UIBarButtonItem *_addButton;
-    PLCloudSharedAlbum *_album;
-    PUPhotoStreamRecipientViewController *_composeRecipientController;
+@interface PUAddSubscribersViewController : UIViewController {
+    UIBarButtonItem * _addButton;
+    PLCloudSharedAlbum * _album;
+    PUPhotoStreamRecipientViewController * _composeRecipientController;
 }
 
-@property(readonly) PLCloudSharedAlbum * album;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) PLCloudSharedAlbum *album;
 
 - (void).cxx_destruct;
 - (void)_addButtonHandler;
@@ -22,9 +16,8 @@
 - (void)_dismiss;
 - (void)_keyboardWillShow:(id)arg1;
 - (void)_saveAndDismiss;
-- (BOOL)_validateRecipientsToAdd:(id)arg1;
+- (bool)_validateRecipientsToAdd:(id)arg1;
 - (id)album;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
 - (id)backingNavigationControllerForComposeRecipientViewController:(id)arg1;
 - (id)contentScrollView;
 - (void)dealloc;
@@ -33,9 +26,9 @@
 - (void)recipientViewController:(id)arg1 didEnterText:(id)arg2;
 - (void)recipientViewControllerDidAddRecipient:(id)arg1;
 - (void)recipientViewControllerDidRemoveRecipient:(id)arg1;
-- (BOOL)shouldAutorotateToInterfaceOrientation:(int)arg1;
+- (bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)arg1;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillDisappear:(bool)arg1;
 
 @end

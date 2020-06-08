@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/StoreBookkeeper.framework/StoreBookkeeper
  */
 
-@class SBKRequest;
-
 @interface SBKTransactionURLOperation : ISStoreURLOperation {
-    SBKRequest *_SBKRequest;
-    BOOL _shouldAuthenticate;
+    SBKRequest * _SBKRequest;
+    bool  _shouldAuthenticate;
 }
 
-@property(retain) SBKRequest * SBKRequest;
-@property BOOL shouldAuthenticate;
+@property (nonatomic, retain) SBKRequest *SBKRequest;
+@property (nonatomic) bool shouldAuthenticate;
 
 + (id)operationWithRequest:(id)arg1 delegate:(id)arg2;
 
@@ -20,7 +18,7 @@
 - (id)description;
 - (id)init;
 - (void)setSBKRequest:(id)arg1;
-- (void)setShouldAuthenticate:(BOOL)arg1;
-- (BOOL)shouldAuthenticate;
+- (void)setShouldAuthenticate:(bool)arg1;
+- (bool)shouldAuthenticate;
 
 @end

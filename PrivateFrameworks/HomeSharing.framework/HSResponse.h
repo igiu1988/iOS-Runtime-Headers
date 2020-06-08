@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/HomeSharing.framework/HomeSharing
  */
 
-@class NSData, NSDictionary, NSError, NSString, NSURL;
-
 @interface HSResponse : NSObject {
-    NSString *_MIMEType;
-    NSError *_error;
-    unsigned int _responseCode;
-    NSData *_responseData;
-    NSURL *_responseDataFileURL;
-    NSDictionary *_responseHeaderFields;
+    NSString * _MIMEType;
+    NSError * _error;
+    unsigned long long  _responseCode;
+    NSData * _responseData;
+    NSURL * _responseDataFileURL;
+    NSDictionary * _responseHeaderFields;
 }
 
-@property(readonly) NSString * MIMEType;
-@property(readonly) NSError * error;
-@property(readonly) unsigned int responseCode;
-@property(readonly) NSData * responseData;
-@property(copy) NSURL * responseDataFileURL;
-@property(readonly) NSDictionary * responseHeaderFields;
+@property (nonatomic, readonly) NSString *MIMEType;
+@property (nonatomic, readonly) NSError *error;
+@property (nonatomic, readonly) unsigned long long responseCode;
+@property (nonatomic, readonly) NSData *responseData;
+@property (nonatomic, copy) NSURL *responseDataFileURL;
+@property (nonatomic, readonly) NSDictionary *responseHeaderFields;
 
-+ (id)responseWithCode:(unsigned int)arg1 headerFields:(id)arg2 data:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
++ (id)responseWithCode:(unsigned long long)arg1 headerFields:(id)arg2 data:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
 + (id)responseWithResponse:(id)arg1;
 
 - (void).cxx_destruct;
 - (id)MIMEType;
 - (id)description;
 - (id)error;
-- (id)initWithCode:(unsigned int)arg1 headerFields:(id)arg2 data:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
-- (unsigned int)responseCode;
+- (id)initWithCode:(unsigned long long)arg1 headerFields:(id)arg2 data:(id)arg3 MIMEType:(id)arg4 error:(id)arg5;
+- (unsigned long long)responseCode;
 - (id)responseData;
 - (id)responseDataFileURL;
 - (id)responseHeaderFields;

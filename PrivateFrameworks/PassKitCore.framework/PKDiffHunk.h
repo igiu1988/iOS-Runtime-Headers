@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSString;
-
 @interface PKDiffHunk : NSObject <NSSecureCoding> {
-    NSString *_key;
-    NSString *_message;
-    id _newValue;
-    id _oldValue;
+    NSString * _key;
+    NSString * _message;
+    id  _newValue;
+    id  _oldValue;
 }
 
-@property(retain) NSString * key;
-@property(retain) NSString * message;
-@property(retain) id valueNew;
-@property(retain) id valueOld;
+@property (nonatomic, retain) NSString *key;
+@property (nonatomic, retain) NSString *message;
+@property (nonatomic, retain) id valueNew;
+@property (nonatomic, retain) id valueOld;
 
 + (id)hunkWithKey:(id)arg1 oldValue:(id)arg2 newValue:(id)arg3 message:(id)arg4;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (int)compare:(id)arg1;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (long long)compare:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToDiffHunk:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToDiffHunk:(id)arg1;
 - (id)key;
 - (id)message;
 - (void)setKey:(id)arg1;

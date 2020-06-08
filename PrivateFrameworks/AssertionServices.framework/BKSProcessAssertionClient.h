@@ -2,30 +2,13 @@
    Image: /System/Library/PrivateFrameworks/AssertionServices.framework/AssertionServices
  */
 
-@class NSMapTable;
+@interface BKSProcessAssertionClient : BKSBaseAssertionClient
 
-@interface BKSProcessAssertionClient : BSBaseXPCClient {
-    NSMapTable *_assertionHandlersByIdentifier;
-}
-
-+ (id)clientQueue;
-+ (id)sharedInstance;
-
-- (void)_dispatchClientCalloutBlock:(id)arg1;
-- (id)_errorWithCode:(unsigned int)arg1;
-- (void)_handleDestroy:(id)arg1;
-- (void)_invalidate;
-- (void)_sendEvent:(id)arg1 forMessageType:(unsigned int)arg2 responseHandler:(id)arg3;
+- (void)assertionQueue_handleMessage:(id)arg1;
 - (double)backgroundTimeRemaining:(int)arg1;
-- (void)dealloc;
-- (id)description;
-- (id)initWithServiceName:(id)arg1 endpoint:(id)arg2;
-- (void)queue_connectionWasDestroyed;
-- (void)queue_handleMessage:(id)arg1;
-- (void)registerClientHandler:(id)arg1 forAssertionIdentifier:(id)arg2;
-- (void)sendCreateAssertion:(id)arg1 withResponseHandler:(id)arg2;
-- (void)sendDestroyAssertion:(id)arg1;
-- (void)sendUpdateAssertion:(id)arg1;
-- (void)unregisterClientHandlerForAssertionIdentifier:(id)arg1;
+- (bool)sendCreateEvent:(id)arg1 error:(id*)arg2;
+- (void)sendDestroyEvent:(id)arg1;
+- (void)sendUpdateEvent:(id)arg1;
+- (id)supportedAssertionType;
 
 @end

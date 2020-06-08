@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class NSString;
-
 @interface CoreDAVXMLElementAttribute : NSObject {
-    NSString *_name;
-    NSString *_nameSpace;
-    NSString *_value;
+    NSString * _name;
+    NSString * _nameSpace;
+    NSString * _value;
 }
 
-@property(retain) NSString * name;
-@property(retain) NSString * nameSpace;
-@property(retain) NSString * value;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *nameSpace;
+@property (nonatomic, retain) NSString *value;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 - (id)init;
 - (id)initWithNameSpace:(id)arg1 name:(id)arg2 value:(id)arg3;

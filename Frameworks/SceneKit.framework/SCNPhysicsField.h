@@ -2,111 +2,102 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class SCNNode, SCNPhysicsWorld;
-
 @interface SCNPhysicsField : NSObject <NSCopying, NSSecureCoding> {
+    bool  _active;
+    unsigned long long  _categoryBitMask;
     struct SCNVector3 { 
         float x; 
         float y; 
         float z; 
+    }  _direction;
+    bool  _exclusive;
+    double  _falloffExponent;
+    struct c3dPhysicsField { int (**x1)(); struct { /* Warning: Unrecognized filer type: ']' using 'void*' */ void*x_2_1_1[4]; } x2; float x3; float x4; float x5; unsigned int x6; bool x7; bool x8; bool x9; bool x10; float x11; } * _field;
     struct SCNVector3 { 
         float x; 
         float y; 
         float z; 
+    }  _halfExtent;
+    double  _minimumDistance;
+    SCNNode * _node;
     struct SCNVector3 { 
         float x; 
         float y; 
         float z; 
-     /* Encoded args for previous method: ^{c3dPhysicsField=^^?{?=[4]}{?=[4]}fffIBBBBf}8@0:4 */
-     /* Encoded args for previous method: ^{c3dPhysicsField=^^?{?=[4]}{?=[4]}fffIBBBBf}8@0:4 */
-    BOOL _active;
-    unsigned int _categoryBitMask;
-    } _direction;
-    BOOL _exclusive;
-    float _falloffExponent;
-    struct c3dPhysicsField { int (**x1)(); struct { /* Warning: Unrecognized filer type: ']' using 'void*' */ void*x_2_1_1[4]; } x2; float x3; float x4; float x5; unsigned int x6; boolx7; boolx8; boolx9; boolx10; float x11; } *_field;
-    } _halfExtent;
-    float _minimumDistance;
-    SCNNode *_node;
-    } _offset;
-    void *_reserved;
-    int _scope;
-    float _strength;
-    BOOL _usesEllipsoidalExtent;
-    SCNPhysicsWorld *_world;
+    }  _offset;
+    long long  _scope;
+    double  _strength;
+    bool  _usesEllipsoidalExtent;
+    SCNPhysicsWorld * _world;
 }
 
-@property(getter=isActive) BOOL active;
-@property unsigned int categoryBitMask;
-@property struct SCNVector3 { float x1; float x2; float x3; } direction;
-@property(getter=isExclusive) BOOL exclusive;
-@property float falloffExponent;
-@property struct SCNVector3 { float x1; float x2; float x3; } halfExtent;
-@property float minimumDistance;
-@property struct SCNVector3 { float x1; float x2; float x3; } offset;
-@property int scope;
-@property float strength;
-@property BOOL usesEllipsoidalExtent;
+@property (getter=isActive, nonatomic) bool active;
+@property (nonatomic) unsigned long long categoryBitMask;
+@property (nonatomic) struct SCNVector3 { float x1; float x2; float x3; } direction;
+@property (getter=isExclusive, nonatomic) bool exclusive;
+@property (nonatomic) double falloffExponent;
+@property (nonatomic) struct SCNVector3 { float x1; float x2; float x3; } halfExtent;
+@property (nonatomic) double minimumDistance;
+@property (nonatomic) struct SCNVector3 { float x1; float x2; float x3; } offset;
+@property (nonatomic) long long scope;
+@property (nonatomic) double strength;
+@property (nonatomic) bool usesEllipsoidalExtent;
 
-+ (id)SCNJSExportProtocol;
-+ (id)customFieldWithEvaluationBlock:(id)arg1;
++ (double)_displayScaleFactor;
++ (void)_setDisplayScaleFactor:(double)arg1;
++ (id)customFieldWithEvaluationBlock:(id /* block */)arg1;
 + (id)dragField;
 + (id)electricField;
 + (id)field;
 + (id)linearGravityField;
 + (id)magneticField;
-+ (id)noiseFieldWithSmoothness:(float)arg1 animationSpeed:(float)arg2;
++ (id)noiseFieldWithSmoothness:(double)arg1 animationSpeed:(double)arg2;
 + (id)radialGravityField;
 + (id)springField;
-+ (BOOL)supportsSecureCoding;
-+ (id)turbulenceFieldWithSmoothness:(float)arg1 animationSpeed:(float)arg2;
++ (bool)supportsSecureCoding;
++ (id)turbulenceFieldWithSmoothness:(double)arg1 animationSpeed:(double)arg2;
 + (id)vortexField;
 
-- (struct c3dPhysicsField { int (**x1)(); struct { /* Warning: Unrecognized filer type: ']' using 'void*' */ void*x_2_1_1[4]; } x2; float x3; float x4; float x5; unsigned int x6; boolx7; boolx8; boolx9; boolx10; float x11; }*)_createField;
-- (struct c3dPhysicsField { int (**x1)(); struct { /* Warning: Unrecognized filer type: ']' using 'void*' */ void*x_2_1_1[4]; } x2; float x3; float x4; float x5; unsigned int x6; boolx7; boolx8; boolx9; boolx10; float x11; }*)_handle;
-- (id).cxx_construct;
 - (void)_commonInit;
+- (struct c3dPhysicsField { int (**x1)(); struct { /* Warning: Unrecognized filer type: ']' using 'void*' */ void*x_2_1_1[4]; } x2; float x3; float x4; float x5; unsigned int x6; bool x7; bool x8; bool x9; bool x10; float x11; }*)_createField;
+- (struct c3dPhysicsField { int (**x1)(); struct { /* Warning: Unrecognized filer type: ']' using 'void*' */ void*x_2_1_1[4]; } x2; float x3; float x4; float x5; unsigned int x6; bool x7; bool x8; bool x9; bool x10; float x11; }*)_handle;
 - (id)_owner;
 - (void)_removeOwner;
 - (void)_setOwner:(id)arg1;
 - (void)_setWorld:(id)arg1;
 - (void)_setupCommonProperties;
-- (unsigned int)categoryBitMask;
+- (void)_willRemoveFromPhysicsWorld;
+- (unsigned long long)categoryBitMask;
 - (id)copy;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (struct SCNVector3 { float x1; float x2; float x3; })direction;
 - (void)encodeWithCoder:(id)arg1;
-- (float)falloffExponent;
+- (struct SCNVector3 { float x1; float x2; float x3; })evalAtLocation:(struct SCNVector3 { float x1; float x2; float x3; })arg1;
+- (bool)exclusive;
+- (double)falloffExponent;
 - (struct SCNVector3 { float x1; float x2; float x3; })halfExtent;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isActive;
-- (BOOL)isExclusive;
-- (float)minimumDistance;
+- (bool)isActive;
+- (bool)isExclusive;
+- (double)minimumDistance;
 - (struct SCNVector3 { float x1; float x2; float x3; })offset;
-- (int)scope;
-- (void)setActive:(BOOL)arg1;
-- (void)setCategoryBitMask:(unsigned int)arg1;
+- (long long)scope;
+- (void)setActive:(bool)arg1;
+- (void)setCategoryBitMask:(unsigned long long)arg1;
 - (void)setDirection:(struct SCNVector3 { float x1; float x2; float x3; })arg1;
-- (void)setExclusive:(BOOL)arg1;
-- (void)setFalloffExponent:(float)arg1;
+- (void)setExclusive:(bool)arg1;
+- (void)setFalloffExponent:(double)arg1;
 - (void)setHalfExtent:(struct SCNVector3 { float x1; float x2; float x3; })arg1;
-- (void)setMinimumDistance:(float)arg1;
+- (void)setMinimumDistance:(double)arg1;
 - (void)setOffset:(struct SCNVector3 { float x1; float x2; float x3; })arg1;
-- (void)setScope:(int)arg1;
-- (void)setStrength:(float)arg1;
-- (void)setUsesEllipsoidalExtent:(BOOL)arg1;
-- (float)strength;
-- (BOOL)usesEllipsoidalExtent;
+- (void)setScope:(long long)arg1;
+- (void)setStrength:(double)arg1;
+- (void)setUsesEllipsoidalExtent:(bool)arg1;
+- (double)strength;
+- (bool)supportsDirection;
+- (bool)supportsOffset;
+- (bool)usesEllipsoidalExtent;
 
 @end

@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class AFSiriContext;
-
 @interface AFContextResponse : AFSiriResponse {
-    AFSiriContext *_context;
+    STSiriContext * _context;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_context;

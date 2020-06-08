@@ -2,23 +2,22 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray, NSMutableDictionary, WDDocument, WDListDefinition;
-
 @interface WDListDefinitionTable : NSObject {
-    WDDocument *mDocument;
-    NSMutableDictionary *mListDefinitionMapById;
-    NSMutableDictionary *mListDefinitionMapByStyleId;
-    NSMutableArray *mListDefinitions;
-    WDListDefinition *mNullListDefinition;
+    WDListDefinition * mDefaultListDefinition;
+    WDDocument * mDocument;
+    NSMutableDictionary * mListDefinitionMapById;
+    NSMutableDictionary * mListDefinitionMapByStyleId;
+    NSMutableArray * mListDefinitions;
+    WDListDefinition * mNullListDefinition;
 }
 
-- (id)addDefinitionWithDefinitionId:(long)arg1 styleId:(id)arg2;
+- (id)addDefinitionWithDefinitionId:(int)arg1 styleId:(id)arg2;
 - (void)dealloc;
-- (id)definitionWithDefinitionId:(long)arg1;
+- (id)definitionWithDefinitionId:(int)arg1;
 - (id)definitionWithStyleId:(id)arg1;
 - (id)definitions;
+- (id)description;
 - (id)initWithDocument:(id)arg1;
-- (id)resolvedDefinitionWithDefinitionId:(long)arg1;
-- (void)setStyleId:(id)arg1 forDefinitionWithDefinitionId:(long)arg2;
+- (id)resolvedDefinitionWithDefinitionId:(int)arg1;
 
 @end

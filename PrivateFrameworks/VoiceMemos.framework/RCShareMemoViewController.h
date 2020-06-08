@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class RCCompositionController;
-
 @interface RCShareMemoViewController : UIActivityViewController {
-    RCCompositionController *_compositionController;
+    RCCompositionController * _compositionController;
 }
 
-@property(readonly) RCCompositionController * compositionController;
+@property (nonatomic, readonly) RCCompositionController *compositionController;
 
-+ (id)_newPresentedPrepareAlertControllerForComposition:(id)arg1 dismissHandler:(id)arg2;
-+ (id)_newPresentedPrepareFailureAlertControllerForComposition:(id)arg1;
-+ (void)prepareToShareComposition:(id)arg1 ignoringInteraction:(BOOL)arg2 shouldContinuePreparingBlock:(id)arg3 preparedHandler:(id)arg4;
-+ (void)presentInViewController:(id)arg1 composition:(id)arg2 ignoringInteraction:(BOOL)arg3 shouldContinuePreparingBlock:(id)arg4 preparedToPresentBlock:(id)arg5;
++ (id)_newPresentedPrepareAlertControllerForComposition:(id)arg1 source:(id)arg2 dismissHandler:(id /* block */)arg3;
++ (id)_newPresentedPrepareFailureAlertControllerForComposition:(id)arg1 source:(id)arg2;
++ (void)prepareToShareComposition:(id)arg1 ignoringInteraction:(bool)arg2 source:(id)arg3 shouldContinuePreparingBlock:(id /* block */)arg4 preparedHandler:(id /* block */)arg5;
++ (void)presentInViewController:(id)arg1 source:(id)arg2 composition:(id)arg3 ignoringInteraction:(bool)arg4 shouldContinuePreparingBlock:(id /* block */)arg5 preparedToPresentBlock:(id /* block */)arg6;
 + (id)unsupportedActivityTypes;
 
 - (void).cxx_destruct;
 - (id)compositionController;
 - (id)initWithCompositionController:(id)arg1;
-- (BOOL)prefersStatusBarHidden;
-- (unsigned int)supportedInterfaceOrientations;
-- (void)viewWillDisappear:(BOOL)arg1;
+- (unsigned long long)supportedInterfaceOrientations;
+- (void)viewDidAppear:(bool)arg1;
+- (void)viewWillDisappear:(bool)arg1;
 
 @end

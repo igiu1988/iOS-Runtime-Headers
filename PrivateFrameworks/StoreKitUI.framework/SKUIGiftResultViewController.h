@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIGiftItemView, UIButton, UIImage;
-
 @interface SKUIGiftResultViewController : SKUIGiftStepViewController {
-    UIButton *_giftAgainButton;
-    UIImage *_itemImage;
-    SKUIGiftItemView *_itemView;
+    UIButton * _giftAgainButton;
+    UIImage * _itemImage;
+    SKUIGiftItemView * _itemView;
 }
 
 - (void).cxx_destruct;
@@ -19,6 +17,6 @@
 - (void)dealloc;
 - (id)initWithGift:(id)arg1 configuration:(id)arg2;
 - (void)loadView;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(bool)arg1;
 
 @end

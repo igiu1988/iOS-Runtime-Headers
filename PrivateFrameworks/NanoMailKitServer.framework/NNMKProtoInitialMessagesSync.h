@@ -2,38 +2,49 @@
    Image: /System/Library/PrivateFrameworks/NanoMailKitServer.framework/NanoMailKitServer
  */
 
-@class NSData, NSMutableArray, NSString;
-
 @interface NNMKProtoInitialMessagesSync : PBCodable <NSCopying> {
+    NSData * _dateForRequestingMoreMessages;
+    NSData * _dateSynced;
+    unsigned int  _fullSyncVersion;
     struct { 
         unsigned int fullSyncVersion : 1; 
+        unsigned int mailboxSyncVersion : 1; 
         unsigned int syncedMailboxType : 1; 
-    NSData *_dateForRequestingMoreMessages;
-    NSData *_dateSynced;
-    unsigned int _fullSyncVersion;
-    } _has;
-    NSMutableArray *_initialMessages;
-    NSString *_syncedMailboxAccountId;
-    NSString *_syncedMailboxCustomName;
-    unsigned int _syncedMailboxType;
-    NSString *_syncedMailboxURL;
+        unsigned int organizedByThread : 1; 
+    }  _has;
+    NSMutableArray * _initialMessages;
+    NNMKProtoMailbox * _mailbox;
+    unsigned int  _mailboxSyncVersion;
+    bool  _organizedByThread;
+    NSString * _syncedMailboxAccountId;
+    NSString * _syncedMailboxCustomName;
+    unsigned int  _syncedMailboxType;
+    NSString * _syncedMailboxURL;
 }
 
-@property(retain) NSData * dateForRequestingMoreMessages;
-@property(retain) NSData * dateSynced;
-@property unsigned int fullSyncVersion;
-@property(readonly) BOOL hasDateForRequestingMoreMessages;
-@property(readonly) BOOL hasDateSynced;
-@property BOOL hasFullSyncVersion;
-@property(readonly) BOOL hasSyncedMailboxAccountId;
-@property(readonly) BOOL hasSyncedMailboxCustomName;
-@property BOOL hasSyncedMailboxType;
-@property(readonly) BOOL hasSyncedMailboxURL;
-@property(retain) NSMutableArray * initialMessages;
-@property(retain) NSString * syncedMailboxAccountId;
-@property(retain) NSString * syncedMailboxCustomName;
-@property unsigned int syncedMailboxType;
-@property(retain) NSString * syncedMailboxURL;
+@property (nonatomic, retain) NSData *dateForRequestingMoreMessages;
+@property (nonatomic, retain) NSData *dateSynced;
+@property (nonatomic) unsigned int fullSyncVersion;
+@property (nonatomic, readonly) bool hasDateForRequestingMoreMessages;
+@property (nonatomic, readonly) bool hasDateSynced;
+@property (nonatomic) bool hasFullSyncVersion;
+@property (nonatomic, readonly) bool hasMailbox;
+@property (nonatomic) bool hasMailboxSyncVersion;
+@property (nonatomic) bool hasOrganizedByThread;
+@property (nonatomic, readonly) bool hasSyncedMailboxAccountId;
+@property (nonatomic, readonly) bool hasSyncedMailboxCustomName;
+@property (nonatomic) bool hasSyncedMailboxType;
+@property (nonatomic, readonly) bool hasSyncedMailboxURL;
+@property (nonatomic, retain) NSMutableArray *initialMessages;
+@property (nonatomic, retain) NNMKProtoMailbox *mailbox;
+@property (nonatomic) unsigned int mailboxSyncVersion;
+@property (nonatomic) bool organizedByThread;
+@property (nonatomic, retain) NSString *syncedMailboxAccountId;
+@property (nonatomic, retain) NSString *syncedMailboxCustomName;
+@property (nonatomic) unsigned int syncedMailboxType;
+@property (nonatomic, retain) NSString *syncedMailboxURL;
+
++ (Class)initialMessageType;
 
 - (void).cxx_destruct;
 - (void)addInitialMessage:(id)arg1;
@@ -45,26 +56,37 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)fullSyncVersion;
-- (BOOL)hasDateForRequestingMoreMessages;
-- (BOOL)hasDateSynced;
-- (BOOL)hasFullSyncVersion;
-- (BOOL)hasSyncedMailboxAccountId;
-- (BOOL)hasSyncedMailboxCustomName;
-- (BOOL)hasSyncedMailboxType;
-- (BOOL)hasSyncedMailboxURL;
-- (unsigned int)hash;
-- (id)initialMessageAtIndex:(unsigned int)arg1;
+- (bool)hasDateForRequestingMoreMessages;
+- (bool)hasDateSynced;
+- (bool)hasFullSyncVersion;
+- (bool)hasMailbox;
+- (bool)hasMailboxSyncVersion;
+- (bool)hasOrganizedByThread;
+- (bool)hasSyncedMailboxAccountId;
+- (bool)hasSyncedMailboxCustomName;
+- (bool)hasSyncedMailboxType;
+- (bool)hasSyncedMailboxURL;
+- (unsigned long long)hash;
+- (id)initialMessageAtIndex:(unsigned long long)arg1;
 - (id)initialMessages;
-- (unsigned int)initialMessagesCount;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)initialMessagesCount;
+- (bool)isEqual:(id)arg1;
+- (id)mailbox;
+- (unsigned int)mailboxSyncVersion;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)organizedByThread;
+- (bool)readFrom:(id)arg1;
 - (void)setDateForRequestingMoreMessages:(id)arg1;
 - (void)setDateSynced:(id)arg1;
 - (void)setFullSyncVersion:(unsigned int)arg1;
-- (void)setHasFullSyncVersion:(BOOL)arg1;
-- (void)setHasSyncedMailboxType:(BOOL)arg1;
+- (void)setHasFullSyncVersion:(bool)arg1;
+- (void)setHasMailboxSyncVersion:(bool)arg1;
+- (void)setHasOrganizedByThread:(bool)arg1;
+- (void)setHasSyncedMailboxType:(bool)arg1;
 - (void)setInitialMessages:(id)arg1;
+- (void)setMailbox:(id)arg1;
+- (void)setMailboxSyncVersion:(unsigned int)arg1;
+- (void)setOrganizedByThread:(bool)arg1;
 - (void)setSyncedMailboxAccountId:(id)arg1;
 - (void)setSyncedMailboxCustomName:(id)arg1;
 - (void)setSyncedMailboxType:(unsigned int)arg1;

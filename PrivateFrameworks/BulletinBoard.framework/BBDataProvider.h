@@ -2,46 +2,45 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class BBDataProviderIdentity, NSObject<OS_dispatch_queue>, NSString;
-
 @interface BBDataProvider : NSObject <BBSectionIdentity> {
-    BBDataProviderIdentity *__identity;
-    NSObject<OS_dispatch_queue> *_identityQueue;
+    BBDataProviderIdentity * _identity;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) BBDataProviderIdentity * identity;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (retain) BBDataProviderIdentity *identity;
+@property (readonly) Class superclass;
 
-- (void)attachmentAspectRatioForRecordID:(id)arg1 completion:(id)arg2;
-- (void)attachmentPNGDataForRecordID:(id)arg1 sizeConstraints:(id)arg2 completion:(id)arg3;
-- (void)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2 completion:(id)arg3;
-- (BOOL)canClearAllBulletins;
-- (BOOL)canPerformMigration;
-- (void)clearedInfoAndBulletinsForClearingAllBulletinsWithLimit:(id)arg1 lastClearedInfo:(id)arg2 completion:(id)arg3;
-- (void)clearedInfoForBulletins:(id)arg1 lastClearedInfo:(id)arg2 completion:(id)arg3;
+- (void).cxx_destruct;
+- (void)bulletinsWithRequestParameters:(id)arg1 lastCleared:(id)arg2 completion:(id /* block */)arg3;
+- (bool)canClearAllBulletins;
+- (bool)canClearBulletinsByDate;
+- (bool)canPerformMigration;
+- (void)clearedInfoForBulletins:(id)arg1 lastClearedInfo:(id)arg2 completion:(id /* block */)arg3;
+- (void)clearedInfoForClearingAllBulletinsWithLastClearedInfo:(id)arg1 completion:(id /* block */)arg2;
+- (void)clearedInfoForClearingBulletinsFromDate:(id)arg1 toDate:(id)arg2 lastClearedInfo:(id)arg3 completion:(id /* block */)arg4;
 - (void)dataProviderDidLoad;
-- (void)dealloc;
 - (id)debugDescription;
-- (id)debugDescriptionWithChildren:(unsigned int)arg1;
+- (id)debugDescriptionWithChildren:(unsigned long long)arg1;
 - (id)defaultSectionInfo;
 - (id)defaultSubsectionInfos;
 - (void)deliverMessageWithName:(id)arg1 userInfo:(id)arg2;
-- (void)deliverResponse:(id)arg1 forBulletinRequest:(id)arg2;
+- (void)deliverResponse:(id)arg1 forBulletinRequest:(id)arg2 withCompletion:(id /* block */)arg3;
 - (id)description;
+- (id)displayNameForFilterID:(id)arg1;
 - (id)displayNameForSubsectionID:(id)arg1;
+- (void)getAspectRatioForAttachmentUUID:(id)arg1 recordID:(id)arg2 isPrimary:(bool)arg3 withHandler:(id /* block */)arg4;
+- (void)getDataForAttachmentUUID:(id)arg1 recordID:(id)arg2 isPrimary:(bool)arg3 withHandler:(id /* block */)arg4;
+- (void)getPNGDataForAttachmentUUID:(id)arg1 recordID:(id)arg2 isPrimary:(bool)arg3 sizeConstraints:(id)arg4 withHandler:(id /* block */)arg5;
 - (id)identity;
-- (id)init;
-- (BOOL)initialized;
+- (bool)initialized;
 - (void)invalidate;
-- (BOOL)isPushDataProvider;
-- (BOOL)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
+- (bool)isPushDataProvider;
+- (bool)migrateSectionInfo:(id)arg1 oldSectionInfo:(id)arg2;
 - (void)noteSectionInfoDidChange:(id)arg1;
 - (id)parentSectionIdentifier;
-- (void)primaryAttachmentDataForRecordID:(id)arg1 completion:(id)arg2;
-- (void)reloadIdentityWithCompletion:(id)arg1;
+- (void)reloadIdentityWithCompletion:(id /* block */)arg1;
 - (id)sectionDisplayName;
 - (id)sectionIcon;
 - (id)sectionIdentifier;
@@ -50,9 +49,9 @@
 - (id)sortDescriptors;
 - (id)sortKey;
 - (void)startWatchdog;
-- (BOOL)syncsBulletinDismissal;
+- (bool)syncsBulletinDismissal;
 - (id)universalSectionIdentifier;
-- (void)updateClearedInfoWithClearedInfo:(id)arg1 handler:(id)arg2 completion:(id)arg3;
-- (void)updateSectionInfoWithSectionInfo:(id)arg1 handler:(id)arg2 completion:(id)arg3;
+- (void)updateClearedInfoWithClearedInfo:(id)arg1 handler:(id /* block */)arg2 completion:(id /* block */)arg3;
+- (void)updateSectionInfoWithSectionInfo:(id)arg1 handler:(id /* block */)arg2 completion:(id /* block */)arg3;
 
 @end

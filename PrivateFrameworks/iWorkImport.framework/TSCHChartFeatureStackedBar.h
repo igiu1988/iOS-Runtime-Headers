@@ -2,20 +2,22 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartFeatureStackedBar : TSCHChartFeatureBar {
-}
+@interface TSCHChartFeatureStackedBar : TSCHChartFeatureBar
 
 - (id)defaultDataFileName;
-- (BOOL)drawValueLabelsForZero;
+- (bool)drawValueLabelsForZero;
+- (bool)editableFormatForValueStrings;
 - (id)genericToSpecificPropertyMap;
-- (float)maxDepthRatio;
+- (double)maxDepthRatio;
 - (Class)presetImagerClass;
-- (float)sageMaxDepthRatio;
+- (double)sageMaxDepthRatio;
+- (double)spiceMaxDepthRatio;
 - (int)stackingSignRule;
 - (id)supportedAxisScales;
-- (BOOL)supportsCategoryAxisSeriesNames;
-- (BOOL)supportsSeriesLabels;
-- (BOOL)supportsTrendLines;
+- (bool)supportsCategoryAxisSeriesNames;
+- (bool)supportsReferenceLines;
+- (bool)supportsSeriesLabels;
+- (bool)supportsTrendLines;
 - (id)userInterfaceName;
 - (Class)valueAxisClassForID:(id)arg1 scale:(int)arg2;
 

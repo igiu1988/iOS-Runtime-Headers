@@ -3,53 +3,61 @@
  */
 
 @interface CFPrefsSource : NSObject {
-    union { 
-        struct _CFPrefsShmemEntry { 
-            unsigned int generation : 31; 
-            unsigned int multiprocess : 1; 
-        } entry; 
-        int value; 
-    unsigned int _isSearchList : 1;
-    unsigned int _generationCount : 63;
-    struct __CFDictionary { } *_dict;
-    struct _opaque_pthread_mutex_t { long x1; BOOL x2[40]; } *_lock;
-    } lastKnownShmemState;
-    union { struct _CFPrefsShmemEntry { unsigned int x_1_1_1 : 31; unsigned int x_1_1_2 : 1; } x1; int x2; } *shmemEntry;
+    _CFXPreferences * _containingPreferences;
+    struct __CFDictionary { } * _dict;
+    long long  _generationCount;
+    bool  _isSearchList;
+    struct os_unfair_lock_s { 
+        unsigned int _os_unfair_lock_opaque; 
+    }  _lock;
+    __CFPrefsWeakObservers * _observers;
+    unsigned int  lastKnownShmemState;
+    /* Warning: Unrecognized filer type: '^' using 'void*' */ void* shmemEntry;
 }
 
-+ (void)withNamedVolatileSourceForIdentifier:(struct __CFString { }*)arg1 perform:(id)arg2;
-+ (void)withSourceForIdentifier:(struct __CFString { }*)arg1 user:(struct __CFString { }*)arg2 byHost:(BOOL)arg3 container:(struct __CFString { }*)arg4 perform:(id)arg5;
-
+- (void)_notifyObserversOfChangeFromValuesForKeys:(id)arg1 toValuesForKeys:(id)arg2;
+- (void)addPreferencesObserver:(id)arg1;
+- (void)alreadylocked_addPreferencesObserver:(id)arg1;
+- (void)alreadylocked_clearCache;
 - (struct __CFDictionary { }*)alreadylocked_copyDictionary;
 - (struct __CFArray { }*)alreadylocked_copyKeyList;
 - (void*)alreadylocked_copyValueForKey:(struct __CFString { }*)arg1;
-- (long)alreadylocked_generationCount;
-- (void)alreadylocked_removeAllValues;
-- (BOOL)alreadylocked_requestNewData;
-- (void)alreadylocked_setValue:(void*)arg1 forKey:(struct __CFString { }*)arg2;
-- (void)alreadylocked_setValues:(const void**)arg1 forKeys:(const void**)arg2 count:(long)arg3;
-- (void)clearCache;
+- (long long)alreadylocked_generationCount;
+- (void)alreadylocked_removePreferencesObserver:(id)arg1;
+- (bool)alreadylocked_requestNewData;
+- (void)alreadylocked_setPrecopiedValues:(const void**)arg1 forKeys:(const struct __CFString {}**)arg2 count:(long long)arg3 from:(id)arg4;
+- (void)alreadylocked_updateObservingRemoteChanges;
 - (struct __CFString { }*)container;
 - (struct __CFDictionary { }*)copyDictionary;
 - (struct __CFArray { }*)copyKeyList;
+- (struct __CFString { }*)copyOSLogDescription;
 - (void*)copyValueForKey:(struct __CFString { }*)arg1;
-- (id)createRequestNewContentMessageForDaemon:(BOOL)arg1;
+- (id)createRequestNewContentMessageForDaemon:(int)arg1;
 - (void)dealloc;
+- (id)description;
 - (struct __CFString { }*)domainIdentifier;
-- (void)finalize;
-- (long)generationCount;
-- (void)handleReply:(id)arg1 toRequestNewDataMessage:(id)arg2 onConnection:(id)arg3 error:(BOOL*)arg4;
-- (id)init;
-- (BOOL)isByHost;
+- (void)forEachObserver:(id /* block */)arg1;
+- (void)fullCloudSynchronizeWithCompletionHandler:(id /* block */)arg1;
+- (long long)generationCount;
+- (void)handleRemoteChangeNotificationForDomainIdentifier:(struct __CFString { }*)arg1;
+- (void)handleReply:(id)arg1 toRequestNewDataMessage:(id)arg2 onConnection:(id)arg3 retryCount:(int)arg4 error:(bool*)arg5;
+- (id)initWithContainingPreferences:(id)arg1;
+- (bool)isByHost;
+- (bool)isVolatile;
 - (void)lock;
-- (BOOL)managed;
-- (void)mergeIntoDictionary:(struct __CFDictionary { }*)arg1;
-- (void)removeAllValues;
-- (void)setAccessRestricted:(BOOL)arg1;
-- (void)setDaemonCacheEnabled:(BOOL)arg1;
-- (void)setValue:(void*)arg1 forKey:(struct __CFString { }*)arg2;
-- (void)setValues:(const void**)arg1 forKeys:(const void**)arg2 count:(long)arg3;
-- (BOOL)synchronize;
+- (bool)managed;
+- (void)mergeIntoDictionary:(struct __CFDictionary { }*)arg1 sourceDictionary:(struct __CFDictionary { }*)arg2;
+- (void)removeAllValues_from:(id)arg1;
+- (void)removePreferencesObserver:(id)arg1;
+- (void)replaceAllValuesWithValues:(const void**)arg1 forKeys:(const struct __CFString {}**)arg2 count:(long long)arg3 from:(id)arg4;
+- (void)setAccessRestricted:(bool)arg1;
+- (void)setConfigurationPath:(struct __CFString { }*)arg1;
+- (void)setDaemonCacheEnabled:(bool)arg1;
+- (void)setStoreName:(struct __CFString { }*)arg1;
+- (void)setValue:(void*)arg1 forKey:(struct __CFString { }*)arg2 from:(id)arg3;
+- (void)setValues:(const void**)arg1 forKeys:(const struct __CFString {}**)arg2 count:(long long)arg3 copyValues:(bool)arg4 from:(id)arg5;
+- (void)setValues:(const void**)arg1 forKeys:(const struct __CFString {}**)arg2 count:(long long)arg3 copyValues:(bool)arg4 removeValuesForKeys:(const struct __CFString {}**)arg5 count:(long long)arg6 from:(id)arg7;
+- (bool)synchronize;
 - (void)unlock;
 - (struct __CFString { }*)userIdentifier;
 

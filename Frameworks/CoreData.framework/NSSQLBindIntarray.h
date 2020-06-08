@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSString;
-
 @interface NSSQLBindIntarray : NSObject {
-    unsigned int _index;
-    NSString *_tableName;
-    id _value;
+    unsigned int  _index;
+    NSString * _tableName;
+    id  _value;
 }
 
-@property unsigned int index;
-@property(retain) NSString * tableName;
-@property(retain) id value;
+@property (nonatomic) unsigned int index;
+@property (nonatomic, retain) NSString *tableName;
+@property (nonatomic, retain) id value;
 
 - (void)dealloc;
 - (unsigned int)index;

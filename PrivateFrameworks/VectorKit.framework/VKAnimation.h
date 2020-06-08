@@ -2,68 +2,52 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <VKAnimationRunner>, NSString;
-
 @interface VKAnimation : NSObject {
-    struct { 
-        unsigned int resuming : 1; 
-        unsigned int runsForever : 1; 
-        unsigned int startTimestampSet : 1; 
-        unsigned int state : 3; 
-    id _completionHandler;
-    double _duration;
-    } _flags;
-    double _lastTimestamp;
-    NSString *_name;
-    int _priority;
-    <VKAnimationRunner> *_runner;
-    double _startTimestamp;
-    id _stepHandler;
-    id _timingFunction;
+    id /* block */  _completionHandler;
+    float  _frequency;
+    NSString * _name;
+    long long  _priority;
+    <VKAnimationRunner> * _runner;
+    bool  _runsForever;
+    long long  _state;
 }
 
-@property(copy) id completionHandler;
-@property double duration;
-@property(readonly) int priority;
-@property(readonly) BOOL running;
-@property BOOL runsForever;
-@property(copy) id stepHandler;
-@property(copy) id timingFunction;
+@property (nonatomic, copy) id /* block */ completionHandler;
+@property (nonatomic) double duration;
+@property (nonatomic) float frequency;
+@property (nonatomic, readonly) bool hasFrequency;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) long long priority;
+@property (nonatomic, readonly) bool running;
+@property (nonatomic) bool runsForever;
+@property (nonatomic, readonly) long long state;
+@property (nonatomic, readonly) bool timed;
 
-+ (void)setDragCoefficientGetter:(id)arg1;
-
-- (id).cxx_construct;
-- (void)_stopAnimation:(BOOL)arg1;
-- (id)completionHandler;
+- (id /* block */)completionHandler;
 - (void)dealloc;
 - (id)description;
 - (double)duration;
-- (id)init;
-- (id)initWithDuration:(double)arg1 name:(id)arg2;
-- (id)initWithDuration:(double)arg1 priority:(int)arg2 name:(id)arg3;
-- (id)initWithDuration:(double)arg1;
+- (float)frequency;
+- (bool)hasFrequency;
 - (id)initWithName:(id)arg1;
-- (id)initWithPriority:(int)arg1 name:(id)arg2;
-- (id)initWithPriority:(int)arg1;
+- (id)initWithPriority:(long long)arg1;
+- (id)initWithPriority:(long long)arg1 name:(id)arg2;
+- (id)name;
 - (void)onTimerFired:(double)arg1;
 - (void)pause;
-- (int)priority;
+- (long long)priority;
 - (void)resume;
-- (BOOL)running;
-- (BOOL)runsForever;
-- (void)setCompletionHandler:(id)arg1;
+- (bool)running;
+- (bool)runsForever;
+- (void)setCompletionHandler:(id /* block */)arg1;
 - (void)setDuration:(double)arg1;
-- (void)setRunsForever:(BOOL)arg1;
-- (void)setStepHandler:(id)arg1;
-- (void)setTimingFunction:(id)arg1;
+- (void)setFrequency:(float)arg1;
+- (void)setRunsForever:(bool)arg1;
 - (void)startWithRunner:(id)arg1;
-- (id)stepHandler;
+- (long long)state;
 - (void)stop;
-- (id)timingFunction;
+- (void)stopAnimation:(bool)arg1;
+- (bool)timed;
 - (void)transferToRunner:(id)arg1;
 
 @end

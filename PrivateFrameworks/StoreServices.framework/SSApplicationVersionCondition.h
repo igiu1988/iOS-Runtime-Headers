@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSNumber, NSString;
-
 @interface SSApplicationVersionCondition : SSProtocolCondition {
-    NSString *_bundleIdentifier;
-    NSString *_bundleVersion;
-    NSNumber *_externalVersion;
+    NSString * _bundleIdentifier;
+    NSString * _bundleVersion;
+    NSNumber * _externalVersion;
 }
 
 - (void)dealloc;
-- (BOOL)evaluateWithContext:(id)arg1;
+- (bool)evaluateWithContext:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 
 @end

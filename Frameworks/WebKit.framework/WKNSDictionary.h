@@ -2,33 +2,25 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString;
-
 @interface WKNSDictionary : NSDictionary <WKObject> {
-    struct ObjectStorage<WebKit::ImmutableDictionary> { 
+    struct ObjectStorage<API::Dictionary> { 
         struct type { 
-            unsigned char __lx[28]; 
+            unsigned char __lx[40]; 
         } data; 
-    } _dictionary;
+    }  _dictionary;
 }
 
-@property(readonly) struct Object { int (**x1)(); id x2; }* _apiObject;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly) /* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*_apiObject;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-- (struct Object { int (**x1)(); id x2; }*)_apiObject;
-- (id).cxx_construct;
+- (/* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*)_apiObject;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned int)count;
+- (unsigned long long)count;
 - (void)dealloc;
-- (id)initWithObjects:(const id*)arg1 forKeys:(const id*)arg2 count:(unsigned int)arg3;
+- (id)initWithObjects:(const id*)arg1 forKeys:(const id*)arg2 count:(unsigned long long)arg3;
 - (id)keyEnumerator;
 - (id)objectForKey:(id)arg1;
 

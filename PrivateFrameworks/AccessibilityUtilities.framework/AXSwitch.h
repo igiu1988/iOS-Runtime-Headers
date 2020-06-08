@@ -2,60 +2,84 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-@class NSString, NSUUID;
-
 @interface AXSwitch : NSObject <NSSecureCoding> {
-    int _action;
-    int _buttonNumber;
-    int _headSwitch;
-    unsigned short _keyCode;
-    NSString *_manufacturerName;
-    NSString *_name;
-    NSString *_productName;
-    struct NSString { Class x1; } *_source;
-    struct NSString { Class x1; } *_type;
-    NSUUID *_uuid;
+    long long  _action;
+    long long  _buttonNumber;
+    long long  _headSwitch;
+    unsigned short  _keyCode;
+    long long  _longPressAction;
+    NSString * _manufacturerName;
+    AXMIDIEvent * _midiEvent;
+    NSString * _name;
+    NSString * _productName;
+    NSString * _remoteDeviceIdentifier;
+    NSString * _remoteDeviceName;
+    NSString * _remoteSwitchIdentifier;
+    struct NSString { Class x1; } * _source;
+    struct NSString { Class x1; } * _type;
+    NSUUID * _uuid;
 }
 
-@property int action;
-@property int buttonNumber;
-@property int headSwitch;
-@property unsigned short keyCode;
-@property(copy) NSString * manufacturerName;
-@property(copy) NSString * name;
-@property(copy) NSString * productName;
-@property(retain) NSString * source;
-@property(retain) NSString * type;
-@property(retain) NSUUID * uuid;
+@property (nonatomic) long long action;
+@property (nonatomic) long long buttonNumber;
+@property (nonatomic, readonly) bool hasLongPressAction;
+@property (nonatomic) long long headSwitch;
+@property (nonatomic) unsigned short keyCode;
+@property (nonatomic, readonly) NSString *localizedSourceDescription;
+@property (nonatomic) long long longPressAction;
+@property (nonatomic, copy) NSString *manufacturerName;
+@property (nonatomic, retain) AXMIDIEvent *midiEvent;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *productName;
+@property (nonatomic, copy) NSString *remoteDeviceIdentifier;
+@property (nonatomic, copy) NSString *remoteDeviceName;
+@property (nonatomic, copy) NSString *remoteSwitchIdentifier;
+@property (nonatomic, retain) NSString *source;
+@property (nonatomic, readonly) bool supportsLongPress;
+@property (nonatomic, retain) NSString *type;
+@property (nonatomic, retain) NSUUID *uuid;
 
-+ (BOOL)supportsSecureCoding;
-+ (id)switchWithAction:(int)arg1 name:(id)arg2 source:(struct NSString { Class x1; }*)arg3 type:(struct NSString { Class x1; }*)arg4;
++ (bool)supportsSecureCoding;
++ (id)switchWithAction:(long long)arg1 name:(id)arg2 source:(struct NSString { Class x1; }*)arg3 type:(struct NSString { Class x1; }*)arg4;
 
-- (int)action;
-- (int)buttonNumber;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (long long)action;
+- (long long)buttonNumber;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
-- (int)headSwitch;
-- (id)initWithAction:(int)arg1 name:(id)arg2 source:(struct NSString { Class x1; }*)arg3 type:(struct NSString { Class x1; }*)arg4;
+- (bool)hasLongPressAction;
+- (unsigned long long)hash;
+- (long long)headSwitch;
+- (id)initWithAction:(long long)arg1 name:(id)arg2 source:(struct NSString { Class x1; }*)arg3 type:(struct NSString { Class x1; }*)arg4;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (unsigned short)keyCode;
+- (id)localizedSourceDescription;
+- (long long)longPressAction;
 - (id)manufacturerName;
+- (id)midiEvent;
 - (id)name;
 - (id)productName;
-- (void)setAction:(int)arg1;
-- (void)setButtonNumber:(int)arg1;
-- (void)setHeadSwitch:(int)arg1;
+- (id)remoteDeviceIdentifier;
+- (id)remoteDeviceName;
+- (id)remoteSwitchIdentifier;
+- (void)setAction:(long long)arg1;
+- (void)setButtonNumber:(long long)arg1;
+- (void)setHeadSwitch:(long long)arg1;
 - (void)setKeyCode:(unsigned short)arg1;
+- (void)setLongPressAction:(long long)arg1;
 - (void)setManufacturerName:(id)arg1;
+- (void)setMidiEvent:(id)arg1;
 - (void)setName:(id)arg1;
 - (void)setProductName:(id)arg1;
+- (void)setRemoteDeviceIdentifier:(id)arg1;
+- (void)setRemoteDeviceName:(id)arg1;
+- (void)setRemoteSwitchIdentifier:(id)arg1;
 - (void)setSource:(struct NSString { Class x1; }*)arg1;
 - (void)setType:(struct NSString { Class x1; }*)arg1;
 - (void)setUuid:(id)arg1;
 - (struct NSString { Class x1; }*)source;
+- (bool)supportsLongPress;
 - (struct NSString { Class x1; }*)type;
 - (id)uuid;
 

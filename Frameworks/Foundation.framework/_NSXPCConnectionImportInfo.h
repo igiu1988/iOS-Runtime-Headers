@@ -2,17 +2,17 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSLock;
-
 @interface _NSXPCConnectionImportInfo : NSObject {
-    NSLock *_lock;
-    struct __CFDictionary { } *_map;
+    unsigned long long  _generationCount;
+    NSLock * _lock;
+    struct __CFDictionary { } * _proxyNumberToCount;
+    NSMutableDictionary * _remoteSideEntitlementCache;
 }
 
+- (id)_valueForEntitlement:(id)arg1 auditToken:(struct { unsigned int x1[8]; })arg2;
+- (void)addProxy:(id)arg1;
 - (void)dealloc;
-- (BOOL)decrement:(unsigned long long)arg1;
-- (void)finalize;
-- (void)increment:(unsigned long long)arg1;
 - (id)init;
+- (bool)removeProxy:(id)arg1;
 
 @end

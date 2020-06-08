@@ -2,50 +2,75 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSMappingModel, NSMutableDictionary, NSSQLAdapter, NSSQLConnection, NSSQLCore, NSSQLModel;
-
 @interface _NSSQLiteStoreMigrator : NSObject {
-    NSSQLAdapter *_adapter;
-    NSMutableDictionary *_addedEntityMigrations;
-    NSSQLConnection *_connection;
-    NSMutableDictionary *_copiedEntityMigrations;
-    NSSQLModel *_dstModel;
-    BOOL _hasPKTableChanges;
-    NSMappingModel *_mappingModel;
-    NSMutableDictionary *_reindexedEntities;
-    NSMutableDictionary *_reindexedPropertiesByEntity;
-    NSMutableDictionary *_removedEntityMigrations;
-    NSMutableDictionary *_sourceToDestinationEntityMap;
-    NSSQLModel *_srcModel;
-    NSSQLCore *_store;
-    NSMutableDictionary *_tableMigrationDescriptionsByEntity;
-    NSMutableDictionary *_transformedEntityMigrations;
+    NSSQLiteAdapter * _adapter;
+    NSMutableDictionary * _addedEntityMigrations;
+    NSMutableDictionary * _attributeExtensionsToUpdate;
+    NSSQLiteConnection * _connection;
+    NSMutableDictionary * _copiedEntityMigrations;
+    NSSQLModel * _dstModel;
+    NSArray * _existingTableNames;
+    bool  _hasPKTableChanges;
+    NSMutableDictionary * _historyMigrationPropertyDataForEntityCache;
+    NSMutableArray * _indexesToCreate;
+    NSMutableArray * _indexesToDrop;
+    NSMappingModel * _mappingModel;
+    NSMutableArray * _pkTableUpdateStatements;
+    NSMutableDictionary * _reindexedEntities;
+    NSMutableDictionary * _reindexedPropertiesByEntity;
+    NSMutableDictionary * _removedEntityMigrations;
+    NSMutableDictionary * _sourceToDestinationEntityMap;
+    NSSQLModel * _srcModel;
+    NSSQLCore * _store;
+    NSArray * _tableGenerationSQL;
+    NSMutableDictionary * _tableMigrationDescriptionsByEntity;
+    NSMutableDictionary * _transformedEntityMigrations;
 }
 
-@property(readonly) NSSQLAdapter * adapter;
+@property (nonatomic, readonly) NSSQLiteAdapter *adapter;
+@property (nonatomic, readonly) NSSQLModel *dstModel;
+@property (nonatomic, retain) NSMutableDictionary *historyMigrationCache;
+@property (nonatomic, readonly) NSSQLModel *srcModel;
 
-+ (BOOL)_annotatesMigrationMetadata;
-+ (void)_setAnnotatesMigrationMetadata:(BOOL)arg1;
++ (bool)_annotatesMigrationMetadata;
++ (void)_setAnnotatesMigrationMetadata:(bool)arg1;
 
 - (void)_addEntityMigration:(id)arg1 toTableMigrationForRootEntity:(id)arg2 tableMigrationType:(int)arg3;
 - (void)_addReindexedProperty:(id)arg1 toSetForEntity:(id)arg2;
 - (long long)_countNullsInColumn:(id)arg1 forEntity:(id)arg2;
 - (long long)_countUnreferencedPrimaryKeysForEntity:(id)arg1 inForeignKeyColumnName:(id)arg2 fromTable:(id)arg3;
+- (void)_determineAncillaryModelIndexesForMigration;
+- (void)_determineAttributeTriggerToMigrateForAttributeNamed:(id)arg1 withSourceEntity:(id)arg2 andDestinationEntity:(id)arg3;
+- (void)_determineIndexesToMigrateForSourceEntity:(id)arg1 andDestinationEntity:(id)arg2;
 - (void)_determinePropertyDependenciesOnIDForEntity:(id)arg1;
+- (void)_determineRTreeExtensionsToMigrateForAttributeNamed:(id)arg1 withSourceEntity:(id)arg2 andDestinationEntity:(id)arg3;
 - (void)_determineReindexedEntitiesAndAffectedProperties;
+- (void)_determineUniquenessConstraintsToMigrateForSourceEntity:(id)arg1 andDestinationEntity:(id)arg2;
+- (void)_disconnect;
+- (id /* block */)_indexMigrationBlockForSourceEntity:(id)arg1 andDestinationEntity:(id)arg2;
+- (id)_originalRootsForAddedEntity:(id)arg1;
 - (void)_populateEntityMigrationDescriptionsAndEntityMap;
 - (void)_populateTableMigrationDescriptions;
+- (bool)_sourceTableIsClean:(id)arg1;
 - (id)adapter;
+- (bool)clearTombstoneColumnsForRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
 - (id)createEntityMigrationStatements;
-- (id)createIndexStatementsForEntity:(id)arg1;
 - (id)createStatementsForUpdatingEntityKeys;
 - (void)dealloc;
+- (bool)deleteStatementsForHistory;
+- (id)dstModel;
 - (id)entityMigrationDescriptionForEntity:(id)arg1;
+- (void)generatePKTableUpdateStatements;
+- (id)historyMigrationCache;
 - (id)initWithStore:(id)arg1 destinationModel:(id)arg2 mappingModel:(id)arg3;
-- (BOOL)performMigration:(id*)arg1;
+- (bool)performMigration:(id*)arg1;
+- (void)setHistoryMigrationCache:(id)arg1;
+- (bool)shiftTombstones;
+- (id)srcModel;
 - (id)tableMigrationDescriptionForEntity:(id)arg1;
-- (BOOL)validateMandatoryAttribute:(id)arg1 onEntity:(id)arg2 error:(id*)arg3;
-- (BOOL)validateMandatoryRelationship:(id)arg1 onEntity:(id)arg2 error:(id*)arg3;
-- (BOOL)validateMigratedDataFromEntityMapping:(id)arg1 error:(id*)arg2;
+- (id)updateStatementsForHistoryChanges;
+- (bool)validateMandatoryAttribute:(id)arg1 onEntity:(id)arg2 error:(id*)arg3;
+- (bool)validateMandatoryRelationship:(id)arg1 onEntity:(id)arg2 error:(id*)arg3;
+- (bool)validateMigratedDataFromEntityMapping:(id)arg1 error:(id*)arg2;
 
 @end

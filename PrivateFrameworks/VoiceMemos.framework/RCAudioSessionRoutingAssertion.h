@@ -2,28 +2,34 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class NSString;
-
 @interface RCAudioSessionRoutingAssertion : NSObject {
-    NSString *_debugLabel;
-    int _priority;
-    BOOL _requiresActiveAudioSession;
+    NSString * _debugLabel;
+    long long  _priority;
+    bool  _requireAudioCategoryActive;
+    long long  _routeDirection;
+    unsigned long long  _sessionOptions;
 }
 
-@property(readonly) int priority;
-@property(readonly) BOOL requiresActiveAudioSession;
+@property (nonatomic, readonly) long long priority;
+@property (nonatomic, readonly) bool requireAudioCategoryActive;
+@property (nonatomic, readonly) long long routeDirection;
+@property (nonatomic) unsigned long long sessionOptions;
 
 + (id)newCaptureAssertionNamed:(id)arg1;
 + (id)newForegroundAppAssertion;
-+ (id)newForegroundAppAssertionRequiringActiveAudioSession:(BOOL)arg1;
++ (id)newForegroundAppAssertionRequiringActiveAudioSession:(bool)arg1;
 + (id)newPreviewAssertionNamed:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)description;
 - (id)init;
-- (id)initWithDebugLabel:(id)arg1 requiresActiveAudioSession:(BOOL)arg2 priority:(int)arg3;
-- (int)priority;
-- (BOOL)requiresActiveAudioSession;
+- (id)initWithDebugLabel:(id)arg1 routeDirection:(long long)arg2 priority:(long long)arg3;
+- (bool)isEqual:(id)arg1;
+- (long long)priority;
+- (bool)requireAudioCategoryActive;
+- (long long)routeDirection;
+- (unsigned long long)sessionOptions;
+- (void)setSessionOptions:(unsigned long long)arg1;
 
 @end

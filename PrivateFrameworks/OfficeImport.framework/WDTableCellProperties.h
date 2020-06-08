@@ -2,9 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSDate, WDBorder, WDDocument, WDShading;
-
 @interface WDTableCellProperties : NSObject {
+    WDDocument * mDocument;
+    unsigned int  mOriginal;
     struct { 
         WDShading *shading; 
         WDBorder *topBorder; 
@@ -70,6 +70,10 @@
         unsigned int deletionDateOverridden : 1; 
         unsigned int editDateOverridden : 1; 
         unsigned int formattingChangeDateOverridden : 1; 
+    }  mOriginalProperties;
+    short  mPosition;
+    unsigned int  mResolved;
+    unsigned int  mTracked;
     struct { 
         WDShading *shading; 
         WDBorder *topBorder; 
@@ -135,19 +139,12 @@
         unsigned int deletionDateOverridden : 1; 
         unsigned int editDateOverridden : 1; 
         unsigned int formattingChangeDateOverridden : 1; 
-    unsigned int mOriginal : 1;
-    unsigned int mTracked : 1;
-    unsigned int mResolved : 1;
-    WDDocument *mDocument;
-    } mOriginalProperties;
-    short mPosition;
-    } mTrackedProperties;
-    short mWidth;
+    }  mTrackedProperties;
+    short  mWidth;
 }
 
-- (id).cxx_construct;
 - (void)addProperties:(id)arg1;
-- (void)addPropertiesValues:(struct { id x1; id x2; id x3; id x4; id x5; id x6; id x7; id x8; id x9; int x10; short x11; int x12; short x13; int x14; short x15; int x16; short x17; int x18; int x19; BOOL x20; int x21; int x22; int x23; unsigned short x24; unsigned short x25; unsigned short x26; id x27; id x28; id x29; unsigned int x30 : 1; unsigned int x31 : 1; unsigned int x32 : 1; unsigned int x33 : 1; unsigned int x34 : 1; unsigned int x35 : 1; unsigned int x36 : 1; unsigned int x37 : 1; unsigned int x38 : 1; unsigned int x39 : 1; unsigned int x40 : 1; unsigned int x41 : 1; unsigned int x42 : 1; unsigned int x43 : 1; unsigned int x44 : 1; unsigned int x45 : 1; unsigned int x46 : 1; unsigned int x47 : 1; unsigned int x48 : 1; unsigned int x49 : 1; unsigned int x50 : 1; unsigned int x51 : 1; unsigned int x52 : 1; unsigned int x53 : 1; unsigned int x54 : 1; unsigned int x55 : 1; unsigned int x56 : 1; unsigned int x57 : 1; unsigned int x58 : 1; unsigned int x59 : 1; unsigned int x60 : 1; unsigned int x61 : 1; unsigned int x62 : 1; unsigned int x63 : 1; unsigned int x64 : 1; }*)arg1 to:(struct { id x1; id x2; id x3; id x4; id x5; id x6; id x7; id x8; id x9; int x10; short x11; int x12; short x13; int x14; short x15; int x16; short x17; int x18; int x19; BOOL x20; int x21; int x22; int x23; unsigned short x24; unsigned short x25; unsigned short x26; id x27; id x28; id x29; unsigned int x30 : 1; unsigned int x31 : 1; unsigned int x32 : 1; unsigned int x33 : 1; unsigned int x34 : 1; unsigned int x35 : 1; unsigned int x36 : 1; unsigned int x37 : 1; unsigned int x38 : 1; unsigned int x39 : 1; unsigned int x40 : 1; unsigned int x41 : 1; unsigned int x42 : 1; unsigned int x43 : 1; unsigned int x44 : 1; unsigned int x45 : 1; unsigned int x46 : 1; unsigned int x47 : 1; unsigned int x48 : 1; unsigned int x49 : 1; unsigned int x50 : 1; unsigned int x51 : 1; unsigned int x52 : 1; unsigned int x53 : 1; unsigned int x54 : 1; unsigned int x55 : 1; unsigned int x56 : 1; unsigned int x57 : 1; unsigned int x58 : 1; unsigned int x59 : 1; unsigned int x60 : 1; unsigned int x61 : 1; unsigned int x62 : 1; unsigned int x63 : 1; unsigned int x64 : 1; }*)arg2;
+- (void)addPropertiesValues:(struct { id x1; id x2; id x3; id x4; id x5; short x6; int x7; short x8; int x9; short x10; int x11; short x12; int x13; int x14; BOOL x15; int x16; int x17; int x18; unsigned short x19; unsigned short x20; unsigned short x21; id x22; id x23; /* Warning: Unrecognized filer type: '1' using 'void*' */ void*x24; unsigned int x25 : 1; unsigned int x26 : 1; unsigned int x27 : 1; unsigned int x28 : 1; unsigned int x29 : 1; unsigned int x30 : 1; unsigned int x31 : 1; unsigned int x32 : 1; unsigned int x33 : 1; unsigned int x34 : 1; unsigned int x35 : 1; unsigned int x36 : 1; unsigned int x37 : 1; unsigned int x38 : 1; unsigned int x39 : 1; unsigned int x40 : 1; unsigned int x41 : 1; unsigned int x42 : 1; unsigned int x43 : 1; unsigned int x44 : 1; unsigned int x45 : 1; unsigned int x46 : 1; unsigned int x47 : 1; unsigned int x48 : 1; unsigned int x49 : 1; unsigned int x50 : 1; unsigned int x51 : 1; unsigned int x52 : 1; unsigned int x53 : 1; unsigned int x54 : 1; unsigned int x55 : 1; unsigned int x56 : 1; unsigned int x57 : 1; }*)arg1 to:(struct { id x1; id x2; id x3; id x4; id x5; short x6; int x7; short x8; int x9; short x10; int x11; short x12; int x13; int x14; BOOL x15; int x16; int x17; int x18; unsigned short x19; unsigned short x20; unsigned short x21; id x22; id x23; /* Warning: Unrecognized filer type: '1' using 'void*' */ void*x24; unsigned int x25 : 1; unsigned int x26 : 1; unsigned int x27 : 1; unsigned int x28 : 1; unsigned int x29 : 1; unsigned int x30 : 1; unsigned int x31 : 1; unsigned int x32 : 1; unsigned int x33 : 1; unsigned int x34 : 1; unsigned int x35 : 1; unsigned int x36 : 1; unsigned int x37 : 1; unsigned int x38 : 1; unsigned int x39 : 1; unsigned int x40 : 1; unsigned int x41 : 1; unsigned int x42 : 1; unsigned int x43 : 1; unsigned int x44 : 1; unsigned int x45 : 1; unsigned int x46 : 1; unsigned int x47 : 1; unsigned int x48 : 1; unsigned int x49 : 1; unsigned int x50 : 1; unsigned int x51 : 1; unsigned int x52 : 1; unsigned int x53 : 1; unsigned int x54 : 1; unsigned int x55 : 1; unsigned int x56 : 1; unsigned int x57 : 1; }*)arg2;
 - (id)bottomBorder;
 - (short)bottomMargin;
 - (int)bottomMarginType;
@@ -156,12 +153,13 @@
 - (void)dealloc;
 - (int)deleted;
 - (id)deletionDate;
+- (id)description;
 - (id)diagonalDownBorder;
 - (id)diagonalUpBorder;
 - (id)document;
 - (id)editDate;
 - (int)edited;
-- (BOOL)firstInSetOfVerticallyMergedCells;
+- (bool)firstInSetOfVerticallyMergedCells;
 - (id)formattingChangeDate;
 - (int)formattingChanged;
 - (unsigned short)indexToAuthorIDOfDeletion;
@@ -171,38 +169,38 @@
 - (id)initWithDocument:(id)arg1;
 - (id)insideHorizontalBorder;
 - (id)insideVerticalBorder;
-- (BOOL)isBottomBorderOverridden;
-- (BOOL)isBottomMarginOverridden;
-- (BOOL)isBottomMarginTypeOverridden;
-- (BOOL)isDeletedOverridden;
-- (BOOL)isDeletionDateOverridden;
-- (BOOL)isDiagonalDownBorderOverridden;
-- (BOOL)isDiagonalUpBorderOverridden;
-- (BOOL)isEditDateOverridden;
-- (BOOL)isEditedOverridden;
-- (BOOL)isFirstInSetOfVerticallyMergedCellsOverridden;
-- (BOOL)isFormattingChangeDateOverridden;
-- (BOOL)isFormattingChangedOverridden;
-- (BOOL)isIndexToAuthorIDOfDeletionOverridden;
-- (BOOL)isIndexToAuthorIDOfEditOverridden;
-- (BOOL)isIndexToAuthorIDOfFormattingChangeOverridden;
-- (BOOL)isInsideHorizontalBorderOverridden;
-- (BOOL)isInsideVerticalBorderOverridden;
-- (BOOL)isLeftBorderOverridden;
-- (BOOL)isLeftMarginOverridden;
-- (BOOL)isLeftMarginTypeOverridden;
-- (BOOL)isNoWrapOverridden;
-- (BOOL)isRightBorderOverridden;
-- (BOOL)isRightMarginOverridden;
-- (BOOL)isRightMarginTypeOverridden;
-- (BOOL)isShadingOverridden;
-- (BOOL)isTextDirectionOverridden;
-- (BOOL)isTopBorderOverridden;
-- (BOOL)isTopMarginOverridden;
-- (BOOL)isTopMarginTypeOverridden;
-- (BOOL)isVerticalAlignmentOverridden;
-- (BOOL)isVerticallyMergedCellOverridden;
-- (BOOL)isWidthTypeOverridden;
+- (bool)isBottomBorderOverridden;
+- (bool)isBottomMarginOverridden;
+- (bool)isBottomMarginTypeOverridden;
+- (bool)isDeletedOverridden;
+- (bool)isDeletionDateOverridden;
+- (bool)isDiagonalDownBorderOverridden;
+- (bool)isDiagonalUpBorderOverridden;
+- (bool)isEditDateOverridden;
+- (bool)isEditedOverridden;
+- (bool)isFirstInSetOfVerticallyMergedCellsOverridden;
+- (bool)isFormattingChangeDateOverridden;
+- (bool)isFormattingChangedOverridden;
+- (bool)isIndexToAuthorIDOfDeletionOverridden;
+- (bool)isIndexToAuthorIDOfEditOverridden;
+- (bool)isIndexToAuthorIDOfFormattingChangeOverridden;
+- (bool)isInsideHorizontalBorderOverridden;
+- (bool)isInsideVerticalBorderOverridden;
+- (bool)isLeftBorderOverridden;
+- (bool)isLeftMarginOverridden;
+- (bool)isLeftMarginTypeOverridden;
+- (bool)isNoWrapOverridden;
+- (bool)isRightBorderOverridden;
+- (bool)isRightMarginOverridden;
+- (bool)isRightMarginTypeOverridden;
+- (bool)isShadingOverridden;
+- (bool)isTextDirectionOverridden;
+- (bool)isTopBorderOverridden;
+- (bool)isTopMarginOverridden;
+- (bool)isTopMarginTypeOverridden;
+- (bool)isVerticalAlignmentOverridden;
+- (bool)isVerticallyMergedCellOverridden;
+- (bool)isWidthTypeOverridden;
 - (id)leftBorder;
 - (short)leftMargin;
 - (int)leftMarginType;
@@ -215,7 +213,7 @@
 - (id)mutableRightBorder;
 - (id)mutableShading;
 - (id)mutableTopBorder;
-- (BOOL)noWrap;
+- (bool)noWrap;
 - (void)originalToTracked;
 - (short)position;
 - (int)resolveMode;
@@ -228,7 +226,7 @@
 - (void)setDeletionDate:(id)arg1;
 - (void)setEditDate:(id)arg1;
 - (void)setEdited:(int)arg1;
-- (void)setFirstInSetOfVerticallyMergedCells:(BOOL)arg1;
+- (void)setFirstInSetOfVerticallyMergedCells:(bool)arg1;
 - (void)setFormattingChangeDate:(id)arg1;
 - (void)setFormattingChanged:(int)arg1;
 - (void)setIndexToAuthorIDOfDeletion:(unsigned short)arg1;
@@ -236,7 +234,7 @@
 - (void)setIndexToAuthorIDOfFormattingChange:(unsigned short)arg1;
 - (void)setLeftMargin:(short)arg1;
 - (void)setLeftMarginType:(int)arg1;
-- (void)setNoWrap:(BOOL)arg1;
+- (void)setNoWrap:(bool)arg1;
 - (void)setPosition:(short)arg1;
 - (void)setResolveMode:(int)arg1;
 - (void)setRightMargin:(short)arg1;
@@ -245,7 +243,7 @@
 - (void)setTopMargin:(short)arg1;
 - (void)setTopMarginType:(int)arg1;
 - (void)setVerticalAlignment:(int)arg1;
-- (void)setVerticallyMergedCell:(BOOL)arg1;
+- (void)setVerticallyMergedCell:(bool)arg1;
 - (void)setWidth:(short)arg1;
 - (void)setWidthType:(int)arg1;
 - (id)shading;
@@ -254,7 +252,7 @@
 - (short)topMargin;
 - (int)topMarginType;
 - (int)verticalAlignment;
-- (BOOL)verticallyMergedCell;
+- (bool)verticallyMergedCell;
 - (short)width;
 - (int)widthType;
 

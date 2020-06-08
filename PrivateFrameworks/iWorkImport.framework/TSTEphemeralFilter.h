@@ -2,32 +2,31 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray;
-
 @interface TSTEphemeralFilter : NSObject {
-    unsigned char mColumnIndex;
-    BOOL mEnabled;
-    unsigned int mFilterIndex;
-    NSArray *mRules;
+    struct TSUModelColumnIndex { 
+        unsigned short _column; 
+    }  _baseColumnIndex;
+    unsigned long long  _filterIndex;
+    NSArray * _rules;
 }
 
-@property(readonly) unsigned char columnIndex;
-@property(readonly) BOOL enabled;
-@property(readonly) unsigned int filterIndex;
-@property(readonly) unsigned int ruleCount;
+@property (nonatomic, readonly) struct TSUModelColumnIndex { unsigned short x1; } baseColumnIndex;
+@property (nonatomic, readonly) unsigned long long filterIndex;
+@property (nonatomic, readonly) unsigned long long ruleCount;
 
-+ (id)filterWithIndex:(unsigned int)arg1 columnIndex:(unsigned char)arg2 rules:(id)arg3 enabled:(BOOL)arg4;
++ (id)filterWithIndex:(unsigned long long)arg1 baseColumnIndex:(struct TSUModelColumnIndex { unsigned short x1; })arg2 rules:(id)arg3;
 
-- (unsigned char)columnIndex;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (struct TSUModelColumnIndex { unsigned short x1; })baseColumnIndex;
 - (id)description;
-- (BOOL)enabled;
+- (void)enumerateRulesUsingBlock:(id /* block */)arg1;
 - (id)filterByAddingRule:(id)arg1;
-- (id)filterByRemovingRuleAtIndex:(unsigned int)arg1;
-- (unsigned int)filterIndex;
-- (id)filterWithRule:(id)arg1 atIndex:(unsigned int)arg2;
-- (id)initWithIndex:(unsigned int)arg1 columnIndex:(unsigned char)arg2 rules:(id)arg3 enabled:(BOOL)arg4;
-- (id)ruleAtIndex:(unsigned int)arg1;
-- (unsigned int)ruleCount;
+- (id)filterByClearingRules;
+- (id)filterByRemovingRuleAtIndex:(unsigned long long)arg1;
+- (unsigned long long)filterIndex;
+- (id)filterWithRule:(id)arg1 atIndex:(unsigned long long)arg2;
+- (id)initWithIndex:(unsigned long long)arg1 baseColumnIndex:(struct TSUModelColumnIndex { unsigned short x1; })arg2 rules:(id)arg3;
+- (id)ruleAtIndex:(unsigned long long)arg1;
+- (unsigned long long)ruleCount;
 
 @end

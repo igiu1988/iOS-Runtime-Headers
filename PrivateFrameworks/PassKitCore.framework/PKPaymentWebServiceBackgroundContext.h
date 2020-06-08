@@ -2,28 +2,33 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface PKPaymentWebServiceBackgroundContext : NSObject <NSSecureCoding> {
-    NSMutableDictionary *_backgroundTaskRecordsByTaskIdentifier;
-    NSObject<OS_dispatch_queue> *_queue;
+    NSMutableDictionary * _backgroundTaskRecordsByRecordName;
+    NSMutableDictionary * _backgroundTaskRecordsByTaskIdentifier;
+    NSObject<OS_dispatch_queue> * _queue;
 }
 
-@property(retain) NSMutableDictionary * backgroundTaskRecordsByTaskIdentifier;
+@property (retain) NSMutableDictionary *backgroundTaskRecordsByRecordName;
+@property (retain) NSMutableDictionary *backgroundTaskRecordsByTaskIdentifier;
 
 + (id)contextWithArchive:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (void)addBackgroundDownloadRecord:(id)arg1 forTaskIdentifier:(unsigned int)arg2;
+- (void).cxx_destruct;
+- (void)addBackgroundDownloadRecord:(id)arg1 forRecordName:(id)arg2;
+- (void)addBackgroundDownloadRecord:(id)arg1 forTaskIdentifier:(unsigned long long)arg2;
 - (void)archiveAtPath:(id)arg1;
+- (id)backgroundDownloadRecordForRecordName:(id)arg1;
+- (id)backgroundDownloadRecordForTaskIdentifier:(unsigned long long)arg1;
+- (id)backgroundTaskRecordsByRecordName;
 - (id)backgroundTaskRecordsByTaskIdentifier;
-- (id)backroundDownloadRecordForTaskIdentifier:(unsigned int)arg1;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (void)removeBackgroundDownloadRecordForTaskIdentifier:(unsigned int)arg1;
+- (id)remainingTasks;
+- (void)removeBackgroundDownloadRecordForRecordName:(id)arg1;
+- (void)removeBackgroundDownloadRecordForTaskIdentifier:(unsigned long long)arg1;
+- (void)setBackgroundTaskRecordsByRecordName:(id)arg1;
 - (void)setBackgroundTaskRecordsByTaskIdentifier:(id)arg1;
-- (id)taskIdentifiers;
 
 @end

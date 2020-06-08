@@ -2,26 +2,27 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-@class PHObject;
-
 @interface PHObjectChangeDetails : NSObject {
-    BOOL _assetContentChanged;
-    PHObject *_objectAfterChanges;
-    PHObject *_objectBeforeChanges;
+    bool  _assetCollectionTitlePropertiesChanged;
+    bool  _assetContentChanged;
+    PHObject * _objectAfterChanges;
+    PHObject * _objectBeforeChanges;
 }
 
-@property(readonly) BOOL assetContentChanged;
-@property(readonly) id objectAfterChanges;
-@property(readonly) id objectBeforeChanges;
-@property(readonly) BOOL objectWasDeleted;
+@property (nonatomic, readonly) bool assetCollectionTitlePropertiesChanged;
+@property (readonly) bool assetContentChanged;
+@property (readonly) PHObject *objectAfterChanges;
+@property (readonly) PHObject *objectBeforeChanges;
+@property (readonly) bool objectWasDeleted;
 
 - (void).cxx_destruct;
 - (void)_calculateDiffs;
-- (BOOL)assetContentChanged;
+- (bool)assetCollectionTitlePropertiesChanged;
+- (bool)assetContentChanged;
 - (id)description;
-- (id)initWithPHObject:(id)arg1 assetContentChanged:(BOOL)arg2;
+- (id)initWithPHObject:(id)arg1;
 - (id)objectAfterChanges;
 - (id)objectBeforeChanges;
-- (BOOL)objectWasDeleted;
+- (bool)objectWasDeleted;
 
 @end

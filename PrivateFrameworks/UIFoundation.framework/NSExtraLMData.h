@@ -2,71 +2,100 @@
    Image: /System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
  */
 
-@class NSLayoutManagerTextBlockRowArrayCache, NSMutableArray, NSRunStorage, NSTextContainer;
-
 @interface NSExtraLMData : NSObject {
+    NSRunStorage * _attachmentSizesRun;
+    NSMutableArray * _blockRunsArray;
     struct CGRect { 
         struct CGPoint { 
-            float x; 
-            float y; 
+            double x; 
+            double y; 
         } origin; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } size; 
-    struct CGRect { 
-        struct CGPoint { 
-            float x; 
-            float y; 
-        } origin; 
-        struct CGSize { 
-            float width; 
-            float height; 
-        } size; 
+    }  _cachedFontBounds;
+    double  _cachedUnderlineAdjustment;
+    double  _cachedUnderlinePosition;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _cachedUnderlineRange;
+    double  _cachedUnderlineThickness;
+    unsigned long long  _currentAttachmentIndex;
+    struct CGRect { 
+        struct CGPoint { 
+            double x; 
+            double y; 
+        } origin; 
+        struct CGSize { 
+            double width; 
+            double height; 
+        } size; 
+    }  _currentAttachmentRect;
+    long long  _currentChangeInLength;
+    NSLock * _fillHoleLock;
+    NSTextContainer * _firstTextContainer;
+    struct _NSRange { 
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _firstTextViewVisibleCharRange;
+    struct CGSize { 
+        double width; 
+        double height; 
+    }  _firstTextViewVisibleOffset;
+    NSRunStorage * _fragmentRunsExtras;
+    struct _NSGlyphIndexForPointCache { 
+        struct CGPoint { 
+            double x; 
+            double y; 
+        } point; 
+        void *textContainer; 
+        unsigned long long indexCache; 
+        double fractionCache; 
+    }  _glyphIndexForPointCache;
     struct _NSGlyphTree { 
         struct _NSGlyphNode {} *rootNode; 
         struct _NSGlyphNode {} *curNode; 
-        unsigned int curCharIndex; 
-        unsigned int curGlyphIndex; 
+        unsigned long long curCharIndex; 
+        unsigned long long curGlyphIndex; 
+    }  _glyphTree;
+    double  _hyphenationFactor;
+    NSMutableArray * _insertionPointCache;
+    struct _NSRange { 
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _lastInvalidatedCharRange;
+    double  _lastInvalidatedLongitudinalPosition;
+    NSTextContainer * _lastInvalidatedTextContainer;
     struct _NSLayoutTree { 
         struct _NSLayoutNode {} *rootNode; 
         struct _NSLayoutNode {} *curNode; 
-        unsigned int curGlyphIndex; 
-        float curLongitudinalOrigin; 
+        unsigned long long curGlyphIndex; 
+        double curLongitudinalOrigin; 
         struct CGRect { 
             struct CGPoint { 
-                float x; 
-                float y; 
+                double x; 
+                double y; 
             } origin; 
             struct CGSize { 
-                float width; 
-                float height; 
+                double width; 
+                double height; 
             } size; 
         } extraLineFragmentRect; 
         struct CGRect { 
             struct CGPoint { 
-                float x; 
-                float y; 
+                double x; 
+                double y; 
             } origin; 
             struct CGSize { 
-                float width; 
-                float height; 
+                double width; 
+                double height; 
             } size; 
         } extraLineFragmentUsedRect; 
-        unsigned int glyphsPerLineEstimate; 
-        float offsetPerLineEstimate; 
-    struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
-    struct CGSize { 
-        float width; 
-        float height; 
-    struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
+        unsigned long long glyphsPerLineEstimate; 
+        double offsetPerLineEstimate; 
+    }  _layoutTree;
     struct __lmFlags2 { 
         unsigned int glyphCause : 6; 
         unsigned int layoutCause : 6; 
@@ -77,34 +106,25 @@
         unsigned int usesOldShowPackedGlyphs : 1; 
         unsigned int drawsUnderlinesLikeWebKit : 1; 
         unsigned int drawsDebugBaselines : 1; 
-        unsigned int reserved : 13; 
-    NSRunStorage *_attachmentSizesRun;
-    NSMutableArray *_blockRunsArray;
-    } _cachedFontBounds;
-    float _cachedUnderlineAdjustment;
-    float _cachedUnderlinePosition;
-    } _cachedUnderlineRange;
-    float _cachedUnderlineThickness;
-    unsigned int _currentAttachmentIndex;
-    } _currentAttachmentRect;
-    id _fillHoleLock;
-    NSTextContainer *_firstTextContainer;
-    } _firstTextViewVisibleCharRange;
-    } _firstTextViewVisibleOffset;
-    NSRunStorage *_fragmentRunsExtras;
-    } _glyphTree;
-    float _hyphenationFactor;
-    NSMutableArray *_insertionPointCache;
-    } _lastInvalidatedCharRange;
-    float _lastInvalidatedLongitudinalPosition;
-    NSTextContainer *_lastInvalidatedTextContainer;
-    } _layoutTree;
-    } _lmFlags2;
-    NSLayoutManagerTextBlockRowArrayCache *_rowArrayCache;
-    id _temporaryAttributes;
-    struct __CFDictionary { } *_textContainerGlyphIndexes;
-    struct __CFDictionary { } *_textContainerIndexes;
-    int _typesetterBehavior;
+        unsigned int mirrorsTextAlignment : 1; 
+        unsigned int forcesTrackingFloor : 1; 
+        unsigned int isLiveScrolling : 1; 
+        unsigned int hasCustomUnderlineColor : 1; 
+        unsigned int applicationPlatformContext : 3; 
+        unsigned int limitsLayoutForSuspiciousContents : 1; 
+        unsigned int delegateRespondsToRenderingColor : 1; 
+        unsigned int firstTextViewRespondsToRenderingColor : 1; 
+        unsigned int reserved : 3; 
+    }  _lmFlags2;
+    NSParagraphArbitrator * _paragraphArbitrator;
+    NSLayoutManagerTextBlockRowArrayCache * _rowArrayCache;
+    CUIStyleEffectConfiguration * _styleEffectConfig;
+    id  _temporaryAttributes;
+    struct __CFDictionary { } * _textContainerGlyphIndexes;
+    struct __CFDictionary { } * _textContainerIndexes;
+    double  _timeStampForResizeInScroll;
+    long long  _typesetterBehavior;
+    NSMutableSet * _viewProviders;
 }
 
 @end

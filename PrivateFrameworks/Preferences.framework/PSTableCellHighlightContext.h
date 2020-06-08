@@ -2,33 +2,32 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSTimer, UITableViewCell;
-
 @interface PSTableCellHighlightContext : NSObject {
-    BOOL _animateUnhighlight;
-    UITableViewCell *_cell;
-    int _originalSelectionStyle;
-    NSTimer *_timer;
-    BOOL _valid;
+    bool  _animateUnhighlight;
+    UITableViewCell * _cell;
+    long long  _originalSelectionStyle;
+    NSTimer * _timer;
+    bool  _valid;
 }
 
-@property(readonly) BOOL animateUnhighlight;
-@property UITableViewCell * cell;
-@property int originalSelectionStyle;
-@property(readonly) BOOL valid;
+@property (nonatomic, readonly) bool animateUnhighlight;
+@property (nonatomic) UITableViewCell *cell;
+@property (nonatomic) long long originalSelectionStyle;
+@property (nonatomic, readonly) bool valid;
 
 + (id)contextWithCell:(id)arg1;
 
+- (void).cxx_destruct;
 - (void)_killTimer;
 - (void)_timerFired;
-- (BOOL)animateUnhighlight;
+- (bool)animateUnhighlight;
 - (id)cell;
 - (void)dealloc;
 - (void)invalidate;
-- (int)originalSelectionStyle;
-- (void)performHighlightForDuration:(double)arg1 animateUnhighlight:(BOOL)arg2;
+- (long long)originalSelectionStyle;
+- (void)performHighlightForDuration:(double)arg1 animateUnhighlight:(bool)arg2;
 - (void)setCell:(id)arg1;
-- (void)setOriginalSelectionStyle:(int)arg1;
-- (BOOL)valid;
+- (void)setOriginalSelectionStyle:(long long)arg1;
+- (bool)valid;
 
 @end

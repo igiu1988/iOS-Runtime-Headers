@@ -3,19 +3,19 @@
  */
 
 @interface OADRelativeRect : NSObject <NSCopying> {
-    float mBottom;
-    float mLeft;
-    float mRight;
-    float mTop;
+    float  mBottom;
+    float  mLeft;
+    float  mRight;
+    float  mTop;
 }
 
 - (float)bottom;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
 - (id)initWithLeft:(float)arg1 top:(float)arg2 right:(float)arg3 bottom:(float)arg4;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (float)left;
 - (float)right;
 - (void)setBottom:(float)arg1;

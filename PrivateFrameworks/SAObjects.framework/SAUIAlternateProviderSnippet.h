@@ -2,13 +2,9 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString;
+@interface SAUIAlternateProviderSnippet : SAUISnippet
 
-@interface SAUIAlternateProviderSnippet : SAUISnippet {
-}
-
-@property(copy) NSArray * alternateProviderResults;
-@property(copy) NSString * title;
+@property (nonatomic, copy) NSArray *alternateProviderResults;
 
 + (id)alternateProviderSnippet;
 + (id)alternateProviderSnippetWithDictionary:(id)arg1 context:(id)arg2;
@@ -17,7 +13,5 @@
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (void)setAlternateProviderResults:(id)arg1;
-- (void)setTitle:(id)arg1;
-- (id)title;
 
 @end

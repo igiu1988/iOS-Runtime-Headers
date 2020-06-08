@@ -2,57 +2,67 @@
    Image: /System/Library/PrivateFrameworks/CoreBrightness.framework/CoreBrightness
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSObject<OS_dispatch_queue>;
-
 @interface BLControl : NSObject {
-    id _callback;
-    void *_callbackContext;
-    struct AABC {} *aab[2];
-    struct __IOHIDServiceClient {} *alsClient[3];
-    unsigned int alsCount;
-    unsigned int alsNode[3];
-    unsigned int alsOrientation[3];
-    unsigned int backlight[2];
-    boolAABEnabled;
-    boolaabExist;
-    boolignoreALSEvents;
-    boolignoreBrightnessKey;
-    boolmonitorALSOnly;
-    booloverrideIgnoreBrightness;
-    booluseRootQueue;
-    unsigned int displayCount;
-    struct __Display {} *display[2];
-    unsigned int driverNode[3];
-    struct __IOHIDEventSystemClient { } *hidSystemClient;
-    struct LegacyBacklightC { int (**x1)(); unsigned int x2; struct __Display {} *x3; unsigned int x4; int x5; struct __IOHIDServiceClient {} *x6; float x7; struct _ALS_Struct { float x_8_1_1; float x_8_1_2; float x_8_1_3; float x_8_1_4; int x_8_1_5; float x_8_1_6; float x_8_1_7; float x_8_1_8; float x_8_1_9; id x_8_1_10; struct { unsigned int x_11_2_1; boolx_11_2_2; boolx_11_2_3; float x_11_2_4; float x_11_2_5; float x_11_2_6; } x_8_1_11; struct { int x_12_2_1; unsigned char x_12_2_2; float x_12_2_3; unsigned int x_12_2_4; id x_12_2_5; } x_8_1_12; struct { unsigned char x_13_2_1; float x_13_2_2; id x_13_2_3; } x_8_1_13; } x8; struct __CFDictionary {} *x9; float x10; int (*x11)(); void *x12; } *legacyAutoBacklight;
-    unsigned int otherClientsCount;
-    struct __IOHIDServiceClient {} *otherClients[3];
-    NSObject<OS_dispatch_queue> *queue;
-    NSObject<OS_dispatch_queue> *rootQueue;
+    bool  AABEnabled;
+    id /* block */  _callback;
+    void * _callbackContext;
+    struct __CFDictionary { } * _clientDisplayMap;
+    unsigned int  _displayArrivalIterator;
+    unsigned int  _displayArrivalIteratorUser;
+    struct IONotificationPort { } * _displayMatchingNotificationPort;
+    unsigned int  _displayRemovalIterator;
+    unsigned int  _displayRemovalIteratorUser;
+    NSMutableDictionary * _disps;
+    id /* block */  _ecoModeNotificationHandler;
+    int  _ecoModeNotificationToken;
+    id /* block */  _ecoModePreferencesUpdateNotificationHandler;
+    int  _ecoModePreferencesUpdateNotificationToken;
+    NSObject<OS_os_log> * _logHandle;
+    NightModeControl * _nightModeControl;
+    NightShiftDisplayWrapper * _nightShiftWrapper;
+    bool  _useMultiCurves;
+    struct AABC {} * aab;
+    bool  aabExist;
+    struct __IOHIDServiceClient {} * alsClient;
+    unsigned int  alsCount;
+    unsigned int  alsNode;
+    unsigned int  alsOrientation;
+    unsigned int  backlight;
+    struct __Display {} * display;
+    unsigned int  displayCount;
+    unsigned int  driverNode;
+    struct __IOHIDEventSystemClient { } * hidSystemClient;
+    bool  ignoreALSEvents;
+    bool  ignoreBrightnessKey;
+    struct LegacyBacklightC { int (**x1)(); unsigned int x2; struct __Display {} *x3; unsigned int x4; int x5; struct __IOHIDServiceClient {} *x6; float x7; struct _ALS_Struct { float x_8_1_1; float x_8_1_2; float x_8_1_3; float x_8_1_4; int x_8_1_5; float x_8_1_6; float x_8_1_7; float x_8_1_8; float x_8_1_9; id x_8_1_10; /* Warning: Unrecognized filer type: '?' using 'void*' */ void*x_8_1_11; void*x_8_1_12; unsigned int x_8_1_13; bool x_8_1_14; bool x_8_1_15; float x_8_1_16; float x_8_1_17; float x_8_1_18; } x8; struct { int x_9_1_1; unsigned char x_9_1_2; float x_9_1_3; unsigned int x_9_1_4; id x_9_1_5; struct { unsigned char x_6_2_1; float x_6_2_2; id x_6_2_3; } x_9_1_6; struct __CFDictionary {} *x_9_1_7; float x_9_1_8; int (*x_9_1_9)(); void *x_9_1_10; } x9; } * legacyAutoBacklight;
+    bool  monitorALSOnly;
+    struct __IOHIDServiceClient {} * otherClients;
+    unsigned int  otherClientsCount;
+    bool  overrideIgnoreBrightness;
+    NSObject<OS_dispatch_queue> * queue;
+    NSObject<OS_dispatch_queue> * rootQueue;
+    bool  useRootQueue;
 }
 
 - (void)callBlockWithProperty:(struct __CFString { }*)arg1 value:(void*)arg2;
+- (void)cancelHIDDisplayLookup;
 - (void*)copyBLControlPropertyWithkey:(struct __CFString { }*)arg1;
-- (void*)copyPropertyWithKey:(struct __CFString { }*)arg1;
+- (id)copyPropertyWithKey:(id)arg1 client:(id)arg2;
 - (struct __CFDictionary { }*)createDictWithUsagePairPage:(unsigned int)arg1 usage:(unsigned int)arg2;
+- (void)dealloc;
 - (bool)findAlsNodes;
 - (bool)findBacklight;
 - (bool)findHIDClients;
+- (void)handleDisplayArrival:(unsigned int)arg1;
+- (void)handleDisplayRemoval:(unsigned int)arg1;
 - (id)init;
-- (void)registerNotificationBlock:(id)arg1;
-- (int)rootQueuePthreadAttrInit:(struct _opaque_pthread_attr_t { long x1; BOOL x2[36]; }*)arg1;
+- (bool)initialiseHIDDisplayLookup;
+- (void)registerNotificationBlock:(id /* block */)arg1;
+- (int)rootQueuePthreadAttrInit:(struct _opaque_pthread_attr_t { long long x1; BOOL x2[56]; }*)arg1;
 - (bool)setBLControlPropertyWithKey:(struct __CFString { }*)arg1 property:(void*)arg2;
-- (bool)setPropertyWithKey:(struct __CFString { }*)arg1 property:(void*)arg2;
+- (bool)setPropertyWithKey:(id)arg1 property:(id)arg2 client:(id)arg3;
 - (bool)start;
 - (void)stop;
+- (void)waitForALSArrival;
 
 @end

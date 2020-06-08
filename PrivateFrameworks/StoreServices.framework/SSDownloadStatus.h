@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSError, NSString, SSDownloadPhase;
-
-@interface SSDownloadStatus : NSObject <SSXPCCoding, NSCopying> {
-    SSDownloadPhase *_activePhase;
-    BOOL _contentRestricted;
-    NSError *_error;
-    BOOL _failed;
-    BOOL _paused;
+@interface SSDownloadStatus : NSObject <NSCopying, SSXPCCoding> {
+    SSDownloadPhase * _activePhase;
+    bool  _contentRestricted;
+    NSError * _error;
+    bool  _failed;
+    bool  _paused;
 }
 
-@property(readonly) SSDownloadPhase * activePhase;
-@property(getter=isContentRestricted) BOOL contentRestricted;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSError * error;
-@property(getter=isFailed) BOOL failed;
-@property(getter=isFailedTransient,readonly) BOOL failedTransient;
-@property(readonly) unsigned int hash;
-@property(getter=isPausable) BOOL pausable;
-@property(getter=isPaused) BOOL paused;
-@property(readonly) float percentComplete;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) SSDownloadPhase *activePhase;
+@property (getter=isContentRestricted, nonatomic) bool contentRestricted;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSError *error;
+@property (getter=isFailed, nonatomic) bool failed;
+@property (getter=isFailedTransient, nonatomic, readonly) bool failedTransient;
+@property (readonly) unsigned long long hash;
+@property (getter=isPausable, nonatomic) bool pausable;
+@property (getter=isPaused, nonatomic) bool paused;
+@property (nonatomic, readonly) float percentComplete;
+@property (readonly) Class superclass;
 
 - (id)activePhase;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -31,19 +29,19 @@
 - (void)dealloc;
 - (id)error;
 - (id)initWithXPCEncoding:(id)arg1;
-- (BOOL)isContentRestricted;
-- (BOOL)isFailed;
-- (BOOL)isFailedTransient;
-- (BOOL)isPausable;
-- (BOOL)isPaused;
+- (bool)isContentRestricted;
+- (bool)isFailed;
+- (bool)isFailedTransient;
+- (bool)isPausable;
+- (bool)isPaused;
 - (float)percentComplete;
-- (void)setContentRestricted:(BOOL)arg1;
+- (void)setContentRestricted:(bool)arg1;
 - (void)setError:(id)arg1;
-- (void)setFailed:(BOOL)arg1;
+- (void)setFailed:(bool)arg1;
 - (void)setOperationProgress:(id)arg1;
-- (void)setOperationType:(int)arg1;
-- (void)setPausable:(BOOL)arg1;
-- (void)setPaused:(BOOL)arg1;
+- (void)setOperationType:(long long)arg1;
+- (void)setPausable:(bool)arg1;
+- (void)setPaused:(bool)arg1;
 - (void)setPercentComplete:(float)arg1;
 
 @end

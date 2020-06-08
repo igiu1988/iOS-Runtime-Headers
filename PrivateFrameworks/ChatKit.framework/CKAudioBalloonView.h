@@ -2,65 +2,60 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CKAudioProgressView, CKWaveformProgressView, NSString, UILabel;
-
 @interface CKAudioBalloonView : CKColoredBalloonView <CKAudioBalloonView> {
-    double _duration;
-    BOOL _played;
-    BOOL _playing;
-    CKAudioProgressView *_progressView;
-    double _time;
-    NSString *_timeFormat;
-    UILabel *_timeLabel;
-    CKWaveformProgressView *_waveformProgressView;
+    double  _duration;
+    bool  _played;
+    bool  _playing;
+    CKAudioProgressView * _progressView;
+    double  _time;
+    UILabel * _timeLabel;
+    CKWaveformProgressView * _waveformProgressView;
 }
 
-@property(getter=isControlHidden) BOOL controlHidden;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property double duration;
-@property(readonly) unsigned int hash;
-@property(getter=isPlayed) BOOL played;
-@property(getter=isPlaying) BOOL playing;
-@property(retain) CKAudioProgressView * progressView;
-@property(readonly) Class superclass;
-@property double time;
-@property(copy) NSString * timeFormat;
-@property(retain) UILabel * timeLabel;
-@property int waveformContentMode;
-@property(retain) CKWaveformProgressView * waveformProgressView;
+@property (getter=isControlHidden, nonatomic) bool controlHidden;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) double duration;
+@property (readonly) unsigned long long hash;
+@property (getter=isPlayed, nonatomic) bool played;
+@property (getter=isPlaying, nonatomic) bool playing;
+@property (nonatomic, retain) CKAudioProgressView *progressView;
+@property (readonly) Class superclass;
+@property (nonatomic) double time;
+@property (nonatomic, retain) UILabel *timeLabel;
+@property (nonatomic) long long waveformContentMode;
+@property (nonatomic, retain) CKWaveformProgressView *waveformProgressView;
 
-- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })alignmentRectInsets;
-- (void)configureForMediaObject:(id)arg1 previewWidth:(float)arg2 orientation:(BOOL)arg3;
+- (void).cxx_destruct;
+- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })alignmentRectInsets;
+- (void)configureForComposition:(id)arg1;
+- (void)configureForMediaObject:(id)arg1 previewWidth:(double)arg2 orientation:(BOOL)arg3;
 - (void)configureForMessagePart:(id)arg1;
-- (void)dealloc;
 - (double)duration;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (BOOL)isControlHidden;
-- (BOOL)isPlayed;
-- (BOOL)isPlaying;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (bool)isControlHidden;
+- (bool)isPlayed;
+- (bool)isPlaying;
 - (void)layoutSubviews;
 - (void)prepareForDisplay;
 - (void)prepareForReuse;
 - (id)progressView;
-- (void)setControlHidden:(BOOL)arg1;
+- (void)setControlHidden:(bool)arg1;
 - (void)setDuration:(double)arg1;
-- (void)setPlayed:(BOOL)arg1;
-- (void)setPlaying:(BOOL)arg1;
+- (void)setPlayed:(bool)arg1;
+- (void)setPlaying:(bool)arg1;
 - (void)setProgressView:(id)arg1;
 - (void)setTime:(double)arg1;
-- (void)setTimeFormat:(id)arg1;
 - (void)setTimeLabel:(id)arg1;
 - (void)setWaveform:(id)arg1;
-- (void)setWaveformContentMode:(int)arg1;
+- (void)setWaveformContentMode:(long long)arg1;
 - (void)setWaveformProgressView:(id)arg1;
-- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1 textAlignmentInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; }*)arg2;
+- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1 textAlignmentInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; }*)arg2;
 - (double)time;
-- (id)timeFormat;
 - (id)timeLabel;
 - (void)updateProgress;
 - (void)updateTimeString;
-- (int)waveformContentMode;
+- (long long)waveformContentMode;
 - (id)waveformProgressView;
 
 @end

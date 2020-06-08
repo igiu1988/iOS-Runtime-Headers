@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVHrefItem;
-
 @interface CoreDAVItemWithHrefChildItemTolerateBarePayload : CoreDAVItemWithHrefChildItem {
-    CoreDAVHrefItem *_virtualHref;
+    CoreDAVHrefItem * _virtualHref;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 - (id)href;
 - (void)setPayload:(id)arg1;

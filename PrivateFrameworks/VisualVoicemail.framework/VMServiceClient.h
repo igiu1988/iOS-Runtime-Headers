@@ -2,33 +2,26 @@
    Image: /System/Library/PrivateFrameworks/VisualVoicemail.framework/VisualVoicemail
  */
 
-@class NSObject<OS_dispatch_queue>, VMAccount;
-
 @interface VMServiceClient : NSObject {
-    long long _behaviorFlags;
-    VMAccount *_legacyVisualVoicemailAccount;
-    NSObject<OS_dispatch_queue> *_queue;
+    VMVoicemailManager * _voicemailManager;
 }
 
-@property long long behaviorFlags;
+@property (nonatomic, retain) VMVoicemailManager *voicemailManager;
 
-+ (void)initialize;
 + (id)sharedClient;
 
-- (void)_handleApplicationResumed:(id)arg1;
-- (void)_handleApplicationSuspended:(id)arg1;
-- (void)_handleInboundXPCMessageRecievedNotification:(id)arg1;
-- (void)_handleXPCConnectionEstablished:(id)arg1;
-- (void)_handleXPCDisconnectNotification:(id)arg1;
+- (void).cxx_destruct;
 - (void)addObserver:(id)arg1 selector:(SEL)arg2 name:(id)arg3 object:(id)arg4;
-- (long long)behaviorFlags;
 - (void)dealloc;
+- (void)handleOnlineStatusChangedNotification:(id)arg1;
+- (void)handleSubscriptionStatusChangedNotification:(id)arg1;
+- (void)handleVoicemailsChangedNotification:(id)arg1;
 - (id)init;
-- (id)proxyObjectFromProxyDictionary:(id)arg1;
-- (void)removeObserver:(id)arg1 name:(id)arg2 object:(id)arg3;
 - (void)removeObserver:(id)arg1;
-- (void)setBehaviorFlags:(long long)arg1;
+- (void)removeObserver:(id)arg1 name:(id)arg2 object:(id)arg3;
+- (void)setVoicemailManager:(id)arg1;
 - (id)sharedAccount;
-- (BOOL)sharedServiceIsSubscribed;
+- (bool)sharedServiceIsSubscribed;
+- (id)voicemailManager;
 
 @end

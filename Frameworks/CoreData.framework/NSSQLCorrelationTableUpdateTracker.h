@@ -2,29 +2,31 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSSQLManyToMany;
-
 @interface NSSQLCorrelationTableUpdateTracker : NSObject {
-    id _deletes;
-    id _inserts;
-    id _masterUpdates;
-    id _otherUpdates;
-    NSSQLManyToMany *_relationship;
+    id  _deletes;
+    id  _inserts;
+    id  _masterUpdates;
+    id  _otherUpdates;
+    NSSQLManyToMany * _relationship;
 }
 
-@property(readonly) NSSQLManyToMany * relationship;
+@property (nonatomic, readonly) NSSQLManyToMany *relationship;
 
 - (id)_organizeValues:(id)arg1;
 - (void)dealloc;
-- (void)enumerateDeletesUsingBlock:(id)arg1;
-- (void)enumerateInsertsUsingBlock:(id)arg1;
-- (void)enumerateMasterReordersPart2UsingBlock:(id)arg1;
-- (void)enumerateMasterReordersUsingBlock:(id)arg1;
-- (void)enumerateReordersUsingBlock:(id)arg1;
-- (BOOL)hasDeletes;
-- (BOOL)hasInserts;
-- (BOOL)hasMasterReorders;
-- (BOOL)hasReorders;
+- (void)enumerateDeletesOIDsUsingBlock:(id /* block */)arg1;
+- (void)enumerateDeletesUsingBlock:(id /* block */)arg1;
+- (void)enumerateInsertsOIDsUsingBlock:(id /* block */)arg1;
+- (void)enumerateInsertsUsingBlock:(id /* block */)arg1;
+- (void)enumerateMasterReordersOIDsUsingBlock:(id /* block */)arg1;
+- (void)enumerateMasterReordersPart2UsingBlock:(id /* block */)arg1;
+- (void)enumerateMasterReordersUsingBlock:(id /* block */)arg1;
+- (void)enumerateReordersOIDsUsingBlock:(id /* block */)arg1;
+- (void)enumerateReordersUsingBlock:(id /* block */)arg1;
+- (bool)hasDeletes;
+- (bool)hasInserts;
+- (bool)hasMasterReorders;
+- (bool)hasReorders;
 - (id)initForRelationship:(id)arg1;
 - (id)relationship;
 - (void)trackInserts:(id)arg1 deletes:(id)arg2 reorders:(id)arg3 forObjectWithID:(id)arg4;

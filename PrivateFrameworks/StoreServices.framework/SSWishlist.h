@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSNumber, SSSQLiteDatabase;
-
 @interface SSWishlist : NSObject {
-    long long _accountIdentifier;
-    SSSQLiteDatabase *_database;
+    long long  _accountIdentifier;
+    SSSQLiteDatabase * _database;
 }
 
-@property(readonly) long long accountIdentifier;
-@property(copy) NSNumber * lastSyncTime;
+@property (nonatomic, readonly) long long accountIdentifier;
+@property (nonatomic, copy) NSNumber *lastSyncTime;
 
-+ (BOOL)existsForAccountIdentifier:(long long)arg1;
++ (bool)existsForAccountIdentifier:(long long)arg1;
 
 - (long long)accountIdentifier;
 - (void)dealloc;
-- (BOOL)deleteBackingStore;
+- (bool)deleteBackingStore;
 - (id)initWithAccountIdentifier:(long long)arg1;
 - (id)lastSyncTime;
-- (void)performTransactionWithBlock:(id)arg1;
+- (void)performTransactionWithBlock:(id /* block */)arg1;
 - (void)setLastSyncTime:(id)arg1;
 
 @end

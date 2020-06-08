@@ -2,15 +2,15 @@
    Image: /System/Library/PrivateFrameworks/SiriTasks.framework/SiriTasks
  */
 
-@interface STWeatherUnits : AFSiriModelObject {
-    int _temperatureUnits;
+@interface STWeatherUnits : STSiriModelObject {
+    long long  _temperatureUnits;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (id)_initWithTemperatureUnits:(int)arg1;
+- (id)_initWithTemperatureUnits:(long long)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (int)temperatureUnits;
+- (long long)temperatureUnits;
 
 @end

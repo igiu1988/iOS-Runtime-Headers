@@ -2,22 +2,40 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class CALayer, UIColor;
-
 @interface RCOverlayBarLayer : CALayer {
-    CALayer *_bar;
-    CALayer *_bottomKnob;
-    UIColor *_color;
-    CALayer *_topKnob;
+    CALayer * _bar;
+    UIImage * _barGlyph;
+    bool  _barWidthMatchesKnobs;
+    CALayer * _bottomKnob;
+    UIColor * _color;
+    CALayer * _topKnob;
+    double  _widthMultiplier;
 }
 
-@property(retain) UIColor * color;
+@property (nonatomic, retain) UIImage *barGlyph;
+@property (nonatomic) bool barWidthMatchesKnobs;
+@property (nonatomic, retain) UIColor *color;
+@property (nonatomic) double widthMultiplier;
+
++ (double)_internalSelectionBarWidth;
++ (double)_internalSelectionKnobRadius;
++ (double)selectionBarWidth;
++ (double)selectionKnobRadius;
 
 - (void).cxx_destruct;
-- (void)_loadWithColor:(id)arg1 selectionExtentIncludingKnobs:(float)arg2 topKnob:(BOOL)arg3 bottomKnob:(BOOL)arg4;
+- (void)_loadWithColor:(id)arg1 selectionExtentIncludingKnobs:(double)arg2 topKnob:(bool)arg3 bottomKnob:(bool)arg4;
 - (id)barComponents;
+- (id)barGlyph;
+- (bool)barWidthMatchesKnobs;
 - (id)color;
-- (id)initWithColor:(id)arg1 selectionExtentIncludingKnobs:(float)arg2 topKnob:(BOOL)arg3 bottomKnob:(BOOL)arg4;
+- (id)initWithColor:(id)arg1 selectionExtentIncludingKnobs:(double)arg2 topKnob:(bool)arg3 bottomKnob:(bool)arg4 widthMultiplier:(double)arg5 barWidthMatchesKnobs:(bool)arg6;
+- (void)layoutSublayers;
+- (double)selectionBarWidth;
+- (double)selectionKnobRadius;
+- (void)setBarGlyph:(id)arg1;
+- (void)setBarWidthMatchesKnobs:(bool)arg1;
 - (void)setColor:(id)arg1;
+- (void)setWidthMultiplier:(double)arg1;
+- (double)widthMultiplier;
 
 @end

@@ -2,24 +2,23 @@
    Image: /System/Library/PrivateFrameworks/MediaRemote.framework/MediaRemote
  */
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
 @interface MRAVRoutingClientController : NSObject {
-    NSMutableDictionary *_cachedRoutesForCategories;
-    struct MRMediaRemoteService { } *_mediaRemoteService;
-    NSMutableDictionary *_pendingCompletionHandlersForCategories;
-    NSObject<OS_dispatch_queue> *_serialQueue;
+    NSMutableDictionary * _cachedRoutesForCategories;
+    MRMediaRemoteService * _mediaRemoteService;
+    NSMutableDictionary * _pendingCompletionHandlersForCategories;
+    NSObject<OS_dispatch_queue> * _serialQueue;
 }
 
-@property(readonly) struct MRMediaRemoteService { }* mediaRemoteService;
+@property (nonatomic, readonly) MRMediaRemoteService *mediaRemoteService;
 
+- (void).cxx_destruct;
 - (void)_cacheFetchedPickableRoutes:(id)arg1 forCategory:(id)arg2;
 - (void)_flushPendingCompletionHandlersWithPickableRoutes:(id)arg1 forCategory:(id)arg2;
 - (void)_pickableRoutesDidChangeNotification:(id)arg1;
 - (void)dealloc;
-- (void)fetchPickableRoutesForCategory:(id)arg1 completion:(id)arg2;
+- (void)fetchPickableRoutesForCategory:(id)arg1 completion:(id /* block */)arg2;
 - (id)init;
-- (id)initWithMediaRemoteService:(struct MRMediaRemoteService { }*)arg1;
-- (struct MRMediaRemoteService { }*)mediaRemoteService;
+- (id)initWithMediaRemoteService:(id)arg1;
+- (id)mediaRemoteService;
 
 @end

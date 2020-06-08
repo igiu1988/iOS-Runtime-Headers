@@ -2,27 +2,27 @@
    Image: /System/Library/PrivateFrameworks/NanoMediaRemote.framework/NanoMediaRemote
  */
 
-@class NSArray, NSDate, NSString, _NMRSendCommandResultMessageProtobuf;
-
 @interface NMRSendCommandResultMessage : NSObject <NMRMediaRemoteProtobufCodable> {
-    _NMRSendCommandResultMessageProtobuf *_protobuf;
+    _NMRSendCommandResultMessageProtobuf * _protobuf;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int errorCode;
-@property(readonly) NSArray * handlerReturnStatuses;
-@property(readonly) unsigned int hash;
-@property(readonly) NSDate * serializationDate;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) unsigned int errorCode;
+@property (nonatomic, readonly) NSArray *handlerReturnStatuses;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSNumber *originIdentifier;
+@property (nonatomic, readonly) NSDate *serializationDate;
+@property (readonly) Class superclass;
 
-+ (id)messageWithErrorCode:(unsigned int)arg1 handlerReturnStatuses:(id)arg2;
++ (id)messageWithErrorCode:(unsigned int)arg1 handlerReturnStatuses:(id)arg2 originIdentifier:(id)arg3;
 
 - (void).cxx_destruct;
-- (id)_initWithErrorCode:(unsigned int)arg1 handlerReturnStatuses:(id)arg2;
+- (id)_initWithErrorCode:(unsigned int)arg1 handlerReturnStatuses:(id)arg2 originIdentifier:(id)arg3;
 - (unsigned int)errorCode;
 - (id)handlerReturnStatuses;
 - (id)initWithProtobufData:(id)arg1;
+- (id)originIdentifier;
 - (id)protobufData;
 - (id)serializationDate;
 

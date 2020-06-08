@@ -2,8 +2,9 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-@interface SKVortexFieldNode : SKFieldNode {
-}
+@interface SKVortexFieldNode : SKFieldNode
+
++ (bool)supportsSecureCoding;
 
 - (id)_descriptionClassName;
 - (void)_initialize;

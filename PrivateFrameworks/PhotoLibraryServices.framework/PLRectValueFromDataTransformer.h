@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@interface PLRectValueFromDataTransformer : NSValueTransformer {
-}
+@interface PLRectValueFromDataTransformer : NSValueTransformer
 
-+ (BOOL)allowsReverseTransformation;
++ (bool)allowsReverseTransformation;
 + (Class)transformedValueClass;
 
 - (id)reverseTransformedValue:(id)arg1;

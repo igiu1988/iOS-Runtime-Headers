@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStyle;
-
 @interface GQDSParentResolutionEntry : NSObject {
-    char *mParentIdentifier;
-    GQDSStyle *mStyle;
+    char * mParentIdentifier;
+    GQDSStyle * mStyle;
 }
 
 - (void)dealloc;

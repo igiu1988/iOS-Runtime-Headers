@@ -2,20 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class NSDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSString;
-
 @interface BRCCloudDocsAppsMonitor : NSObject <BRCAppListMonitorDelegate> {
-    NSDictionary *_appIDsByContainerID;
-    NSObject<OS_dispatch_queue> *_callbackQueue;
-    NSDictionary *_cloudDocsContainersByAppID;
-    NSMutableSet *_observers;
-    NSObject<OS_dispatch_queue> *_queue;
+    NSMutableDictionary * _appIDsByAppLibraryID;
+    NSObject<OS_dispatch_queue> * _callbackQueue;
+    NSMutableDictionary * _cloudDocsAppLibrariesByAppID;
+    NSObject<OS_dispatch_queue> * _fetchInstalledAppsQueue;
+    bool  _hasFetchedInitialApps;
+    NSMutableSet * _observers;
+    NSObject<OS_dispatch_queue> * _queue;
+    br_pacer * _refetchPacer;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)cloudDocsAppsMonitor;
 
@@ -24,11 +25,13 @@
 - (void)_start;
 - (void)addObserver:(id)arg1;
 - (id)allApplicationIdentifiers;
-- (void)appListChanged;
 - (id)applicationIdentifiersForContainerID:(id)arg1;
+- (id)containerIDsForApplicationIdentifier:(id)arg1;
+- (void)dumpToContext:(id)arg1;
 - (void)forceRefetchAppList;
+- (bool)hasFetchedInitialApps;
 - (id)init;
-- (BOOL)isApplicationInstalledForContainerID:(id)arg1;
+- (bool)isApplicationInstalledForContainerID:(id)arg1;
 - (void)removeObserver:(id)arg1;
 
 @end

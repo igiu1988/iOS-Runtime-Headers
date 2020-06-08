@@ -3,11 +3,11 @@
  */
 
 @interface PUChangeDirectionValueFilter : PUValueFilter {
-    double _minimumChangeValue;
-    double _threshold;
+    double  _minimumChangeValue;
+    double  _threshold;
 }
 
-@property double minimumChangeValue;
+@property (nonatomic) double minimumChangeValue;
 
 - (double)minimumChangeValue;
 - (void)setMinimumChangeValue:(double)arg1;

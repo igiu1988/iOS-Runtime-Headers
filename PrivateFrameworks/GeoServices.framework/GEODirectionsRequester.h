@@ -2,18 +2,20 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSLock, NSMapTable;
-
 @interface GEODirectionsRequester : NSObject {
-    NSMapTable *_pendingRequests;
-    NSLock *_pendingRequestsLock;
+    <_GEODirectionsRequesterServerProxy> * _serverProxy;
 }
 
 + (id)sharedRequester;
++ (void)useLocalProxy;
++ (void)useProxy:(Class)arg1;
++ (void)useRemoteProxy;
 
+- (void).cxx_destruct;
 - (void)cancelRequest:(id)arg1;
-- (void)dealloc;
+- (void)finalizeRequest:(id)arg1;
 - (id)init;
-- (void)startRequest:(id)arg1 finished:(id)arg2 networkActivity:(id)arg3 error:(id)arg4;
+- (void)startRequest:(id)arg1 auditToken:(id)arg2 skipFinalize:(bool)arg3 isDoomRequest:(bool)arg4 requestPriority:(id)arg5 finished:(id /* block */)arg6 networkActivity:(id /* block */)arg7 error:(id /* block */)arg8;
+- (void)startRequest:(id)arg1 finished:(id /* block */)arg2 networkActivity:(id /* block */)arg3 error:(id /* block */)arg4;
 
 @end

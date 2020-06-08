@@ -2,21 +2,20 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class NSArray;
-
-@interface CPLItemChange : CPLRecordChange <NSSecureCoding, NSCopying> {
-    NSArray *_containerRelations;
+@interface CPLItemChange : CPLRecordChange <NSCopying, NSSecureCoding> {
+    NSArray * _containerRelations;
 }
 
-@property(copy) NSArray * containerRelations;
+@property (nonatomic, copy) NSArray *containerRelations;
 
-+ (BOOL)cplShouldIgnorePropertyForCoding:(id)arg1;
++ (bool)cplShouldIgnorePropertyForCoding:(id)arg1;
 
 - (void).cxx_destruct;
+- (id)containerDescription;
 - (id)containerRelationChangesComparedToRelationEnumerator:(id)arg1 error:(id*)arg2;
 - (id)containerRelations;
 - (id)init;
-- (id)propertiesForChangeType:(unsigned int)arg1;
+- (id)propertiesForChangeType:(unsigned long long)arg1;
 - (void)setContainerRelations:(id)arg1;
 
 @end

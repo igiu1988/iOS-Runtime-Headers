@@ -2,48 +2,39 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class NSNumber;
-
-@interface WKWindowFeatures : NSObject {
-    struct RetainPtr<NSNumber> { 
-        void *m_ptr; 
-    struct RetainPtr<NSNumber> { 
-        void *m_ptr; 
-    struct RetainPtr<NSNumber> { 
-        void *m_ptr; 
-    struct RetainPtr<NSNumber> { 
-        void *m_ptr; 
-    struct RetainPtr<NSNumber> { 
-        void *m_ptr; 
-    struct RetainPtr<NSNumber> { 
-        void *m_ptr; 
-    struct RetainPtr<NSNumber> { 
-        void *m_ptr; 
-    struct RetainPtr<NSNumber> { 
-        void *m_ptr; 
-    } _allowsResizing;
-    } _height;
-    } _menuBarVisibility;
-    } _statusBarVisibility;
-    } _toolbarsVisibility;
-    } _width;
-    } _x;
-    } _y;
+@interface WKWindowFeatures : NSObject <WKObject> {
+    struct ObjectStorage<API::WindowFeatures> { 
+        struct type { 
+            unsigned char __lx[80]; 
+        } data; 
+    }  _windowFeatures;
 }
 
-@property(readonly) NSNumber * allowsResizing;
-@property(readonly) NSNumber * height;
-@property(readonly) NSNumber * menuBarVisibility;
-@property(readonly) NSNumber * statusBarVisibility;
-@property(readonly) NSNumber * toolbarsVisibility;
-@property(readonly) NSNumber * width;
-@property(readonly) NSNumber * x;
-@property(readonly) NSNumber * y;
+@property (readonly) /* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*_apiObject;
+@property (nonatomic, readonly) NSNumber *_dialogDisplay;
+@property (nonatomic, readonly) NSNumber *_fullscreenDisplay;
+@property (nonatomic, readonly) NSNumber *_locationBarVisibility;
+@property (nonatomic, readonly) NSNumber *_scrollbarsVisibility;
+@property (nonatomic, readonly) NSNumber *allowsResizing;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSNumber *height;
+@property (nonatomic, readonly) NSNumber *menuBarVisibility;
+@property (nonatomic, readonly) NSNumber *statusBarVisibility;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSNumber *toolbarsVisibility;
+@property (nonatomic, readonly) NSNumber *width;
+@property (nonatomic, readonly) NSNumber *x;
+@property (nonatomic, readonly) NSNumber *y;
 
-- (id).cxx_construct;
-- (void).cxx_destruct;
-- (id)_initWithWindowFeatures:(const struct WindowFeatures { float x1; boolx2; float x3; boolx4; float x5; boolx6; float x7; boolx8; boolx9; boolx10; boolx11; boolx12; boolx13; boolx14; boolx15; boolx16; struct Vector<WTF::String, 0, WTF::CrashOnOverflow> { struct String {} *x_17_1_1; unsigned int x_17_1_2; unsigned int x_17_1_3; } x17; }*)arg1;
+- (/* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*)_apiObject;
+- (id)_dialogDisplay;
+- (id)_fullscreenDisplay;
+- (id)_locationBarVisibility;
+- (id)_scrollbarsVisibility;
 - (id)allowsResizing;
+- (void)dealloc;
 - (id)height;
 - (id)menuBarVisibility;
 - (id)statusBarVisibility;

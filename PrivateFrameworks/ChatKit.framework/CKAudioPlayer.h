@@ -2,38 +2,34 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <CKAudioPlayerDelegate>, AVAudioPlayer, CADisplayLink, CKMediaObject, NSString;
-
-@interface CKAudioPlayer : NSObject <AVAudioPlayerDelegate> {
-    AVAudioPlayer *_audioPlayer;
-    id _block;
-    <CKAudioPlayerDelegate> *_delegate;
-    CADisplayLink *_displayLink;
-    CKMediaObject *_mediaObject;
-    double _prevCurrentTime;
+@interface CKAudioPlayer : NSObject <CKInternalAudioPlayerDelegate> {
+    CKInternalAudioPlayer * _audioPlayer;
+    id /* block */  _block;
+    <CKAudioPlayerDelegate> * _delegate;
+    CADisplayLink * _displayLink;
+    CKMediaObject * _mediaObject;
+    double  _prevCurrentTime;
 }
 
-@property(retain) AVAudioPlayer * audioPlayer;
-@property id block;
-@property(readonly) double currentTime;
-@property(copy,readonly) NSString * debugDescription;
-@property <CKAudioPlayerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(retain) CADisplayLink * displayLink;
-@property(readonly) double duration;
-@property(readonly) unsigned int hash;
-@property(retain) CKMediaObject * mediaObject;
-@property(getter=isPlaying,readonly) BOOL playing;
-@property double prevCurrentTime;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) CKInternalAudioPlayer *audioPlayer;
+@property (nonatomic, copy) id /* block */ block;
+@property (nonatomic, readonly) double currentTime;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CKAudioPlayerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) CADisplayLink *displayLink;
+@property (nonatomic, readonly) double duration;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) CKMediaObject *mediaObject;
+@property (getter=isPlaying, nonatomic, readonly) bool playing;
+@property (nonatomic) double prevCurrentTime;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) bool usesAVPlayer;
+@property (nonatomic) float volume;
 
+- (void).cxx_destruct;
 - (id)audioPlayer;
-- (void)audioPlayerDidFinishPlaying:(id)arg1 successfully:(BOOL)arg2;
-- (id)block;
+- (id /* block */)block;
 - (double)currentTime;
 - (void)dealloc;
 - (id)delegate;
@@ -42,18 +38,24 @@
 - (double)duration;
 - (id)initWithFileURL:(id)arg1;
 - (id)initWithMediaObject:(id)arg1;
-- (BOOL)isPlaying;
+- (id)initWithMediaObject:(id)arg1 shouldUseAVPlayer:(bool)arg2;
+- (void)internalAudioPlayerDidFinishPlaying:(id)arg1 successfully:(bool)arg2;
+- (void)internalAudioPlayerDidPrepareAudioForPlaying:(id)arg1 successfully:(bool)arg2;
+- (bool)isPlaying;
 - (id)mediaObject;
 - (void)pause;
-- (void)play;
-- (void)playWithCompletionBlock:(id)arg1;
+- (void)playAfterDelay:(double)arg1 completion:(id /* block */)arg2;
+- (void)prepareToPlay;
 - (double)prevCurrentTime;
 - (void)setAudioPlayer:(id)arg1;
-- (void)setBlock:(id)arg1;
+- (void)setBlock:(id /* block */)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setDisplayLink:(id)arg1;
 - (void)setMediaObject:(id)arg1;
 - (void)setPrevCurrentTime:(double)arg1;
+- (void)setVolume:(float)arg1;
 - (void)stop;
+- (bool)usesAVPlayer;
+- (float)volume;
 
 @end

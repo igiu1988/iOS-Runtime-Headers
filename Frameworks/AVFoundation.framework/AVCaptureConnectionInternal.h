@@ -2,48 +2,52 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureDevice, AVCaptureInputPort, AVWeakReference, NSArray, NSMutableArray;
-
 @interface AVCaptureConnectionInternal : NSObject {
+    bool  active;
+    long long  activeVideoStabilizationMode;
+    NSArray * audioChannelLevels;
+    NSMutableArray * audioChannels;
+    AVCaptureInputPort * audioInputPort;
+    bool  automaticallyAdjustsVideoMirroring;
+    bool  cameraIntrinsicMatrixDeliveryEnabled;
+    bool  cameraIntrinsicMatrixDeliverySupported;
+    int  changeSeed;
+    NSString * connectionID;
+    bool  debugMetadataSidecarFileEnabled;
+    AVCaptureInputPort * depthDataInputPort;
+    bool  enabled;
+    bool  hasActiveObservers;
+    bool  hasVideoMinFrameDurationObserver;
+    NSMutableArray * inputPorts;
+    long long  lastGetAudioLevelsTime;
+    AVCaptureInputPort * metadataInputPort;
+    AVCaptureInputPort * metadataItemInputPort;
+    AVWeakReference * outputWeakReference;
+    long long  preferredVideoStabilizationMode;
+    AVCaptureDevice * sourceDevice;
+    AVCaptureInputPort * videoInputPort;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
+    }  videoMaxFrameDuration;
+    double  videoMaxScaleAndCropFactor;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
-    BOOL active;
-    int activeVideoStabilizationMode;
-    NSArray *audioChannelLevels;
-    NSMutableArray *audioChannels;
-    AVCaptureInputPort *audioInputPort;
-    BOOL automaticallyAdjustsVideoMirroring;
-    int changeSeed;
-    BOOL enabled;
-    BOOL hasActiveObservers;
-    BOOL hasVideoMinFrameDurationObserver;
-    NSMutableArray *inputPorts;
-    long long lastGetAudioLevelsTime;
-    AVCaptureInputPort *metadataInputPort;
-    AVCaptureInputPort *metadataItemInputPort;
-    AVWeakReference *outputWeakReference;
-    int preferredVideoStabilizationMode;
-    AVCaptureDevice *sourceDevice;
-    AVCaptureInputPort *videoInputPort;
-    } videoMaxFrameDuration;
-    float videoMaxScaleAndCropFactor;
-    } videoMinFrameDuration;
-    BOOL videoMirrored;
-    BOOL videoMirroringSupported;
-    int videoOrientation;
-    BOOL videoOrientationSupported;
-    AVWeakReference *videoPreviewLayerWeakReference;
-    int videoRetainedBufferCountHint;
-    float videoScaleAndCropFactor;
-    BOOL videoStabilizationEnabled;
+    }  videoMinFrameDuration;
+    bool  videoMirrored;
+    bool  videoMirroringSupported;
+    long long  videoOrientation;
+    bool  videoOrientationSupported;
+    AVWeakReference * videoPreviewLayerWeakReference;
+    int  videoRetainedBufferCountHint;
+    double  videoScaleAndCropFactor;
+    bool  videoStabilizationEnabled;
+    AVCaptureInputPort * visionDataInputPort;
 }
 
 @end

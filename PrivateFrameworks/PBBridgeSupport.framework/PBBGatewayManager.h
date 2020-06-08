@@ -2,26 +2,29 @@
    Image: /System/Library/PrivateFrameworks/PBBridgeSupport.framework/PBBridgeSupport
  */
 
-@class BBSettingsGateway, NSArray, NSDateComponents, NSString;
-
 @interface PBBGatewayManager : NSObject {
-    NSString *_allowedGroupName;
-    NSArray *_bbSections;
-    NSDateComponents *_dndFromComponents;
-    NSDateComponents *_dndToComponents;
-    BOOL _isScheduled;
-    unsigned int _privilegedSenderType;
-    BBSettingsGateway *_settingsGateway;
+    NSString * _allowedGroupName;
+    NSArray * _bbSections;
+    NSDateComponents * _dndFromComponents;
+    NSDateComponents * _dndToComponents;
+    unsigned long long  _doNotDisturbPrivilegedSenderType;
+    NSString * _doNotDisturbPrivilegedSenderTypeGroupIdentifier;
+    bool  _isScheduled;
+    unsigned long long  _repeatedCallsEnabled;
+    BBSettingsGateway * _settingsGateway;
 }
 
-@property(readonly) NSString * allowedGroupName;
-@property(retain) NSArray * bbSections;
-@property(readonly) NSDateComponents * dndFromComponents;
-@property(readonly) NSDateComponents * dndToComponents;
-@property(readonly) BOOL isScheduled;
-@property(readonly) unsigned int privilegedSenderType;
-@property(retain) BBSettingsGateway * settingsGateway;
+@property (nonatomic, readonly) NSString *allowedGroupName;
+@property (nonatomic, retain) NSArray *bbSections;
+@property (nonatomic, readonly) NSDateComponents *dndFromComponents;
+@property (nonatomic, readonly) NSDateComponents *dndToComponents;
+@property (nonatomic, readonly) unsigned long long doNotDisturbPrivilegedSenderType;
+@property (nonatomic, readonly) NSString *doNotDisturbPrivilegedSenderTypeGroupIdentifier;
+@property (nonatomic, readonly) bool isScheduled;
+@property (nonatomic) unsigned long long repeatedCallsEnabled;
+@property (nonatomic, retain) BBSettingsGateway *settingsGateway;
 
++ (id)dateComponentsFromDNDScheduleTime:(id)arg1;
 + (id)sharedManager;
 
 - (void).cxx_destruct;
@@ -30,13 +33,16 @@
 - (void)dealloc;
 - (id)dndFromComponents;
 - (id)dndToComponents;
+- (unsigned long long)doNotDisturbPrivilegedSenderType;
+- (id)doNotDisturbPrivilegedSenderTypeGroupIdentifier;
 - (id)init;
-- (BOOL)isScheduled;
+- (bool)isScheduled;
 - (void)loadBBSections;
 - (void)loadDNDState;
-- (unsigned int)privilegedSenderType;
-- (BOOL)repeatedCalls;
+- (bool)repeatedCalls;
+- (unsigned long long)repeatedCallsEnabled;
 - (void)setBbSections:(id)arg1;
+- (void)setRepeatedCallsEnabled:(unsigned long long)arg1;
 - (void)setSettingsGateway:(id)arg1;
 - (id)settingsGateway;
 

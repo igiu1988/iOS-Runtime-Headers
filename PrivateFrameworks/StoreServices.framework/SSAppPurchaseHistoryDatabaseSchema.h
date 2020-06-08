@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@interface SSAppPurchaseHistoryDatabaseSchema : NSObject {
-}
+@interface SSAppPurchaseHistoryDatabaseSchema : NSObject
 
-+ (BOOL)createSchemaInDatabase:(id)arg1;
++ (bool)createSchemaInDatabase:(id)arg1;
 + (id)databasePath;
 
 @end

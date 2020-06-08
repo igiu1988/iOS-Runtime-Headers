@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADConnection;
-
 @interface OADConnectorProperties : OADShapeProperties {
-    OADConnection *mFrom;
-    OADConnection *mTo;
+    OADConnection * mFrom;
+    OADConnection * mTo;
 }
 
 + (id)defaultProperties;

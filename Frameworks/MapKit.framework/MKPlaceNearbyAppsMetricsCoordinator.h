@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class NSMutableArray, NSString, SSMetricsController, SSURLBag;
-
 @interface MKPlaceNearbyAppsMetricsCoordinator : NSObject {
-    NSMutableArray *_callbacks;
-    BOOL _controllerReady;
-    SSMetricsController *_metricsController;
-    NSString *_pageContext;
-    NSString *_topic;
-    SSURLBag *_urlBag;
+    NSMutableArray * _callbacks;
+    bool  _controllerReady;
+    SSMetricsController * _metricsController;
+    NSString * _pageContext;
+    NSString * _topic;
+    SSURLBag * _urlBag;
 }
 
-@property(readonly) NSMutableArray * callbacks;
-@property BOOL controllerReady;
-@property(copy) NSString * pageContext;
-@property(copy) NSString * topic;
-@property(readonly) SSURLBag * urlBag;
+@property (nonatomic, readonly) NSMutableArray *callbacks;
+@property (nonatomic) bool controllerReady;
+@property (nonatomic, copy) NSString *pageContext;
+@property (nonatomic, copy) NSString *topic;
+@property (nonatomic, readonly) SSURLBag *urlBag;
 
 - (void).cxx_destruct;
 - (id)callbacks;
-- (BOOL)controllerReady;
-- (void)getMetricsControllerWithCompletionHandler:(id)arg1;
+- (bool)controllerReady;
+- (void)getMetricsControllerWithCompletionHandler:(id /* block */)arg1;
 - (id)initWithConfigurationIdentifier:(id)arg1;
 - (id)pageContext;
 - (void)performCallbacks;
 - (void)sendEvent:(id)arg1;
-- (void)setControllerReady:(BOOL)arg1;
+- (void)setControllerReady:(bool)arg1;
 - (void)setPageConfiguration:(id)arg1;
 - (void)setPageContext:(id)arg1;
 - (void)setTopic:(id)arg1;

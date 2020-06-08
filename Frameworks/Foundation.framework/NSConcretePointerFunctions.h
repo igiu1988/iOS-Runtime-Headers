@@ -2,28 +2,20 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSWeakCallback;
-
 @interface NSConcretePointerFunctions : NSPointerFunctions {
     struct NSSlice { 
         void **items; 
-        BOOL wantsStrong; 
-        BOOL wantsWeak; 
-        BOOL wantsARC; 
-        BOOL shouldCopyIn; 
-        BOOL usesStrong; 
-        BOOL usesWeak; 
-        BOOL usesARC; 
-        BOOL usesSentinel; 
-        BOOL pointerPersonality; 
-        BOOL integerPersonality; 
-        BOOL simpleReadClear; 
-        NSWeakCallback *callback; 
+        bool wantsStrong; 
+        bool wantsWeak; 
+        bool wantsARC; 
+        bool shouldCopyIn; 
+        bool usesStrong; 
+        bool usesWeak; 
+        bool usesARC; 
+        bool usesSentinel; 
+        bool pointerPersonality; 
+        bool integerPersonality; 
+        bool simpleReadClear; 
         int (*sizeFunction)(); 
         int (*hashFunction)(); 
         int (*isEqualFunction)(); 
@@ -35,31 +27,31 @@
         int (*readAt)(); 
         int (*clearAt)(); 
         int (*storeAt)(); 
-    } slice;
+    }  slice;
 }
 
-+ (void)initializeBackingStore:(struct NSSlice { void **x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; BOOL x7; BOOL x8; BOOL x9; BOOL x10; BOOL x11; BOOL x12; id x13; int (*x14)(); int (*x15)(); int (*x16)(); int (*x17)(); int (*x18)(); int (*x19)(); int (*x20)(); int (*x21)(); int (*x22)(); int (*x23)(); int (*x24)(); }*)arg1 sentinel:(BOOL)arg2 compactable:(BOOL)arg3;
-+ (bool)initializeSlice:(struct NSSlice { void **x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; BOOL x7; BOOL x8; BOOL x9; BOOL x10; BOOL x11; BOOL x12; id x13; int (*x14)(); int (*x15)(); int (*x16)(); int (*x17)(); int (*x18)(); int (*x19)(); int (*x20)(); int (*x21)(); int (*x22)(); int (*x23)(); int (*x24)(); }*)arg1 withOptions:(unsigned int)arg2;
++ (void)initializeBackingStore:(struct NSSlice { void **x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; bool x8; bool x9; bool x10; bool x11; bool x12; int (*x13)(); int (*x14)(); int (*x15)(); int (*x16)(); int (*x17)(); int (*x18)(); int (*x19)(); int (*x20)(); int (*x21)(); int (*x22)(); int (*x23)(); }*)arg1 sentinel:(bool)arg2;
++ (bool)initializeSlice:(struct NSSlice { void **x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; bool x8; bool x9; bool x10; bool x11; bool x12; int (*x13)(); int (*x14)(); int (*x15)(); int (*x16)(); int (*x17)(); int (*x18)(); int (*x19)(); int (*x20)(); int (*x21)(); int (*x22)(); int (*x23)(); }*)arg1 withOptions:(unsigned long long)arg2;
 
-- (int (*)())acquireFunction;
-- (int (*)())descriptionFunction;
-- (int (*)())hashFunction;
-- (int (*)())isEqualFunction;
-- (int (*)())relinquishFunction;
-- (int (*)())sizeFunction;
+- (int (*)acquireFunction;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned int)hash;
-- (id)initWithOptions:(unsigned int)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (void)setAcquireFunction:(int (*)())arg1;
-- (void)setDescriptionFunction:(int (*)())arg1;
-- (void)setHashFunction:(int (*)())arg1;
-- (void)setIsEqualFunction:(int (*)())arg1;
-- (void)setRelinquishFunction:(int (*)())arg1;
-- (void)setSizeFunction:(int (*)())arg1;
-- (void)setUsesStrongWriteBarrier:(BOOL)arg1;
-- (void)setUsesWeakReadAndWriteBarriers:(BOOL)arg1;
-- (BOOL)usesStrongWriteBarrier;
-- (BOOL)usesWeakReadAndWriteBarriers;
+- (int (*)descriptionFunction;
+- (unsigned long long)hash;
+- (int (*)hashFunction;
+- (id)initWithOptions:(unsigned long long)arg1;
+- (bool)isEqual:(id)arg1;
+- (int (*)isEqualFunction;
+- (int (*)relinquishFunction;
+- (void)setAcquireFunction:(int (*)arg1;
+- (void)setDescriptionFunction:(int (*)arg1;
+- (void)setHashFunction:(int (*)arg1;
+- (void)setIsEqualFunction:(int (*)arg1;
+- (void)setRelinquishFunction:(int (*)arg1;
+- (void)setSizeFunction:(int (*)arg1;
+- (void)setUsesStrongWriteBarrier:(bool)arg1;
+- (void)setUsesWeakReadAndWriteBarriers:(bool)arg1;
+- (int (*)sizeFunction;
+- (bool)usesStrongWriteBarrier;
+- (bool)usesWeakReadAndWriteBarriers;
 
 @end

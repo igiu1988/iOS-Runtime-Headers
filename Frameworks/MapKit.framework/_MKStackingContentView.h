@@ -2,14 +2,26 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class NSLayoutConstraint, UIView;
-
 @interface _MKStackingContentView : _MKUIViewControllerRootView {
-    NSLayoutConstraint *_heightConstraint;
-    UIView *_referenceView;
+    NSLayoutConstraint * _bottomConstraint;
+    UIView * _bottomView;
+    NSLayoutConstraint * _middleConstraint;
+    NSLayoutConstraint * _topConstraint;
+    UIView * _topView;
 }
 
+@property (nonatomic, readonly) NSLayoutConstraint *bottomConstraint;
+@property (nonatomic, retain) UIView *bottomView;
+@property (nonatomic, retain) UIView *topView;
+
 - (void).cxx_destruct;
-- (id)initWithViewController:(id)arg1 referenceView:(id)arg2;
+- (id)bottomConstraint;
+- (id)bottomView;
+- (void)infoCardThemeChanged:(id)arg1;
+- (id)initWithViewController:(id)arg1;
+- (void)setBottomView:(id)arg1;
+- (void)setTopView:(id)arg1;
+- (id)topView;
+- (void)updateConstraints;
 
 @end

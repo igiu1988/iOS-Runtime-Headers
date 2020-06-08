@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSBundle, NSString, UIImage;
-
 @interface SULockoutViewController : SUViewController {
-    UIImage *_image;
-    NSBundle *_localizationBundle;
-    NSString *_messageBody;
-    NSString *_messageTitle;
+    UIImage * _image;
+    NSBundle * _localizationBundle;
+    NSString * _messageBody;
+    NSString * _messageTitle;
 }
 
-@property(retain) UIImage * image;
-@property(retain) NSBundle * localizationBundle;
-@property(retain) NSString * messageBody;
-@property(retain) NSString * messageTitle;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, retain) NSBundle *localizationBundle;
+@property (nonatomic, retain) NSString *messageBody;
+@property (nonatomic, retain) NSString *messageTitle;
 
 - (id)copyArchivableContext;
 - (void)dealloc;

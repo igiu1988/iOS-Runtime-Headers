@@ -2,26 +2,23 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString, SAUIDecoratedText;
+@interface SASTCompetingTeamPlayDetailItem : AceObject <SASTTemplateItem>
 
-@interface SASTCompetingTeamPlayDetailItem : AceObject <SASTTemplateItem> {
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property BOOL firstEntity;
-@property(readonly) unsigned int hash;
-@property(retain) SAUIDecoratedText * playDetail;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) bool firstEntity;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) SAUIDecoratedText *playDetail;
+@property (readonly) Class superclass;
 
 + (id)competingTeamPlayDetailItem;
 + (id)competingTeamPlayDetailItemWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
-- (BOOL)firstEntity;
+- (bool)firstEntity;
 - (id)groupIdentifier;
 - (id)playDetail;
-- (void)setFirstEntity:(BOOL)arg1;
+- (void)setFirstEntity:(bool)arg1;
 - (void)setPlayDetail:(id)arg1;
 
 @end

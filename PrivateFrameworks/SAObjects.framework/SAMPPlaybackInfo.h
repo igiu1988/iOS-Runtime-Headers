@@ -2,32 +2,32 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString, SACalendar;
+@interface SAMPPlaybackInfo : AceObject <SAAceSerializable>
 
-@interface SAMPPlaybackInfo : AceObject <SAAceSerializable> {
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) SACalendar * lastPlayedDate;
-@property int playbackPositionMillis;
-@property int plays;
-@property BOOL rememberPlaybackPosition;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) long long durationMillis;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) SACalendar *lastPlayedDate;
+@property (nonatomic) long long playbackPositionMillis;
+@property (nonatomic) long long plays;
+@property (nonatomic) bool rememberPlaybackPosition;
+@property (readonly) Class superclass;
 
 + (id)playbackInfo;
 + (id)playbackInfoWithDictionary:(id)arg1 context:(id)arg2;
 
+- (long long)durationMillis;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)lastPlayedDate;
-- (int)playbackPositionMillis;
-- (int)plays;
-- (BOOL)rememberPlaybackPosition;
+- (long long)playbackPositionMillis;
+- (long long)plays;
+- (bool)rememberPlaybackPosition;
+- (void)setDurationMillis:(long long)arg1;
 - (void)setLastPlayedDate:(id)arg1;
-- (void)setPlaybackPositionMillis:(int)arg1;
-- (void)setPlays:(int)arg1;
-- (void)setRememberPlaybackPosition:(BOOL)arg1;
+- (void)setPlaybackPositionMillis:(long long)arg1;
+- (void)setPlays:(long long)arg1;
+- (void)setRememberPlaybackPosition:(bool)arg1;
 
 @end

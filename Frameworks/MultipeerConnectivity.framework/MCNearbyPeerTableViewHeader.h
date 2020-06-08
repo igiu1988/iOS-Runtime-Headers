@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/MultipeerConnectivity.framework/MultipeerConnectivity
  */
 
-@class UIActivityIndicatorView, UILabel;
-
 @interface MCNearbyPeerTableViewHeader : UIView {
-    UIActivityIndicatorView *_spinner;
-    UILabel *_text;
+    UIActivityIndicatorView * _spinner;
+    UILabel * _text;
 }
 
 - (void)dealloc;

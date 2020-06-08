@@ -2,27 +2,23 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface OITSUDateFormatter : NSObject {
-    NSString *mDateOnlyFormatString;
-    struct __CFDateFormatter { } *mFullDateFormatter;
-    NSString *mTimeOnlyFormatString;
+    NSString * mDateOnlyFormatString;
+    struct __CFDateFormatter { } * mFullDateFormatter;
+    NSString * mTimeOnlyFormatString;
 }
 
 + (id)dateFormatStringSpecialSymbols;
 + (id)datePortionOfDateTimeFormatString:(id)arg1;
-+ (id)defaultDateTimeFormat;
-+ (unsigned int)p_DateTimeSplitLocationInFormatString:(id)arg1;
++ (id)defaultDateTimeFormatForLocale:(id)arg1;
++ (unsigned long long)p_DateTimeSplitLocationInFormatString:(id)arg1;
 + (id)shortMonthNamesForNonCachedCurrentLocale;
-+ (id)supportedDateFormats;
-+ (id)supportedTimeFormats;
++ (id)supportedDateFormatsForLocale:(id)arg1;
++ (id)supportedTimeFormatsForLocale:(id)arg1;
 + (id)timePortionOfDateTimeFormatString:(id)arg1;
 
-- (id)appropriateOutputFormatStringForInputFormatString:(id)arg1;
 - (void)dealloc;
-- (id)fullDateString:(id)arg1;
 - (id)init;
-- (id)stringFromDate:(id)arg1 format:(id)arg2;
+- (id)initWithLocale:(id)arg1;
 
 @end

@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class AFAlarm;
-
 @interface AFCreateAlarmRequest : AFSiriRequest {
-    AFAlarm *_alarm;
+    STAlarm * _alarm;
 }
 
-@property(retain) AFAlarm * alarm;
+@property (nonatomic, retain) STAlarm *alarm;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)alarm;

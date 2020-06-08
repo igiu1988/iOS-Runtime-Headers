@@ -2,39 +2,37 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class HDCodableNanoSyncActivationRestore, HDCodableNanoSyncChangeSet, HDCodableNanoSyncStatus, NSData, NSString;
-
 @interface HDCodableNanoSyncMessage : PBCodable <HDNanoSyncDescription, NSCopying> {
+    HDCodableNanoSyncActivationRestore * _activationRestore;
+    HDCodableNanoSyncChangeSet * _changeSet;
     struct { 
         unsigned int version : 1; 
-    HDCodableNanoSyncActivationRestore *_activationRestore;
-    HDCodableNanoSyncChangeSet *_changeSet;
-    } _has;
-    NSData *_healthPairingUUID;
-    NSData *_persistentPairingUUID;
-    HDCodableNanoSyncStatus *_status;
-    int _version;
+    }  _has;
+    NSData * _healthPairingUUID;
+    NSData * _persistentPairingUUID;
+    HDCodableNanoSyncStatus * _status;
+    int  _version;
 }
 
-@property(retain) HDCodableNanoSyncActivationRestore * activationRestore;
-@property(retain) HDCodableNanoSyncChangeSet * changeSet;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) BOOL hasActivationRestore;
-@property(readonly) BOOL hasChangeSet;
-@property(readonly) BOOL hasHealthPairingUUID;
-@property(readonly) BOOL hasPersistentPairingUUID;
-@property(readonly) BOOL hasStatus;
-@property BOOL hasVersion;
-@property(readonly) unsigned int hash;
-@property(retain) NSData * healthPairingUUID;
-@property(retain) NSData * persistentPairingUUID;
-@property(retain) HDCodableNanoSyncStatus * status;
-@property(readonly) Class superclass;
-@property int version;
+@property (nonatomic, retain) HDCodableNanoSyncActivationRestore *activationRestore;
+@property (nonatomic, retain) HDCodableNanoSyncChangeSet *changeSet;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) bool hasActivationRestore;
+@property (nonatomic, readonly) bool hasChangeSet;
+@property (nonatomic, readonly) bool hasHealthPairingUUID;
+@property (nonatomic, readonly) bool hasPersistentPairingUUID;
+@property (nonatomic, readonly) bool hasStatus;
+@property (nonatomic) bool hasVersion;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) NSData *healthPairingUUID;
+@property (nonatomic, retain) NSData *persistentPairingUUID;
+@property (nonatomic, retain) HDCodableNanoSyncStatus *status;
+@property (readonly) Class superclass;
+@property (nonatomic) int version;
 
 + (id)messageFromPersistentUserInfo:(id)arg1;
-+ (id)messageWithPersistentPairingUUID:(id)arg1 healthPairingUUID:(id)arg2;
++ (id)messageWithSyncStore:(id)arg1;
 
 - (void).cxx_destruct;
 - (id)activationRestore;
@@ -46,23 +44,22 @@
 - (id)decodedPersistentPairingUUID;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasActivationRestore;
-- (BOOL)hasChangeSet;
-- (BOOL)hasHealthPairingUUID;
-- (BOOL)hasMinimumVersion;
-- (BOOL)hasPersistentPairingUUID;
-- (BOOL)hasStatus;
-- (BOOL)hasVersion;
-- (unsigned int)hash;
+- (bool)hasActivationRestore;
+- (bool)hasChangeSet;
+- (bool)hasHealthPairingUUID;
+- (bool)hasPersistentPairingUUID;
+- (bool)hasStatus;
+- (bool)hasVersion;
+- (unsigned long long)hash;
 - (id)healthPairingUUID;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)nanoSyncDescription;
 - (id)persistentPairingUUID;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setActivationRestore:(id)arg1;
 - (void)setChangeSet:(id)arg1;
-- (void)setHasVersion:(BOOL)arg1;
+- (void)setHasVersion:(bool)arg1;
 - (void)setHealthPairingUUID:(id)arg1;
 - (void)setPersistentPairingUUID:(id)arg1;
 - (void)setStatus:(id)arg1;

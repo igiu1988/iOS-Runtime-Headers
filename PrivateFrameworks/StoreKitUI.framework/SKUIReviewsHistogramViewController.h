@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSString, SKUIClientContext, SKUIReviewList, SKUIReviewsHistogramView, UIControl;
-
 @interface SKUIReviewsHistogramViewController : UIViewController {
-    SKUIClientContext *_clientContext;
-    SKUIReviewsHistogramView *_histogramView;
-    SKUIReviewList *_reviewList;
+    SKUIClientContext * _clientContext;
+    SKUIReviewsHistogramView * _histogramView;
+    SKUIReviewList * _reviewList;
 }
 
-@property(readonly) UIControl * appSupportButton;
-@property(retain) SKUIClientContext * clientContext;
-@property int personalStarRating;
-@property(retain) SKUIReviewList * reviewList;
-@property(readonly) UIControl * segmentedControl;
-@property(copy) NSArray * segmentedControlTitles;
-@property int selectedSegmentIndex;
-@property(readonly) UIControl * starRatingControl;
-@property(copy) NSString * versionString;
-@property(readonly) UIControl * writeAReviewButton;
+@property (nonatomic, readonly) UIControl *appSupportButton;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (nonatomic) long long personalStarRating;
+@property (nonatomic, retain) SKUIReviewList *reviewList;
+@property (nonatomic, readonly) UIControl *segmentedControl;
+@property (nonatomic, copy) NSArray *segmentedControlTitles;
+@property (nonatomic) long long selectedSegmentIndex;
+@property (nonatomic, readonly) UIControl *starRatingControl;
+@property (nonatomic, copy) NSString *versionString;
+@property (nonatomic, readonly) UIControl *writeAReviewButton;
 
 - (void).cxx_destruct;
 - (id)_histogramView;
@@ -27,16 +25,16 @@
 - (id)appSupportButton;
 - (id)clientContext;
 - (void)loadView;
-- (int)personalStarRating;
+- (long long)personalStarRating;
 - (id)reviewList;
 - (id)segmentedControl;
 - (id)segmentedControlTitles;
-- (int)selectedSegmentIndex;
+- (long long)selectedSegmentIndex;
 - (void)setClientContext:(id)arg1;
-- (void)setPersonalStarRating:(int)arg1;
+- (void)setPersonalStarRating:(long long)arg1;
 - (void)setReviewList:(id)arg1;
 - (void)setSegmentedControlTitles:(id)arg1;
-- (void)setSelectedSegmentIndex:(int)arg1;
+- (void)setSelectedSegmentIndex:(long long)arg1;
 - (void)setVersionString:(id)arg1;
 - (id)starRatingControl;
 - (id)versionString;

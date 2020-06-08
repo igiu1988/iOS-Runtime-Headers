@@ -3,18 +3,18 @@
  */
 
 @interface CIBurstYUVImage : NSObject {
-    char *Cbuffer;
-    char *Ybuffer;
-    int bytesPerRow;
-    struct __CFData { } *dataPtr;
-    int height;
-    struct __IOSurface { } *ioSurf;
-    struct __CVBuffer { } *pixelBuffer;
-    int width;
+    char * Cbuffer;
+    char * Ybuffer;
+    int  bytesPerRow;
+    struct __CFData { } * dataPtr;
+    int  height;
+    struct __IOSurface { } * ioSurf;
+    struct __CVBuffer { } * pixelBuffer;
+    int  width;
 }
 
-@property char * Cbuffer;
-@property char * Ybuffer;
+@property char *Cbuffer;
+@property char *Ybuffer;
 @property int bytesPerRow;
 @property int height;
 @property int width;

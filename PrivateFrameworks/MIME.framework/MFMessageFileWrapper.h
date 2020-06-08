@@ -2,32 +2,29 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@class NSData, NSMutableDictionary, NSString;
-
 @interface MFMessageFileWrapper : NSObject {
-    NSMutableDictionary *_attributes;
-    NSData *_data;
-    NSString *_filename;
-    NSString *_linkDestination;
-    NSString *_path;
-    NSString *_preferredFilename;
-    int _type;
-    NSString *_url;
+    NSMutableDictionary * _attributes;
+    NSData * _data;
+    NSString * _filename;
+    NSString * _linkDestination;
+    NSString * _path;
+    NSString * _preferredFilename;
+    int  _type;
+    NSString * _url;
 }
 
-+ (id)supportedArchivedClassNames;
+// Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
 
 - (id)URL;
-- (void)_isImage:(BOOL*)arg1 orPDFFile:(BOOL*)arg2;
-- (BOOL)_pathExtensionEquals:(id)arg1;
+- (void)_isImage:(bool*)arg1 orPDFFile:(bool*)arg2;
 - (id)contentID;
-- (unsigned long)creator;
+- (unsigned int)creator;
 - (void)dealloc;
 - (id)description;
-- (void)encodeWithCoder:(id)arg1;
 - (id)eventUniqueID;
 - (id)fileAttributes;
 - (id)fileProtection;
+- (unsigned long long)fileSize;
 - (id)fileWrappers;
 - (id)filename;
 - (unsigned short)finderFlags;
@@ -35,30 +32,22 @@
 - (id)inferredMimeType;
 - (id)initRegularFileWithContents:(id)arg1;
 - (id)initSymbolicLinkWithDestination:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 - (id)initWithPath:(id)arg1;
-- (BOOL)isDirectory;
-- (BOOL)isDisplayableByWebKit;
-- (BOOL)isDisplayableImage;
-- (BOOL)isImageFile;
-- (BOOL)isMedia;
-- (BOOL)isPDFFile;
-- (BOOL)isPlaceholder;
-- (BOOL)isRFC822;
-- (BOOL)isRegularFile;
-- (BOOL)isSymbolicLink;
-- (BOOL)isUnzippableFile;
-- (BOOL)isZip;
+- (bool)isDirectory;
+- (bool)isImageFile;
+- (bool)isPDFFile;
+- (bool)isPlaceholder;
+- (bool)isRegularFile;
+- (bool)isSymbolicLink;
+- (bool)isUnzippableFile;
 - (id)meetingStorePersistentID;
 - (id)messageID;
 - (id)mimeType;
-- (float)minimumZoomFontSize;
 - (id)path;
 - (id)preferredFilename;
-- (id)preferredFilenameStrippingZipIfNeededUseApplications:(BOOL)arg1;
 - (id)regularFileContents;
 - (void)setContentID:(id)arg1;
-- (void)setCreator:(unsigned long)arg1;
+- (void)setCreator:(unsigned int)arg1;
 - (void)setEventUniqueID:(id)arg1;
 - (void)setFileAttributes:(id)arg1;
 - (void)setFileProtection:(id)arg1;
@@ -70,9 +59,16 @@
 - (void)setMimeType:(id)arg1;
 - (void)setPath:(id)arg1;
 - (void)setPreferredFilename:(id)arg1;
-- (void)setType:(unsigned long)arg1;
+- (void)setType:(unsigned int)arg1;
 - (void)setURL:(id)arg1;
 - (id)symbolicLinkDestination;
-- (unsigned long)type;
+- (unsigned int)type;
+
+// Image: /System/Library/PrivateFrameworks/Notes.framework/Notes
+
++ (id)supportedArchivedClassNames;
+
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end

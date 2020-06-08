@@ -3,33 +3,36 @@
  */
 
 @interface OADLineEnd : OADProperties <NSCopying> {
-    unsigned int mIsTypeOverridden : 1;
-    unsigned int mIsWidthOverridden : 1;
-    unsigned int mIsLengthOverridden : 1;
-    unsigned char mLength;
-    unsigned char mType;
-    unsigned char mWidth;
+    unsigned int  mIsLengthOverridden;
+    unsigned int  mIsTypeOverridden;
+    unsigned int  mIsWidthOverridden;
+    unsigned char  mLength;
+    unsigned char  mType;
+    unsigned char  mWidth;
 }
 
 + (id)defaultProperties;
-+ (id)stringForLineEndLength:(int)arg1;
-+ (id)stringForLineEndType:(int)arg1;
-+ (id)stringForLineEndWidth:(int)arg1;
++ (id)stringForLineEndLength:(unsigned char)arg1;
++ (id)stringForLineEndType:(unsigned char)arg1;
++ (id)stringForLineEndWidth:(unsigned char)arg1;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (unsigned int)hash;
+- (void)fixPropertiesForChangingParentPreservingEffectiveValues:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithDefaults;
-- (id)initWithType:(int)arg1 width:(int)arg2 length:(int)arg3;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isLengthOverridden;
-- (BOOL)isTypeOverridden;
-- (BOOL)isWidthOverridden;
-- (int)length;
-- (void)setLength:(int)arg1;
-- (void)setType:(int)arg1;
-- (void)setWidth:(int)arg1;
-- (int)type;
-- (int)width;
+- (id)initWithType:(unsigned char)arg1 width:(unsigned char)arg2 length:(unsigned char)arg3;
+- (bool)isAnythingOverridden;
+- (bool)isEqual:(id)arg1;
+- (bool)isLengthOverridden;
+- (bool)isTypeOverridden;
+- (bool)isWidthOverridden;
+- (unsigned char)length;
+- (void)removeUnnecessaryOverrides;
+- (void)setLength:(unsigned char)arg1;
+- (void)setType:(unsigned char)arg1;
+- (void)setWidth:(unsigned char)arg1;
+- (unsigned char)type;
+- (unsigned char)width;
 
 @end

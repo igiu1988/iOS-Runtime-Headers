@@ -2,29 +2,32 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSNumber, SALocation;
+@interface SALocalSearchMapItemSnippet : SAUISnippet
 
-@interface SALocalSearchMapItemSnippet : SAUISnippet {
-}
-
-@property(copy) NSArray * items;
-@property(copy) NSArray * providerCommand;
-@property(copy) NSNumber * regionOfInterestRadiusInMiles;
-@property(retain) SALocation * searchRegionCenter;
-@property(copy) NSNumber * userCurrentLocation;
+@property (nonatomic) bool chainResultSet;
+@property (nonatomic, copy) NSArray *items;
+@property (nonatomic, copy) NSArray *providerCommand;
+@property (nonatomic, copy) NSNumber *regionOfInterestRadiusInMiles;
+@property (nonatomic) bool searchAlongRoute;
+@property (nonatomic, retain) SALocation *searchRegionCenter;
+@property (nonatomic, copy) NSNumber *userCurrentLocation;
 
 + (id)mapItemSnippet;
 + (id)mapItemSnippetWithDictionary:(id)arg1 context:(id)arg2;
 
+- (bool)chainResultSet;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)items;
 - (id)providerCommand;
 - (id)regionOfInterestRadiusInMiles;
+- (bool)searchAlongRoute;
 - (id)searchRegionCenter;
+- (void)setChainResultSet:(bool)arg1;
 - (void)setItems:(id)arg1;
 - (void)setProviderCommand:(id)arg1;
 - (void)setRegionOfInterestRadiusInMiles:(id)arg1;
+- (void)setSearchAlongRoute:(bool)arg1;
 - (void)setSearchRegionCenter:(id)arg1;
 - (void)setUserCurrentLocation:(id)arg1;
 - (id)userCurrentLocation;

@@ -2,25 +2,34 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>;
-
-@interface HMDIdentityRegistry : NSObject {
-    NSMutableDictionary *_registry;
-    NSObject<OS_dispatch_queue> *_workQueue;
+@interface HMDIdentityRegistry : HMFObject <HMFDumpState, HMFLogging> {
+    NSRecursiveLock * _lock;
+    NSMutableArray * _registeredIdentities;
 }
 
-@property(retain) NSMutableDictionary * registry;
-@property(retain) NSObject<OS_dispatch_queue> * workQueue;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSRecursiveLock *lock;
+@property (readonly) NSArray *registeredIdentities;
+@property (readonly) Class superclass;
+
++ (id)logCategory;
++ (id)sharedRegistry;
 
 - (void).cxx_destruct;
-- (void)clear;
-- (void)deregisterPublicKeyForIdentifier:(id)arg1;
+- (id)accountsForIdentity:(id)arg1;
+- (id)attributeDescriptions;
+- (void)deregisterIdentity:(id)arg1 object:(id)arg2;
+- (id)dumpState;
+- (id)identitiesForAccount:(id)arg1;
+- (id)identitiesForDevice:(id)arg1;
+- (id)identityForIdentifier:(id)arg1;
 - (id)init;
-- (id)publicKeyForIdentifier:(id)arg1;
-- (void)registerPublicKey:(id)arg1 forIdentifier:(id)arg2;
-- (id)registry;
-- (void)setRegistry:(id)arg1;
-- (void)setWorkQueue:(id)arg1;
-- (id)workQueue;
+- (id)lock;
+- (void)registerIdentity:(id)arg1 account:(id)arg2 object:(id)arg3;
+- (void)registerIdentity:(id)arg1 device:(id)arg2 object:(id)arg3;
+- (id)registeredIdentities;
+- (void)reset;
 
 @end

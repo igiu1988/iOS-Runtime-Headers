@@ -2,33 +2,33 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class MCBook, NSNumber, NSString;
-
 @interface MCBook : NSObject <NSCopying> {
-    NSString *_author;
-    NSString *_buyParams;
-    NSNumber *_downloadIdentifier;
-    NSString *_fullPath;
-    NSNumber *_iTunesStoreID;
-    NSString *_kind;
-    NSString *_persistentID;
-    MCBook *_previousVersion;
-    NSString *_state;
-    NSString *_title;
-    NSString *_version;
+    NSString * _author;
+    NSString * _buyParams;
+    NSNumber * _downloadIdentifier;
+    NSString * _fullPath;
+    NSNumber * _iTunesStoreID;
+    NSString * _kind;
+    NSString * _persistentID;
+    MCBook * _previousVersion;
+    NSString * _state;
+    NSString * _title;
+    NSString * _version;
 }
 
-@property(copy) NSString * author;
-@property(copy) NSString * buyParams;
-@property(retain) NSNumber * downloadIdentifier;
-@property(copy) NSString * fullPath;
-@property(retain) NSNumber * iTunesStoreID;
-@property(copy) NSString * kind;
-@property(copy) NSString * persistentID;
-@property(retain) MCBook * previousVersion;
-@property(retain) NSString * state;
-@property(copy) NSString * title;
-@property(copy) NSString * version;
+@property (nonatomic, copy) NSString *author;
+@property (nonatomic, copy) NSString *buyParams;
+@property (nonatomic, retain) NSNumber *downloadIdentifier;
+@property (nonatomic, copy) NSString *fullPath;
+@property (nonatomic, retain) NSNumber *iTunesStoreID;
+@property (nonatomic, copy) NSString *kind;
+@property (nonatomic, copy) NSString *persistentID;
+@property (nonatomic, retain) MCBook *previousVersion;
+@property (nonatomic, retain) NSString *state;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *version;
+
+// Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
 
 - (void).cxx_destruct;
 - (id)author;
@@ -60,5 +60,14 @@
 - (id)title;
 - (void)updateBookAttributesByCopyingFromBook:(id)arg1;
 - (id)version;
+
+// Image: /System/Library/PrivateFrameworks/ManagedConfigurationUI.framework/ManagedConfigurationUI
+
+- (bool)hasManagedRestrictions;
+- (bool)isEnterpriseBook;
+- (bool)isExcludedFromBackup;
+- (bool)isExcludedFromCloudSync;
+- (bool)isUnableToExportToUnmanaged;
+- (bool)isUninstalledOnMDMRemoval;
 
 @end

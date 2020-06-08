@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@interface PLPhotoDerivativeUtilities : NSObject {
-}
+@interface PLPhotoDerivativeUtilities : NSObject
 
 + (id)generateDerivativeForMSAsset:(id)arg1 derivativeType:(int)arg2 withSpecificationInfo:(id)arg3 collectionGUID:(id)arg4;
-+ (BOOL)resizeImageForUtiType:(id)arg1 masterFilePath:(id)arg2 derivedSize:(struct CGSize { float x1; float x2; })arg3 derivedAssetPath:(id)arg4;
 
 @end

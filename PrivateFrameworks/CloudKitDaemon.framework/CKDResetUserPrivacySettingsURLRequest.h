@@ -2,12 +2,13 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@interface CKDResetUserPrivacySettingsURLRequest : CKDURLRequest {
-}
+@interface CKDResetUserPrivacySettingsURLRequest : CKDURLRequest
 
+- (long long)databaseScope;
+- (id)generateRequestOperations;
 - (int)operationType;
 - (id)requestDidParseProtobufObject:(id)arg1;
 - (id)requestOperationClasses;
-- (id)requestOperations;
+- (bool)requiresTokenRegistration;
 
 @end

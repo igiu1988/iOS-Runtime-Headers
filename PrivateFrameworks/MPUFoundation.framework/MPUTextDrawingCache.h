@@ -2,83 +2,55 @@
    Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSCache, NSDictionary, NSHashTable, NSMutableDictionary, NSOperationQueue, NSStringDrawingContext;
-
 @interface MPUTextDrawingCache : NSObject {
-    struct CGSize { 
-        float width; 
-        float height; 
-    struct CGSize { 
-        float width; 
-        float height; 
-    } _allowedSize;
-    unsigned int _cacheCostScale;
-    unsigned int _cacheSize;
-    NSMutableDictionary *_cachesForOtherAllowedSizes;
-    float _displayScale;
-    NSCache *_drawingsForCurrentAllowedSize;
-    NSDictionary *_emphasizedTextAttributes;
-    unsigned int _invalidationNotificationCoalescingRequestsCount;
-    NSHashTable *_invalidationObservers;
-    unsigned int _maximumNumberOfLines;
-    BOOL _opaque;
-    NSOperationQueue *_preHeatingOperationQueue;
-    } _referenceSizeForCostComputation;
-    NSDictionary *_regularTextAttributes;
-    NSStringDrawingContext *_stringDrawingContext;
-    NSDictionary *_textAttributes;
-    id _textEmphasizer;
-    BOOL _wasInvalidatedWithoutNotifyingObservers;
+    id /* block */  _attributedTextProvider;
+    NSCache * _cache;
+    double  _displayScale;
+    unsigned long long  _invalidationNotificationCoalescingRequestsCount;
+    NSHashTable * _invalidationObservers;
+    unsigned long long  _maximumNumberOfLines;
+    bool  _opaque;
+    NSOperationQueue * _preHeatingOperationQueue;
+    NSStringDrawingContext * _reusableStringDrawingContext;
+    MPUTextDrawingCacheKey * _reusableTextDrawingCacheKey;
+    NSDictionary * _textAttributes;
+    bool  _usesImageCachingInsteadOfStringDrawingContextCaching;
+    bool  _wasInvalidatedWithoutNotifyingObservers;
 }
 
-@property struct CGSize { float x1; float x2; } allowedSize;
-@property float displayScale;
-@property(copy) NSDictionary * emphasizedTextAttributes;
-@property unsigned int maximumNumberOfLines;
-@property(getter=isOpaque) BOOL opaque;
-@property(copy) NSDictionary * regularTextAttributes;
-@property(copy) NSDictionary * textAttributes;
-@property(copy) id textEmphasizer;
+@property (nonatomic, copy) id /* block */ attributedTextProvider;
+@property (nonatomic) double displayScale;
+@property (nonatomic) unsigned long long maximumNumberOfLines;
+@property (getter=_isOpaque, setter=_setOpaque:, nonatomic) bool opaque;
+@property (nonatomic, copy) NSDictionary *textAttributes;
+@property (getter=_usesImageCachingInsteadOfStringDrawingContextCaching, setter=_setUsesImageCachingInsteadOfStringDrawingContextCaching:, nonatomic) bool usesImageCachingInsteadOfStringDrawingContextCaching;
 
-+ (id)_drawingForText:(id)arg1 fromCache:(id)arg2 usingStringDrawingContext:(id)arg3 allowedSize:(struct CGSize { float x1; float x2; })arg4 textAttributes:(id)arg5 opaque:(BOOL)arg6 displayScale:(float)arg7 textEmphasizer:(id)arg8 regularTextAttributes:(id)arg9 emphasizedTextAttributes:(id)arg10 cacheSize:(unsigned int)arg11 cacheCostScale:(unsigned int)arg12 referenceSizeForCostComputation:(struct CGSize { float x1; float x2; })arg13;
++ (id)_drawingContextForText:(id)arg1 allowedSize:(struct CGSize { double x1; double x2; })arg2 fromCache:(id)arg3 usingReusableStringDrawingContext:(id)arg4 reusableTextDrawingCacheKey:(id)arg5 textAttributes:(id)arg6 maximumNumberOfLines:(unsigned long long)arg7 opaque:(bool)arg8 displayScale:(double)arg9 attributedTextProvider:(id /* block */)arg10;
++ (void)_updateStringDrawingContext:(id)arg1 withMaximumNumberOfLines:(unsigned long long)arg2;
++ (struct CGSize { double x1; double x2; })_validateAllowedSize:(struct CGSize { double x1; double x2; })arg1;
 
 - (void).cxx_destruct;
-- (void)_applicationDidReceiveMemoryWarning:(id)arg1;
-- (void)_drawingsForCurrentAllowedSizeWereInvalidated;
-- (void)_ensureDrawingsForCurrentAllowedSizeCacheIsReady;
 - (void)_invalidate;
-- (id)_keyForAllowedSize:(struct CGSize { float x1; float x2; })arg1;
+- (bool)_isOpaque;
 - (void)_notifyInvalidationObservers;
-- (void)_updateMaximumNumberOfLines;
-- (void)_updateReferenceSizeForCostComputation;
-- (struct CGSize { float x1; float x2; })_validateAllowedSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)_setOpaque:(bool)arg1;
+- (void)_setUsesImageCachingInsteadOfStringDrawingContextCaching:(bool)arg1;
+- (bool)_usesImageCachingInsteadOfStringDrawingContextCaching;
 - (void)addInvalidationObserver:(id)arg1;
-- (struct CGSize { float x1; float x2; })allowedSize;
+- (id /* block */)attributedTextProvider;
 - (void)beginCoalescingInvalidationNotifications;
 - (void)dealloc;
-- (float)displayScale;
-- (id)drawingForText:(id)arg1;
-- (id)emphasizedTextAttributes;
+- (double)displayScale;
+- (id)drawingContextForText:(id)arg1 allowedSize:(struct CGSize { double x1; double x2; })arg2;
 - (void)endCoalescingInvalidationNotifications;
 - (id)init;
-- (BOOL)isOpaque;
-- (unsigned int)maximumNumberOfLines;
-- (void)preHeatForStrings:(id)arg1;
-- (id)regularTextAttributes;
+- (unsigned long long)maximumNumberOfLines;
+- (void)preHeatForStrings:(id)arg1 allowedSize:(struct CGSize { double x1; double x2; })arg2;
 - (void)removeInvalidationObserver:(id)arg1;
-- (void)setAllowedSize:(struct CGSize { float x1; float x2; })arg1;
-- (void)setDisplayScale:(float)arg1;
-- (void)setEmphasizedTextAttributes:(id)arg1;
-- (void)setMaximumNumberOfLines:(unsigned int)arg1;
-- (void)setOpaque:(BOOL)arg1;
-- (void)setRegularTextAttributes:(id)arg1;
+- (void)setAttributedTextProvider:(id /* block */)arg1;
+- (void)setDisplayScale:(double)arg1;
+- (void)setMaximumNumberOfLines:(unsigned long long)arg1;
 - (void)setTextAttributes:(id)arg1;
-- (void)setTextEmphasizer:(id)arg1;
 - (id)textAttributes;
-- (id)textEmphasizer;
 
 @end

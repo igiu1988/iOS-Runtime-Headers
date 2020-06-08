@@ -3,16 +3,16 @@
  */
 
 @interface NSBatchUpdateResult : NSPersistentStoreResult {
-    id _aggregatedResult;
-    unsigned int _resultType;
+    id  _aggregatedResult;
+    unsigned long long  _resultType;
 }
 
-@property(readonly) id result;
-@property(readonly) unsigned int resultType;
+@property (readonly) id result;
+@property (readonly) unsigned long long resultType;
 
 - (void)dealloc;
-- (id)initWithResult:(id)arg1 type:(unsigned int)arg2;
+- (id)initWithResult:(id)arg1 type:(unsigned long long)arg2;
 - (id)result;
-- (unsigned int)resultType;
+- (unsigned long long)resultType;
 
 @end

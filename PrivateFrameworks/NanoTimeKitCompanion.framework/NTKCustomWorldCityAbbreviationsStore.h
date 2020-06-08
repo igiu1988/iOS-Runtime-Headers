@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/NanoTimeKitCompanion.framework/NanoTimeKitCompanion
  */
 
-@class NPSManager;
-
 @interface NTKCustomWorldCityAbbreviationsStore : NSObject {
-    NPSManager *_npsManager;
+    NPSManager * _npsManager;
 }
 
 + (id)sharedInstance;

@@ -2,27 +2,27 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIContext, CIImage, NSNumber;
-
 @interface CISmartColorFilter : CIFilter {
-    CIContext *_cubeContext;
-    CIImage *_cubeImage;
-    NSNumber *inputCast;
-    NSNumber *inputContrast;
-    CIImage *inputImage;
-    NSNumber *inputUseCube;
-    NSNumber *inputVibrancy;
+    CIContext * _cubeContext;
+    CIImage * _cubeImage;
+    NSNumber * inputCast;
+    NSNumber * inputContrast;
+    CIImage * inputImage;
+    NSNumber * inputUseCube;
+    id  inputUseCubeColorSpace;
+    NSNumber * inputVibrancy;
 }
 
-@property(retain) NSNumber * inputCast;
-@property(retain) NSNumber * inputContrast;
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputUseCube;
-@property(retain) NSNumber * inputVibrancy;
+@property (nonatomic, retain) NSNumber *inputCast;
+@property (nonatomic, retain) NSNumber *inputContrast;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputUseCube;
+@property (nonatomic, retain) id inputUseCubeColorSpace;
+@property (nonatomic, retain) NSNumber *inputVibrancy;
 
 + (id)customAttributes;
 
-- (BOOL)_isIdentity;
+- (bool)_isIdentity;
 - (id)_kernelCNeg;
 - (id)_kernelCPos;
 - (id)_kernelCast;
@@ -33,12 +33,14 @@
 - (id)inputContrast;
 - (id)inputImage;
 - (id)inputUseCube;
+- (id)inputUseCubeColorSpace;
 - (id)inputVibrancy;
 - (id)outputImage;
 - (void)setInputCast:(id)arg1;
 - (void)setInputContrast:(id)arg1;
 - (void)setInputImage:(id)arg1;
 - (void)setInputUseCube:(id)arg1;
+- (void)setInputUseCubeColorSpace:(id)arg1;
 - (void)setInputVibrancy:(id)arg1;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 

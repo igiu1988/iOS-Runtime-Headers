@@ -2,57 +2,59 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray, TSPObject;
-
 @interface TSPPasteboardObject : TSPObject {
-    TSPObject *_appNativeObject;
-    NSArray *_drawables;
-    TSPObject *_guideStorage;
-    BOOL _isCrossAppPaste;
-    BOOL _isCrossDocumentPaste;
-    BOOL _isSmartCopyPaste;
-    BOOL _isTextPrimary;
-    NSArray *_styles;
-    TSPObject *_stylesheet;
-    TSPObject *_theme;
-    TSPObject *_wpStorage;
+    TSPObject * _appNativeObject;
+    NSArray * _drawables;
+    TSPObject * _guideStorage;
+    bool  _isCrossAppPaste;
+    bool  _isCrossDocumentPaste;
+    bool  _isSmartCopyPaste;
+    bool  _isTextPrimary;
+    TSPObject * _nativeContentDescription;
+    NSArray * _styles;
+    TSPObject * _stylesheet;
+    NSArray * _topLevelObjects;
+    TSPObject * _wpStorage;
 }
 
-@property(retain) TSPObject * appNativeObject;
-@property(copy) NSArray * drawables;
-@property(retain) TSPObject * guideStorage;
-@property(readonly) BOOL isCrossAppPaste;
-@property(readonly) BOOL isCrossDocumentPaste;
-@property BOOL isSmartCopyPaste;
-@property BOOL isTextPrimary;
-@property(copy) NSArray * styles;
-@property(retain) TSPObject * stylesheet;
-@property(retain) TSPObject * theme;
-@property(retain) TSPObject * wpStorage;
+@property (nonatomic, retain) TSPObject *appNativeObject;
+@property (nonatomic, copy) NSArray *drawables;
+@property (nonatomic, retain) TSPObject *guideStorage;
+@property (nonatomic, readonly) bool isCrossAppPaste;
+@property (nonatomic, readonly) bool isCrossDocumentPaste;
+@property (nonatomic) bool isSmartCopyPaste;
+@property (nonatomic) bool isTextPrimary;
+@property (nonatomic, retain) TSPObject *nativeContentDescription;
+@property (nonatomic, copy) NSArray *styles;
+@property (nonatomic, retain) TSPObject *stylesheet;
+@property (nonatomic, retain) NSArray *topLevelObjects;
+@property (nonatomic, retain) TSPObject *wpStorage;
 
 - (void).cxx_destruct;
 - (id)appNativeObject;
 - (id)drawables;
 - (id)guideStorage;
-- (id)initFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
-- (BOOL)isCrossAppPaste;
-- (BOOL)isCrossDocumentPaste;
-- (BOOL)isSmartCopyPaste;
-- (BOOL)isTextPrimary;
+- (bool)isCrossAppPaste;
+- (bool)isCrossDocumentPaste;
+- (bool)isSmartCopyPaste;
+- (bool)isTextPrimary;
+- (void)loadFromUnarchiver:(id)arg1;
+- (id)nativeContentDescription;
 - (void)saveToArchiver:(id)arg1;
 - (void)setAppNativeObject:(id)arg1;
 - (void)setDrawables:(id)arg1;
 - (void)setGuideStorage:(id)arg1;
-- (void)setIsSmartCopyPaste:(BOOL)arg1;
-- (void)setIsTextPrimary:(BOOL)arg1;
+- (void)setIsSmartCopyPaste:(bool)arg1;
+- (void)setIsTextPrimary:(bool)arg1;
+- (void)setNativeContentDescription:(id)arg1;
 - (void)setStyles:(id)arg1;
 - (void)setStylesheet:(id)arg1;
-- (void)setTheme:(id)arg1;
+- (void)setTopLevelObjects:(id)arg1;
 - (void)setWpStorage:(id)arg1;
 - (id)styles;
 - (id)stylesheet;
-- (id)theme;
+- (id)topLevelObjects;
 - (long long)tsp_identifier;
 - (id)wpStorage;
 

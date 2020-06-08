@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADDrawable, WDCharacterProperties;
-
 @interface WDOfficeArt : WDRun {
-    boolmFloating;
-    OADDrawable *mDrawable;
-    WDCharacterProperties *mProperties;
+    OADDrawable * mDrawable;
+    bool  mFloating;
+    WDCharacterProperties * mProperties;
 }
 
 + (int)textBoxTextTypeForRegularTextType:(int)arg1;
@@ -16,12 +14,13 @@
 - (void)clearDrawable;
 - (void)clearProperties;
 - (void)dealloc;
+- (id)description;
 - (id)drawable;
 - (id)imageBlipRef;
 - (id)imageData;
 - (id)imageName;
 - (id)initWithParagraph:(id)arg1;
-- (BOOL)isDrawableOverridden;
+- (bool)isDrawableOverridden;
 - (bool)isFloating;
 - (id)overrideDrawable;
 - (void)propagateTextTypeToDrawables;

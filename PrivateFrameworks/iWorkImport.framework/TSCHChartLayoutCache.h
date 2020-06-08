@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableArray;
-
 @interface TSCHChartLayoutCache : NSObject {
-    NSMutableArray *mCacheItems;
-    BOOL mIgnoreInvalidation;
+    NSMutableArray * mCacheItems;
+    bool  mIgnoreInvalidation;
 }
 
-@property BOOL ignoreInvalidation;
+@property (nonatomic) bool ignoreInvalidation;
 
 + (id)cacheWithCacheItem:(id)arg1;
 
-- (void)accessWithCacheItemBlock:(id)arg1 calculateBlock:(id)arg2;
-- (void)dealloc;
-- (BOOL)ignoreInvalidation;
+- (void).cxx_destruct;
+- (void)accessWithCacheItemBlock:(id /* block */)arg1 calculateBlock:(id /* block */)arg2;
+- (bool)ignoreInvalidation;
 - (id)init;
 - (id)initWithCacheItem:(id)arg1;
 - (void)invalidate;
 - (void)printDebug;
-- (void)setIgnoreInvalidation:(BOOL)arg1;
+- (void)setIgnoreInvalidation:(bool)arg1;
 
 @end

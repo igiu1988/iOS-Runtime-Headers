@@ -2,40 +2,38 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString;
-
 @interface SUComposeTextFieldConfiguration : NSObject {
     struct UIEdgeInsets { 
-        float top; 
-        float left; 
-        float bottom; 
-        float right; 
-    } _borderInsets;
-    BOOL _isRequired;
-    NSString *_label;
-    unsigned int _maxLength;
-    NSString *_placeholder;
-    NSString *_value;
+        double top; 
+        double left; 
+        double bottom; 
+        double right; 
+    }  _borderInsets;
+    bool  _isRequired;
+    NSString * _label;
+    unsigned long long  _maxLength;
+    NSString * _placeholder;
+    NSString * _value;
 }
 
-@property struct UIEdgeInsets { float x1; float x2; float x3; float x4; } borderInsets;
-@property(retain) NSString * label;
-@property unsigned int maxLength;
-@property(retain) NSString * placeholder;
-@property(getter=isRequired) BOOL required;
-@property(retain) NSString * value;
+@property (nonatomic) struct UIEdgeInsets { double x1; double x2; double x3; double x4; } borderInsets;
+@property (nonatomic, retain) NSString *label;
+@property (nonatomic) unsigned long long maxLength;
+@property (nonatomic, retain) NSString *placeholder;
+@property (getter=isRequired, nonatomic) bool required;
+@property (nonatomic, retain) NSString *value;
 
-- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })borderInsets;
+- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })borderInsets;
 - (void)dealloc;
-- (BOOL)isRequired;
+- (bool)isRequired;
 - (id)label;
-- (unsigned int)maxLength;
+- (unsigned long long)maxLength;
 - (id)placeholder;
-- (void)setBorderInsets:(struct UIEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
+- (void)setBorderInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg1;
 - (void)setLabel:(id)arg1;
-- (void)setMaxLength:(unsigned int)arg1;
+- (void)setMaxLength:(unsigned long long)arg1;
 - (void)setPlaceholder:(id)arg1;
-- (void)setRequired:(BOOL)arg1;
+- (void)setRequired:(bool)arg1;
 - (void)setValue:(id)arg1;
 - (id)value;
 

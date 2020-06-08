@@ -3,16 +3,16 @@
  */
 
 @interface PLUIEditImageViewController : PLUIImageViewController {
-    id _delegate;
-    int _mode;
-    int _saveOptions;
+    id  _delegate;
+    int  _mode;
+    int  _saveOptions;
 }
 
-@property id delegate;
-@property int mode;
+@property (nonatomic) id delegate;
+@property (nonatomic) int mode;
 
-- (unsigned int)_contentAutoresizingMask;
-- (unsigned int)_tileAutoresizingMask;
+- (unsigned long long)_contentAutoresizingMask;
+- (unsigned long long)_tileAutoresizingMask;
 - (void)cropOverlay:(id)arg1 didFinishSaving:(id)arg2;
 - (int)cropOverlayMode;
 - (void)cropOverlayWasCancelled:(id)arg1;

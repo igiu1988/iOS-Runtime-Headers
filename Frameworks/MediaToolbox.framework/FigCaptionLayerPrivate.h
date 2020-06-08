@@ -2,13 +2,14 @@
    Image: /System/Library/Frameworks/MediaToolbox.framework/MediaToolbox
  */
 
-@class NSMutableArray;
-
 @interface FigCaptionLayerPrivate : NSObject {
-    NSMutableArray *captionElementLayers;
-    struct OpaqueFigReentrantMutex { } *layoutSublayersMutex;
-    struct OpaqueFigSimpleMutex { } *renderMutex;
-    struct OpaqueFigCFCaptionRenderer { } *renderer;
+    NSMutableArray * captionBackdropLayers;
+    NSMutableArray * captionElementLayers;
+    unsigned char  enableBackdrop;
+    struct OpaqueFigReentrantMutex { } * layoutSublayersMutex;
+    struct OpaqueFigSimpleMutex { } * renderMutex;
+    struct OpaqueFigCFCaptionRenderer { } * renderer;
+    unsigned char  shouldDrawGrid;
 }
 
 @end

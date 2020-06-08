@@ -2,32 +2,32 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKGameInternal, GKPlayerInternal, NSDate, NSOrderedSet, NSString;
-
 @interface GKChallengeInternal : GKInternalRepresentation {
-    NSString *_bundleID;
-    NSString *_challengeID;
-    NSOrderedSet *_compatibleBundleIDs;
-    NSDate *_completionDate;
-    GKGameInternal *_game;
-    NSDate *_issueDate;
-    GKPlayerInternal *_issuingPlayer;
-    NSString *_message;
-    GKPlayerInternal *_receivingPlayer;
-    int _state;
+    NSString * _bundleID;
+    NSString * _challengeID;
+    NSOrderedSet * _compatibleBundleIDs;
+    NSDate * _completionDate;
+    GKGameInternal * _game;
+    NSDate * _issueDate;
+    GKPlayerInternal * _issuingPlayer;
+    NSString * _message;
+    GKPlayerInternal * _receivingPlayer;
+    long long  _state;
 }
 
-@property(retain) NSString * bundleID;
-@property(retain) NSString * challengeID;
-@property(retain) NSOrderedSet * compatibleBundleIDs;
-@property(retain) NSDate * completionDate;
-@property(retain) GKGameInternal * game;
-@property(retain) NSDate * issueDate;
-@property(retain) GKPlayerInternal * issuingPlayer;
-@property(retain) NSString * message;
-@property(retain) GKPlayerInternal * receivingPlayer;
-@property int state;
-@property(readonly) unsigned int type;
+@property (nonatomic, retain) NSString *bundleID;
+@property (nonatomic, retain) NSString *challengeID;
+@property (nonatomic, retain) NSOrderedSet *compatibleBundleIDs;
+@property (nonatomic, retain) NSDate *completionDate;
+@property (nonatomic, retain) GKGameInternal *game;
+@property (nonatomic, retain) NSDate *issueDate;
+@property (nonatomic, retain) GKPlayerInternal *issuingPlayer;
+@property (nonatomic, retain) NSString *message;
+@property (nonatomic, retain) GKPlayerInternal *receivingPlayer;
+@property (nonatomic) long long state;
+@property (nonatomic, readonly) NSString *subtitleText;
+@property (nonatomic, readonly) NSString *titleText;
+@property (nonatomic, readonly) unsigned long long type;
 
 + (id)internalRepresentation;
 + (id)secureCodedPropertyKeys;
@@ -37,11 +37,12 @@
 - (id)compatibleBundleIDs;
 - (id)completionDate;
 - (void)dealloc;
+- (id)descriptionSubstitutionMap;
 - (void)encodeWithCoder:(id)arg1;
 - (id)findLocalGameBundleID;
 - (id)game;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)issueDate;
 - (id)issuingPlayer;
 - (id)message;
@@ -57,8 +58,10 @@
 - (void)setIssuingPlayer:(id)arg1;
 - (void)setMessage:(id)arg1;
 - (void)setReceivingPlayer:(id)arg1;
-- (void)setState:(int)arg1;
-- (int)state;
-- (unsigned int)type;
+- (void)setState:(long long)arg1;
+- (long long)state;
+- (id)subtitleText;
+- (id)titleText;
+- (unsigned long long)type;
 
 @end

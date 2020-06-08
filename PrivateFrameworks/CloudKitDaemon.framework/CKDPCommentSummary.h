@@ -2,31 +2,29 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPCommentedOnId, CKDPLikeInfo;
-
 @interface CKDPCommentSummary : PBCodable <NSCopying> {
-    CKDPCommentedOnId *_identifier;
-    CKDPLikeInfo *_likeInfo;
+    CKDPCommentedOnId * _identifier;
+    CKDPLikeInfo * _likeInfo;
 }
 
-@property(readonly) BOOL hasIdentifier;
-@property(readonly) BOOL hasLikeInfo;
-@property(retain) CKDPCommentedOnId * identifier;
-@property(retain) CKDPLikeInfo * likeInfo;
+@property (nonatomic, readonly) bool hasIdentifier;
+@property (nonatomic, readonly) bool hasLikeInfo;
+@property (nonatomic, retain) CKDPCommentedOnId *identifier;
+@property (nonatomic, retain) CKDPLikeInfo *likeInfo;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasIdentifier;
-- (BOOL)hasLikeInfo;
-- (unsigned int)hash;
+- (bool)hasIdentifier;
+- (bool)hasLikeInfo;
+- (unsigned long long)hash;
 - (id)identifier;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)likeInfo;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setLikeInfo:(id)arg1;
 - (void)writeTo:(id)arg1;

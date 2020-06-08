@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, CIVector, NSNumber;
-
 @interface CICircularScreen : CIFilter {
-    CIVector *inputCenter;
-    CIImage *inputImage;
-    NSNumber *inputSharpness;
-    NSNumber *inputWidth;
+    CIVector * inputCenter;
+    CIImage * inputImage;
+    NSNumber * inputSharpness;
+    NSNumber * inputWidth;
 }
 
-@property(retain) CIVector * inputCenter;
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputSharpness;
-@property(retain) NSNumber * inputWidth;
+@property (nonatomic, retain) CIVector *inputCenter;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputSharpness;
+@property (nonatomic, retain) NSNumber *inputWidth;
 
 + (id)customAttributes;
 
@@ -24,7 +22,6 @@
 - (id)inputSharpness;
 - (id)inputWidth;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputCenter:(id)arg1;
 - (void)setInputImage:(id)arg1;
 - (void)setInputSharpness:(id)arg1;

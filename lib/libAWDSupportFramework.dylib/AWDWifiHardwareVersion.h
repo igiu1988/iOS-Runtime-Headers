@@ -2,20 +2,18 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDWifiHardwareVersion : PBCodable <NSCopying> {
+    NSString * _hardwareVersion;
     struct { 
         unsigned int timestamp : 1; 
-    NSString *_hardwareVersion;
-    } _has;
-    unsigned long long _timestamp;
+    }  _has;
+    unsigned long long  _timestamp;
 }
 
-@property(retain) NSString * hardwareVersion;
-@property(readonly) BOOL hasHardwareVersion;
-@property BOOL hasTimestamp;
-@property unsigned long long timestamp;
+@property (nonatomic, retain) NSString *hardwareVersion;
+@property (nonatomic, readonly) bool hasHardwareVersion;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -23,14 +21,14 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)hardwareVersion;
-- (BOOL)hasHardwareVersion;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasHardwareVersion;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setHardwareVersion:(id)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (unsigned long long)timestamp;
 - (void)writeTo:(id)arg1;

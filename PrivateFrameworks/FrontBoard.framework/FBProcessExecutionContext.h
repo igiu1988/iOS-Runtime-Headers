@@ -2,56 +2,63 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@class NSArray, NSDictionary, NSURL;
-
-@interface FBProcessExecutionContext : NSObject {
-    NSArray *_arguments;
-    BOOL _checkForLeaks;
-    BOOL _disableASLR;
-    NSDictionary *_environment;
-    unsigned int _launchAssertionFlags;
-    int _launchIntent;
-    NSURL *_standardErrorURL;
-    NSURL *_standardOutputURL;
-    BOOL _waitForDebugger;
-    double _watchdogExtension;
+@interface FBProcessExecutionContext : NSObject <NSCopying, NSMutableCopying> {
+    NSArray * _arguments;
+    bool  _checkForLeaks;
+    bool  _disableASLR;
+    NSDictionary * _environment;
+    unsigned int  _launchAssertionFlags;
+    long long  _launchIntent;
+    NSURL * _standardErrorURL;
+    NSURL * _standardOutputURL;
+    bool  _waitForDebugger;
+    double  _watchdogExtension;
+    <FBProcessWatchdogProviding> * _watchdogProvider;
+    double  _watchdogScaleFactor;
 }
 
-@property(retain) NSArray * arguments;
-@property BOOL checkForLeaks;
-@property BOOL disableASLR;
-@property(retain) NSDictionary * environment;
-@property unsigned int launchAssertionFlags;
-@property int launchIntent;
-@property(retain) NSURL * standardErrorURL;
-@property(retain) NSURL * standardOutputURL;
-@property BOOL waitForDebugger;
-@property double watchdogExtension;
+@property (nonatomic, copy) NSArray *arguments;
+@property (nonatomic) bool checkForLeaks;
+@property (nonatomic) bool disableASLR;
+@property (nonatomic, copy) NSDictionary *environment;
+@property (nonatomic) unsigned int launchAssertionFlags;
+@property (nonatomic) long long launchIntent;
+@property (nonatomic, retain) NSURL *standardErrorURL;
+@property (nonatomic, retain) NSURL *standardOutputURL;
+@property (nonatomic) bool waitForDebugger;
+@property (nonatomic) double watchdogExtension;
+@property (nonatomic, retain) <FBProcessWatchdogProviding> *watchdogProvider;
+@property (nonatomic) double watchdogScaleFactor;
 
-+ (double)watchdogIntervalForLaunchIntent:(int)arg1;
-
+- (void).cxx_destruct;
+- (id)_initWithExecutionContext:(id)arg1;
 - (unsigned int)_launchAssertionFlags;
-- (double)_launchWatchdogInterval;
 - (id)arguments;
-- (BOOL)checkForLeaks;
-- (void)dealloc;
-- (BOOL)disableASLR;
+- (bool)checkForLeaks;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (bool)disableASLR;
 - (id)environment;
+- (id)init;
 - (unsigned int)launchAssertionFlags;
-- (int)launchIntent;
+- (long long)launchIntent;
+- (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
 - (void)setArguments:(id)arg1;
-- (void)setCheckForLeaks:(BOOL)arg1;
-- (void)setDisableASLR:(BOOL)arg1;
+- (void)setCheckForLeaks:(bool)arg1;
+- (void)setDisableASLR:(bool)arg1;
 - (void)setEnvironment:(id)arg1;
 - (void)setLaunchAssertionFlags:(unsigned int)arg1;
-- (void)setLaunchIntent:(int)arg1;
+- (void)setLaunchIntent:(long long)arg1;
 - (void)setStandardErrorURL:(id)arg1;
 - (void)setStandardOutputURL:(id)arg1;
-- (void)setWaitForDebugger:(BOOL)arg1;
+- (void)setWaitForDebugger:(bool)arg1;
 - (void)setWatchdogExtension:(double)arg1;
+- (void)setWatchdogProvider:(id)arg1;
+- (void)setWatchdogScaleFactor:(double)arg1;
 - (id)standardErrorURL;
 - (id)standardOutputURL;
-- (BOOL)waitForDebugger;
+- (bool)waitForDebugger;
 - (double)watchdogExtension;
+- (id)watchdogProvider;
+- (double)watchdogScaleFactor;
 
 @end

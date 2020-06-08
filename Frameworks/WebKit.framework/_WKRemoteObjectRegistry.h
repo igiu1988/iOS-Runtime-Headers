@@ -2,43 +2,49 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface _WKRemoteObjectRegistry : NSObject {
-    struct unique_ptr<WebKit::RemoteObjectRegistry, std::__1::default_delete<WebKit::RemoteObjectRegistry> > { 
-        struct __compressed_pair<WebKit::RemoteObjectRegistry *, std::__1::default_delete<WebKit::RemoteObjectRegistry> > { 
-            struct RemoteObjectRegistry {} *__first_; 
-        } __ptr_; 
-    struct RetainPtr<NSMapTable> { 
-        void *m_ptr; 
     struct HashMap<WTF::String, std::__1::pair<WTF::RetainPtr<id>, WTF::RetainPtr<_WKRemoteObjectInterface> >, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<std::__1::pair<WTF::RetainPtr<id>, WTF::RetainPtr<_WKRemoteObjectInterface> > > > { 
         struct HashTable<WTF::String, WTF::KeyValuePair<WTF::String, std::__1::pair<WTF::RetainPtr<id>, WTF::RetainPtr<_WKRemoteObjectInterface> > >, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::String, std::__1::pair<WTF::RetainPtr<id>, WTF::RetainPtr<_WKRemoteObjectInterface> > > >, WTF::StringHash, WTF::HashMap<WTF::String, std::__1::pair<WTF::RetainPtr<id>, WTF::RetainPtr<_WKRemoteObjectInterface> >, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<std::__1::pair<WTF::RetainPtr<id>, WTF::RetainPtr<_WKRemoteObjectInterface> > > >::KeyValuePairTraits, WTF::HashTraits<WTF::String> > { 
             struct KeyValuePair<WTF::String, std::__1::pair<WTF::RetainPtr<id>, WTF::RetainPtr<_WKRemoteObjectInterface> > > {} *m_table; 
-            int m_tableSize; 
-            int m_tableSizeMask; 
-            int m_keyCount; 
-            int m_deletedCount; 
+            unsigned int m_tableSize; 
+            unsigned int m_tableSizeMask; 
+            unsigned int m_keyCount; 
+            unsigned int m_deletedCount; 
         } m_impl; 
-    } _exportedObjects;
-    } _remoteObjectProxies;
-    } _remoteObjectRegistry;
+    }  _exportedObjects;
+    struct HashMap<unsigned long long, PendingReply, WTF::IntHash<unsigned long long>, WTF::HashTraits<unsigned long long>, WTF::HashTraits<PendingReply> > { 
+        struct HashTable<unsigned long long, WTF::KeyValuePair<unsigned long long, PendingReply>, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<unsigned long long, PendingReply> >, WTF::IntHash<unsigned long long>, WTF::HashMap<unsigned long long, PendingReply, WTF::IntHash<unsigned long long>, WTF::HashTraits<unsigned long long>, WTF::HashTraits<PendingReply> >::KeyValuePairTraits, WTF::HashTraits<unsigned long long> > { 
+            struct KeyValuePair<unsigned long long, PendingReply> {} *m_table; 
+            unsigned int m_tableSize; 
+            unsigned int m_tableSizeMask; 
+            unsigned int m_keyCount; 
+            unsigned int m_deletedCount; 
+        } m_impl; 
+    }  _pendingReplies;
+    struct RetainPtr<NSMapTable> { 
+        void *m_ptr; 
+    }  _remoteObjectProxies;
+    struct unique_ptr<WebKit::RemoteObjectRegistry, std::__1::default_delete<WebKit::RemoteObjectRegistry> > { 
+        struct __compressed_pair<WebKit::RemoteObjectRegistry *, std::__1::default_delete<WebKit::RemoteObjectRegistry> > { 
+            struct RemoteObjectRegistry {} *__value_; 
+        } __ptr_; 
+    }  _remoteObjectRegistry;
 }
 
-@property(readonly) struct RemoteObjectRegistry { int (**x1)(); id x2; struct MessageSender {} *x3; }* remoteObjectRegistry;
+@property (nonatomic, readonly) struct RemoteObjectRegistry { int (**x1)(); id x2; struct MessageSender {} x3; /* Warning: unhandled struct encoding: '{Function<WTF::RefPtr<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count' */ struct x4; }*remoteObjectRegistry; /* unknown property attribute:  WTF::DumbPtrTraits<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count> > >}IIII}}} */
 
-- (struct RemoteObjectRegistry { int (**x1)(); id x2; struct MessageSender {} *x3; }*)remoteObjectRegistry;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)_initWithMessageSender:(struct MessageSender { int (**x1)(); }*)arg1;
+- (void)_callReplyWithID:(unsigned long long)arg1 blockInvocation:(const struct UserData { struct RefPtr<API::Object, WTF::DumbPtrTraits<API::Object> > { struct Object {} *x_1_1_1; } x1; }*)arg2;
+- (id)_initWithWebPage:(struct WebPage { }*)arg1;
+- (id)_initWithWebPageProxy:(struct WebPageProxy { }*)arg1;
 - (void)_invalidate;
-- (void)_invokeMessageWithInterfaceIdentifier:(const struct String { struct RefPtr<WTF::StringImpl> { struct StringImpl {} *x_1_1_1; } x1; }*)arg1 encodedInvocation:(const struct ImmutableDictionary { int (**x1)(); id x2; struct HashMap<WTF::String, WTF::RefPtr<API::Object>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RefPtr<API::Object> > > { struct HashTable<WTF::String, WTF::KeyValuePair<WTF::String, WTF::RefPtr<API::Object> >, WTF::KeyValuePairKeyExtractor<WTF::KeyValuePair<WTF::String, WTF::RefPtr<API::Object> > >, WTF::StringHash, WTF::HashMap<WTF::String, WTF::RefPtr<API::Object>, WTF::StringHash, WTF::HashTraits<WTF::String>, WTF::HashTraits<WTF::RefPtr<API::Object> > >::KeyValuePairTraits, WTF::HashTraits<WTF::String> > { struct KeyValuePair<WTF::String, WTF::RefPtr<API::Object> > {} *x_1_2_1; int x_1_2_2; int x_1_2_3; int x_1_2_4; int x_1_2_5; } x_3_1_1; } x3; }*)arg2;
-- (BOOL)_invokeMethod:(const struct UserData { struct RefPtr<API::Object> { struct Object {} *x_1_1_1; } x1; }*)arg1;
+- (void)_invokeMethod:(const struct RemoteObjectInvocation { struct String { struct RefPtr<WTF::StringImpl, WTF::DumbPtrTraits<WTF::StringImpl> > { struct StringImpl {} *x_1_2_1; } x_1_1_1; } x1; struct RefPtr<API::Dictionary, WTF::DumbPtrTraits<API::Dictionary> > { struct Dictionary {} *x_2_1_1; } x2; struct unique_ptr<WebKit::RemoteObjectInvocation::ReplyInfo, std::__1::default_delete<WebKit::RemoteObjectInvocation::ReplyInfo> > { struct __compressed_pair<WebKit::RemoteObjectInvocation::ReplyInfo *, std::__1::default_delete<WebKit::RemoteObjectInvocation::ReplyInfo> > { struct ReplyInfo {} *x_1_2_1; } x_3_1_1; } x3; }*)arg1;
+- (void)_releaseReplyWithID:(unsigned long long)arg1;
 - (void)_sendInvocation:(id)arg1 interface:(id)arg2;
 - (void)registerExportedObject:(id)arg1 interface:(id)arg2;
 - (id)remoteObjectProxyWithInterface:(id)arg1;
+- (struct RemoteObjectRegistry { int (**x1)(); id x2; struct MessageSender {} x3; struct Function<WTF::RefPtr<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count, WTF::DumbPtrTraits<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count> > ()>={unique_ptr<WTF::Function<WTF::RefPtr<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count, WTF::DumbPtrTraits<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count> > ()>::CallableWrapperBase, std::__1::default_delete<WTF::Function<WTF::RefPtr<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count, WTF::DumbPtrTraits<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count> > ()>::CallableWrapperBase> >={__compressed_pair<WTF::Function<WTF::RefPtr<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count, WTF::DumbPtrTraits<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count> > ()>::CallableWrapperBase *, std::__1::default_delete<WTF::Function<WTF::RefPtr<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count, WTF::DumbPtrTraits<WTF::RefCounter<WebKit::ProcessThrottler::BackgroundActivityCounterType>::Count> > ()>::CallableWrapperBase> >=^{CallableWrapperBase {} x4; }*)remoteObjectRegistry;
 - (void)unregisterExportedObject:(id)arg1 interface:(id)arg2;
 
 @end

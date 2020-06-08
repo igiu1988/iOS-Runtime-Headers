@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSDate, NSDictionary, NSString;
-
 @interface SSSoftwareUpdate : NSObject {
-    NSDictionary *_dictionary;
-    NSDate *_installDate;
-    int _updateState;
+    NSDictionary * _dictionary;
+    NSDate * _installDate;
+    long long  _updateState;
 }
 
-@property(readonly) NSString * bundleIdentifier;
-@property(copy) NSDate * installDate;
-@property(readonly) int parentalControlsRank;
-@property(readonly) long long storeItemIdentifier;
-@property(readonly) NSDictionary * updateDictionary;
-@property int updateState;
+@property (nonatomic, readonly) NSString *bundleIdentifier;
+@property (nonatomic, copy) NSDate *installDate;
+@property (nonatomic, readonly) long long parentalControlsRank;
+@property (nonatomic, readonly) long long storeItemIdentifier;
+@property (nonatomic, readonly) NSDictionary *updateDictionary;
+@property (nonatomic) long long updateState;
 
 - (id)bundleIdentifier;
 - (void)dealloc;
 - (id)initWithUpdateDictionary:(id)arg1;
 - (id)installDate;
-- (int)parentalControlsRank;
+- (long long)parentalControlsRank;
 - (void)setInstallDate:(id)arg1;
-- (void)setUpdateState:(int)arg1;
+- (void)setUpdateState:(long long)arg1;
 - (long long)storeItemIdentifier;
 - (id)updateDictionary;
-- (int)updateState;
+- (long long)updateState;
 
 @end

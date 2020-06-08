@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSData;
-
 @interface PLJPEGDataImage : UIImage {
-    struct __CVBuffer { } *_pixelBuffer;
-    NSData *_plData;
+    struct __CVBuffer { } * _pixelBuffer;
+    NSData * _plData;
 }
 
 + (id)pl_imageWithStoredJPEGData:(id)arg1;
 
+- (struct CGImage { }*)CGImage;
 - (void)dealloc;
 - (id)pl_imageJPEGData;
 

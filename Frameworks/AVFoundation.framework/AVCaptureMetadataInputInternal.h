@@ -2,14 +2,12 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureInputPort, NSString;
-
 @interface AVCaptureMetadataInputInternal : NSObject {
-    struct OpaqueCMClock { } *clock;
-    struct opaqueCMFormatDescription { } *desc;
-    struct OpaqueCMBlockBuffer { } *emptyBoxedMetadata;
-    AVCaptureInputPort *metadataPort;
-    NSString *sourceID;
+    struct OpaqueCMClock { } * clock;
+    struct opaqueCMFormatDescription { } * desc;
+    struct OpaqueCMBlockBuffer { } * emptyBoxedMetadata;
+    AVCaptureInputPort * metadataPort;
+    NSString * sourceID;
 }
 
 @end

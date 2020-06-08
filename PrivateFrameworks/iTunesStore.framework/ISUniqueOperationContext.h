@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class NSMutableDictionary, NSMutableSet;
-
 @interface ISUniqueOperationContext : NSObject {
-    NSMutableSet *_operations;
-    NSMutableDictionary *_uniqueOperations;
+    NSMutableSet * _operations;
+    NSMutableDictionary * _uniqueOperations;
 }
 
 - (void)addOperation:(id)arg1;
-- (BOOL)containsOperation:(id)arg1;
-- (unsigned int)countOfOperations;
+- (bool)containsOperation:(id)arg1;
+- (unsigned long long)countOfOperations;
 - (void)dealloc;
 - (id)init;
 - (void)removeOperation:(id)arg1;

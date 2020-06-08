@@ -2,57 +2,69 @@
    Image: /System/Library/PrivateFrameworks/ToneLibrary.framework/ToneLibrary
  */
 
-@class NSDictionary, NSNumber, NSString;
-
 @interface TLITunesTone : NSObject {
-    NSString *_artworkFile;
-    unsigned int _duration;
-    NSString *_filePath;
-    NSString *_identifier;
-    NSString *_name;
-    NSNumber *_pid;
-    NSDictionary *_playbackProperties;
-    BOOL _private;
-    BOOL _protected;
-    BOOL _purchased;
-    BOOL _ringtone;
+    NSString * _albumTitle;
+    NSString * _artistName;
+    NSString * _artworkFile;
+    double  _duration;
+    NSNumber * _fadeInDurationNumber;
+    NSNumber * _fadeOutDurationNumber;
+    NSString * _filePath;
+    NSString * _genreName;
+    NSString * _identifier;
+    NSString * _name;
+    bool  _privateTone;
+    bool  _protectedContent;
+    bool  _purchased;
+    bool  _ringtone;
+    NSString * _storeFrontIdentifier;
+    unsigned long long  _storeItemIdentifier;
+    NSNumber * _syncIdentifier;
 }
 
-@property(copy) NSString * artworkFile;
-@property unsigned int duration;
-@property(copy) NSString * filePath;
-@property(copy) NSString * identifier;
-@property(copy) NSString * name;
-@property(copy) NSNumber * pid;
-@property(copy) NSDictionary * playbackProperties;
-@property(getter=isPrivate) BOOL private;
-@property(getter=isProtected) BOOL protected;
-@property(getter=isPurchased) BOOL purchased;
-@property(getter=isRingtone) BOOL ringtone;
+@property (nonatomic, readonly) NSString *albumTitle;
+@property (nonatomic, readonly) NSString *artistName;
+@property (nonatomic, readonly) NSString *artworkFile;
+@property (nonatomic, readonly) double duration;
+@property (nonatomic, readonly) NSNumber *fadeInDurationNumber;
+@property (nonatomic, readonly) NSNumber *fadeOutDurationNumber;
+@property (nonatomic, readonly) NSString *filePath;
+@property (nonatomic, readonly) NSString *genreName;
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, readonly) NSString *name;
+@property (getter=isPrivateTone, nonatomic, readonly) bool privateTone;
+@property (getter=isProtectedContent, nonatomic, readonly) bool protectedContent;
+@property (getter=isPurchased, nonatomic, readonly) bool purchased;
+@property (getter=isRingtone, nonatomic, readonly) bool ringtone;
+@property (nonatomic, readonly) NSString *storeFrontIdentifier;
+@property (nonatomic, readonly) unsigned long long storeItemIdentifier;
+@property (nonatomic, readonly) NSNumber *syncIdentifier;
 
-- (void)_setArtworkFile:(id)arg1;
-- (void)_setDuration:(unsigned int)arg1;
-- (void)_setFilePath:(id)arg1;
-- (void)_setIdentifier:(id)arg1;
-- (void)_setName:(id)arg1;
-- (void)_setPid:(id)arg1;
-- (void)_setPlaybackProperties:(id)arg1;
-- (void)_setPrivate:(BOOL)arg1;
-- (void)_setProtected:(BOOL)arg1;
-- (void)_setPurchased:(BOOL)arg1;
-- (void)_setRingtone:(BOOL)arg1;
++ (id)_identifierForPropertyListRepresentation:(id)arg1;
+
+- (void).cxx_destruct;
+- (id)albumTitle;
+- (id)artistName;
 - (id)artworkFile;
-- (void)dealloc;
-- (unsigned int)duration;
+- (id)description;
+- (double)duration;
+- (id)fadeInDurationNumber;
+- (id)fadeOutDurationNumber;
 - (id)filePath;
+- (id)genreName;
+- (unsigned long long)hash;
 - (id)identifier;
 - (id)initWithPropertyListRepresentation:(id)arg1 filePath:(id)arg2;
-- (BOOL)isPrivate;
-- (BOOL)isProtected;
-- (BOOL)isPurchased;
-- (BOOL)isRingtone;
+- (id)initWithToneStoreDownload:(id)arg1;
+- (bool)isDuplicateOfTone:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (bool)isPrivateTone;
+- (bool)isProtectedContent;
+- (bool)isPurchased;
+- (bool)isRingtone;
 - (id)name;
-- (id)pid;
-- (id)playbackProperties;
+- (id)storeFrontIdentifier;
+- (unsigned long long)storeItemIdentifier;
+- (id)syncIdentifier;
 
 @end

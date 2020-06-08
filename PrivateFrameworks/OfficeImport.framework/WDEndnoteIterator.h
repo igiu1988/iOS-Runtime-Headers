@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface WDEndnoteIterator : WDTestIterator {
-}
+@interface WDEndnoteIterator : WDTestIterator
 
-- (BOOL)test:(id)arg1;
+- (bool)test:(id)arg1;
 
 @end

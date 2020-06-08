@@ -2,40 +2,53 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSString;
-
 @interface AFSpeechToken : NSObject <NSSecureCoding> {
-    int _confidenceScore;
-    double _endTime;
-    BOOL _removeSpaceAfter;
-    BOOL _removeSpaceBefore;
-    double _startTime;
-    NSString *_text;
+    long long  _confidenceScore;
+    double  _endTime;
+    NSString * _ipaPhoneSequence;
+    NSString * _phoneSequence;
+    bool  _removeSpaceAfter;
+    bool  _removeSpaceBefore;
+    double  _silenceStartTime;
+    double  _startTime;
+    NSString * _text;
 }
 
-@property int confidenceScore;
-@property double endTime;
-@property BOOL removeSpaceAfter;
-@property BOOL removeSpaceBefore;
-@property double startTime;
-@property(copy) NSString * text;
+@property (nonatomic) long long confidenceScore;
+@property (nonatomic) double endTime;
+@property (nonatomic, copy) NSString *ipaPhoneSequence;
+@property (nonatomic, copy) NSString *phoneSequence;
+@property (nonatomic) bool removeSpaceAfter;
+@property (nonatomic) bool removeSpaceBefore;
+@property (nonatomic) double silenceStartTime;
+@property (nonatomic) double startTime;
+@property (nonatomic, copy) NSString *text;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (int)confidenceScore;
+- (id)aceToken;
+- (long long)confidenceScore;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (double)endTime;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)removeSpaceAfter;
-- (BOOL)removeSpaceBefore;
-- (void)setConfidenceScore:(int)arg1;
+- (id)ipaPhoneSequence;
+- (bool)isEqual:(id)arg1;
+- (id)phoneSequence;
+- (bool)removeSpaceAfter;
+- (bool)removeSpaceBefore;
+- (void)setConfidenceScore:(long long)arg1;
 - (void)setEndTime:(double)arg1;
-- (void)setRemoveSpaceAfter:(BOOL)arg1;
-- (void)setRemoveSpaceBefore:(BOOL)arg1;
+- (void)setIpaPhoneSequence:(id)arg1;
+- (void)setPhoneSequence:(id)arg1;
+- (void)setRemoveSpaceAfter:(bool)arg1;
+- (void)setRemoveSpaceBefore:(bool)arg1;
+- (void)setSilenceStartTime:(double)arg1;
 - (void)setStartTime:(double)arg1;
 - (void)setText:(id)arg1;
+- (double)silenceStartTime;
 - (double)startTime;
 - (id)text;
 

@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class NSString, UIImage, UIImageView;
-
 @interface PLPersonTableViewCell : UITableViewCell {
-    UIImageView *__personIconImageView;
-    UIImage *__personMonogramImage;
-    NSString *_personFirstName;
-    UIImage *_personIcon;
-    NSString *_personLastName;
+    UIImageView * __personIconImageView;
+    UIImage * __personMonogramImage;
+    NSString * _personFirstName;
+    UIImage * _personIcon;
+    NSString * _personLastName;
 }
 
-@property(setter=_setPersonIconImageView:,retain) UIImageView * _personIconImageView;
-@property(setter=_setPersonMonogramImage:,retain) UIImage * _personMonogramImage;
-@property(copy) NSString * personFirstName;
-@property(retain) UIImage * personIcon;
-@property(copy) NSString * personLastName;
+@property (setter=_setPersonIconImageView:, nonatomic, retain) UIImageView *_personIconImageView;
+@property (setter=_setPersonMonogramImage:, nonatomic, retain) UIImage *_personMonogramImage;
+@property (nonatomic, copy) NSString *personFirstName;
+@property (nonatomic, retain) UIImage *personIcon;
+@property (nonatomic, copy) NSString *personLastName;
 
 - (id)_personIconImageView;
 - (id)_personMonogramImage;

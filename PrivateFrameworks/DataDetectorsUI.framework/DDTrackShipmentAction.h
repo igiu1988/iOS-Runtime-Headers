@@ -2,10 +2,13 @@
    Image: /System/Library/PrivateFrameworks/DataDetectorsUI.framework/DataDetectorsUI
  */
 
-@interface DDTrackShipmentAction : DDAction {
-}
+@interface DDTrackShipmentAction : DDAction
 
+- (bool)canBePerformedByOpeningURL;
 - (id)localizedName;
-- (void)perform;
+- (id)notificationIconBundleIdentifier;
+- (id)notificationTitle;
+- (id)notificationURL;
+- (void)performFromView:(id)arg1;
 
 @end

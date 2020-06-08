@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSNumber, NSString, NSURL;
-
 @interface SKUISearchRequest : NSObject <NSCopying> {
-    NSNumber *_searchHintIndex;
-    NSString *_searchHintOriginalTerm;
-    NSString *_term;
-    NSURL *_url;
+    NSNumber * _searchHintIndex;
+    NSString * _searchHintOriginalTerm;
+    NSString * _term;
+    NSURL * _url;
 }
 
-@property(copy) NSURL * URL;
-@property(copy) NSNumber * searchHintIndex;
-@property(copy) NSString * searchHintOriginalTerm;
-@property(copy) NSString * term;
+@property (nonatomic, copy) NSURL *URL;
+@property (nonatomic, copy) NSNumber *searchHintIndex;
+@property (nonatomic, copy) NSString *searchHintOriginalTerm;
+@property (nonatomic, copy) NSString *term;
 
 - (void).cxx_destruct;
 - (id)URL;

@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKCollectionViewDataSource;
-
 @interface GKSearchBar : UISearchBar {
-    GKCollectionViewDataSource *_dataSource;
-    int _sectionIndex;
+    GKCollectionViewDataSource * _dataSource;
+    long long  _sectionIndex;
 }
 
-@property(retain) GKCollectionViewDataSource * dataSource;
-@property int sectionIndex;
+@property (nonatomic, retain) GKCollectionViewDataSource *dataSource;
+@property (nonatomic) long long sectionIndex;
 
 - (id)dataSource;
 - (void)dealloc;
-- (int)sectionIndex;
+- (long long)sectionIndex;
 - (void)setDataSource:(id)arg1;
-- (void)setSectionIndex:(int)arg1;
+- (void)setSectionIndex:(long long)arg1;
 
 @end

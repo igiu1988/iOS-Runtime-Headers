@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/RemoteMediaServices.framework/RemoteMediaServices
  */
 
-@class NSString;
-
 @interface RMSNowPlayingArtworkAvailableMessage : PBCodable <NSCopying> {
+    NSString * _artworkIdentifier;
     struct { 
         unsigned int sessionIdentifier : 1; 
-    NSString *_artworkIdentifier;
-    } _has;
-    int _sessionIdentifier;
+    }  _has;
+    int  _sessionIdentifier;
 }
 
-@property(retain) NSString * artworkIdentifier;
-@property(readonly) BOOL hasArtworkIdentifier;
-@property BOOL hasSessionIdentifier;
-@property int sessionIdentifier;
+@property (nonatomic, retain) NSString *artworkIdentifier;
+@property (nonatomic, readonly) bool hasArtworkIdentifier;
+@property (nonatomic) bool hasSessionIdentifier;
+@property (nonatomic) int sessionIdentifier;
 
 - (void).cxx_destruct;
 - (id)artworkIdentifier;
@@ -23,15 +21,15 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasArtworkIdentifier;
-- (BOOL)hasSessionIdentifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasArtworkIdentifier;
+- (bool)hasSessionIdentifier;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (int)sessionIdentifier;
 - (void)setArtworkIdentifier:(id)arg1;
-- (void)setHasSessionIdentifier:(BOOL)arg1;
+- (void)setHasSessionIdentifier:(bool)arg1;
 - (void)setSessionIdentifier:(int)arg1;
 - (void)writeTo:(id)arg1;
 

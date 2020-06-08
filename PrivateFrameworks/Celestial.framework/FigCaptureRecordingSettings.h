@@ -2,29 +2,30 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSString, NSURL;
-
-@interface FigCaptureRecordingSettings : NSObject <NSCoding> {
+@interface FigCaptureRecordingSettings : NSObject <NSCopying, NSSecureCoding> {
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
-    } _maxDuration;
-    long long _maxFileSize;
-    long long _minFreeDiskSpaceLimit;
-    NSString *_outputFileType;
-    NSURL *_outputURL;
-    long long _settingsID;
+    }  _maxDuration;
+    long long  _maxFileSize;
+    long long  _minFreeDiskSpaceLimit;
+    NSString * _outputFileType;
+    NSURL * _outputURL;
+    long long  _settingsID;
 }
 
-@property struct { long long x1; int x2; unsigned int x3; long long x4; } maxDuration;
-@property long long maxFileSize;
-@property long long minFreeDiskSpaceLimit;
-@property(copy) NSString * outputFileType;
-@property(copy) NSURL * outputURL;
-@property long long settingsID;
+@property (nonatomic) struct { long long x1; int x2; unsigned int x3; long long x4; } maxDuration;
+@property (nonatomic) long long maxFileSize;
+@property (nonatomic) long long minFreeDiskSpaceLimit;
+@property (nonatomic, copy) NSString *outputFileType;
+@property (nonatomic, copy) NSURL *outputURL;
+@property (nonatomic) long long settingsID;
 
++ (bool)supportsSecureCoding;
+
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;

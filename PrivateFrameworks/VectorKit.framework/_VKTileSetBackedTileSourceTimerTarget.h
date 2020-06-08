@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class VKTileSetBackedTileSource;
-
 @interface _VKTileSetBackedTileSourceTimerTarget : NSObject {
-    VKTileSetBackedTileSource *_tileSource;
+    VKTileSetBackedTileSource * _tileSource;
 }
 
-@property VKTileSetBackedTileSource * tileSource;
+@property (nonatomic) VKTileSetBackedTileSource *tileSource;
 
 - (void)expireTiles:(id)arg1;
 - (void)setTileSource:(id)arg1;

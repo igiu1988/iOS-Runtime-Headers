@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSMutableArray, NSObject<OS_dispatch_queue>;
-
 @interface AVCaptureDeviceControlRequestQueue : NSObject {
-    NSMutableArray *_mutableArray;
-    NSObject<OS_dispatch_queue> *_serialQueue;
+    NSMutableArray * _mutableArray;
+    NSObject<OS_dispatch_queue> * _serialQueue;
 }
 
 - (void)dealloc;

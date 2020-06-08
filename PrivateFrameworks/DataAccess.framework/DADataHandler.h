@@ -2,35 +2,34 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-@class NSString;
-
 @interface DADataHandler : NSObject {
-    NSString *_changeTrackingID;
-    void *_container;
+    NSString * _changeTrackingID;
+    void * _container;
 }
 
-@property(copy) NSString * changeTrackingID;
-@property void* container;
+@property (nonatomic, copy) NSString *changeTrackingID;
+@property (nonatomic) void*container;
 
-+ (id)newDataHandlerForDataclass:(int)arg1 container:(void*)arg2 changeTrackingID:(id)arg3;
++ (id)newDataHandlerForDataclass:(long long)arg1 container:(void*)arg2 changeTrackingID:(id)arg3;
 
 - (void).cxx_destruct;
 - (id)changeTrackingID;
-- (BOOL)closeDBAndSave:(BOOL)arg1;
+- (bool)closeDBAndSave:(bool)arg1;
 - (void*)container;
 - (void*)copyLocalObjectFromId:(int)arg1;
 - (id)copyOfAllLocalObjectsInContainer;
-- (int)dataclass;
+- (long long)dataclass;
 - (void)dealloc;
 - (void)drainContainer;
 - (void)drainSuperfluousChanges;
+- (id)getDAExceptionObjectWithLocalItem:(void*)arg1 originalEvent:(id)arg2 account:(id)arg3;
 - (id)getDAObjectWithLocalItem:(void*)arg1 serverId:(id)arg2 account:(id)arg3;
 - (int)getIdFromLocalObject:(void*)arg1;
 - (id)initWithContainer:(void*)arg1 changeTrackingID:(id)arg2;
 - (void)openDB;
-- (BOOL)saveContainer;
+- (bool)saveContainer;
 - (void)setChangeTrackingID:(id)arg1;
 - (void)setContainer:(void*)arg1;
-- (BOOL)wipeServerIds;
+- (bool)wipeServerIds;
 
 @end

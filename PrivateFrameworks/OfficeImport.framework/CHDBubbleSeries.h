@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class CHDData;
-
 @interface CHDBubbleSeries : CHDSeries {
-    boolmBubble3D;
-    boolmInvertIfNegative;
-    boolmShowBubbleSize;
-    CHDData *mSizeData;
+    bool  mBubble3D;
+    bool  mInvertIfNegative;
+    bool  mShowBubbleSize;
+    CHDData * mSizeData;
 }
 
 - (void)dealloc;

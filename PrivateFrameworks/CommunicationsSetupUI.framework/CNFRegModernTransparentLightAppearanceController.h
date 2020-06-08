@@ -2,16 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CommunicationsSetupUI.framework/CommunicationsSetupUI
  */
 
-@interface CNFRegModernTransparentLightAppearanceController : CNFRegModernAppearanceController {
-}
+@interface CNFRegModernTransparentLightAppearanceController : CNFRegModernAppearanceController
 
-- (int)modalPresentationStyle;
-- (int)navigationBarActivityIndicatorStyle;
+- (long long)modalPresentationStyle;
+- (long long)navigationBarActivityIndicatorStyle;
 - (id)navigationBarTintColor;
 - (id)splashEntryFieldLabelTextColor;
 - (id)splashEntryFieldTextColor;
 - (id)splashEntryPlaceholderTextColor;
-- (BOOL)splashScreenShowsIcon;
+- (bool)splashScreenShowsIcon;
 - (id)splashSignInFieldsBackgroundColor;
 - (id)splashSignInFieldsBorderColor;
 - (id)tableBackgroundColor;

@@ -2,34 +2,29 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CKBalloonImageView, UIButton, UIImage;
-
 @interface CKTranscriptMessageCell : CKTranscriptCell {
-    CKBalloonImageView *_contactImageView;
-    UIButton *_failureButton;
-    BOOL _wantsContactImageLayout;
+    UIButton * _failureButton;
+    bool  _wantsContactImageLayout;
 }
 
-@property(retain) UIImage * contactImage;
-@property(retain) CKBalloonImageView * contactImageView;
-@property BOOL failed;
-@property(retain) UIButton * failureButton;
-@property BOOL wantsContactImageLayout;
+@property (nonatomic) bool failed;
+@property (nonatomic, retain) UIButton *failureButton;
+@property (nonatomic, readonly) bool failureButtonAdjustsContentAlignmentRect;
+@property (nonatomic) bool wantsContactImageLayout;
 
-+ (float)failureButtonWidthPlusSpacing;
++ (double)failureButtonWidthPlusSpacing;
 
-- (id)contactImage;
+- (void).cxx_destruct;
 - (id)contactImageView;
-- (void)dealloc;
 - (id)description;
-- (BOOL)failed;
+- (bool)failed;
 - (id)failureButton;
+- (bool)failureButtonAdjustsContentAlignmentRect;
 - (void)layoutSubviewsForContents;
-- (void)setContactImage:(id)arg1;
-- (void)setContactImageView:(id)arg1;
-- (void)setFailed:(BOOL)arg1;
+- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })safeAreaInsets;
+- (void)setFailed:(bool)arg1;
 - (void)setFailureButton:(id)arg1;
-- (void)setWantsContactImageLayout:(BOOL)arg1;
-- (BOOL)wantsContactImageLayout;
+- (void)setWantsContactImageLayout:(bool)arg1;
+- (bool)wantsContactImageLayout;
 
 @end

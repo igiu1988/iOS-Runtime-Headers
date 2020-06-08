@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/WatchKit.framework/WatchKit
  */
 
-@class NSString;
-
 @interface SPWeatherComplicationData : SPComplicationData <NSSecureCoding> {
-    int _currentConditionsEnum;
-    NSString *_currentConditionsText;
-    NSString *_highLowText;
-    NSString *_locationText;
-    NSString *_temperatureText;
+    long long  _currentConditionsEnum;
+    NSString * _currentConditionsText;
+    NSString * _highLowText;
+    NSString * _locationText;
+    NSString * _temperatureText;
 }
 
-@property int currentConditionsEnum;
-@property(retain) NSString * currentConditionsText;
-@property(retain) NSString * highLowText;
-@property(retain) NSString * locationText;
-@property(retain) NSString * temperatureText;
+@property (nonatomic) long long currentConditionsEnum;
+@property (nonatomic, retain) NSString *currentConditionsText;
+@property (nonatomic, retain) NSString *highLowText;
+@property (nonatomic, retain) NSString *locationText;
+@property (nonatomic, retain) NSString *temperatureText;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (int)currentConditionsEnum;
+- (long long)currentConditionsEnum;
 - (id)currentConditionsText;
 - (void)encodeWithCoder:(id)arg1;
 - (id)highLowText;
 - (id)initWithCoder:(id)arg1;
 - (id)locationText;
-- (void)setCurrentConditionsEnum:(int)arg1;
+- (void)setCurrentConditionsEnum:(long long)arg1;
 - (void)setCurrentConditionsText:(id)arg1;
 - (void)setHighLowText:(id)arg1;
 - (void)setLocationText:(id)arg1;

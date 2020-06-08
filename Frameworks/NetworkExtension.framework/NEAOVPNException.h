@@ -2,30 +2,28 @@
    Image: /System/Library/Frameworks/NetworkExtension.framework/NetworkExtension
  */
 
-@class NSString;
-
-@interface NEAOVPNException : NSObject <NSSecureCoding, NSCopying> {
-    int _action;
-    NSString *_bundleIdentifier;
-    NSString *_serviceName;
+@interface NEAOVPNException : NSObject <NSCopying, NSSecureCoding> {
+    long long  _action;
+    NSString * _bundleIdentifier;
+    NSString * _serviceName;
 }
 
-@property int action;
-@property(copy) NSString * bundleIdentifier;
-@property(copy) NSString * serviceName;
+@property long long action;
+@property (copy) NSString *bundleIdentifier;
+@property (copy) NSString *serviceName;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (int)action;
+- (long long)action;
 - (id)bundleIdentifier;
-- (BOOL)checkValidityAndCollectErrors:(id)arg1;
+- (bool)checkValidityAndCollectErrors:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (id)descriptionWithIndent:(int)arg1;
+- (id)descriptionWithIndent:(int)arg1 options:(unsigned long long)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)serviceName;
-- (void)setAction:(int)arg1;
+- (void)setAction:(long long)arg1;
 - (void)setBundleIdentifier:(id)arg1;
 - (void)setServiceName:(id)arg1;
 

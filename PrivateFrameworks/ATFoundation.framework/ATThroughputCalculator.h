@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/ATFoundation.framework/ATFoundation
  */
 
-@class ATMovingAverage;
-
 @interface ATThroughputCalculator : NSObject {
-    ATMovingAverage *_average;
-    double _currentValue;
-    double _lastUpdate;
-    double _startTime;
-    BOOL _suspended;
+    ATMovingAverage * _average;
+    double  _currentValue;
+    double  _lastUpdate;
+    double  _startTime;
+    bool  _suspended;
 }
 
-@property(readonly) double throughput;
+@property (nonatomic, readonly) double throughput;
 
 - (void).cxx_destruct;
 - (id)init;
 - (void)resume;
 - (void)suspend;
 - (double)throughput;
-- (BOOL)update:(double)arg1;
+- (bool)update:(double)arg1;
 
 @end

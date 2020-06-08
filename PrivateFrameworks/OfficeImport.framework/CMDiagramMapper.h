@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class CMDrawingContext, ODDDiagram;
-
 @interface CMDiagramMapper : CMDrawableMapper {
-    ODDDiagram *mDiagram;
-    CMDrawingContext *mDrawingContext;
+    ODDDiagram * mDiagram;
+    CMDrawingContext * mDrawingContext;
 }
 
 + (int)diagramTypeFromString:(id)arg1;
 
+- (void).cxx_destruct;
 - (id)copyDiagramMapperForId:(id)arg1;
 - (id)diagram;
 - (id)identifierFromLayoutTypeId:(id)arg1;

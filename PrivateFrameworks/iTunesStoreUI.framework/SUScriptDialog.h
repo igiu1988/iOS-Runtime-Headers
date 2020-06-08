@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSNumber, NSString;
-
 @interface SUScriptDialog : SUScriptObject {
-    NSString *_body;
-    id _buttons;
-    NSNumber *_cancelButtonIndex;
-    NSNumber *_destructiveButtonIndex;
-    id _textFields;
-    NSString *_title;
+    NSString * _body;
+    id  _buttons;
+    NSNumber * _cancelButtonIndex;
+    NSNumber * _destructiveButtonIndex;
+    id  _textFields;
+    NSString * _title;
 }
 
-@property(retain) NSString * body;
-@property(retain) id buttons;
-@property(retain) NSNumber * cancelButtonIndex;
-@property(retain) NSNumber * destructiveButtonIndex;
-@property(retain) id textFields;
-@property(retain) NSString * title;
+@property (retain) NSString *body;
+@property (retain) id buttons;
+@property (retain) NSNumber *cancelButtonIndex;
+@property (retain) NSNumber *destructiveButtonIndex;
+@property (retain) id textFields;
+@property (retain) NSString *title;
 
 + (void)initialize;
 + (id)webScriptNameForKeyName:(id)arg1;

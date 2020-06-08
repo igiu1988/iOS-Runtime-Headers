@@ -3,8 +3,8 @@
  */
 
 @interface GQGroupDisplayInfo : NSObject {
-    int mDisplayType;
-    BOOL mIsTypeVisible;
+    int  mDisplayType;
+    bool  mIsTypeVisible;
 }
 
 @end

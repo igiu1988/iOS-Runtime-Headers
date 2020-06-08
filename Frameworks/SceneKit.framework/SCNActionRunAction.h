@@ -2,15 +2,13 @@
    Image: /System/Library/Frameworks/SceneKit.framework/SceneKit
  */
 
-@class NSString, SCNAction;
-
 @interface SCNActionRunAction : SCNAction {
-    SCNAction *_action;
-    NSString *_actionKey;
-    BOOL _fired;
-    BOOL _runOnSubSprite;
-    NSString *_subSpriteKey;
-    BOOL _waitForKeyedAction;
+    SCNAction * _action;
+    NSString * _actionKey;
+    bool  _fired;
+    bool  _runOnSubSprite;
+    NSString * _subSpriteKey;
+    bool  _waitForKeyedAction;
 }
 
 + (id)runAction:(id)arg1 afterActionWithKey:(id)arg2;
@@ -19,7 +17,7 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)init;
-- (BOOL)isCustom;
+- (bool)isCustom;
 - (id)reversedAction;
 - (void)updateWithTarget:(id)arg1 forTime:(double)arg2;
 - (void)willStartWithTarget:(id)arg1 atTime:(double)arg2;

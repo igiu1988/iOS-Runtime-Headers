@@ -2,50 +2,65 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOComposedRoute, NSArray;
-
 @interface GEOComposedRouteLeg : NSObject {
+    GEOComposedRoute * _composedRoute;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _pointRange;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
-    GEOComposedRoute *_composedRoute;
-    } _pointRange;
-    } _stepRange;
-    int _type;
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _stepRange;
+    long long  _type;
 }
 
-@property GEOComposedRoute * composedRoute;
-@property(readonly) unsigned int endPointIndex;
-@property(readonly) unsigned int endStepIndex;
-@property(readonly) unsigned int pointCount;
-@property(readonly) struct _NSRange { unsigned int x1; unsigned int x2; } pointRange;
-@property(readonly) unsigned int startPointIndex;
-@property(readonly) unsigned int startStepIndex;
-@property(readonly) unsigned int stepCount;
-@property(readonly) struct _NSRange { unsigned int x1; unsigned int x2; } stepRange;
-@property(readonly) NSArray * steps;
-@property(readonly) int transportType;
-@property(readonly) int type;
+@property (nonatomic) GEOComposedRoute *composedRoute;
+@property (nonatomic, readonly) unsigned int endPointIndex;
+@property (nonatomic, readonly) unsigned long long endStepIndex;
+@property (nonatomic, readonly) GEOPBTransitStop *endingTransitStop;
+@property (nonatomic, readonly) NSArray *enterTransitAccessPoints;
+@property (nonatomic, readonly) NSArray *exitTransitAccessPoints;
+@property (nonatomic, readonly) double expectedTime;
+@property (nonatomic, readonly) unsigned long long numberOfTransitStops;
+@property (nonatomic, readonly) unsigned int pointCount;
+@property (nonatomic, readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } pointRange;
+@property (nonatomic, readonly) unsigned int startPointIndex;
+@property (nonatomic, readonly) unsigned long long startStepIndex;
+@property (nonatomic, readonly) GEOPBTransitStop *startingTransitStop;
+@property (nonatomic, readonly) unsigned long long stepCount;
+@property (nonatomic, readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } stepRange;
+@property (nonatomic, readonly) NSArray *steps;
+@property (nonatomic, readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } transitStepRange;
+@property (nonatomic, readonly) int transportType;
+@property (nonatomic, readonly) long long type;
 
+- (void).cxx_destruct;
+- (bool)_MapsCarPlay_isEqual:(id)arg1;
 - (id)composedRoute;
+- (bool)contains:(id)arg1;
 - (id)description;
 - (unsigned int)endPointIndex;
-- (unsigned int)endStepIndex;
-- (id)initWithComposedRoute:(id)arg1 routeLegType:(int)arg2 stepRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg3 pointRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg4;
+- (unsigned long long)endStepIndex;
+- (id)endingTransitStop;
+- (id)enterTransitAccessPoints;
+- (id)exitTransitAccessPoints;
+- (double)expectedTime;
+- (id)initWithComposedRoute:(id)arg1 routeLegType:(long long)arg2 stepRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg3 pointRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg4;
+- (unsigned long long)numberOfTransitStops;
 - (unsigned int)pointCount;
-- (struct _NSRange { unsigned int x1; unsigned int x2; })pointRange;
-- (double)remainingDistanceAlongLegFromStepIndex:(unsigned int)arg1 currentStepRemainingDistance:(double)arg2;
-- (double)remainingTimeAlongLegFromStepIndex:(unsigned int)arg1 currentStepRemainingDistance:(double)arg2;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })pointRange;
+- (double)remainingDistanceAlongLegFromStepIndex:(unsigned long long)arg1 currentStepRemainingDistance:(double)arg2;
+- (double)remainingTimeAlongLegFromStepIndex:(unsigned long long)arg1 currentStepRemainingDistance:(double)arg2;
 - (void)setComposedRoute:(id)arg1;
 - (unsigned int)startPointIndex;
-- (unsigned int)startStepIndex;
-- (unsigned int)stepCount;
-- (struct _NSRange { unsigned int x1; unsigned int x2; })stepRange;
+- (unsigned long long)startStepIndex;
+- (id)startingTransitStop;
+- (unsigned long long)stepCount;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })stepRange;
 - (id)steps;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })transitStepRange;
 - (int)transportType;
-- (int)type;
+- (long long)type;
 
 @end

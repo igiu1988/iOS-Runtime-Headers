@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class GKPlayer, NSString, UIImage;
-
 @interface GKPlayerPhotoView : UIImageView <GKPlayerPhotoContainer> {
-    UIImage *_actualImage;
-    int _onAdaptiveBackground;
-    GKPlayer *_player;
-    BOOL _selected;
+    UIImage * _actualImage;
+    long long  _onAdaptiveBackground;
+    GKPlayer * _player;
+    bool  _selected;
 }
 
-@property(retain) UIImage * actualImage;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(getter=isOnAdaptiveBackground) int onAdaptiveBackground;
-@property(retain) GKPlayer * player;
-@property BOOL selected;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) UIImage *actualImage;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (getter=isOnAdaptiveBackground, nonatomic) long long onAdaptiveBackground;
+@property (nonatomic, retain) GKPlayer *player;
+@property (nonatomic) bool selected;
+@property (readonly) Class superclass;
 
 + (void)initialize;
 
@@ -26,16 +24,16 @@
 - (void)dealloc;
 - (id)image;
 - (void)invalidateIntrinsicContentSize;
-- (int)isOnAdaptiveBackground;
+- (long long)isOnAdaptiveBackground;
 - (id)player;
 - (void)refreshPhoto;
-- (void)refreshPhotoWithCompletionHandler:(id)arg1;
-- (BOOL)selected;
+- (void)refreshPhotoWithCompletionHandler:(id /* block */)arg1;
+- (bool)selected;
 - (void)setActualImage:(id)arg1;
-- (void)setHighlighted:(BOOL)arg1;
+- (void)setHighlighted:(bool)arg1;
 - (void)setImage:(id)arg1;
-- (void)setOnAdaptiveBackground:(int)arg1;
+- (void)setOnAdaptiveBackground:(long long)arg1;
 - (void)setPlayer:(id)arg1;
-- (void)setSelected:(BOOL)arg1;
+- (void)setSelected:(bool)arg1;
 
 @end

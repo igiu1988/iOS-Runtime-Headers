@@ -2,31 +2,39 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSString;
-
-@interface NSURLQueryItem : NSObject <NSSecureCoding, NSCopying> {
-    NSString *_name;
-    NSString *_value;
+@interface NSURLQueryItem : NSObject <NSCopying, NSSecureCoding> {
+    NSString * _name;
+    NSString * _value;
 }
 
-@property(readonly) NSString * name;
-@property(readonly) NSString * value;
+@property (readonly) NSString *name;
+@property (readonly) NSString *value;
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
+
++ (bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)queryItemWithName:(id)arg1 value:(id)arg2;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (void)finalize;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithName:(id)arg1 value:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)name;
 - (id)value;
+
+// Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
+
+- (id)_geo_unescapedValue;
+
+// Image: /System/Library/PrivateFrameworks/TelephonyUtilities.framework/TelephonyUtilities
+
++ (id)queryItemForHandleType:(long long)arg1;
++ (id)queryItemValueForHandleType:(long long)arg1;
 
 @end

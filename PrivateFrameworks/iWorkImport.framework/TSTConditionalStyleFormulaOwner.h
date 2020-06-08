@@ -2,42 +2,68 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, TSCECalculationEngine, TSCECellCoordinateVector, TSTTableInfo;
-
 @interface TSTConditionalStyleFormulaOwner : NSObject <TSCEFormulaOwning> {
-    TSCECalculationEngine *mCalculationEngine;
-    TSCECellCoordinateVector *mCellsToInvalidate;
-    TSCECellCoordinateVector *mCellsToRewrite;
-    struct __CFUUID { } *mOwnerID;
-    TSTTableInfo *mTableInfo;
+    TSCECalculationEngine * _calculationEngine;
+    TSCECellCoordinateVector * _cellsToInvalidate;
+    struct UUIDData<TSP::UUIDData> { 
+        union { 
+            unsigned char _uuid[16]; 
+            struct { 
+                unsigned char byte0; 
+                unsigned char byte1; 
+                unsigned char byte2; 
+                unsigned char byte3; 
+                unsigned char byte4; 
+                unsigned char byte5; 
+                unsigned char byte6; 
+                unsigned char byte7; 
+                unsigned char byte8; 
+                unsigned char byte9; 
+                unsigned char byte10; 
+                unsigned char byte11; 
+                unsigned char byte12; 
+                unsigned char byte13; 
+                unsigned char byte14; 
+                unsigned char byte15; 
+            } _cfuuid; 
+            struct { 
+                unsigned long long _lower; 
+                unsigned long long _upper; 
+            } ; 
+        } ; 
+    }  _ownerUID;
+    TSTTableModel * _tableModel;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_1_1[16]; struct { unsigned char x_2_2_1; unsigned char x_2_2_2; unsigned char x_2_2_3; unsigned char x_2_2_4; unsigned char x_2_2_5; unsigned char x_2_2_6; unsigned char x_2_2_7; unsigned char x_2_2_8; unsigned char x_2_2_9; unsigned char x_2_2_10; unsigned char x_2_2_11; unsigned char x_2_2_12; unsigned char x_2_2_13; unsigned char x_2_2_14; unsigned char x_2_2_15; unsigned char x_2_2_16; } x_1_1_2; struct { unsigned long long x_3_2_1; unsigned long long x_3_2_2; } x_1_1_3; } x1; } ownerUID;
+@property (readonly) Class superclass;
+@property (nonatomic) TSTTableModel *tableModel;
 
-- (void)addFormulaForConditionalStyle:(id)arg1 atCellID:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg2;
-- (void)beginRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
-- (void)changedConditionForCellID:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg1;
-- (BOOL)checkConditionForCellID:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg1 withConditionalStyle:(id)arg2 withIndex:(unsigned int*)arg3;
-- (void)dealloc;
-- (id)endRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
-- (id)initWithTableInfo:(id)arg1 ownerID:(struct __CFUUID { }*)arg2;
-- (id)initWithTableInfo:(id)arg1;
-- (void)invalidateForCalculationEngine:(id)arg1;
-- (struct __CFUUID { }*)ownerID;
-- (struct { BOOL x1; BOOL x2; })recalculateForCalculationEngine:(id)arg1 formulaID:(struct { unsigned int x1 : 24; unsigned int x2 : 8; })arg2 isInCycle:(BOOL)arg3 hasCalculatedPrecedents:(BOOL)arg4;
-- (int)registerWithCalculationEngineChoosingUniqueID:(id)arg1;
-- (void)releaseForCalculationEngine:(id)arg1;
-- (void)removeFormulaAtCellID:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg1;
-- (void)replaceFormulaForConditionalStyle:(id)arg1 atCellID:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg2;
-- (void)retainForCalculationEngine:(id)arg1;
-- (void)rewriteForCalculationEngine:(id)arg1 formulaID:(struct { unsigned int x1 : 24; unsigned int x2 : 8; })arg2 rewriteSpec:(id)arg3;
-- (BOOL)serializeCalculations;
-- (void)setOwnerID:(struct __CFUUID { }*)arg1;
-- (void)setTableInfo:(id)arg1;
-- (id)tableInfo;
-- (void)writeResultsForCalculationEngine:(id)arg1;
++ (id)allCondStyleFormulasForTable:(id)arg1;
+
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)addFormulaForConditionalStyle:(id)arg1 atCellID:(struct TSUCellCoord { unsigned int x1; unsigned short x2; bool x3; bool x4; })arg2;
+- (void)changedConditionForCellID:(struct TSUCellCoord { unsigned int x1; unsigned short x2; bool x3; bool x4; })arg1;
+- (bool)checkConditionForCellID:(struct TSUCellCoord { unsigned int x1; unsigned short x2; bool x3; bool x4; })arg1 withConditionalStyle:(id)arg2 withIndex:(unsigned long long*)arg3;
+- (id)initWithTableModel:(id)arg1;
+- (id)initWithTableModel:(id)arg1 ownerUID:(const struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_1_1[16]; struct { unsigned char x_2_2_1; unsigned char x_2_2_2; unsigned char x_2_2_3; unsigned char x_2_2_4; unsigned char x_2_2_5; unsigned char x_2_2_6; unsigned char x_2_2_7; unsigned char x_2_2_8; unsigned char x_2_2_9; unsigned char x_2_2_10; unsigned char x_2_2_11; unsigned char x_2_2_12; unsigned char x_2_2_13; unsigned char x_2_2_14; unsigned char x_2_2_15; unsigned char x_2_2_16; } x_1_1_2; struct { unsigned long long x_3_2_1; unsigned long long x_3_2_2; } x_1_1_3; } x1; }*)arg2;
+- (void)invalidateForCalcEngine:(id)arg1;
+- (id)linkedResolver;
+- (int)ownerKind;
+- (struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_1_1[16]; struct { unsigned char x_2_2_1; unsigned char x_2_2_2; unsigned char x_2_2_3; unsigned char x_2_2_4; unsigned char x_2_2_5; unsigned char x_2_2_6; unsigned char x_2_2_7; unsigned char x_2_2_8; unsigned char x_2_2_9; unsigned char x_2_2_10; unsigned char x_2_2_11; unsigned char x_2_2_12; unsigned char x_2_2_13; unsigned char x_2_2_14; unsigned char x_2_2_15; unsigned char x_2_2_16; } x_1_1_2; struct { unsigned long long x_3_2_1; unsigned long long x_3_2_2; } x_1_1_3; } x1; })ownerUID;
+- (struct { bool x1; bool x2; bool x3; })recalculateForCalcEngine:(id)arg1 atFormulaCoord:(struct TSUCellCoord { unsigned int x1; unsigned short x2; bool x3; bool x4; })arg2 recalcOptions:(struct { bool x1; bool x2; })arg3;
+- (int)registerWithCalcEngine:(id)arg1;
+- (void)removeFormulaAtCellID:(struct TSUCellCoord { unsigned int x1; unsigned short x2; bool x3; bool x4; })arg1;
+- (void)removeFormulasInRange:(struct TSUCellRect { struct TSUCellCoord { unsigned int x_1_1_1; unsigned short x_1_1_2; bool x_1_1_3; bool x_1_1_4; } x1; struct { unsigned int x_2_1_1; unsigned int x_2_1_2; } x2; })arg1;
+- (void)replaceFormulaForConditionalStyle:(id)arg1 atCellID:(struct TSUCellCoord { unsigned int x1; unsigned short x2; bool x3; bool x4; })arg2;
+- (void)setOwnerUID:(struct UUIDData<TSP::UUIDData> { union { unsigned char x_1_1_1[16]; struct { unsigned char x_2_2_1; unsigned char x_2_2_2; unsigned char x_2_2_3; unsigned char x_2_2_4; unsigned char x_2_2_5; unsigned char x_2_2_6; unsigned char x_2_2_7; unsigned char x_2_2_8; unsigned char x_2_2_9; unsigned char x_2_2_10; unsigned char x_2_2_11; unsigned char x_2_2_12; unsigned char x_2_2_13; unsigned char x_2_2_14; unsigned char x_2_2_15; unsigned char x_2_2_16; } x_1_1_2; struct { unsigned long long x_3_2_1; unsigned long long x_3_2_2; } x_1_1_3; } x1; })arg1;
+- (void)setTableModel:(id)arg1;
+- (id)tableModel;
+- (void)unregisterFromCalcEngine;
+- (void)writeResultsForCalcEngine:(id)arg1;
 
 @end

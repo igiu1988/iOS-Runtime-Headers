@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/WebContentAnalysis.framework/WebContentAnalysis
  */
 
-@class NSMutableDictionary;
-
 @interface WFTagFactory : NSObject {
-    NSMutableDictionary *sharedTags;
+    NSMutableDictionary * sharedTags;
 }
 
 + (id)defaultFactory;

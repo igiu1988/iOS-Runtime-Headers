@@ -2,42 +2,41 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSArray, NSIndexSet;
-
 @interface TSTTableSortOrder : NSObject <NSCopying> {
-    NSIndexSet *mCachedIndices;
-    NSArray *mRules;
-    int mType;
+    NSIndexSet * _cachedIndexes;
+    NSArray * _rules;
+    int  _type;
 }
 
-@property(readonly) NSIndexSet * columnIndices;
-@property(readonly) BOOL empty;
-@property(readonly) unsigned int ruleCount;
-@property(readonly) NSArray * rules;
-@property(readonly) int type;
+@property (nonatomic, readonly) NSIndexSet *baseColumnIndices;
+@property (nonatomic, retain) NSIndexSet *cachedIndexes;
+@property (nonatomic, readonly) bool empty;
+@property (nonatomic, readonly) unsigned long long ruleCount;
+@property (nonatomic, readonly) NSArray *rules;
+@property (nonatomic, readonly) int type;
 
++ (id)sortOrderWithBaseColumn:(struct TSUModelColumnIndex { unsigned short x1; })arg1 direction:(int)arg2 type:(int)arg3;
 + (id)sortOrderWithRules:(id)arg1 type:(int)arg2;
 
-- (id)columnIndices;
+- (void).cxx_destruct;
+- (id)baseColumnIndices;
+- (id)cachedIndexes;
+- (bool)containsAnyRulesInBaseColumns:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
-- (BOOL)empty;
-- (void)encodeToArchive:(struct TableSortOrderArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct RepeatedPtrField<TST::TableSortOrderArchive_SortRuleArchive> { void **x_3_1_1; int x_3_1_2; int x_3_1_3; int x_3_1_4; } x3; int x4; int x5; unsigned int x6[1]; }*)arg1;
-- (unsigned int)hash;
-- (id)initFromArchive:(const struct TableSortOrderArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct RepeatedPtrField<TST::TableSortOrderArchive_SortRuleArchive> { void **x_3_1_1; int x_3_1_2; int x_3_1_3; int x_3_1_4; } x3; int x4; int x5; unsigned int x6[1]; }*)arg1;
+- (bool)empty;
+- (void)encodeToArchive:(struct TableSortOrderArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct RepeatedPtrField<TST::TableSortOrderArchive_SortRuleArchive> { void **x_5_1_1; int x_5_1_2; int x_5_1_3; int x_5_1_4; } x5; int x6; }*)arg1;
+- (unsigned long long)hash;
+- (id)initFromArchive:(const struct TableSortOrderArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct RepeatedPtrField<TST::TableSortOrderArchive_SortRuleArchive> { void **x_5_1_1; int x_5_1_2; int x_5_1_3; int x_5_1_4; } x5; int x6; }*)arg1;
 - (id)initWithRules:(id)arg1 type:(int)arg2;
-- (BOOL)isEqual:(id)arg1;
-- (unsigned int)ruleCount;
+- (bool)isEqual:(id)arg1;
+- (unsigned long long)ruleCount;
 - (id)rules;
+- (void)setCachedIndexes:(id)arg1;
 - (id)sortOrderByAddingRule:(id)arg1;
 - (id)sortOrderByChangingTypeTo:(int)arg1;
-- (id)sortOrderByRemovingRuleAtIndex:(unsigned int)arg1;
-- (id)sortOrderByReplacingRuleAtIndex:(unsigned int)arg1 withRule:(id)arg2;
+- (id)sortOrderByRemovingBaseColumnIndices:(id)arg1;
+- (id)sortOrderByRemovingRuleAtIndex:(unsigned long long)arg1;
+- (id)sortOrderByReplacingRuleAtIndex:(unsigned long long)arg1 withRule:(id)arg2;
 - (id)sortOrderByReplacingRulesWithRules:(id)arg1;
 - (int)type;
 

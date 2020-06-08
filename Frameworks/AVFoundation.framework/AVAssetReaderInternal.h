@@ -2,9 +2,16 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAsset, AVWeakKeyValueObserverProxy, AVWeakReference, NSError, NSMutableArray, NSObject<OS_dispatch_queue>;
-
 @interface AVAssetReaderInternal : NSObject {
+    AVAsset * asset;
+    NSError * error;
+    NSError * errorThatOccurredBeforeStartReading;
+    struct OpaqueFigAssetReader { } * figAssetReader;
+    NSMutableSet * outputFinishedCallbackInvokers;
+    NSMutableArray * outputs;
+    bool  readSingleSample;
+    long long  status;
+    NSObject<OS_dispatch_queue> * statusReadWriteQueue;
     struct { 
         struct { 
             long long value; 
@@ -18,15 +25,8 @@
             unsigned int flags; 
             long long epoch; 
         } duration; 
-    AVWeakKeyValueObserverProxy *KVOProxy;
-    AVAsset *asset;
-    NSError *error;
-    struct OpaqueFigAssetReader { } *figAssetReader;
-    NSMutableArray *outputs;
-    int status;
-    NSObject<OS_dispatch_queue> *statusReadWriteQueue;
-    } timeRange;
-    AVWeakReference *weakReference;
+    }  timeRange;
+    AVWeakReference * weakReference;
 }
 
 @end

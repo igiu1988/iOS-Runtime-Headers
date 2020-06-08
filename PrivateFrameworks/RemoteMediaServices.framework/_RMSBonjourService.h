@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/RemoteMediaServices.framework/RemoteMediaServices
  */
 
-@class NSNetService, RMSService;
-
 @interface _RMSBonjourService : NSObject {
-    BOOL _available;
-    NSNetService *_netService;
-    RMSService *_service;
-    int _state;
+    bool  _available;
+    NSNetService * _netService;
+    RMSService * _service;
+    long long  _state;
 }
 
-@property(getter=isAvailable) BOOL available;
-@property(retain) NSNetService * netService;
-@property(retain) RMSService * service;
-@property int state;
+@property (getter=isAvailable, nonatomic) bool available;
+@property (nonatomic, retain) NSNetService *netService;
+@property (nonatomic, retain) RMSService *service;
+@property (nonatomic) long long state;
 
 - (void).cxx_destruct;
-- (BOOL)isAvailable;
+- (bool)isAvailable;
 - (id)netService;
 - (id)service;
-- (void)setAvailable:(BOOL)arg1;
+- (void)setAvailable:(bool)arg1;
 - (void)setNetService:(id)arg1;
 - (void)setService:(id)arg1;
-- (void)setState:(int)arg1;
-- (int)state;
+- (void)setState:(long long)arg1;
+- (long long)state;
 
 @end

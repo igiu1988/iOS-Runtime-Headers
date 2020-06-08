@@ -2,87 +2,130 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-@class GKFairPlaySAPSession, NSData, NSDictionary, NSInputStream, NSString, NSURL, NSURLRequestInternal;
-
-@interface NSURLRequest : NSObject <NSSecureCoding, NSCopying, NSMutableCopying> {
-    NSURLRequestInternal *_internal;
+@interface NSURLRequest : NSObject <NSCopying, NSMutableCopying, NSSecureCoding> {
+    NSURLRequestInternal * _internal;
 }
 
-@property(copy,readonly) NSData * HTTPBody;
-@property(retain,readonly) NSInputStream * HTTPBodyStream;
-@property(copy,readonly) NSString * HTTPMethod;
-@property(readonly) BOOL HTTPShouldHandleCookies;
-@property(readonly) BOOL HTTPShouldUsePipelining;
-@property(copy,readonly) NSURL * URL;
-@property(getter=_gkSAPSession,setter=_gkSetSAPSession:,retain) GKFairPlaySAPSession * _gkSAPSession;
-@property(copy,readonly) NSDictionary * allHTTPHeaderFields;
-@property(readonly) BOOL allowsCellularAccess;
-@property(readonly) unsigned int cachePolicy;
-@property(copy,readonly) NSURL * mainDocumentURL;
-@property(readonly) unsigned int networkServiceType;
-@property(readonly) double timeoutInterval;
+@property (readonly, copy) NSData *HTTPBody;
+@property (readonly, retain) NSInputStream *HTTPBodyStream;
+@property (readonly, copy) NSString *HTTPMethod;
+@property (readonly) bool HTTPShouldHandleCookies;
+@property (readonly) bool HTTPShouldUsePipelining;
+@property (readonly, copy) NSURL *URL;
+@property (getter=_gkSAPSession, setter=_gkSetSAPSession:, nonatomic, retain) GKFairPlaySAPSession *_gkSAPSession;
+@property (readonly, copy) NSDictionary *allHTTPHeaderFields;
+@property (readonly) bool allowsCellularAccess;
+@property (nonatomic, readonly) bool ams_requestIsBagLoad;
+@property (readonly) unsigned long long cachePolicy;
+@property (readonly, copy) NSURL *mainDocumentURL;
+@property (readonly) unsigned long long networkServiceType;
+@property (readonly) double timeoutInterval;
 
-+ (BOOL)allowsAnyHTTPSCertificateForHost:(id)arg1;
+// Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
+
++ (bool)allowsAnyHTTPSCertificateForHost:(id)arg1;
 + (id)allowsSpecificHTTPSCertificateForHost:(id)arg1;
 + (double)defaultTimeoutInterval;
-+ (id)getObjectKeyWithIndex:(long)arg1;
-+ (id)requestWithURL:(id)arg1 cachePolicy:(unsigned int)arg2 timeoutInterval:(double)arg3;
++ (id)getObjectKeyWithIndex:(long long)arg1;
 + (id)requestWithURL:(id)arg1;
-+ (void)setAllowsAnyHTTPSCertificate:(BOOL)arg1 forHost:(id)arg2;
++ (id)requestWithURL:(id)arg1 cachePolicy:(unsigned long long)arg2 timeoutInterval:(double)arg3;
++ (void)setAllowsAnyHTTPSCertificate:(bool)arg1 forHost:(id)arg2;
 + (void)setAllowsSpecificHTTPSCertificate:(id)arg1 forHost:(id)arg2;
 + (void)setDefaultTimeoutInterval:(double)arg1;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (id)DARequestByApplyingStorageSession:(struct __CFURLStorageSession { }*)arg1;
 - (id)HTTPBody;
 - (id)HTTPBodyStream;
-- (id)HTTPBodyString;
 - (id)HTTPContentType;
 - (id)HTTPExtraCookies;
 - (id)HTTPMethod;
 - (id)HTTPReferrer;
-- (BOOL)HTTPShouldHandleCookies;
-- (BOOL)HTTPShouldUsePipelining;
+- (bool)HTTPShouldHandleCookies;
+- (bool)HTTPShouldUsePipelining;
 - (id)HTTPUserAgent;
 - (id)URL;
 - (struct _CFURLRequest { }*)_CFURLRequest;
-- (BOOL)_URLHasScheme:(id)arg1;
+- (bool)_URLHasScheme:(id)arg1;
+- (id)_allHTTPHeaderFieldsAsArrays;
 - (id)_copyReplacingURLWithURL:(id)arg1;
-- (id)_gkDictionaryKey;
-- (id)_gkSAPSession;
-- (void)_gkSetSAPSession:(id)arg1;
+- (bool)_ignoreHSTS;
 - (id)_initWithCFURLRequest:(struct _CFURLRequest { }*)arg1;
-- (BOOL)_isSafeRequestForBackgroundDownload;
+- (bool)_isIdempotent;
+- (bool)_isSafeRequestForBackgroundDownload;
+- (double)_payloadTransmissionTimeout;
+- (bool)_preventHSTSStorage;
 - (id)_propertyForKey:(id)arg1;
 - (void)_removePropertyForKey:(id)arg1;
+- (bool)_requiresShortConnectionTimeout;
+- (bool)_schemeWasUpgradedDueToDynamicHSTS;
 - (void)_setProperty:(id)arg1 forKey:(id)arg2;
+- (id)_startTimeoutDate;
 - (double)_timeWindowDelay;
 - (double)_timeWindowDuration;
-- (id)_web_HTTPContentType;
-- (id)_web_HTTPReferrer;
-- (BOOL)_web_isConditionalRequest;
 - (id)allHTTPHeaderFields;
-- (BOOL)allowsCellularAccess;
+- (bool)allowsCellularAccess;
 - (id)boundInterfaceIdentifier;
-- (unsigned int)cachePolicy;
+- (unsigned long long)cachePolicy;
 - (id)contentDispositionEncodingFallbackArray;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (id)copyXPCEncoding;
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned long long)expectedWorkload;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithURL:(id)arg1 cachePolicy:(unsigned int)arg2 timeoutInterval:(double)arg3;
 - (id)initWithURL:(id)arg1;
-- (id)initWithXPCEncoding:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (id)initWithURL:(id)arg1 cachePolicy:(unsigned long long)arg2 timeoutInterval:(double)arg3;
+- (bool)isEqual:(id)arg1;
 - (id)mainDocumentURL;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned int)networkServiceType;
+- (unsigned long long)networkServiceType;
 - (double)timeoutInterval;
 - (id)valueForHTTPHeaderField:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
+
+- (id)aa_HTTPBody;
+
+// Image: /System/Library/PrivateFrameworks/AppleMediaServices.framework/AppleMediaServices
+
+- (bool)ams_requestIsBagLoad;
+- (id)ams_valueForHTTPHeader:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/AuthKit.framework/AuthKit
+
+- (bool)ak_usesHTTPSScheme;
+
+// Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
+
+- (id)DARequestByApplyingStorageSession:(struct __CFURLStorageSession { }*)arg1;
+
+// Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
+
+- (id)_gkDictionaryKey;
+- (id)_gkSAPSession;
+- (void)_gkSetSAPSession:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/NewsCore.framework/NewsCore
+
++ (id)frRequestWithURL:(id)arg1;
++ (id)frRequestWithURL:(id)arg1 cachePolicy:(unsigned long long)arg2 timeoutInterval:(double)arg3;
++ (id)overrideUserAgent;
++ (void)setupFeldsparUserAgent;
+
+// Image: /System/Library/PrivateFrameworks/Stocks.framework/Stocks
+
+- (id)HTTPBodyString;
+
+// Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
+
+- (id)copyXPCEncoding;
+- (id)initWithXPCEncoding:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/iTunesCloud.framework/iTunesCloud
+
+- (id)ic_valueForHTTPHeaderField:(id)arg1;
+- (id)ic_valuesForCookieWithName:(id)arg1;
 
 @end

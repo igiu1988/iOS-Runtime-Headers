@@ -2,22 +2,20 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSObject<PFUbiquityBaselineRollOperationDelegate>, PFUbiquityBaselineHeuristics;
-
 @interface PFUbiquityBaselineRollOperation : PFUbiquityBaselineOperation {
-    PFUbiquityBaselineHeuristics *_heuristics;
+    PFUbiquityBaselineHeuristics * _heuristics;
 }
 
-@property NSObject<PFUbiquityBaselineRollOperationDelegate> * delegate;
+@property NSObject<PFUbiquityBaselineRollOperationDelegate> *delegate;
 
 - (void)dealloc;
 - (id)delegate;
-- (BOOL)haveConsistentStateForBaselineRoll;
+- (bool)haveConsistentStateForBaselineRoll;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)main;
 - (id)retainedDelegate;
-- (BOOL)rollBaselineWithError:(id*)arg1;
+- (bool)rollBaselineWithError:(id*)arg1;
 - (void)setDelegate:(id)arg1;
 
 @end

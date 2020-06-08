@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVErrorItem, CoreDAVItem, CoreDAVLeafItem;
-
 @interface CoreDAVPropStatItem : CoreDAVItem {
-    CoreDAVErrorItem *_errorItem;
-    CoreDAVItem *_prop;
-    CoreDAVLeafItem *_responseDescription;
-    CoreDAVLeafItem *_status;
+    CoreDAVErrorItem * _errorItem;
+    CoreDAVItem * _prop;
+    CoreDAVLeafItem * _responseDescription;
+    CoreDAVLeafItem * _status;
 }
 
-@property(retain) CoreDAVErrorItem * errorItem;
-@property(retain) CoreDAVItem * prop;
-@property(retain) CoreDAVLeafItem * responseDescription;
-@property(retain) CoreDAVLeafItem * status;
+@property (nonatomic, retain) CoreDAVErrorItem *errorItem;
+@property (nonatomic, retain) CoreDAVItem *prop;
+@property (nonatomic, retain) CoreDAVLeafItem *responseDescription;
+@property (nonatomic, retain) CoreDAVLeafItem *status;
 
 + (id)copyParseRules;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 - (id)errorItem;
 - (id)init;

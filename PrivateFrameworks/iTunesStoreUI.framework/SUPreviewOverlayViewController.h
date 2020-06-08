@@ -2,31 +2,25 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString, SUPreviewOverlayStorePageViewController;
-
 @interface SUPreviewOverlayViewController : SUViewController {
     struct CGSize { 
-        float width; 
-        float height; 
-    } _contentSize;
-    id _loadBlock;
-    BOOL _loaded;
-    float _paddingRight;
-    float _paddingTop;
-    SUPreviewOverlayStorePageViewController *_storePageViewController;
-    NSString *_userInfoString;
-    BOOL _visible;
+        double width; 
+        double height; 
+    }  _contentSize;
+    id /* block */  _loadBlock;
+    bool  _loaded;
+    double  _paddingRight;
+    double  _paddingTop;
+    SUPreviewOverlayStorePageViewController * _storePageViewController;
+    NSString * _userInfoString;
+    bool  _visible;
 }
 
-@property(getter=isContentLoaded,readonly) BOOL contentLoaded;
-@property struct CGSize { float x1; float x2; } contentSize;
-@property float paddingRight;
-@property float paddingTop;
-@property(copy) NSString * userInfoString;
+@property (getter=isContentLoaded, nonatomic, readonly) bool contentLoaded;
+@property (nonatomic) struct CGSize { double x1; double x2; } contentSize;
+@property (nonatomic) double paddingRight;
+@property (nonatomic) double paddingTop;
+@property (nonatomic, copy) NSString *userInfoString;
 
 + (void)_setContentInsetsForScrollView:(id)arg1 viewController:(id)arg2;
 + (double)defaultAnimationDuration;
@@ -36,24 +30,24 @@
 - (id)_previewOverlayContainerForViewController:(id)arg1;
 - (id)_scrollViewForViewController:(id)arg1;
 - (id)_storePageViewController;
-- (struct CGSize { float x1; float x2; })contentSize;
+- (struct CGSize { double x1; double x2; })contentSize;
 - (void)dealloc;
-- (void)hideInNavigationController:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
-- (void)hideInViewController:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
+- (void)hideInNavigationController:(id)arg1 animated:(bool)arg2 completionBlock:(id /* block */)arg3;
+- (void)hideInViewController:(id)arg1 animated:(bool)arg2 completionBlock:(id /* block */)arg3;
 - (void)invalidateForMemoryPurge;
-- (BOOL)isContentLoaded;
+- (bool)isContentLoaded;
 - (void)loadView;
-- (void)loadWithCompletionBlock:(id)arg1;
-- (void)loadWithRequestProperties:(id)arg1 completionBlock:(id)arg2;
-- (float)paddingRight;
-- (float)paddingTop;
-- (void)setContentSize:(struct CGSize { float x1; float x2; })arg1;
-- (void)setPaddingRight:(float)arg1;
-- (void)setPaddingTop:(float)arg1;
+- (void)loadWithCompletionBlock:(id /* block */)arg1;
+- (void)loadWithRequestProperties:(id)arg1 completionBlock:(id /* block */)arg2;
+- (double)paddingRight;
+- (double)paddingTop;
+- (void)setContentSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)setPaddingRight:(double)arg1;
+- (void)setPaddingTop:(double)arg1;
 - (void)setUserInfoString:(id)arg1;
-- (void)showInNavigationController:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
-- (void)showInViewController:(id)arg1 animated:(BOOL)arg2 completionBlock:(id)arg3;
-- (void)storePage:(id)arg1 finishedWithSuccess:(BOOL)arg2;
+- (void)showInNavigationController:(id)arg1 animated:(bool)arg2 completionBlock:(id /* block */)arg3;
+- (void)showInViewController:(id)arg1 animated:(bool)arg2 completionBlock:(id /* block */)arg3;
+- (void)storePage:(id)arg1 finishedWithSuccess:(bool)arg2;
 - (id)userInfoString;
 
 @end

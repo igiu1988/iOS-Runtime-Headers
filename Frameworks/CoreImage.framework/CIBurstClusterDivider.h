@@ -3,12 +3,12 @@
  */
 
 @interface CIBurstClusterDivider : NSObject {
-    float actionAmount;
-    float dividerScore;
-    float highNoiseThreshold;
-    int leftImage;
-    float noiseThreshold;
-    int trueLocalMaximum;
+    float  actionAmount;
+    float  dividerScore;
+    float  highNoiseThreshold;
+    int  leftImage;
+    float  noiseThreshold;
+    int  trueLocalMaximum;
 }
 
 @property float actionAmount;
@@ -19,9 +19,9 @@
 @property int trueLocalMaximum;
 
 - (float)actionAmount;
-- (int)compareActionAmounts:(id)arg1;
-- (int)compareDividers:(id)arg1;
-- (int)compareIndices:(id)arg1;
+- (long long)compareActionAmounts:(id)arg1;
+- (long long)compareDividers:(id)arg1;
+- (long long)compareIndices:(id)arg1;
 - (float)dividerScore;
 - (float)highNoiseThreshold;
 - (int)leftImage;

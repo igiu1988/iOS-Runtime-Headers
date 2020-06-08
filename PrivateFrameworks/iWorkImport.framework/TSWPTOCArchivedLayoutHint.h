@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class <TSDHint>, NSString, TSWPTOCLayoutHint;
-
 @interface TSWPTOCArchivedLayoutHint : TSPObject <TSDArchivedHint> {
-    TSWPTOCLayoutHint *_hint;
+    TSWPTOCLayoutHint * _hint;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) <TSDHint> * hint;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) <TSDHint> *hint;
+@property (readonly) Class superclass;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)hint;
-- (id)initFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1 hint:(id)arg2;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)setHint:(id)arg1;
 

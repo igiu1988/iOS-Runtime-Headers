@@ -2,48 +2,49 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class NSURL, NSURLRequest, WKFrameInfo;
-
-@interface WKNavigationAction : NSObject {
-    struct RetainPtr<WKFrameInfo> { 
-        void *m_ptr; 
-    struct RetainPtr<WKFrameInfo> { 
-        void *m_ptr; 
-    struct RetainPtr<NSURLRequest> { 
-        void *m_ptr; 
-    struct RetainPtr<NSURL> { 
-        void *m_ptr; 
-    BOOL _canHandleRequest;
-    int _navigationType;
-    } _originalURL;
-    } _request;
-    } _sourceFrame;
-    } _targetFrame;
-    BOOL _userInitiated;
+@interface WKNavigationAction : NSObject <WKObject> {
+    struct ObjectStorage<API::NavigationAction> { 
+        struct type { 
+            unsigned char __lx[416]; 
+        } data; 
+    }  _navigationAction;
 }
 
-@property(readonly) BOOL _canHandleRequest;
-@property(readonly) NSURL * _originalURL;
-@property(setter=_setOriginalURL:,copy) NSURL * _originalURL;
-@property(getter=_isUserInitiated,readonly) BOOL _userInitiated;
-@property(readonly) int navigationType;
-@property(copy) NSURLRequest * request;
-@property(copy) WKFrameInfo * sourceFrame;
-@property(copy) WKFrameInfo * targetFrame;
+@property (readonly) /* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*_apiObject;
+@property (nonatomic, readonly) bool _canHandleRequest;
+@property (nonatomic, readonly) struct CGPoint { double x1; double x2; } _clickLocationInRootViewCoordinates;
+@property (nonatomic, readonly) bool _isRedirect;
+@property (nonatomic, readonly) NSURL *_originalURL;
+@property (nonatomic, readonly) bool _shouldOpenAppLinks;
+@property (nonatomic, readonly) bool _shouldOpenExternalSchemes;
+@property (nonatomic, readonly) bool _shouldOpenExternalURLs;
+@property (nonatomic, readonly) long long _syntheticClickType;
+@property (getter=_isUserInitiated, nonatomic, readonly) bool _userInitiated;
+@property (nonatomic, readonly) _WKUserInitiatedAction *_userInitiatedAction;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) long long navigationType;
+@property (nonatomic, readonly, copy) NSURLRequest *request;
+@property (nonatomic, readonly, copy) WKFrameInfo *sourceFrame;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly, copy) WKFrameInfo *targetFrame;
 
-- (id).cxx_construct;
-- (void).cxx_destruct;
-- (BOOL)_canHandleRequest;
-- (id)_initWithNavigationActionData:(const struct NavigationActionData { int x1; int x2; int x3; boolx4; boolx5; }*)arg1;
-- (BOOL)_isUserInitiated;
+- (/* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*)_apiObject;
+- (bool)_canHandleRequest;
+- (struct CGPoint { double x1; double x2; })_clickLocationInRootViewCoordinates;
+- (bool)_isRedirect;
+- (bool)_isUserInitiated;
 - (id)_originalURL;
-- (void)_setOriginalURL:(id)arg1;
+- (bool)_shouldOpenAppLinks;
+- (bool)_shouldOpenExternalSchemes;
+- (bool)_shouldOpenExternalURLs;
+- (long long)_syntheticClickType;
+- (id)_userInitiatedAction;
+- (void)dealloc;
 - (id)description;
-- (int)navigationType;
+- (long long)navigationType;
 - (id)request;
-- (void)setRequest:(id)arg1;
-- (void)setSourceFrame:(id)arg1;
-- (void)setTargetFrame:(id)arg1;
 - (id)sourceFrame;
 - (id)targetFrame;
 

@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-@class ATDeviceSettings, ATGrappaSession;
-
 @interface ATGrappaSignatureProvider : ATSignatureProvider {
-    ATGrappaSession *_grappaSession;
-    ATDeviceSettings *_settings;
+    ATGrappaSession * _grappaSession;
+    ATDeviceSettings * _settings;
 }
 
 - (void).cxx_destruct;

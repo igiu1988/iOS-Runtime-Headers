@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/GameKitServices.framework/GameKitServices
  */
 
-@class NSNumber, NSString;
-
 @interface GKInterface : NSObject {
-    NSString *_bsdName;
-    NSNumber *_index;
-    unsigned int _priority;
-    NSString *_type;
+    NSString * _bsdName;
+    NSNumber * _index;
+    unsigned int  _priority;
+    NSString * _type;
 }
 
-@property(copy) NSString * bsdName;
-@property(retain) NSNumber * index;
-@property unsigned int priority;
-@property(copy) NSString * type;
+@property (nonatomic, copy) NSString *bsdName;
+@property (nonatomic, retain) NSNumber *index;
+@property (nonatomic) unsigned int priority;
+@property (nonatomic, copy) NSString *type;
 
 + (id)bsdNameForIndex:(id)arg1;
 + (id)interfaceWithInterfaceIndex:(id)arg1;

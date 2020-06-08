@@ -2,29 +2,31 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NPKProtoCatalog, NPKProtoHash, NSString;
-
 @interface NPKProtoRemovePassRequest : PBRequest <NSCopying> {
+    NPKProtoCatalog * _catalog;
     struct { 
         unsigned int lastKnownResyncID : 1; 
         unsigned int resyncID : 1; 
-    NPKProtoCatalog *_catalog;
-    } _has;
-    unsigned int _lastKnownResyncID;
-    NPKProtoHash *_libraryHash;
-    NSString *_passID;
-    unsigned int _resyncID;
+        unsigned int syncID : 1; 
+    }  _has;
+    unsigned int  _lastKnownResyncID;
+    NPKProtoHash * _libraryHash;
+    NSString * _passID;
+    unsigned int  _resyncID;
+    unsigned int  _syncID;
 }
 
-@property(retain) NPKProtoCatalog * catalog;
-@property(readonly) BOOL hasCatalog;
-@property BOOL hasLastKnownResyncID;
-@property(readonly) BOOL hasLibraryHash;
-@property BOOL hasResyncID;
-@property unsigned int lastKnownResyncID;
-@property(retain) NPKProtoHash * libraryHash;
-@property(retain) NSString * passID;
-@property unsigned int resyncID;
+@property (nonatomic, retain) NPKProtoCatalog *catalog;
+@property (nonatomic, readonly) bool hasCatalog;
+@property (nonatomic) bool hasLastKnownResyncID;
+@property (nonatomic, readonly) bool hasLibraryHash;
+@property (nonatomic) bool hasResyncID;
+@property (nonatomic) bool hasSyncID;
+@property (nonatomic) unsigned int lastKnownResyncID;
+@property (nonatomic, retain) NPKProtoHash *libraryHash;
+@property (nonatomic, retain) NSString *passID;
+@property (nonatomic) unsigned int resyncID;
+@property (nonatomic) unsigned int syncID;
 
 - (void).cxx_destruct;
 - (id)catalog;
@@ -32,25 +34,29 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasCatalog;
-- (BOOL)hasLastKnownResyncID;
-- (BOOL)hasLibraryHash;
-- (BOOL)hasResyncID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasCatalog;
+- (bool)hasLastKnownResyncID;
+- (bool)hasLibraryHash;
+- (bool)hasResyncID;
+- (bool)hasSyncID;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (unsigned int)lastKnownResyncID;
 - (id)libraryHash;
 - (void)mergeFrom:(id)arg1;
 - (id)passID;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (unsigned int)resyncID;
 - (void)setCatalog:(id)arg1;
-- (void)setHasLastKnownResyncID:(BOOL)arg1;
-- (void)setHasResyncID:(BOOL)arg1;
+- (void)setHasLastKnownResyncID:(bool)arg1;
+- (void)setHasResyncID:(bool)arg1;
+- (void)setHasSyncID:(bool)arg1;
 - (void)setLastKnownResyncID:(unsigned int)arg1;
 - (void)setLibraryHash:(id)arg1;
 - (void)setPassID:(id)arg1;
 - (void)setResyncID:(unsigned int)arg1;
+- (void)setSyncID:(unsigned int)arg1;
+- (unsigned int)syncID;
 - (void)writeTo:(id)arg1;
 
 @end

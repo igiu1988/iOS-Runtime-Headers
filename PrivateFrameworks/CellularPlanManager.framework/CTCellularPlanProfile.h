@@ -2,34 +2,45 @@
    Image: /System/Library/PrivateFrameworks/CellularPlanManager.framework/CellularPlanManager
  */
 
-@class NSData, NSString;
-
 @interface CTCellularPlanProfile : NSObject <NSCopying, NSSecureCoding> {
-    NSString *_iccid;
-    BOOL _isBootstrap;
-    BOOL _isSelected;
-    NSData *_profileId;
+    NSString * _iccid;
+    bool  _isBootstrap;
+    bool  _isDeleteNotAllowed;
+    bool  _isDisableNotAllowed;
+    bool  _isSelected;
+    NSData * _profileId;
+    bool  _requiresUserConsent;
 }
 
-@property(copy) NSString * iccid;
-@property BOOL isBootstrap;
-@property BOOL isSelected;
-@property(copy) NSData * profileId;
+@property (nonatomic, copy) NSString *iccid;
+@property (nonatomic) bool isBootstrap;
+@property (nonatomic) bool isDeleteNotAllowed;
+@property (nonatomic) bool isDisableNotAllowed;
+@property (nonatomic) bool isSelected;
+@property (nonatomic, copy) NSData *profileId;
+@property (nonatomic) bool requiresUserConsent;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)iccid;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithProfileId:(id)arg1 iccid:(id)arg2 selected:(BOOL)arg3 bootstrap:(BOOL)arg4;
-- (BOOL)isBootstrap;
-- (BOOL)isSelected;
+- (id)initWithProfileId:(id)arg1 iccid:(id)arg2 selected:(bool)arg3 bootstrap:(bool)arg4 disableNotAllowed:(bool)arg5 deleteNotAllowed:(bool)arg6 requiresUserConsent:(bool)arg7;
+- (bool)isBootstrap;
+- (bool)isDeleteNotAllowed;
+- (bool)isDisableNotAllowed;
+- (bool)isSelected;
 - (id)profileId;
+- (bool)requiresUserConsent;
 - (void)setIccid:(id)arg1;
-- (void)setIsBootstrap:(BOOL)arg1;
-- (void)setIsSelected:(BOOL)arg1;
+- (void)setIsBootstrap:(bool)arg1;
+- (void)setIsDeleteNotAllowed:(bool)arg1;
+- (void)setIsDisableNotAllowed:(bool)arg1;
+- (void)setIsSelected:(bool)arg1;
 - (void)setProfileId:(id)arg1;
+- (void)setRequiresUserConsent:(bool)arg1;
 
 @end

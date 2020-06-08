@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray;
-
 @interface CKWaiterWrapper : NSObject {
-    id _completionHandler;
-    id _waiter;
-    NSArray *_zoneIDs;
+    NSObject<OS_os_activity> * _activity;
+    id /* block */  _completionHandler;
+    <CKDZoneGatekeeperWaiter> * _waiter;
+    NSArray * _zoneIDs;
 }
 
-@property(copy) id completionHandler;
-@property(retain) id waiter;
-@property(retain) NSArray * zoneIDs;
+@property (nonatomic, retain) NSObject<OS_os_activity> *activity;
+@property (nonatomic, copy) id /* block */ completionHandler;
+@property (nonatomic, retain) <CKDZoneGatekeeperWaiter> *waiter;
+@property (nonatomic, retain) NSArray *zoneIDs;
 
 - (void).cxx_destruct;
 - (id)CKPropertiesDescription;
-- (id)completionHandler;
+- (id)activity;
+- (id /* block */)completionHandler;
 - (id)description;
-- (void)setCompletionHandler:(id)arg1;
+- (void)setActivity:(id)arg1;
+- (void)setCompletionHandler:(id /* block */)arg1;
 - (void)setWaiter:(id)arg1;
 - (void)setZoneIDs:(id)arg1;
 - (id)waiter;

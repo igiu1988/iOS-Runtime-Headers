@@ -2,23 +2,15 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSLock, NSMapTable;
-
 @interface GEOServiceRequester : NSObject {
-    NSMapTable *_pendingRequests;
-    NSLock *_pendingRequestsLock;
+    NSMapTable * _pendingRequests;
+    NSLock * _pendingRequestsLock;
 }
 
-+ (id)_debugRequestName;
-+ (id)_serviceTypeNumber;
-+ (unsigned int)_urlType;
-+ (void)setAttributeData;
-+ (BOOL)shouldAttributeData;
-
+- (void).cxx_destruct;
 - (void)_cancelRequest:(id)arg1;
-- (void)_startWithRequest:(id)arg1 traits:(id)arg2 completionHandler:(id)arg3;
+- (void)_startWithRequest:(id)arg1 traits:(id)arg2 auditToken:(id)arg3 config:(id)arg4 completionHandler:(id /* block */)arg5;
 - (id)_validateResponse:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

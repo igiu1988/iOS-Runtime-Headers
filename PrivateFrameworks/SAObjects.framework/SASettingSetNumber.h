@@ -2,18 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SASettingSetNumber : SASettingSetValue {
-}
+@interface SASettingSetNumber : SASettingSetValue
 
-@property BOOL increment;
+@property (nonatomic) bool increment;
 
 + (id)setNumber;
 + (id)setNumberWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (BOOL)increment;
-- (BOOL)requiresResponse;
-- (void)setIncrement:(BOOL)arg1;
+- (bool)increment;
+- (bool)requiresResponse;
+- (void)setIncrement:(bool)arg1;
 
 @end

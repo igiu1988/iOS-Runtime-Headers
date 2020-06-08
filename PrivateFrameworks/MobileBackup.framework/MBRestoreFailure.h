@@ -2,23 +2,23 @@
    Image: /System/Library/PrivateFrameworks/MobileBackup.framework/MobileBackup
  */
 
-@class NSData, NSError, NSString;
-
-@interface MBRestoreFailure : NSObject <NSCopying, NSCoding> {
-    NSString *_assetType;
-    NSString *_dataclass;
-    NSString *_displayName;
-    NSError *_error;
-    NSData *_icon;
-    NSString *_identifier;
+@interface MBRestoreFailure : NSObject <NSCopying, NSSecureCoding> {
+    NSString * _assetType;
+    NSString * _dataclass;
+    NSString * _displayName;
+    NSError * _error;
+    NSData * _icon;
+    NSString * _identifier;
 }
 
-@property(copy) NSString * assetType;
-@property(copy) NSString * dataclass;
-@property(copy) NSString * displayName;
-@property(copy) NSError * error;
-@property(copy) NSData * icon;
-@property(copy) NSString * identifier;
+@property (nonatomic, copy) NSString *assetType;
+@property (nonatomic, copy) NSString *dataclass;
+@property (nonatomic, copy) NSString *displayName;
+@property (nonatomic, copy) NSError *error;
+@property (nonatomic, copy) NSData *icon;
+@property (nonatomic, copy) NSString *identifier;
+
++ (bool)supportsSecureCoding;
 
 - (id)assetType;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;

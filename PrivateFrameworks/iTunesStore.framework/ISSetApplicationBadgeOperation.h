@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/iTunesStore.framework/iTunesStore
  */
 
-@class NSString;
-
 @interface ISSetApplicationBadgeOperation : ISOperation {
-    NSString *_badgeValue;
-    NSString *_bundleIdentifier;
+    NSString * _badgeValue;
+    NSString * _bundleIdentifier;
 }
 
-@property(retain) NSString * badgeValue;
-@property(retain) NSString * bundleIdentifier;
+@property (retain) NSString *badgeValue;
+@property (retain) NSString *bundleIdentifier;
 
+- (void).cxx_destruct;
 - (id)badgeValue;
 - (id)bundleIdentifier;
-- (void)dealloc;
 - (void)run;
 - (void)setBadgeValue:(id)arg1;
 - (void)setBundleIdentifier:(id)arg1;

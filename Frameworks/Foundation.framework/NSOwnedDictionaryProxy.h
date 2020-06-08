@@ -3,10 +3,10 @@
  */
 
 @interface NSOwnedDictionaryProxy : NSDictionary {
-    id _owner;
+    id  _owner;
 }
 
-- (unsigned int)count;
+- (unsigned long long)count;
 - (id)initWithOwner:(id)arg1;
 - (id)keyEnumerator;
 - (id)objectForKey:(id)arg1;

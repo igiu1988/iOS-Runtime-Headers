@@ -2,26 +2,25 @@
    Image: /System/Library/PrivateFrameworks/iCalendar.framework/iCalendar
  */
 
-@class NSData;
-
 @interface ICSTokenizer : NSObject {
-    int _cursor;
-    NSData *_data;
-    const char *_datastring;
-    int _expectedNextTokenType;
-    int _length;
-    int _logCount;
-    BOOL _printedICS;
-    char *_token;
-    int _tokenType;
+    int  _cursor;
+    NSData * _data;
+    const char * _datastring;
+    int  _expectedNextTokenType;
+    int  _length;
+    int  _logCount;
+    bool  _printedICS;
+    char * _token;
+    int  _tokenType;
 }
 
 @property int logCount;
-@property BOOL printedICS;
+@property bool printedICS;
 
-- (BOOL)consumeEOL;
-- (BOOL)consumeEscaped:(const char *)arg1;
-- (BOOL)consumeFolding;
+- (void).cxx_destruct;
+- (bool)consumeEOL;
+- (bool)consumeEscaped:(const char *)arg1;
+- (bool)consumeFolding;
 - (void)consumeParamName;
 - (void)consumeParamValue;
 - (void)consumePropName;
@@ -33,9 +32,9 @@
 - (id)initWithData:(id)arg1;
 - (int)logCount;
 - (char *)nextToken;
-- (BOOL)printedICS;
+- (bool)printedICS;
 - (void)setLogCount:(int)arg1;
-- (void)setPrintedICS:(BOOL)arg1;
+- (void)setPrintedICS:(bool)arg1;
 - (int)tokenType;
 
 @end

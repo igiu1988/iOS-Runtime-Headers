@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class NSString;
-
 @interface ATVHighSecurityAccountVerifyCode : ATVHighSecurityAccountSendCode {
-    NSString *_hsaCode;
+    NSString * _hsaCode;
 }
 
 + (Class)responseClass;

@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSMetadataQuery;
-
 @interface _NSMetadataItemPrivateIvars : NSObject {
-    NSMetadataQuery *query;
+    NSMetadataQuery * query;
 }
 
 @end

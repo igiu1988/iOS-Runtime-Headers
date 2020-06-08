@@ -2,33 +2,32 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSString;
-
 @interface AXEventTapPair : NSObject {
-    struct __IOHIDEventSystemClient { } *_systemClient;
-    int _type;
-    id handler;
-    NSString *identifier;
-    int priority;
+    id /* block */  _matchingServiceHandler;
+    struct __IOHIDEventSystemClient { } * _systemClient;
+    int  _type;
+    id /* block */  handler;
+    NSString * identifier;
+    int  priority;
 }
 
-@property(copy) id handler;
-@property(copy) NSString * identifier;
-@property int priority;
-@property(retain) struct __IOHIDEventSystemClient { }* systemClient;
-@property int type;
+@property (nonatomic, copy) id /* block */ handler;
+@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy) id /* block */ matchingServiceHandler;
+@property (nonatomic) int priority;
+@property (nonatomic, retain) struct __IOHIDEventSystemClient { }*systemClient;
+@property (nonatomic) int type;
 
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)description;
-- (id)handler;
+- (id /* block */)handler;
 - (id)identifier;
+- (id /* block */)matchingServiceHandler;
 - (int)priority;
-- (void)setHandler:(id)arg1;
+- (void)setHandler:(id /* block */)arg1;
 - (void)setIdentifier:(id)arg1;
+- (void)setMatchingServiceHandler:(id /* block */)arg1;
 - (void)setPriority:(int)arg1;
 - (void)setSystemClient:(struct __IOHIDEventSystemClient { }*)arg1;
 - (void)setType:(int)arg1;

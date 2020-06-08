@@ -2,33 +2,38 @@
    Image: /System/Library/PrivateFrameworks/NanoMediaRemote.framework/NanoMediaRemote
  */
 
-@class NSData;
-
 @interface _NMRMediaRemoteGetStateMessageProfobuf : PBCodable <NSCopying> {
+    NSData * _applicationInfoDigest;
     struct { 
         unsigned int timestamp : 1; 
+        unsigned int originIdentifier : 1; 
         unsigned int state : 1; 
-    NSData *_applicationInfoDigest;
-    } _has;
-    NSData *_knownDigest;
-    NSData *_nowPlayingInfoDigest;
-    int _state;
-    NSData *_supportedCommandsDigest;
-    double _timestamp;
+    }  _has;
+    NSData * _knownDigest;
+    NSData * _nowPlayingInfoDigest;
+    int  _originIdentifier;
+    NSData * _playbackQueueDigest;
+    int  _state;
+    NSData * _supportedCommandsDigest;
+    double  _timestamp;
 }
 
-@property(retain) NSData * applicationInfoDigest;
-@property(readonly) BOOL hasApplicationInfoDigest;
-@property(readonly) BOOL hasKnownDigest;
-@property(readonly) BOOL hasNowPlayingInfoDigest;
-@property BOOL hasState;
-@property(readonly) BOOL hasSupportedCommandsDigest;
-@property BOOL hasTimestamp;
-@property(retain) NSData * knownDigest;
-@property(retain) NSData * nowPlayingInfoDigest;
-@property int state;
-@property(retain) NSData * supportedCommandsDigest;
-@property double timestamp;
+@property (nonatomic, retain) NSData *applicationInfoDigest;
+@property (nonatomic, readonly) bool hasApplicationInfoDigest;
+@property (nonatomic, readonly) bool hasKnownDigest;
+@property (nonatomic, readonly) bool hasNowPlayingInfoDigest;
+@property (nonatomic) bool hasOriginIdentifier;
+@property (nonatomic, readonly) bool hasPlaybackQueueDigest;
+@property (nonatomic) bool hasState;
+@property (nonatomic, readonly) bool hasSupportedCommandsDigest;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic, retain) NSData *knownDigest;
+@property (nonatomic, retain) NSData *nowPlayingInfoDigest;
+@property (nonatomic) int originIdentifier;
+@property (nonatomic, retain) NSData *playbackQueueDigest;
+@property (nonatomic) int state;
+@property (nonatomic, retain) NSData *supportedCommandsDigest;
+@property (nonatomic) double timestamp;
 
 - (void).cxx_destruct;
 - (id)applicationInfoDigest;
@@ -36,23 +41,30 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasApplicationInfoDigest;
-- (BOOL)hasKnownDigest;
-- (BOOL)hasNowPlayingInfoDigest;
-- (BOOL)hasState;
-- (BOOL)hasSupportedCommandsDigest;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasApplicationInfoDigest;
+- (bool)hasKnownDigest;
+- (bool)hasNowPlayingInfoDigest;
+- (bool)hasOriginIdentifier;
+- (bool)hasPlaybackQueueDigest;
+- (bool)hasState;
+- (bool)hasSupportedCommandsDigest;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)knownDigest;
 - (void)mergeFrom:(id)arg1;
 - (id)nowPlayingInfoDigest;
-- (BOOL)readFrom:(id)arg1;
+- (int)originIdentifier;
+- (id)playbackQueueDigest;
+- (bool)readFrom:(id)arg1;
 - (void)setApplicationInfoDigest:(id)arg1;
-- (void)setHasState:(BOOL)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasOriginIdentifier:(bool)arg1;
+- (void)setHasState:(bool)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setKnownDigest:(id)arg1;
 - (void)setNowPlayingInfoDigest:(id)arg1;
+- (void)setOriginIdentifier:(int)arg1;
+- (void)setPlaybackQueueDigest:(id)arg1;
 - (void)setState:(int)arg1;
 - (void)setSupportedCommandsDigest:(id)arg1;
 - (void)setTimestamp:(double)arg1;

@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
  */
 
-@class NSData, NSString, NSURL;
-
 @interface NSSubstituteWebResource : NSObject {
-    NSData *_data;
-    NSString *_frameName;
-    NSString *_mimeType;
-    NSString *_textEncodingName;
-    NSURL *_url;
+    NSData * _data;
+    NSString * _frameName;
+    NSString * _mimeType;
+    NSString * _textEncodingName;
+    NSURL * _url;
 }
 
 - (id)MIMEType;

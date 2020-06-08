@@ -2,69 +2,78 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSOrderedSet, NSString;
-
-@interface PLManagedFolder : PLGenericAlbum <PLAlbumContainer> {
-    BOOL _adjustingChildOrderKeys;
-    BOOL _needsPersistenceUpdate;
+@interface PLManagedFolder : PLGenericAlbum <PLAlbumContainer, PLCloudDeletable> {
+    bool  _needsFixedOrderKeysComplianceUpdate;
+    bool  _needsPersistenceUpdate;
 }
 
-@property(retain,readonly) NSString * _prettyDescription;
-@property(retain,readonly) NSString * _typeDescription;
-@property(readonly) unsigned int albumsCount;
-@property(copy,readonly) id albumsSortingComparator;
-@property(retain) NSOrderedSet * childCollections;
-@property(readonly) unsigned int containersCount;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) int filter;
-@property(readonly) unsigned int hash;
-@property(readonly) BOOL isFolder;
-@property BOOL needsPersistenceUpdate;
-@property(readonly) Class superclass;
-@property(readonly) unsigned int unreadAlbumsCount;
+@property (nonatomic, readonly, retain) NSString *_prettyDescription;
+@property (nonatomic, readonly, retain) NSString *_typeDescription;
+@property (nonatomic, readonly) unsigned long long albumsCount;
+@property (nonatomic, readonly, copy) id /* block */ albumsSortingComparator;
+@property (nonatomic, retain) NSOrderedSet *childCollections;
+@property (nonatomic) short cloudDeleteState;
+@property (readonly) long long cloudDeletionType;
+@property (readonly, copy) NSString *cloudUUIDForDeletion;
+@property (nonatomic, readonly) unsigned long long containersCount;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) int filter;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isFolder;
+@property (nonatomic) bool needsFixedOrderKeysComplianceUpdate;
+@property (nonatomic) bool needsPersistenceUpdate;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) unsigned long long unreadAlbumsCount;
 
++ (id)childKeyForOrdering;
++ (long long)cloudDeletionTypeForTombstone:(id)arg1;
++ (id)cloudUUIDKeyForDeletion;
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 + (id)insertInManagedObjectContext:(id)arg1;
++ (id)localizedRecoveredTitle;
++ (id)validKindsForPersistence;
 
-- (BOOL)_childOrderKeysAreValid;
-- (void)_handleChildOrderKeys;
 - (id)_prettyDescription;
 - (id)_typeDescription;
 - (void)addChildCollections:(id)arg1;
 - (void)addChildCollectionsObject:(id)arg1;
-- (BOOL)albumHasFixedOrder:(struct NSObject { Class x1; }*)arg1;
+- (bool)albumHasFixedOrder:(struct NSObject { Class x1; }*)arg1;
 - (short)albumListType;
 - (id)albums;
-- (unsigned int)albumsCount;
-- (id)albumsSortingComparator;
-- (unsigned int)approximateCount;
+- (unsigned long long)albumsCount;
+- (id /* block */)albumsSortingComparator;
+- (unsigned long long)approximateCount;
 - (id)assets;
-- (unsigned int)assetsCount;
-- (BOOL)canEditAlbums;
-- (BOOL)canEditContainers;
-- (BOOL)canPerformEditOperation:(unsigned int)arg1;
+- (unsigned long long)assetsCount;
+- (bool)canEditAlbums;
+- (bool)canEditContainers;
+- (bool)canPerformEditOperation:(unsigned long long)arg1;
 - (id)childKeyForOrdering;
-- (id)childToOrderKeyMap;
+- (long long)cloudDeletionType;
+- (id)cloudUUIDForDeletion;
 - (id)containers;
-- (unsigned int)containersCount;
+- (unsigned long long)containersCount;
 - (id)containersRelationshipName;
-- (unsigned int)count;
+- (unsigned long long)count;
+- (id)descriptionOfChildCollectionOrderValues;
 - (void)didSave;
+- (void)enforceFixedOrderKeyCompliance;
 - (int)filter;
-- (BOOL)hasAtLeastOneAlbum;
+- (bool)hasAtLeastOneAlbum;
 - (id)identifier;
 - (void)insertChildCollections:(id)arg1 atIndexes:(id)arg2;
-- (void)insertObject:(id)arg1 inChildCollectionsAtIndex:(unsigned int)arg2;
-- (BOOL)isEmpty;
-- (BOOL)isValidKindForPersistence;
+- (void)insertObject:(id)arg1 inChildCollectionsAtIndex:(unsigned long long)arg2;
+- (bool)isEmpty;
+- (bool)isValidKindForPersistence;
+- (void)moveChildCollectionsAtIndexes:(id)arg1 toIndex:(unsigned long long)arg2;
 - (id)mutableAssets;
-- (BOOL)needsPersistenceUpdate;
-- (BOOL)needsReordering;
-- (id)newOrderKeyChild:(id)arg1;
+- (bool)needsFixedOrderKeysComplianceUpdate;
+- (bool)needsPersistenceUpdate;
+- (bool)needsReordering;
 - (void)persistMetadataToFileSystem;
-- (unsigned int)photosCount;
+- (unsigned long long)photosCount;
 - (void)preheatAlbumsAtIndexes:(id)arg1 forProperties:(id)arg2 relationships:(id)arg3;
 - (void)preheatAlbumsForProperties:(id)arg1 relationships:(id)arg2;
 - (void)prepareForDeletion;
@@ -72,16 +81,16 @@
 - (void)removeChildCollections:(id)arg1;
 - (void)removeChildCollectionsAtIndexes:(id)arg1;
 - (void)removeChildCollectionsObject:(id)arg1;
-- (void)removeObjectFromChildCollectionsAtIndex:(unsigned int)arg1;
+- (void)removeObjectFromChildCollectionsAtIndex:(unsigned long long)arg1;
 - (void)removePersistedFileSystemData;
 - (void)replaceChildCollectionsAtIndexes:(id)arg1 withChildCollections:(id)arg2;
-- (void)replaceObjectInChildCollectionsAtIndex:(unsigned int)arg1 withObject:(id)arg2;
-- (void)setNeedsPersistenceUpdate:(BOOL)arg1;
+- (void)replaceObjectInChildCollectionsAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
+- (void)setNeedsFixedOrderKeysComplianceUpdate:(bool)arg1;
+- (void)setNeedsPersistenceUpdate:(bool)arg1;
 - (void)setNeedsReordering;
-- (id)sortedOrderKeysForChildrenUsingMap:(id)arg1;
-- (unsigned int)unreadAlbumsCount;
+- (unsigned long long)unreadAlbumsCount;
 - (void)updateAlbumsOrderIfNeeded;
-- (unsigned int)videosCount;
+- (unsigned long long)videosCount;
 - (void)willSave;
 
 @end

@@ -2,34 +2,40 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray;
-
 @interface OADStyleMatrix : NSObject {
-    NSMutableArray *mBgFills;
-    NSMutableArray *mEffects;
-    NSMutableArray *mFills;
-    NSMutableArray *mStrokes;
+    NSMutableArray * mBgFills;
+    NSMutableArray * mEffects;
+    NSMutableArray * mFills;
+    NSString * mName;
+    NSMutableArray * mStrokes;
 }
 
-+ (id)objectInArray:(id)arg1 withPossiblyOutOfRangeIndex:(unsigned int)arg2 defaultValue:(id)arg3;
+@property (nonatomic, copy) NSString *name;
+
++ (id)objectInArray:(id)arg1 withPossiblyOutOfRangeIndex:(unsigned long long)arg2 defaultValue:(id)arg3;
 
 - (void)addBgFill:(id)arg1;
 - (void)addEffects:(id)arg1;
 - (void)addFill:(id)arg1;
 - (void)addStroke:(id)arg1;
-- (id)bgFillAtIndex:(unsigned int)arg1;
-- (unsigned int)bgFillCount;
+- (id)bgFillAtIndex:(unsigned long long)arg1;
+- (unsigned long long)bgFillCount;
 - (void)dealloc;
-- (id)effectsAtIndex:(unsigned int)arg1 color:(id)arg2;
-- (id)effectsAtIndex:(unsigned int)arg1;
-- (unsigned int)effectsCount;
-- (id)fillAtIndex:(unsigned int)arg1 color:(id)arg2;
-- (id)fillAtIndex:(unsigned int)arg1;
-- (unsigned int)fillCount;
+- (id)description;
+- (id)effectsAtIndex:(unsigned long long)arg1;
+- (id)effectsAtIndex:(unsigned long long)arg1 color:(id)arg2;
+- (unsigned long long)effectsCount;
+- (id)fillAtIndex:(unsigned long long)arg1;
+- (id)fillAtIndex:(unsigned long long)arg1 color:(id)arg2;
+- (unsigned long long)fillCount;
 - (id)init;
-- (void)populateWithOfficeDefaults;
-- (id)strokeAtIndex:(unsigned int)arg1 color:(id)arg2;
-- (id)strokeAtIndex:(unsigned int)arg1;
-- (unsigned int)strokeCount;
+- (bool)isEmpty;
+- (id)name;
+- (void)padArray:(id)arg1 withContentsOfArray:(id)arg2;
+- (void)setName:(id)arg1;
+- (id)strokeAtIndex:(unsigned long long)arg1;
+- (id)strokeAtIndex:(unsigned long long)arg1 color:(id)arg2;
+- (unsigned long long)strokeCount;
+- (void)validateStyleMatrix;
 
 @end

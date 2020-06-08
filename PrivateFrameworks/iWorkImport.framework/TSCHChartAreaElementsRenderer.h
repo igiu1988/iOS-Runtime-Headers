@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartAreaElementsRenderer : TSCHChartAbstractLineElementsRenderer {
-}
+@interface TSCHChartAreaElementsRenderer : TSCHChartAbstractLineElementsRenderer
 
-- (BOOL)supportsSeparateLabelsRenderPass;
+- (bool)supportsSeparateLabelsRenderPass;
 
 @end

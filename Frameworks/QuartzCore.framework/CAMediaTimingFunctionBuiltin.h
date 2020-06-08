@@ -3,8 +3,10 @@
  */
 
 @interface CAMediaTimingFunctionBuiltin : CAMediaTimingFunction {
-    unsigned int _index;
+    unsigned int  _index;
 }
+
++ (bool)supportsSecureCoding;
 
 - (void)_getPoints:(double*)arg1;
 - (Class)classForCoder;

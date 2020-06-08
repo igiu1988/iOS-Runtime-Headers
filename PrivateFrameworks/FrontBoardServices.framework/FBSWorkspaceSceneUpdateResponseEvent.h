@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
  */
 
-@class FBSWorkspaceSceneUpdateResponse;
-
 @interface FBSWorkspaceSceneUpdateResponseEvent : FBSWorkspaceSceneEvent {
-    FBSWorkspaceSceneUpdateResponse *_response;
+    FBSWorkspaceSceneUpdateResponse * _response;
 }
 
-@property(retain) FBSWorkspaceSceneUpdateResponse * response;
+@property (nonatomic, retain) FBSWorkspaceSceneUpdateResponse *response;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (id)response;

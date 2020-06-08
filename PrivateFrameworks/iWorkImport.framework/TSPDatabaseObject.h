@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, NSURL;
-
 @interface TSPDatabaseObject : NSObject {
-    int _classType;
-    long long _identifier;
+    int  _classType;
+    long long  _identifier;
 }
 
-@property(readonly) int classType;
-@property(readonly) long long dataState;
-@property(readonly) NSString * fileState;
-@property(readonly) NSURL * fileURL;
-@property(readonly) BOOL hasDataState;
-@property(readonly) BOOL hasFileState;
-@property(readonly) long long identifier;
+@property (nonatomic, readonly) int classType;
+@property (nonatomic, readonly) long long dataState;
+@property (nonatomic, readonly) NSString *fileState;
+@property (nonatomic, readonly) NSURL *fileURL;
+@property (nonatomic, readonly) bool hasDataState;
+@property (nonatomic, readonly) bool hasFileState;
+@property (nonatomic, readonly) long long identifier;
 
 + (id)databaseObjectWithIdentifier:(long long)arg1 classType:(int)arg2 dataState:(long long)arg3;
 + (id)databaseObjectWithIdentifier:(long long)arg1 classType:(int)arg2 fileState:(id)arg3 packageURL:(id)arg4;
@@ -24,8 +22,8 @@
 - (long long)dataState;
 - (id)fileState;
 - (id)fileURL;
-- (BOOL)hasDataState;
-- (BOOL)hasFileState;
+- (bool)hasDataState;
+- (bool)hasFileState;
 - (long long)identifier;
 - (id)init;
 - (id)initWithIdentifier:(long long)arg1 classType:(int)arg2;

@@ -2,30 +2,31 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSFileAccessNode, NSObject<OS_xpc_object>;
-
 @interface NSFileReactorProxy : NSObject {
-    NSObject<OS_xpc_object> *_client;
-    NSFileAccessNode *_itemLocation;
-    id _messageSender;
-    id _reactorID;
+    NSXPCConnection * _client;
+    unsigned int  _effectiveUserIdentifier;
+    NSFileAccessNode * _itemLocation;
+    id  _reactorID;
 }
 
+@property unsigned int effectiveUserIdentifier;
+
++ (void)_enumerateParentDirectoriesStartingAtURL:(id)arg1 usingBlock:(id /* block */)arg2;
+
+- (id)_clientProxy;
+- (bool)allowedForURL:(id)arg1;
 - (id)client;
-- (void)collectDebuggingInformationWithCompletionHandler:(id)arg1;
+- (void)collectDebuggingInformationWithCompletionHandler:(id /* block */)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)descriptionWithIndenting:(id)arg1;
-- (void)finalize;
-- (void)forwardUsingMessageSender:(id)arg1;
-- (id)initWithClient:(id)arg1 reactorID:(id)arg2 messageSender:(id)arg3;
+- (unsigned int)effectiveUserIdentifier;
+- (void)forwardUsingProxy:(id)arg1;
+- (id)initWithClient:(id)arg1 reactorID:(id)arg2;
+- (void)invalidate;
 - (id)itemLocation;
-- (id)messageSender;
 - (id)reactorID;
+- (void)setEffectiveUserIdentifier:(unsigned int)arg1;
 - (void)setItemLocation:(id)arg1;
 
 @end

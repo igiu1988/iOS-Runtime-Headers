@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartBubbleElementsRenderer : TSCHChartAbstractLineElementsRenderer {
-}
+@interface TSCHChartBubbleElementsRenderer : TSCHChartAbstractLineElementsRenderer
 
-- (BOOL)useBlendModeCopyForTransparencyLayer;
+- (bool)useBlendModeCopyForTransparencyLayer;
 
 @end

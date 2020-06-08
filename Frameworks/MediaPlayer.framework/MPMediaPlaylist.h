@@ -2,49 +2,64 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPMediaItem, MPMediaQuery, NSArray, NSString;
-
 @interface MPMediaPlaylist : MPMediaItemCollection {
-    NSArray *_representativeArtists;
-    MPMediaQuery *_seedTracksQuery;
+    NSArray * _representativeArtists;
+    MPMediaQuery * _seedTracksQuery;
 }
 
-@property(getter=music_seedItem,readonly) MPMediaItem * music_seedItem;
-@property(readonly) NSString * name;
-@property(readonly) unsigned long long persistentID;
-@property(readonly) unsigned int playlistAttributes;
-@property(readonly) NSArray * seedItems;
+@property (nonatomic, readonly) NSString *authorDisplayName;
+@property (nonatomic, readonly) NSString *descriptionText;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) unsigned long long persistentID;
+@property (nonatomic, readonly) unsigned long long playlistAttributes;
+@property (nonatomic, readonly) NSArray *seedItems;
+
+// Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
 
 + (void)_createFilterableDictionary;
-+ (BOOL)_isValidPlaylistProperty:(id)arg1;
-+ (id)activeGeniusPlaylist;
-+ (BOOL)canFilterByProperty:(id)arg1;
++ (bool)_isValidPlaylistProperty:(id)arg1;
++ (bool)canFilterByProperty:(id)arg1;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (int)_sortPlaylistByName:(id)arg1;
-- (id)artworkCatalogsWithMaximumCount:(unsigned int)arg1;
-- (BOOL)canPlayUsingNetworkType:(int)arg1;
-- (unsigned int)count;
+- (void)addItemWithProductID:(id)arg1 completionHandler:(id /* block */)arg2;
+- (void)addMediaItems:(id)arg1 completionHandler:(id /* block */)arg2;
+- (id)artworkCatalog;
+- (id)artworkCatalogsWithMaximumCount:(unsigned long long)arg1;
+- (id)authorDisplayName;
+- (bool)canPlayUsingNetworkType:(long long)arg1;
+- (unsigned long long)count;
+- (id)descriptionText;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)existsInLibrary;
-- (void)generateGeniusArtworkWithImageSize:(struct CGSize { float x1; float x2; })arg1 completionHandler:(id)arg2 queue:(id)arg3;
-- (unsigned int)hash;
+- (bool)existsInLibrary;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithMultiverseIdentifier:(id)arg1;
 - (id)initWithPersistentID:(unsigned long long)arg1;
-- (BOOL)isCloudMix;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isCloudMix;
+- (bool)isEqual:(id)arg1;
 - (id)items;
-- (unsigned int)mediaTypes;
+- (unsigned long long)mediaTypes;
 - (id)multiverseIdentifier;
-- (id)music_seedItem;
 - (id)name;
 - (unsigned long long)persistentID;
-- (unsigned int)playlistAttributes;
+- (unsigned long long)playlistAttributes;
+- (void)removeFirstItem;
 - (id)representativeArtists;
 - (id)representativeItem;
 - (id)seedItems;
 - (id)seedTracksQuery;
+- (void)setUserSelectedArtworkImage:(id)arg1;
+- (id)tiledArtworkCatalogWithRows:(unsigned long long)arg1 columns:(unsigned long long)arg2;
 - (id)valueForProperty:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/FuseUI.framework/FuseUI
+
++ (id)customPropertyHandlersCollection;
++ (void)registerSupportedCustomPropertiesWithHandlersCollection:(id)arg1;
+
+// Image: /System/Library/PrivateFrameworks/MPUFoundation.framework/MPUFoundation
+
+- (id)MPU_contentItemIdentifierCollection;
 
 @end

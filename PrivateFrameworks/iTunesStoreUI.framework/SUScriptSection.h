@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString, SUScriptViewController;
-
 @interface SUScriptSection : SUScriptObject {
-    NSString *_badgeValue;
-    NSString *_identifier;
-    BOOL _transient;
-    SUScriptViewController *_viewController;
+    NSString * _badgeValue;
+    NSString * _identifier;
+    bool  _transient;
+    SUScriptViewController * _viewController;
 }
 
-@property(retain) NSString * badgeValue;
-@property(readonly) NSString * identifier;
-@property(readonly) BOOL transient;
-@property(readonly) SUScriptViewController * viewController;
+@property (retain) NSString *badgeValue;
+@property (readonly) NSString *identifier;
+@property (readonly) bool transient;
+@property (readonly) SUScriptViewController *viewController;
 
 + (void)initialize;
 + (id)webScriptNameForKeyName:(id)arg1;
@@ -27,9 +25,9 @@
 - (id)identifier;
 - (id)initWithNativeSection:(id)arg1;
 - (id)scriptAttributeKeys;
-- (void)setBadgeValue:(id)arg1 animated:(BOOL)arg2 blink:(BOOL)arg3;
 - (void)setBadgeValue:(id)arg1;
-- (BOOL)transient;
+- (void)setBadgeValue:(id)arg1 animated:(bool)arg2 blink:(bool)arg3;
+- (bool)transient;
 - (id)viewController;
 
 @end

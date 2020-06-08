@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVLeafItem, NSDictionary, NSMutableSet, NSSet;
-
 @interface CoreDAVBulkRequestsItem : CoreDAVItem {
-    CoreDAVLeafItem *_maxResourcesItem;
-    CoreDAVLeafItem *_maxSizeItem;
-    NSMutableSet *_supportedItems;
+    CoreDAVLeafItem * _maxResourcesItem;
+    CoreDAVLeafItem * _maxSizeItem;
+    NSMutableSet * _supportedItems;
 }
 
-@property(readonly) NSDictionary * dictRepresentation;
-@property(readonly) int maxResources;
-@property(retain) CoreDAVLeafItem * maxResourcesItem;
-@property(readonly) int maxSize;
-@property(retain) CoreDAVLeafItem * maxSizeItem;
-@property(readonly) NSSet * supportedItems;
-@property(readonly) BOOL supportsDelete;
-@property(readonly) BOOL supportsInsert;
-@property(readonly) BOOL supportsUpdate;
+@property (nonatomic, readonly) NSDictionary *dictRepresentation;
+@property (nonatomic, readonly) long long maxResources;
+@property (nonatomic, retain) CoreDAVLeafItem *maxResourcesItem;
+@property (nonatomic, readonly) long long maxSize;
+@property (nonatomic, retain) CoreDAVLeafItem *maxSizeItem;
+@property (nonatomic, readonly) NSSet *supportedItems;
+@property (nonatomic, readonly) bool supportsDelete;
+@property (nonatomic, readonly) bool supportsInsert;
+@property (nonatomic, readonly) bool supportsUpdate;
 
 + (id)copyParseRules;
 
+- (void).cxx_destruct;
 - (void)addSupportedItem:(id)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictRepresentation;
 - (id)init;
-- (int)maxResources;
+- (long long)maxResources;
 - (id)maxResourcesItem;
-- (int)maxSize;
+- (long long)maxSize;
 - (id)maxSizeItem;
 - (void)setMaxResourcesItem:(id)arg1;
 - (void)setMaxSizeItem:(id)arg1;
 - (id)supportedItems;
-- (BOOL)supportsDelete;
-- (BOOL)supportsInsert;
-- (BOOL)supportsItemWithNameSpace:(id)arg1 name:(id)arg2;
-- (BOOL)supportsUpdate;
+- (bool)supportsDelete;
+- (bool)supportsInsert;
+- (bool)supportsItemWithNameSpace:(id)arg1 name:(id)arg2;
+- (bool)supportsUpdate;
 
 @end

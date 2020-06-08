@@ -2,37 +2,37 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSArray, NSString;
-
 @interface MFConnectionSettings : NSObject <NSCopying> {
-    NSString *_accountIdentifier;
-    BOOL _allowsTrustPrompt;
-    NSString *_certUIService;
-    NSArray *_clientCertificates;
-    struct __CFString { } *_connectionServiceType;
-    NSString *_hostname;
-    unsigned int _portNumber;
-    NSString *_serviceName;
-    NSString *_sourceApplicationBundleIdentifier;
-    BOOL _tryDirectSSLConnection;
-    BOOL _usesOpportunisticSockets;
-    BOOL _usesSSL;
+    NSString * _accountIdentifier;
+    bool  _allowsTrustPrompt;
+    NSString * _certUIService;
+    NSArray * _clientCertificates;
+    struct __CFString { } * _connectionServiceType;
+    NSString * _hostname;
+    NSString * _networkAccountIdentifier;
+    unsigned int  _portNumber;
+    NSString * _serviceName;
+    NSString * _sourceApplicationBundleIdentifier;
+    bool  _tryDirectSSLConnection;
+    bool  _usesOpportunisticSockets;
+    bool  _usesSSL;
 }
 
-@property(copy) NSString * accountIdentifier;
-@property BOOL allowsTrustPrompt;
-@property(copy) NSString * certUIService;
-@property(copy) NSArray * clientCertificates;
-@property(copy) NSString * hostname;
-@property unsigned int portNumber;
-@property(copy) NSString * serviceName;
-@property(copy) NSString * sourceApplicationBundleIdentifier;
-@property BOOL tryDirectSSL;
-@property BOOL usesOpportunisticSockets;
-@property BOOL usesSSL;
+@property (nonatomic, copy) NSString *accountIdentifier;
+@property (nonatomic) bool allowsTrustPrompt;
+@property (nonatomic, copy) NSString *certUIService;
+@property (nonatomic, copy) NSArray *clientCertificates;
+@property (nonatomic, copy) NSString *hostname;
+@property (nonatomic, copy) NSString *networkAccountIdentifier;
+@property (nonatomic) unsigned int portNumber;
+@property (nonatomic, copy) NSString *serviceName;
+@property (nonatomic, copy) NSString *sourceApplicationBundleIdentifier;
+@property (nonatomic) bool tryDirectSSL;
+@property (nonatomic) bool usesOpportunisticSockets;
+@property (nonatomic) bool usesSSL;
 
 - (id)accountIdentifier;
-- (BOOL)allowsTrustPrompt;
+- (bool)allowsTrustPrompt;
 - (id)certUIService;
 - (id)clientCertificates;
 - (struct __CFString { }*)connectionServiceType;
@@ -40,23 +40,25 @@
 - (void)dealloc;
 - (id)description;
 - (id)hostname;
+- (id)networkAccountIdentifier;
 - (unsigned int)portNumber;
 - (id)serviceName;
 - (void)setAccountIdentifier:(id)arg1;
-- (void)setAllowsTrustPrompt:(BOOL)arg1;
+- (void)setAllowsTrustPrompt:(bool)arg1;
 - (void)setCertUIService:(id)arg1;
 - (void)setClientCertificates:(id)arg1;
 - (void)setConnectionServiceType:(struct __CFString { }*)arg1;
 - (void)setHostname:(id)arg1;
+- (void)setNetworkAccountIdentifier:(id)arg1;
 - (void)setPortNumber:(unsigned int)arg1;
 - (void)setServiceName:(id)arg1;
 - (void)setSourceApplicationBundleIdentifier:(id)arg1;
-- (void)setTryDirectSSL:(BOOL)arg1;
-- (void)setUsesOpportunisticSockets:(BOOL)arg1;
-- (void)setUsesSSL:(BOOL)arg1;
+- (void)setTryDirectSSL:(bool)arg1;
+- (void)setUsesOpportunisticSockets:(bool)arg1;
+- (void)setUsesSSL:(bool)arg1;
 - (id)sourceApplicationBundleIdentifier;
-- (BOOL)tryDirectSSL;
-- (BOOL)usesOpportunisticSockets;
-- (BOOL)usesSSL;
+- (bool)tryDirectSSL;
+- (bool)usesOpportunisticSockets;
+- (bool)usesSSL;
 
 @end

@@ -2,23 +2,25 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class CALayer, UIImage;
-
 @interface MKModernUserLocationView : MKUserLocationView {
-    CALayer *_baseDimmingLayer;
-    CALayer *_baseLayer;
-    CALayer *_innerCircleLayer;
-    struct UIImage { Class x1; void *x2; float x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 3; unsigned int x_4_1_3 : 1; unsigned int x_4_1_4 : 1; unsigned int x_4_1_5 : 1; unsigned int x_4_1_6 : 2; unsigned int x_4_1_7 : 1; unsigned int x_4_1_8 : 1; } x4; } *_innerImageMask;
-    BOOL _rotateInnerImageToMatchCourse;
-    BOOL _shouldInnerPulse;
+    CALayer * _baseDimmingLayer;
+    CALayer * _baseLayer;
+    CALayer * _innerCircleLayer;
+    UIImage * _innerImageMask;
+    bool  _isShowingStaleColor;
+    bool  _rotateInnerImageToMatchCourse;
+    bool  _shouldInnerPulse;
+    bool  _shouldShowOuterRing;
 }
 
-@property(retain) UIImage * innerImageMask;
-@property BOOL rotateInnerImageToMatchCourse;
-@property BOOL shouldInnerPulse;
+@property (nonatomic, retain) UIImage *innerImageMask;
+@property (nonatomic) bool rotateInnerImageToMatchCourse;
+@property (nonatomic) bool shouldInnerPulse;
+@property (nonatomic) bool shouldShowOuterRing;
 
-+ (float)baseDiameter;
-+ (float)innerDiameter;
++ (double)baseDiameter;
++ (double)innerDiameter;
++ (double)outerRingWidth;
 
 - (void).cxx_destruct;
 - (struct CGColor { }*)_accuracyFillColor;
@@ -26,15 +28,14 @@
 - (id)_baseDimmingLayer;
 - (id)_baseLayer;
 - (void)_dealloc;
-- (struct UIImage { Class x1; void *x2; float x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 3; unsigned int x_4_1_3 : 1; unsigned int x_4_1_4 : 1; unsigned int x_4_1_5 : 1; unsigned int x_4_1_6 : 2; unsigned int x_4_1_7 : 1; unsigned int x_4_1_8 : 1; } x4; }*)_headingImageForAccuracy:(double)arg1 anchorPoint:(struct CGPoint { float x1; float x2; }*)arg2;
 - (id)_innerPulseAnimation;
 - (id)_layerToMatchAccuracyRing;
 - (id)_pulseAnimation;
 - (id)_pulseLayer;
 - (void)_resetLayerToMatchAccuracyRing;
-- (void)_setMapDisplayStyle:(unsigned int)arg1;
-- (void)_setMapRotationRadians:(float)arg1;
-- (void)_setMapType:(unsigned int)arg1;
+- (void)_setMapDisplayStyle:(struct { unsigned char x1; unsigned char x2; unsigned char x3; unsigned char x4; bool x5; })arg1;
+- (void)_setMapRotationRadians:(double)arg1;
+- (void)_setMapType:(unsigned long long)arg1;
 - (void)_setPresentationCourse:(double)arg1;
 - (void)_setupLayers;
 - (void)_updateAccuracyColors;
@@ -48,12 +49,14 @@
 - (void)didMoveToWindow;
 - (id)initWithAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 - (id)innerImageMask;
-- (BOOL)rotateInnerImageToMatchCourse;
-- (void)setEffectsEnabled:(BOOL)arg1;
-- (void)setInnerImageMask:(struct UIImage { Class x1; void *x2; float x3; struct { unsigned int x_4_1_1 : 1; unsigned int x_4_1_2 : 3; unsigned int x_4_1_3 : 1; unsigned int x_4_1_4 : 1; unsigned int x_4_1_5 : 1; unsigned int x_4_1_6 : 2; unsigned int x_4_1_7 : 1; unsigned int x_4_1_8 : 1; } x4; }*)arg1;
-- (void)setRotateInnerImageToMatchCourse:(BOOL)arg1;
-- (void)setShouldInnerPulse:(BOOL)arg1;
-- (BOOL)shouldInnerPulse;
+- (bool)rotateInnerImageToMatchCourse;
+- (void)setEffectsEnabled:(bool)arg1;
+- (void)setInnerImageMask:(id)arg1;
+- (void)setRotateInnerImageToMatchCourse:(bool)arg1;
+- (void)setShouldInnerPulse:(bool)arg1;
+- (void)setShouldShowOuterRing:(bool)arg1;
+- (bool)shouldInnerPulse;
+- (bool)shouldShowOuterRing;
 - (void)tintColorDidChange;
 
 @end

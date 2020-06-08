@@ -2,35 +2,32 @@
    Image: /System/Library/PrivateFrameworks/MusicStoreUI.framework/MusicStoreUI
  */
 
-@class ABPeoplePickerNavigationController, NSString, UIActionSheet, UIAlertView;
-
-@interface MSTonePurchaseContinuation : SUPurchaseContinuation <ABPeoplePickerNavigationControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate> {
-    UIActionSheet *_actionSheet;
-    UIAlertView *_alertView;
-    ABPeoplePickerNavigationController *_peoplePicker;
+@interface MSTonePurchaseContinuation : SUPurchaseContinuation <CNContactPickerDelegate, UIActionSheetDelegate, UIAlertViewDelegate> {
+    UIActionSheet * _actionSheet;
+    UIAlertView * _alertView;
+    CNContactPickerViewController * _contactPicker;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 - (id)_copyAllowedToneStyles;
 - (void)_destroyActionSheet;
 - (void)_destroyAlertView;
-- (void)_dismissPeoplePicker;
+- (void)_dismissContactPicker;
 - (void)_pickAssigneeToneStyle;
 - (void)_showPeoplePicker;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)actionSheetCancel:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(int)arg2;
+- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)alertViewCancel:(id)arg1;
 - (void)cancel;
+- (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
+- (void)contactPickerDidCancel:(id)arg1;
 - (void)dealloc;
 - (id)initWithPurchase:(id)arg1;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void*)arg2 property:(int)arg3 identifier:(int)arg4;
-- (BOOL)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void*)arg2;
-- (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
 - (void)start;
 
 @end

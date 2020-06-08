@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class SUButtonAccessoryView;
-
 @interface SUReviewsListingViewController : SUStructuredPageViewController {
-    SUButtonAccessoryView *_accessoryView;
+    SUButtonAccessoryView * _accessoryView;
 }
 
 - (id)_accessoryView;
-- (BOOL)_canWriteReview;
+- (bool)_canWriteReview;
 - (id)_headerItem;
 - (void)_reloadHeaderView;
 - (void)_writeAReview:(id)arg1;
@@ -17,8 +15,8 @@
 - (void)loadView;
 - (id)newTermsAndConditionsFooter;
 - (void)reloadData;
-- (void)reloadForChangedRowCount:(int)arg1;
+- (void)reloadForChangedRowCount:(long long)arg1;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(bool)arg1;
 
 @end

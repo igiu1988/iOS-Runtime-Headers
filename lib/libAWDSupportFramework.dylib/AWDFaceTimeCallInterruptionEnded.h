@@ -2,9 +2,8 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDFaceTimeCallInterruptionEnded : PBCodable <NSCopying> {
+    NSString * _guid;
     struct { 
         unsigned int timestamp : 1; 
         unsigned int interruptionDuration : 1; 
@@ -13,33 +12,32 @@
         unsigned int isVideoResumed : 1; 
         unsigned int linkQuality : 1; 
         unsigned int onLockScreen : 1; 
-    NSString *_guid;
-    } _has;
-    unsigned int _interruptionDuration;
-    unsigned int _isAudioResumed;
-    unsigned int _isVideo;
-    unsigned int _isVideoResumed;
-    int _linkQuality;
-    unsigned int _onLockScreen;
-    unsigned long long _timestamp;
+    }  _has;
+    unsigned int  _interruptionDuration;
+    unsigned int  _isAudioResumed;
+    unsigned int  _isVideo;
+    unsigned int  _isVideoResumed;
+    int  _linkQuality;
+    unsigned int  _onLockScreen;
+    unsigned long long  _timestamp;
 }
 
-@property(retain) NSString * guid;
-@property(readonly) BOOL hasGuid;
-@property BOOL hasInterruptionDuration;
-@property BOOL hasIsAudioResumed;
-@property BOOL hasIsVideo;
-@property BOOL hasIsVideoResumed;
-@property BOOL hasLinkQuality;
-@property BOOL hasOnLockScreen;
-@property BOOL hasTimestamp;
-@property unsigned int interruptionDuration;
-@property unsigned int isAudioResumed;
-@property unsigned int isVideo;
-@property unsigned int isVideoResumed;
-@property int linkQuality;
-@property unsigned int onLockScreen;
-@property unsigned long long timestamp;
+@property (nonatomic, retain) NSString *guid;
+@property (nonatomic, readonly) bool hasGuid;
+@property (nonatomic) bool hasInterruptionDuration;
+@property (nonatomic) bool hasIsAudioResumed;
+@property (nonatomic) bool hasIsVideo;
+@property (nonatomic) bool hasIsVideoResumed;
+@property (nonatomic) bool hasLinkQuality;
+@property (nonatomic) bool hasOnLockScreen;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic) unsigned int interruptionDuration;
+@property (nonatomic) unsigned int isAudioResumed;
+@property (nonatomic) unsigned int isVideo;
+@property (nonatomic) unsigned int isVideoResumed;
+@property (nonatomic) int linkQuality;
+@property (nonatomic) unsigned int onLockScreen;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -47,32 +45,32 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)guid;
-- (BOOL)hasGuid;
-- (BOOL)hasInterruptionDuration;
-- (BOOL)hasIsAudioResumed;
-- (BOOL)hasIsVideo;
-- (BOOL)hasIsVideoResumed;
-- (BOOL)hasLinkQuality;
-- (BOOL)hasOnLockScreen;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
+- (bool)hasGuid;
+- (bool)hasInterruptionDuration;
+- (bool)hasIsAudioResumed;
+- (bool)hasIsVideo;
+- (bool)hasIsVideoResumed;
+- (bool)hasLinkQuality;
+- (bool)hasOnLockScreen;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
 - (unsigned int)interruptionDuration;
 - (unsigned int)isAudioResumed;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (unsigned int)isVideo;
 - (unsigned int)isVideoResumed;
 - (int)linkQuality;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)onLockScreen;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setGuid:(id)arg1;
-- (void)setHasInterruptionDuration:(BOOL)arg1;
-- (void)setHasIsAudioResumed:(BOOL)arg1;
-- (void)setHasIsVideo:(BOOL)arg1;
-- (void)setHasIsVideoResumed:(BOOL)arg1;
-- (void)setHasLinkQuality:(BOOL)arg1;
-- (void)setHasOnLockScreen:(BOOL)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasInterruptionDuration:(bool)arg1;
+- (void)setHasIsAudioResumed:(bool)arg1;
+- (void)setHasIsVideo:(bool)arg1;
+- (void)setHasIsVideoResumed:(bool)arg1;
+- (void)setHasLinkQuality:(bool)arg1;
+- (void)setHasOnLockScreen:(bool)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setInterruptionDuration:(unsigned int)arg1;
 - (void)setIsAudioResumed:(unsigned int)arg1;
 - (void)setIsVideo:(unsigned int)arg1;

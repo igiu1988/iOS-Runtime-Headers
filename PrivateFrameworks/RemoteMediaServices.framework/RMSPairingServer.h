@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/RemoteMediaServices.framework/RemoteMediaServices
  */
 
-@class <RMSPairingServerDelegate>, NSObject<OS_dispatch_queue>, NSString;
-
 @interface RMSPairingServer : NSObject {
-    struct _CFHTTPServer { } *_HTTPServer;
-    struct __CFDictionary { } *_HTTPServerConnections;
-    NSObject<OS_dispatch_queue> *_HTTPServerQueue;
-    NSString *_advertisedDeviceModel;
-    NSString *_advertisedDeviceName;
-    <RMSPairingServerDelegate> *_delegate;
-    NSString *_expectedPasscodeHash;
-    unsigned short _port;
-    NSString *_successfulPairingGUID;
-    NSString *_successfulPairingServiceName;
+    struct _CFHTTPServer { } * _HTTPServer;
+    struct __CFDictionary { } * _HTTPServerConnections;
+    NSObject<OS_dispatch_queue> * _HTTPServerQueue;
+    NSString * _advertisedDeviceModel;
+    NSString * _advertisedDeviceName;
+    <RMSPairingServerDelegate> * _delegate;
+    NSString * _expectedPasscodeHash;
+    unsigned short  _port;
+    NSString * _successfulPairingGUID;
+    NSString * _successfulPairingServiceName;
 }
 
-@property <RMSPairingServerDelegate> * delegate;
-@property(readonly) unsigned short port;
+@property (nonatomic) <RMSPairingServerDelegate> *delegate;
+@property (nonatomic, readonly) unsigned short port;
 
 - (void).cxx_destruct;
 - (id)_parsedQueryParametersWithQueryString:(id)arg1;
@@ -34,7 +32,7 @@
 - (void)handleHTTPServerInvalidated;
 - (unsigned short)port;
 - (void)setDelegate:(id)arg1;
-- (BOOL)startServerWithExpectedPasscodeHash:(id)arg1 advertisedDeviceName:(id)arg2 advertisedDeviceModel:(id)arg3;
+- (bool)startServerWithExpectedPasscodeHash:(id)arg1 advertisedDeviceName:(id)arg2 advertisedDeviceModel:(id)arg3;
 - (void)stopServer;
 
 @end

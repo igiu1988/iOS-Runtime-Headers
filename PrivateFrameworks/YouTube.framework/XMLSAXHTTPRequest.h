@@ -2,14 +2,11 @@
    Image: /System/Library/PrivateFrameworks/YouTube.framework/YouTube
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSMutableData, NSString, NSURLConnection, NSURLRequest;
-
 @interface XMLSAXHTTPRequest : NSObject <NSURLConnectionDelegate> {
+    NSURLConnection * _connection;
+    bool  _invalidResponse;
+    NSMutableData * _rawData;
+    NSURLRequest * _request;
     struct _xmlSAXHandler { 
         int (*internalSubset)(); 
         int (*isStandalone)(); 
@@ -43,19 +40,16 @@
         int (*startElementNs)(); 
         int (*endElementNs)(); 
         int (*serror)(); 
-    NSURLConnection *_connection;
-    BOOL _invalidResponse;
-    NSMutableData *_rawData;
-    NSURLRequest *_request;
-    } _saxHandler;
+    }  _saxHandler;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-+ (BOOL)anyRequestLoading;
++ (bool)anyRequestLoading;
++ (id)authenticationFailureError;
 + (id)serviceUnavailableError;
 + (unsigned int)uniqueQueryID;
 
@@ -70,11 +64,11 @@
 - (void)didParseData;
 - (void)failWithError:(id)arg1;
 - (id)init;
-- (BOOL)isLoading;
+- (bool)isLoading;
 - (void)loadRequest:(id)arg1;
 - (void)loadStatusChanged;
 - (int)parseData:(id)arg1;
-- (BOOL)receivedValidResponse:(id)arg1;
+- (bool)receivedValidResponse:(id)arg1;
 - (id)request;
 - (void)willParseData;
 

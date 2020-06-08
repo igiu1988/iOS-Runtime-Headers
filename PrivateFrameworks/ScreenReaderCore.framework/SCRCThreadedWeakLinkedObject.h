@@ -2,19 +2,13 @@
    Image: /System/Library/PrivateFrameworks/ScreenReaderCore.framework/ScreenReaderCore
  */
 
-@class NSLock;
-
 @interface SCRCThreadedWeakLinkedObject : NSObject {
-    BOOL _calledDealloc;
-    int _referenceCount;
-    NSLock *_releaseLock;
+    bool  _calledDealloc;
+    int  _referenceCount;
+    NSLock * _releaseLock;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
-- (void)invalidateThreadsWithWeakLinks;
-- (oneway void)release;
-- (id)retain;
-- (unsigned int)retainCount;
 
 @end

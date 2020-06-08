@@ -2,55 +2,72 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class BRCItemID, BRCLocalContainer, NSMutableSet, NSNumber, NSSet, NSString, NSURL;
-
 @interface BRCNotification : BRQueryItem {
-    NSString *_aliasContainerID;
-    BRCLocalContainer *_container;
-    NSMutableSet *_containerIDsWithReverseAliases;
-    BRCItemID *_itemID;
-    unsigned long long _oldParentFileID;
-    unsigned long long _parentFileID;
-    BRCItemID *_parentID;
-    NSSet *_parentIDs;
+    NSString * _aliasSourceAppLibraryID;
+    BRCAppLibrary * _appLibrary;
+    NSMutableSet * _appLibraryIDsWithReverseAliases;
+    bool  _isInDataScope;
+    bool  _isInDocumentScope;
+    bool  _isInTrashScope;
+    BRCItemGlobalID * _itemGlobalID;
+    NSString * _oldAppLibraryID;
+    unsigned long long  _oldParentFileID;
+    BRCItemGlobalID * _parentGlobalID;
+    NSSet * _parentGlobalIDs;
+    NSString * _unsaltedBookmarkData;
 }
 
-@property(readonly) NSString * aliasContainerID;
-@property(readonly) BRCLocalContainer * container;
-@property(retain) NSMutableSet * containerIDsWithReverseAliases;
-@property(readonly) BRCItemID * itemID;
-@property(readonly) unsigned long long oldParentFileID;
-@property(readonly) NSNumber * oldParentFileObjectID;
-@property(readonly) unsigned long long parentFileID;
-@property(readonly) NSNumber * parentFileObjectID;
-@property(readonly) BRCItemID * parentID;
-@property(retain) NSSet * parentIDs;
-@property(readonly) NSURL * url;
+@property (nonatomic, readonly) NSString *aliasSourceAppLibraryID;
+@property (nonatomic, readonly) BRCAppLibrary *appLibrary;
+@property (nonatomic, retain) NSMutableSet *appLibraryIDsWithReverseAliases;
+@property (nonatomic, readonly) bool isDocumentsFolder;
+@property (nonatomic, readonly) bool isInDataScope;
+@property (nonatomic, readonly) bool isInDocumentScope;
+@property (nonatomic, readonly) bool isInTrashScope;
+@property (nonatomic, readonly) BRCItemGlobalID *itemGlobalID;
+@property (nonatomic, readonly) NSString *oldAppLibraryID;
+@property (nonatomic, readonly) unsigned long long oldParentFileID;
+@property (nonatomic, readonly) BRFileObjectID *oldParentFileObjectID;
+@property (nonatomic, readonly) BRFileObjectID *parentFileObjectID;
+@property (nonatomic, readonly) BRCItemGlobalID *parentGlobalID;
+@property (nonatomic, retain) NSSet *parentGlobalIDs;
+@property (nonatomic, retain) NSString *unsaltedBookmarkData;
+@property (nonatomic, readonly) NSURL *url;
 
++ (id)notificationFromItem:(id)arg1 relpath:(id)arg2;
++ (id)notificationGatheredFromItem:(id)arg1;
 + (id)notificationWithAliasItem:(id)arg1 targetItemNotification:(id)arg2;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (void)_setupFileIDsWithLocalItem:(id)arg1;
-- (void)_setupWithNonAliasItem:(id)arg1 diffs:(unsigned long long)arg2;
-- (id)aliasContainerID;
-- (BOOL)canMerge:(id)arg1;
+- (void)_addAliasDecoration:(id)arg1;
+- (id)aliasSourceAppLibraryID;
+- (id)appLibrary;
+- (id)appLibraryIDsWithReverseAliases;
+- (bool)canMerge:(id)arg1;
 - (Class)classForCoder;
-- (id)container;
-- (id)containerIDsWithReverseAliases;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)generateLogicalExtension:(id)arg1 physicalExtension:(id)arg2;
-- (id)initWithLocalItem:(id)arg1 itemDiffs:(unsigned long long)arg2 updateDiffs:(unsigned short)arg3;
+- (id)initWithAliasItem:(id)arg1 itemDiffs:(unsigned long long)arg2;
 - (id)initWithLocalItem:(id)arg1 itemDiffs:(unsigned long long)arg2;
-- (id)itemID;
+- (bool)isDocumentsFolder;
+- (bool)isInDataScope;
+- (bool)isInDocumentScope;
+- (bool)isInTrashScope;
+- (id)itemGlobalID;
 - (void)merge:(id)arg1;
+- (id)notificationByStrippingSharingInfoIfNeeded;
+- (id)oldAppLibraryID;
 - (unsigned long long)oldParentFileID;
 - (id)oldParentFileObjectID;
-- (unsigned long long)parentFileID;
 - (id)parentFileObjectID;
-- (id)parentID;
-- (id)parentIDs;
-- (void)setContainerIDsWithReverseAliases:(id)arg1;
-- (void)setParentIDs:(id)arg1;
+- (id)parentGlobalID;
+- (id)parentGlobalIDs;
+- (void)setAppLibraryIDsWithReverseAliases:(id)arg1;
+- (void)setNumberAttribute:(id)arg1 forKey:(id)arg2;
+- (void)setParentGlobalIDs:(id)arg1;
+- (void)setUnsaltedBookmarkData:(id)arg1;
+- (id)subclassDescription;
+- (id)unsaltedBookmarkData;
 
 @end

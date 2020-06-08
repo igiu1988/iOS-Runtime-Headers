@@ -2,53 +2,53 @@
    Image: /System/Library/PrivateFrameworks/PBBridgeSupport.framework/PBBridgeSupport
  */
 
-@class NSString;
-
 @interface PBBProtoPerformanceResult : PBCodable <NSCopying> {
+    NSString * _activityType;
     struct { 
         unsigned int timeDelta : 1; 
         unsigned int timeEnded : 1; 
         unsigned int timeStarted : 1; 
-    NSString *_activityType;
-    } _has;
-    NSString *_identifier;
-    double _timeDelta;
-    double _timeEnded;
-    double _timeStarted;
+    }  _has;
+    NSString * _identifier;
+    double  _timeDelta;
+    double  _timeEnded;
+    double  _timeStarted;
 }
 
-@property(retain) NSString * activityType;
-@property(readonly) BOOL hasActivityType;
-@property(readonly) BOOL hasIdentifier;
-@property BOOL hasTimeDelta;
-@property BOOL hasTimeEnded;
-@property BOOL hasTimeStarted;
-@property(retain) NSString * identifier;
-@property double timeDelta;
-@property double timeEnded;
-@property double timeStarted;
+@property (nonatomic, retain) NSString *activityType;
+@property (nonatomic, readonly) bool hasActivityType;
+@property (nonatomic, readonly) bool hasIdentifier;
+@property (nonatomic) bool hasTimeDelta;
+@property (nonatomic) bool hasTimeEnded;
+@property (nonatomic) bool hasTimeStarted;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic) double timeDelta;
+@property (nonatomic) double timeEnded;
+@property (nonatomic) double timeStarted;
+
++ (void)initialize;
 
 - (void).cxx_destruct;
 - (id)activityType;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (id)description;
+- (id)detailedDescription;
 - (id)dictionaryRepresentation;
-- (BOOL)hasActivityType;
-- (BOOL)hasIdentifier;
-- (BOOL)hasTimeDelta;
-- (BOOL)hasTimeEnded;
-- (BOOL)hasTimeStarted;
-- (unsigned int)hash;
+- (bool)hasActivityType;
+- (bool)hasIdentifier;
+- (bool)hasTimeDelta;
+- (bool)hasTimeEnded;
+- (bool)hasTimeStarted;
+- (unsigned long long)hash;
 - (id)identifier;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setActivityType:(id)arg1;
-- (void)setHasTimeDelta:(BOOL)arg1;
-- (void)setHasTimeEnded:(BOOL)arg1;
-- (void)setHasTimeStarted:(BOOL)arg1;
+- (void)setHasTimeDelta:(bool)arg1;
+- (void)setHasTimeEnded:(bool)arg1;
+- (void)setHasTimeStarted:(bool)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setTimeDelta:(double)arg1;
 - (void)setTimeEnded:(double)arg1;

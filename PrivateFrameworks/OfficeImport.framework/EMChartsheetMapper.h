@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDChartSheet;
-
 @interface EMChartsheetMapper : EMSheetMapper {
     struct CGRect { 
         struct CGPoint { 
-            float x; 
-            float y; 
+            double x; 
+            double y; 
         } origin; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } size; 
-    } mBox;
-    EDChartSheet *mChartSheet;
+    }  mBox;
+    EDChartSheet * mChartSheet;
 }
 
-- (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)initWithChartSheet:(id)arg1 parent:(id)arg2;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (int)preprocessHeightWithState:(id)arg1;

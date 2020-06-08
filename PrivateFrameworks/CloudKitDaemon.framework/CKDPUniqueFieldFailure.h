@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDPIdentifier;
-
 @interface CKDPUniqueFieldFailure : PBCodable <NSCopying> {
-    CKDPIdentifier *_identifierForConstraintFailure;
+    CKDPIdentifier * _identifierForConstraintFailure;
 }
 
-@property(readonly) BOOL hasIdentifierForConstraintFailure;
-@property(retain) CKDPIdentifier * identifierForConstraintFailure;
+@property (nonatomic, readonly) bool hasIdentifierForConstraintFailure;
+@property (nonatomic, retain) CKDPIdentifier *identifierForConstraintFailure;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasIdentifierForConstraintFailure;
-- (unsigned int)hash;
+- (bool)hasIdentifierForConstraintFailure;
+- (unsigned long long)hash;
 - (id)identifierForConstraintFailure;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setIdentifierForConstraintFailure:(id)arg1;
 - (void)writeTo:(id)arg1;
 

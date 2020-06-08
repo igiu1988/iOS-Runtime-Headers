@@ -2,18 +2,19 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUPhotosPanoramaViewControllerSpec : NSObject {
-}
+@interface PUPhotosPanoramaViewControllerSpec : PULegacyViewControllerSpec
 
-- (int)cellFillMode;
-- (void)configureCollectionViewGridLayout:(id)arg1;
++ (id)padSpec;
++ (id)phoneSpec;
+
+- (struct CGSize { double x1; double x2; })_itemSizeForWidth:(double)arg1;
+- (long long)cellFillMode;
+- (void)configureCollectionViewGridLayout:(id)arg1 referenceWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets { double x1; double x2; double x3; double x4; })arg3;
 - (int)fastThumbnailImageFormat;
-- (float)globalFooterHeight;
+- (double)globalFooterHeight;
 - (id)gridSpec;
-- (struct CGSize { float x1; float x2; })itemSizeForOrientation:(int)arg1;
-- (id)photoBrowserSpec;
-- (float)sectionHeaderHeight;
-- (unsigned int)supportedInterfaceOrientations;
+- (double)sectionHeaderHeight;
+- (unsigned long long)supportedInterfaceOrientations;
 - (int)thumbnailImageFormat;
 
 @end

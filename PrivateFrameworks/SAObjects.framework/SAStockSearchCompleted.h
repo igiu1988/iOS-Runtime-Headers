@@ -2,28 +2,23 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString;
+@interface SAStockSearchCompleted : SABaseCommand <SAServerBoundCommand>
 
-@interface SAStockSearchCompleted : SABaseCommand <SAServerBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) NSString * refId;
-@property(copy) NSArray * stockList;
-@property(copy) NSArray * stockReferences;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSString *aceId;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSString *refId;
+@property (nonatomic, copy) NSArray *stockReferences;
+@property (readonly) Class superclass;
 
 + (id)searchCompleted;
 + (id)searchCompletedWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (void)setStockList:(id)arg1;
+- (bool)requiresResponse;
 - (void)setStockReferences:(id)arg1;
-- (id)stockList;
 - (id)stockReferences;
 
 @end

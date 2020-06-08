@@ -2,72 +2,81 @@
    Image: /System/Library/PrivateFrameworks/AXRuntime.framework/AXRuntime
  */
 
-@class <AXRemoteElementChildrenDelegate>, NSMutableSet, NSString;
-
 @interface AXRemoteElement : NSObject {
-    id _accessibilityContainer;
-    NSMutableSet *_allChildren;
-    unsigned int _contextId;
-    BOOL _deniesDirectAppConnection;
-    unsigned int _machPort;
-    BOOL _onClientSide;
-    <AXRemoteElementChildrenDelegate> *_remoteChildrenDelegate;
-    int _remotePid;
-    BOOL _remoteSideShouldActAsOpaqueElementProvider;
-    NSString *_uuid;
+    id  _accessibilityContainer;
+    NSMutableSet * _allChildren;
+    unsigned int  _contextId;
+    bool  _deniesDirectAppConnection;
+    unsigned int  _machPort;
+    bool  _onClientSide;
+    <AXRemoteElementChildrenDelegate> * _remoteChildrenDelegate;
+    int  _remotePid;
+    NSString * _uuid;
 }
 
-@property id accessibilityContainer;
-@property unsigned int contextId;
-@property BOOL deniesDirectAppConnection;
-@property unsigned int machPort;
-@property BOOL onClientSide;
-@property <AXRemoteElementChildrenDelegate> * remoteChildrenDelegate;
-@property int remotePid;
-@property BOOL remoteSideShouldActAsOpaqueElementProvider;
-@property(retain) NSString * uuid;
-@property(readonly) unsigned long long uuidHash;
+@property (nonatomic) id accessibilityContainer;
+@property (nonatomic) unsigned int contextId;
+@property (nonatomic) bool deniesDirectAppConnection;
+@property (nonatomic) unsigned int machPort;
+@property (nonatomic) bool onClientSide;
+@property (nonatomic) <AXRemoteElementChildrenDelegate> *remoteChildrenDelegate;
+@property (nonatomic) int remotePid;
+@property (nonatomic, retain) NSString *uuid;
+@property (nonatomic, readonly) unsigned long long uuidHash;
+
+// Image: /System/Library/PrivateFrameworks/AXRuntime.framework/AXRuntime
 
 + (void)initialize;
-+ (BOOL)registerRemoteElement:(id)arg1;
-+ (id)remoteElementForBlock:(id)arg1;
-+ (id)remoteElementForContextId:(unsigned int)arg1;
++ (bool)registerRemoteElement:(id)arg1;
++ (id)remoteElementForBlock:(id /* block */)arg1;
++ (id)remoteElementsForBlock:(id /* block */)arg1;
++ (id)remoteElementsForContextId:(unsigned int)arg1;
 
+- (void).cxx_destruct;
+- (id)_accessibilityActiveKeyboard;
 - (id)_accessibilityFirstElement;
+- (void)_accessibilityIncreaseSelection:(id)arg1;
 - (id)_accessibilityLastElement;
 - (id)_accessibilityResponderElement;
 - (id)_accessibilitySortedElementsWithin;
 - (id)_accessibilityTextOperations;
 - (id)_accessibilityTextViewTextOperationResponder;
-- (id)_remoteElementWithAttribute:(int)arg1;
+- (id)_remoteElementWithAttribute:(long long)arg1 limitToRemoteSubviews:(bool)arg2;
 - (id)accessibilityContainer;
-- (id)accessibilityContainerElements;
-- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })accessibilityFrame;
-- (BOOL)accessibilityViewIsModal;
+- (id)accessibilityElements;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })accessibilityFrame;
 - (unsigned int)contextId;
 - (void)dealloc;
-- (BOOL)deniesDirectAppConnection;
+- (bool)deniesDirectAppConnection;
 - (id)description;
+- (void)getLeafElementsFromRemoteSide:(id /* block */)arg1;
 - (id)initWithUUID:(id)arg1 andRemotePid:(int)arg2 andContextId:(unsigned int)arg3;
-- (BOOL)isAccessibilityOpaqueElementProvider;
 - (unsigned int)machPort;
-- (BOOL)onClientSide;
-- (void)platformCleanup;
+- (bool)onClientSide;
 - (void)platformCleanup;
 - (id)remoteChildrenDelegate;
 - (int)remotePid;
-- (BOOL)remoteSideShouldActAsOpaqueElementProvider;
 - (void)setAccessibilityContainer:(id)arg1;
 - (void)setContextId:(unsigned int)arg1;
-- (void)setDeniesDirectAppConnection:(BOOL)arg1;
+- (void)setDeniesDirectAppConnection:(bool)arg1;
 - (void)setMachPort:(unsigned int)arg1;
-- (void)setOnClientSide:(BOOL)arg1;
+- (void)setOnClientSide:(bool)arg1;
 - (void)setRemoteChildrenDelegate:(id)arg1;
 - (void)setRemotePid:(int)arg1;
-- (void)setRemoteSideShouldActAsOpaqueElementProvider:(BOOL)arg1;
 - (void)setUuid:(id)arg1;
 - (void)unregister;
 - (id)uuid;
 - (unsigned long long)uuidHash;
+
+// Image: /System/Library/PrivateFrameworks/UIAccessibility.framework/UIAccessibility
+
+- (bool)_accessibilityEnumerateSiblingsWithParent:(id*)arg1 options:(id)arg2 usingBlock:(id /* block */)arg3;
+- (bool)_accessibilityIsRemoteElement;
+- (id)_ancestorElementThatSupportsActivationAction;
+- (bool)accessibilityActivate;
+- (id)accessibilityAttributeValue:(long long)arg1;
+- (id)accessibilityAttributeValue:(long long)arg1 forParameter:(id)arg2;
+- (bool)accessibilityViewIsModal;
+- (void)platformCleanup;
 
 @end

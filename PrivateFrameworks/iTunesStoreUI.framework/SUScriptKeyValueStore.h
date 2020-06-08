@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString, SSKeyValueStore;
-
 @interface SUScriptKeyValueStore : SUScriptObject {
-    NSString *_domain;
-    SSKeyValueStore *_keyValueStore;
+    NSString * _domain;
+    SSKeyValueStore * _keyValueStore;
 }
 
 + (id)_checkOutStoreWithDomain:(id)arg1;

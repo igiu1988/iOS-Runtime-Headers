@@ -2,24 +2,23 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKPlayerInternal, NSString;
-
 @interface GKConcernInternal : GKInternalRepresentation {
-    unsigned int _concernID;
-    NSString *_message;
-    GKPlayerInternal *_player;
+    unsigned int  _concernID;
+    NSString * _message;
+    GKPlayerInternal * _player;
 }
 
-@property unsigned int concernID;
-@property(copy) NSString * message;
-@property(retain) GKPlayerInternal * player;
+@property (nonatomic) unsigned int concernID;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic, retain) GKPlayerInternal *player;
 
 + (id)secureCodedPropertyKeys;
++ (bool)supportsSecureCoding;
 
 - (unsigned int)concernID;
 - (void)dealloc;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)message;
 - (id)player;
 - (void)setConcernID:(unsigned int)arg1;

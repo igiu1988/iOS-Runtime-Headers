@@ -2,21 +2,20 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class CHDAxesCollection, CHDChartTypesCollection, OADGraphicProperties;
-
 @interface CHDPlotArea : NSObject {
-    boolmCategoryAxesReversed;
-    boolmCategoryAxesReversedOverridden;
-    boolmContainsVolumeStockType;
-    CHDAxesCollection *mAxes;
-    CHDChartTypesCollection *mChartTypes;
-    OADGraphicProperties *mGraphicProperties;
+    CHDAxesCollection * mAxes;
+    bool  mCategoryAxesReversed;
+    bool  mCategoryAxesReversedOverridden;
+    CHDChartTypesCollection * mChartTypes;
+    bool  mContainsVolumeStockType;
+    OADGraphicProperties * mGraphicProperties;
 }
 
 - (id)axes;
 - (id)chartTypes;
 - (bool)containsVolumeStockType;
 - (void)dealloc;
+- (id)description;
 - (id)graphicProperties;
 - (bool)hasSecondaryAxis;
 - (bool)hasSecondaryYAxisDeleted;

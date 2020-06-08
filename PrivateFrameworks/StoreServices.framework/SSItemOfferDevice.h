@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSString, SSItemOfferDeviceError;
-
 @interface SSItemOfferDevice : NSObject {
-    int _deviceIdentifier;
-    SSItemOfferDeviceError *_incompatibleDeviceError;
-    SSItemOfferDeviceError *_incompatibleSystemError;
-    NSString *_minimumProductVersion;
+    long long  _deviceIdentifier;
+    SSItemOfferDeviceError * _incompatibleDeviceError;
+    SSItemOfferDeviceError * _incompatibleSystemError;
+    NSString * _minimumProductVersion;
 }
 
-@property(readonly) int deviceIdentifier;
-@property(readonly) SSItemOfferDeviceError * incompatibleDeviceError;
-@property(readonly) SSItemOfferDeviceError * incompatibleSystemError;
-@property(readonly) NSString * minimumProductVersion;
+@property (nonatomic, readonly) long long deviceIdentifier;
+@property (nonatomic, readonly) SSItemOfferDeviceError *incompatibleDeviceError;
+@property (nonatomic, readonly) SSItemOfferDeviceError *incompatibleSystemError;
+@property (nonatomic, readonly) NSString *minimumProductVersion;
 
 - (void)dealloc;
-- (int)deviceIdentifier;
+- (long long)deviceIdentifier;
 - (id)incompatibleDeviceError;
 - (id)incompatibleSystemError;
 - (id)init;
-- (id)initWithDeviceIdentifier:(int)arg1;
+- (id)initWithDeviceIdentifier:(long long)arg1;
 - (id)initWithOfferDeviceDicitionary:(id)arg1;
 - (id)minimumProductVersion;
 

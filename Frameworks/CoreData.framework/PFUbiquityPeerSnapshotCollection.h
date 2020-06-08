@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSMutableArray, NSMutableDictionary;
-
 @interface PFUbiquityPeerSnapshotCollection : NSObject {
-    NSMutableDictionary *_kvToSnapshot;
-    BOOL _needSort;
-    NSMutableDictionary *_peerIDToTranasctionNumberToKnowledgeVector;
-    NSMutableDictionary *_peerIDToTransactionNumberToSnapshot;
-    NSMutableArray *_peerSnapshots;
+    NSMutableDictionary * _kvToSnapshot;
+    bool  _needSort;
+    NSMutableDictionary * _peerIDToTranasctionNumberToKnowledgeVector;
+    NSMutableDictionary * _peerIDToTransactionNumberToSnapshot;
+    NSMutableArray * _peerSnapshots;
 }
 
 - (void)addSnapshot:(id)arg1;
 - (id)allPeerIDs;
-- (BOOL)calculateSnapshotDiffsWithError:(id*)arg1;
+- (bool)calculateSnapshotDiffsWithError:(id*)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)knowledgeVectorsForTransactionNumber:(id)arg1 exportedByPeerWithID:(id)arg2;

@@ -2,37 +2,35 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUIServices.framework/SpringBoardUIServices
  */
 
-@class UIColor, _UIBackdropView;
-
 @interface SBUIEmergencyCallHostViewController : _UIRemoteViewController <SBUIEmergencyCallHostInterface> {
-    int _backgroundStyle;
-    float _blurRadius;
-    _UIBackdropView *_blurView;
-    BOOL _blursSelf;
-    UIColor *_tintColor;
+    long long  _backgroundStyle;
+    double  _blurRadius;
+    _UIBackdropView * _blurView;
+    bool  _blursSelf;
+    UIColor * _tintColor;
 }
 
-@property int backgroundStyle;
-@property float blurRadius;
-@property BOOL blursSelf;
-@property(retain) UIColor * tintColor;
+@property (nonatomic) long long backgroundStyle;
+@property (nonatomic) double blurRadius;
+@property (nonatomic) bool blursSelf;
+@property (nonatomic, retain) UIColor *tintColor;
 
 + (id)exportedInterface;
-+ (void)requestEmergencyCallControllerWithCompletion:(id)arg1;
++ (void)requestEmergencyCallControllerWithCompletion:(id /* block */)arg1;
 + (id)serviceViewControllerInterface;
 
+- (void).cxx_destruct;
 - (void)_createAndAddBlurViewIfNecessary;
-- (int)backgroundStyle;
-- (float)blurRadius;
-- (BOOL)blursSelf;
-- (void)dealloc;
+- (long long)backgroundStyle;
+- (double)blurRadius;
+- (bool)blursSelf;
 - (void)dismiss;
-- (void)setBackgroundStyle:(int)arg1;
-- (void)setBlurRadius:(float)arg1;
-- (void)setBlursSelf:(BOOL)arg1;
+- (void)setBackgroundStyle:(long long)arg1;
+- (void)setBlurRadius:(double)arg1;
+- (void)setBlursSelf:(bool)arg1;
 - (void)setTintColor:(id)arg1;
 - (id)tintColor;
-- (id)tintColorForBackgroundStyle:(int)arg1 outBlurRadius:(float*)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (id)tintColorForBackgroundStyle:(long long)arg1 outBlurRadius:(double*)arg2;
+- (void)viewWillAppear:(bool)arg1;
 
 @end

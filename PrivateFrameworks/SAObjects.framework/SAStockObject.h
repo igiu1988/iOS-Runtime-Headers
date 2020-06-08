@@ -2,40 +2,39 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSNumber, NSString;
+@interface SAStockObject : SADomainObject
 
-@interface SAStockObject : SADomainObject {
-}
-
-@property(copy) NSNumber * averageDailyVolume;
-@property(copy) NSNumber * change;
-@property(copy) NSNumber * changePercent;
-@property(copy) NSString * chartData;
-@property(copy) NSString * currency;
-@property(copy) NSString * displayStyle;
-@property(copy) NSNumber * dividendYield;
-@property(copy) NSNumber * earningsPerShare;
-@property(copy) NSString * exchange;
-@property(copy) NSNumber * high;
-@property(copy) NSString * link;
-@property(copy) NSNumber * low;
-@property(copy) NSString * marketCap;
-@property(copy) NSString * name;
-@property(copy) NSNumber * open;
-@property(copy) NSNumber * peRatio;
-@property(copy) NSNumber * prevClose;
-@property(copy) NSNumber * price;
-@property(copy) NSNumber * realTimeChange;
-@property(copy) NSNumber * realTimeChangePercent;
-@property(copy) NSNumber * realTimePrice;
-@property(copy) NSNumber * realTimeTS;
-@property(copy) NSArray * requests;
-@property(copy) NSNumber * status;
-@property(copy) NSArray * stockNews;
-@property(copy) NSString * symbol;
-@property(copy) NSNumber * timeStamp;
-@property(copy) NSNumber * volume;
-@property(copy) NSString * yearRange;
+@property (nonatomic, copy) NSNumber *averageDailyVolume;
+@property (nonatomic, copy) NSNumber *change;
+@property (nonatomic, copy) NSNumber *changePercent;
+@property (nonatomic, copy) NSString *chartData;
+@property (nonatomic, copy) NSString *currency;
+@property (nonatomic, copy) NSString *displayStyle;
+@property (nonatomic, copy) NSNumber *dividendYield;
+@property (nonatomic, copy) NSNumber *earningsPerShare;
+@property (nonatomic, copy) NSString *exchange;
+@property (nonatomic, copy) NSNumber *fiftyTwoWeekHigh;
+@property (nonatomic, copy) NSNumber *fiftyTwoWeekLow;
+@property (nonatomic, copy) NSNumber *high;
+@property (nonatomic, copy) NSString *link;
+@property (nonatomic, copy) NSNumber *low;
+@property (nonatomic, copy) NSString *marketCap;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSNumber *open;
+@property (nonatomic, copy) NSNumber *peRatio;
+@property (nonatomic, copy) NSNumber *prevClose;
+@property (nonatomic, copy) NSNumber *price;
+@property (nonatomic, copy) NSNumber *realTimeChange;
+@property (nonatomic, copy) NSNumber *realTimeChangePercent;
+@property (nonatomic, copy) NSNumber *realTimePrice;
+@property (nonatomic, copy) NSNumber *realTimeTS;
+@property (nonatomic, copy) NSArray *requests;
+@property (nonatomic, copy) NSNumber *status;
+@property (nonatomic, copy) NSArray *stockNews;
+@property (nonatomic, copy) NSString *symbol;
+@property (nonatomic, copy) NSNumber *timeStamp;
+@property (nonatomic, copy) NSNumber *volume;
+@property (nonatomic, copy) NSString *yearRange;
 
 + (id)object;
 + (id)objectWithDictionary:(id)arg1 context:(id)arg2;
@@ -50,6 +49,8 @@
 - (id)earningsPerShare;
 - (id)encodedClassName;
 - (id)exchange;
+- (id)fiftyTwoWeekHigh;
+- (id)fiftyTwoWeekLow;
 - (id)groupIdentifier;
 - (id)high;
 - (id)link;
@@ -74,6 +75,8 @@
 - (void)setDividendYield:(id)arg1;
 - (void)setEarningsPerShare:(id)arg1;
 - (void)setExchange:(id)arg1;
+- (void)setFiftyTwoWeekHigh:(id)arg1;
+- (void)setFiftyTwoWeekLow:(id)arg1;
 - (void)setHigh:(id)arg1;
 - (void)setLink:(id)arg1;
 - (void)setLow:(id)arg1;
@@ -98,7 +101,6 @@
 - (id)stockNews;
 - (id)symbol;
 - (id)timeStamp;
-- (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 - (id)volume;
 - (id)yearRange;
 

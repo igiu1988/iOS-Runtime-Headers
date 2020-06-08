@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/PhotoEditSupport.framework/PhotoEditSupport
  */
 
-@class CIFilter, CIImage, NSNumber;
-
 @interface BLPhotoFiltersFilter : CIFilter {
-    CIFilter *_ciMatrix;
-    CIFilter *_ciPhotoEffectFilter;
-    NSNumber *_inputAmount;
-    CIImage *_inputImage;
-    NSNumber *_inputStrength;
-    int _lastAmount;
-    float _lastStrength;
-    CIFilter *_maskFilter;
-    BOOL _needsReprocess;
+    CIFilter * _ciMatrix;
+    CIFilter * _ciPhotoEffectFilter;
+    NSNumber * _inputAmount;
+    CIImage * _inputImage;
+    NSNumber * _inputStrength;
+    int  _lastAmount;
+    float  _lastStrength;
+    CIFilter * _maskFilter;
+    bool  _needsReprocess;
 }
 
-@property(retain) CIFilter * ciMatrix;
-@property(retain) CIFilter * ciPhotoEffectFilter;
-@property(copy) NSNumber * inputAmount;
-@property(retain) CIImage * inputImage;
-@property(copy) NSNumber * inputStrength;
-@property(retain) CIFilter * maskFilter;
+@property (nonatomic, retain) CIFilter *ciMatrix;
+@property (nonatomic, retain) CIFilter *ciPhotoEffectFilter;
+@property (nonatomic, copy) NSNumber *inputAmount;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, copy) NSNumber *inputStrength;
+@property (nonatomic, retain) CIFilter *maskFilter;
 
 - (void).cxx_destruct;
 - (id)ciMatrix;

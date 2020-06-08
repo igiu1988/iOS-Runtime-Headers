@@ -2,44 +2,51 @@
    Image: /System/Library/Frameworks/GameController.framework/GameController
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <GCNamedProfile>, NSString;
-
 @interface _GCController : GCController <NSSecureCoding> {
-    id _controllerPausedHandler;
-    unsigned int _deviceHash;
-    struct __IOHIDDevice { } *_deviceRef;
-    int _playerIndex;
-    <GCNamedProfile> *_profile;
-    unsigned int _service;
-    NSString *_vendorName;
+    id /* block */  _controllerPausedHandler;
+    unsigned long long  _deviceHash;
+    NSObject<OS_dispatch_queue> * _handlerQueue;
+    NSMutableArray * _hidServices;
+    long long  _playerIndex;
+    <GCNamedProfile> * _profile;
+    unsigned int  _service;
+    NSString * _vendorName;
+    NSString * physicalDeviceUniqueID;
+    bool  physicalDeviceUsesCompass;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (void)clearDeviceRef;
-- (id)controllerPausedHandler;
+- (void)addServiceRefs:(id)arg1;
+- (void)clearServiceRef;
+- (id /* block */)controllerPausedHandler;
 - (void)dealloc;
 - (id)description;
-- (unsigned int)deviceHash;
-- (struct __IOHIDDevice { }*)deviceRef;
+- (unsigned long long)deviceHash;
 - (void)encodeWithCoder:(id)arg1;
 - (id)extendedGamepad;
 - (id)gamepad;
+- (id)handlerQueue;
+- (bool)hasServiceRef:(struct __IOHIDServiceClient { }*)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDeviceRef:(struct __IOHIDDevice { }*)arg1;
 - (id)initWithProfile:(id)arg1;
-- (BOOL)isAttachedToDevice;
+- (id)initWithServiceRef:(struct __IOHIDServiceClient { }*)arg1;
+- (bool)isAttachedToDevice;
+- (bool)isEqualToController:(id)arg1;
+- (id)microGamepad;
 - (id)motion;
-- (int)playerIndex;
+- (id)physicalDeviceUniqueID;
+- (bool)physicalDeviceUsesCompass;
+- (long long)playerIndex;
 - (id)profile;
+- (void)removeServiceRef:(struct __IOHIDServiceClient { }*)arg1;
 - (unsigned int)service;
-- (void)setControllerPausedHandler:(id)arg1;
-- (void)setPlayerIndex:(int)arg1;
+- (void)setControllerPausedHandler:(id /* block */)arg1;
+- (void)setHandlerQueue:(id)arg1;
+- (void)setPhysicalDeviceUniqueID:(id)arg1;
+- (void)setPhysicalDeviceUsesCompass:(bool)arg1;
+- (void)setPlayerIndex:(long long)arg1;
 - (void)setProfile:(id)arg1;
 - (id)vendorName;
 

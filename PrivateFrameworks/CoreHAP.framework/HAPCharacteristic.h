@@ -2,51 +2,74 @@
    Image: /System/Library/PrivateFrameworks/CoreHAP.framework/CoreHAP
  */
 
-@class HAPCharacteristicMetadata, HAPService, NSNumber, NSString;
-
-@interface HAPCharacteristic : NSObject {
-    BOOL _eventNotificationsEnabled;
-    NSNumber *_instanceID;
-    HAPCharacteristicMetadata *_metadata;
-    unsigned int _properties;
-    HAPService *_service;
-    NSString *_type;
-    id _value;
+@interface HAPCharacteristic : HMFObject <HMFMerging> {
+    HAPCharacteristicMetadata * _accessoryMetadata;
+    bool  _eventNotificationsEnabled;
+    NSNumber * _instanceID;
+    HMFUnfairLock * _lock;
+    HAPCharacteristicMetadata * _metadata;
+    unsigned long long  _properties;
+    HAPService * _service;
+    bool  _shouldValidateValueAfterReading;
+    NSNumber * _stateNumber;
+    NSString * _type;
+    id  _value;
+    NSDate * _valueUpdatedTime;
 }
 
-@property BOOL eventNotificationsEnabled;
-@property(copy) NSNumber * instanceID;
-@property(retain) HAPCharacteristicMetadata * metadata;
-@property unsigned int properties;
-@property HAPService * service;
-@property(copy) NSString * type;
-@property(copy) id value;
-
-+ (id)characteristicTypeFromUUIDString:(id)arg1;
-+ (id)masterCharacteristicsUUIDDictionary;
+@property (nonatomic, readonly) HAPCharacteristicMetadata *accessoryMetadata;
+@property (setter=setCBCharacteristic:, nonatomic, retain) CBCharacteristic *cbCharacteristic;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) bool eventNotificationsEnabled;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSNumber *instanceID;
+@property (nonatomic, copy) HAPCharacteristicMetadata *metadata;
+@property (nonatomic) unsigned long long properties;
+@property (nonatomic) HAPService *service;
+@property (nonatomic) bool shouldValidateValueAfterReading;
+@property (nonatomic, readonly) NSNumber *stateNumber;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) bool supportsAdditionalAuthorizationData;
+@property (nonatomic, copy) NSString *type;
+@property (setter=setValue:, nonatomic, copy) id value;
+@property (nonatomic, retain) NSDate *valueUpdatedTime;
 
 - (void).cxx_destruct;
 - (id)_generateValidMetadata:(id)arg1;
-- (id)_getDefaultMetadata;
 - (void)_updateMetadata:(id)arg1 withProvidedMetadata:(id)arg2;
+- (id)accessoryMetadata;
+- (id)cbCharacteristic;
 - (id)description;
-- (BOOL)eventNotificationsEnabled;
-- (id)initWithType:(id)arg1 instanceID:(id)arg2 value:(id)arg3 properties:(unsigned int)arg4 eventNotificationsEnabled:(BOOL)arg5 metadata:(id)arg6;
+- (bool)eventNotificationsEnabled;
+- (unsigned long long)hash;
+- (id)initWithType:(id)arg1 instanceID:(id)arg2 value:(id)arg3 stateNumber:(id)arg4 properties:(unsigned long long)arg5 eventNotificationsEnabled:(bool)arg6 metadata:(id)arg7;
 - (id)instanceID;
-- (BOOL)isEqualToCharacteristic:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToCharacteristic:(id)arg1;
+- (bool)mergeObject:(id)arg1;
 - (id)metadata;
-- (unsigned int)properties;
+- (unsigned long long)properties;
 - (id)propertiesDescription;
 - (id)service;
-- (void)setEventNotificationsEnabled:(BOOL)arg1;
+- (void)setCBCharacteristic:(id)arg1;
+- (void)setEventNotificationsEnabled:(bool)arg1;
 - (void)setInstanceID:(id)arg1;
 - (void)setMetadata:(id)arg1;
-- (void)setProperties:(unsigned int)arg1;
+- (void)setProperties:(unsigned long long)arg1;
 - (void)setService:(id)arg1;
+- (void)setShouldValidateValueAfterReading:(bool)arg1;
+- (void)setStateNumber:(id)arg1;
 - (void)setType:(id)arg1;
 - (void)setValue:(id)arg1;
+- (void)setValueUpdatedTime:(id)arg1;
+- (bool)shouldMergeObject:(id)arg1;
+- (bool)shouldValidateValueAfterReading;
+- (id)stateNumber;
+- (bool)supportsAdditionalAuthorizationData;
 - (id)type;
 - (id)validateValue:(id)arg1 outValue:(id*)arg2;
 - (id)value;
+- (id)valueUpdatedTime;
 
 @end

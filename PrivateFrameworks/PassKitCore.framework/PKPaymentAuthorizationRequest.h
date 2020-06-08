@@ -2,34 +2,22 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSData, NSString, PKPaymentRequest;
-
-@interface PKPaymentAuthorizationRequest : NSObject <NSSecureCoding> {
-    NSData *_credential;
-    BOOL _didSetNonce;
-    NSData *_nonceData;
-    NSString *_passUniqueIdentifier;
-    PKPaymentRequest *_paymentRequest;
+@interface PKPaymentAuthorizationRequest : NSObject {
+    NSData * _credential;
+    NSData * _nonceData;
+    PKPaymentRequest * _paymentRequest;
 }
 
-@property(retain) NSData * credential;
-@property(retain) NSData * nonceData;
-@property(retain) NSString * passUniqueIdentifier;
-@property(retain) PKPaymentRequest * paymentRequest;
+@property (nonatomic, retain) NSData *credential;
+@property (nonatomic, retain) NSData *nonceData;
+@property (nonatomic, readonly) PKPaymentRequest *paymentRequest;
 
-+ (BOOL)supportsSecureCoding;
-
+- (void).cxx_destruct;
 - (id)credential;
-- (void)dealloc;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+- (id)initWithPaymentRequest:(id)arg1;
 - (id)nonceData;
-- (id)passUniqueIdentifier;
 - (id)paymentRequest;
 - (void)setCredential:(id)arg1;
 - (void)setNonceData:(id)arg1;
-- (void)setPassUniqueIdentifier:(id)arg1;
-- (void)setPaymentRequest:(id)arg1;
-- (id)transactionRequestWithPaymentApplication:(id)arg1;
 
 @end

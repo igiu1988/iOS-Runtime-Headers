@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class NSString;
-
 @interface BBBulletinTransaction : NSObject {
-    NSString *_bulletinID;
-    unsigned int _transactionID;
+    NSString * _bulletinID;
+    unsigned long long  _transactionID;
 }
 
-@property(copy,readonly) NSString * bulletinID;
-@property(readonly) unsigned int transactionID;
+@property (nonatomic, readonly, copy) NSString *bulletinID;
+@property (nonatomic, readonly) unsigned long long transactionID;
 
 + (id)transactionWithBulletinID:(id)arg1;
 
+- (void).cxx_destruct;
 - (id)bulletinID;
-- (void)dealloc;
 - (id)description;
-- (unsigned int)incrementTransactionID;
+- (unsigned long long)incrementTransactionID;
 - (id)initWithBulletinID:(id)arg1;
-- (unsigned int)transactionID;
+- (unsigned long long)transactionID;
 
 @end

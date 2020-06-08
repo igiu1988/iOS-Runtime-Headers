@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSArray, NSDictionary, NSObject<OS_dispatch_queue>;
-
 @interface MCBookmarkManager : NSObject {
-    NSObject<OS_dispatch_queue> *_memberQueue;
-    NSArray *_memberQueueCurrentUserBookmarks;
-    NSDictionary *_memberQueueStashedBookmarksByLabel;
-    int _notificationToken;
+    NSObject<OS_dispatch_queue> * _memberQueue;
+    NSArray * _memberQueueCurrentUserBookmarks;
+    NSDictionary * _memberQueueStashedBookmarksByLabel;
+    int  _notificationToken;
 }
 
-@property(retain) NSObject<OS_dispatch_queue> * memberQueue;
-@property(retain) NSArray * memberQueueCurrentUserBookmarks;
-@property(retain) NSDictionary * memberQueueStashedBookmarksByLabel;
-@property int notificationToken;
-@property(copy) NSArray * userBookmarks;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *memberQueue;
+@property (nonatomic, retain) NSArray *memberQueueCurrentUserBookmarks;
+@property (nonatomic, retain) NSDictionary *memberQueueStashedBookmarksByLabel;
+@property (nonatomic) int notificationToken;
+@property (nonatomic, copy) NSArray *userBookmarks;
 
 + (id)sharedManager;
 

@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSString;
-
 @interface ML3MigrationAddedColumn : NSObject {
-    NSString *_columnName;
-    NSString *_foreignColumnName;
-    NSString *_foreignTableName;
-    NSString *_joinColumnName;
+    NSString * _columnName;
+    NSString * _foreignColumnName;
+    NSString * _foreignTableName;
+    NSString * _joinColumnName;
 }
 
-@property(readonly) NSString * columnName;
-@property(readonly) NSString * foreignColumnName;
-@property(readonly) NSString * foreignTableName;
-@property(readonly) NSString * joinColumnName;
-@property(readonly) BOOL shouldImportFromForeignTable;
+@property (nonatomic, readonly) NSString *columnName;
+@property (nonatomic, readonly) NSString *foreignColumnName;
+@property (nonatomic, readonly) NSString *foreignTableName;
+@property (nonatomic, readonly) NSString *joinColumnName;
+@property (nonatomic, readonly) bool shouldImportFromForeignTable;
 
 - (void).cxx_destruct;
 - (id)columnName;
@@ -23,6 +21,6 @@
 - (id)foreignTableName;
 - (id)initWithName:(id)arg1 foreignTable:(id)arg2 foreignColumn:(id)arg3 joinColumn:(id)arg4;
 - (id)joinColumnName;
-- (BOOL)shouldImportFromForeignTable;
+- (bool)shouldImportFromForeignTable;
 
 @end

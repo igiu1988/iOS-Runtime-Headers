@@ -2,36 +2,35 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@class CKDContainerInfo, NSString;
-
 @interface CKDContainerSpecificInfoURLRequest : CKDURLRequest {
-    NSString *_containerIdentifier;
-    CKDContainerInfo *_containerInfo;
-    BOOL _needUserID;
+    NSString * _containerIdentifier;
+    CKDContainerInfo * _containerInfo;
+    bool  _requireUserIDs;
 }
 
-@property NSString * containerIdentifier;
-@property(copy) CKDContainerInfo * containerInfo;
-@property BOOL needUserID;
+@property (nonatomic) NSString *containerIdentifier;
+@property (nonatomic, copy) CKDContainerInfo *containerInfo;
+@property (nonatomic) bool requireUserIDs;
 
 - (void).cxx_destruct;
-- (id)additionalHeaderValues;
-- (BOOL)allowsAnonymousAccount;
-- (BOOL)allowsAuthedAccount;
+- (bool)allowsAnonymousAccount;
+- (bool)allowsAuthedAccount;
 - (id)containerIdentifier;
 - (id)containerInfo;
-- (BOOL)hasRequestBody;
+- (bool)hasRequestBody;
 - (id)initWithContainerIdentifier:(id)arg1;
-- (BOOL)needUserID;
-- (int)partitionType;
+- (long long)partitionType;
 - (void)requestDidParseJSONObject:(id)arg1;
-- (BOOL)requiresConfiguration;
-- (BOOL)requiresDeviceID;
-- (BOOL)requiresSignature;
-- (int)serverType;
+- (bool)requireUserIDs;
+- (bool)requiresConfiguration;
+- (bool)requiresDeviceID;
+- (bool)requiresSignature;
+- (long long)serverType;
 - (void)setContainerIdentifier:(id)arg1;
 - (void)setContainerInfo:(id)arg1;
-- (void)setNeedUserID:(BOOL)arg1;
+- (void)setRequireUserIDs:(bool)arg1;
 - (id)url;
+- (bool)usesCloudKitAuthToken;
+- (bool)usesiCloudAuthToken;
 
 @end

@@ -2,16 +2,15 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class NSString;
-
 @interface EKDirectoryRecord : NSObject {
-    NSString *_displayName;
-    NSString *_preferredAddress;
+    NSString * _displayName;
+    NSString * _preferredAddress;
 }
 
-@property(retain) NSString * displayName;
-@property(retain) NSString * preferredAddress;
+@property (nonatomic, retain) NSString *displayName;
+@property (nonatomic, retain) NSString *preferredAddress;
 
+- (void).cxx_destruct;
 - (id)description;
 - (id)displayName;
 - (id)preferredAddress;

@@ -4,20 +4,20 @@
 
 @interface MPPPersistentIDsPredicate : PBCodable <NSCopying> {
     struct { 
-        long long *list; 
-        unsigned int count; 
-        unsigned int size; 
-    struct { 
         unsigned int shouldContain : 1; 
-    } _has;
-    } _persistentIDs;
-    BOOL _shouldContain;
+    }  _has;
+    struct { 
+        long long *list; 
+        unsigned long long count; 
+        unsigned long long size; 
+    }  _persistentIDs;
+    bool  _shouldContain;
 }
 
-@property BOOL hasShouldContain;
-@property(readonly) long long* persistentIDs;
-@property(readonly) unsigned int persistentIDsCount;
-@property BOOL shouldContain;
+@property (nonatomic) bool hasShouldContain;
+@property (nonatomic, readonly) long long*persistentIDs;
+@property (nonatomic, readonly) unsigned long long persistentIDsCount;
+@property (nonatomic) bool shouldContain;
 
 - (void)addPersistentIDs:(long long)arg1;
 - (void)clearPersistentIDs;
@@ -26,17 +26,17 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasShouldContain;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasShouldContain;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (long long*)persistentIDs;
-- (long long)persistentIDsAtIndex:(unsigned int)arg1;
-- (unsigned int)persistentIDsCount;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasShouldContain:(BOOL)arg1;
-- (void)setPersistentIDs:(long long*)arg1 count:(unsigned int)arg2;
-- (void)setShouldContain:(BOOL)arg1;
-- (BOOL)shouldContain;
+- (long long)persistentIDsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)persistentIDsCount;
+- (bool)readFrom:(id)arg1;
+- (void)setHasShouldContain:(bool)arg1;
+- (void)setPersistentIDs:(long long*)arg1 count:(unsigned long long)arg2;
+- (void)setShouldContain:(bool)arg1;
+- (bool)shouldContain;
 - (void)writeTo:(id)arg1;
 
 @end

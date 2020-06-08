@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/CloudDocs.framework/CloudDocs
  */
 
-@class NSEnumerator;
-
 @interface BRContainerBundleIdentifiersEnumerator : NSEnumerator {
-    NSEnumerator *_enumerator;
+    NSEnumerator * _enumerator;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithContainerPlist:(id)arg1;
 - (id)nextObject;
 

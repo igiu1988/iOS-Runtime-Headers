@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/BulletinBoard.framework/BulletinBoard
  */
 
-@class NSDate;
-
 @interface BBDismissalItem : NSObject {
-    NSDate *_expiration;
-    unsigned int _feeds;
+    NSDate * _expiration;
+    unsigned long long  _feeds;
 }
 
-@property(retain,readonly) NSDate * expiration;
-@property(readonly) unsigned int feeds;
+@property (nonatomic, readonly) NSDate *expiration;
+@property (nonatomic, readonly) unsigned long long feeds;
 
-- (void)addFeeds:(unsigned int)arg1;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (void)addFeeds:(unsigned long long)arg1;
 - (id)description;
 - (id)expiration;
-- (unsigned int)feeds;
-- (BOOL)hasExpired;
-- (id)initWithFeeds:(unsigned int)arg1;
+- (unsigned long long)feeds;
+- (bool)hasExpired;
+- (id)initWithFeeds:(unsigned long long)arg1;
 
 @end

@@ -2,40 +2,41 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVMediaDataRequester, AVWeakReference, CALayer, NSError, NSObject<OS_dispatch_queue>, NSString;
-
 @interface AVSampleBufferDisplayLayerInternal : NSObject {
-    struct CGSize { 
-        float width; 
-        float height; 
+    bool  aboveHighWaterLevel;
+    bool  addedToSynchronizer;
     struct CGRect { 
         struct CGPoint { 
-            float x; 
-            float y; 
+            double x; 
+            double y; 
         } origin; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } size; 
-    BOOL aboveHighWaterLevel;
-    BOOL addedToSynchronizer;
-    } bounds;
-    CALayer *contentLayer;
-    struct OpaqueCMTimebase { } *controlTimebaseSetByUser;
-    BOOL controlTimebaseSetByUserIsInUse;
-    NSError *error;
-    BOOL isRequestingMediaData;
-    AVMediaDataRequester *mediaDataRequester;
-    BOOL outputObscured;
-    } presentationSize;
-    struct OpaqueCMTimebase { } *readOnlyRenderingTimebase;
-    struct OpaqueCMTimebase { } *readOnlyVideoQueueTimebase;
-    NSObject<OS_dispatch_queue> *serialQueue;
-    int status;
-    NSString *videoGravity;
-    struct OpaqueFigVideoQueue { } *videoQueue;
-    AVWeakReference *weakReferenceToSelf;
-    AVWeakReference *weakReferenceToSynchronizer;
+    }  bounds;
+    CALayer * contentLayer;
+    struct OpaqueCMTimebase { } * controlTimebaseSetByUser;
+    bool  controlTimebaseSetByUserIsInUse;
+    NSError * error;
+    NSObject<OS_dispatch_queue> * flushCallbackListQueue;
+    NSObject<OS_dispatch_queue> * flushCallbackQueue;
+    NSMutableArray * flushCallbacks;
+    bool  isRequestingMediaData;
+    AVMediaDataRequester * mediaDataRequester;
+    bool  outputObscured;
+    struct CGSize { 
+        double width; 
+        double height; 
+    }  presentationSize;
+    struct OpaqueCMTimebase { } * readOnlyRenderingTimebase;
+    struct OpaqueCMTimebase { } * readOnlyVideoQueueTimebase;
+    NSObject<OS_dispatch_queue> * serialQueue;
+    long long  status;
+    NSString * videoGravity;
+    struct OpaqueFigVideoQueue { } * videoQueue;
+    AVWeakReference * weakReferenceToSelf;
+    AVWeakReference * weakReferenceToSynchronizer;
 }
 
 @end

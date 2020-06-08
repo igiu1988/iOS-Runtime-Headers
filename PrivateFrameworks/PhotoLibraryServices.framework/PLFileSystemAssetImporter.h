@@ -2,42 +2,45 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableDictionary, NSMutableIndexSet, NSMutableSet, NSString, PLPhotoLibrary;
-
 @interface PLFileSystemAssetImporter : NSObject {
-    NSMutableDictionary *_existingOIDsByUUID;
-    NSMutableSet *_existingUUIDs;
-    NSMutableDictionary *_existingUUIDsByPath;
-    BOOL _hasProcessedAnyAssets;
-    PLPhotoLibrary *_photoLibrary;
-    NSString *_photoLibraryStoreUUID;
-    NSMutableIndexSet *_thumbIndexes;
-    unsigned int _thumbnailBatchFetchSize;
+    NSMutableDictionary * _existingOIDsByUUID;
+    NSMutableSet * _existingUUIDs;
+    NSMutableDictionary * _existingUUIDsByUppercasePath;
+    bool  _hasProcessedAnyAssets;
+    NSString * _mediaDirectoryPath;
+    PLPhotoLibrary * _photoLibrary;
+    NSString * _photoLibraryStoreUUID;
+    NSMutableIndexSet * _thumbIndexes;
+    unsigned long long  _thumbnailBatchFetchSize;
 }
 
-@property(retain) NSMutableDictionary * existingOIDsByUUID;
-@property(retain) NSMutableSet * existingUUIDs;
-@property(retain) NSMutableDictionary * existingUUIDsByPath;
-@property unsigned int thumbnailBatchFetchSize;
+@property (nonatomic, retain) NSMutableDictionary *existingOIDsByUUID;
+@property (nonatomic, retain) NSMutableSet *existingUUIDs;
+@property (nonatomic, retain) NSMutableDictionary *existingUUIDsByUppercasePath;
+@property (nonatomic) unsigned long long thumbnailBatchFetchSize;
 
 - (id)_addAssetWithURL:(id)arg1 existingOID:(id)arg2;
-- (id)addAssetWithURLs:(id)arg1 forceInsert:(BOOL)arg2 forceUpdate:(BOOL)arg3;
-- (id)addAssetWithURLs:(id)arg1;
-- (void)addAvailableThumbnailIndex:(unsigned int)arg1;
+- (bool)_setupAdjustmentsFromAdjustmentFileForAsset:(id)arg1;
+- (bool)_setupPhotoAsset:(id)arg1 withURL:(id)arg2;
+- (bool)_setupPhotoAsset:(id)arg1 withURL:(id)arg2 unknownType:(bool)arg3;
+- (bool)_setupPhotoAssetAsPhotoIrisIfNeeded:(id)arg1;
+- (bool)_setupUnknownAsset:(id)arg1 withURL:(id)arg2;
+- (bool)_setupVideoAsset:(id)arg1 withURL:(id)arg2;
+- (id)addAssetWithURLs:(id)arg1 forceInsert:(bool)arg2 forceUpdate:(bool)arg3 fixAddedDate:(bool)arg4;
+- (void)addAvailableThumbnailIndex:(unsigned long long)arg1;
 - (id)assetURLisInDatabase:(id)arg1;
 - (void)dealloc;
 - (id)existingOIDsByUUID;
 - (id)existingUUIDs;
-- (id)existingUUIDsByPath;
+- (id)existingUUIDsByUppercasePath;
 - (id)initWithPhotoLibrary:(id)arg1;
-- (unsigned int)nextThumbnailIndex;
+- (id)mediaDirectoryPathWithPhotoLibrary:(id)arg1;
+- (unsigned long long)nextThumbnailIndex;
 - (void)setExistingOIDsByUUID:(id)arg1;
 - (void)setExistingUUIDs:(id)arg1;
-- (void)setExistingUUIDsByPath:(id)arg1;
+- (void)setExistingUUIDsByUppercasePath:(id)arg1;
 - (void)setModificationAndCreationDateOnAsset:(id)arg1 withURL:(id)arg2;
-- (void)setThumbnailBatchFetchSize:(unsigned int)arg1;
-- (BOOL)setupPhotoAsset:(id)arg1 withURL:(id)arg2;
-- (BOOL)setupVideoAsset:(id)arg1 withURL:(id)arg2;
-- (unsigned int)thumbnailBatchFetchSize;
+- (void)setThumbnailBatchFetchSize:(unsigned long long)arg1;
+- (unsigned long long)thumbnailBatchFetchSize;
 
 @end

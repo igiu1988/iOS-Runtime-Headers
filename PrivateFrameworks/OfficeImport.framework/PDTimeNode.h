@@ -2,43 +2,69 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableArray, NSString, PDIterate;
-
 @interface PDTimeNode : NSObject {
-    double mAcceleration;
-    int mAnimationPresetClass;
-    NSMutableArray *mChildTimeNodeList;
-    double mDeceleration;
-    double mDuration;
-    NSMutableArray *mEndTimeConditions;
-    NSString *mGroupId;
-    BOOL mHasDuration;
-    PDIterate *mIterate;
-    int mPresetId;
-    int mPresetSubType;
-    int mRepeatCount;
-    int mRepeatDuration;
-    int mRestartType;
-    double mSpeed;
-    NSMutableArray *mStartTimeConditions;
-    NSMutableArray *mSubTimeNodeList;
-    int mType;
+    NSDictionary * attributeMap;
+    double  mAcceleration;
+    int  mAnimationPresetClass;
+    NSMutableArray * mChildTimeNodeList;
+    double  mDeceleration;
+    bool  mDisplay;
+    double  mDuration;
+    NSMutableArray * mEndTimeConditions;
+    int  mFillType;
+    NSString * mGroupId;
+    bool  mHasAcceleration;
+    bool  mHasDeceleration;
+    bool  mHasDisplay;
+    bool  mHasDuration;
+    bool  mHasFillType;
+    bool  mHasPresetId;
+    bool  mHasPresetSubType;
+    bool  mHasRepeatCount;
+    bool  mHasRepeatDuration;
+    bool  mHasSpeed;
+    PDIterate * mIterate;
+    int  mPresetId;
+    int  mPresetSubType;
+    int  mRepeatCount;
+    int  mRepeatDuration;
+    int  mRestartType;
+    double  mSpeed;
+    NSMutableArray * mStartTimeConditions;
+    NSMutableArray * mSubTimeNodeList;
+    int  mType;
 }
+
+@property (nonatomic, retain) NSDictionary *attributeMap;
 
 - (double)acceleration;
 - (int)animationPresetClass;
+- (id)attributeMap;
 - (id)childTimeNodeList;
 - (void)dealloc;
 - (double)deceleration;
+- (id)description;
+- (bool)display;
 - (double)duration;
 - (id)endTimeConditions;
+- (int)fillType;
 - (id)groupId;
-- (BOOL)hasDuration;
-- (BOOL)hasPresetClass;
-- (BOOL)hasRestartType;
-- (BOOL)hasType;
+- (bool)hasAcceleration;
+- (bool)hasDeceleration;
+- (bool)hasDisplay;
+- (bool)hasDuration;
+- (bool)hasFillType;
+- (bool)hasPresetClass;
+- (bool)hasPresetId;
+- (bool)hasPresetSubType;
+- (bool)hasRepeatCount;
+- (bool)hasRepeatDuration;
+- (bool)hasRestartType;
+- (bool)hasSpeed;
+- (bool)hasType;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)iterate;
 - (int)presetId;
 - (int)presetSubType;
@@ -47,10 +73,13 @@
 - (int)restartType;
 - (void)setAcceleration:(double)arg1;
 - (void)setAnimationPresetClass:(int)arg1;
+- (void)setAttributeMap:(id)arg1;
 - (void)setChildTimeNodeList:(id)arg1;
 - (void)setDeceleration:(double)arg1;
+- (void)setDisplay:(bool)arg1;
 - (void)setDuration:(double)arg1;
 - (void)setEndTimeConditions:(id)arg1;
+- (void)setFillType:(int)arg1;
 - (void)setGroupId:(id)arg1;
 - (void)setGroupIdValue:(int)arg1;
 - (void)setIterate:(id)arg1;
@@ -67,5 +96,7 @@
 - (id)startTimeConditions;
 - (id)subTimeNodeList;
 - (int)type;
+- (long long)writeDuration;
+- (long long)writeRepeatCount;
 
 @end

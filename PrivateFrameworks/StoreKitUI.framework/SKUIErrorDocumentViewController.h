@@ -2,21 +2,23 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKUIClientContext;
-
 @interface SKUIErrorDocumentViewController : SKUIViewController <SKUIDocumentViewController> {
-    SKUIClientContext *_clientContext;
-    unsigned int _contentUnavailableStyle;
+    SKUIClientContext * _clientContext;
+    unsigned long long  _contentUnavailableStyle;
+    id /* block */  _retryActionBlock;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) id /* block */ retryActionBlock;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)documentDidUpdate:(id)arg1;
 - (id)initWithBackgroundColor:(id)arg1 clientContext:(id)arg2;
 - (void)loadView;
+- (id /* block */)retryActionBlock;
+- (void)setRetryActionBlock:(id /* block */)arg1;
 
 @end

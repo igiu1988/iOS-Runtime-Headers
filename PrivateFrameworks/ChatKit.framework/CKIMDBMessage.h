@@ -2,18 +2,17 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSString;
-
 @interface CKIMDBMessage : CKDBMessage {
-    int _personID;
-    NSString *_personName;
+    int  _personID;
+    NSString * _personName;
 }
 
-@property int personID;
-@property(retain) NSString * personName;
+@property (nonatomic) int personID;
+@property (nonatomic, retain) NSString *personName;
 
+- (void).cxx_destruct;
 - (void)dealloc;
-- (id)initWithRecordID:(int)arg1;
+- (id)initWithRecordID:(long long)arg1;
 - (void)markAsRead;
 - (int)personID;
 - (id)personName;

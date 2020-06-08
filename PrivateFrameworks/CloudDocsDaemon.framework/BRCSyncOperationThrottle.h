@@ -2,32 +2,35 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class NSString;
-
 @interface BRCSyncOperationThrottle : NSObject <NSSecureCoding> {
-    NSString *_containerID;
-    double _delay;
-    double _nextTry;
+    double  _delay;
+    bool  _isSyncDown;
+    int  _lastErrorKind;
+    BRMangledID * _mangledID;
+    double  _nextTry;
 }
 
-@property(retain) NSString * containerID;
-@property(readonly) double delay;
-@property(readonly) double nextTry;
+@property (nonatomic, readonly) double delay;
+@property (nonatomic, readonly) int lastErrorKind;
+@property (nonatomic, retain) BRMangledID *mangledID;
+@property (nonatomic, readonly) double nextTry;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)clear;
-- (id)containerID;
 - (double)delay;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithContainerID:(id)arg1;
+- (id)initWithMangledID:(id)arg1 isSyncDown:(bool)arg2;
+- (int)lastErrorKind;
+- (id)mangledID;
 - (double)nextTry;
-- (void)setContainerID:(id)arg1;
+- (void)setMangledID:(id)arg1;
 - (void)updateAfterSchedulingTask;
 - (void)updateAfterSchedulingTaskWithMinimumDelay:(double)arg1;
+- (bool)updateForClearingOutOfQuota;
 - (void)updateForError:(id)arg1;
 
 @end

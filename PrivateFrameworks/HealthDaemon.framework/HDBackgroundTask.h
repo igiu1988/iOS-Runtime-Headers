@@ -2,29 +2,33 @@
    Image: /System/Library/PrivateFrameworks/HealthDaemon.framework/HealthDaemon
  */
 
-@class NSDate, NSDictionary, NSObject<OS_xpc_object>;
-
 @interface HDBackgroundTask : NSObject {
-    NSObject<OS_xpc_object> *_job;
+    NSObject<OS_xpc_object> * _job;
 }
 
-@property(retain) NSDate * endDate;
-@property(retain) NSDate * startDate;
-@property(retain) NSDictionary * userContext;
+@property (nonatomic) bool allowsPowerOptimizedScheduling;
+@property (nonatomic, retain) NSDate *endDate;
+@property (nonatomic) bool shiftsDatesWithSystemClockChanges;
+@property (nonatomic, retain) NSDate *startDate;
+@property (nonatomic, retain) NSDictionary *userContext;
 
 - (void).cxx_destruct;
 - (id)_initWithJob:(id)arg1;
 - (id)_job;
+- (bool)allowsPowerOptimizedScheduling;
 - (id)description;
 - (id)endDate;
 - (id)init;
+- (void)setAllowsPowerOptimizedScheduling:(bool)arg1;
 - (void)setEndDate:(id)arg1;
+- (void)setShiftsDatesWithSystemClockChanges:(bool)arg1;
 - (void)setStartDate:(id)arg1;
 - (void)setUserContext:(id)arg1;
+- (bool)shiftsDatesWithSystemClockChanges;
 - (id)startDate;
-- (BOOL)taskExpired;
-- (BOOL)taskSatisfied;
-- (BOOL)taskValid;
+- (bool)taskExpired;
+- (bool)taskSatisfied;
+- (bool)taskValid;
 - (id)userContext;
 
 @end

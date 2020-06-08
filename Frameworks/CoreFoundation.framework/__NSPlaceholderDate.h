@@ -2,8 +2,7 @@
    Image: /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
  */
 
-@interface __NSPlaceholderDate : NSDate {
-}
+@interface __NSPlaceholderDate : NSDate
 
 + (id)immutablePlaceholder;
 + (void)initialize;
@@ -13,7 +12,7 @@
 - (id)initWithTimeIntervalSinceReferenceDate:(double)arg1;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (double)timeIntervalSinceReferenceDate;
 
 @end

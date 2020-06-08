@@ -2,107 +2,95 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class <TSDHint>, NSDictionary, NSString;
-
 @interface TPPageHint : NSObject <TSWPOffscreenColumn> {
-    struct vector<TSWPTargetHint, std::__1::allocator<TSWPTargetHint> > { 
-        struct { /* ? */ } *__begin_; 
-        struct { /* ? */ } *__end_; 
-        struct __compressed_pair<TSWPTargetHint *, std::__1::allocator<TSWPTargetHint> > { 
-            struct { /* ? */ } *__first_; 
-        } __end_cap_; 
+    TSUNoCopyDictionary * _anchoredDrawablePositions;
+    NSArray * _childHints;
+    TSUNoCopyDictionary * _flowHints;
+    NSDictionary * _flowTopicNumbers;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _footnoteAutoNumberRange;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
-    struct TSWPTopicNumberHints { 
-        struct map<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> >, std::__1::less<const TSWPListStyle *>, std::__1::allocator<std::__1::pair<const TSWPListStyle *const, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > > > > { 
-            struct __tree<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, std::__1::less<const TSWPListStyle *>, true>, std::__1::allocator<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > > > > { 
-                struct __tree_node<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, void *> {} *__begin_node_; 
-                struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, void *> > > { 
-                    struct __tree_end_node<std::__1::__tree_node_base<void *> *> { 
-                        struct __tree_node_base<void *> {} *__left_; 
-                    } __first_; 
-                } __pair1_; 
-                struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, std::__1::less<const TSWPListStyle *>, true> > { 
-                    unsigned long __first_; 
-                } __pair3_; 
-            } __tree_; 
-        } _numbersForListStyle; 
-        unsigned int _charIndex; 
-        unsigned int _validThroughCharIndex; 
-    NSDictionary *_anchoredAttachmentPositions;
-    <TSDHint> *_firstChildHint;
-    } _footnoteAutoNumberRange;
-    } _footnoteLayoutRange;
-    } _hints;
-    <TSDHint> *_lastChildHint;
-    int _pageKind;
-    } _topicNumbers;
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _footnoteLayoutRange;
+    NSArray * _hints;
+    unsigned long long  _pageColumn;
+    long long  _pageKind;
+    unsigned long long  _pageRow;
+    NSSet * _startingPartitionedAttachments;
+    NSObject<TSWPTopicNumberHints> * _topicNumbers;
 }
 
-@property /* Warning: unhandled struct encoding: '{TSWPTopicNumberHints={map<const TSWPListStyle *' */ struct * topicNumbers; /* unknown property attribute:  true> >=L}}}II} */
-@property(retain) NSDictionary * anchoredAttachmentPositions;
-@property(readonly) struct _NSRange { unsigned int x1; unsigned int x2; } anchoredRange;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) <TSDHint> * firstChildHint;
-@property struct _NSRange { unsigned int x1; unsigned int x2; } footnoteAutoNumberRange;
-@property struct _NSRange { unsigned int x1; unsigned int x2; } footnoteLayoutRange;
-@property(readonly) unsigned int hash;
-@property(retain) <TSDHint> * lastChildHint;
-@property(readonly) unsigned int nextWidowPullsDownFromCharIndex;
-@property int pageKind;
-@property(readonly) struct _NSRange { unsigned int x1; unsigned int x2; } range;
-@property(readonly) unsigned int startAnchoredCharIndex;
-@property(readonly) unsigned int startCharIndex;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) TSUNoCopyDictionary *anchoredDrawablePositions;
+@property (nonatomic, readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } anchoredRange;
+@property (nonatomic, retain) NSArray *childHints;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) <TSDHint> *firstChildHint;
+@property (nonatomic) struct _NSRange { unsigned long long x1; unsigned long long x2; } footnoteAutoNumberRange;
+@property (nonatomic) struct _NSRange { unsigned long long x1; unsigned long long x2; } footnoteLayoutRange;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) <TSDHint> *lastChildHint;
+@property (nonatomic, readonly) bool lastLineIsEmptyAndHasListLabel;
+@property (nonatomic, readonly) unsigned long long lineCount;
+@property (nonatomic, readonly) unsigned long long nextWidowPullsDownFromCharIndex;
+@property (nonatomic) unsigned long long pageColumn;
+@property (nonatomic) long long pageKind;
+@property (nonatomic) unsigned long long pageRow;
+@property (nonatomic, readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } range;
+@property (nonatomic, retain) NSSet *startingPartitionedAttachments;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSObject<TSWPTopicNumberHints> *topicNumbers;
 
-- (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)anchoredAttachmentPositions;
-- (struct _NSRange { unsigned int x1; unsigned int x2; })anchoredRange;
+- (id)anchoredDrawablePositions;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })anchoredRange;
+- (id)childHints;
 - (id)copyForArchiving;
-- (void)dealloc;
 - (id)firstChildHint;
 - (id)firstColumn;
-- (struct { struct CGRect { struct CGPoint { float x_1_2_1; float x_1_2_2; } x_1_1_1; struct CGSize { float x_2_2_1; float x_2_2_2; } x_1_1_2; } x1; struct _NSRange { unsigned int x_2_1_1; unsigned int x_2_1_2; } x2; unsigned int x3; struct _NSRange { unsigned int x_4_1_1; unsigned int x_4_1_2; } x4; unsigned int x5; }*)firstHint;
-- (struct _NSRange { unsigned int x1; unsigned int x2; })footnoteAutoNumberRange;
-- (struct _NSRange { unsigned int x1; unsigned int x2; })footnoteLayoutRange;
-- (struct vector<TSWPTargetHint, std::__1::allocator<TSWPTargetHint> > { struct { /* ? */ } *x1; struct { /* ? */ } *x2; struct __compressed_pair<TSWPTargetHint *, std::__1::allocator<TSWPTargetHint> > { struct { /* ? */ } *x_3_1_1; } x3; })hints;
-- (id)init;
-- (id)initWithArchive:(const struct PageHintArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct RepeatedPtrField<TP::TargetHintArchive> { void **x_3_1_1; int x_3_1_2; int x_3_1_3; int x_3_1_4; } x3; struct Range {} *x4; struct Range {} *x5; struct Reference {} *x6; int x7; unsigned int x8; struct Reference {} *x9; struct RepeatedPtrField<TP::AnchorPosArchive> { void **x_10_1_1; int x_10_1_2; int x_10_1_3; int x_10_1_4; } x10; struct TopicNumberHintsArchive {} *x11; unsigned int x12; int x13; unsigned int x14[1]; }*)arg1 unarchiver:(id)arg2;
+- (id)firstHint;
+- (id)flowHints;
+- (id)flowTopicNumbers;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })footnoteAutoNumberRange;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })footnoteLayoutRange;
+- (id)hints;
+- (id)initWithArchive:(const struct PageHintArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct RepeatedPtrField<TP::TargetHintArchive> { void **x_5_1_1; int x_5_1_2; int x_5_1_3; int x_5_1_4; } x5; struct Range {} *x6; struct Range {} *x7; struct Reference {} *x8; int x9; unsigned int x10; struct Reference {} *x11; struct RepeatedPtrField<TP::AnchorPosArchive> { void **x_12_1_1; int x_12_1_2; int x_12_1_3; int x_12_1_4; } x12; struct TopicNumberHintsArchive {} *x13; struct RepeatedPtrField<TSP::Reference> { void **x_14_1_1; int x_14_1_2; int x_14_1_3; int x_14_1_4; } x14; struct RepeatedPtrField<TSP::UUID> { void **x_15_1_1; int x_15_1_2; int x_15_1_3; int x_15_1_4; } x15; struct RepeatedPtrField<TSP::Reference> { void **x_16_1_1; int x_16_1_2; int x_16_1_3; int x_16_1_4; } x16; unsigned int x17; int x18; struct RepeatedPtrField<TP::TargetHintArchive> { void **x_19_1_1; int x_19_1_2; int x_19_1_3; int x_19_1_4; } x19; }*)arg1 unarchiver:(id)arg2;
 - (id)lastChildHint;
 - (id)lastColumn;
-- (struct { struct CGRect { struct CGPoint { float x_1_2_1; float x_1_2_2; } x_1_1_1; struct CGSize { float x_2_2_1; float x_2_2_2; } x_1_1_2; } x1; struct _NSRange { unsigned int x_2_1_1; unsigned int x_2_1_2; } x2; unsigned int x3; struct _NSRange { unsigned int x_4_1_1; unsigned int x_4_1_2; } x4; unsigned int x5; }*)lastHint;
-- (unsigned int)nextWidowPullsDownFromCharIndex;
-- (void)offsetStartCharIndexBy:(int)arg1 charIndex:(unsigned int)arg2;
-- (int)pageKind;
-- (struct _NSRange { unsigned int x1; unsigned int x2; })range;
-- (void)saveToArchive:(struct PageHintArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct RepeatedPtrField<TP::TargetHintArchive> { void **x_3_1_1; int x_3_1_2; int x_3_1_3; int x_3_1_4; } x3; struct Range {} *x4; struct Range {} *x5; struct Reference {} *x6; int x7; unsigned int x8; struct Reference {} *x9; struct RepeatedPtrField<TP::AnchorPosArchive> { void **x_10_1_1; int x_10_1_2; int x_10_1_3; int x_10_1_4; } x10; struct TopicNumberHintsArchive {} *x11; unsigned int x12; int x13; unsigned int x14[1]; }*)arg1 archiver:(id)arg2 context:(id)arg3;
-- (void)setAnchoredAttachmentPositions:(id)arg1;
-- (void)setFirstChildHint:(id)arg1;
-- (void)setFootnoteAutoNumberRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
-- (void)setFootnoteLayoutRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
-- (void)setHints:(const struct vector<TSWPTargetHint, std::__1::allocator<TSWPTargetHint> > { struct { /* ? */ } *x1; struct { /* ? */ } *x2; struct __compressed_pair<TSWPTargetHint *, std::__1::allocator<TSWPTargetHint> > { struct { /* ? */ } *x_3_1_1; } x3; }*)arg1;
-- (void)setLastChildHint:(id)arg1;
-- (void)setPageKind:(int)arg1;
-- (void)setTopicNumbers:(struct TSWPTopicNumberHints { struct map<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> >, std::__1::less<const TSWPListStyle *>, std::__1::allocator<std::__1::pair<const TSWPListStyle *const, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > > > > { struct __tree<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, std::__1::less<const TSWPListStyle *>, true>, std::__1::allocator<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > > > > { struct __tree_node<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, void *> {} *x_1_2_1; struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, void *> > > { struct __tree_end_node<std::__1::__tree_node_base<void *> *> { struct __tree_node_base<void *> {} *x_1_4_1; } x_2_3_1; } x_1_2_2; struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, std::__1::less<const TSWPListStyle *>, true> > { unsigned long x_3_3_1; } x_1_2_3; } x_1_1_1; } x1; unsigned int x2; unsigned int x3; }*)arg1;
-- (unsigned int)startAnchoredCharIndex;
-- (unsigned int)startCharIndex;
-- (BOOL)syncsWithEndOfPageHint:(id)arg1 storage:(id)arg2;
-- (struct TSWPTopicNumberHints { struct map<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> >, std::__1::less<const TSWPListStyle *>, std::__1::allocator<std::__1::pair<const TSWPListStyle *const, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > > > > { struct __tree<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, std::__1::less<const TSWPListStyle *>, true>, std::__1::allocator<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > > > > { struct __tree_node<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, void *> {} *x_1_2_1; struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, void *> > > { struct __tree_end_node<std::__1::__tree_node_base<void *> *> { struct __tree_node_base<void *> {} *x_1_4_1; } x_2_3_1; } x_1_2_2; struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry> > >, std::__1::less<const TSWPListStyle *>, true> > { unsigned long x_3_3_1; } x_1_2_3; } x_1_1_1; } x1; unsigned int x2; unsigned int x3; }*)topicNumbers;
-- (void)trimToCharIndex:(unsigned int)arg1 inTarget:(id)arg2 removeFootnoteLayoutCount:(unsigned int)arg3 removeAutoNumberFootnoteCount:(unsigned int)arg4;
+- (id)lastHint;
+- (bool)lastLineIsEmptyAndHasListLabel;
+- (unsigned long long)lineCount;
+- (unsigned long long)nextWidowPullsDownFromCharIndex;
+- (void)offsetStartCharIndexBy:(long long)arg1 charIndex:(unsigned long long)arg2;
+- (void)p_archiveHint:(id)arg1 intoArchive:(struct TargetHintArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct Point {} *x5; struct Size {} *x6; struct Range {} *x7; struct Range {} *x8; unsigned int x9; unsigned int x10; struct DoublePoint {} *x11; struct DoubleSize {} *x12; unsigned int x13; bool x14; bool x15; }*)arg2;
+- (void)p_archiveTopicNumbers:(id)arg1 intoArchive:(struct TopicNumberHintsArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct RepeatedPtrField<TP::TopicNumberEntryArchive> { void **x_5_1_1; int x_5_1_2; int x_5_1_3; int x_5_1_4; } x5; unsigned int x6; unsigned int x7; }*)arg2 archiver:(id)arg3;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })p_range;
+- (bool)p_unarchiveHint:(id)arg1 fromArchive:(const struct TargetHintArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct Point {} *x5; struct Size {} *x6; struct Range {} *x7; struct Range {} *x8; unsigned int x9; unsigned int x10; struct DoublePoint {} *x11; struct DoubleSize {} *x12; unsigned int x13; bool x14; bool x15; }*)arg2;
+- (void)p_unarchiveTopicNumbers:(id)arg1 fromArchive:(const struct TopicNumberHintsArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct RepeatedPtrField<TP::TopicNumberEntryArchive> { void **x_5_1_1; int x_5_1_2; int x_5_1_3; int x_5_1_4; } x5; unsigned int x6; unsigned int x7; }*)arg2 unarchiver:(id)arg3;
+- (unsigned long long)pageColumn;
+- (long long)pageKind;
+- (unsigned long long)pageRow;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })range;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })rangeAndChildHints:(out id*)arg1;
+- (void)saveToArchive:(struct PageHintArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct RepeatedPtrField<TP::TargetHintArchive> { void **x_5_1_1; int x_5_1_2; int x_5_1_3; int x_5_1_4; } x5; struct Range {} *x6; struct Range {} *x7; struct Reference {} *x8; int x9; unsigned int x10; struct Reference {} *x11; struct RepeatedPtrField<TP::AnchorPosArchive> { void **x_12_1_1; int x_12_1_2; int x_12_1_3; int x_12_1_4; } x12; struct TopicNumberHintsArchive {} *x13; struct RepeatedPtrField<TSP::Reference> { void **x_14_1_1; int x_14_1_2; int x_14_1_3; int x_14_1_4; } x14; struct RepeatedPtrField<TSP::UUID> { void **x_15_1_1; int x_15_1_2; int x_15_1_3; int x_15_1_4; } x15; struct RepeatedPtrField<TSP::Reference> { void **x_16_1_1; int x_16_1_2; int x_16_1_3; int x_16_1_4; } x16; unsigned int x17; int x18; struct RepeatedPtrField<TP::TargetHintArchive> { void **x_19_1_1; int x_19_1_2; int x_19_1_3; int x_19_1_4; } x19; }*)arg1 archiver:(id)arg2 context:(id)arg3;
+- (void)setAnchoredDrawablePositions:(id)arg1;
+- (void)setChildHints:(id)arg1;
+- (void)setFlowHints:(id)arg1 flowTopicNumbers:(id)arg2;
+- (void)setFootnoteAutoNumberRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)setFootnoteLayoutRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)setHints:(id)arg1 topicNumbers:(id)arg2;
+- (void)setPageColumn:(unsigned long long)arg1;
+- (void)setPageKind:(long long)arg1;
+- (void)setPageRow:(unsigned long long)arg1;
+- (void)setStartingPartitionedAttachments:(id)arg1;
+- (id)startingPartitionedAttachments;
+- (bool)syncsFlowRanges:(id)arg1 withEndOfPageHint:(id)arg2;
+- (bool)syncsWithEndOfPageHint:(id)arg1 bodyStorage:(id)arg2 flowRanges:(id)arg3;
+- (id)topicNumbers;
+- (void)trimToCharIndex:(unsigned long long)arg1 inTarget:(id)arg2 removeFootnoteReferenceCount:(unsigned long long)arg3 removeAutoNumberFootnoteCount:(unsigned long long)arg4;
+- (void)updateRangeForIndexPath:(id)arg1 withStorage:(id)arg2;
 
 @end

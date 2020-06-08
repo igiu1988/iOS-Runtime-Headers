@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface KNPlaceholderRep : TSWPShapeRep {
-}
+@interface KNPlaceholderRep : TSWPShapeRep
 
 + (id)mixableObjectClasses;
 
-- (BOOL)canBeginEditingChildRepOnDoubleTap:(id)arg1;
-- (BOOL)isPlaceholder;
-- (id)textureForContext:(id)arg1;
+- (bool)isPlaceholder;
+- (id)textureForDescription:(id)arg1;
 
 @end

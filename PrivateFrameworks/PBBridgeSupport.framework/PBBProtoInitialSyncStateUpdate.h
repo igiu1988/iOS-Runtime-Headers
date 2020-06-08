@@ -6,29 +6,29 @@
     struct { 
         unsigned int progress : 1; 
         unsigned int state : 1; 
-    } _has;
-    double _progress;
-    unsigned int _state;
+    }  _has;
+    double  _progress;
+    unsigned int  _state;
 }
 
-@property BOOL hasProgress;
-@property BOOL hasState;
-@property double progress;
-@property unsigned int state;
+@property (nonatomic) bool hasProgress;
+@property (nonatomic) bool hasState;
+@property (nonatomic) double progress;
+@property (nonatomic) unsigned int state;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasProgress;
-- (BOOL)hasState;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasProgress;
+- (bool)hasState;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (double)progress;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasProgress:(BOOL)arg1;
-- (void)setHasState:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasProgress:(bool)arg1;
+- (void)setHasState:(bool)arg1;
 - (void)setProgress:(double)arg1;
 - (void)setState:(unsigned int)arg1;
 - (unsigned int)state;

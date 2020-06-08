@@ -2,67 +2,72 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSData;
-
 @interface GEOSuggestionsOptions : PBCodable <NSCopying> {
+    int  _entriesType;
     struct { 
         unsigned int entriesType : 1; 
         unsigned int listType : 1; 
         unsigned int includeRankingFeatures : 1; 
         unsigned int normalizePOIs : 1; 
-    int _entriesType;
-    } _has;
-    BOOL _includeRankingFeatures;
-    int _listType;
-    BOOL _normalizePOIs;
-    NSData *_suggestionEntryMetadata;
-    NSData *_suggestionMetadata;
+    }  _has;
+    bool  _includeRankingFeatures;
+    int  _listType;
+    bool  _normalizePOIs;
+    NSData * _suggestionEntryMetadata;
+    NSData * _suggestionMetadata;
+    PBUnknownFields * _unknownFields;
 }
 
-@property int entriesType;
-@property BOOL hasEntriesType;
-@property BOOL hasIncludeRankingFeatures;
-@property BOOL hasListType;
-@property BOOL hasNormalizePOIs;
-@property(readonly) BOOL hasSuggestionEntryMetadata;
-@property(readonly) BOOL hasSuggestionMetadata;
-@property BOOL includeRankingFeatures;
-@property int listType;
-@property BOOL normalizePOIs;
-@property(retain) NSData * suggestionEntryMetadata;
-@property(retain) NSData * suggestionMetadata;
+@property (nonatomic) int entriesType;
+@property (nonatomic) bool hasEntriesType;
+@property (nonatomic) bool hasIncludeRankingFeatures;
+@property (nonatomic) bool hasListType;
+@property (nonatomic) bool hasNormalizePOIs;
+@property (nonatomic, readonly) bool hasSuggestionEntryMetadata;
+@property (nonatomic, readonly) bool hasSuggestionMetadata;
+@property (nonatomic) bool includeRankingFeatures;
+@property (nonatomic) int listType;
+@property (nonatomic) bool normalizePOIs;
+@property (nonatomic, retain) NSData *suggestionEntryMetadata;
+@property (nonatomic, retain) NSData *suggestionMetadata;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
+- (void).cxx_destruct;
+- (int)StringAsEntriesType:(id)arg1;
+- (int)StringAsListType:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (int)entriesType;
-- (BOOL)hasEntriesType;
-- (BOOL)hasIncludeRankingFeatures;
-- (BOOL)hasListType;
-- (BOOL)hasNormalizePOIs;
-- (BOOL)hasSuggestionEntryMetadata;
-- (BOOL)hasSuggestionMetadata;
-- (unsigned int)hash;
-- (BOOL)includeRankingFeatures;
-- (BOOL)isEqual:(id)arg1;
+- (id)entriesTypeAsString:(int)arg1;
+- (bool)hasEntriesType;
+- (bool)hasIncludeRankingFeatures;
+- (bool)hasListType;
+- (bool)hasNormalizePOIs;
+- (bool)hasSuggestionEntryMetadata;
+- (bool)hasSuggestionMetadata;
+- (unsigned long long)hash;
+- (bool)includeRankingFeatures;
+- (bool)isEqual:(id)arg1;
 - (int)listType;
+- (id)listTypeAsString:(int)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)normalizePOIs;
-- (BOOL)readFrom:(id)arg1;
+- (bool)normalizePOIs;
+- (bool)readFrom:(id)arg1;
 - (void)setEntriesType:(int)arg1;
-- (void)setHasEntriesType:(BOOL)arg1;
-- (void)setHasIncludeRankingFeatures:(BOOL)arg1;
-- (void)setHasListType:(BOOL)arg1;
-- (void)setHasNormalizePOIs:(BOOL)arg1;
-- (void)setIncludeRankingFeatures:(BOOL)arg1;
+- (void)setHasEntriesType:(bool)arg1;
+- (void)setHasIncludeRankingFeatures:(bool)arg1;
+- (void)setHasListType:(bool)arg1;
+- (void)setHasNormalizePOIs:(bool)arg1;
+- (void)setIncludeRankingFeatures:(bool)arg1;
 - (void)setListType:(int)arg1;
-- (void)setNormalizePOIs:(BOOL)arg1;
+- (void)setNormalizePOIs:(bool)arg1;
 - (void)setSuggestionEntryMetadata:(id)arg1;
 - (void)setSuggestionMetadata:(id)arg1;
 - (id)suggestionEntryMetadata;
 - (id)suggestionMetadata;
+- (id)unknownFields;
 - (void)writeTo:(id)arg1;
 
 @end

@@ -2,39 +2,35 @@
    Image: /System/Library/PrivateFrameworks/Weather.framework/Weather
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CLGeocoder, City, _MKLocationShifter;
-
-@interface TWCLocationUpdater : TWCUpdater {
-    City *_currentCity;
-    CLGeocoder *_geocoder;
-    id _localWeatherHandler;
-    _MKLocationShifter *_locationShifter;
+@interface TWCLocationUpdater : TWCCityUpdater {
+    City * _currentCity;
+    struct ct_green_tea_logger_s { } * _greenTeaLogger;
+    CLGeocoder * _reverseGeocoder;
 }
 
-@property(retain) City * currentCity;
+@property (nonatomic, retain) City *currentCity;
+@property (nonatomic) struct ct_green_tea_logger_s { }*greenTeaLogger;
+@property (nonatomic, retain) CLGeocoder *reverseGeocoder;
 
-+ (void)clearSharedLocationUpdater;
 + (id)sharedLocationUpdater;
 
-- (void)_failed:(unsigned int)arg1;
-- (void)_geocodeLocation:(id)arg1;
-- (id)aggregateDictionaryDomain;
-- (void)cancel;
+- (void).cxx_destruct;
+- (void)_completeReverseGeocodeForLocation:(id)arg1 currentCity:(id)arg2 geocodeError:(id)arg3 completionHandler:(id /* block */)arg4;
+- (void)_geocodeLocation:(id)arg1 currentCity:(id)arg2 completionHandler:(id /* block */)arg3;
+- (void)_updateWeatherForLocation:(id)arg1 city:(id)arg2 completionHandler:(id /* block */)arg3;
 - (id)currentCity;
 - (void)dealloc;
-- (void)didProcessJSONObject;
-- (void)enableProgressIndicator:(BOOL)arg1;
-- (void)failCity:(id)arg1;
-- (void)handleCompletionForCity:(id)arg1 withUpdateDetail:(unsigned int)arg2;
-- (void)handleNilCity;
+- (void)enableProgressIndicator:(bool)arg1;
+- (struct ct_green_tea_logger_s { }*)greenTeaLogger;
 - (id)init;
 - (void)parsedResultCity:(id)arg1;
+- (id)reverseGeocoder;
 - (void)setCurrentCity:(id)arg1;
-- (void)updateWeatherForLocation:(id)arg1 city:(id)arg2 withCompletionHandler:(id)arg3;
+- (void)setGreenTeaLogger:(struct ct_green_tea_logger_s { }*)arg1;
+- (void)setReverseGeocoder:(id)arg1;
+- (void)updateWeatherForCities:(id)arg1 withCompletionHandler:(id /* block */)arg2;
+- (void)updateWeatherForCity:(id)arg1;
 - (void)updateWeatherForLocation:(id)arg1 city:(id)arg2;
+- (void)updateWeatherForLocation:(id)arg1 city:(id)arg2 isFromFrameworkClient:(bool)arg3 withCompletionHandler:(id /* block */)arg4;
 
 @end

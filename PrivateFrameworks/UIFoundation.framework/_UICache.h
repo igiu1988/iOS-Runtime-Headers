@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/UIFoundation.framework/UIFoundation
  */
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
-
 @interface _UICache : NSObject {
-    NSMutableDictionary *_cache;
-    NSObject<OS_dispatch_queue> *_cacheQueue;
-    BOOL _clearsCacheOnApplicationBackground;
-    BOOL _clearsCacheOnLowMemoryWarnings;
-    NSObject<OS_dispatch_source> *_memoryWarningsSource;
-    id _noteObserver;
+    NSMutableDictionary * _cache;
+    NSObject<OS_dispatch_queue> * _cacheQueue;
+    bool  _clearsCacheOnApplicationBackground;
+    bool  _clearsCacheOnLowMemoryWarnings;
+    NSObject<OS_dispatch_source> * _memoryWarningsSource;
+    id  _noteObserver;
 }
 
-@property BOOL clearsCacheOnApplicationBackground;
-@property BOOL clearsCacheOnLowMemoryWarnings;
+@property (nonatomic) bool clearsCacheOnApplicationBackground;
+@property (nonatomic) bool clearsCacheOnLowMemoryWarnings;
 
 - (id)cacheKeys;
-- (BOOL)clearsCacheOnApplicationBackground;
-- (BOOL)clearsCacheOnLowMemoryWarnings;
+- (bool)clearsCacheOnApplicationBackground;
+- (bool)clearsCacheOnLowMemoryWarnings;
 - (void)dealloc;
 - (id)init;
 - (id)objectForKey:(id)arg1;
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;
-- (void)setClearsCacheOnApplicationBackground:(BOOL)arg1;
-- (void)setClearsCacheOnLowMemoryWarnings:(BOOL)arg1;
+- (void)setClearsCacheOnApplicationBackground:(bool)arg1;
+- (void)setClearsCacheOnLowMemoryWarnings:(bool)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 
 @end

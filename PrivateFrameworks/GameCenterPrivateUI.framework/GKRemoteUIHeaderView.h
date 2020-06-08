@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKLabel, NSString;
-
-@interface GKRemoteUIHeaderView : UIView <RemoteUITableHeader> {
-    float _bottomMargin;
-    float _height;
-    BOOL _isFirstSection;
-    GKLabel *_textLabel;
+@interface GKRemoteUIHeaderView : UIView <RUIHeader> {
+    double  _bottomMargin;
+    double  _height;
+    bool  _isFirstSection;
+    GKLabel * _textLabel;
 }
 
-@property float bottomMargin;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property float height;
-@property BOOL isFirstSection;
-@property(readonly) Class superclass;
-@property(retain) GKLabel * textLabel;
+@property (nonatomic) double bottomMargin;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) double height;
+@property (nonatomic) bool isFirstSection;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) GKLabel *textLabel;
 
-- (float)bottomMargin;
-- (void)dealloc;
-- (float)headerHeightForWidth:(float)arg1 inTableView:(id)arg2;
-- (float)height;
+- (void).cxx_destruct;
+- (double)bottomMargin;
+- (double)headerHeightForWidth:(double)arg1 inTableView:(id)arg2;
+- (double)height;
 - (id)initWithAttributes:(id)arg1;
-- (BOOL)isFirstSection;
-- (void)setBottomMargin:(float)arg1;
-- (void)setHeight:(float)arg1;
-- (void)setIsFirstSection:(BOOL)arg1;
-- (void)setSectionIsFirst:(BOOL)arg1;
+- (bool)isFirstSection;
+- (void)setBottomMargin:(double)arg1;
+- (void)setHeight:(double)arg1;
+- (void)setIsFirstSection:(bool)arg1;
+- (void)setSectionIsFirst:(bool)arg1;
 - (void)setTextLabel:(id)arg1;
 - (id)textLabel;
 

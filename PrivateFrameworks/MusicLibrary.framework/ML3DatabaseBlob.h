@@ -3,15 +3,15 @@
  */
 
 @interface ML3DatabaseBlob : NSObject {
-    struct sqlite3_blob { } *_sqliteHandle;
+    struct sqlite3_blob { } * _sqliteHandle;
 }
 
 - (id)data;
 - (void)dealloc;
 - (id)init;
 - (id)initWithSQLiteHandle:(struct sqlite3_blob { }*)arg1;
-- (unsigned int)length;
-- (int)readData:(id)arg1 numberOfBytes:(unsigned int)arg2 offset:(unsigned int)arg3;
-- (int)writeData:(id)arg1 numberOfBytes:(unsigned int)arg2 offset:(unsigned int)arg3;
+- (unsigned long long)length;
+- (int)readData:(id)arg1 numberOfBytes:(unsigned long long)arg2 offset:(unsigned long long)arg3;
+- (int)writeData:(id)arg1 numberOfBytes:(unsigned long long)arg2 offset:(unsigned long long)arg3;
 
 @end

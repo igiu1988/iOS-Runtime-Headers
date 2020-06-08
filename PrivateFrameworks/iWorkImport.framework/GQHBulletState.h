@@ -3,8 +3,8 @@
  */
 
 @interface GQHBulletState : NSObject {
-    int mCurrentLevel;
-    struct __CFArray { } *mLevels;
+    int  mCurrentLevel;
+    struct __CFArray { } * mLevels;
 }
 
 + (struct __CFString { }*)createLabelStr:(int)arg1 number:(int)arg2;
@@ -14,7 +14,7 @@
 - (struct __CFString { }*)createTieredNumberStringForLevel:(int)arg1;
 - (int)currentLevel;
 - (void)dealloc;
-- (BOOL)hasNumberAtLevel:(int)arg1;
+- (bool)hasNumberAtLevel:(int)arg1;
 - (id)init;
 - (int)labelTypeAtLevel:(int)arg1;
 - (id)listStyleAtLevel:(int)arg1;

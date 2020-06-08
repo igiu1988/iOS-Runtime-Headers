@@ -2,51 +2,41 @@
    Image: /System/Library/PrivateFrameworks/Search.framework/Search
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSObject<OS_xpc_object>;
-
 @interface SPXPCServer : NSObject {
-    NSObject<OS_xpc_object> *_conn;
-    NSMutableSet *_connections;
-    NSObject<OS_dispatch_queue> *_connectionsQueue;
-    id _defaultMessageHandler;
-    id _disconnectHandler;
-    NSObject<OS_dispatch_queue> *_eventQueue;
-    NSMutableDictionary *_handlerMap;
-    double _idleTimerInterval;
-    NSObject<OS_dispatch_source> *_idleTimerSource;
-    id _shutdownHandler;
-    BOOL _timeoutPending;
-    BOOL _timerHasFiredSinceLastMessage;
-    NSObject<OS_dispatch_queue> *_timerQueue;
+    NSObject<OS_xpc_object> * _conn;
+    NSMutableSet * _connections;
+    NSObject<OS_dispatch_queue> * _connectionsQueue;
+    id /* block */  _defaultMessageHandler;
+    id /* block */  _disconnectHandler;
+    NSObject<OS_dispatch_queue> * _eventQueue;
+    id /* block */  _firstConnectionBlock;
+    NSMutableDictionary * _handlerMap;
+    double  _idleTimerInterval;
+    unsigned int  _qos;
+    bool  _shutdown;
+    NSObject<OS_dispatch_queue> * _timerQueue;
+    bool  hadConnection;
 }
 
-@property(copy) id defaultMessageHandler;
-@property(copy) id disconnectHandler;
-@property(copy) id shutdownHandler;
+@property (nonatomic, copy) id /* block */ defaultMessageHandler;
+@property (nonatomic, copy) id /* block */ disconnectHandler;
+@property (nonatomic, copy) id /* block */ firstConnectionBlock;
 
-- (BOOL)_doingWork;
-- (void)_handleNewConnection:(id)arg1;
-- (id)_handlerForMessageName:(id)arg1;
+- (void).cxx_destruct;
+- (void)_handleNewConnection:(id)arg1 qos:(unsigned int)arg2;
+- (id /* block */)_handlerForMessageName:(id)arg1;
 - (id)_highAvailabilityQueue;
-- (void)_rescheduleIdleTimer;
-- (void)_resetMessageFlag;
-- (BOOL)_runShutdownHandler;
-- (BOOL)connectionsAreActive;
 - (void)dealloc;
-- (id)defaultMessageHandler;
-- (id)disconnectHandler;
-- (id)initListenerWithServiceName:(id)arg1 onQueue:(id)arg2;
+- (id /* block */)defaultMessageHandler;
+- (id /* block */)disconnectHandler;
+- (id /* block */)firstConnectionBlock;
 - (id)initListenerWithServiceName:(id)arg1;
-- (void)setDefaultMessageHandler:(id)arg1;
-- (void)setDisconnectHandler:(id)arg1;
-- (void)setHandlerForMessageName:(id)arg1 handler:(id)arg2;
-- (void)setIdleTimerInterval:(double)arg1;
-- (void)setShutdownHandler:(id)arg1;
-- (id)shutdownHandler;
+- (id)initListenerWithServiceName:(id)arg1 onQueue:(id)arg2 qos:(unsigned int)arg3;
+- (void)setDefaultMessageHandler:(id /* block */)arg1;
+- (void)setDisconnectHandler:(id /* block */)arg1;
+- (void)setFirstConnectionBlock:(id /* block */)arg1;
+- (void)setHandlerForMessageName:(id)arg1 handler:(id /* block */)arg2;
+- (bool)shutdown;
 - (void)startListening;
 
 @end

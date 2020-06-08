@@ -2,15 +2,12 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@interface GEOPlaceDataRequester : GEOServiceRequester {
-}
+@interface GEOPlaceDataRequester : GEOServiceRequester
 
-+ (id)_serviceTypeNumber;
-+ (unsigned int)_urlType;
 + (id)sharedInstance;
 
 - (id)_validateResponse:(id)arg1;
 - (void)cancelRequest:(id)arg1;
-- (void)startWithRequest:(id)arg1 traits:(id)arg2 completionHandler:(id)arg3;
+- (void)startWithRequest:(id)arg1 traits:(id)arg2 timeout:(double)arg3 auditToken:(id)arg4 completionHandler:(id /* block */)arg5;
 
 @end

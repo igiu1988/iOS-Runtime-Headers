@@ -2,8 +2,7 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCH3DAlphaBlendShaderEffect : TSCH3DShaderEffect {
-}
+@interface TSCH3DAlphaBlendShaderEffect : TSCH3DShaderEffect
 
 + (id)_singletonAlloc;
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
@@ -18,7 +17,7 @@
 - (void)inject:(id)arg1;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (void)uploadData:(id)arg1 effectsStates:(id)arg2;
 - (id)variableAlphaBlendValue;
 

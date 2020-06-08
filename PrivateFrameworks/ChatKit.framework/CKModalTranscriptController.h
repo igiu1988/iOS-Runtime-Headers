@@ -2,43 +2,51 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class NSMutableArray;
-
-@interface CKModalTranscriptController : CKTranscriptController {
-    BOOL _alreadySetUp;
-    BOOL _cameraSelectionDisabled;
-    int _entryViewInvisible;
-    BOOL _forceMMS;
-    BOOL _mimeType;
-    NSMutableArray *_partsToInsert;
-    NSMutableArray *_typesToInsert;
+@interface CKModalTranscriptController : CKShareSheetChatController {
+    bool  _alreadySetUp;
+    bool  _cameraSelectionDisabled;
+    CKChatEagerUploadController * _eagerUploadController;
+    int  _entryViewInvisible;
+    bool  _forceMMS;
+    bool  _mimeType;
+    NSMutableArray * _partsToInsert;
+    NSMutableArray * _typesToInsert;
 }
 
-@property BOOL forceMMS;
-@property BOOL mimeType;
+@property (nonatomic, retain) CKChatEagerUploadController *eagerUploadController;
+@property (nonatomic) bool forceMMS;
+@property (nonatomic) bool mimeType;
 
+- (void).cxx_destruct;
 - (void)_conversationListDidFinishLoading:(id)arg1;
-- (BOOL)_insertMediaObject:(id)arg1;
-- (void)_setConversation:(id)arg1;
-- (BOOL)_shouldAllowCameraAttachments;
-- (BOOL)_shouldUseDefaultFirstResponder;
-- (BOOL)_shouldUseExistingConversations;
-- (void)dealloc;
+- (bool)_deviceIsLocked;
+- (bool)_insertMediaObject:(id)arg1;
+- (void)_setConversationDeferredSetup;
+- (void)_setEntryViewVisible:(bool)arg1;
+- (bool)_shouldAllowCameraAttachments;
+- (bool)_shouldUseDefaultFirstResponder;
+- (bool)_shouldUseExistingConversations;
 - (void)disableCameraAttachments;
-- (BOOL)forceMMS;
-- (BOOL)getContainerWidth:(float*)arg1 offset:(float*)arg2;
+- (id)eagerUploadController;
+- (bool)forceMMS;
+- (bool)getContainerWidth:(double*)arg1 offset:(double*)arg2;
+- (id)initWithNavigationController:(id)arg1;
 - (void)insertData:(id)arg1 MIMEType:(id)arg2 exportedFilename:(id)arg3;
-- (void)insertFileURL:(id)arg1 filename:(id)arg2 transcoderUserInfo:(id)arg3;
-- (BOOL)mimeType;
+- (void)insertFileURL:(id)arg1 filename:(id)arg2 transcoderUserInfo:(id)arg3 fullyRealizedPreview:(id)arg4 rawPreview:(id)arg5 appendedVideoURL:(id)arg6;
+- (void)insertMessage:(id)arg1 appProxy:(id)arg2;
+- (void)insertRichLinkWithURL:(id)arg1 data:(id)arg2;
+- (bool)mimeType;
 - (void)registerForNotifications;
-- (void)setCanEditRecipients:(BOOL)arg1;
-- (void)setForceMMS:(BOOL)arg1;
-- (void)setMimeType:(BOOL)arg1;
+- (void)sendComposition:(id)arg1;
+- (void)setCanEditRecipients:(bool)arg1;
+- (void)setComposition:(id)arg1;
+- (void)setEagerUploadController:(id)arg1;
+- (void)setForceMMS:(bool)arg1;
+- (void)setMimeType:(bool)arg1;
 - (void)setPendingAddresses:(id)arg1;
-- (void)setTextEntryContentsVisible:(BOOL)arg1;
-- (BOOL)shouldDismissAfterSend;
-- (void)transitionFromNewMessageToConversation;
-- (void)viewServiceWillAnimateRotationToInterfaceOrientation:(int)arg1 duration:(double)arg2;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)setTextEntryContentsVisible:(bool)arg1;
+- (bool)shouldDismissAfterSend;
+- (void)viewWillAppear:(bool)arg1;
+- (void)viewWillTransitionToSize:(struct CGSize { double x1; double x2; })arg1 withTransitionCoordinator:(id)arg2;
 
 @end

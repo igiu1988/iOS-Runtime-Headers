@@ -2,44 +2,51 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureConnection, AVCaptureSession, AVWeakReference, CALayer, NSString;
-
 @interface AVCaptureVideoPreviewLayerInternal : NSObject {
-    struct CGSize { 
-        float width; 
-        float height; 
-    struct CGSize { 
-        float width; 
-        float height; 
+    bool  automaticallyAdjustsMirroring;
     struct CGAffineTransform { 
-        float a; 
-        float b; 
-        float c; 
-        float d; 
-        float tx; 
-        float ty; 
-    BOOL automaticallyAdjustsMirroring;
-    } captureDeviceTransform;
-    int changeSeed;
-    BOOL chromaNoiseReductionEnabled;
-    AVCaptureConnection *connection;
-    BOOL disableActions;
-    struct OpaqueFigCaptureSession { } *figCaptureSession;
-    NSString *gravity;
-    BOOL isPaused;
-    BOOL isPresentationLayer;
-    BOOL mirrored;
-    int orientation;
-    float previewRotationDegrees;
-    } previewSize;
-    float rollAdjustment;
-    } sensorSize;
-    NSString *sensorToPreviewVTScalingMode;
-    AVCaptureSession *session;
-    NSString *sinkID;
-    CALayer *sublayer;
-    BOOL visible;
-    AVWeakReference *weakReference;
+        double a; 
+        double b; 
+        double c; 
+        double d; 
+        double tx; 
+        double ty; 
+    }  captureDeviceTransform;
+    int  changeSeed;
+    bool  chromaNoiseReductionEnabled;
+    AVCaptureConnection * connection;
+    bool  depthDataDeliveryEnabled;
+    bool  depthDataDeliverySupported;
+    bool  disableActions;
+    struct OpaqueFigCaptureSession { } * figCaptureSession;
+    NSObject<OS_dispatch_queue> * figCaptureSessionSyncQueue;
+    bool  filterRenderingEnabled;
+    NSString * gravity;
+    unsigned int  imageQueueSlot;
+    bool  isPaused;
+    bool  isPresentationLayer;
+    bool  mirrored;
+    double  oddScreenScale;
+    double  oddScreenWidth;
+    long long  orientation;
+    double  previewRotationDegrees;
+    struct CGSize { 
+        double width; 
+        double height; 
+    }  previewSize;
+    double  rollAdjustment;
+    struct CGSize { 
+        double width; 
+        double height; 
+    }  sensorSize;
+    NSString * sensorToPreviewVTScalingMode;
+    AVCaptureSession * session;
+    NSString * sinkID;
+    CALayer * sublayer;
+    bool  unoptimizedFilterRenderingEnabled;
+    NSArray * videoPreviewFilters;
+    bool  visible;
+    AVWeakReference * weakReference;
 }
 
 @end

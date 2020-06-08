@@ -2,12 +2,13 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-@interface HKCategoryType : HKSampleType {
-}
+@interface HKCategoryType : HKSampleType
 
-+ (void)_insertCode:(int)arg1 forIdentifier:(id)arg2;
++ (id)_categoryTypeWithCode:(long long)arg1;
 
-- (BOOL)_acceptsValue:(int)arg1;
-- (int)_defaultValue;
+- (bool)_acceptsValue:(long long)arg1;
+- (long long)_defaultValue;
+- (id)_predicateForSDKVersion:(unsigned int)arg1;
+- (bool)_validateMetadata:(id)arg1 error:(id*)arg2;
 
 @end

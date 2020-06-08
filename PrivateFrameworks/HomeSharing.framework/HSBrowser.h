@@ -2,43 +2,58 @@
    Image: /System/Library/PrivateFrameworks/HomeSharing.framework/HomeSharing
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSObject<OS_dispatch_queue>, NSString;
-
-@interface HSBrowser : NSObject <NSNetServiceDelegate> {
-    id _addLibraryHandler;
-    NSArray *_availableLibraries;
-    int _browserType;
-    struct _DNSServiceRef_t { } *_dnsService;
-    NSObject<OS_dispatch_queue> *_dnsServiceQueue;
-    NSString *_homeSharingGroupID;
-    BOOL _isBrowsing;
-    id _removeLibraryHandler;
+@interface HSBrowser : NSObject <NSNetServiceBrowserDelegate, NSNetServiceDelegate> {
+    NSMutableArray * _availableLibraries;
+    long long  _browserType;
+    <HSBrowserDelegate> * _delegate;
+    NSString * _homeSharingGroupID;
+    NSMutableArray * _librariesPendingRemoval;
+    NSMutableArray * _resolvingServices;
+    NSNetServiceBrowser * _serviceBrowser;
+    NSObject<OS_dispatch_queue> * _serviceBrowserQueue;
+    NSString * _serviceType;
 }
 
-@property(readonly) NSArray * availableLibraries;
-@property int browserType;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) NSString * homeSharingGroupID;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSMutableArray *availableLibraries;
+@property (nonatomic, readonly) long long browserType;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <HSBrowserDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly, copy) NSString *homeSharingGroupID;
+@property (nonatomic, retain) NSMutableArray *librariesPendingRemoval;
+@property (nonatomic, retain) NSMutableArray *resolvingServices;
+@property (nonatomic, retain) NSNetServiceBrowser *serviceBrowser;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *serviceBrowserQueue;
+@property (nonatomic, readonly, copy) NSString *serviceType;
+@property (readonly) Class superclass;
+
++ (id)homeSharingBrowserWithGroupID:(id)arg1;
 
 - (void).cxx_destruct;
-- (void)_didFindService:(id)arg1 moreComing:(BOOL)arg2;
-- (void)_didRemoveService:(id)arg1 moreComing:(BOOL)arg2;
-- (void)_startWithCurrentRetryCount:(unsigned int)arg1 maximumRetryCount:(unsigned int)arg2 addLibraryHandler:(id)arg3 removeLibraryHandler:(id)arg4;
+- (void)_removalTimerFired:(id)arg1;
 - (id)availableLibraries;
-- (int)browserType;
-- (void)dealloc;
+- (long long)browserType;
+- (id)delegate;
 - (id)homeSharingGroupID;
-- (id)init;
-- (void)setBrowserType:(int)arg1;
-- (void)setHomeSharingGroupID:(id)arg1;
-- (void)startWithAddLibraryHandler:(id)arg1 removeLibraryHandler:(id)arg2;
+- (id)initWithBrowserType:(long long)arg1 groupID:(id)arg2;
+- (id)librariesPendingRemoval;
+- (void)netService:(id)arg1 didNotResolve:(id)arg2;
+- (void)netServiceBrowser:(id)arg1 didFindService:(id)arg2 moreComing:(bool)arg3;
+- (void)netServiceBrowser:(id)arg1 didNotSearch:(id)arg2;
+- (void)netServiceBrowser:(id)arg1 didRemoveService:(id)arg2 moreComing:(bool)arg3;
+- (void)netServiceDidResolveAddress:(id)arg1;
+- (id)resolvingServices;
+- (id)serviceBrowser;
+- (id)serviceBrowserQueue;
+- (id)serviceType;
+- (void)setAvailableLibraries:(id)arg1;
+- (void)setDelegate:(id)arg1;
+- (void)setLibrariesPendingRemoval:(id)arg1;
+- (void)setResolvingServices:(id)arg1;
+- (void)setServiceBrowser:(id)arg1;
+- (void)setServiceBrowserQueue:(id)arg1;
+- (void)start;
 - (void)stop;
 
 @end

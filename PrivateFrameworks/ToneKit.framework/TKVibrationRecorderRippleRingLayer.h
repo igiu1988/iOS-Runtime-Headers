@@ -3,31 +3,22 @@
  */
 
 @interface TKVibrationRecorderRippleRingLayer : CAShapeLayer {
+    double  _creationTimestamp;
     struct CGPoint { 
-        float x; 
-        float y; 
-    double _creationTimestamp;
-    } _normalizedRingLocation;
-    float _ringSpeed;
+        double x; 
+        double y; 
+    }  _normalizedRingLocation;
+    double  _ringSpeed;
 }
 
-@property(setter=_setCreationTimestamp:) double _creationTimestamp;
-@property(setter=_setNormalizedRingLocation:) struct CGPoint { float x1; float x2; } _normalizedRingLocation;
-@property(setter=_setRingSpeed:) float _ringSpeed;
-@property(readonly) struct CGPoint { float x1; float x2; } normalizedRingLocation;
-@property(readonly) float ringSpeed;
+@property (nonatomic, readonly) struct CGPoint { double x1; double x2; } normalizedRingLocation;
+@property (nonatomic, readonly) double ringSpeed;
 
-- (double)_creationTimestamp;
-- (struct CGPoint { float x1; float x2; })_normalizedRingLocation;
-- (float)_ringSpeed;
-- (void)_setCreationTimestamp:(double)arg1;
-- (void)_setNormalizedRingLocation:(struct CGPoint { float x1; float x2; })arg1;
-- (void)_setRingSpeed:(float)arg1;
-- (void)configureWithTimeIntervalSinceCreation:(double)arg1 normalizedRingLocation:(struct CGPoint { float x1; float x2; })arg2 ringSpeed:(float)arg3;
+- (void)configureWithTimeIntervalSinceCreation:(double)arg1 normalizedRingLocation:(struct CGPoint { double x1; double x2; })arg2 ringSpeed:(double)arg3;
 - (id)init;
-- (struct CGPoint { float x1; float x2; })normalizedRingLocation;
+- (struct CGPoint { double x1; double x2; })normalizedRingLocation;
 - (void)reset;
-- (float)ringSpeed;
+- (double)ringSpeed;
 - (double)timeIntervalSinceCreation;
 
 @end

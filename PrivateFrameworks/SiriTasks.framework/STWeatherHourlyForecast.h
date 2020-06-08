@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/SiriTasks.framework/SiriTasks
  */
 
-@class NSNumber;
-
-@interface STWeatherHourlyForecast : AFSiriModelObject {
-    NSNumber *_chanceOfPrecipitation;
-    int _conditionCode;
-    NSNumber *_temperature;
-    int _timeIndex;
+@interface STWeatherHourlyForecast : STSiriModelObject {
+    NSNumber * _chanceOfPrecipitation;
+    long long  _conditionCode;
+    NSNumber * _temperature;
+    long long  _timeIndex;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (id)_initWithConditionCodeIndex:(int)arg1 timeIndex:(int)arg2 temperature:(id)arg3 chanceOfPrecipitation:(id)arg4;
+- (id)_initWithConditionCodeIndex:(long long)arg1 timeIndex:(long long)arg2 temperature:(id)arg3 chanceOfPrecipitation:(id)arg4;
 - (id)chanceOfPrecipitation;
-- (int)conditionCode;
+- (long long)conditionCode;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)temperature;
-- (int)timeIndex;
+- (long long)timeIndex;
 
 @end

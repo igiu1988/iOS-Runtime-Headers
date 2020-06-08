@@ -2,25 +2,24 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class <MKPlaceActivityProviderDelegate>, MKMapItem;
-
 @interface MKPlaceActivityProvider : NSObject {
-    <MKPlaceActivityProviderDelegate> *_delegate;
-    MKMapItem *_mapItem;
+    <MKPlaceActivityProviderDelegate> * _delegate;
+    MKMapItem * _mapItem;
 }
 
-@property <MKPlaceActivityProviderDelegate> * delegate;
-@property(retain) MKMapItem * mapItem;
+@property (nonatomic) <MKPlaceActivityProviderDelegate> *delegate;
+@property (nonatomic, retain) MKMapItem *mapItem;
 
 - (void).cxx_destruct;
 - (id)activityAnnotationView;
 - (id)activityTitle;
 - (id)activityURL;
-- (id)appleActivityURL;
 - (id)delegate;
 - (id)initWithMapItem:(id)arg1;
 - (id)mapItem;
 - (void)setDelegate:(id)arg1;
 - (void)setMapItem:(id)arg1;
+- (bool)shouldUseWebPlaceCardForActivityType:(id)arg1;
+- (id)webPlaceCardURL;
 
 @end

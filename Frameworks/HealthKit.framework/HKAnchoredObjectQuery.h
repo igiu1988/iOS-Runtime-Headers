@@ -2,35 +2,52 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSNumber;
-
-@interface HKAnchoredObjectQuery : HKQuery {
-    NSNumber *_anchor;
-    id _completionHandler;
-    unsigned int _limit;
+@interface HKAnchoredObjectQuery : HKQuery <HKAnchoredObjectQueryClientInterface> {
+    HKQueryAnchor * _anchor;
+    double  _collectionInterval;
+    id /* block */  _completionHandler;
+    NSMutableArray * _deletedObjectsPendingDelivery;
+    bool  _includeDeletedObjects;
+    bool  _initialHandlerCalled;
+    unsigned long long  _limit;
+    NSMutableArray * _samplesPendingDelivery;
+    id /* block */  _updateHandler;
 }
 
-@property(retain) NSNumber * anchor;
-@property(readonly) id completionHandler;
-@property unsigned int limit;
+@property (nonatomic, retain) HKQueryAnchor *anchor;
+@property (nonatomic) double collectionInterval;
+@property (nonatomic, readonly) id /* block */ completionHandler;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) bool includeDeletedObjects;
+@property (nonatomic) unsigned long long limit;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) id /* block */ updateHandler;
 
-+ (Class)_queryServerDataObjectClass;
++ (id)clientInterfaceProtocol;
++ (Class)configurationClass;
++ (void)configureClientInterface:(id)arg1;
 
 - (void).cxx_destruct;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)_queue_configureQueryServerDataObject:(id)arg1;
-- (id)_queue_errorHandler;
-- (void)_queue_validate;
 - (id)anchor;
-- (id)completionHandler;
-- (void)deliverDataObjects:(id)arg1 withAnchor:(id)arg2 queryUUID:(id)arg3;
-- (id)initWithType:(id)arg1 predicate:(id)arg2 anchor:(unsigned int)arg3 limit:(unsigned int)arg4 completionHandler:(id)arg5;
-- (unsigned int)limit;
+- (void)client_deliverSampleObjects:(id)arg1 deletedObjects:(id)arg2 anchor:(id)arg3 clearPendingSamples:(bool)arg4 deliverResults:(bool)arg5 query:(id)arg6;
+- (double)collectionInterval;
+- (id /* block */)completionHandler;
+- (bool)includeDeletedObjects;
+- (id)initWithType:(id)arg1 predicate:(id)arg2 anchor:(unsigned long long)arg3 limit:(unsigned long long)arg4 completionHandler:(id /* block */)arg5;
+- (id)initWithType:(id)arg1 predicate:(id)arg2 anchor:(id)arg3 limit:(unsigned long long)arg4 resultsHandler:(id /* block */)arg5;
+- (unsigned long long)limit;
+- (void)queue_deliverError:(id)arg1;
+- (void)queue_populateConfiguration:(id)arg1;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (bool)queue_shouldDeactivateAfterInitialResults;
+- (void)queue_validate;
 - (void)setAnchor:(id)arg1;
-- (void)setLimit:(unsigned int)arg1;
+- (void)setCollectionInterval:(double)arg1;
+- (void)setIncludeDeletedObjects:(bool)arg1;
+- (void)setLimit:(unsigned long long)arg1;
+- (void)setUpdateHandler:(id /* block */)arg1;
+- (id /* block */)updateHandler;
 
 @end

@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/RemoteMediaServices.framework/RemoteMediaServices
  */
 
-@class <RMSPairingSessionDelegate>, NSString, RMSIDSClient;
-
 @interface RMSPairingSessionProxy : RMSSessionProxy <RMSPairingSession> {
-    NSString *_advertisedAppName;
-    NSString *_advertisedDeviceModel;
-    NSString *_advertisedDeviceName;
-    <RMSPairingSessionDelegate> *_delegate;
-    RMSIDSClient *_idsClient;
-    BOOL _pairing;
-    NSString *_passcode;
+    NSString * _advertisedAppName;
+    NSString * _advertisedDeviceModel;
+    NSString * _advertisedDeviceName;
+    <RMSPairingSessionDelegate> * _delegate;
+    RMSIDSClient * _idsClient;
+    bool  _pairing;
+    NSString * _passcode;
 }
 
-@property(retain) NSString * advertisedAppName;
-@property(retain) NSString * advertisedDeviceModel;
-@property(retain) NSString * advertisedDeviceName;
-@property(copy,readonly) NSString * debugDescription;
-@property <RMSPairingSessionDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) NSString * passcode;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSString *advertisedAppName;
+@property (nonatomic, retain) NSString *advertisedDeviceModel;
+@property (nonatomic, retain) NSString *advertisedDeviceName;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <RMSPairingSessionDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) NSString *passcode;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_handleDidPairWithServiceNotification:(id)arg1;
@@ -44,5 +42,6 @@
 - (void)setAdvertisedDeviceName:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setPasscode:(id)arg1;
+- (void)unpairService:(id)arg1 completionHandler:(id /* block */)arg2;
 
 @end

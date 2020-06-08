@@ -2,12 +2,11 @@
    Image: /System/Library/PrivateFrameworks/SoftwareUpdateServices.framework/SoftwareUpdateServices
  */
 
-@interface SUDefaultWiFiOnlyDownloadPolicy : SUDefaultDownloadPolicy {
-}
+@interface SUDefaultWiFiOnlyDownloadPolicy : SUDefaultDownloadPolicy
 
-+ (unsigned int)wifiOnlyPeriodInDaysForUpdate:(id)arg1;
++ (unsigned long long)wifiOnlyPeriodInDaysForUpdate:(id)arg1;
 
 - (id)initWithDescriptor:(id)arg1;
-- (BOOL)isDownloadAllowableForCellular;
+- (bool)isDownloadAllowableForCellular;
 
 @end

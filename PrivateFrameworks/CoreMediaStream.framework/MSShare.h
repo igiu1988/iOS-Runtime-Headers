@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class NSString;
-
 @interface MSShare : NSObject <NSCoding> {
-    NSString *_UUID;
-    NSString *_emailAddress;
-    NSString *_firstName;
-    NSString *_lastName;
-    NSString *_personID;
-    int _sharingOurStream;
-    int _sharingTheirStream;
+    NSString * _UUID;
+    NSString * _emailAddress;
+    NSString * _firstName;
+    NSString * _lastName;
+    NSString * _personID;
+    int  _sharingOurStream;
+    int  _sharingTheirStream;
 }
 
-@property(retain) NSString * UUID;
-@property(retain) NSString * emailAddress;
-@property(retain) NSString * firstName;
-@property(retain) NSString * fullName;
-@property(retain) NSString * lastName;
-@property(retain) NSString * personID;
-@property int sharingOurPhotostream;
-@property int sharingOurStream;
-@property int sharingTheirPhotostream;
-@property int sharingTheirStream;
+@property (nonatomic, retain) NSString *UUID;
+@property (nonatomic, retain) NSString *emailAddress;
+@property (nonatomic, retain) NSString *firstName;
+@property (nonatomic, retain) NSString *fullName;
+@property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) NSString *personID;
+@property (nonatomic) int sharingOurPhotostream;
+@property (nonatomic) int sharingOurStream;
+@property (nonatomic) int sharingTheirPhotostream;
+@property (nonatomic) int sharingTheirStream;
 
 + (id)share;
 
@@ -34,9 +32,9 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)firstName;
 - (id)fullName;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)lastName;
 - (id)personID;
 - (void)setEmailAddress:(id)arg1;

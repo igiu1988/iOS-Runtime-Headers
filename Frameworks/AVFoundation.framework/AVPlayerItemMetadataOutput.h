@@ -2,21 +2,21 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVPlayerItemMetadataOutputPushDelegate>, AVPlayerItemMetadataOutputInternal, NSObject<OS_dispatch_queue>;
-
 @interface AVPlayerItemMetadataOutput : AVPlayerItemOutput {
-    AVPlayerItemMetadataOutputInternal *_metadataOutputInternal;
+    AVPlayerItemMetadataOutputInternal * _metadataOutputInternal;
 }
 
-@property double advanceIntervalForDelegateInvocation;
-@property(readonly) <AVPlayerItemMetadataOutputPushDelegate> * delegate;
-@property(readonly) NSObject<OS_dispatch_queue> * delegateQueue;
+@property (nonatomic) double advanceIntervalForDelegateInvocation;
+@property (nonatomic, readonly) <AVPlayerItemMetadataOutputPushDelegate> *delegate;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *delegateQueue;
+@property (getter=_figMetadataOutputsDictionaryOptions, nonatomic, readonly) NSDictionary *figMetadataOutputsDictionaryOptions;
 
 + (void)initialize;
 
-- (BOOL)_attachToPlayerItem:(id)arg1;
+- (bool)_attachToPlayerItem:(id)arg1;
 - (void)_collectUncollectables;
 - (void)_detachFromPlayerItem;
+- (id)_figMetadataOutputsDictionaryOptions;
 - (void)_pushTimedMetadataGroups:(id)arg1 fromPlayerItemTrack:(id)arg2;
 - (void)_signalFlush;
 - (double)advanceIntervalForDelegateInvocation;

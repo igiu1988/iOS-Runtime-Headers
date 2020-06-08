@@ -2,27 +2,29 @@
    Image: /System/Library/PrivateFrameworks/NanoMediaRemote.framework/NanoMediaRemote
  */
 
-@class NSDate, NSDictionary, NSString, _NMRSendCommandMessageProtobuf;
-
 @interface NMRSendCommandMessage : NSObject <NMRMediaRemoteProtobufCodable> {
-    _NMRSendCommandMessageProtobuf *_protobuf;
+    _NMRSendCommandMessageProtobuf * _protobuf;
 }
 
-@property(readonly) unsigned int command;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) NSDictionary * options;
-@property(readonly) NSDate * serializationDate;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) NSString *bundleID;
+@property (nonatomic, readonly) unsigned int command;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSDictionary *options;
+@property (nonatomic, readonly) NSNumber *originIdentifier;
+@property (nonatomic, readonly) NSDate *serializationDate;
+@property (readonly) Class superclass;
 
-+ (id)messageWithCommand:(unsigned int)arg1 options:(id)arg2;
++ (id)messageWithCommand:(unsigned int)arg1 bundleID:(id)arg2 options:(id)arg3 originIdentifier:(id)arg4;
 
 - (void).cxx_destruct;
+- (id)bundleID;
 - (unsigned int)command;
-- (id)initWithCommand:(unsigned int)arg1 options:(id)arg2;
+- (id)initWithCommand:(unsigned int)arg1 bundleID:(id)arg2 options:(id)arg3 originIdentifier:(id)arg4;
 - (id)initWithProtobufData:(id)arg1;
 - (id)options;
+- (id)originIdentifier;
 - (id)protobufData;
 - (id)serializationDate;
 

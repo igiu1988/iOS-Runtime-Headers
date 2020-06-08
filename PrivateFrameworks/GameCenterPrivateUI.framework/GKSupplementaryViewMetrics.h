@@ -2,70 +2,68 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class NSString;
-
 @interface GKSupplementaryViewMetrics : NSObject <NSCopying> {
+    long long  _animateWithSection;
+    SEL  _configurator;
+    double  _desiredHeight;
+    double  _desiredWidth;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
-    int _animateWithSection;
-    SEL _configurator;
-    float _desiredHeight;
-    float _desiredWidth;
-    } _globalSectionRange;
-    BOOL _hidden;
-    NSString *_kind;
-    Class _reusableViewClass;
-    BOOL _shouldPin;
-    BOOL _shouldPinGlobal;
-    BOOL _shouldUseGlobalIndexing;
-    id _target;
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _globalSectionRange;
+    bool  _hidden;
+    NSString * _kind;
+    Class  _reusableViewClass;
+    bool  _shouldPin;
+    bool  _shouldPinGlobal;
+    bool  _shouldUseGlobalIndexing;
+    id  _target;
 }
 
-@property int animateWithSection;
-@property SEL configurator;
-@property float desiredHeight;
-@property float desiredWidth;
-@property struct _NSRange { unsigned int x1; unsigned int x2; } globalSectionRange;
-@property(getter=isHidden) BOOL hidden;
-@property(retain) NSString * kind;
-@property Class reusableViewClass;
-@property BOOL shouldPin;
-@property BOOL shouldPinGlobal;
-@property BOOL shouldUseGlobalIndexing;
-@property id target;
+@property (nonatomic) long long animateWithSection;
+@property (nonatomic) SEL configurator;
+@property (nonatomic) double desiredHeight;
+@property (nonatomic) double desiredWidth;
+@property (nonatomic) struct _NSRange { unsigned long long x1; unsigned long long x2; } globalSectionRange;
+@property (getter=isHidden, nonatomic) bool hidden;
+@property (nonatomic, retain) NSString *kind;
+@property (nonatomic) Class reusableViewClass;
+@property (nonatomic) bool shouldPin;
+@property (nonatomic) bool shouldPinGlobal;
+@property (nonatomic) bool shouldUseGlobalIndexing;
+@property (nonatomic) id target;
 
 + (id)supplementaryMetrics;
 
-- (int)animateWithSection;
+- (long long)animateWithSection;
 - (SEL)configurator;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (float)desiredHeight;
-- (float)desiredWidth;
-- (struct _NSRange { unsigned int x1; unsigned int x2; })globalSectionRange;
+- (double)desiredHeight;
+- (double)desiredWidth;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })globalSectionRange;
 - (id)init;
-- (BOOL)isHidden;
+- (bool)isHidden;
 - (id)kind;
 - (id)localDescription;
 - (Class)reusableViewClass;
-- (void)setAnimateWithSection:(int)arg1;
+- (void)setAnimateWithSection:(long long)arg1;
 - (void)setConfigurator:(SEL)arg1;
-- (void)setDesiredHeight:(float)arg1;
-- (void)setDesiredWidth:(float)arg1;
-- (void)setGlobalSectionRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg1;
-- (void)setHidden:(BOOL)arg1;
+- (void)setDesiredHeight:(double)arg1;
+- (void)setDesiredWidth:(double)arg1;
+- (void)setGlobalSectionRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg1;
+- (void)setHidden:(bool)arg1;
 - (void)setKind:(id)arg1;
 - (void)setReusableViewClass:(Class)arg1;
-- (void)setShouldPin:(BOOL)arg1;
-- (void)setShouldPinGlobal:(BOOL)arg1;
-- (void)setShouldUseGlobalIndexing:(BOOL)arg1;
+- (void)setShouldPin:(bool)arg1;
+- (void)setShouldPinGlobal:(bool)arg1;
+- (void)setShouldUseGlobalIndexing:(bool)arg1;
 - (void)setTarget:(id)arg1;
-- (BOOL)shouldPin;
-- (BOOL)shouldPinGlobal;
-- (BOOL)shouldUseGlobalIndexing;
-- (struct CGSize { float x1; float x2; })sizeForCollectionView:(id)arg1;
+- (bool)shouldPin;
+- (bool)shouldPinGlobal;
+- (bool)shouldUseGlobalIndexing;
+- (struct CGSize { double x1; double x2; })sizeForCollectionView:(id)arg1;
 - (id)target;
 
 @end

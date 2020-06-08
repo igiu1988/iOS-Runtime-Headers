@@ -2,54 +2,53 @@
    Image: /System/Library/PrivateFrameworks/IDSFoundation.framework/IDSFoundation
  */
 
-@class NSData, NSDate, NSString;
-
 @interface IDSSocketPairProtobufMessage : IDSSocketPairMessage {
-    BOOL _compressed;
-    NSData *_data;
-    BOOL _expectsPeerResponse;
-    NSDate *_expiryDate;
-    unsigned short _isResponse;
-    NSString *_messageUUID;
-    unsigned int _payloadLength;
-    unsigned int _payloadOffset;
-    NSString *_peerResponseIdentifier;
-    unsigned int _sequenceNumber;
-    unsigned short _streamID;
-    unsigned short _type;
-    BOOL _wantsAppAck;
+    bool  _compressed;
+    NSData * _data;
+    bool  _expectsPeerResponse;
+    NSDate * _expiryDate;
+    unsigned short  _isResponse;
+    NSString * _messageUUID;
+    unsigned long long  _payloadLength;
+    unsigned long long  _payloadOffset;
+    NSString * _peerResponseIdentifier;
+    unsigned int  _sequenceNumber;
+    unsigned short  _streamID;
+    unsigned short  _type;
+    bool  _wantsAppAck;
 }
 
-@property BOOL compressed;
-@property(readonly) NSData * data;
-@property(readonly) BOOL expectsPeerResponse;
-@property NSDate * expiryDate;
-@property(readonly) unsigned short isResponse;
-@property(retain,readonly) NSString * messageUUID;
-@property(retain,readonly) NSString * peerResponseIdentifier;
-@property unsigned int sequenceNumber;
-@property(readonly) unsigned short streamID;
-@property(readonly) unsigned short type;
-@property(readonly) BOOL wantsAppAck;
+@property (nonatomic) bool compressed;
+@property (nonatomic, readonly) NSData *data;
+@property (nonatomic, readonly) bool expectsPeerResponse;
+@property (nonatomic, retain) NSDate *expiryDate;
+@property (nonatomic, readonly) unsigned short isResponse;
+@property (nonatomic, readonly) NSString *messageUUID;
+@property (nonatomic, readonly) NSString *peerResponseIdentifier;
+@property (nonatomic) unsigned int sequenceNumber;
+@property (nonatomic) unsigned short streamID;
+@property (nonatomic, readonly) unsigned short type;
+@property (nonatomic, readonly) bool wantsAppAck;
 
+- (void).cxx_destruct;
 - (id)_nonHeaderData;
 - (unsigned char)command;
-- (BOOL)compressed;
+- (bool)compressed;
 - (id)data;
-- (void)dealloc;
-- (BOOL)expectsPeerResponse;
+- (bool)expectsPeerResponse;
 - (id)expiryDate;
 - (id)initWithCommand:(unsigned char)arg1 underlyingData:(id)arg2;
-- (id)initWithSequenceNumber:(unsigned int)arg1 streamID:(unsigned short)arg2 expectsPeerResponse:(BOOL)arg3 wantsAppAck:(BOOL)arg4 compressed:(BOOL)arg5 peerResponseIdentifier:(id)arg6 messageUUID:(id)arg7 expiryDate:(id)arg8 protobuf:(id)arg9;
+- (id)initWithSequenceNumber:(unsigned int)arg1 streamID:(unsigned short)arg2 expectsPeerResponse:(bool)arg3 wantsAppAck:(bool)arg4 compressed:(bool)arg5 peerResponseIdentifier:(id)arg6 messageUUID:(id)arg7 expiryDate:(id)arg8 protobuf:(id)arg9;
 - (unsigned short)isResponse;
 - (id)messageUUID;
 - (id)peerResponseIdentifier;
 - (unsigned int)sequenceNumber;
-- (void)setCompressed:(BOOL)arg1;
+- (void)setCompressed:(bool)arg1;
 - (void)setExpiryDate:(id)arg1;
 - (void)setSequenceNumber:(unsigned int)arg1;
+- (void)setStreamID:(unsigned short)arg1;
 - (unsigned short)streamID;
 - (unsigned short)type;
-- (BOOL)wantsAppAck;
+- (bool)wantsAppAck;
 
 @end

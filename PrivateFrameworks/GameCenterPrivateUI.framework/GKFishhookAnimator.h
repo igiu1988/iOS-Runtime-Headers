@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@interface GKFishhookAnimator : GKBubblePathAnimator {
-}
+@interface GKFishhookAnimator : GKBubblePathAnimator
 
 - (void)animateTransition:(id)arg1;
-- (int)animatorType;
+- (long long)animatorType;
 
 @end

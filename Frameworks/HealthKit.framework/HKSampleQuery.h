@@ -2,34 +2,39 @@
    Image: /System/Library/Frameworks/HealthKit.framework/HealthKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSMutableArray;
-
-@interface HKSampleQuery : HKQuery {
-    unsigned int _limit;
-    id _resultHandler;
-    NSMutableArray *_results;
-    NSArray *_sortDescriptors;
+@interface HKSampleQuery : HKQuery <HKSampleQueryClientInterface> {
+    bool  _includeTimeZones;
+    unsigned long long  _limit;
+    id /* block */  _resultHandler;
+    NSMutableArray * _samplesPendingDelivery;
+    NSArray * _sortDescriptors;
 }
 
-@property(readonly) unsigned int limit;
-@property(readonly) id resultHandler;
-@property(copy,readonly) NSArray * sortDescriptors;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) bool includeTimeZones;
+@property (readonly) unsigned long long limit;
+@property (nonatomic, readonly) id /* block */ resultHandler;
+@property (readonly, copy) NSArray *sortDescriptors;
+@property (readonly) Class superclass;
 
-+ (Class)_queryServerDataObjectClass;
++ (id)clientInterfaceProtocol;
++ (Class)configurationClass;
++ (void)configureClientInterface:(id)arg1;
 
 - (void).cxx_destruct;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)_queue_configureQueryServerDataObject:(id)arg1;
-- (id)_queue_errorHandler;
-- (void)_queue_validate;
-- (void)deliverResultsBatch:(id)arg1 final:(BOOL)arg2 error:(id)arg3 forQuery:(id)arg4;
-- (id)initWithSampleType:(id)arg1 predicate:(id)arg2 limit:(unsigned int)arg3 sortDescriptors:(id)arg4 resultsHandler:(id)arg5;
-- (unsigned int)limit;
-- (id)resultHandler;
+- (bool)_prepareSamplesForDelivery:(id)arg1 error:(id*)arg2;
+- (void)client_deliverSamples:(id)arg1 clearPendingSamples:(bool)arg2 isFinalBatch:(bool)arg3 queryUUID:(id)arg4;
+- (bool)includeTimeZones;
+- (id)initWithSampleType:(id)arg1 predicate:(id)arg2 limit:(unsigned long long)arg3 sortDescriptors:(id)arg4 resultsHandler:(id /* block */)arg5;
+- (unsigned long long)limit;
+- (void)queue_deliverError:(id)arg1;
+- (void)queue_populateConfiguration:(id)arg1;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_validate;
+- (id /* block */)resultHandler;
+- (void)setIncludeTimeZones:(bool)arg1;
 - (id)sortDescriptors;
 
 @end

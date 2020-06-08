@@ -2,31 +2,36 @@
    Image: /System/Library/PrivateFrameworks/DataDetectorsUI.framework/DataDetectorsUI
  */
 
-@class <DDRemoteActionPresenter>, ABUnknownPersonViewController, DDAction, NSString;
-
-@interface DDAddToContactsViewController : UINavigationController <ABUnknownPersonViewControllerDelegate, DDRemoteActionViewControllerConfiguration> {
-    DDAction *_action;
-    ABUnknownPersonViewController *_personViewController;
-    <DDRemoteActionPresenter> *_proxy;
+@interface DDAddToContactsViewController : UINavigationController <CNContactViewControllerDelegate, DDRemoteActionViewService> {
+    DDAction * _action;
+    bool  _cancellable;
+    CNContactViewController * _personViewController;
+    <DDRemoteActionPresenter> * _proxy;
 }
 
-@property(retain) DDAction * action;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (retain) DDAction *action;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
++ (id)alternateNameForContact:(id)arg1;
 
-- (void)_augmentRecord:(void*)arg1 withResultsFromAction:(id)arg2;
+- (void).cxx_destruct;
 - (id)action;
+- (void)adaptForPresentationInPopover:(bool)arg1;
 - (void)cancelPressed:(id)arg1;
-- (void)dealloc;
-- (id)init;
+- (void)contactViewController:(id)arg1 didCompleteWithContact:(id)arg2;
+- (void)contactViewControllerForUnknownContactDidBeginAddingToContacts:(id)arg1;
+- (void)contactViewControllerForUnknownContactDidEndAddingToContacts:(id)arg1;
+- (void)doneWithAddingContact;
+- (struct CGSize { double x1; double x2; })preferredContentSize;
 - (void)prepareForAction:(id)arg1;
 - (void)setAction:(id)arg1;
-- (void)unknownPersonViewController:(id)arg1 didResolveToPerson:(void*)arg2;
-- (BOOL)unknownPersonViewController:(id)arg1 shouldPerformDefaultActionForPerson:(void*)arg2 property:(int)arg3 identifier:(int)arg4;
+- (void)setCancelButtonVisible:(bool)arg1;
+- (void)setCancellable:(bool)arg1;
+- (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 
 @end

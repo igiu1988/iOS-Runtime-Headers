@@ -2,35 +2,44 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSEntityDescription, NSPersistentStore;
+@interface NSManagedObjectID : NSObject <NSCopying, NSFetchRequestResult>
 
-@interface NSManagedObjectID : NSObject <NSCopying> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) NSEntityDescription *entity;
+@property (readonly) unsigned long long hash;
+@property (readonly) NSPersistentStore *persistentStore;
+@property (readonly) Class superclass;
+@property (getter=isTemporaryID, readonly) bool temporaryID;
 
-@property(readonly) NSEntityDescription * entity;
-@property(readonly) NSPersistentStore * persistentStore;
-@property(getter=isTemporaryID,readonly) BOOL temporaryID;
+// Image: /System/Library/Frameworks/CoreData.framework/CoreData
 
-+ (BOOL)accessInstanceVariablesDirectly;
++ (id)_newArchiveForScalarObjectIDs:(id)arg1;
++ (bool)accessInstanceVariablesDirectly;
 + (void)initialize;
-+ (int)version;
++ (id)unarchivedScalarObjectIDsFromData:(id)arg1 withCoordinator:(id)arg2;
++ (long long)version;
 
 - (id)URIRepresentation;
-- (BOOL)_isDeallocating;
-- (BOOL)_isPersistentStoreAlive;
-- (long long)_referenceData64;
+- (bool)_isDeallocating;
+- (bool)_isPersistentStoreAlive;
 - (id)_referenceData;
+- (long long)_referenceData64;
 - (id)_retainedURIString;
 - (id)_storeIdentifier;
 - (id)_storeInfo1;
-- (BOOL)_tryRetain;
+- (bool)_tryRetain;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)entity;
+- (id)entityName;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isTemporaryID;
+- (bool)isTemporaryID;
 - (id)persistentStore;
+
+// Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
+
 - (id)pl_shortURI;
 
 @end

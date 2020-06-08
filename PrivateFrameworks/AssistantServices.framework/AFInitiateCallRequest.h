@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class AFCall;
-
 @interface AFInitiateCallRequest : AFSiriRequest {
-    AFCall *_call;
+    STCall * _call;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_initWithCall:(id)arg1;

@@ -2,29 +2,26 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class CoreDAVErrorItem, CoreDAVItemWithHrefChildItem, CoreDAVLeafItem, ICSDocument, NSString;
-
 @interface CalDAVScheduleResponseDetailsItem : CoreDAVItem {
-    ICSDocument *_calendarData;
-    CoreDAVItemWithHrefChildItem *_recipientHREF;
-    CoreDAVLeafItem *_requestStatus;
-    NSString *_responseDescription;
-    CoreDAVErrorItem *_topLevelErrorItem;
+    ICSDocument * _calendarData;
+    CoreDAVItemWithHrefChildItem * _recipientHREF;
+    CoreDAVLeafItem * _requestStatus;
+    NSString * _responseDescription;
+    CoreDAVErrorItem * _topLevelErrorItem;
 }
 
-@property(retain) ICSDocument * calendarData;
-@property(retain) CoreDAVItemWithHrefChildItem * recipientHREF;
-@property(readonly) NSString * recipientString;
-@property(retain) CoreDAVLeafItem * requestStatus;
-@property(retain) NSString * responseDescription;
-@property(retain) CoreDAVErrorItem * topLevelErrorItem;
+@property (nonatomic, retain) ICSDocument *calendarData;
+@property (nonatomic, retain) CoreDAVItemWithHrefChildItem *recipientHREF;
+@property (nonatomic, readonly) NSString *recipientString;
+@property (nonatomic, retain) CoreDAVLeafItem *requestStatus;
+@property (nonatomic, retain) NSString *responseDescription;
+@property (nonatomic, retain) CoreDAVErrorItem *topLevelErrorItem;
 
+- (void).cxx_destruct;
 - (void)_setCalendarDataWithLeafItem:(id)arg1;
 - (id)calendarData;
 - (id)copyParseRules;
-- (void)dealloc;
 - (id)description;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
 - (id)recipientHREF;
 - (id)recipientString;
 - (id)requestStatus;

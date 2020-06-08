@@ -2,29 +2,21 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSURL, SKUIClientContext;
-
 @interface SKUILoadTrendingSearchPageOperation : NSOperation {
-    SKUIClientContext *_clientContext;
-    id _outputBlock;
-    NSURL *_url;
+    SKUIClientContext * _clientContext;
+    id /* block */  _outputBlock;
+    NSURL * _pageURL;
 }
 
-@property(copy) NSURL * URL;
-@property(retain) SKUIClientContext * clientContext;
-@property(copy) id outputBlock;
+@property (nonatomic, readonly) SKUIClientContext *clientContext;
+@property (nonatomic, readonly, copy) id /* block */ outputBlock;
+@property (nonatomic, readonly) NSURL *pageURL;
 
 - (void).cxx_destruct;
-- (id)URL;
 - (id)clientContext;
+- (id)initWithClientContext:(id)arg1 pageURL:(id)arg2 outputBlock:(id /* block */)arg3;
 - (void)main;
-- (id)outputBlock;
-- (void)setClientContext:(id)arg1;
-- (void)setOutputBlock:(id)arg1;
-- (void)setURL:(id)arg1;
+- (id /* block */)outputBlock;
+- (id)pageURL;
 
 @end

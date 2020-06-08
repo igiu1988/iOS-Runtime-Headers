@@ -3,6 +3,9 @@
  */
 
 @interface BWSynchronizerNode : BWNode {
+    struct OpaqueCMClock { } * _masterClock;
+    int  _newestPTSSyncHistoryElement;
+    int  _oldestPTSSyncHistoryElement;
     struct { 
         struct { 
             long long value; 
@@ -16,11 +19,8 @@
             unsigned int flags; 
             long long epoch; 
         } syncedTime; 
-    struct OpaqueCMClock { } *_masterClock;
-    int _newestPTSSyncHistoryElement;
-    int _oldestPTSSyncHistoryElement;
-    } _ptsSyncHistory[16];
-    struct OpaqueCMClock { } *_sourceClock;
+    }  _ptsSyncHistory;
+    struct OpaqueCMClock { } * _sourceClock;
 }
 
 + (void)initialize;
@@ -31,7 +31,7 @@
 - (void)dealloc;
 - (void)didSelectFormat:(id)arg1 forInput:(id)arg2;
 - (void)handleDroppedSample:(id)arg1 forInput:(id)arg2;
-- (id)initWithMediaType:(unsigned long)arg1;
+- (id)initWithMediaType:(unsigned int)arg1;
 - (struct OpaqueCMClock { }*)masterClock;
 - (id)nodeSubType;
 - (id)nodeType;

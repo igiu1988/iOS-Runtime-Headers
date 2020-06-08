@@ -3,12 +3,12 @@
  */
 
 @interface OADPercentBulletSize : OADBulletSize {
-    float mPercent;
+    float  mPercent;
 }
 
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithPercent:(float)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (float)percent;
 
 @end

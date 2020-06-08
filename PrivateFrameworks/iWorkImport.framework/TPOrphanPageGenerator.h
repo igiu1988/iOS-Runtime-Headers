@@ -2,20 +2,19 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, TPDocumentRoot;
-
 @interface TPOrphanPageGenerator : NSObject <TPPageGenerator> {
-    TPDocumentRoot *_documentRoot;
+    TPDocumentRoot * _documentRoot;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
+- (void).cxx_destruct;
 - (void)createOrUpdatePageHintInSectionHint:(id)arg1 withState:(id)arg2;
 - (id)init;
 - (id)initWithDocumentRoot:(id)arg1;
-- (BOOL)wantsPageInSectionHint:(id)arg1 withState:(id)arg2;
+- (bool)wantsPageInSectionHint:(id)arg1 withState:(id)arg2;
 
 @end

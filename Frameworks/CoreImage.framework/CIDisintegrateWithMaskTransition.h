@@ -2,29 +2,28 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, CIVector, NSNumber;
-
 @interface CIDisintegrateWithMaskTransition : CIFilter {
-    CIImage *inputImage;
-    CIImage *inputMaskImage;
-    NSNumber *inputShadowDensity;
-    CIVector *inputShadowOffset;
-    NSNumber *inputShadowRadius;
-    CIImage *inputTargetImage;
-    NSNumber *inputTime;
+    CIImage * inputImage;
+    CIImage * inputMaskImage;
+    NSNumber * inputShadowDensity;
+    CIVector * inputShadowOffset;
+    NSNumber * inputShadowRadius;
+    CIImage * inputTargetImage;
+    NSNumber * inputTime;
 }
 
-@property(retain) CIImage * inputImage;
-@property(retain) CIImage * inputMaskImage;
-@property(retain) NSNumber * inputShadowDensity;
-@property(retain) CIVector * inputShadowOffset;
-@property(retain) NSNumber * inputShadowRadius;
-@property(retain) CIImage * inputTargetImage;
-@property(retain) NSNumber * inputTime;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) CIImage *inputMaskImage;
+@property (nonatomic, retain) NSNumber *inputShadowDensity;
+@property (nonatomic, retain) CIVector *inputShadowOffset;
+@property (nonatomic, retain) NSNumber *inputShadowRadius;
+@property (nonatomic, retain) CIImage *inputTargetImage;
+@property (nonatomic, retain) NSNumber *inputTime;
 
 + (id)customAttributes;
 
 - (id)_kernel;
+- (id)_kernelG;
 - (id)inputImage;
 - (id)inputMaskImage;
 - (id)inputShadowDensity;
@@ -33,7 +32,6 @@
 - (id)inputTargetImage;
 - (id)inputTime;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputImage:(id)arg1;
 - (void)setInputMaskImage:(id)arg1;
 - (void)setInputShadowDensity:(id)arg1;

@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSNumber;
+@interface SAABMultiPersonSearch : SADomainCommand
 
-@interface SAABMultiPersonSearch : SADomainCommand {
-}
-
-@property(copy) NSArray * personSearches;
-@property(copy) NSNumber * resultsLimit;
+@property (nonatomic, copy) NSArray *personSearches;
+@property (nonatomic, copy) NSNumber *resultsLimit;
 
 + (id)multiPersonSearch;
 + (id)multiPersonSearchWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
+- (bool)mutatingCommand;
 - (id)personSearches;
-- (BOOL)requiresResponse;
+- (bool)requiresResponse;
 - (id)resultsLimit;
 - (void)setPersonSearches:(id)arg1;
 - (void)setResultsLimit:(id)arg1;

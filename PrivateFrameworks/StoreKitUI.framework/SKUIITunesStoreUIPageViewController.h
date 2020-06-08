@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKProductPageViewController, SUBarButtonItem;
-
 @interface SKUIITunesStoreUIPageViewController : SUStorePageViewController {
-    SUBarButtonItem *_cancelButtonItem;
-    NSString *_cancelButtonTitle;
-    SKProductPageViewController *_productPageViewController;
-    BOOL _showsCancelButton;
+    SUBarButtonItem * _cancelButtonItem;
+    NSString * _cancelButtonTitle;
+    SKProductPageViewController * _productPageViewController;
+    bool  _showsCancelButton;
 }
 
-@property(copy) NSString * cancelButtonTitle;
-@property SKProductPageViewController * productPageViewController;
-@property BOOL showsCancelButton;
+@property (nonatomic, copy) NSString *cancelButtonTitle;
+@property (nonatomic) SKProductPageViewController *productPageViewController;
+@property (nonatomic) bool showsCancelButton;
 
 - (void).cxx_destruct;
 - (void)_addCancelButtonToNavigationItem:(id)arg1;
@@ -22,13 +20,13 @@
 - (id)cancelButtonTitle;
 - (void)dealloc;
 - (void)handleFailureWithError:(id)arg1;
-- (BOOL)presentDialogForError:(id)arg1 pendUntilVisible:(BOOL)arg2;
+- (bool)presentDialogForError:(id)arg1 pendUntilVisible:(bool)arg2;
 - (id)productPageViewController;
 - (void)resetNavigationItem:(id)arg1;
 - (void)setCancelButtonTitle:(id)arg1;
 - (void)setProductPageViewController:(id)arg1;
-- (void)setShowsCancelButton:(BOOL)arg1;
-- (BOOL)showsCancelButton;
+- (void)setShowsCancelButton:(bool)arg1;
+- (bool)showsCancelButton;
 - (void)viewWillLayoutSubviews;
 
 @end

@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@interface SLTwitterSearchBar : UISearchBar {
-}
+@interface SLTwitterSearchBar : UISearchBar
 
-- (BOOL)textFieldShouldClear:(id)arg1;
+- (bool)textFieldShouldClear:(id)arg1;
 
 @end

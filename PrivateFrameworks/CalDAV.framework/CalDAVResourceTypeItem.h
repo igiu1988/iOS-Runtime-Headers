@@ -2,31 +2,27 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class CoreDAVItemWithNoChildren;
-
 @interface CalDAVResourceTypeItem : CoreDAVResourceTypeItem {
-    CoreDAVItemWithNoChildren *_calendar;
-    CoreDAVItemWithNoChildren *_isFamilyCalendar;
-    CoreDAVItemWithNoChildren *_notification;
-    CoreDAVItemWithNoChildren *_scheduleInbox;
-    CoreDAVItemWithNoChildren *_scheduleOutbox;
-    CoreDAVItemWithNoChildren *_sharedOwner;
-    CoreDAVItemWithNoChildren *_subscribed;
+    CoreDAVItemWithNoChildren * _calendar;
+    CoreDAVItemWithNoChildren * _isFamilyCalendar;
+    CoreDAVItemWithNoChildren * _notification;
+    CoreDAVItemWithNoChildren * _scheduleInbox;
+    CoreDAVItemWithNoChildren * _scheduleOutbox;
+    CoreDAVItemWithNoChildren * _sharedOwner;
+    CoreDAVItemWithNoChildren * _subscribed;
 }
 
-@property(retain) CoreDAVItemWithNoChildren * calendar;
-@property(retain) CoreDAVItemWithNoChildren * isFamilyCalendar;
-@property(retain) CoreDAVItemWithNoChildren * notification;
-@property(retain) CoreDAVItemWithNoChildren * scheduleInbox;
-@property(retain) CoreDAVItemWithNoChildren * scheduleOutbox;
-@property(retain) CoreDAVItemWithNoChildren * sharedOwner;
-@property(retain) CoreDAVItemWithNoChildren * subscribed;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *calendar;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *isFamilyCalendar;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *notification;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *scheduleInbox;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *scheduleOutbox;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *sharedOwner;
+@property (nonatomic, retain) CoreDAVItemWithNoChildren *subscribed;
 
+- (void).cxx_destruct;
 - (id)calendar;
 - (id)copyParseRules;
-- (void)dealloc;
-- (id)description;
-- (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
 - (id)isFamilyCalendar;
 - (id)notification;
 - (id)scheduleInbox;

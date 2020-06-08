@@ -5,24 +5,24 @@
 @interface CKDPLocationBound : PBCodable <NSCopying> {
     struct { 
         unsigned int radius : 1; 
-    } _has;
-    double _radius;
+    }  _has;
+    double  _radius;
 }
 
-@property BOOL hasRadius;
-@property double radius;
+@property (nonatomic) bool hasRadius;
+@property (nonatomic) double radius;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasRadius;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasRadius;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (double)radius;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasRadius:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasRadius:(bool)arg1;
 - (void)setRadius:(double)arg1;
 - (void)writeTo:(id)arg1;
 

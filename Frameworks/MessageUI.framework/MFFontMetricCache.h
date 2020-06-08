@@ -2,21 +2,23 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface MFFontMetricCache : NSObject {
-    NSMutableDictionary *_metricCacheDictionary;
-    NSString *_preferredSizeValidationKey;
+    NSMutableDictionary * _metricCacheDictionary;
+    NSString * _preferredSizeValidationKey;
 }
 
 + (id)sharedFontMetricCache;
 
 - (void)_didReceivePreferredFontChangedNotification:(id)arg1;
 - (void)_invalidateCache;
-- (float)cachedFloat:(id)arg1 forKey:(id)arg2;
-- (id)cachedFont:(id)arg1 forKey:(id)arg2;
+- (double)cachedFloat:(id /* block */)arg1 forKey:(id)arg2;
+- (id)cachedFont:(id /* block */)arg1 forKey:(id)arg2;
+- (id)cachedPreferredFontForStyle:(id)arg1;
+- (double)cachedScaledFloatWithValue:(double)arg1 fontStyle:(id)arg2;
+- (double)cachedScaledFloatWithValue:(double)arg1 forKey:(id)arg2;
 - (void)dealloc;
-- (BOOL)ensureCacheIsValid;
+- (bool)ensureCacheIsValid;
 - (id)init;
+- (id)metricCacheDictionary;
 
 @end

@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSSet;
-
 @interface NSMergedPolicyLocalizationPolicy : NSValidationErrorLocalizationPolicy {
-    NSSet *_mergedPolicies;
+    NSSet * _mergedPolicies;
 }
 
 - (void)_ensureFullLocalizationDictionaryIsLoaded;

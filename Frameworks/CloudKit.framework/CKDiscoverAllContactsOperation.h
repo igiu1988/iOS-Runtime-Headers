@@ -2,30 +2,26 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSMutableArray;
-
 @interface CKDiscoverAllContactsOperation : CKOperation {
-    id _discoverAllContactsCompletionBlock;
-    NSMutableArray *_discoveredUserInfos;
+    id /* block */  _discoverAllContactsCompletionBlock;
+    NSMutableArray * _discoveredUserInfos;
 }
 
-@property(copy) id discoverAllContactsCompletionBlock;
-@property(retain) NSMutableArray * discoveredUserInfos;
+@property (nonatomic, copy) id /* block */ discoverAllContactsCompletionBlock;
+@property (nonatomic, retain) NSMutableArray *discoveredUserInfos;
 
 - (void).cxx_destruct;
-- (BOOL)CKOperationShouldRun:(id*)arg1;
+- (bool)CKOperationShouldRun:(id*)arg1;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)_handleProgressCallback:(id)arg1;
-- (id)discoverAllContactsCompletionBlock;
+- (id)activityCreate;
+- (id /* block */)discoverAllContactsCompletionBlock;
 - (id)discoveredUserInfos;
+- (bool)hasCKOperationCallbacksSet;
 - (id)init;
 - (Class)operationInfoClass;
 - (void)performCKOperation;
-- (void)setDiscoverAllContactsCompletionBlock:(id)arg1;
+- (void)setDiscoverAllContactsCompletionBlock:(id /* block */)arg1;
 - (void)setDiscoveredUserInfos:(id)arg1;
 
 @end

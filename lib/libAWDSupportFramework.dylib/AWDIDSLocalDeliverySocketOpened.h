@@ -2,42 +2,40 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSString;
-
 @interface AWDIDSLocalDeliverySocketOpened : PBCodable <NSCopying> {
+    NSString * _guid;
     struct { 
         unsigned int isToDefaultPairedDevice : 1; 
         unsigned int openError : 1; 
         unsigned int priority : 1; 
         unsigned int socketError : 1; 
         unsigned int timestamp : 1; 
-    NSString *_guid;
-    } _has;
-    unsigned long long _isToDefaultPairedDevice;
-    unsigned long long _openError;
-    unsigned long long _priority;
-    NSString *_service;
-    unsigned long long _socketError;
-    NSString *_streamName;
-    unsigned long long _timestamp;
+    }  _has;
+    unsigned long long  _isToDefaultPairedDevice;
+    unsigned long long  _openError;
+    unsigned long long  _priority;
+    NSString * _service;
+    unsigned long long  _socketError;
+    NSString * _streamName;
+    unsigned long long  _timestamp;
 }
 
-@property(retain) NSString * guid;
-@property(readonly) BOOL hasGuid;
-@property BOOL hasIsToDefaultPairedDevice;
-@property BOOL hasOpenError;
-@property BOOL hasPriority;
-@property(readonly) BOOL hasService;
-@property BOOL hasSocketError;
-@property(readonly) BOOL hasStreamName;
-@property BOOL hasTimestamp;
-@property unsigned long long isToDefaultPairedDevice;
-@property unsigned long long openError;
-@property unsigned long long priority;
-@property(retain) NSString * service;
-@property unsigned long long socketError;
-@property(retain) NSString * streamName;
-@property unsigned long long timestamp;
+@property (nonatomic, retain) NSString *guid;
+@property (nonatomic, readonly) bool hasGuid;
+@property (nonatomic) bool hasIsToDefaultPairedDevice;
+@property (nonatomic) bool hasOpenError;
+@property (nonatomic) bool hasPriority;
+@property (nonatomic, readonly) bool hasService;
+@property (nonatomic) bool hasSocketError;
+@property (nonatomic, readonly) bool hasStreamName;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic) unsigned long long isToDefaultPairedDevice;
+@property (nonatomic) unsigned long long openError;
+@property (nonatomic) unsigned long long priority;
+@property (nonatomic, retain) NSString *service;
+@property (nonatomic) unsigned long long socketError;
+@property (nonatomic, retain) NSString *streamName;
+@property (nonatomic) unsigned long long timestamp;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -45,28 +43,28 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)guid;
-- (BOOL)hasGuid;
-- (BOOL)hasIsToDefaultPairedDevice;
-- (BOOL)hasOpenError;
-- (BOOL)hasPriority;
-- (BOOL)hasService;
-- (BOOL)hasSocketError;
-- (BOOL)hasStreamName;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasGuid;
+- (bool)hasIsToDefaultPairedDevice;
+- (bool)hasOpenError;
+- (bool)hasPriority;
+- (bool)hasService;
+- (bool)hasSocketError;
+- (bool)hasStreamName;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (unsigned long long)isToDefaultPairedDevice;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)openError;
 - (unsigned long long)priority;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)service;
 - (void)setGuid:(id)arg1;
-- (void)setHasIsToDefaultPairedDevice:(BOOL)arg1;
-- (void)setHasOpenError:(BOOL)arg1;
-- (void)setHasPriority:(BOOL)arg1;
-- (void)setHasSocketError:(BOOL)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (void)setHasIsToDefaultPairedDevice:(bool)arg1;
+- (void)setHasOpenError:(bool)arg1;
+- (void)setHasPriority:(bool)arg1;
+- (void)setHasSocketError:(bool)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setIsToDefaultPairedDevice:(unsigned long long)arg1;
 - (void)setOpenError:(unsigned long long)arg1;
 - (void)setPriority:(unsigned long long)arg1;

@@ -2,20 +2,19 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSString, PUActivityItemSourceController;
-
 @interface PUSaveToCameraRollActivity : UISaveToCameraRollActivity <PUActivity> {
-    PUActivityItemSourceController *_itemSourceController;
+    PUActivityItemSourceController * _itemSourceController;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property PUActivityItemSourceController * itemSourceController;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) PUActivityItemSourceController *itemSourceController;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (bool)_itemIsVideoAtURL:(id)arg1;
+- (bool)canPerformWithActivityItems:(id)arg1;
 - (id)itemSourceController;
 - (void)performActivity;
 - (void)prepareWithActivityItems:(id)arg1;

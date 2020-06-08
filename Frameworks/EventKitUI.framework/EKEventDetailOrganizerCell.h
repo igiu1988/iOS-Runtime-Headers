@@ -2,21 +2,23 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class NSString, UILabel;
-
 @interface EKEventDetailOrganizerCell : EKEventDetailCell {
-    NSString *_organizerName;
-    UILabel *_organizerView;
-    UILabel *_titleView;
+    UILabel * _organizerLabel;
+    NSString * _organizerName;
+    <EKIdentityProtocol> * _organizerOverride;
+    EKUILabeledAvatarView * _organizerView;
+    UILabel * _titleView;
 }
 
++ (id)_organizerFont;
++ (id)_titleFont;
+
 - (void).cxx_destruct;
+- (id)_organizerLabel;
 - (id)_organizerView;
 - (id)_titleView;
-- (BOOL)hasCustomLayout;
-- (id)initWithEvent:(id)arg1 editable:(BOOL)arg2;
-- (void)layoutForWidth:(float)arg1 position:(int)arg2;
-- (BOOL)shouldDisplayForEvent;
-- (BOOL)update;
+- (id)initWithEvent:(id)arg1 editable:(bool)arg2 organizerOverride:(id)arg3;
+- (bool)shouldDisplayForEvent;
+- (bool)update;
 
 @end

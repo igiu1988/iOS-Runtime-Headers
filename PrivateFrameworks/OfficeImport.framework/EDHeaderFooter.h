@@ -2,16 +2,15 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface EDHeaderFooter : NSObject {
-    NSString *mFooterString;
-    NSString *mHeaderString;
+    NSString * mFooterString;
+    NSString * mHeaderString;
 }
 
 + (id)headerFooter;
 
 - (void)dealloc;
+- (id)description;
 - (id)footerString;
 - (id)headerString;
 - (void)setFooterString:(id)arg1;

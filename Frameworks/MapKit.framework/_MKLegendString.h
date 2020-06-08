@@ -2,23 +2,24 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class NSAttributedString;
-
 @interface _MKLegendString : CALayer {
-    float halfWidth;
-    NSAttributedString *string;
+    double  _baselineDistanceFromBottom;
+    struct __CTLine { } * _line;
+    NSAttributedString * _string;
 }
 
-@property float halfWidth;
-@property(retain) NSAttributedString * string;
+@property (nonatomic, readonly) double baselineDistanceFromBottom;
+@property (nonatomic, retain) NSAttributedString *string;
 
 - (void).cxx_destruct;
 - (id)actionForKey:(id)arg1;
+- (double)baselineDistanceFromBottom;
+- (void)dealloc;
 - (void)drawInContext:(struct CGContext { }*)arg1;
-- (float)halfWidth;
 - (id)init;
-- (void)setHalfWidth:(float)arg1;
+- (void)setFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (void)setString:(id)arg1;
+- (void)sizeToFit;
 - (id)string;
 
 @end

@@ -2,23 +2,22 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAMPAlbumCollection : SAMPCollection
 
-@interface SAMPAlbumCollection : SAMPCollection {
-}
-
-@property(copy) NSString * artist;
-@property(copy) NSString * sortArtist;
+@property (nonatomic, copy) NSString *artist;
+@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *sortArtist;
 
 + (id)albumCollection;
 + (id)albumCollectionWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)artist;
+- (id)description;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (void)setArtist:(id)arg1;
+- (void)setDescription:(id)arg1;
 - (void)setSortArtist:(id)arg1;
 - (id)sortArtist;
-- (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 
 @end

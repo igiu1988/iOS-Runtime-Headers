@@ -2,52 +2,53 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAssetReaderOutputInternal, AVWeakReference, NSDictionary, NSString;
-
 @interface AVAssetReaderOutput : NSObject {
-    AVAssetReaderOutputInternal *_internal;
+    AVAssetReaderOutputInternal * _internal;
 }
 
-@property BOOL alwaysCopiesSampleData;
-@property(getter=_extractionID,setter=_setExtractionID:) int extractionID;
-@property(getter=_figAssetReaderExtractionOptions,readonly) NSDictionary * figAssetReaderExtractionOptions;
-@property(readonly) NSString * mediaType;
-@property(getter=_trimsSampleDurations,readonly) BOOL trimsSampleDurations;
-@property(getter=_weakReferenceToAssetReader,readonly) AVWeakReference * weakReferenceToAssetReader;
+@property (nonatomic) bool alwaysCopiesSampleData;
+@property (getter=_extractionID, setter=_setExtractionID:, nonatomic) int extractionID;
+@property (getter=_figAssetReaderExtractionOptions, nonatomic, readonly) NSDictionary *figAssetReaderExtractionOptions;
+@property (nonatomic, readonly) NSString *mediaType;
+@property (getter=_trimsSampleDurations, nonatomic, readonly) bool trimsSampleDurations;
+@property (getter=_weakReferenceToAssetReader, nonatomic, readonly) AVWeakReference *weakReferenceToAssetReader;
 
++ (id)_figAssetReaderVideoScalingPropertiesFromVideoSettings:(id)arg1 withFormatDescription:(id)arg2;
 + (void)initialize;
 
 - (id)_asset;
 - (void)_attachToWeakReferenceToAssetReader:(id)arg1;
 - (void)_cancelReading;
-- (BOOL)_enableTrackExtractionReturningError:(id*)arg1;
-- (id)_errorForOSStatus:(long)arg1;
+- (bool)_enableTrackExtractionReturningError:(id*)arg1;
+- (id)_errorForOSStatus:(int)arg1;
 - (int)_extractionID;
 - (struct OpaqueFigAssetReader { }*)_figAssetReader;
 - (void)_figAssetReaderDecodeError;
 - (id)_figAssetReaderExtractionOptions;
 - (void)_figAssetReaderFailed;
 - (void)_figAssetReaderSampleBufferDidBecomeAvailableForExtractionID:(int)arg1;
-- (BOOL)_isFinished;
+- (bool)_isFinished;
 - (void)_markAsFinished;
-- (BOOL)_prepareForReadingReturningError:(id*)arg1;
+- (bool)_prepareForReadingReturningError:(id*)arg1;
 - (void)_setExtractionID:(int)arg1;
 - (void)_setFigAssetReader:(struct OpaqueFigAssetReader { }*)arg1;
-- (int)_status;
-- (BOOL)_trimsSampleDurations;
-- (BOOL)_updateTimeRangesOnFigAssetReaderReturningError:(id*)arg1;
+- (long long)_status;
+- (bool)_trimsSampleDurations;
+- (bool)_updateTimeRangesOnFigAssetReaderReturningError:(id*)arg1;
 - (id)_weakReferenceToAssetReader;
-- (BOOL)alwaysCopiesSampleData;
+- (bool)alwaysCopiesSampleData;
 - (struct opaqueCMSampleBuffer { }*)copyNextSampleBuffer;
 - (id)currentTimeRanges;
 - (void)dealloc;
 - (void)finalize;
 - (id)init;
 - (void)markConfigurationAsFinal;
+- (bool)maximizePowerEfficiency;
 - (id)mediaType;
 - (void)resetForReadingTimeRanges:(id)arg1;
-- (void)setAlwaysCopiesSampleData:(BOOL)arg1;
-- (void)setSupportsRandomAccess:(BOOL)arg1;
-- (BOOL)supportsRandomAccess;
+- (void)setAlwaysCopiesSampleData:(bool)arg1;
+- (void)setMaximizePowerEfficiency:(bool)arg1;
+- (void)setSupportsRandomAccess:(bool)arg1;
+- (bool)supportsRandomAccess;
 
 @end

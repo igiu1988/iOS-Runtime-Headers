@@ -2,70 +2,53 @@
    Image: /System/Library/PrivateFrameworks/MediaRemote.framework/MediaRemote
  */
 
-@class MRAVRoutingClientController, NSArray, NSMutableArray, NSObject<OS_dispatch_queue>;
-
 @interface MRMediaRemoteServiceClient : NSObject {
-    NSArray *_externalScreenTypeNotificationObservers;
-    NSArray *_nowPlayingNotificationObservers;
-    NSArray *_originNotificationObservers;
-    BOOL _receivesExternalScreenTypeChangedNotifications;
-    BOOL _receivesOriginChangedNotifications;
-    BOOL _receivesPlaybackErrorNotifications;
-    BOOL _receivesRoutesChangedNotifications;
-    BOOL _receivesSupportedCommandsNotifications;
-    unsigned int _registeredNowPlayingObservers;
-    NSMutableArray *_registeredOrigins;
-    MRAVRoutingClientController *_routingClientController;
-    NSArray *_routingNotificationObservers;
-    NSObject<OS_dispatch_queue> *_serialQueue;
-    struct MRMediaRemoteService { } *_service;
+    _MRNowPlayingPlayerPathProtobuf * _activePlayerPath;
+    MRNotificationClient * _notificationClient;
+    MRNotificationServiceClient * _notificationService;
+    int  _notifyRestoreClientStateForLaunch;
+    NSObject<OS_dispatch_queue> * _playbackQueueDispatchQueue;
+    NSMutableDictionary * _playerPathInvalidationHandlers;
+    NSString * _preparedBundleID;
+    NSMutableArray * _registeredOrigins;
+    MRAVRoutingClientController * _routingClientController;
+    NSObject<OS_dispatch_queue> * _serialQueue;
+    MRMediaRemoteService * _service;
 }
 
-@property(retain) NSArray * externalScreenTypeNotificationObservers;
-@property(retain) NSArray * nowPlayingNotificationObservers;
-@property(retain) NSArray * originNotificationObservers;
-@property BOOL receivesExternalScreenTypeChangedNotifications;
-@property BOOL receivesOriginChangedNotifications;
-@property BOOL receivesPlaybackErrorNotifications;
-@property BOOL receivesRoutesChangedNotifications;
-@property BOOL receivesSupportedCommandsNotifications;
-@property(getter=isRegisteredForNowPlayingNotifications,readonly) BOOL registeredForNowPlayingNotifications;
-@property(readonly) NSArray * registeredOrigins;
-@property(retain) NSArray * routingNotificationObservers;
-@property(readonly) struct MRMediaRemoteService { }* service;
-@property(readonly) NSObject<OS_dispatch_queue> * serviceQueue;
+@property (nonatomic, retain) _MRNowPlayingPlayerPathProtobuf *activePlayerPath;
+@property (nonatomic, readonly) MRNotificationClient *notificationClient;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *playbackQueueDispatchQueue;
+@property (nonatomic, readonly) NSArray *registeredOrigins;
+@property (nonatomic, readonly) MRMediaRemoteService *service;
+@property (nonatomic, readonly) NSObject<OS_dispatch_queue> *workerQueue;
 
 + (id)sharedServiceClient;
 
+- (void).cxx_destruct;
+- (void)_callInvalidationHandler:(id)arg1;
+- (void)_onQueue_processPlayerPathInvalidationHandlersWithBlock:(id /* block */)arg1;
+- (void)_onQueue_setActivePlayerPath:(id)arg1;
+- (void)_processPlayerPathInvalidationHandlersWithBlock:(id /* block */)arg1;
+- (id)activePlayerPath;
+- (id)addPlayerPathInvalidationHandler:(id)arg1;
 - (void)dealloc;
-- (id)externalScreenTypeNotificationObservers;
-- (void)fetchPickableRoutesWithCategory:(id)arg1 completion:(id)arg2;
+- (void)fetchPickableRoutesWithCategory:(id)arg1 completion:(id /* block */)arg2;
 - (id)init;
-- (BOOL)isRegisteredForNowPlayingNotifications;
-- (id)nowPlayingNotificationObservers;
-- (id)originNotificationObservers;
-- (BOOL)receivesExternalScreenTypeChangedNotifications;
-- (BOOL)receivesOriginChangedNotifications;
-- (BOOL)receivesPlaybackErrorNotifications;
-- (BOOL)receivesRoutesChangedNotifications;
-- (BOOL)receivesSupportedCommandsNotifications;
-- (void)registerForNowPlayingNotificationsWithQueue:(id)arg1;
-- (BOOL)registerOrigin:(struct _MROrigin { }*)arg1;
+- (bool)isOriginRegistered:(id)arg1;
+- (id)notificationClient;
+- (id)playbackQueueDispatchQueue;
+- (void)processPlayerPathInvalidationHandlersWithBlock:(id /* block */)arg1;
+- (void)processPlayerPathInvalidationHandlersWithInvalidOrigin:(id)arg1;
+- (void)registerCallbacks;
+- (void)registerOrigin:(id)arg1 withDeviceInfo:(id)arg2 completion:(id /* block */)arg3;
 - (id)registeredOrigins;
-- (id)routingNotificationObservers;
-- (struct MRMediaRemoteService { }*)service;
-- (id)serviceQueue;
-- (void)setExternalScreenTypeNotificationObservers:(id)arg1;
-- (void)setNowPlayingNotificationObservers:(id)arg1;
-- (void)setOriginNotificationObservers:(id)arg1;
-- (void)setReceivesExternalScreenTypeChangedNotifications:(BOOL)arg1;
-- (void)setReceivesOriginChangedNotifications:(BOOL)arg1;
-- (void)setReceivesPlaybackErrorNotifications:(BOOL)arg1;
-- (void)setReceivesRoutesChangedNotifications:(BOOL)arg1;
-- (void)setReceivesSupportedCommandsNotifications:(BOOL)arg1;
-- (void)setRoutingNotificationObservers:(id)arg1;
-- (void)unregisterAllOrigins;
-- (void)unregisterForNowPlayingNotifications;
-- (BOOL)unregisterOrigin:(struct _MROrigin { }*)arg1;
+- (void)removeInvalidationHandler:(id)arg1;
+- (id)service;
+- (void)setActivePlayerPath:(id)arg1;
+- (void)setPlaybackQueueDispatchQueue:(id)arg1;
+- (void)unregisterAllOriginsWithCompletion:(id /* block */)arg1;
+- (void)unregisterOrigin:(id)arg1 withCompletion:(id /* block */)arg2;
+- (id)workerQueue;
 
 @end

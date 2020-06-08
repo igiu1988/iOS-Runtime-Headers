@@ -2,24 +2,30 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUIServices.framework/SpringBoardUIServices
  */
 
-@class NSString;
-
 @interface SBPasscodeNumberPadButton : TPNumberPadDarkStyleButton <SBUIPasscodeNumberPadButton> {
+    UIColor * _reduceTransparencyButtonColor;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) UIColor *reduceTransparencyButtonColor;
+@property (readonly) Class superclass;
 
 + (int)_characterTypeForCharacter:(unsigned int)arg1;
-+ (float)_numberPadButtonOuterCircleDiameter;
++ (double)_numberPadButtonOuterCircleDiameter;
++ (bool)_shouldUseAlternativeCirlceViewAlphas;
 + (id)_stringCharacterForCharacter:(unsigned int)arg1;
-+ (struct CGSize { float x1; float x2; })defaultSize;
-+ (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })paddingOutsideRing;
++ (struct CGSize { double x1; double x2; })defaultSize;
++ (double)highlightedCircleViewAlpha;
++ (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })paddingOutsideRing;
++ (double)unhighlightedCircleViewAlpha;
 
+- (void).cxx_destruct;
 - (int)characterType;
 - (id)initForCharacter:(unsigned int)arg1;
+- (id)reduceTransparencyButtonColor;
+- (void)setReduceTransparencyButtonColor:(id)arg1;
 - (id)stringCharacter;
 
 @end

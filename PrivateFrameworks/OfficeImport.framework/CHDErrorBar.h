@@ -2,23 +2,22 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class CHDChart, CHDData, OADGraphicProperties;
-
 @interface CHDErrorBar : NSObject {
-    boolmNoEndCap;
-    CHDChart *mChart;
-    int mDirection;
-    OADGraphicProperties *mGraphicProperties;
-    CHDData *mMinusValues;
-    CHDData *mPlusValues;
-    int mType;
-    double mValue;
-    int mValueType;
+    CHDChart * mChart;
+    int  mDirection;
+    OADGraphicProperties * mGraphicProperties;
+    CHDData * mMinusValues;
+    bool  mNoEndCap;
+    CHDData * mPlusValues;
+    int  mType;
+    double  mValue;
+    int  mValueType;
 }
 
 + (id)errorBarWithChart:(id)arg1;
 
 - (void)dealloc;
+- (id)description;
 - (int)direction;
 - (id)graphicProperties;
 - (id)initWithChart:(id)arg1;

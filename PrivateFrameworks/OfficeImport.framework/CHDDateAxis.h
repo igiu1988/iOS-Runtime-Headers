@@ -3,12 +3,12 @@
  */
 
 @interface CHDDateAxis : CHDAxis {
-    boolmAutomatic;
-    int mBaseTimeUnit;
-    int mMajorTimeUnit;
-    double mMajorUnitValue;
-    int mMinorTimeUnit;
-    double mMinorUnitValue;
+    bool  mAutomatic;
+    int  mBaseTimeUnit;
+    int  mMajorTimeUnit;
+    double  mMajorUnitValue;
+    int  mMinorTimeUnit;
+    double  mMinorUnitValue;
 }
 
 - (int)baseTimeUnit;

@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSArray, NSMutableDictionary, NSString;
-
 @interface SSPersonalizeOffersResponse : NSObject <SSXPCCoding> {
-    NSMutableDictionary *_actionDisplayNames;
-    NSMutableDictionary *_actionParameters;
-    NSArray *_items;
-    NSMutableDictionary *_priceDisplayNames;
+    NSMutableDictionary * _actionDisplayNames;
+    NSMutableDictionary * _actionParameters;
+    NSArray * _items;
+    NSMutableDictionary * _priceDisplayNames;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) NSArray * personalizedItems;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) NSArray *personalizedItems;
+@property (readonly) Class superclass;
 
 - (void)_setPersonalizedItems:(id)arg1;
 - (id)actionDisplayNameForItemType:(id)arg1;

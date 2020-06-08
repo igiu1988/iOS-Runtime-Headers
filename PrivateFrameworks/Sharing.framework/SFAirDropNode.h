@@ -2,57 +2,87 @@
    Image: /System/Library/PrivateFrameworks/Sharing.framework/Sharing
  */
 
-@class NSString, UIImage;
-
 @interface SFAirDropNode : NSObject {
-    UIImage *_displayIcon;
-    NSString *_displayName;
-    BOOL _monogram;
-    id _node;
-    NSString *_realName;
-    NSString *_secondaryName;
-    struct __SFOperation { } *_sender;
-    BOOL _supportsMixedTypes;
-    BOOL _supportsPasses;
-    BOOL _unknown;
+    bool  _classroom;
+    bool  _classroomCourse;
+    bool  _classroomGroup;
+    NSString * _contactIdentifier;
+    NSDate * _discoveryDate;
+    UIImage * _displayIcon;
+    NSString * _displayName;
+    bool  _me;
+    bool  _monogram;
+    id  _node;
+    NSString * _realName;
+    NSString * _secondaryName;
+    struct __SFOperation { } * _sender;
+    bool  _supportsCredentials;
+    bool  _supportsFMF;
+    bool  _supportsMixedTypes;
+    bool  _supportsPasses;
+    bool  _unknown;
 }
 
-@property(retain) UIImage * displayIcon;
-@property(retain) NSString * displayName;
-@property(getter=isMonogram) BOOL monogram;
-@property(retain) id node;
-@property(retain) NSString * realName;
-@property(retain) NSString * secondaryName;
-@property(readonly) BOOL supportsMixedTypes;
-@property(readonly) BOOL supportsPasses;
-@property(getter=isUnknown) BOOL unknown;
+@property (getter=isClassroom) bool classroom;
+@property (getter=isClassroomCourse) bool classroomCourse;
+@property (getter=isclassroomGroup) bool classroomGroup;
+@property (retain) NSString *contactIdentifier;
+@property (readonly) NSDate *discoveryDate;
+@property (retain) UIImage *displayIcon;
+@property (retain) NSString *displayName;
+@property (getter=isKnown, readonly) bool known;
+@property (getter=isMe) bool me;
+@property (getter=isMonogram) bool monogram;
+@property (retain) id node;
+@property (retain) NSString *realName;
+@property (retain) NSString *secondaryName;
+@property (readonly) bool supportsCredentials;
+@property (readonly) bool supportsFMF;
+@property (readonly) bool supportsMixedTypes;
+@property (readonly) bool supportsPasses;
+@property (getter=isUnknown) bool unknown;
 
 + (id)nodeWithSFNode:(struct __SFNode { }*)arg1;
 
 - (void).cxx_destruct;
 - (void)cancelSend;
+- (id)contactIdentifier;
 - (id)description;
+- (id)discoveryDate;
 - (id)displayIcon;
 - (id)displayName;
-- (void)handleOperationCallback:(struct __SFOperation { }*)arg1 event:(long)arg2 withResults:(id)arg3;
-- (unsigned int)hash;
+- (void)handleOperationCallback:(struct __SFOperation { }*)arg1 event:(long long)arg2 withResults:(id)arg3;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isMonogram;
-- (BOOL)isUnknown;
+- (bool)isClassroom;
+- (bool)isClassroomCourse;
+- (bool)isEqual:(id)arg1;
+- (bool)isKnown;
+- (bool)isMe;
+- (bool)isMonogram;
+- (bool)isUnknown;
+- (bool)isclassroomGroup;
 - (id)node;
 - (id)realName;
 - (id)secondaryName;
+- (void)setClassroom:(bool)arg1;
+- (void)setClassroomCourse:(bool)arg1;
+- (void)setClassroomGroup:(bool)arg1;
+- (void)setContactIdentifier:(id)arg1;
 - (void)setDisplayIcon:(id)arg1;
 - (void)setDisplayName:(id)arg1;
-- (void)setMonogram:(BOOL)arg1;
+- (void)setMe:(bool)arg1;
+- (void)setMonogram:(bool)arg1;
 - (void)setNode:(id)arg1;
 - (void)setRealName:(id)arg1;
 - (void)setSecondaryName:(id)arg1;
-- (void)setUnknown:(BOOL)arg1;
-- (void)startSendWithSessionID:(id)arg1 items:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
-- (BOOL)supportsMixedTypes;
-- (BOOL)supportsPasses;
+- (void)setUnknown:(bool)arg1;
+- (void)simulateFakeTransferWithSessionID:(id)arg1;
+- (void)startSendForBundleID:(id)arg1 sessionID:(id)arg2 items:(id)arg3 description:(id)arg4 previewImage:(id)arg5;
+- (bool)supportsCredentials;
+- (bool)supportsFMF;
+- (bool)supportsMixedTypes;
+- (bool)supportsPasses;
 - (void)updateWithSFNode:(struct __SFNode { }*)arg1;
 
 @end

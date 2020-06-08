@@ -2,27 +2,25 @@
    Image: /System/Library/Frameworks/NetworkExtension.framework/NetworkExtension
  */
 
-@class NEContentFilterPlugin;
-
-@interface NEContentFilter : NSObject <NEConfigurationValidating, NEPrettyDescription, NSSecureCoding, NSCopying> {
-    BOOL _enabled;
-    NEContentFilterPlugin *_plugin;
+@interface NEContentFilter : NSObject <NEConfigurationValidating, NEPrettyDescription, NSCopying, NSSecureCoding> {
+    bool  _enabled;
+    NEFilterProviderConfiguration * _provider;
 }
 
-@property(getter=isEnabled) BOOL enabled;
-@property(copy) NEContentFilterPlugin * plugin;
+@property (getter=isEnabled) bool enabled;
+@property (copy) NEFilterProviderConfiguration *provider;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (BOOL)checkValidityAndCollectErrors:(id)arg1;
+- (bool)checkValidityAndCollectErrors:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (id)descriptionWithIndent:(int)arg1;
+- (id)descriptionWithIndent:(int)arg1 options:(unsigned long long)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEnabled;
-- (id)plugin;
-- (void)setEnabled:(BOOL)arg1;
-- (void)setPlugin:(id)arg1;
+- (bool)isEnabled;
+- (id)provider;
+- (void)setEnabled:(bool)arg1;
+- (void)setProvider:(id)arg1;
 
 @end

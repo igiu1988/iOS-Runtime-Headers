@@ -2,8 +2,9 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-@interface SKRadialGravityFieldNode : SKFieldNode {
-}
+@interface SKRadialGravityFieldNode : SKFieldNode
+
++ (bool)supportsSecureCoding;
 
 - (id)_descriptionClassName;
 - (void)_initialize;

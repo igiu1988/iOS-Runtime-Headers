@@ -2,21 +2,20 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TPArchivedLayoutState, TPArchivedViewState;
-
 @interface TPArchivedUIState : TSPObject {
-    TPArchivedLayoutState *_layoutState;
-    TPArchivedViewState *_viewState;
+    TPUIState * _uiState;
 }
 
-@property(readonly) TPArchivedLayoutState * layoutState;
-@property(readonly) TPArchivedViewState * viewState;
+@property (nonatomic, copy) TPUIState *uiState;
 
-- (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
-- (id)initWithContext:(id)arg1;
-- (id)layoutState;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
+- (id)initWithContext:(id)arg1 uiState:(id)arg2;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToArchivedUIState:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)viewState;
+- (void)setUiState:(id)arg1;
+- (id)uiState;
 
 @end

@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SASStartStructuredDictationSpeechRequest : SASStartSpeechRequest
 
-@interface SASStartStructuredDictationSpeechRequest : SASStartSpeechRequest {
-}
-
-@property(copy) NSString * structuredDictationType;
+@property (nonatomic, copy) NSString *structuredDictationType;
 
 + (id)startStructuredDictationSpeechRequest;
 + (id)startStructuredDictationSpeechRequestWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
+- (bool)requiresResponse;
 - (void)setStructuredDictationType:(id)arg1;
 - (id)structuredDictationType;
 

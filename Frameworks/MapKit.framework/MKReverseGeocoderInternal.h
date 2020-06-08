@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class <MKMapServiceTicket>, <MKReverseGeocoderDelegate>, MKMapItem;
-
 @interface MKReverseGeocoderInternal : NSObject {
-    struct { 
+    struct CLLocationCoordinate2D { 
         double latitude; 
         double longitude; 
-    } coordinate;
-    <MKReverseGeocoderDelegate> *delegate;
-    MKMapItem *mapItem;
-    BOOL querying;
-    <MKMapServiceTicket> *ticket;
+    }  coordinate;
+    <MKReverseGeocoderDelegate> * delegate;
+    MKMapItem * mapItem;
+    bool  querying;
+    <MKMapServiceTicket> * ticket;
 }
 
 - (void).cxx_destruct;

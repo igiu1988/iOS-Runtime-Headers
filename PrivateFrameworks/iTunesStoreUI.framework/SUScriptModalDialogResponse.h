@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString;
-
 @interface SUScriptModalDialogResponse : NSObject {
-    int _buttonIndex;
-    NSString *_textFieldValue;
+    long long  _buttonIndex;
+    NSString * _textFieldValue;
 }
 
-@property int buttonIndex;
-@property(retain) NSString * textFieldValue;
+@property (nonatomic) long long buttonIndex;
+@property (nonatomic, retain) NSString *textFieldValue;
 
-- (int)buttonIndex;
+- (long long)buttonIndex;
 - (void)dealloc;
-- (void)setButtonIndex:(int)arg1;
+- (void)setButtonIndex:(long long)arg1;
 - (void)setTextFieldValue:(id)arg1;
 - (id)textFieldValue;
 

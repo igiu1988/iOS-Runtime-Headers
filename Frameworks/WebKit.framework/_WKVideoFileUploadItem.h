@@ -2,20 +2,9 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@interface _WKVideoFileUploadItem : _WKFileUploadItem {
-    struct RetainPtr<NSString> { 
-        void *m_ptr; 
-    struct RetainPtr<NSURL> { 
-        void *m_ptr; 
-    } _filePath;
-    } _mediaURL;
-}
+@interface _WKVideoFileUploadItem : _WKFileUploadItem
 
-- (id).cxx_construct;
-- (void).cxx_destruct;
 - (id)displayImage;
-- (id)fileURL;
-- (id)initWithFilePath:(id)arg1 mediaURL:(id)arg2;
-- (BOOL)isVideo;
+- (bool)isVideo;
 
 @end

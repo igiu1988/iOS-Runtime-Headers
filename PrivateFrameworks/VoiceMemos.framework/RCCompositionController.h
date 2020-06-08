@@ -2,63 +2,78 @@
    Image: /System/Library/PrivateFrameworks/VoiceMemos.framework/VoiceMemos
  */
 
-@class NSMutableArray, NSMutableDictionary, NSURL, RCCaptureSession, RCComposition;
-
-@interface RCCompositionController : NSObject {
-    NSMutableDictionary *_accessTokensByName;
-    RCCaptureSession *_activeCaptureSession;
-    RCComposition *_composition;
-    BOOL _hasStartedRecording;
-    NSMutableArray *_undoableCompositionItemStack;
+@interface RCCompositionController : NSObject <UIActivityItemSource> {
+    NSMutableDictionary * _accessTokensByName;
+    RCCaptureSession * _activeCaptureSession;
+    RCComposition * _composition;
+    NSMutableArray * _finalizeCompletionBlocks;
+    bool  _hasLoggedUsageStatisticRecordingEvent;
+    bool  _hasStartedRecording;
+    RCSSavedRecordingService * _sharedService;
+    _RCCompositionUndoItem * _trimCancelUndoItem;
+    NSMutableArray * _undoableCompositionItemStack;
+    unsigned long long  _usageHistoryMask;
 }
 
-@property(readonly) RCCaptureSession * activeCaptureSession;
-@property(retain) RCComposition * composition;
-@property(readonly) unsigned int countOfUndoableCompositions;
-@property(readonly) BOOL isTopUndoableCompositionFromCapture;
-@property(readonly) NSURL * savedRecordingURI;
+@property (nonatomic, readonly) RCCaptureSession *activeCaptureSession;
+@property (nonatomic, retain) RCComposition *composition;
+@property (nonatomic, readonly) unsigned long long countOfUndoableCompositions;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isTopUndoableCompositionFromCapture;
+@property (nonatomic, readonly) NSString *savedRecordingUUID;
+@property (readonly) Class superclass;
 
 + (id)compositionControllerForComposedAVURL:(id)arg1;
++ (id)compositionControllerForSavedRecording:(id)arg1;
 
 - (void).cxx_destruct;
 - (id)_activitySourceRecording;
 - (id)_compositionByReplacingDecomposedFragments:(id)arg1;
-- (void)_eaccess_repairDecomposedFragmentMetadataIfNecessaryAndSave:(BOOL)arg1;
+- (void)_eaccess_repairDecomposedFragmentMetadataIfNecessaryAndSave:(bool)arg1;
 - (void)_eaccess_saveCompositionAfterAppendingInProgressCaptureDataSource:(id)arg1;
 - (void)_eaccess_saveCompositionAfterCommitingFinalizedCaptureDataSource:(id)arg1;
-- (void)_eaccess_saveCompositionAndRecordingDuration:(BOOL)arg1;
-- (void)_endAccessSessionWithToken:(id)arg1;
-- (id)_nextCaptureWaveformDataSourceWithDestinationTimeRange:(struct { double x1; double x2; })arg1 isOverdub:(BOOL)arg2;
-- (void)_reloadComposition;
+- (void)_eaccess_saveCompositionAndRecordingDuration:(bool)arg1;
+- (void)_endAccessSessionWithToken:(id)arg1 forKey:(id)arg2 completionBlock:(id /* block */)arg3;
+- (void)_endAccessSessions:(id /* block */)arg1;
+- (void)_finalizeComposedAssetWithCompletionHandler:(id /* block */)arg1;
+- (id)_nextCaptureWaveformDataSourceWithDestinationTimeRange:(struct { double x1; double x2; })arg1 isOverdub:(bool)arg2;
+- (void)_setEditingFlag:(bool)arg1;
 - (id)activeCaptureSession;
 - (void)activeRecordingSessionWillFinish;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)activityViewController:(id)arg1 subjectForActivityType:(id)arg2;
-- (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2 suggestedSize:(struct CGSize { float x1; float x2; })arg3;
+- (id)activityViewController:(id)arg1 thumbnailImageForActivityType:(id)arg2 suggestedSize:(struct CGSize { double x1; double x2; })arg3;
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
-- (void)beginAccessSessionToExportWithAssetReadyBlock:(id)arg1;
-- (void)beginAccessSessionToPlayTimeRange:(struct { double x1; double x2; })arg1 readyToPlayBlock:(id)arg2;
-- (void)beginAccessSessionToTrimAsCopy:(BOOL)arg1 assetReadyBlock:(id)arg2;
-- (void)beginRecordingWithInputDevice:(id)arg1 captureInsertionRange:(struct { double x1; double x2; })arg2 isUndoable:(BOOL)arg3 isOverdub:(BOOL)arg4 sessionPreparedBlock:(id)arg5 sessionFinishedBlock:(id)arg6;
+- (void)beginAccessSessionToExportWithCompletionBlock:(id /* block */)arg1;
+- (void)beginAccessSessionToPlayTimeRange:(struct { double x1; double x2; })arg1 readyToPlayBlock:(id /* block */)arg2;
+- (void)beginAccessSessionToTrimAsCopy:(bool)arg1 assetReadyBlock:(id /* block */)arg2;
+- (void)beginRecordingWithInputDevice:(id)arg1 captureInsertionRange:(struct { double x1; double x2; })arg2 isUndoable:(bool)arg3 isOverdub:(bool)arg4 sessionPreparedBlock:(id /* block */)arg5 sessionFinishedBlock:(id /* block */)arg6;
 - (id)composition;
-- (unsigned int)countOfUndoableCompositions;
+- (bool)compositionIsShareable;
+- (unsigned long long)countOfUndoableCompositions;
+- (void)dealloc;
 - (void)deleteCompositionFromFileSystem;
 - (void)deleteCompositionFromFileSystemAndDatabase;
-- (void)endAccessSessions;
-- (void)endEditing;
+- (void)endAccessSessionsWithCompletionBlock:(id /* block */)arg1;
+- (void)endEditingWithCompletionBlock:(id /* block */)arg1;
 - (void)endPreviewAccessSession;
-- (void)endTrimAccessSession;
-- (void)finalizingComposedAssetWithCompletionHandler:(id)arg1;
+- (void)endTrimAccessSessionWithCompletionBlock:(id /* block */)arg1;
+- (void)finalizingComposedAssetWithCompletionBlock:(id /* block */)arg1;
 - (id)init;
 - (id)initWithComposition:(id)arg1;
-- (BOOL)isTopUndoableCompositionFromCapture;
-- (void)performCompositionRedoWithRedoItem:(id)arg1 completionBlock:(id)arg2;
-- (void)performCompositionUndoWithCompletionBlock:(id)arg1;
-- (void)prepareToBeginEditingWithReadyBlock:(id)arg1;
-- (void)rcs_composeToFinalDestinationAndDeleteDecomposedFragments:(BOOL)arg1 composeWaveform:(BOOL)arg2 canGenerateWaveformByProcessingAVURL:(BOOL)arg3 completionBlock:(id)arg4;
+- (bool)isCaptureSessionActive;
+- (bool)isTopUndoableCompositionFromCapture;
+- (void)performCompositionRedoWithRedoItem:(id)arg1 completionBlock:(id /* block */)arg2;
+- (void)performCompositionUndoWithCompletionBlock:(id /* block */)arg1;
+- (void)performTrimModeCancelWithCompletionBlock:(id /* block */)arg1;
+- (void)prepareToBeginEditingWithCompletionBlock:(id /* block */)arg1;
+- (void)rcs_composeToFinalDestinationAndDeleteDecomposedFragments:(bool)arg1 composeWaveform:(bool)arg2 canGenerateWaveformByProcessingAVURL:(bool)arg3 completionBlock:(id /* block */)arg4;
 - (void)rcs_repairDecomposedFragmentMetadataIfNecessary;
-- (void)sanitizeWithCompletionBlock:(id)arg1;
-- (id)savedRecordingURI;
+- (void)reloadComposition;
+- (void)sanitizeWithCompletionBlock:(id /* block */)arg1;
+- (id)savedRecordingUUID;
 - (void)setComposition:(id)arg1;
 
 @end

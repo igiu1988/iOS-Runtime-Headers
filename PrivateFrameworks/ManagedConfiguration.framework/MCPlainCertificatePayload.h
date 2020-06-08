@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSData, NSString;
-
 @interface MCPlainCertificatePayload : MCCertificatePayload {
-    NSData *_certificateData;
-    NSString *_certificateFileName;
-    int _dataEncoding;
-    NSString *_password;
+    NSData * _certificateData;
+    NSString * _certificateFileName;
+    int  _dataEncoding;
+    NSString * _password;
 }
 
-@property(retain,readonly) NSData * certificateData;
-@property(retain,readonly) NSString * certificateFileName;
-@property(readonly) int dataEncoding;
-@property(retain,readonly) NSString * password;
+@property (nonatomic, readonly, retain) NSData *certificateData;
+@property (nonatomic, readonly, retain) NSString *certificateFileName;
+@property (nonatomic, readonly) int dataEncoding;
+@property (nonatomic, readonly, retain) NSString *password;
 
 + (id)localizedPluralForm;
 + (id)localizedSingularForm;
@@ -28,8 +26,8 @@
 - (id)description;
 - (id)initWithDictionary:(id)arg1 profile:(id)arg2 outError:(id*)arg3;
 - (id)installationWarnings;
-- (BOOL)isIdentity;
-- (BOOL)isSigned;
+- (bool)isIdentity;
+- (bool)isSigned;
 - (id)password;
 - (id)persistentResourceID;
 

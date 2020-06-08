@@ -2,13 +2,13 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartTypeLine : TSCH2DChartType {
-}
+@interface TSCHChartTypeLine : TSCH2DChartType
 
-- (id)defaultSeriesType:(unsigned int)arg1;
+- (id)defaultSeriesType:(unsigned long long)arg1;
 - (id)init;
-- (BOOL)supportsCategoryAxisPlotToEdgesOption;
-- (BOOL)supportsSeriesFill;
+- (bool)supportsCategoryAxisPlotToEdgesOption;
+- (bool)supportsSeriesFill;
 - (id)userInterfaceName;
+- (long long)userInterfaceTag;
 
 @end

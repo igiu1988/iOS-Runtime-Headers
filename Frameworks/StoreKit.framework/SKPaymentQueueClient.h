@@ -2,50 +2,53 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class NSNumber, NSString;
-
 @interface SKPaymentQueueClient : NSObject <NSCopying> {
-    BOOL _allowsBootstrapCellularData;
-    NSString *_bundleIdentifier;
-    NSString *_bundleVersion;
-    BOOL _hidesConfirmationDialogs;
-    BOOL _ignoresInAppPurchaseRestriction;
-    NSString *_receiptDirectoryPath;
-    BOOL _requiresAuthenticationForPayment;
-    NSNumber *_storeExternalVersion;
-    NSNumber *_storeItemIdentifier;
-    NSString *_vendorIdentifier;
+    bool  _allowsBootstrapCellularData;
+    NSString * _bundleIdentifier;
+    NSString * _bundleVersion;
+    long long  _environmentType;
+    bool  _hidesConfirmationDialogs;
+    bool  _ignoresInAppPurchaseRestriction;
+    NSString * _receiptDirectoryPath;
+    bool  _requiresAuthenticationForPayment;
+    NSNumber * _storeExternalVersion;
+    NSNumber * _storeItemIdentifier;
+    NSString * _vendorIdentifier;
 }
 
-@property BOOL allowsBootstrapCellularData;
-@property(copy) NSString * bundleIdentifier;
-@property(copy) NSString * bundleVersion;
-@property BOOL hidesConfirmationDialogs;
-@property BOOL ignoresInAppPurchaseRestriction;
-@property(copy) NSString * receiptDirectoryPath;
-@property BOOL requiresAuthenticationForPayment;
-@property(copy) NSNumber * storeExternalVersion;
-@property(copy) NSNumber * storeItemIdentifier;
-@property(copy) NSString * vendorIdentifier;
+@property (nonatomic) bool allowsBootstrapCellularData;
+@property (nonatomic, copy) NSString *bundleIdentifier;
+@property (nonatomic, copy) NSString *bundleVersion;
+@property (nonatomic) long long environmentType;
+@property (nonatomic) bool hidesConfirmationDialogs;
+@property (nonatomic) bool ignoresInAppPurchaseRestriction;
+@property (nonatomic, copy) NSString *receiptDirectoryPath;
+@property (nonatomic) bool requiresAuthenticationForPayment;
+@property (nonatomic, copy) NSNumber *storeExternalVersion;
+@property (nonatomic, copy) NSNumber *storeItemIdentifier;
+@property (nonatomic, copy) NSString *vendorIdentifier;
 
-- (BOOL)allowsBootstrapCellularData;
+- (void).cxx_destruct;
+- (bool)allowsBootstrapCellularData;
 - (id)bundleIdentifier;
 - (id)bundleVersion;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)copyXPCEncoding;
-- (void)dealloc;
-- (BOOL)hidesConfirmationDialogs;
-- (BOOL)ignoresInAppPurchaseRestriction;
+- (long long)environmentType;
+- (bool)hidesConfirmationDialogs;
+- (bool)ignoresInAppPurchaseRestriction;
 - (id)initWithXPCEncoding:(id)arg1;
+- (id)plist;
 - (id)receiptDirectoryPath;
-- (BOOL)requiresAuthenticationForPayment;
-- (void)setAllowsBootstrapCellularData:(BOOL)arg1;
+- (bool)requiresAuthenticationForPayment;
+- (void)setAllowsBootstrapCellularData:(bool)arg1;
 - (void)setBundleIdentifier:(id)arg1;
 - (void)setBundleVersion:(id)arg1;
-- (void)setHidesConfirmationDialogs:(BOOL)arg1;
-- (void)setIgnoresInAppPurchaseRestriction:(BOOL)arg1;
+- (void)setEnvironmentType:(long long)arg1;
+- (void)setHidesConfirmationDialogs:(bool)arg1;
+- (void)setIgnoresInAppPurchaseRestriction:(bool)arg1;
 - (void)setReceiptDirectoryPath:(id)arg1;
-- (void)setRequiresAuthenticationForPayment:(BOOL)arg1;
+- (void)setRequiresAuthenticationForPayment:(bool)arg1;
 - (void)setStoreExternalVersion:(id)arg1;
 - (void)setStoreItemIdentifier:(id)arg1;
 - (void)setVendorIdentifier:(id)arg1;

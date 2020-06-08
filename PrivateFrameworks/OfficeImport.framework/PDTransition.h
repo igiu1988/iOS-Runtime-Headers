@@ -2,32 +2,36 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class PDTransitionOptions;
-
 @interface PDTransition : OADProperties {
-    int mAdvanceAfterTime;
-    BOOL mHasAdvanceAfterTime;
-    BOOL mHasAdvanceOnClick;
-    BOOL mHasSpeed;
-    BOOL mHasType;
-    BOOL mIsAdvanceOnClick;
-    PDTransitionOptions *mOptions;
-    int mSpeed;
-    int mType;
+    NSNumber * duration;
+    int  mAdvanceAfterTime;
+    bool  mHasAdvanceAfterTime;
+    bool  mHasAdvanceOnClick;
+    bool  mHasSpeed;
+    bool  mHasType;
+    bool  mIsAdvanceOnClick;
+    PDTransitionOptions * mOptions;
+    int  mSpeed;
+    int  mType;
 }
+
+@property (nonatomic, retain) NSNumber *duration;
 
 - (int)advanceAfterTime;
 - (void)dealloc;
-- (BOOL)hasAdvanceAfterTime;
-- (BOOL)hasIsAdvanceOnClick;
-- (BOOL)hasSpeed;
-- (BOOL)hasTransitionOptions;
-- (BOOL)hasType;
+- (id)description;
+- (id)duration;
+- (bool)hasAdvanceAfterTime;
+- (bool)hasIsAdvanceOnClick;
+- (bool)hasSpeed;
+- (bool)hasTransitionOptions;
+- (bool)hasType;
 - (id)init;
-- (BOOL)isAdvanceOnClick;
+- (bool)isAdvanceOnClick;
 - (id)options;
 - (void)setAdvanceAfterTime:(int)arg1;
-- (void)setIsAdvanceOnClick:(BOOL)arg1;
+- (void)setDuration:(id)arg1;
+- (void)setIsAdvanceOnClick:(bool)arg1;
 - (void)setOptions:(id)arg1;
 - (void)setSpeed:(int)arg1;
 - (void)setType:(int)arg1;

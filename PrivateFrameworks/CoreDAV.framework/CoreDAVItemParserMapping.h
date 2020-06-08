@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class NSString;
-
 @interface CoreDAVItemParserMapping : NSObject {
-    NSString *_name;
-    NSString *_nameSpace;
-    Class _parseClass;
+    NSString * _name;
+    NSString * _nameSpace;
+    Class  _parseClass;
 }
 
-@property(retain) NSString * name;
-@property(retain) NSString * nameSpace;
-@property Class parseClass;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *nameSpace;
+@property (nonatomic) Class parseClass;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 - (id)initWithNameSpace:(id)arg1 name:(id)arg2 parseClass:(Class)arg3;
 - (id)name;

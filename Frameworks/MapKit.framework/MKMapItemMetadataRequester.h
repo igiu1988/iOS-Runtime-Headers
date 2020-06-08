@@ -2,39 +2,27 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class ACAccountCredential, ACAccountStore, NSMapTable, NSString, OAURLRequestSigner;
-
-@interface MKMapItemMetadataRequester : NSObject <NSURLConnectionDelegate> {
-    ACAccountStore *_accountStore;
-    NSMapTable *_connectionsForURLs;
-    NSMapTable *_dataForConnections;
-    BOOL _hasCheckedYelpAccountCredentials;
-    NSMapTable *_requestsForURLs;
-    OAURLRequestSigner *_signer;
-    ACAccountCredential *_yelpAccountCredentials;
+@interface MKMapItemMetadataRequester : NSObject <NSURLSessionDataDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate> {
+    NSMapTable * _dataForTasks;
+    NSMapTable * _requestsForURLs;
+    NSURLSession * _session;
+    NSMapTable * _tasksForURLs;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) OAURLRequestSigner * signer;
-@property(readonly) Class superclass;
-@property(readonly) ACAccountCredential * yelpAccountCredentials;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)sharedInstance;
 
 - (void).cxx_destruct;
-- (id)accountStore;
-- (void)accountStoreDidChange:(id)arg1;
-- (void)cancelRequestsForBusinessMetadata:(id)arg1;
-- (void)connection:(id)arg1 didFailWithError:(id)arg2;
-- (void)connection:(id)arg1 didReceiveData:(id)arg2;
-- (void)connectionDidFinishLoading:(id)arg1;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
+- (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
+- (void)cancelRequestsForMapItem:(id)arg1;
 - (void)dealloc;
-- (void)handleConnection:(id)arg1 withData:(id)arg2 error:(id)arg3;
+- (void)handleTask:(id)arg1 withData:(id)arg2 error:(id)arg3;
 - (id)init;
 - (void)sendRequest:(id)arg1;
-- (id)signer;
-- (id)yelpAccountCredentials;
 
 @end

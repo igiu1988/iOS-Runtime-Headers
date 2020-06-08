@@ -5,24 +5,24 @@
 @interface PBBProtoDevicesLockedOn : PBCodable <NSCopying> {
     struct { 
         unsigned int intendedFireDate : 1; 
-    } _has;
-    double _intendedFireDate;
+    }  _has;
+    double  _intendedFireDate;
 }
 
-@property BOOL hasIntendedFireDate;
-@property double intendedFireDate;
+@property (nonatomic) bool hasIntendedFireDate;
+@property (nonatomic) double intendedFireDate;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasIntendedFireDate;
-- (unsigned int)hash;
+- (bool)hasIntendedFireDate;
+- (unsigned long long)hash;
 - (double)intendedFireDate;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasIntendedFireDate:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasIntendedFireDate:(bool)arg1;
 - (void)setIntendedFireDate:(double)arg1;
 - (void)writeTo:(id)arg1;
 

@@ -2,14 +2,13 @@
    Image: /System/Library/PrivateFrameworks/Notes.framework/Notes
  */
 
-@interface NoteResurrectionMergePolicy : NSMergePolicy {
-}
+@interface NoteResurrectionMergePolicy : NSMergePolicy
 
 + (id)sharedNoteResurrectionMergePolicy;
 
-- (BOOL)accountExists:(id)arg1;
+- (bool)accountExists:(id)arg1;
 - (id)localStoreForNote:(id)arg1;
-- (BOOL)resolveConflicts:(id)arg1 error:(id*)arg2;
+- (bool)resolveConflicts:(id)arg1 error:(id*)arg2;
 - (id)snapshotFromRecord:(id)arg1;
 
 @end

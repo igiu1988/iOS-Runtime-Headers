@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class _CDSnapshot;
-
-@interface NSSQLRow : NSExternalRefCountedData {
-    _CDSnapshot *_snapshot;
+@interface NSSQLRow : NSPersistentCacheRow {
+    _CDSnapshot * _snapshot;
 }
 
 + (id)allocForSQLEntity:(id)arg1;
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (void)initialize;
-+ (unsigned int)newBatchRowAllocation:(id*)arg1 count:(unsigned int)arg2 forSQLEntity:(id)arg3 withOwnedObjectIDs:(struct _NSScalarObjectID { Class x1; }**)arg4 andTimestamp:(double)arg5;
++ (unsigned int)newBatchRowAllocation:(id*)arg1 count:(unsigned int)arg2 forSQLEntity:(id)arg3 withOwnedObjectIDs:(struct _NSScalarObjectID {}**)arg4 andTimestamp:(double)arg5;
 
 - (id)_snapshot_;
 - (void)_validateToOnes;
@@ -25,10 +23,12 @@
 - (unsigned int)foreignOrderKeyForSlot:(unsigned int)arg1;
 - (id)initWithSQLEntity:(id)arg1 objectID:(struct _NSScalarObjectID { Class x1; }*)arg2;
 - (id)initWithSQLEntity:(id)arg1 ownedObjectID:(struct _NSScalarObjectID { Class x1; }*)arg2 andTimestamp:(double)arg3;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (const id*)knownKeyValuesPointer;
-- (struct __CFBitVector { }*)newCalculatedDeltaMaskFrom:(id)arg1;
+- (struct __CFBitVector { }*)newColumnMaskFrom:(id)arg1 columnInclusionOptions:(unsigned long long)arg2;
 - (struct _NSScalarObjectID { Class x1; }*)newObjectIDForToOne:(id)arg1;
+- (struct __CFBitVector { }*)newUpdateMaskForConstrainedValues;
+- (struct __CFBitVector { }*)newUpdateMaskFrom:(id)arg1;
 - (struct _NSScalarObjectID { Class x1; }*)objectID;
 - (long long)optLock;
 - (long long)pk64;

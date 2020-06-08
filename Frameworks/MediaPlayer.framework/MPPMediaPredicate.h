@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class MPPCompoundPredicate, MPPConditionalPredicate, MPPPersistentIDsPredicate, MPPPropertyPredicate, MPPSearchStringPredicate;
-
 @interface MPPMediaPredicate : PBCodable <NSCopying> {
+    MPPCompoundPredicate * _compoundPredicate;
+    MPPConditionalPredicate * _conditionalPredicate;
     struct { 
         unsigned int type : 1; 
-    MPPCompoundPredicate *_compoundPredicate;
-    MPPConditionalPredicate *_conditionalPredicate;
-    } _has;
-    MPPPersistentIDsPredicate *_persistentIDsPredicate;
-    MPPPropertyPredicate *_propertyPredicate;
-    MPPSearchStringPredicate *_searchStringPredicate;
-    int _type;
+    }  _has;
+    MPPPersistentIDsPredicate * _persistentIDsPredicate;
+    MPPPropertyPredicate * _propertyPredicate;
+    MPPSearchStringPredicate * _searchStringPredicate;
+    int  _type;
 }
 
-@property(retain) MPPCompoundPredicate * compoundPredicate;
-@property(retain) MPPConditionalPredicate * conditionalPredicate;
-@property(readonly) BOOL hasCompoundPredicate;
-@property(readonly) BOOL hasConditionalPredicate;
-@property(readonly) BOOL hasPersistentIDsPredicate;
-@property(readonly) BOOL hasPropertyPredicate;
-@property(readonly) BOOL hasSearchStringPredicate;
-@property BOOL hasType;
-@property(retain) MPPPersistentIDsPredicate * persistentIDsPredicate;
-@property(retain) MPPPropertyPredicate * propertyPredicate;
-@property(retain) MPPSearchStringPredicate * searchStringPredicate;
-@property int type;
+@property (nonatomic, retain) MPPCompoundPredicate *compoundPredicate;
+@property (nonatomic, retain) MPPConditionalPredicate *conditionalPredicate;
+@property (nonatomic, readonly) bool hasCompoundPredicate;
+@property (nonatomic, readonly) bool hasConditionalPredicate;
+@property (nonatomic, readonly) bool hasPersistentIDsPredicate;
+@property (nonatomic, readonly) bool hasPropertyPredicate;
+@property (nonatomic, readonly) bool hasSearchStringPredicate;
+@property (nonatomic) bool hasType;
+@property (nonatomic, retain) MPPPersistentIDsPredicate *persistentIDsPredicate;
+@property (nonatomic, retain) MPPPropertyPredicate *propertyPredicate;
+@property (nonatomic, retain) MPPSearchStringPredicate *searchStringPredicate;
+@property (nonatomic) int type;
 
 - (void).cxx_destruct;
 - (id)compoundPredicate;
@@ -37,21 +35,21 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasCompoundPredicate;
-- (BOOL)hasConditionalPredicate;
-- (BOOL)hasPersistentIDsPredicate;
-- (BOOL)hasPropertyPredicate;
-- (BOOL)hasSearchStringPredicate;
-- (BOOL)hasType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasCompoundPredicate;
+- (bool)hasConditionalPredicate;
+- (bool)hasPersistentIDsPredicate;
+- (bool)hasPropertyPredicate;
+- (bool)hasSearchStringPredicate;
+- (bool)hasType;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)persistentIDsPredicate;
 - (id)propertyPredicate;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (id)searchStringPredicate;
 - (void)setCompoundPredicate:(id)arg1;
 - (void)setConditionalPredicate:(id)arg1;
-- (void)setHasType:(BOOL)arg1;
+- (void)setHasType:(bool)arg1;
 - (void)setPersistentIDsPredicate:(id)arg1;
 - (void)setPropertyPredicate:(id)arg1;
 - (void)setSearchStringPredicate:(id)arg1;

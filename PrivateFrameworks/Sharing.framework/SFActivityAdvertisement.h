@@ -2,37 +2,28 @@
    Image: /System/Library/PrivateFrameworks/Sharing.framework/Sharing
  */
 
-@class NSData, NSDictionary, NSString;
-
 @interface SFActivityAdvertisement : NSObject <NSSecureCoding> {
-    NSData *_activityPayload;
-    NSData *_advertisementPayload;
-    NSString *_deviceIdentifier;
-    NSString *_deviceModelIdentifier;
-    NSString *_deviceName;
-    NSDictionary *_options;
+    NSData * _advertisementPayload;
+    long long  _advertisementVersion;
+    SFPeerDevice * _device;
+    NSDictionary * _options;
 }
 
-@property(retain) NSData * activityPayload;
-@property(retain,readonly) NSData * advertisementPayload;
-@property(retain,readonly) NSString * deviceIdentifier;
-@property(retain,readonly) NSString * deviceModelIdentifier;
-@property(retain,readonly) NSString * deviceName;
-@property(retain,readonly) NSDictionary * options;
+@property (readonly, copy) NSData *advertisementPayload;
+@property (readonly) long long advertisementVersion;
+@property (readonly, retain) SFPeerDevice *device;
+@property (readonly, copy) NSDictionary *options;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (id)activityPayload;
+- (void).cxx_destruct;
 - (id)advertisementPayload;
-- (void)dealloc;
+- (long long)advertisementVersion;
 - (id)description;
-- (id)deviceIdentifier;
-- (id)deviceModelIdentifier;
-- (id)deviceName;
+- (id)device;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithAdvertisementPayload:(id)arg1 options:(id)arg2 deviceName:(id)arg3 deviceModelIdentifier:(id)arg4 fromDeviceID:(id)arg5;
+- (id)initWithAdvertisementVersion:(unsigned long long)arg1 advertisementPayload:(id)arg2 options:(id)arg3 device:(id)arg4;
 - (id)initWithCoder:(id)arg1;
 - (id)options;
-- (void)setActivityPayload:(id)arg1;
 
 @end

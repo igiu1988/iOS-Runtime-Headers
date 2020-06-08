@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSString;
-
 @interface NPKProtoUpdatePaymentPassRequest : PBRequest <NSCopying> {
-    NSString *_passTypeIdentifier;
+    NSString * _passTypeIdentifier;
 }
 
-@property(retain) NSString * passTypeIdentifier;
+@property (nonatomic, retain) NSString *passTypeIdentifier;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)passTypeIdentifier;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setPassTypeIdentifier:(id)arg1;
 - (void)writeTo:(id)arg1;
 

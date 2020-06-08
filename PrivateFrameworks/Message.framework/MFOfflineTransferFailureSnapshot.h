@@ -2,17 +2,17 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSString;
-
-@interface MFOfflineTransferFailureSnapshot : NSObject <NSCoding> {
-    NSString *_originalMailboxID;
-    unsigned long long _originalMessageFlags;
-    NSString *_originalRemoteID;
+@interface MFOfflineTransferFailureSnapshot : NSObject <NSSecureCoding> {
+    NSString * _originalMailboxID;
+    unsigned long long  _originalMessageFlags;
+    NSString * _originalRemoteID;
 }
 
-@property(readonly) NSString * originalMailboxID;
-@property(readonly) unsigned long long originalMessageFlags;
-@property(readonly) NSString * originalRemoteID;
+@property (nonatomic, readonly) NSString *originalMailboxID;
+@property (nonatomic, readonly) unsigned long long originalMessageFlags;
+@property (nonatomic, readonly) NSString *originalRemoteID;
+
++ (bool)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)description;

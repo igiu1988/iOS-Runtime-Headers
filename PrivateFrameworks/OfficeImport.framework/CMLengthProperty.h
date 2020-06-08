@@ -3,8 +3,8 @@
  */
 
 @interface CMLengthProperty : CMProperty {
-    int unitType;
-    double value;
+    int  unitType;
+    double  value;
 }
 
 + (double)convertToPoints:(double)arg1 unit:(int)arg2;
@@ -15,8 +15,8 @@
 - (id)cssString;
 - (id)cssStringForName:(id)arg1;
 - (id)description;
-- (id)initWithNumber:(double)arg1 unit:(int)arg2;
 - (id)initWithNumber:(double)arg1;
+- (id)initWithNumber:(double)arg1 unit:(int)arg2;
 - (int)intValue;
 - (int)unitType;
 - (double)value;

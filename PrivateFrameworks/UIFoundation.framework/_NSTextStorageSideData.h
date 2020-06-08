@@ -3,11 +3,17 @@
  */
 
 @interface _NSTextStorageSideData : NSObject {
+    id  _delegate;
     struct _NSRange { 
-        unsigned int location; 
-        unsigned int length; 
-    id _delegate;
-    } _lazyFixRange;
+        unsigned long long location; 
+        unsigned long long length; 
+    }  _lazyFixRange;
 }
+
+@property id delegate;
+
+- (void)dealloc;
+- (id)delegate;
+- (void)setDelegate:(id)arg1;
 
 @end

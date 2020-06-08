@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/CFNetwork.framework/CFNetwork
  */
 
-@class NSMutableArray, NSObject<OS_tcp_listener>;
-
 @interface NSNetServicesInternal : NSObject {
-    NSObject<OS_tcp_listener> *_listener;
-    NSMutableArray *_monitors;
-    struct __CFString { } *_scheduledMode;
-    struct __CFRunLoop { } *_scheduledRunLoop;
+    NSObject<OS_tcp_listener> * _listener;
+    NSMutableArray * _monitors;
+    struct __CFString { } * _scheduledMode;
+    struct __CFRunLoop { } * _scheduledRunLoop;
 }
 
-@property(retain) NSMutableArray * monitors;
+@property (retain) NSMutableArray *monitors;
 
 - (void)copyScheduledRunLoop:(struct __CFRunLoop {}**)arg1 andMode:(const struct __CFString {}**)arg2;
 - (void)dealloc;

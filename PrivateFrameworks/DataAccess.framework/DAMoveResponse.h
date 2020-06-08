@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-@class DAMessageMoveRequest, NSString;
-
 @interface DAMoveResponse : NSObject {
-    NSString *_destID;
-    DAMessageMoveRequest *_origRequest;
-    NSString *_sourceID;
-    int _status;
+    NSString * _destID;
+    DAMessageMoveRequest * _origRequest;
+    NSString * _sourceID;
+    int  _status;
 }
 
-@property(copy) NSString * destID;
-@property(retain) DAMessageMoveRequest * origRequest;
-@property(copy) NSString * sourceID;
-@property int status;
+@property (nonatomic, copy) NSString *destID;
+@property (nonatomic, retain) DAMessageMoveRequest *origRequest;
+@property (nonatomic, copy) NSString *sourceID;
+@property (nonatomic) int status;
 
 - (void).cxx_destruct;
 - (id)description;

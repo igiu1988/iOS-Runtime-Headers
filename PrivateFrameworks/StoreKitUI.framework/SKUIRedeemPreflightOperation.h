@@ -2,37 +2,39 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<OS_dispatch_queue>, NSString, SKUIClientContext, SKUIRedeemConfiguration;
-
 @interface SKUIRedeemPreflightOperation : NSOperation {
-    SKUIClientContext *_clientContext;
-    NSObject<OS_dispatch_queue> *_dispatchQueue;
-    BOOL _loadsRedeemCodeMetadata;
-    id _outputBlock;
-    NSString *_redeemCode;
-    SKUIRedeemConfiguration *_redeemConfiguration;
+    SKUIClientContext * _clientContext;
+    NSObject<OS_dispatch_queue> * _dispatchQueue;
+    bool  _forcesAuthentication;
+    bool  _loadsRedeemCodeMetadata;
+    id /* block */  _outputBlock;
+    NSString * _redeemCode;
+    SKUIRedeemConfiguration * _redeemConfiguration;
+    SKUIRedeemViewController * _redeemViewController;
 }
 
-@property BOOL loadsRedeemCodeMetadata;
-@property(copy) id outputBlock;
-@property(retain) SKUIRedeemConfiguration * redeemConfiguration;
+@property (nonatomic) bool forcesAuthentication;
+@property bool loadsRedeemCodeMetadata;
+@property (copy) id /* block */ outputBlock;
+@property (retain) SKUIRedeemConfiguration *redeemConfiguration;
+@property (nonatomic) SKUIRedeemViewController *redeemViewController;
 
 - (void).cxx_destruct;
 - (id)_authenticationContext;
 - (id)_initSKUIRedeemPreflightOperation;
 - (id)_redeemCodeMetadataWithClientContext:(id)arg1;
+- (bool)forcesAuthentication;
 - (id)init;
-- (id)initWithClientContext:(id)arg1 redeemCode:(id)arg2;
-- (BOOL)loadsRedeemCodeMetadata;
+- (id)initWithClientContext:(id)arg1 redeemCode:(id)arg2 forcesAuthentication:(bool)arg3;
+- (bool)loadsRedeemCodeMetadata;
 - (void)main;
-- (id)outputBlock;
+- (id /* block */)outputBlock;
 - (id)redeemConfiguration;
-- (void)setLoadsRedeemCodeMetadata:(BOOL)arg1;
-- (void)setOutputBlock:(id)arg1;
+- (id)redeemViewController;
+- (void)setForcesAuthentication:(bool)arg1;
+- (void)setLoadsRedeemCodeMetadata:(bool)arg1;
+- (void)setOutputBlock:(id /* block */)arg1;
 - (void)setRedeemConfiguration:(id)arg1;
+- (void)setRedeemViewController:(id)arg1;
 
 @end

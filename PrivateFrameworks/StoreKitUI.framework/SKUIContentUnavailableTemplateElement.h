@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIButtonViewElement, SKUIImageViewElement, SKUILabelViewElement;
+@interface SKUIContentUnavailableTemplateElement : SKUIViewElement
 
-@interface SKUIContentUnavailableTemplateElement : SKUIViewElement {
-}
-
-@property(readonly) SKUIButtonViewElement * button;
-@property(readonly) SKUIImageViewElement * image;
-@property(readonly) SKUILabelViewElement * messageLabel;
-@property(readonly) SKUILabelViewElement * titleLabel;
+@property (nonatomic, readonly) SKUIButtonViewElement *button;
+@property (nonatomic, readonly) SKUIImageViewElement *image;
+@property (nonatomic, readonly) SKUILabelViewElement *messageLabel;
+@property (nonatomic, readonly) SKUILabelViewElement *titleLabel;
 
 - (id)button;
 - (id)image;
 - (id)messageLabel;
-- (int)pageComponentType;
+- (long long)pageComponentType;
 - (id)titleLabel;
 
 @end

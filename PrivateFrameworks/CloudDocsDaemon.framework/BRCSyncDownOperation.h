@@ -2,34 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class BRCServerContainer, NSString;
-
-@interface BRCSyncDownOperation : BRCOperation <BRCOperationSubclass> {
-    unsigned int _batchSize;
-    BOOL _hasCaughtUp;
-    BOOL _isConsistent;
-    BRCServerContainer *_serverContainer;
+@interface BRCSyncDownOperation : _BRCOperation <BRCOperationSubclass> {
+    unsigned long long  _editedAndDeletedRecordsCount;
+    BRCServerZone * _serverZone;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) BOOL hasCaughtUp;
-@property(readonly) unsigned int hash;
-@property(readonly) BOOL isConsistent;
-@property(readonly) Class superclass;
-
-+ (id)syncDownAckQueue;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (id)_fetchRecordChangesOperationWithCompletion:(id)arg1;
-- (void)_saveRecordBatchIfNecessaryWithRecords:(id)arg1 deletedStructureRecordIDs:(id)arg2;
-- (id)_zoneCreationOperationWithCompletionBlock:(id)arg1;
+- (void)_performAfterFetchingRecordChanges:(id /* block */)arg1;
+- (void)_startCreateZoneAndSubscriptionAndSyncDown;
+- (void)_startSyncDown;
+- (id)createActivity;
 - (void)finishWithResult:(id)arg1 error:(id)arg2;
-- (BOOL)hasCaughtUp;
-- (id)initWithServerContainer:(id)arg1;
-- (BOOL)isConsistent;
+- (bool)handleZoneNotFoundIfSyncingDownForTheFirstTime:(id)arg1;
+- (id)initWithServerZone:(id)arg1;
 - (void)main;
-- (void)scheduleFetchQuotaAndSyncDown;
-- (BOOL)shouldRetryForError:(id)arg1;
+- (bool)shouldRetryForError:(id)arg1;
 
 @end

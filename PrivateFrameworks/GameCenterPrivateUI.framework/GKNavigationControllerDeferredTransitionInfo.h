@@ -2,20 +2,19 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class UIViewController;
-
 @interface GKNavigationControllerDeferredTransitionInfo : NSObject {
-    BOOL _animated;
-    int _type;
-    UIViewController *_viewController;
+    bool  _animated;
+    int  _type;
+    UIViewController * _viewController;
 }
 
-@property BOOL animated;
-@property int type;
-@property(retain) UIViewController * viewController;
+@property (nonatomic) bool animated;
+@property (nonatomic) int type;
+@property (nonatomic, retain) UIViewController *viewController;
 
-- (BOOL)animated;
-- (void)setAnimated:(BOOL)arg1;
+- (bool)animated;
+- (void)dealloc;
+- (void)setAnimated:(bool)arg1;
 - (void)setType:(int)arg1;
 - (void)setViewController:(id)arg1;
 - (int)type;

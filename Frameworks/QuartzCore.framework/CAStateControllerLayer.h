@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/QuartzCore.framework/QuartzCore
  */
 
-@class CALayer, CAState, CAStateControllerUndo, NSMutableArray, NSTimer;
-
 @interface CAStateControllerLayer : NSObject {
-    CAState *_currentState;
-    CALayer *_layer;
-    float _nextSpeed;
-    CAState *_nextState;
-    NSTimer *_nextTimer;
-    NSMutableArray *_transitions;
-    CAStateControllerUndo *_undoStack;
+    CAState * _currentState;
+    CALayer * _layer;
+    float  _nextSpeed;
+    CAState * _nextState;
+    NSTimer * _nextTimer;
+    NSMutableArray * _transitions;
+    CAStateControllerUndo * _undoStack;
 }
 
-@property(retain) CAState * currentState;
-@property(readonly) CALayer * layer;
-@property(readonly) CAStateControllerUndo * undoStack;
+@property (nonatomic, retain) CAState *currentState;
+@property (readonly) CALayer *layer;
+@property (readonly) CAStateControllerUndo *undoStack;
 
 - (void)addTransition:(id)arg1;
 - (id)currentState;

@@ -2,38 +2,36 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-@class SKPhysicsBody;
-
-@interface SKPhysicsJoint : NSObject <NSCoding> {
+@interface SKPhysicsJoint : NSObject <NSSecureCoding> {
+    bool  __implicit;
+    SKPhysicsBody * bodyA;
+    SKPhysicsBody * bodyB;
     struct CGVector { 
-        float dx; 
-        float dy; 
-    BOOL __implicit;
-    SKPhysicsBody *bodyA;
-    SKPhysicsBody *bodyB;
-    } reactionForce;
-    float reactionTorque;
+        double dx; 
+        double dy; 
+    }  reactionForce;
+    double  reactionTorque;
 }
 
-@property BOOL _implicit;
-@property(retain) SKPhysicsBody * bodyA;
-@property(retain) SKPhysicsBody * bodyB;
-@property(readonly) struct CGVector { float x1; float x2; } reactionForce;
-@property(readonly) float reactionTorque;
+@property (nonatomic) bool _implicit;
+@property (nonatomic, retain) SKPhysicsBody *bodyA;
+@property (nonatomic, retain) SKPhysicsBody *bodyB;
+@property (nonatomic, readonly) struct CGVector { double x1; double x2; } reactionForce;
+@property (nonatomic, readonly) double reactionTorque;
 
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
++ (bool)supportsSecureCoding;
 
-- (id).cxx_construct;
 - (void).cxx_destruct;
-- (BOOL)_implicit;
+- (bool)_implicit;
 - (id)bodyA;
 - (id)bodyB;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (struct CGVector { float x1; float x2; })reactionForce;
-- (float)reactionTorque;
+- (struct CGVector { double x1; double x2; })reactionForce;
+- (double)reactionTorque;
 - (void)setBodyA:(id)arg1;
 - (void)setBodyB:(id)arg1;
-- (void)set_implicit:(BOOL)arg1;
+- (void)set_implicit:(bool)arg1;
 
 @end

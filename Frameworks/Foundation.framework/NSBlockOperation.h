@@ -2,23 +2,33 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSArray;
-
-@interface NSBlockOperation : NSOperation {
-    id _private2;
-    void *_reserved2;
+@interface NSBlockOperation : NSOperation <MSPCloudRequest> {
+    id  _private2;
+    void * _reserved2;
 }
 
-@property(copy,readonly) NSArray * executionBlocks;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSArray *executionBlocks;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool shouldEnqueueDependenciesWhenPerformingAsCloudRequest;
+@property (readonly) Class superclass;
 
-+ (id)blockOperationWithBlock:(id)arg1;
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
-- (void)addExecutionBlock:(id)arg1;
++ (id)blockOperationWithBlock:(id /* block */)arg1;
+
+- (void)addExecutionBlock:(id /* block */)arg1;
 - (void)dealloc;
 - (id)executionBlocks;
-- (void)finalize;
 - (id)init;
-- (id)initWithBlock:(id)arg1;
+- (id)initWithBlock:(id /* block */)arg1;
 - (void)main;
+
+// Image: /System/Library/PrivateFrameworks/MapsSupport.framework/MapsSupport
+
+- (void)addCloudAccessCompletionBlock:(id /* block */)arg1;
+- (void)setNetworkBehaviorIsDiscretionary:(bool)arg1;
+- (bool)shouldEnqueueDependenciesWhenPerformingAsCloudRequest;
 
 @end

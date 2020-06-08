@@ -2,16 +2,16 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class <AVAudioSessionDelegateMediaPlayerOnly>, AVWeakReference, NSString;
-
 @interface AVAudioSessionMediaPlayerOnlyInternal : NSObject {
-    NSString *category;
-    <AVAudioSessionDelegateMediaPlayerOnly> *delegate;
-    struct OpaqueFigPlayer { } *figPlayer;
-    BOOL isActive;
-    BOOL isAppAudioSession;
-    NSString *mode;
-    AVWeakReference *weakReference;
+    NSDictionary * activationContext;
+    NSString * category;
+    <AVAudioSessionDelegateMediaPlayerOnly> * delegate;
+    struct OpaqueFigPlayer { } * figPlayer;
+    bool  isActive;
+    bool  isAppAudioSession;
+    NSString * mode;
+    bool  usingLongFormAudio;
+    AVWeakReference * weakReference;
 }
 
 @end

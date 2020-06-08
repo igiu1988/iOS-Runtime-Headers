@@ -2,21 +2,25 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSString, PUActivityItemSourceController;
-
-@interface PUMessageActivity : UIMessageActivity <PUActivity> {
-    PUActivityItemSourceController *_itemSourceController;
+@interface PUMessageActivity : UIMessageActivity <PUMomentShareActivity> {
+    PUActivityItemSourceController * _itemSourceController;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property PUActivityItemSourceController * itemSourceController;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) PUActivityItemSourceController *itemSourceController;
+@property (readonly) Class superclass;
+
++ (bool)wantsMomentShareLinkForAssetCount:(long long)arg1;
 
 - (void).cxx_destruct;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (void)_prepareWithMomentShareLink:(id)arg1;
+- (id)activityViewController;
+- (bool)canPerformWithActivityItems:(id)arg1;
 - (id)itemSourceController;
+- (void)performActivity;
+- (void)prepareWithActivityItems:(id)arg1;
 - (void)setItemSourceController:(id)arg1;
 
 @end

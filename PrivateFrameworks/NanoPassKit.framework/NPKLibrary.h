@@ -2,105 +2,16 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, NSXPCConnection;
-
-@interface NPKLibrary : NSObject <NPKGizmoClientProtocol> {
-    NSObject<OS_dispatch_semaphore> *_connectionSemaphore;
-    NSDate *_dateOfLastInvalidation;
-    BOOL _disableCaching;
-    BOOL _disabled;
-    BOOL _initialLoadComplete;
-    int _invalidationOccurrences;
-    NSArray *_lastSeenRelevantPassTuples;
-    BOOL _needsRelevancyInformation;
-    BOOL _needsUpdatePassDescriptions;
-    BOOL _noPassesInDaemon;
-    NSMutableDictionary *_passCache;
-    NSArray *_passDescriptions;
-    NSTimer *_passLibraryChangedCoalescingTimer;
-    NSObject<OS_dispatch_queue> *_passesQueue;
-    BOOL _serverHasPasses;
-    BOOL _serverHasPotentiallyRelevantPasses;
-    BOOL _updatingPassDescriptions;
-    NSMutableArray *_workToPerformAfterInitialLoad;
-    NSXPCConnection *_xpcConnection;
+@interface NPKLibrary : NSObject {
+    bool  _needsRelevancyInformation;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property BOOL disableCaching;
-@property(readonly) unsigned int hash;
-@property BOOL initialLoadComplete;
-@property(retain) NSArray * lastSeenRelevantPassTuples;
-@property BOOL needsRelevancyInformation;
-@property BOOL needsUpdatePassDescriptions;
-@property(readonly) NSArray * nonPaymentPassDescriptions;
-@property(retain) NSMutableDictionary * passCache;
-@property(retain) NSArray * passDescriptions;
-@property(retain) NSTimer * passLibraryChangedCoalescingTimer;
-@property(retain) NSObject<OS_dispatch_queue> * passesQueue;
-@property(readonly) NSArray * paymentPassDescriptions;
-@property(readonly) NSArray * relevantPassTuples;
-@property BOOL serverHasPasses;
-@property BOOL serverHasPotentiallyRelevantPasses;
-@property(readonly) Class superclass;
-@property BOOL updatingPassDescriptions;
-@property(retain) NSMutableArray * workToPerformAfterInitialLoad;
-@property(readonly) NSXPCConnection * xpcConnection;
+@property (nonatomic) bool needsRelevancyInformation;
 
 + (id)sharedInstance;
 
-- (void).cxx_destruct;
-- (id)_descriptionsWithFilter:(id)arg1;
-- (id)_init;
-- (void)_nukeConnectionBecauseOfInvalidation;
-- (void)_updatePassDescriptions;
-- (void)_updateRelevantPassIDs;
-- (void)boostDaemonUntilPassDBAvailable:(id)arg1;
-- (id)cachedPassWithID:(id)arg1;
-- (void)dealloc;
-- (void)deletePaymentPassWithID:(id)arg1;
-- (BOOL)disableCaching;
-- (void)getDeviceHasAnyPaymentPassesWithCompletion:(id)arg1;
-- (void)getDiffForPassWithID:(id)arg1 reply:(id)arg2;
-- (void)getPassWithID:(id)arg1 reply:(id)arg2 queue:(id)arg3;
-- (void)getPassWithID:(id)arg1 reply:(id)arg2;
-- (void)handlePassLibraryChangedNotification:(id)arg1;
-- (void)handleRelevancyCheckCompletedNotification:(id)arg1;
-- (void)handleRelevancyPotentialChangedNotification:(id)arg1;
-- (void)handleRelevantPassTuplesChanged:(id)arg1;
-- (void)handleRelevantPassTuplesChangedNotification:(id)arg1;
-- (id)init;
-- (BOOL)initialLoadComplete;
-- (id)lastSeenRelevantPassTuples;
-- (void)markAsHavingReceivedLocation;
-- (BOOL)needsRelevancyInformation;
-- (BOOL)needsUpdatePassDescriptions;
-- (id)nonPaymentPassDescriptions;
-- (id)passCache;
-- (id)passDescriptions;
-- (id)passLibraryChangedCoalescingTimer;
-- (id)passesQueue;
-- (id)paymentPassDescriptions;
-- (void)performWorkAfterFirstLibraryLoad:(id)arg1;
-- (id)relevantPassTuples;
-- (BOOL)serverHasPasses;
-- (BOOL)serverHasPotentiallyRelevantPasses;
-- (void)setDisableCaching:(BOOL)arg1;
-- (void)setInitialLoadComplete:(BOOL)arg1;
-- (void)setLastSeenRelevantPassTuples:(id)arg1;
-- (void)setNeedsRelevancyInformation:(BOOL)arg1;
-- (void)setNeedsUpdatePassDescriptions:(BOOL)arg1;
-- (void)setPassCache:(id)arg1;
-- (void)setPassDescriptions:(id)arg1;
-- (void)setPassLibraryChangedCoalescingTimer:(id)arg1;
-- (void)setPassesQueue:(id)arg1;
-- (void)setServerHasPasses:(BOOL)arg1;
-- (void)setServerHasPotentiallyRelevantPasses:(BOOL)arg1;
-- (void)setUpdatingPassDescriptions:(BOOL)arg1;
-- (void)setWorkToPerformAfterInitialLoad:(id)arg1;
-- (BOOL)updatingPassDescriptions;
-- (id)workToPerformAfterInitialLoad;
-- (id)xpcConnection;
+- (void)addPassData:(id)arg1 completion:(id /* block */)arg2;
+- (bool)needsRelevancyInformation;
+- (void)setNeedsRelevancyInformation:(bool)arg1;
 
 @end

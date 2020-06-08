@@ -2,26 +2,26 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSMutableArray;
-
 @interface AWDPowerBBLQMDataTransferMetrics : PBCodable <NSCopying> {
     struct { 
-        unsigned int *list; 
-        unsigned int count; 
-        unsigned int size; 
-    struct { 
         unsigned int timestamp : 1; 
-    } _has;
-    NSMutableArray *_lQMBytes;
-    } _lQMTransitionCntBuckets;
-    unsigned long long _timestamp;
+    }  _has;
+    NSMutableArray * _lQMBytes;
+    struct { 
+        unsigned int *list; 
+        unsigned long long count; 
+        unsigned long long size; 
+    }  _lQMTransitionCntBuckets;
+    unsigned long long  _timestamp;
 }
 
-@property BOOL hasTimestamp;
-@property(retain) NSMutableArray * lQMBytes;
-@property(readonly) unsigned int* lQMTransitionCntBuckets;
-@property(readonly) unsigned int lQMTransitionCntBucketsCount;
-@property unsigned long long timestamp;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic, retain) NSMutableArray *lQMBytes;
+@property (nonatomic, readonly) unsigned int*lQMTransitionCntBuckets;
+@property (nonatomic, readonly) unsigned long long lQMTransitionCntBucketsCount;
+@property (nonatomic) unsigned long long timestamp;
+
++ (Class)lQMBytesType;
 
 - (void)addLQMBytes:(id)arg1;
 - (void)addLQMTransitionCntBuckets:(unsigned int)arg1;
@@ -32,20 +32,20 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)lQMBytes;
-- (id)lQMBytesAtIndex:(unsigned int)arg1;
-- (unsigned int)lQMBytesCount;
+- (id)lQMBytesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)lQMBytesCount;
 - (unsigned int*)lQMTransitionCntBuckets;
-- (unsigned int)lQMTransitionCntBucketsAtIndex:(unsigned int)arg1;
-- (unsigned int)lQMTransitionCntBucketsCount;
+- (unsigned int)lQMTransitionCntBucketsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)lQMTransitionCntBucketsCount;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setLQMBytes:(id)arg1;
-- (void)setLQMTransitionCntBuckets:(unsigned int*)arg1 count:(unsigned int)arg2;
+- (void)setLQMTransitionCntBuckets:(unsigned int*)arg1 count:(unsigned long long)arg2;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (unsigned long long)timestamp;
 - (void)writeTo:(id)arg1;

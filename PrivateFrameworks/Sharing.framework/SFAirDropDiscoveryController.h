@@ -2,51 +2,51 @@
    Image: /System/Library/PrivateFrameworks/Sharing.framework/Sharing
  */
 
-@class <SFAirDropDiscoveryActionSheetDelegate>, <SFAirDropDiscoveryControllerDelegate>, NSString, UIActionSheet;
-
-@interface SFAirDropDiscoveryController : NSObject <UIActionSheetDelegate> {
-    UIActionSheet *_actionSheet;
-    id _actionSheetDelegate;
-    struct __SFOperation { } *_controller;
-    id _delegate;
-    int _discoverableMode;
-    BOOL _isLegacyDevice;
-    BOOL _isLegacyModeEnabled;
-    BOOL _isLegacyModeSettable;
-    BOOL _isVisible;
+@interface SFAirDropDiscoveryController : NSObject <SFWirelessSettingsControllerDelegate, UIActionSheetDelegate> {
+    UIAlertController * _alertController;
+    id  _alertControllerDelegate;
+    struct __SFOperation { } * _controller;
+    id  _delegate;
+    long long  _discoverableMode;
+    bool  _isLegacyDevice;
+    bool  _isLegacyModeEnabled;
+    bool  _isLegacyModeSettable;
+    bool  _isVisible;
+    SFWirelessSettingsController * _settingsController;
 }
 
-@property <SFAirDropDiscoveryActionSheetDelegate> * actionSheetDelegate;
-@property(copy,readonly) NSString * debugDescription;
-@property <SFAirDropDiscoveryControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property int discoverableMode;
-@property(readonly) unsigned int hash;
-@property(getter=isLegacyDevice,readonly) BOOL legacyDevice;
-@property(getter=isLegacyModeEnabled) BOOL legacyModeEnabled;
-@property(getter=isLegacyModeSettable,readonly) BOOL legacyModeSettable;
-@property(readonly) Class superclass;
-@property(getter=isVisible,readonly) BOOL visible;
+@property <SFAirDropDiscoveryAlertControllerDelegate> *alertControllerDelegate;
+@property (readonly, copy) NSString *debugDescription;
+@property <SFAirDropDiscoveryControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property long long discoverableMode;
+@property (readonly) unsigned long long hash;
+@property (getter=isLegacyDevice, readonly) bool legacyDevice;
+@property (getter=isLegacyModeEnabled) bool legacyModeEnabled;
+@property (getter=isLegacyModeSettable, readonly) bool legacyModeSettable;
+@property (readonly) Class superclass;
+@property (getter=isVisible, readonly) bool visible;
 
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 didDismissWithButtonIndex:(int)arg2;
-- (void)actionSheet:(id)arg1 willDismissWithButtonIndex:(int)arg2;
-- (id)actionSheetDelegate;
+- (void).cxx_destruct;
+- (id)alertControllerDelegate;
 - (void)dealloc;
 - (id)delegate;
-- (int)discoverableMode;
-- (id)discoverableModeActionSheet;
-- (id)discoverableModeToString:(int)arg1;
-- (void)handleOperationCallback:(struct __SFOperation { }*)arg1 event:(long)arg2 withResults:(id)arg3;
+- (long long)discoverableMode;
+- (id)discoverableModeAlertController;
+- (id)discoverableModeToString:(long long)arg1;
+- (void)handleOperationCallback:(struct __SFOperation { }*)arg1 event:(long long)arg2 withResults:(id)arg3;
 - (id)init;
-- (BOOL)isLegacyDevice;
-- (BOOL)isLegacyModeEnabled;
-- (BOOL)isLegacyModeSettable;
-- (BOOL)isVisible;
-- (int)operationDiscoverableModeToInteger:(id)arg1;
-- (void)setActionSheetDelegate:(id)arg1;
+- (void)invalidate;
+- (bool)isLegacyDevice;
+- (bool)isLegacyModeEnabled;
+- (bool)isLegacyModeSettable;
+- (bool)isVisible;
+- (long long)operationDiscoverableModeToInteger:(id)arg1;
+- (void)setAlertControllerDelegate:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setDiscoverableMode:(int)arg1;
-- (void)setLegacyModeEnabled:(BOOL)arg1;
+- (void)setDiscoverableMode:(long long)arg1;
+- (void)setLegacyModeEnabled:(bool)arg1;
+- (void)updateAlertControllerTitle;
+- (void)wirelessSettingsDidChange:(id)arg1;
 
 @end

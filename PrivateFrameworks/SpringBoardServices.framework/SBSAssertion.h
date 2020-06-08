@@ -2,24 +2,21 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardServices.framework/SpringBoardServices
  */
 
-@class NSString;
-
 @interface SBSAssertion : NSObject {
-    struct _opaque_pthread_mutex_t { 
-        long __sig; 
-        BOOL __opaque[40]; 
-    NSString *_assertionName;
-    } _lock;
-    unsigned int _port;
-    NSString *_reason;
+    NSString * _assertionName;
+    NSString * _reason;
+    BSMachPortReceiveRight * _receiveRight;
 }
 
-@property(readonly) NSString * assertionName;
-@property(readonly) NSString * reason;
+@property (nonatomic, readonly, copy) NSString *assertionName;
+@property (nonatomic, readonly, copy) NSString *reason;
 
+- (void).cxx_destruct;
 - (id)assertionName;
 - (void)dealloc;
+- (id)init;
 - (id)initWithAssertionName:(id)arg1 reason:(id)arg2 port:(unsigned int)arg3;
+- (id)initWithAssertionName:(id)arg1 reason:(id)arg2 receiveRight:(id)arg3;
 - (void)invalidate;
 - (id)reason;
 

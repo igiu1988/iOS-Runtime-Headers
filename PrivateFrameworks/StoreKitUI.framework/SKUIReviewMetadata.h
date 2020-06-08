@@ -2,35 +2,33 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, NSURL;
-
 @interface SKUIReviewMetadata : NSObject <NSCopying> {
-    NSString *_body;
-    unsigned int _bodyMaxLength;
-    NSString *_nickname;
-    unsigned int _nicknameMaxLength;
-    float _rating;
-    NSURL *_submitURL;
-    NSString *_title;
-    unsigned int _titleMaxLength;
+    NSString * _body;
+    unsigned long long  _bodyMaxLength;
+    NSString * _nickname;
+    unsigned long long  _nicknameMaxLength;
+    float  _rating;
+    NSURL * _submitURL;
+    NSString * _title;
+    unsigned long long  _titleMaxLength;
 }
 
-@property(copy) NSString * body;
-@property(readonly) unsigned int bodyMaxLength;
-@property(copy) NSString * nickname;
-@property(readonly) unsigned int nicknameMaxLength;
-@property float rating;
-@property(readonly) NSURL * submitURL;
-@property(copy) NSString * title;
-@property(readonly) unsigned int titleMaxLength;
+@property (nonatomic, copy) NSString *body;
+@property (nonatomic, readonly) unsigned long long bodyMaxLength;
+@property (nonatomic, copy) NSString *nickname;
+@property (nonatomic, readonly) unsigned long long nicknameMaxLength;
+@property (nonatomic) float rating;
+@property (nonatomic, readonly) NSURL *submitURL;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, readonly) unsigned long long titleMaxLength;
 
 - (void).cxx_destruct;
 - (id)body;
-- (unsigned int)bodyMaxLength;
+- (unsigned long long)bodyMaxLength;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)initWithReviewDictionary:(id)arg1;
 - (id)nickname;
-- (unsigned int)nicknameMaxLength;
+- (unsigned long long)nicknameMaxLength;
 - (float)rating;
 - (void)setBody:(id)arg1;
 - (void)setNickname:(id)arg1;
@@ -38,6 +36,6 @@
 - (void)setTitle:(id)arg1;
 - (id)submitURL;
 - (id)title;
-- (unsigned int)titleMaxLength;
+- (unsigned long long)titleMaxLength;
 
 @end

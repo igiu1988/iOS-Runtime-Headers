@@ -2,19 +2,19 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSMutableArray;
-
 @interface AWDPowerBBRATConnectedMetrics : PBCodable <NSCopying> {
     struct { 
         unsigned int timestamp : 1; 
-    } _has;
-    NSMutableArray *_rATPowers;
-    unsigned long long _timestamp;
+    }  _has;
+    NSMutableArray * _rATPowers;
+    unsigned long long  _timestamp;
 }
 
-@property BOOL hasTimestamp;
-@property(retain) NSMutableArray * rATPowers;
-@property unsigned long long timestamp;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic, retain) NSMutableArray *rATPowers;
+@property (nonatomic) unsigned long long timestamp;
+
++ (Class)rATPowerType;
 
 - (void)addRATPower:(id)arg1;
 - (void)clearRATPowers;
@@ -23,15 +23,15 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (id)rATPowerAtIndex:(unsigned int)arg1;
+- (id)rATPowerAtIndex:(unsigned long long)arg1;
 - (id)rATPowers;
-- (unsigned int)rATPowersCount;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (unsigned long long)rATPowersCount;
+- (bool)readFrom:(id)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setRATPowers:(id)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (unsigned long long)timestamp;

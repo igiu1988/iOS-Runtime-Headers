@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSMutableArray, NSString;
-
 @interface MPPSearchStringPredicate : PBCodable <NSCopying> {
-    NSMutableArray *_properties;
-    NSString *_searchString;
+    NSMutableArray * _properties;
+    NSString * _searchString;
 }
 
-@property(readonly) BOOL hasSearchString;
-@property(retain) NSMutableArray * properties;
-@property(retain) NSString * searchString;
+@property (nonatomic, readonly) bool hasSearchString;
+@property (nonatomic, retain) NSMutableArray *properties;
+@property (nonatomic, retain) NSString *searchString;
 
 - (void).cxx_destruct;
 - (void)addProperties:(id)arg1;
@@ -21,13 +19,13 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasSearchString;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasSearchString;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (id)properties;
-- (id)propertiesAtIndex:(unsigned int)arg1;
-- (unsigned int)propertiesCount;
-- (BOOL)readFrom:(id)arg1;
+- (id)propertiesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)propertiesCount;
+- (bool)readFrom:(id)arg1;
 - (id)searchString;
 - (void)setProperties:(id)arg1;
 - (void)setSearchString:(id)arg1;

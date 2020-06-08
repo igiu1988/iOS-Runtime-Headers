@@ -2,23 +2,19 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSString;
-
 @interface MFProtectedSQLiteConnection : MFSQLiteConnection {
-    BOOL _attached;
-    NSString *_protectedName;
-    NSString *_vfsName;
-    long _vfsOnce;
+    bool  _attached;
+    NSString * _vfsName;
 }
 
-@property(readonly) BOOL isProtectedDatabaseAttached;
+@property (nonatomic, readonly) bool isProtectedDatabaseAttached;
 
 - (const char *)_vfsModuleName;
 - (int)attachProtectedDatabase;
 - (void)close;
 - (void)dealloc;
 - (int)detachProtectedDatabase;
-- (id)initWithPath:(id)arg1 databaseName:(id)arg2 protectedName:(id)arg3;
-- (BOOL)isProtectedDatabaseAttached;
+- (id)initWithConfiguration:(id)arg1;
+- (bool)isProtectedDatabaseAttached;
 
 @end

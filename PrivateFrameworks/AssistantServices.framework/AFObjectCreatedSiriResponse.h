@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSURL;
-
 @interface AFObjectCreatedSiriResponse : AFSiriResponse {
-    NSURL *_objectIdentifier;
+    NSURL * _objectIdentifier;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_initWithRequest:(id)arg1 objectIdentifier:(id)arg2;

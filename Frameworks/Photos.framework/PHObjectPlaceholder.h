@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-@class NSString;
-
 @interface PHObjectPlaceholder : PHObject {
-    int _assetMediaType;
-    NSString *_localIdentifier;
+    long long  _assetMediaType;
+    NSString * _localIdentifier;
 }
 
-@property int assetMediaType;
+@property long long assetMediaType;
 
 - (void).cxx_destruct;
-- (int)assetMediaType;
-- (unsigned int)hash;
+- (long long)assetMediaType;
+- (unsigned long long)hash;
 - (id)initWithLocalIdentifier:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)localIdentifier;
-- (void)setAssetMediaType:(int)arg1;
+- (void)setAssetMediaType:(long long)arg1;
 
 @end

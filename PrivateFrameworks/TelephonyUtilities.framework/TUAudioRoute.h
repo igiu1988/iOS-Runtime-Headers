@@ -2,31 +2,40 @@
    Image: /System/Library/PrivateFrameworks/TelephonyUtilities.framework/TelephonyUtilities
  */
 
-@class NSDictionary;
-
-@interface TUAudioRoute : NSObject {
-    NSDictionary *_route;
+@interface TUAudioRoute : TURoute {
+    NSString * _avAudioRouteName;
+    NSDictionary * _route;
 }
 
-@property(getter=isAirTunes,readonly) BOOL airTunes;
-@property(getter=isBluetooth,readonly) BOOL bluetooth;
-@property(readonly) int bluetoothEndpointType;
-@property(getter=isCarAudio,readonly) BOOL carAudio;
-@property(getter=isReceiver,readonly) BOOL receiver;
-@property(retain) NSDictionary * route;
-@property(getter=isSpeaker,readonly) BOOL speaker;
-@property(getter=isWirelessHeadset,readonly) BOOL wirelessHeadset;
+@property (nonatomic, readonly, copy) NSString *avAudioRouteName;
+@property (nonatomic, readonly, copy) NSString *bluetoothProductIdentifier;
+@property (getter=isHeadphoneJackConnected, nonatomic, readonly) bool headphoneJackConnected;
+@property (nonatomic, readonly, copy) NSDictionary *route;
 
-- (BOOL)_routeNameEqualTo:(id)arg1;
-- (int)bluetoothEndpointType;
+- (void).cxx_destruct;
+- (bool)_routeTypeEqualTo:(id)arg1;
+- (id)avAudioRouteName;
+- (long long)bluetoothEndpointType;
+- (id)bluetoothProductIdentifier;
+- (long long)deviceType;
+- (id)identifiersOfOtherConnectedDevices;
 - (id)initWithDictionary:(id)arg1;
-- (BOOL)isAirTunes;
-- (BOOL)isBluetooth;
-- (BOOL)isCarAudio;
-- (BOOL)isReceiver;
-- (BOOL)isSpeaker;
-- (BOOL)isWirelessHeadset;
+- (bool)isAirTunes;
+- (bool)isBluetooth;
+- (bool)isBluetoothLE;
+- (bool)isCarAudio;
+- (bool)isCurrentlyPicked;
+- (bool)isDefaultRoute;
+- (bool)isHandset;
+- (bool)isHeadphoneJackConnected;
+- (bool)isPreferred;
+- (bool)isPreferredAndActive;
+- (bool)isReceiver;
+- (bool)isSpeaker;
+- (bool)isWiredHeadphones;
+- (bool)isWiredHeadset;
+- (bool)isWirelessHeadset;
 - (id)route;
-- (void)setRoute:(id)arg1;
+- (bool)supportsPreferredAndActive;
 
 @end

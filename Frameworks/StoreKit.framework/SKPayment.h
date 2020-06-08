@@ -2,35 +2,38 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class NSData, NSDictionary, NSString;
-
 @interface SKPayment : NSObject <NSCopying, NSMutableCopying> {
-    id _internal;
+    id  _internal;
 }
 
-@property(copy,readonly) NSString * applicationUsername;
-@property(copy,readonly) NSString * partnerIdentifier;
-@property(copy,readonly) NSString * partnerTransactionIdentifier;
-@property(copy,readonly) NSString * productIdentifier;
-@property(readonly) int quantity;
-@property(copy,readonly) NSData * requestData;
-@property(copy,readonly) NSDictionary * requestParameters;
+@property (nonatomic, readonly, copy) NSString *applicationUsername;
+@property (nonatomic, readonly) bool isStoreOriginated;
+@property (nonatomic, readonly, copy) NSString *partnerIdentifier;
+@property (nonatomic, readonly, copy) NSString *partnerTransactionIdentifier;
+@property (nonatomic, readonly, copy) NSString *productIdentifier;
+@property (nonatomic, readonly) long long quantity;
+@property (nonatomic, readonly, copy) NSData *requestData;
+@property (nonatomic, readonly, copy) NSDictionary *requestParameters;
+@property (nonatomic, readonly) bool simulatesAskToBuyInSandbox;
 
++ (id)paymentFromPurchaseIntentWithProduct:(id)arg1;
 + (id)paymentWithProduct:(id)arg1;
 + (id)paymentWithProductIdentifier:(id)arg1;
 
+- (void).cxx_destruct;
 - (id)applicationUsername;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (bool)isStoreOriginated;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
 - (id)partnerIdentifier;
 - (id)partnerTransactionIdentifier;
 - (id)productIdentifier;
-- (int)quantity;
+- (long long)quantity;
 - (id)requestData;
 - (id)requestParameters;
+- (bool)simulatesAskToBuyInSandbox;
 
 @end

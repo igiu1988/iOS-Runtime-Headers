@@ -2,35 +2,32 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class GEORouteMatch;
-
 @interface VKPuckAnimatorLocationProjector : NSObject {
-    struct VKPoint { 
-        double x; 
-        double y; 
-        double z; 
-    double _projectedCourse;
-    } _projectedPosition;
-    GEORouteMatch *_projectedRouteMatch;
-    GEORouteMatch *_routeMatch;
+    double  _projectedCourse;
+    struct Matrix<double, 3, 1> { 
+        double _e[3]; 
+    }  _projectedPosition;
+    GEORouteMatch * _projectedRouteMatch;
+    GEORouteMatch * _routeMatch;
 }
 
-@property(readonly) double projectedCourse;
-@property(readonly) struct { double x1; double x2; } projectedLocation;
-@property(readonly) BOOL projectedLocationOnRoute;
-@property(readonly) struct VKPoint { double x1; double x2; double x3; } projectedPosition;
-@property(retain) GEORouteMatch * projectedRouteMatch;
-@property(retain) GEORouteMatch * routeMatch;
+@property (nonatomic, readonly) double projectedCourse;
+@property (nonatomic, readonly) struct { double x1; double x2; } projectedLocation;
+@property (nonatomic, readonly) bool projectedLocationOnRoute;
+@property (nonatomic, readonly) /* Warning: unhandled struct encoding: '{Matrix<double' */ struct  projectedPosition; /* unknown property attribute:  1>=[3d]} */
+@property (nonatomic, retain) GEORouteMatch *projectedRouteMatch;
+@property (nonatomic, retain) GEORouteMatch *routeMatch;
 
 - (id).cxx_construct;
 - (void)_updateCourseAndPositionFromRouteMatch;
 - (void)dealloc;
+- (id)detailedDescription;
 - (id)init;
 - (void)projectFromLocation:(id)arg1 routeMatch:(id)arg2 speedMultiplier:(double)arg3;
 - (double)projectedCourse;
 - (struct { double x1; double x2; })projectedLocation;
-- (BOOL)projectedLocationOnRoute;
-- (struct VKPoint { double x1; double x2; double x3; })projectedPosition;
+- (bool)projectedLocationOnRoute;
+- (struct Matrix<double, 3, 1> { double x1[3]; })projectedPosition;
 - (id)projectedRouteMatch;
 - (void)reset;
 - (id)routeMatch;

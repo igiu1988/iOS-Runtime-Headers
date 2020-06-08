@@ -2,17 +2,16 @@
    Image: /usr/lib/libtzupdate.dylib
  */
 
-@interface TZPreferencesController : NSObject {
-}
+@interface TZPreferencesController : NSObject
 
-@property(readonly) int loggingLevel;
-@property(readonly) BOOL updatesEnabled;
+@property (nonatomic, readonly) long long loggingLevel;
+@property (nonatomic, readonly) bool updatesEnabled;
 
 + (id)sharedPreferencesController;
 
 - (id)init;
-- (int)loggingLevel;
+- (long long)loggingLevel;
 - (void)preferencesChanged:(id)arg1;
-- (BOOL)updatesEnabled;
+- (bool)updatesEnabled;
 
 @end

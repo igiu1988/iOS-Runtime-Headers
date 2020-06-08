@@ -2,23 +2,24 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@interface GKViewServiceInterface : NSXPCInterface {
-}
+@interface GKViewServiceInterface : NSXPCInterface
 
 + (void)_configureKVOTypes:(id)arg1;
++ (id)challengeIssueHostViewControllerInterface;
 + (id)challengeIssueServiceViewControllerInterface;
++ (id)extensionHostInterface;
++ (id)extensionInterface;
++ (id)gameCenterHostViewControllerInterface;
 + (id)gameCenterServiceViewControllerInterface;
-+ (id)gameCenterViewControllerInterface;
-+ (id)matchmakerRemoteViewControllerInterface;
++ (id)matchmakerHostViewControllerInterface;
 + (id)matchmakerServiceViewControllerInterface;
-+ (id)remoteChallengeIssueViewControllerInterface;
 + (id)remoteFriendRequestViewControllerInterface;
 + (id)remoteSignInViewControllerInterface;
-+ (id)remoteViewControllerInterface;
 + (id)serviceFriendRequestViewControllerInterface;
-+ (id)serviceViewControllerInterface;
++ (void)setClassesForExtensionInterface:(id)arg1;
++ (void)setClassesForHostInterface:(id)arg1;
 + (id)signInServiceViewControllerInterface;
-+ (id)turnBasedRemoteViewControllerInterface;
++ (id)turnBasedHostViewControllerInterface;
 + (id)turnBasedServiceViewControllerInterface;
 
 @end

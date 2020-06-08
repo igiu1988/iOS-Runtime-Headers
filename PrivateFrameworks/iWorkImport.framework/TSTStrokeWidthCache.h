@@ -3,18 +3,18 @@
  */
 
 @interface TSTStrokeWidthCache : NSObject {
+    unsigned int  mCount;
     struct _opaque_pthread_rwlock_t { 
-        long __sig; 
-        BOOL __opaque[124]; 
-    struct vector<float, std::__1::allocator<float> > { 
-        float *__begin_; 
-        float *__end_; 
-        struct __compressed_pair<float *, std::__1::allocator<float> > { 
-            float *__first_; 
+        long long __sig; 
+        BOOL __opaque[192]; 
+    }  mLock;
+    struct vector<double, std::__1::allocator<double> > { 
+        double *__begin_; 
+        double *__end_; 
+        struct __compressed_pair<double *, std::__1::allocator<double> > { 
+            double *__value_; 
         } __end_cap_; 
-    unsigned int mCount;
-    } mLock;
-    } mStrokeWidth;
+    }  mStrokeWidth;
 }
 
 - (id).cxx_construct;
@@ -22,7 +22,7 @@
 - (void)dealloc;
 - (id)init;
 - (void)invalidate;
-- (void)setStrokeWidth:(float)arg1 forGridIndex:(unsigned int)arg2;
-- (float)strokeWidthForGridIndex:(unsigned int)arg1;
+- (void)setStrokeWidth:(double)arg1 forGridIndex:(unsigned int)arg2;
+- (double)strokeWidthForGridIndex:(unsigned int)arg1;
 
 @end

@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSArray;
-
 @interface AFSetSettingsResponse : AFSiriResponse {
-    NSArray *_settingChanges;
+    NSArray * _settingChanges;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_initWithRequest:(id)arg1 settingChanges:(id)arg2;

@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString, SUScriptCanvasContext, UIImage;
-
 @interface SUScriptSegmentedControlItem : SUScriptObject {
-    SUScriptCanvasContext *_canvas;
-    NSString *_identifier;
-    UIImage *_image;
-    NSString *_imageURLString;
-    NSString *_title;
-    id _userInfo;
+    SUScriptCanvasContext * _canvas;
+    NSString * _identifier;
+    UIImage * _image;
+    NSString * _imageURLString;
+    NSString * _title;
+    id  _userInfo;
 }
 
-@property(retain) SUScriptCanvasContext * canvas;
-@property(retain) NSString * identifier;
-@property(readonly) UIImage * image;
-@property(retain) NSString * imageURL;
-@property(retain) NSString * title;
-@property(retain) id userInfo;
+@property (retain) SUScriptCanvasContext *canvas;
+@property (retain) NSString *identifier;
+@property (nonatomic, readonly) UIImage *image;
+@property (retain) NSString *imageURL;
+@property (retain) NSString *title;
+@property (retain) id userInfo;
 
 + (void)initialize;
 + (id)webScriptNameForKeyName:(id)arg1;

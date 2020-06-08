@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSString, NSURL, SKUIArtworkList;
-
 @interface SKUICategory : NSObject {
-    SKUIArtworkList *_artworkList;
-    long long _categoryIdentifier;
-    NSArray *_children;
-    NSString *_name;
-    NSString *_parentLabel;
-    NSURL *_url;
+    <SKUIArtworkProviding> * _artworkProvider;
+    long long  _categoryIdentifier;
+    NSArray * _children;
+    NSString * _name;
+    NSString * _parentLabel;
+    NSURL * _url;
 }
 
-@property(readonly) NSURL * URL;
-@property(readonly) SKUIArtworkList * artworkList;
-@property(readonly) long long categoryIdentifier;
-@property(readonly) NSArray * children;
-@property(readonly) NSString * name;
-@property(readonly) NSString * parentLabel;
+@property (nonatomic, readonly) NSURL *URL;
+@property (nonatomic, readonly) <SKUIArtworkProviding> *artworkProvider;
+@property (nonatomic, readonly) long long categoryIdentifier;
+@property (nonatomic, readonly) NSArray *children;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSString *parentLabel;
 
 - (void).cxx_destruct;
 - (id)URL;
-- (id)artworkList;
+- (id)artworkProvider;
 - (long long)categoryIdentifier;
 - (id)children;
-- (BOOL)containsURL:(id)arg1;
+- (bool)containsURL:(id)arg1;
 - (id)initWithCategoryDictionary:(id)arg1;
 - (id)name;
 - (id)parentLabel;

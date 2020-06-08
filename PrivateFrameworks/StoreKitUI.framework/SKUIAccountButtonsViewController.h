@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class <SKUIAccountButtonsDelegate>, NSString, SKUIAccountButtonsView, SKUIClientContext, SKUILink;
-
 @interface SKUIAccountButtonsViewController : UIViewController <UINavigationControllerDelegate> {
-    SKUIAccountButtonsView *_buttonsView;
-    SKUIClientContext *_clientContext;
-    <SKUIAccountButtonsDelegate> *_delegate;
-    SKUILink *_ecommerceLink;
+    SKUIAccountButtonsView * _buttonsView;
+    SKUIClientContext * _clientContext;
+    <SKUIAccountButtonsDelegate> * _delegate;
+    SKUILink * _ecommerceLink;
 }
 
-@property(retain) SKUILink * ECommerceLink;
-@property(retain) SKUIClientContext * clientContext;
-@property(copy,readonly) NSString * debugDescription;
-@property <SKUIAccountButtonsDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(getter=isGiftingHidden) BOOL giftingHidden;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
-@property(getter=isTermsAndConditionsHidden) BOOL termsAndConditionsHidden;
+@property (nonatomic, retain) SKUILink *ECommerceLink;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <SKUIAccountButtonsDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (getter=isGiftingHidden, nonatomic) bool giftingHidden;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (getter=isTermsAndConditionsHidden, nonatomic) bool termsAndConditionsHidden;
 
 - (void).cxx_destruct;
 - (id)ECommerceLink;
@@ -38,19 +36,18 @@
 - (void)_termsAndConditionsButtonAction:(id)arg1;
 - (void)_usernameButtonAction:(id)arg1;
 - (void)_viewAppleID;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(int)arg2;
 - (id)clientContext;
 - (void)dealloc;
 - (id)delegate;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (BOOL)isGiftingHidden;
-- (BOOL)isTermsAndConditionsHidden;
+- (bool)isGiftingHidden;
+- (bool)isTermsAndConditionsHidden;
 - (void)loadView;
-- (unsigned int)navigationControllerSupportedInterfaceOrientations:(id)arg1;
+- (unsigned long long)navigationControllerSupportedInterfaceOrientations:(id)arg1;
 - (void)setClientContext:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)setECommerceLink:(id)arg1;
-- (void)setGiftingHidden:(BOOL)arg1;
-- (void)setTermsAndConditionsHidden:(BOOL)arg1;
+- (void)setGiftingHidden:(bool)arg1;
+- (void)setTermsAndConditionsHidden:(bool)arg1;
 
 @end

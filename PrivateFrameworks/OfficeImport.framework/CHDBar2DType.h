@@ -3,9 +3,9 @@
  */
 
 @interface CHDBar2DType : CHDChartTypeWithGrouping {
-    boolmColumn;
-    int mGapWidth;
-    int mOverlap;
+    bool  mColumn;
+    int  mGapWidth;
+    int  mOverlap;
 }
 
 - (int)defaultLabelPosition;

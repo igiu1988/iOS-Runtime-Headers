@@ -2,30 +2,33 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSFileAccessNode, NSURL;
-
 @interface NSFileReadingClaim : NSFileAccessClaim {
-    int _linkResolutionCount;
-    NSFileAccessNode *_location;
-    unsigned int _options;
-    NSFileAccessNode *_rootNode;
-    NSURL *_url;
-    BOOL _urlDidChange;
+    long long  _linkResolutionCount;
+    NSFileAccessNode * _location;
+    unsigned long long  _options;
+    NSFileAccessNode * _rootNode;
+    NSURL * _url;
+    bool  _urlDidChange;
 }
 
-- (BOOL)blocksClaim:(id)arg1;
++ (bool)supportsSecureCoding;
+
+- (id)allURLs;
+- (bool)blocksClaim:(id)arg1;
 - (void)dealloc;
 - (void)devalueSelf;
-- (BOOL)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(BOOL)arg2;
-- (void)forwardUsingMessageSender:(id)arg1 crashHandler:(id)arg2;
+- (void)encodeWithCoder:(id)arg1;
+- (bool)evaluateSelfWithRootNode:(id)arg1 checkSubarbitrability:(bool)arg2;
+- (void)forwardUsingConnection:(id)arg1 crashHandler:(id /* block */)arg2;
 - (void)granted;
-- (id)initWithClient:(id)arg1 messageParameters:(id)arg2 replySender:(id)arg3;
-- (id)initWithPurposeID:(id)arg1 url:(id)arg2 options:(unsigned int)arg3 claimer:(id)arg4;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithPurposeID:(id)arg1 url:(id)arg2 options:(unsigned long long)arg3 claimer:(id /* block */)arg4;
 - (void)invokeClaimer;
-- (BOOL)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
-- (BOOL)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned int)arg2;
+- (bool)isBlockedByReadingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
+- (bool)isBlockedByWritingItemAtLocation:(id)arg1 options:(unsigned long long)arg2;
 - (void)itemAtLocation:(id)arg1 wasReplacedByItemAtLocation:(id)arg2;
-- (void)resolveURLThenMaybeContinueInvokingClaimer:(id)arg1;
-- (BOOL)shouldBeRevokedPriorToInvokingAccessor;
+- (void)resolveURLThenMaybeContinueInvokingClaimer:(id /* block */)arg1;
+- (bool)shouldBeRevokedPriorToInvokingAccessor;
+- (bool)shouldCancelInsteadOfWaiting;
 
 @end

@@ -2,31 +2,35 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray, NSString;
-
 @interface TSWPCitationSmartField : TSWPSmartField <TSWPCitationRecordHosting> {
-    NSArray *_citationRecords;
-    BOOL _isLocalizable;
+    NSArray * _citationRecords;
+    <TSWPCitationSmartFieldEditing> * _editingDelegate;
+    bool  _isLocalizable;
 }
 
-@property(copy) NSArray * citationRecords;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property BOOL isLocalizable;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSArray *citationRecords;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) <TSWPCitationSmartFieldEditing> *editingDelegate;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) bool isLocalizable;
+@property (readonly) Class superclass;
 
-+ (BOOL)isValidCitationField:(id)arg1;
++ (bool)isValidCitationField:(id)arg1;
 
+- (void).cxx_destruct;
 - (id)bibliographySmartField;
 - (id)citationRecords;
 - (id)copyWithContext:(id)arg1;
-- (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
-- (BOOL)isLocalizable;
+- (id)editingDelegate;
+- (bool)isLocalizable;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)setCitationRecords:(id)arg1;
-- (void)setIsLocalizable:(BOOL)arg1;
+- (void)setEditingDelegate:(id)arg1;
+- (void)setIsLocalizable:(bool)arg1;
 - (int)smartFieldKind;
+- (bool)supportsDeepCopyForUndo;
+- (void)willBeRemovedFromDocumentRoot:(id)arg1;
 
 @end

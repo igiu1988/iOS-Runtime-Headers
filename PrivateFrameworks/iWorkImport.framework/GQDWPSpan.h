@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStyle;
-
 @interface GQDWPSpan : GQDWPTextList {
-    GQDSStyle *mCharStyle;
+    GQDSStyle * mCharStyle;
 }
 
 - (id)characterStyle;

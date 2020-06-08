@@ -2,17 +2,16 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class <SKProductsRequestDelegate>;
-
 @interface SKProductsRequest : SKRequest {
-    id _productsRequestInternal;
+    id  _productsRequestInternal;
 }
 
-@property <SKProductsRequestDelegate> * delegate;
+@property (nonatomic) <SKProductsRequestDelegate> *delegate;
 
+- (void).cxx_destruct;
 - (void)_handleReply:(id)arg1;
-- (void)_sendXPCMessage;
-- (void)dealloc;
+- (id)_newResponseForProducts:(id)arg1 invalidIdentifiers:(id)arg2;
+- (void)_start;
 - (id)init;
 - (id)initWithProductIdentifiers:(id)arg1;
 

@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCH3DChartColumnSceneObject : TSCH3DChartAbstractBarSceneObject {
-}
+@interface TSCH3DChartColumnSceneObject : TSCH3DChartAbstractBarSceneObject
 
 + (id)chartSeriesType;
-+ (BOOL)isHorizontalChart;
-+ (BOOL)isStacked;
++ (bool)isHorizontalChart;
++ (bool)isStacked;
 
 @end

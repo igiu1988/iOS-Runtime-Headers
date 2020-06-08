@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/SiriUI.framework/SiriUI
  */
 
-@class CALayer, NSURL, UIImage;
-
 @interface SiriUIPhotoCollectionViewCell : SiriUIClearBackgroundCell {
-    UIImage *_image;
-    CALayer *_imageLayer;
-    NSURL *_photoURL;
+    UIImage * _image;
+    CALayer * _imageLayer;
+    NSURL * _photoURL;
 }
 
 + (id)reuseIdentifier;

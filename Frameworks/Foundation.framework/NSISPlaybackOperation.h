@@ -2,28 +2,29 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSMutableDictionary, NSMutableSet, NSString;
-
 @interface NSISPlaybackOperation : NSObject <NSISVariableDelegate> {
-    NSMutableDictionary *oldIdentsToNewVariables;
-    NSMutableSet *userObservableVariables;
-    NSMutableSet *variablesToIntegralize;
+    NSMutableDictionary * oldIdentsToNewVariables;
+    NSMutableSet * userObservableVariables;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
+- (void)_addToEngine:(id)arg1;
 - (void)dealloc;
+- (id)firstAnchor;
+- (id)firstItem;
 - (id)init;
-- (double)nsis_allowedMagnitudeForIntegralizationAdjustmentOfConstraintWithMarker:(id)arg1;
 - (id)nsis_descriptionOfVariable:(id)arg1;
-- (BOOL)nsis_shouldIntegralizeVariable:(id)arg1;
+- (int)nsis_orientationHintForVariable:(id)arg1;
 - (void)nsis_valueOfVariable:(id)arg1 didChangeInEngine:(id)arg2;
-- (BOOL)nsis_valueOfVariableIsUserObservable:(id)arg1;
+- (bool)nsis_valueOfVariableIsUserObservable:(id)arg1;
 - (void)playbackOneAction:(id)arg1 onEngine:(id)arg2;
-- (id)unwrapLinearExpression:(id)arg1;
+- (id)secondAnchor;
+- (id)secondItem;
+- (id)unwrapLinearExpression:(id)arg1 onEngine:(id)arg2;
 - (id)unwrapVariable:(id)arg1;
 
 @end

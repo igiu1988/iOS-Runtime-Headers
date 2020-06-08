@@ -2,30 +2,28 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKUIImageViewElement;
-
 @interface SKUIBrowseItemComponent : SKUIPageComponent {
-    SKUIImageViewElement *_decorationImage;
-    int _index;
-    BOOL _showTopBorder;
-    NSString *_subtitle;
-    NSString *_title;
+    SKUIImageViewElement * _decorationImage;
+    long long  _index;
+    bool  _showTopBorder;
+    NSString * _subtitle;
+    NSString * _title;
 }
 
-@property(readonly) SKUIImageViewElement * decorationImage;
-@property int index;
-@property BOOL showTopBorder;
-@property(readonly) NSString * subtitle;
-@property(readonly) NSString * title;
+@property (nonatomic, readonly) SKUIImageViewElement *decorationImage;
+@property (nonatomic) long long index;
+@property (nonatomic) bool showTopBorder;
+@property (nonatomic, readonly) NSString *subtitle;
+@property (nonatomic, readonly) NSString *title;
 
 - (void).cxx_destruct;
-- (int)componentType;
+- (long long)componentType;
 - (id)decorationImage;
-- (int)index;
+- (long long)index;
 - (id)initWithViewElement:(id)arg1;
-- (void)setIndex:(int)arg1;
-- (void)setShowTopBorder:(BOOL)arg1;
-- (BOOL)showTopBorder;
+- (void)setIndex:(long long)arg1;
+- (void)setShowTopBorder:(bool)arg1;
+- (bool)showTopBorder;
 - (id)subtitle;
 - (id)title;
 

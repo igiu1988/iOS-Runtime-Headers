@@ -2,46 +2,45 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSArray, NSString, NSURL, _WKFrameHandle;
-
 @interface WKWebProcessPlugInFrame : NSObject <WKObject> {
     struct ObjectStorage<WebKit::WebFrame> { 
         struct type { 
-            unsigned char __lx[72]; 
+            unsigned char __lx[112]; 
         } data; 
-    } _frame;
+    }  _frame;
 }
 
-@property(readonly) NSURL * URL;
-@property(readonly) struct Object { int (**x1)(); id x2; }* _apiObject;
-@property(readonly) NSArray * childFrames;
-@property(readonly) BOOL containsAnyFormElements;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) _WKFrameHandle * handle;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) NSURL *URL;
+@property (readonly) /* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*_apiObject;
+@property (nonatomic, readonly) NSArray *appleTouchIconURLs;
+@property (nonatomic, readonly) NSArray *childFrames;
+@property (nonatomic, readonly) bool containsAnyFormElements;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) NSArray *faviconURLs;
+@property (nonatomic, readonly) _WKFrameHandle *handle;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)lookUpFrameFromHandle:(id)arg1;
 
-- (struct Object { int (**x1)(); id x2; }*)_apiObject;
-- (id).cxx_construct;
 - (id)URL;
+- (/* Warning: unhandled struct encoding: '{Object=^^?@}' */ struct Object { int (**x1)(); id x2; }*)_apiObject;
 - (id)_browserContextController;
 - (id)_certificateChain;
-- (BOOL)_hasCustomContentProvider;
+- (bool)_hasCustomContentProvider;
+- (id)_parentFrame;
 - (id)_provisionalURL;
+- (struct __SecTrust { }*)_serverTrust;
+- (id)appleTouchIconURLs;
 - (id)childFrames;
-- (BOOL)containsAnyFormElements;
+- (bool)containsAnyFormElements;
 - (void)dealloc;
+- (id)faviconURLs;
 - (id)handle;
-- (id)hitTest:(struct CGPoint { float x1; float x2; })arg1;
+- (id)hitTest:(struct CGPoint { double x1; double x2; })arg1;
 - (id)jsContextForWorld:(id)arg1;
 - (id)jsNodeForNodeHandle:(id)arg1 inWorld:(id)arg2;
+- (id)jsRangeForRangeHandle:(id)arg1 inWorld:(id)arg2;
 
 @end

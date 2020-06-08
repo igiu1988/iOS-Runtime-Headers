@@ -2,22 +2,27 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class NSArray, NSMutableArray, NSURL, SSMetricsEventController;
-
 @interface SSMetricsEventReportingSession : NSObject {
-    SSMetricsEventController *_eventController;
-    long long _insertTimestamp;
-    NSURL *_reportingURL;
-    NSMutableArray *_unreportedEventPIDs;
-    NSArray *_unreportedEvents;
+    SSMetricsEventController * _eventController;
+    long long  _insertTimestamp;
+    NSURL * _reportingURL;
+    NSString * _sessionCanaryIdentifier;
+    bool  _suppressUserInfo;
+    NSMutableArray * _unreportedEventPIDs;
+    NSArray * _unreportedEvents;
 }
 
+- (void).cxx_destruct;
+- (long long)_estimateSizeOfJsonObject:(id)arg1;
 - (id)_unreportedEvents;
 - (void)_writeString:(id)arg1 toData:(id)arg2;
-- (BOOL)anyUnreportedEvents;
-- (void)dealloc;
+- (bool)anyUnreportedEvents;
 - (id)initWithReportingURL:(id)arg1 insertTimestamp:(long long)arg2 eventController:(id)arg3;
-- (BOOL)markEventsAsReported;
-- (void)writeEventsToStream:(id)arg1;
+- (id)initWithReportingURL:(id)arg1 insertTimestamp:(long long)arg2 suppressDSID:(bool)arg3 eventController:(id)arg4;
+- (id)initWithReportingURL:(id)arg1 insertTimestamp:(long long)arg2 suppressUserInfo:(bool)arg3 eventController:(id)arg4;
+- (bool)markEventsAsReported;
+- (id)sessionCanaryIdentifier;
+- (id)writeEventsToStream:(id)arg1;
+- (id)writeEventsToStream:(id)arg1 uncompressedMaxSize:(long long)arg2;
 
 @end

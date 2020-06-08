@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class UIImageView;
-
 @interface SKUIVideoThumbnailView : SKUIImageView {
-    UIImageView *_playControlView;
+    UIImageView * _playControlView;
 }
 
 - (void).cxx_destruct;

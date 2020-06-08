@@ -2,24 +2,23 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface AXIPCServerMessageHandlerContext : NSObject {
-    id _handler;
-    SEL _selector;
-    id _target;
+    bool  _async;
+    id /* block */  _handler;
+    SEL  _selector;
+    id  _target;
 }
 
-@property(readonly) id handler;
-@property(readonly) SEL selector;
-@property(readonly) id target;
+@property (nonatomic, readonly) bool async;
+@property (nonatomic, readonly) id /* block */ handler;
+@property (nonatomic, readonly) SEL selector;
+@property (nonatomic, readonly) id target;
 
-- (void)dealloc;
-- (id)handler;
-- (id)initWithHandler:(id)arg1;
-- (id)initWithTarget:(id)arg1 selector:(SEL)arg2;
+- (void).cxx_destruct;
+- (bool)async;
+- (id /* block */)handler;
+- (id)initWithHandler:(id /* block */)arg1;
+- (id)initWithTarget:(id)arg1 selector:(SEL)arg2 async:(bool)arg3;
 - (SEL)selector;
 - (id)target;
 

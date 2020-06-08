@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class ML3MusicLibrary, NSMutableArray, NSMutableOrderedSet, NSObject<OS_dispatch_queue>, NSString;
-
 @interface ML3LibraryNotificationManager : NSObject <MSVDistributedNotificationObserverDelegate> {
-    ML3MusicLibrary *_library;
-    NSString *_libraryPath;
-    NSMutableArray *_notificationObservers;
-    NSMutableOrderedSet *_queuedDistributedNotificationNames;
-    NSMutableOrderedSet *_queuedLocalNotifications;
-    NSObject<OS_dispatch_queue> *_serialQueue;
+    ML3MusicLibrary * _library;
+    NSString * _libraryPath;
+    NSMutableArray * _notificationObservers;
+    NSMutableOrderedSet * _queuedDistributedNotificationNames;
+    NSMutableOrderedSet * _queuedLocalNotifications;
+    NSObject<OS_dispatch_queue> * _serialQueue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) ML3MusicLibrary * library;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) ML3MusicLibrary *library;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_observerForDistributedName:(id)arg1;
@@ -30,7 +28,7 @@
 - (void)enqueueLocalNotificationNamed:(id)arg1;
 - (id)initWithLibrary:(id)arg1 distributedAndLocalNames:(id)arg2;
 - (id)library;
-- (BOOL)observerShouldForwardDistributedNotification:(id)arg1;
+- (bool)observerShouldForwardDistributedNotification:(id)arg1;
 - (void)removeObserverWithDistributedName:(id)arg1;
 - (void)removeObserverWithLocalName:(id)arg1;
 

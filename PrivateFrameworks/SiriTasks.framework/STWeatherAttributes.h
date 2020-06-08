@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/SiriTasks.framework/SiriTasks
  */
 
-@class NSNumber, STTemperature;
-
-@interface STWeatherAttributes : AFSiriModelObject {
-    NSNumber *_chanceOfPrecipitation;
-    int _condition;
-    STTemperature *_highTemperature;
-    STTemperature *_lowTemperature;
-    STTemperature *_temperature;
+@interface STWeatherAttributes : STSiriModelObject {
+    NSNumber * _chanceOfPrecipitation;
+    long long  _condition;
+    STTemperature * _highTemperature;
+    STTemperature * _lowTemperature;
+    STTemperature * _temperature;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (id)_initWithCondition:(int)arg1 temperature:(id)arg2 highTemperature:(id)arg3 lowTemperature:(id)arg4 chanceOfPrecipitation:(id)arg5;
+- (id)_initWithCondition:(long long)arg1 temperature:(id)arg2 highTemperature:(id)arg3 lowTemperature:(id)arg4 chanceOfPrecipitation:(id)arg5;
 - (id)chanceOfPrecipitation;
-- (int)condition;
+- (long long)condition;
 - (void)encodeWithCoder:(id)arg1;
 - (id)highTemperature;
 - (id)initWithCoder:(id)arg1;

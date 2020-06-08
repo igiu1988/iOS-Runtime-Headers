@@ -3,11 +3,11 @@
  */
 
 @interface APHUDLayer : CALayer {
-    struct __CFArray { } *_Colors;
-    struct __CTFont { } *_Font;
-    struct __CFArray { } *_Labels;
-    struct __CFDictionary { } *_TextAttributes;
-    struct __CFArray { } *_Values;
+    struct __CFArray { } * _Colors;
+    struct __CTFont { } * _Font;
+    struct __CFArray { } * _Labels;
+    struct __CFDictionary { } * _TextAttributes;
+    struct __CFArray { } * _Values;
 }
 
 - (void)addLine:(struct __CFString { }*)arg1 withColorIndex:(int)arg2;

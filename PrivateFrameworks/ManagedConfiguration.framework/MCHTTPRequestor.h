@@ -2,65 +2,36 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSMutableData, NSString, NSURLConnection;
-
-@interface MCHTTPRequestor : NSObject <NSURLConnectionDataDelegate> {
-    NSArray *_anchorCertificates;
-    id _completionBlock;
-    NSURLConnection *_connection;
-    BOOL _didFailDueToMissingCredentials;
-    NSString *_password;
-    NSMutableData *_responseData;
-    id _selfReference;
-    BOOL _shouldUseResponseBodyAsLoginPrompt;
-    NSString *_username;
+@interface MCHTTPRequestor : NSObject <NSURLSessionDataDelegate> {
+    NSArray * _anchorCertificates;
+    bool  _didFailDueToMissingCredentials;
+    NSString * _password;
+    id  _selfReference;
+    NSString * _username;
 }
 
-@property(retain) NSArray * anchorCertificates;
-@property(copy) id completionBlock;
-@property(retain) NSURLConnection * connection;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property BOOL didFailDueToMissingCredentials;
-@property(readonly) unsigned int hash;
-@property(copy) NSString * password;
-@property(retain) NSMutableData * responseData;
-@property(retain) id selfReference;
-@property BOOL shouldUseResponseBodyAsLoginPrompt;
-@property(readonly) Class superclass;
-@property(copy) NSString * username;
+@property (nonatomic, retain) NSArray *anchorCertificates;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) bool didFailDueToMissingCredentials;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSString *password;
+@property (nonatomic, retain) id selfReference;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *username;
 
 - (void).cxx_destruct;
+- (void)URLSession:(id)arg1 task:(id)arg2 didReceiveChallenge:(id)arg3 completionHandler:(id /* block */)arg4;
 - (id)anchorCertificates;
-- (id)completionBlock;
-- (void)connection:(id)arg1 didFailWithError:(id)arg2;
-- (void)connection:(id)arg1 didReceiveData:(id)arg2;
-- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
-- (id)connection:(id)arg1 willCacheResponse:(id)arg2;
-- (void)connection:(id)arg1 willSendRequestForAuthenticationChallenge:(id)arg2;
-- (id)connection;
-- (void)connectionDidFinishLoading:(id)arg1;
-- (BOOL)didFailDueToMissingCredentials;
-- (void)didFinishWithError:(id)arg1;
-- (id)init;
+- (bool)didFailDueToMissingCredentials;
 - (id)password;
-- (id)responseData;
 - (id)selfReference;
 - (void)setAnchorCertificates:(id)arg1;
-- (void)setCompletionBlock:(id)arg1;
-- (void)setConnection:(id)arg1;
-- (void)setDidFailDueToMissingCredentials:(BOOL)arg1;
+- (void)setDidFailDueToMissingCredentials:(bool)arg1;
 - (void)setPassword:(id)arg1;
-- (void)setResponseData:(id)arg1;
 - (void)setSelfReference:(id)arg1;
-- (void)setShouldUseResponseBodyAsLoginPrompt:(BOOL)arg1;
 - (void)setUsername:(id)arg1;
-- (BOOL)shouldUseResponseBodyAsLoginPrompt;
-- (void)startWithRequest:(id)arg1 username:(id)arg2 password:(id)arg3 anchorCertificates:(id)arg4 completionBlock:(id)arg5;
+- (void)startWithRequest:(id)arg1 username:(id)arg2 password:(id)arg3 anchorCertificates:(id)arg4 completionBlock:(id /* block */)arg5;
 - (id)username;
 
 @end

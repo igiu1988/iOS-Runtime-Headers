@@ -3,31 +3,42 @@
  */
 
 @interface EKObjectID : NSObject <NSCopying, NSSecureCoding> {
-    int _entityType;
-    int _rowID;
-    BOOL _temporary;
+    int  _entityType;
+    int  _rowID;
+    bool  _temporary;
 }
 
-+ (id)objectIDWithCADObjectID:(struct { int x1; int x2; })arg1;
+@property (nonatomic, readonly) CADObjectID *CADObjectID;
+@property (nonatomic, readonly) NSURL *URIRepresentation;
+@property (nonatomic, readonly) NSDictionary *dictionaryRepresentation;
+@property (nonatomic, readonly) NSString *entityName;
+@property (nonatomic, readonly) long long entityType;
+@property (nonatomic, readonly) bool isTemporary;
+@property (nonatomic, readonly) int rowID;
+@property (nonatomic, readonly) NSString *stringRepresentation;
+
++ (id)CADObjectIDsFromEKObjectIDs:(id)arg1;
++ (id)EKObjectIDsFromCADObjectIDs:(id)arg1;
++ (id)objectIDWithCADObjectID:(id)arg1;
 + (id)objectIDWithEntityType:(int)arg1 rowID:(int)arg2;
 + (id)objectIDWithURL:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 + (id)temporaryObjectIDWithEntityType:(int)arg1;
 
-- (struct { int x1; int x2; })CADObjectID;
+- (id)CADObjectID;
 - (id)URIRepresentation;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)entityName;
-- (int)entityType;
-- (unsigned int)hash;
+- (long long)entityType;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionaryRepresentation:(id)arg1;
-- (id)initWithEntityType:(int)arg1 rowID:(int)arg2 temporary:(BOOL)arg3;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isTemporary;
+- (id)initWithEntityType:(int)arg1 rowID:(int)arg2 temporary:(bool)arg3;
+- (bool)isEqual:(id)arg1;
+- (bool)isTemporary;
 - (int)rowID;
 - (id)stringRepresentation;
 

@@ -2,41 +2,60 @@
    Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
  */
 
-@class BSAnimationSettings, BSMachSendRight, BSMutableSettings, NSSet;
-
-@interface FBSSceneTransitionContext : NSObject <NSCopying, NSMutableCopying> {
-    NSSet *_actions;
-    BSMachSendRight *_animationFencePort;
-    BSAnimationSettings *_animationSettings;
-    BSMutableSettings *_otherSettings;
-    BSMutableSettings *_transientLocalClientSettings;
+@interface FBSSceneTransitionContext : NSObject <BSDescriptionProviding, BSXPCCoding, NSCopying, NSMutableCopying> {
+    NSSet * _actions;
+    BKSAnimationFenceHandle * _animationFence;
+    BSAnimationSettings * _animationSettings;
+    BSProcessHandle * _originatingProcess;
+    BSMutableSettings * _otherSettings;
+    BSMutableSettings * _transientLocalClientSettings;
+    FBSceneUpdateContext * _updateContext;
 }
 
-@property(copy) NSSet * actions;
-@property(copy) BSMachSendRight * animationFencePort;
-@property(copy) BSAnimationSettings * animationSettings;
+@property (nonatomic, copy) NSSet *actions;
+@property (nonatomic, retain) BKSAnimationFenceHandle *animationFence;
+@property (nonatomic, copy) BSAnimationSettings *animationSettings;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) BSProcessHandle *originatingProcess;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) FBSceneUpdateContext *updateContext;
+
+// Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
 
 + (id)transitionContext;
 
-- (id)_descriptionOfSettingsWithMultilinePrefix:(id)arg1;
+- (void).cxx_destruct;
 - (id)actions;
-- (id)animationFencePort;
+- (id)animationFence;
 - (id)animationSettings;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
+- (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
+- (id)descriptionWithMultilinePrefix:(id)arg1;
 - (void)encodeWithXPCDictionary:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithXPCDictionary:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isUISubclass;
-- (id)keyDescriptionForSetting:(unsigned int)arg1;
+- (bool)isEqual:(id)arg1;
+- (id)keyDescriptionForSetting:(unsigned long long)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone { }*)arg1;
+- (id)originatingProcess;
 - (id)otherSettings;
 - (void)setActions:(id)arg1;
-- (void)setAnimationFencePort:(id)arg1;
+- (void)setAnimationFence:(id)arg1;
 - (void)setAnimationSettings:(id)arg1;
+- (void)setOriginatingProcess:(id)arg1;
+- (void)setUpdateContext:(id)arg1;
+- (id)succinctDescription;
+- (id)succinctDescriptionBuilder;
 - (id)transientLocalClientSettings;
-- (id)valueDescriptionForFlag:(int)arg1 object:(id)arg2 ofSetting:(unsigned int)arg3;
+- (id)updateContext;
+- (id)valueDescriptionForFlag:(long long)arg1 object:(id)arg2 ofSetting:(unsigned long long)arg3;
+
+// Image: /System/Library/PrivateFrameworks/UIKitCore.framework/UIKitCore
+
+- (bool)isUISubclass;
 
 @end

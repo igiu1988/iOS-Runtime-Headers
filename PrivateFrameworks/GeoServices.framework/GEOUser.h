@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPhoto, NSString;
-
 @interface GEOUser : PBCodable <NSCopying> {
-    GEOPhoto *_image;
-    NSString *_name;
+    GEOPhoto * _image;
+    NSString * _name;
+    PBUnknownFields * _unknownFields;
 }
 
-@property(readonly) BOOL hasImage;
-@property(readonly) BOOL hasName;
-@property(retain) GEOPhoto * image;
-@property(retain) NSString * name;
+@property (nonatomic, readonly) bool hasImage;
+@property (nonatomic, readonly) bool hasName;
+@property (nonatomic, retain) GEOPhoto *image;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
-+ (id)userWithYelpJSON:(id)arg1;
-
+- (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasImage;
-- (BOOL)hasName;
-- (unsigned int)hash;
+- (bool)hasImage;
+- (bool)hasName;
+- (unsigned long long)hash;
 - (id)image;
-- (id)initWithPlaceDataUser:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)name;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setImage:(id)arg1;
 - (void)setName:(id)arg1;
+- (id)unknownFields;
 - (void)writeTo:(id)arg1;
 
 @end

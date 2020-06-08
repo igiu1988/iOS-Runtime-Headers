@@ -2,29 +2,18 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@interface SKUIScreenshotDataConsumer : SKUIImageDataConsumer {
-    struct CGSize { 
-        float width; 
-        float height; 
-    BOOL _drawsBorder;
-    BOOL _forcesPortrait;
-    } _screenshotSize;
+@interface SKUIScreenshotDataConsumer : SKUIStyledImageDataConsumer {
+    bool  _forcesPortrait;
 }
 
-@property(readonly) struct CGSize { float x1; float x2; } constraintSize;
-@property BOOL drawsBorder;
-@property BOOL forcesPortrait;
+@property (nonatomic) bool forcesPortrait;
 
 + (id)consumer;
-+ (id)consumerWithScreenshotSize:(struct CGSize { float x1; float x2; })arg1;
++ (id)consumerWithScreenshotSize:(struct CGSize { double x1; double x2; })arg1;
 
-- (struct CGSize { float x1; float x2; })constraintSize;
-- (BOOL)drawsBorder;
-- (BOOL)forcesPortrait;
-- (id)imageForColor:(id)arg1 size:(struct CGSize { float x1; float x2; })arg2;
-- (id)imageForColor:(id)arg1;
+- (bool)forcesPortrait;
+- (id)imageForColor:(id)arg1 size:(struct CGSize { double x1; double x2; })arg2;
 - (id)imageForImage:(id)arg1;
-- (void)setDrawsBorder:(BOOL)arg1;
-- (void)setForcesPortrait:(BOOL)arg1;
+- (void)setForcesPortrait:(bool)arg1;
 
 @end

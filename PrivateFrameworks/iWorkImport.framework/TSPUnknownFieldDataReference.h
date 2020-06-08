@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray;
-
 @interface TSPUnknownFieldDataReference : TSPUnknownField {
-    NSArray *_datas;
+    NSArray * _datas;
 }
 
 - (void).cxx_destruct;

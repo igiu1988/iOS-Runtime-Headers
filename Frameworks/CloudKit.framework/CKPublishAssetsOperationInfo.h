@@ -2,32 +2,30 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSArray, NSDictionary;
-
 @interface CKPublishAssetsOperationInfo : CKDatabaseOperationInfo <NSSecureCoding> {
-    unsigned int _URLOptions;
-    NSDictionary *_fileNamesByAssetFieldNames;
-    NSArray *_recordIDs;
-    unsigned int _requestedTTL;
+    unsigned long long  _URLOptions;
+    NSDictionary * _fileNamesByAssetFieldNames;
+    NSArray * _recordIDs;
+    unsigned long long  _requestedTTL;
 }
 
-@property unsigned int URLOptions;
-@property(retain) NSDictionary * fileNamesByAssetFieldNames;
-@property(retain) NSArray * recordIDs;
-@property unsigned int requestedTTL;
+@property (nonatomic) unsigned long long URLOptions;
+@property (nonatomic, retain) NSDictionary *fileNamesByAssetFieldNames;
+@property (nonatomic, retain) NSArray *recordIDs;
+@property (nonatomic) unsigned long long requestedTTL;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (unsigned int)URLOptions;
+- (unsigned long long)URLOptions;
 - (void)encodeWithCoder:(id)arg1;
 - (id)fileNamesByAssetFieldNames;
 - (id)initWithCoder:(id)arg1;
 - (id)recordIDs;
-- (unsigned int)requestedTTL;
+- (unsigned long long)requestedTTL;
 - (void)setFileNamesByAssetFieldNames:(id)arg1;
 - (void)setRecordIDs:(id)arg1;
-- (void)setRequestedTTL:(unsigned int)arg1;
-- (void)setURLOptions:(unsigned int)arg1;
+- (void)setRequestedTTL:(unsigned long long)arg1;
+- (void)setURLOptions:(unsigned long long)arg1;
 
 @end

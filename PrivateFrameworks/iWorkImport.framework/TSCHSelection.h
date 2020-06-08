@@ -2,36 +2,41 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSArray, TSCHChartDrawableInfo, TSCHSelectionPath;
-
-@interface TSCHSelection : TSKSelection <NSCopying> {
-    TSCHChartDrawableInfo *mInfo;
-    NSArray *mPaths;
+@interface TSCHSelection : TSKSelection {
+    TSCHChartDrawableInfo * mInfo;
+    NSArray * mPaths;
 }
 
-@property(retain,readonly) TSCHChartDrawableInfo * chartInfo;
-@property(copy,readonly) TSCHSelectionPath * firstPath;
-@property(copy,readonly) NSArray * paths;
-@property(readonly) BOOL returnChartFrameForAutoscroll;
+@property (nonatomic, readonly, retain) TSCHChartDrawableInfo *chartInfo;
+@property (nonatomic, readonly, copy) TSCHSelectionPath *firstPath;
+@property (nonatomic, readonly) unsigned long long pathCount;
+@property (nonatomic, readonly, copy) TSCHSelectionPathType *pathType;
+@property (nonatomic, readonly, copy) NSSet *pathTypes;
+@property (nonatomic, readonly, copy) NSArray *paths;
+@property (nonatomic, readonly) bool returnChartFrameForAutoscroll;
 
 + (Class)archivedSelectionClass;
++ (id)emptySelectionWithChartInfo:(id)arg1;
++ (id)selectionWithChartInfo:(id)arg1 paths:(id)arg2;
 
+- (void).cxx_destruct;
 - (id)chartInfo;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
+- (id)description;
 - (id)firstPath;
-- (id)init;
-- (id)initFromArchive:(const struct ChartSelectionArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct Reference {} *x3; struct RepeatedPtrField<TSCH::ChartSelectionPathArchive> { void **x_4_1_1; int x_4_1_2; int x_4_1_3; int x_4_1_4; } x4; int x5; unsigned int x6[1]; }*)arg1 unarchiver:(id)arg2;
+- (unsigned long long)hash;
+- (id)initFromArchive:(const struct ChartSelectionArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct DrawableSelectionArchive {} *x5; struct Reference {} *x6; struct RepeatedPtrField<TSCH::ChartSelectionPathArchive> { void **x_7_1_1; int x_7_1_2; int x_7_1_3; int x_7_1_4; } x7; }*)arg1 unarchiver:(id)arg2;
 - (id)initWithChartInfo:(id)arg1 path:(id)arg2;
 - (id)initWithChartInfo:(id)arg1 paths:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (id)initWithPaths:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (unsigned long long)pathCount;
+- (id)pathType;
+- (id)pathTypes;
 - (id)paths;
-- (BOOL)returnChartFrameForAutoscroll;
-- (void)saveToArchive:(struct ChartSelectionArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct Reference {} *x3; struct RepeatedPtrField<TSCH::ChartSelectionPathArchive> { void **x_4_1_1; int x_4_1_2; int x_4_1_3; int x_4_1_4; } x4; int x5; unsigned int x6[1]; }*)arg1 archiver:(id)arg2;
+- (bool)returnChartFrameForAutoscroll;
+- (void)saveToArchive:(struct ChartSelectionArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct DrawableSelectionArchive {} *x5; struct Reference {} *x6; struct RepeatedPtrField<TSCH::ChartSelectionPathArchive> { void **x_7_1_1; int x_7_1_2; int x_7_1_3; int x_7_1_4; } x7; }*)arg1 archiver:(id)arg2;
+- (id)selectionByAddingPathsFromArray:(id)arg1;
+- (id)selectionByRemovingPathsFromArray:(id)arg1;
 
 @end

@@ -2,27 +2,51 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class IMMessage, NSArray;
-
 @interface CKMessagePartChatItem : CKBalloonChatItem {
+    NSArray * _visibleAssociatedMessageChatItems;
 }
 
-@property(readonly) BOOL color;
-@property(retain,readonly) IMMessage * message;
-@property(copy,readonly) NSArray * pasteboardItems;
+@property (nonatomic, readonly) bool canSendMessageAcknowledgment;
+@property (nonatomic, readonly) BOOL color;
+@property (nonatomic, readonly) UIItemProvider *dragItemProvider;
+@property (nonatomic, readonly) bool hasMessageAcknowledgment;
+@property (nonatomic, readonly) bool hasStickers;
+@property (nonatomic, readonly) bool isCorrupt;
+@property (nonatomic, readonly) IMMessage *message;
+@property (nonatomic, readonly, copy) NSArray *messageAcknowledgments;
+@property (nonatomic, readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } messagePartRange;
+@property (nonatomic, readonly, copy) NSArray *pasteboardItems;
+@property (nonatomic, readonly) NSArray *visibleAssociatedMessageChatItems;
 
-- (BOOL)canCopy;
-- (BOOL)canForward;
-- (BOOL)canSendAsTextMessage;
+- (void).cxx_destruct;
+- (bool)_isSURFRelatedMessage;
+- (id)aggregateAcknowledgmentChatItem;
+- (bool)canAttachStickers;
+- (bool)canCopy;
+- (bool)canForward;
+- (bool)canSendAsTextMessage;
+- (bool)canSendMessageAcknowledgment;
 - (BOOL)color;
 - (id)composition;
 - (void)configureBalloonView:(id)arg1;
 - (id)description;
-- (BOOL)failed;
-- (BOOL)isFromMe;
+- (id)dragItemProvider;
+- (bool)failed;
+- (bool)hasMessageAcknowledgment;
+- (bool)hasStickers;
+- (id)initWithIMChatItem:(id)arg1 maxWidth:(double)arg2;
+- (bool)isCorrupt;
+- (bool)isFromMe;
 - (id)message;
+- (id)messageAcknowledgments;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })messagePartRange;
 - (id)pasteboardItems;
+- (long long)selectedType;
 - (id)sender;
+- (bool)shouldShowVotingView;
+- (bool)stickersSnapToPoint;
 - (id)time;
+- (id)visibleAssociatedMessageChatItems;
+- (id)votingCounts;
 
 @end

@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVBulkRequestsItem, NSDictionary;
-
 @interface CoreDAVBulkRequestsSetItem : CoreDAVItem {
-    CoreDAVBulkRequestsItem *_crudItem;
-    CoreDAVBulkRequestsItem *_simpleItem;
+    CoreDAVBulkRequestsItem * _crudItem;
+    CoreDAVBulkRequestsItem * _simpleItem;
 }
 
-@property(retain) CoreDAVBulkRequestsItem * crudItem;
-@property(readonly) NSDictionary * dictRepresentation;
-@property(retain) CoreDAVBulkRequestsItem * simpleItem;
+@property (nonatomic, retain) CoreDAVBulkRequestsItem *crudItem;
+@property (nonatomic, readonly) NSDictionary *dictRepresentation;
+@property (nonatomic, retain) CoreDAVBulkRequestsItem *simpleItem;
 
 + (id)copyParseRules;
 
+- (void).cxx_destruct;
 - (id)crudItem;
-- (void)dealloc;
 - (id)description;
 - (id)dictRepresentation;
 - (id)init;

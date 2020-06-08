@@ -2,33 +2,32 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class AVMediaSelectionOption, NSString;
-
 @interface MPAlternateTrack : NSObject {
-    NSString *_canonicalLanguageIdentifier;
-    NSString *_displayName;
-    BOOL _isDVS;
-    BOOL _isMainProgram;
-    AVMediaSelectionOption *_option;
+    NSString * _canonicalLanguageIdentifier;
+    NSString * _displayName;
+    bool  _isDVS;
+    bool  _isMainProgram;
+    AVMediaSelectionOption * _option;
 }
 
-@property(readonly) NSString * canonicalLanguageIdentifier;
-@property(retain) NSString * displayName;
-@property(readonly) BOOL isDVS;
-@property(readonly) BOOL isMainProgram;
-@property(readonly) AVMediaSelectionOption * option;
+@property (nonatomic, readonly) NSString *canonicalLanguageIdentifier;
+@property (nonatomic, retain) NSString *displayName;
+@property (nonatomic, readonly) bool isDVS;
+@property (nonatomic, readonly) bool isMainProgram;
+@property (nonatomic, readonly) AVMediaSelectionOption *option;
 
 + (id)threeCharCodesForEncodedISO639_2_T:(id)arg1;
 
 - (void).cxx_destruct;
 - (void)_setDisplayNameFromOption:(id)arg1;
 - (id)canonicalLanguageIdentifier;
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (id)description;
 - (id)displayName;
 - (id)initWithOption:(id)arg1;
-- (BOOL)isDVS;
-- (BOOL)isMainProgram;
+- (bool)isDVS;
+- (bool)isEqual:(id)arg1;
+- (bool)isMainProgram;
 - (id)option;
 - (void)setDisplayName:(id)arg1;
 

@@ -2,39 +2,37 @@
    Image: /System/Library/PrivateFrameworks/UIAccessibility.framework/UIAccessibility
  */
 
-@class UIScrollView;
-
 @interface UIAccessibilityAutoscrollManager : NSObject {
-    float _autoscrollSpeed;
-    BOOL _autoscrolling;
-    int _scrollDirection;
-    UIScrollView *_scrollView;
+    double  _autoscrollSpeed;
+    bool  _autoscrolling;
+    unsigned long long  _scrollDirection;
+    UIScrollView * _scrollView;
 }
 
-@property float autoscrollSpeed;
-@property(getter=isAutoscrolling) BOOL autoscrolling;
-@property int scrollDirection;
-@property(retain) UIScrollView * scrollView;
+@property (nonatomic) double autoscrollSpeed;
+@property (getter=isAutoscrolling, nonatomic) bool autoscrolling;
+@property (nonatomic) unsigned long long scrollDirection;
+@property (nonatomic, retain) UIScrollView *scrollView;
 
 + (id)sharedInstance;
 
+- (void).cxx_destruct;
 - (void)_autoscroll;
-- (void)autoscrollInDirection:(int)arg1;
-- (float)autoscrollSpeed;
-- (int)availableAutoscrollDirections;
-- (void)dealloc;
+- (void)autoscrollInDirection:(unsigned long long)arg1;
+- (double)autoscrollSpeed;
+- (unsigned long long)availableAutoscrollDirections;
 - (void)decrementAutoscrollSpeed;
 - (void)incrementAutoscrollSpeed;
 - (id)init;
-- (BOOL)isAutoscrolling;
+- (bool)isAutoscrolling;
 - (void)pause;
-- (int)scrollDirection;
+- (unsigned long long)scrollDirection;
 - (void)scrollToBottom;
 - (void)scrollToTop;
 - (id)scrollView;
-- (void)setAutoscrollSpeed:(float)arg1;
-- (void)setAutoscrolling:(BOOL)arg1;
-- (void)setScrollDirection:(int)arg1;
+- (void)setAutoscrollSpeed:(double)arg1;
+- (void)setAutoscrolling:(bool)arg1;
+- (void)setScrollDirection:(unsigned long long)arg1;
 - (void)setScrollView:(id)arg1;
 
 @end

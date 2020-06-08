@@ -2,43 +2,40 @@
    Image: /System/Library/PrivateFrameworks/IMAVCore.framework/IMAVCore
  */
 
-@class IMHandle, NSArray, NSDate, NSDictionary, NSNumber, NSString;
-
 @interface IMAVChatProxy : NSObject {
-    NSDictionary *_info;
+    NSDictionary * _info;
 }
 
-@property(retain,readonly) NSString * GUID;
-@property(readonly) int callID;
-@property(retain,readonly) NSString * conferenceID;
-@property double connectionTimeoutTime;
-@property(retain,readonly) NSNumber * dataDownloaded;
-@property(retain,readonly) NSNumber * dataUploaded;
-@property(retain,readonly) NSDate * dateConnected;
-@property(retain,readonly) NSDate * dateEnded;
-@property(readonly) int endedError;
-@property(readonly) unsigned int endedReason;
-@property(readonly) BOOL hasAudioInterruption;
-@property(readonly) BOOL hasReceivedFirstFrame;
-@property(retain,readonly) IMHandle * initiatorIMHandle;
-@property double invitationTimeoutTime;
-@property(readonly) BOOL isActive;
-@property(readonly) BOOL isCaller;
-@property(setter=setMute:) BOOL isMute;
-@property(readonly) BOOL isSendingAudio;
-@property(readonly) BOOL isStateFinal;
-@property(readonly) BOOL isVideo;
-@property(retain,readonly) IMHandle * otherIMHandle;
-@property(retain,readonly) NSArray * remoteParticipants;
-@property(readonly) unsigned int sessionID;
-@property(readonly) unsigned int state;
+@property (nonatomic, readonly, retain) NSString *GUID;
+@property (nonatomic, readonly, retain) NSString *conferenceID;
+@property (nonatomic) double connectionTimeoutTime;
+@property (nonatomic, readonly, retain) NSNumber *dataDownloaded;
+@property (nonatomic, readonly, retain) NSNumber *dataUploaded;
+@property (nonatomic, readonly, retain) NSDate *dateConnected;
+@property (nonatomic, readonly, retain) NSDate *dateEnded;
+@property (nonatomic, readonly) int endedError;
+@property (nonatomic, readonly) unsigned int endedReason;
+@property (nonatomic, readonly) bool hasReceivedFirstFrame;
+@property (nonatomic, readonly, retain) IMHandle *initiatorIMHandle;
+@property (nonatomic) double invitationTimeoutTime;
+@property (nonatomic, readonly) bool isActive;
+@property (nonatomic, readonly) bool isCaller;
+@property (setter=setMute:, nonatomic) bool isMute;
+@property (nonatomic) bool isSendingAudio;
+@property (nonatomic) bool isSendingVideo;
+@property (nonatomic, readonly) bool isStateFinal;
+@property (nonatomic, readonly) bool isVideo;
+@property (nonatomic, readonly, retain) IMHandle *otherIMHandle;
+@property (getter=isRelayed, nonatomic) bool relayed;
+@property (nonatomic, readonly, retain) NSArray *remoteParticipants;
+@property (nonatomic, readonly) unsigned int sessionID;
+@property (nonatomic, readonly) unsigned int state;
 
 - (id)GUID;
-- (BOOL)_isProxy;
+- (bool)_isCallUpgradeTo:(id)arg1;
+- (bool)_isProxy;
 - (void)acceptInvitation;
-- (void)acceptInvitationWithHoldMusic;
 - (id)account;
-- (int)callID;
 - (void)cancelInvitation;
 - (id)conferenceID;
 - (double)connectionTimeoutTime;
@@ -50,29 +47,36 @@
 - (void)declineInvitation;
 - (id)description;
 - (void)endChat;
+- (void)endChatWithReason:(unsigned int)arg1;
 - (int)endedError;
 - (unsigned int)endedReason;
 - (void)finalUpdate;
 - (void)forwardInvocation:(id)arg1;
-- (BOOL)hasAudioInterruption;
-- (BOOL)hasReceivedFirstFrame;
+- (bool)hasReceivedFirstFrame;
 - (id)initiatorIMHandle;
 - (double)invitationTimeoutTime;
 - (void)invite:(id)arg1 additionalPeers:(id)arg2;
+- (void)invite:(id)arg1 additionalPeers:(id)arg2 excludingPushTokens:(id)arg3;
 - (void)inviteAll;
-- (BOOL)isActive;
-- (BOOL)isCaller;
-- (BOOL)isMute;
-- (BOOL)isSendingAudio;
-- (BOOL)isStateFinal;
-- (BOOL)isVideo;
+- (bool)isActive;
+- (bool)isCaller;
+- (bool)isMute;
+- (bool)isRelayed;
+- (bool)isSendingAudio;
+- (bool)isSendingVideo;
+- (bool)isStateFinal;
+- (bool)isVideo;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (id)otherIMHandle;
 - (id)remoteParticipants;
 - (unsigned int)sessionID;
 - (void)setConnectionTimeoutTime:(double)arg1;
 - (void)setInvitationTimeoutTime:(double)arg1;
-- (void)setMute:(BOOL)arg1;
+- (void)setIsSendingAudio:(bool)arg1;
+- (void)setIsSendingVideo:(bool)arg1;
+- (void)setLocalAspectRatio:(struct CGSize { double x1; double x2; })arg1 cameraOrientation:(unsigned int)arg2 cameraType:(unsigned int)arg3;
+- (void)setMute:(bool)arg1;
+- (void)setRelayed:(bool)arg1;
 - (unsigned int)state;
 - (void)updateWithInfo:(id)arg1;
 

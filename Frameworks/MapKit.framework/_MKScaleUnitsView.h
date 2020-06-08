@@ -2,51 +2,53 @@
    Image: /System/Library/Frameworks/MapKit.framework/MapKit
  */
 
-@class NSDictionary, NSMapTable, NSMutableArray, NSMutableDictionary, NSNumberFormatter, NSString;
-
 @interface _MKScaleUnitsView : UIView {
-    NSNumberFormatter *_floatNumberFormatter;
-    float _justUnitsWidth;
-    NSDictionary *_legendAttributes;
-    NSString *_legendBaseString;
-    NSMutableDictionary *_legendStringForDistanceStringCache;
-    NSMapTable *_legendStringWidthCache;
-    double _segmentLengthInPixels;
-    NSMutableArray *_strings;
-    NSString *_unitsString;
-    float _unitsWidth;
-    NSString *_unpaddedUnitsString;
-    BOOL _useLightText;
+    bool  _RTL;
+    NSNumberFormatter * _floatNumberFormatter;
+    double  _justUnitsWidth;
+    NSDictionary * _legendAttributes;
+    NSString * _legendBaseString;
+    NSMutableDictionary * _legendStringForDistanceStringCache;
+    NSMapTable * _legendStringWidthCache;
+    double  _segmentLengthInPixels;
+    NSMutableArray * _strings;
+    NSString * _unitsString;
+    double  _unitsWidth;
+    NSString * _unpaddedUnitsString;
+    bool  _useLightText;
 }
 
-@property(retain) NSNumberFormatter * floatNumberFormatter;
-@property(retain) NSString * legendBaseString;
-@property double segmentLengthInPixels;
-@property(retain) NSString * unitsString;
-@property(readonly) float unitsWidth;
-@property(copy) NSString * unpaddedUnitsString;
-@property BOOL useLightText;
+@property (getter=isRTL, nonatomic) bool RTL;
+@property (nonatomic, retain) NSNumberFormatter *floatNumberFormatter;
+@property (nonatomic, retain) NSString *legendBaseString;
+@property (nonatomic) double segmentLengthInPixels;
+@property (nonatomic, retain) NSString *unitsString;
+@property (nonatomic, readonly) double unitsWidth;
+@property (nonatomic, copy) NSString *unpaddedUnitsString;
+@property (nonatomic) bool useLightText;
 
 - (void).cxx_destruct;
-- (void)_calculateLegend:(BOOL)arg1;
-- (id)_legendStringForDistanceString:(id)arg1 appendUnits:(BOOL)arg2 index:(int)arg3;
+- (void)_calculateLegend:(bool)arg1;
+- (id)_legendStringForDistanceString:(id)arg1 appendUnits:(bool)arg2 index:(int)arg3;
 - (id)_uncachedLegendStringsForDistanceString:(id)arg1;
-- (float)_widthForString:(id)arg1 attributes:(id)arg2;
-- (BOOL)canDisplaySegment:(unsigned int)arg1;
+- (double)_widthForString:(id)arg1 attributes:(id)arg2;
+- (bool)canDisplaySegment:(unsigned long long)arg1;
 - (void)clearCaches:(id)arg1;
 - (id)floatNumberFormatter;
 - (id)init;
+- (bool)isRTL;
 - (id)legendBaseString;
 - (void)setFloatNumberFormatter:(id)arg1;
 - (void)setLegendBaseString:(id)arg1;
+- (void)setRTL:(bool)arg1;
 - (void)setSegmentLengthInPixels:(double)arg1;
 - (void)setUnits:(id)arg1;
 - (void)setUnitsString:(id)arg1;
 - (void)setUnpaddedUnitsString:(id)arg1;
-- (void)setUseLightText:(BOOL)arg1;
+- (void)setUseLightText:(bool)arg1;
 - (id)unitsString;
-- (float)unitsWidth;
+- (double)unitsWidth;
 - (id)unpaddedUnitsString;
-- (BOOL)useLightText;
+- (bool)useLightText;
 
 @end

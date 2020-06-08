@@ -2,75 +2,69 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSItemProvider, NSString, NSURL, UIImage;
-
 @interface SLAttachment : NSObject <NSSecureCoding> {
-    int _downsampleStatus;
-    NSString *_identifier;
-    NSItemProvider *_itemProvider;
-    int _itemProviderPreviewType;
-    BOOL _needsAnotherPreviewGeneration;
-    id _payload;
-    NSURL *_payloadSourceFileURL;
-    id _payloadUpdateObserver;
-    UIImage *_previewImage;
-    int _previewType;
-    id _previewUpdateObserver;
-    BOOL _startedPayloadLoad;
-    int _type;
-    NSString *_typeIdentifier;
+    long long  _downsampleStatus;
+    NSString * _identifier;
+    NSItemProvider * _itemProvider;
+    long long  _itemProviderPreviewType;
+    bool  _needsAnotherPreviewGeneration;
+    id  _payload;
+    NSURL * _payloadSourceFileURL;
+    id /* block */  _payloadUpdateObserver;
+    UIImage * _previewImage;
+    long long  _previewType;
+    id /* block */  _previewUpdateObserver;
+    bool  _startedPayloadLoad;
+    long long  _type;
+    NSString * _typeIdentifier;
 }
 
-@property int downsampleStatus;
-@property(readonly) NSString * identifier;
-@property(retain) NSItemProvider * itemProvider;
-@property(readonly) int itemProviderPreviewType;
-@property BOOL needsAnotherPreviewGeneration;
-@property(copy) id payload;
-@property(copy) NSURL * payloadSourceFileURL;
-@property(retain) UIImage * previewImage;
-@property int previewType;
-@property BOOL startedPayloadLoad;
-@property int type;
-@property(copy) NSString * typeIdentifier;
+@property (nonatomic) long long downsampleStatus;
+@property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, retain) NSItemProvider *itemProvider;
+@property (nonatomic, readonly) long long itemProviderPreviewType;
+@property (nonatomic) bool needsAnotherPreviewGeneration;
+@property (nonatomic, copy) id payload;
+@property (nonatomic, copy) NSURL *payloadSourceFileURL;
+@property (nonatomic, retain) UIImage *previewImage;
+@property long long previewType;
+@property (nonatomic) bool startedPayloadLoad;
+@property (nonatomic) long long type;
+@property (nonatomic, copy) NSString *typeIdentifier;
 
-+ (BOOL)attachmentTypeRepresentsAnImage:(int)arg1;
-+ (BOOL)supportsSecureCoding;
++ (bool)attachmentTypeRepresentsAnImage:(long long)arg1;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_uniqueIdentifier;
 - (id)description;
-- (int)downsampleStatus;
+- (long long)downsampleStatus;
 - (void)encodeWithCoder:(id)arg1;
 - (id)identifier;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithPayload:(id)arg1 type:(int)arg2 previewImage:(id)arg3;
+- (id)initWithPayload:(id)arg1 type:(long long)arg2 previewImage:(id)arg3;
 - (id)itemProvider;
-- (int)itemProviderPreviewType;
-- (BOOL)needsAnotherPreviewGeneration;
+- (long long)itemProviderPreviewType;
+- (bool)needsAnotherPreviewGeneration;
 - (id)payload;
 - (id)payloadSourceFileURL;
 - (id)previewImage;
-- (int)previewType;
-- (void)setDownsampleStatus:(int)arg1;
+- (long long)previewType;
+- (void)setDownsampleStatus:(long long)arg1;
 - (void)setItemProvider:(id)arg1;
-- (void)setNeedsAnotherPreviewGeneration:(BOOL)arg1;
+- (void)setNeedsAnotherPreviewGeneration:(bool)arg1;
 - (void)setPayload:(id)arg1;
 - (void)setPayloadSourceFileURL:(id)arg1;
-- (void)setPayloadUpdateObserverWithBlock:(id)arg1;
+- (void)setPayloadUpdateObserverWithBlock:(id /* block */)arg1;
 - (void)setPreviewImage:(id)arg1;
-- (void)setPreviewType:(int)arg1;
-- (void)setPreviewUpdateObserverWithBlock:(id)arg1;
-- (void)setStartedPayloadLoad:(BOOL)arg1;
-- (void)setType:(int)arg1;
+- (void)setPreviewType:(long long)arg1;
+- (void)setPreviewUpdateObserverWithBlock:(id /* block */)arg1;
+- (void)setStartedPayloadLoad:(bool)arg1;
+- (void)setType:(long long)arg1;
 - (void)setTypeIdentifier:(id)arg1;
-- (BOOL)startedPayloadLoad;
-- (int)type;
+- (bool)startedPayloadLoad;
+- (long long)type;
 - (id)typeIdentifier;
 
 @end

@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
  */
 
-@class FBSDisplay, FBSSceneClientSettingsDiff;
-
 @interface FBSWorkspaceCreateSceneEvent : FBSWorkspaceSceneUpdateEvent {
-    FBSSceneClientSettingsDiff *_clientSettings;
-    FBSDisplay *_display;
+    FBSSceneClientSettingsDiff * _clientSettings;
+    NSString * _specificationClassName;
 }
 
-@property(retain) FBSSceneClientSettingsDiff * clientSettingsDiff;
-@property(retain) FBSDisplay * display;
+@property (nonatomic, retain) FBSSceneClientSettingsDiff *clientSettingsDiff;
+@property (nonatomic, retain) FBSSceneSpecification *specification;
 
+- (void).cxx_destruct;
 - (id)clientSettingsDiff;
-- (void)dealloc;
-- (id)display;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (void)setClientSettingsDiff:(id)arg1;
-- (void)setDisplay:(id)arg1;
+- (void)setSpecification:(id)arg1;
+- (id)specification;
 
 @end

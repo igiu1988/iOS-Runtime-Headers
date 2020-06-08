@@ -2,21 +2,28 @@
    Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
  */
 
-@class NSString;
-
 @interface IMAttachmentMessagePartChatItem : IMMessagePartChatItem {
-    unsigned int _wantsAttachmentContiguous : 1;
-    NSString *_transferGUID;
+    bool  _parentChatIsSpam;
+    NSString * _transferGUID;
+    unsigned int  _wantsAttachmentContiguous;
 }
 
-@property(copy,readonly) NSString * transferGUID;
+@property (nonatomic, readonly) bool parentChatIsSpam;
+@property (nonatomic, readonly, copy) NSString *transferGUID;
+
+// Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
+
+- (void).cxx_destruct;
+- (id)_initWithItem:(id)arg1 text:(id)arg2 index:(long long)arg3 messagePartRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg4 transferGUID:(id)arg5 parentChatIsSpam:(bool)arg6;
+- (id)_initWithItem:(id)arg1 text:(id)arg2 index:(long long)arg3 messagePartRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg4 transferGUID:(id)arg5 parentChatIsSpam:(bool)arg6 visibleAssociatedMessageChatItems:(id)arg7;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (id)description;
+- (bool)isAttachmentContiguousWithChatItem:(id)arg1;
+- (bool)parentChatIsSpam;
+- (id)transferGUID;
+
+// Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
 
 - (Class)__ck_chatItemClass;
-- (id)_initWithItem:(id)arg1 text:(id)arg2 index:(int)arg3 transferGUID:(id)arg4;
-- (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
-- (id)description;
-- (BOOL)isAttachmentContiguousWithChatItem:(id)arg1;
-- (id)transferGUID;
 
 @end

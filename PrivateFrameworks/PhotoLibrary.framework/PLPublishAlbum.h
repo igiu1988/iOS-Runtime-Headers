@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class NSString;
-
 @interface PLPublishAlbum : NSObject {
-    NSString *_title;
+    NSString * _title;
 }
 
-@property(retain) NSString * title;
+@property (nonatomic, retain) NSString *title;
 
-- (int)compare:(id)arg1;
+- (long long)compare:(id)arg1;
 - (void)dealloc;
 - (void)setTitle:(id)arg1;
 - (id)title;

@@ -2,45 +2,45 @@
    Image: /System/Library/PrivateFrameworks/FrontBoard.framework/FrontBoard
  */
 
-@class BSCFBundle, LSApplicationProxy, NSDictionary, NSString, NSURL;
-
-@interface FBBundleInfo : NSObject {
-    BSCFBundle *_bundle;
-    NSString *_bundleIdentifier;
-    NSString *_bundleType;
-    NSURL *_bundleURL;
-    NSString *_bundleVersion;
-    NSString *_displayName;
-    NSDictionary *_extendedInfo;
-    LSApplicationProxy *_proxy;
+@interface FBBundleInfo : NSObject <BSDescriptionProviding> {
+    NSString * _bundleIdentifier;
+    NSString * _bundleType;
+    NSURL * _bundleURL;
+    NSString * _bundleVersion;
+    NSUUID * _cacheGUID;
+    NSString * _displayName;
+    unsigned long long  _sequenceNumber;
 }
 
-@property(getter=_bundle,retain,readonly) BSCFBundle * bundle;
-@property(copy) NSString * bundleIdentifier;
-@property(copy) NSString * bundleType;
-@property(retain) NSURL * bundleURL;
-@property(copy) NSString * bundleVersion;
-@property(copy) NSString * displayName;
-@property(copy) NSDictionary * extendedInfo;
-@property(getter=_proxy,retain,readonly) LSApplicationProxy * proxy;
+@property (nonatomic, readonly, copy) NSString *bundleIdentifier;
+@property (nonatomic, readonly, copy) NSString *bundleType;
+@property (nonatomic, readonly) NSURL *bundleURL;
+@property (nonatomic, readonly, copy) NSString *bundleVersion;
+@property (nonatomic, readonly, copy) NSUUID *cacheGUID;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly, copy) NSString *displayName;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) unsigned long long sequenceNumber;
+@property (readonly) Class superclass;
 
-- (id)_bundle;
-- (id)_proxy;
-- (void)_purgeBundle;
+- (void).cxx_destruct;
+- (id)_initWithBundleIdentifier:(id)arg1 url:(id)arg2;
+- (id)_initWithBundleProxy:(id)arg1 bundleIdentifier:(id)arg2 url:(id)arg3;
+- (id)_initWithBundleProxy:(id)arg1 overrideURL:(id)arg2;
 - (id)bundleIdentifier;
 - (id)bundleType;
 - (id)bundleURL;
 - (id)bundleVersion;
-- (void)dealloc;
+- (id)cacheGUID;
+- (id)debugDescription;
+- (id)description;
+- (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
+- (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)displayName;
-- (id)extendedInfo;
-- (id)extendedInfoValueForKey:(id)arg1;
-- (id)initWithApplicationProxy:(id)arg1;
-- (void)setBundleIdentifier:(id)arg1;
-- (void)setBundleType:(id)arg1;
-- (void)setBundleURL:(id)arg1;
-- (void)setBundleVersion:(id)arg1;
-- (void)setDisplayName:(id)arg1;
-- (void)setExtendedInfo:(id)arg1;
+- (id)init;
+- (unsigned long long)sequenceNumber;
+- (id)succinctDescription;
+- (id)succinctDescriptionBuilder;
 
 @end

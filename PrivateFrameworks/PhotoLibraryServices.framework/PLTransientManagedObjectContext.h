@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@interface PLTransientManagedObjectContext : PLManagedObjectContext {
-}
+@interface PLTransientManagedObjectContext : PLManagedObjectContext
 
-+ (BOOL)canMergeRemoteChanges;
-+ (BOOL)useModelMigratorToCreateDatabase;
++ (bool)_shouldRequestModelMigratorCreateDatabaseOnRebuildAndRetry;
++ (bool)canMergeRemoteChanges;
 
 @end

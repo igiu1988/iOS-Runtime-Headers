@@ -2,35 +2,19 @@
    Image: /System/Library/PrivateFrameworks/BridgePreferences.framework/BridgePreferences
  */
 
-@class NGSGlance, NGSSettingsManager, NSString, PSListController;
-
-@interface BPSAppGlanceManager : NSObject <NGSSettingsManagerDelegate> {
-    NGSGlance *_glance;
-    PSListController *_listControllerDelegate;
-    NGSSettingsManager *_manager;
+@interface BPSAppGlanceManager : NSObject {
+    PSListController * _listControllerDelegate;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NGSGlance * glance;
-@property(readonly) unsigned int hash;
-@property PSListController * listControllerDelegate;
-@property(retain) NGSSettingsManager * manager;
-@property(readonly) Class superclass;
+@property (nonatomic) PSListController *listControllerDelegate;
 
 - (void).cxx_destruct;
 - (void)_logGlanceDescriptions;
-- (id)glance;
 - (id)glanceSpecifierForIdentifier:(id)arg1;
-- (id)init;
 - (id)listControllerDelegate;
 - (void)loadSettings;
-- (id)manager;
-- (void)setGlance:(id)arg1;
 - (void)setListControllerDelegate:(id)arg1;
-- (void)setManager:(id)arg1;
 - (void)setShowsGlance:(id)arg1 forSpecifier:(id)arg2;
-- (void)settingsManagerReloadedGlances:(id)arg1;
 - (id)showsGlance:(id)arg1;
 
 @end

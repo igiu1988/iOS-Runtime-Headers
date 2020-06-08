@@ -3,14 +3,13 @@
  */
 
 @interface BLRetouchSaturationLayer : BLRetouchEffectLayer {
-    float _saturation;
+    float  _saturation;
 }
 
-@property float saturation;
+@property (nonatomic) float saturation;
 
 + (id)layerWithSaturation:(float)arg1;
 
-- (void)dealloc;
 - (struct CGContext { }*)newContextWithEffect:(struct CGContext { }*)arg1;
 - (float)saturation;
 - (void)setSaturation:(float)arg1;

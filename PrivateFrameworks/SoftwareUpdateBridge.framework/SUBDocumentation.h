@@ -2,43 +2,45 @@
    Image: /System/Library/PrivateFrameworks/SoftwareUpdateBridge.framework/SoftwareUpdateBridge
  */
 
-@class NSData, NSString, NSURL;
-
 @interface SUBDocumentation : NSObject <NSSecureCoding> {
-    NSString *_currentLanguage;
-    NSURL *_documentationBundleURL;
-    NSString *_humanReadableUpdateName;
-    NSData *_licenseAgreement;
-    NSData *_releaseNotes;
-    NSData *_releaseNotesSummary;
+    NSURL * _documentationBundleURL;
+    NSString * _humanReadableUpdateName;
+    NSData * _licenseAgreement;
+    NSString * _phoneLanguage;
+    NSData * _releaseNotes;
+    NSData * _releaseNotesSummary;
 }
 
-@property(retain) NSString * currentLanguage;
-@property(retain) NSURL * documentationBundleURL;
-@property(retain) NSString * humanReadableUpdateName;
-@property(retain) NSData * licenseAgreement;
-@property(retain) NSData * releaseNotes;
-@property(retain) NSData * releaseNotesSummary;
+@property (nonatomic, readonly, retain) NSString *currentPhoneLanguage;
+@property (nonatomic, retain) NSURL *documentationBundleURL;
+@property (nonatomic, retain) NSString *humanReadableUpdateName;
+@property (nonatomic, retain) NSData *licenseAgreement;
+@property (nonatomic, retain) NSString *phoneLanguage;
+@property (nonatomic, readonly, retain) NSArray *preferredPhoneLanguages;
+@property (nonatomic, retain) NSData *releaseNotes;
+@property (nonatomic, retain) NSData *releaseNotesSummary;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
+- (void).cxx_destruct;
 - (void)_loadBundleResources;
 - (id)_resourceFromBundle:(struct __CFBundle { }*)arg1 forKey:(id)arg2;
-- (id)currentLanguage;
-- (void)dealloc;
+- (id)currentPhoneLanguage;
 - (id)documentationBundleURL;
 - (void)encodeWithCoder:(id)arg1;
 - (id)humanReadableUpdateName;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDocumentationBundleURL:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)licenseAgreement;
+- (id)phoneLanguage;
+- (id)preferredPhoneLanguages;
 - (id)releaseNotes;
 - (id)releaseNotesSummary;
-- (void)setCurrentLanguage:(id)arg1;
 - (void)setDocumentationBundleURL:(id)arg1;
 - (void)setHumanReadableUpdateName:(id)arg1;
 - (void)setLicenseAgreement:(id)arg1;
+- (void)setPhoneLanguage:(id)arg1;
 - (void)setReleaseNotes:(id)arg1;
 - (void)setReleaseNotesSummary:(id)arg1;
 

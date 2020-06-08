@@ -2,20 +2,18 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class NSDictionary;
-
 @interface SKReceiptRefreshRequest : SKRequest {
-    NSDictionary *_properties;
+    NSDictionary * _properties;
 }
 
-@property(readonly) NSDictionary * receiptProperties;
+@property (nonatomic, readonly) NSDictionary *receiptProperties;
 
+- (void).cxx_destruct;
 - (void)_handleReply:(id)arg1;
-- (void)_sendXPCMessage;
-- (BOOL)_wantsExpired;
-- (BOOL)_wantsRevoked;
-- (BOOL)_wantsVPP;
-- (void)dealloc;
+- (void)_start;
+- (bool)_wantsExpired;
+- (bool)_wantsRevoked;
+- (bool)_wantsVPP;
 - (id)initWithReceiptProperties:(id)arg1;
 - (id)receiptProperties;
 

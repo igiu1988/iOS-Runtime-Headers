@@ -2,22 +2,21 @@
    Image: /System/Library/PrivateFrameworks/ScreenReaderCore.framework/ScreenReaderCore
  */
 
-@class NSMutableArray, NSString, SCRCArgumentSubcommand;
-
 @interface SCRCArgumentParser : SCRCArgumentSubcommand {
-    NSString *_appName;
-    int _argc;
-    NSMutableArray *_argumentArray;
-    char **_argv;
-    BOOL _isLaunchedAtLogin;
-    SCRCArgumentSubcommand *_subcommand;
-    NSMutableArray *_subcommandArray;
+    NSString * _appName;
+    int  _argc;
+    NSMutableArray * _argumentArray;
+    char ** _argv;
+    bool  _isLaunchedAtLogin;
+    SCRCArgumentSubcommand * _subcommand;
+    NSMutableArray * _subcommandArray;
 }
 
 + (id)commandPath;
 + (id)processIdentifier;
 + (id)versionString;
 
+- (void).cxx_destruct;
 - (id)_displayHelp:(id)arg1;
 - (id)_displayVersion:(id)arg1;
 - (void)addSubcommand:(id)arg1;
@@ -26,8 +25,8 @@
 - (char **)argv;
 - (void)dealloc;
 - (id)initWithArgc:(int)arg1 argv:(const char **)arg2;
-- (BOOL)isLaunchedAtLogin;
-- (BOOL)parse;
+- (bool)isLaunchedAtLogin;
+- (bool)parse;
 - (int)run;
 - (void)setAppName:(id)arg1;
 - (id)setRunningAtStartup:(id)arg1;

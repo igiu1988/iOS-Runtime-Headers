@@ -2,22 +2,22 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSObject<OS_dispatch_queue>, NSString, TSUDispatchData;
-
 @interface TSPMemoryComponentWriteChannel : NSObject <TSPComponentWriteChannel> {
-    BOOL _isClosed;
-    TSUDispatchData *_streamData;
-    NSObject<OS_dispatch_queue> *_streamQueue;
+    bool  _isClosed;
+    TSUDispatchData * _streamData;
+    NSObject<OS_dispatch_queue> * _streamQueue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
+- (void)_close;
 - (void)close;
 - (id)init;
+- (id)initWithAlwaysDefragmentData:(bool)arg1;
 - (id)serializedData;
 - (void)writeData:(id)arg1;
 

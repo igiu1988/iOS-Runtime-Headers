@@ -2,43 +2,42 @@
    Image: /usr/lib/libmecabra.dylib
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString;
-
 @interface MecabraCandidate : NSObject <NSCopying> {
-    void *_rawCandidate;
+    void * _rawCandidate;
 }
 
-@property(readonly) NSString * analysisString;
-@property(readonly) NSString * convertedAnalysisString;
-@property(readonly) NSString * dictionaryReading;
-@property(readonly) BOOL isAutocorrectedCandidate;
-@property(readonly) BOOL isConversionCandidate;
-@property(readonly) BOOL isEmojiCandidate;
-@property(readonly) BOOL isExtensionCandidate;
-@property(readonly) BOOL isFuzzyMatchCandidate;
-@property(readonly) BOOL isLearningDictionaryCandidate;
-@property(readonly) BOOL isPersonName;
-@property(readonly) BOOL isPredictionCandidate;
-@property(readonly) BOOL isUserWordCandidate;
-@property(readonly) struct MecabraCandidateBase { int (**x1)(); int x2; }* rawCandidate;
-@property(readonly) struct ConversionCandidate { int (**x1)(); int x2; }* rawConversionCandidate;
-@property(readonly) NSString * surface;
-@property(readonly) int type;
-@property(readonly) unsigned int wordCount;
+@property (nonatomic, readonly) NSString *analysisString;
+@property (nonatomic, readonly) NSDictionary *attributes;
+@property (nonatomic, readonly) NSString *category;
+@property (nonatomic, readonly) NSString *convertedAnalysisString;
+@property (nonatomic, readonly) NSString *dictionaryReading;
+@property (nonatomic, readonly) bool isAutocorrectedCandidate;
+@property (nonatomic, readonly) bool isConversionCandidate;
+@property (nonatomic, readonly) bool isEmojiCandidate;
+@property (nonatomic, readonly) bool isExtensionCandidate;
+@property (nonatomic, readonly) bool isFuzzyMatchCandidate;
+@property (nonatomic, readonly) bool isLearningDictionaryCandidate;
+@property (nonatomic, readonly) bool isOTAWordlistCandidate;
+@property (nonatomic, readonly) bool isPersonName;
+@property (nonatomic, readonly) bool isPredictionCandidate;
+@property (nonatomic, readonly) bool isRegionalCandidate;
+@property (nonatomic, readonly) bool isSyntheticCandidate;
+@property (nonatomic, readonly) bool isUserWordCandidate;
+@property (nonatomic, readonly) struct MecabraCandidateBase { int (**x1)(); long long x2; }*rawCandidate;
+@property (nonatomic, readonly) struct ConversionCandidate { int (**x1)(); long long x2; }*rawConversionCandidate;
+@property (nonatomic, readonly) NSString *string;
+@property (nonatomic, readonly) NSString *surface;
+@property (nonatomic, readonly) int type;
+@property (nonatomic, readonly) unsigned long long wordCount;
 
-+ (id)createSyntheticCandidate:(id)arg1 withLexicon:(void*)arg2 language:(int)arg3;
++ (id)syntheticCandidateFromWords:(id)arg1 withLexicon:(struct Lexicon { void *x1; void *x2; }*)arg2 language:(int)arg3;
 
-- (struct MecabraCandidateBase { int (**x1)(); int x2; }*)rawCandidate;
-- (struct ConversionCandidate { int (**x1)(); int x2; }*)rawConversionCandidate;
 - (id)analysisString;
+- (id)attributes;
+- (id)category;
 - (id)convertedAnalysisString;
 - (id)convertedAnalysisStringForFirstSyllable;
-- (struct __CFArray { }*)copySyllableLengthArrayForWordAtIndex:(unsigned int)arg1;
+- (struct __CFArray { }*)copySyllableLengthArrayForWordAtIndex:(unsigned long long)arg1;
 - (struct __CFArray { }*)copySyllableLengthArrayInAnalysisString;
 - (struct __CFArray { }*)copySyllableLengthArrayInConvertedAnalysisString;
 - (struct __CFArray { }*)copySyllableLengthArrayInDictionaryReading;
@@ -46,25 +45,32 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryReading;
-- (id)initWithCandidate:(struct MecabraCandidateBase { int (**x1)(); int x2; }*)arg1;
-- (BOOL)isAutocorrectedCandidate;
-- (BOOL)isConversionCandidate;
-- (BOOL)isEmojiCandidate;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isExtensionCandidate;
-- (BOOL)isFuzzyMatchCandidate;
-- (BOOL)isLearningDictionaryCandidate;
-- (BOOL)isPersonName;
-- (BOOL)isPredictionCandidate;
-- (BOOL)isUserWordCandidate;
+- (id)initWithCandidate:(struct MecabraCandidateBase { int (**x1)(); long long x2; }*)arg1;
+- (bool)isAutocorrectedCandidate;
+- (bool)isConversionCandidate;
+- (bool)isEmojiCandidate;
+- (bool)isEqual:(id)arg1;
+- (bool)isExtensionCandidate;
+- (bool)isFuzzyMatchCandidate;
+- (bool)isLearningDictionaryCandidate;
+- (bool)isOTAWordlistCandidate;
+- (bool)isPersonName;
+- (bool)isPredictionCandidate;
+- (bool)isRegionalCandidate;
+- (bool)isSyntheticCandidate;
+- (bool)isUserWordCandidate;
 - (unsigned short)kind;
 - (unsigned short)lastPrefixValue;
-- (unsigned short)lcAttrAtIndex:(unsigned int)arg1;
+- (unsigned short)lcAttrAtIndex:(unsigned long long)arg1;
 - (unsigned short)matchType;
 - (unsigned short)matchedLengthType;
-- (long)phraseBoundaryAfterWordAtIndex:(long)arg1;
-- (unsigned short)rcAttrAtIndex:(unsigned int)arg1;
-- (void)setWeight:(unsigned int)arg1;
+- (long long)phraseBoundaryAfterWordAtIndex:(long long)arg1;
+- (struct MecabraCandidateBase { int (**x1)(); long long x2; }*)rawCandidate;
+- (struct ConversionCandidate { int (**x1)(); long long x2; }*)rawConversionCandidate;
+- (unsigned short)rcAttrAtIndex:(unsigned long long)arg1;
+- (bool)setDisplayString:(struct __CFString { }*)arg1;
+- (void)setWeight:(unsigned long long)arg1;
+- (id)string;
 - (id)surface;
 - (id)syllabifiedAnalysisString;
 - (id)syllabifiedConvertedAnalysisString;
@@ -73,15 +79,16 @@
 - (id)syllablesInConvertedAnalysisString;
 - (id)syllablesInDictionaryReading;
 - (id)syllablesInString:(id)arg1 syllableLengths:(id)arg2;
-- (unsigned int)trieValueAtIndex:(unsigned int)arg1;
+- (unsigned long long)trieValueAtIndex:(unsigned long long)arg1;
 - (int)type;
-- (int)weight;
-- (unsigned int)wordCount;
+- (long long)weight;
+- (unsigned long long)wordCount;
+- (unsigned short)wordDictionaryReadingLengthAtIndex:(unsigned long long)arg1;
 - (id)wordIDs;
-- (BOOL)wordIsFromSystemDictionaryAtIndex:(unsigned int)arg1;
-- (unsigned short)wordLengthAtIndex:(unsigned int)arg1;
-- (struct { int x1; int x2; })wordRangeAtIndex:(long)arg1;
-- (unsigned short)wordReadingLengthAtIndex:(unsigned int)arg1;
+- (bool)wordIsFromSystemDictionaryAtIndex:(unsigned long long)arg1;
+- (unsigned short)wordLengthAtIndex:(unsigned long long)arg1;
+- (struct { long long x1; long long x2; })wordRangeAtIndex:(long long)arg1;
+- (unsigned short)wordReadingLengthAtIndex:(unsigned long long)arg1;
 - (id)wordReadings;
 - (id)words;
 

@@ -2,39 +2,40 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSArray, NSMutableSet, NSString, SGRecordId;
-
 @interface SGStorageContact : NSObject {
-    long long _masterEntityId;
-    NSMutableSet *_profiles;
-    SGRecordId *_recordId;
-    long detectedAddressesOnce;
-    long detectedEmailAddressesOnce;
-    long detectedPhonesOnce;
-    NSArray *internalDetectedAddresses;
-    NSArray *internalDetectedEmailAddresses;
-    NSArray *internalDetectedPhones;
+    SGContactDetailsHolder * _internalDetectedDetails;
+    long long  _masterEntityId;
+    NSMutableSet * _profiles;
+    SGRecordId * _recordId;
 }
 
-@property(readonly) long long masterEntityId;
-@property(readonly) NSString * name;
-@property(readonly) SGRecordId * recordId;
+@property (retain) SGContactDetailsHolder *internalDetectedDetails;
+@property (nonatomic, readonly) long long masterEntityId;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) SGRecordId *recordId;
 
 + (id)contactFromContactEntity:(id)arg1;
 + (id)contactWithMasterEntityId:(long long)arg1;
 + (id)mergeAll:(id)arg1;
++ (void)subtractDetailsFromSGContact:(id)arg1 thatMatchCNContact:(id)arg2;
 
 - (void).cxx_destruct;
 - (void)addProfile:(id)arg1;
 - (id)allNames;
-- (BOOL)canMerge:(id)arg1;
+- (id)bestProfile;
+- (bool)canMerge:(id)arg1;
 - (id)convertToContact:(id)arg1;
+- (id)convertToContact:(id)arg1 sourceEntity:(id)arg2 enrichments:(id)arg3;
 - (id)description;
-- (unsigned int)hash;
+- (bool)hasProfileFromInteraction;
+- (bool)hasProfileFromTextMessage;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToStorageContact:(id)arg1;
+- (id)internalDetectedDetails;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToStorageContact:(id)arg1;
 - (id)loadAddressDetailsFrom:(id)arg1;
+- (id)loadAllDetailsFrom:(id)arg1;
 - (id)loadEmailAddressDetailsFrom:(id)arg1;
 - (id)loadPhoneDetailsFrom:(id)arg1;
 - (long long)masterEntityId;
@@ -43,5 +44,6 @@
 - (id)profiles;
 - (id)recordId;
 - (void)reload;
+- (void)setInternalDetectedDetails:(id)arg1;
 
 @end

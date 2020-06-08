@@ -2,26 +2,29 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class MFProtectedSQLiteConnection;
-
 @interface _MFLibrarySQLiteConnectionWrapper : NSObject {
-    MFProtectedSQLiteConnection *_connection;
-    unsigned int _refcount;
-    BOOL _writer;
+    MFProtectedSQLiteConnection * _connection;
+    bool  _invalid;
+    unsigned long long  _refcount;
+    NSArray * _stack;
+    bool  _writer;
 }
 
-@property(readonly) MFProtectedSQLiteConnection * connection;
-@property(readonly) unsigned int refcount;
-@property(readonly) BOOL writer;
+@property (nonatomic, readonly) MFProtectedSQLiteConnection *connection;
+@property (nonatomic) bool invalid;
+@property (nonatomic, readonly) unsigned long long refcount;
+@property (nonatomic, readonly) bool writer;
 
-+ (id)wrapperWithConnection:(id)arg1 forWriting:(BOOL)arg2;
++ (id)wrapperWithConnection:(id)arg1 forWriting:(bool)arg2;
 
 - (id)connection;
 - (void)dealloc;
-- (unsigned int)decrementRefcount;
-- (unsigned int)incrementRefcount;
-- (id)initWithConnection:(id)arg1 forWriting:(BOOL)arg2;
-- (unsigned int)refcount;
-- (BOOL)writer;
+- (unsigned long long)decrementRefcount;
+- (unsigned long long)incrementRefcount;
+- (id)initWithConnection:(id)arg1 forWriting:(bool)arg2;
+- (bool)invalid;
+- (unsigned long long)refcount;
+- (void)setInvalid:(bool)arg1;
+- (bool)writer;
 
 @end

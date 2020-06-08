@@ -2,37 +2,35 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKBubbleFlowAnimator;
-
 @interface GKBubbleFlowRootViewController : GKViewController {
-    GKBubbleFlowAnimator *_animator;
-    BOOL _coveringContentUnderneath;
-    BOOL _currentlyAnimatingADismiss;
-    BOOL _showingInterstitial;
+    GKBubbleFlowAnimator * _animator;
+    bool  _coveringContentUnderneath;
+    bool  _currentlyAnimatingADismiss;
+    bool  _showingInterstitial;
 }
 
-@property(retain) GKBubbleFlowAnimator * animator;
-@property(getter=isCoveringContentUnderneath,readonly) BOOL coveringContentUnderneath;
-@property(getter=isCurrentlyAnimatingADismiss) BOOL currentlyAnimatingADismiss;
-@property(getter=isShowingInterstitial) BOOL showingInterstitial;
+@property (nonatomic, retain) GKBubbleFlowAnimator *animator;
+@property (getter=isCoveringContentUnderneath, nonatomic, readonly) bool coveringContentUnderneath;
+@property (getter=isCurrentlyAnimatingADismiss, nonatomic) bool currentlyAnimatingADismiss;
+@property (getter=isShowingInterstitial, nonatomic) bool showingInterstitial;
 
-+ (BOOL)_useTwoPartBubbleFlowModalPresentation;
++ (bool)_useTwoPartBubbleFlowModalPresentation;
 + (id)sharedBubbleFlowRootViewController;
 
-- (void)_updateViewAlpha:(float)arg1 animated:(BOOL)arg2 completion:(id)arg3;
+- (void)_updateViewAlpha:(double)arg1 animated:(bool)arg2 completion:(id /* block */)arg3;
 - (id)animator;
-- (void)clearInterstitialViewAnimated:(BOOL)arg1 completion:(id)arg2;
+- (void)clearInterstitialViewAnimated:(bool)arg1 completion:(id /* block */)arg2;
 - (void)dealloc;
 - (id)init;
-- (BOOL)isCoveringContentUnderneath;
-- (BOOL)isCurrentlyAnimatingADismiss;
-- (BOOL)isShowingInterstitial;
-- (void)popAllModalViewControllersAnimated:(BOOL)arg1 completion:(id)arg2;
+- (bool)isCoveringContentUnderneath;
+- (bool)isCurrentlyAnimatingADismiss;
+- (bool)isShowingInterstitial;
+- (void)popAllModalViewControllersAnimated:(bool)arg1 completion:(id /* block */)arg2;
 - (id)pseudoModalViewController;
 - (void)setAnimator:(id)arg1;
-- (void)setCurrentlyAnimatingADismiss:(BOOL)arg1;
-- (void)setShowingInterstitial:(BOOL)arg1;
-- (void)showInterstitialViewAnimated:(BOOL)arg1 completion:(id)arg2;
+- (void)setCurrentlyAnimatingADismiss:(bool)arg1;
+- (void)setShowingInterstitial:(bool)arg1;
+- (void)showInterstitialViewAnimated:(bool)arg1 completion:(id /* block */)arg2;
 - (void)viewDidLoad;
 
 @end

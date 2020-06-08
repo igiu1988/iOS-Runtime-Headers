@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/AccountsDaemon.framework/AccountsDaemon
  */
 
-@class NSString;
-
 @interface _ACDTestServer : ACDServer {
-    NSString *_databasePath;
+    NSString * _databasePath;
 }
 
 - (void).cxx_destruct;

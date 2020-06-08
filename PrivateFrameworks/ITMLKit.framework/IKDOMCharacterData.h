@@ -2,16 +2,13 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class NSString;
+@interface IKDOMCharacterData : IKDOMNode <IKJSDOMCharacterData>
 
-@interface IKDOMCharacterData : IKDOMNode <IKJSDOMCharacterData> {
-}
-
-@property(retain) NSString * data;
-@property(readonly) unsigned int length;
+@property (nonatomic, retain) NSString *data;
+@property (nonatomic, readonly) unsigned long long length;
 
 - (id)data;
-- (unsigned int)length;
+- (unsigned long long)length;
 - (void)setData:(id)arg1;
 
 @end

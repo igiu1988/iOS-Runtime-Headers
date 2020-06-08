@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy
  */
 
-@class WebUserContentURLPatternPrivate;
-
 @interface WebUserContentURLPattern : NSObject {
-    WebUserContentURLPatternPrivate *_private;
+    WebUserContentURLPatternPrivate * _private;
 }
 
 - (void)dealloc;
 - (id)host;
 - (id)initWithPatternString:(id)arg1;
-- (BOOL)isValid;
-- (BOOL)matchesSubdomains;
-- (BOOL)matchesURL:(id)arg1;
+- (bool)isValid;
+- (bool)matchesSubdomains;
+- (bool)matchesURL:(id)arg1;
 - (id)scheme;
 
 @end

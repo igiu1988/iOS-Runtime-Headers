@@ -3,27 +3,31 @@
  */
 
 @interface MPNondurableMediaItem : MPMediaItem {
-    unsigned long long _persistentID;
+    unsigned long long  _persistentID;
 }
 
-+ (BOOL)canFilterByProperty:(id)arg1;
++ (bool)canFilterByProperty:(id)arg1;
 + (id)defaultPropertyValues;
++ (bool)supportsSecureCoding;
 
-- (BOOL)didSkipWithPlayedToTime:(double)arg1;
+- (bool)didSkipWithPlayedToTime:(double)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id)arg2;
-- (BOOL)existsInLibrary;
+- (void)enumerateValuesForProperties:(id)arg1 usingBlock:(id /* block */)arg2;
+- (bool)existsInLibrary;
+- (void)incrementPlayCount;
 - (void)incrementPlayCountForPlayingToEnd;
-- (BOOL)incrementPlayCountForStopTime:(double)arg1;
+- (bool)incrementPlayCountForStopTime:(double)arg1;
 - (void)incrementSkipCount;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPersistentID:(unsigned long long)arg1;
-- (BOOL)isUsableAsRepresentativeItem;
+- (bool)isUsableAsRepresentativeItem;
 - (void)markNominalAmountHasBeenPlayed;
-- (void)noteWasPlayedToTime:(double)arg1 skipped:(BOOL)arg2;
+- (id)mediaLibrary;
+- (double)nominalHasBeenPlayedThreshold;
+- (void)noteWasPlayedToTime:(double)arg1 skipped:(bool)arg2;
 - (unsigned long long)persistentID;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
-- (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id)arg1;
+- (void)updateDateAccessedToCurrentDateWithWriteCompletionBlock:(id /* block */)arg1;
 - (id)valueForProperty:(id)arg1;
 - (id)valuesForProperties:(id)arg1;
 

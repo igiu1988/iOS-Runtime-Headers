@@ -2,17 +2,18 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary;
-
 @interface OADColorMap : NSObject {
-    NSMutableDictionary *mMappings;
+    NSMutableDictionary * mMappings;
 }
 
-- (void)addDefaultMappings:(BOOL)arg1;
+- (void)addDefaultMappings:(bool)arg1;
 - (void)addMapping:(int)arg1 index:(int)arg2;
 - (void)dealloc;
+- (id)description;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEmpty;
+- (bool)isEqual:(id)arg1;
 - (int)mappingForIndex:(int)arg1;
 
 @end

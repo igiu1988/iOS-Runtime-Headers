@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStyle;
-
 @interface GQDWPSection : NSObject {
-    struct __CFArray { } *mChildren;
-    GQDSStyle *mStyle;
+    struct __CFArray { } * mChildren;
+    GQDSStyle * mStyle;
 }
 
 - (struct __CFArray { }*)children;

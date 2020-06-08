@@ -2,28 +2,28 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADColorMap, OADThemeOverrides;
-
 @interface PDSlideChild : PDSlideBase {
-    OADColorMap *mColorMapOverride;
-    BOOL mShowMasterPlaceholderAnimations;
-    BOOL mShowMasterShapes;
-    OADThemeOverrides *mThemeOverrides;
+    OADColorMap * mColorMapOverride;
+    bool  mShowMasterPlaceholderAnimations;
+    bool  mShowMasterShapes;
+    OADThemeOverrides * mThemeOverrides;
 }
 
 - (id)colorMap;
 - (id)colorMapOverride;
 - (id)colorScheme;
 - (void)dealloc;
+- (id)defaultTextListStyle;
+- (id)description;
 - (void)doneWithContent;
 - (id)drawingTheme;
 - (id)fontScheme;
 - (id)init;
 - (void)setColorMapOverride:(id)arg1;
-- (void)setShowMasterPlaceholderAnimations:(BOOL)arg1;
-- (void)setShowMasterShapes:(BOOL)arg1;
-- (BOOL)showMasterPlaceholderAnimations;
-- (BOOL)showMasterShapes;
+- (void)setShowMasterPlaceholderAnimations:(bool)arg1;
+- (void)setShowMasterShapes:(bool)arg1;
+- (bool)showMasterPlaceholderAnimations;
+- (bool)showMasterShapes;
 - (id)styleMatrix;
 - (id)themeOverrides;
 

@@ -2,35 +2,33 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKBubbleFlowBubbleControl, NSArray, NSString;
-
 @interface GKBubbleSet : NSObject {
-    GKBubbleFlowBubbleControl *_bubbleControls[12];
-    NSString *_debuggingTag;
-    int _supportedBubbles;
+    GKBubbleFlowBubbleControl * _bubbleControls;
+    NSString * _debuggingTag;
+    long long  _supportedBubbles;
 }
 
-@property(readonly) NSArray * bubbleControls;
-@property(retain) NSString * debuggingTag;
-@property int supportedBubbles;
+@property (nonatomic, readonly) NSArray *bubbleControls;
+@property (nonatomic, retain) NSString *debuggingTag;
+@property (nonatomic) long long supportedBubbles;
 
 + (id)setWithBubbleControls:(id)arg1;
-+ (id)setWithBubbleTypes:(int)arg1;
++ (id)setWithBubbleTypes:(long long)arg1;
 
-- (void)animateOutWithFocus:(int)arg1 viewsToFadeOut:(id)arg2 effectiveView:(id)arg3 completion:(id)arg4;
+- (void)animateOutWithFocus:(long long)arg1 viewsToFadeOut:(id)arg2 effectiveView:(id)arg3 completion:(id /* block */)arg4;
 - (id)bubbleControls;
-- (id)bubbleForType:(int)arg1;
+- (id)bubbleForType:(long long)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)debuggingTag;
 - (id)description;
 - (void)hideAllBubbleControls;
-- (BOOL)isEqual:(id)arg1;
-- (void)setAllContentAlpha:(float)arg1;
+- (bool)isEqual:(id)arg1;
+- (void)setAllContentAlpha:(double)arg1;
 - (void)setDebuggingTag:(id)arg1;
-- (void)setSupportedBubbles:(int)arg1;
-- (id)subsetWithBubbleTypes:(int)arg1;
-- (int)supportedBubbles;
+- (void)setSupportedBubbles:(long long)arg1;
+- (id)subsetWithBubbleTypes:(long long)arg1;
+- (long long)supportedBubbles;
 - (void)syncBubbleMeshAnimationStateFromSet:(id)arg1;
 - (void)updateBubbleVisibilityAccordingToSupportedBubblesMask;
 

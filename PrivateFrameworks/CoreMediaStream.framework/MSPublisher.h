@@ -2,45 +2,43 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-@class <MSPublishStorageProtocol>, <MSPublisherDelegate>, MSMediaStreamDaemon, MSObjectQueue, MSPublishStreamsProtocol, NSArray, NSMutableArray, NSMutableDictionary, NSString, NSURL;
-
-@interface MSPublisher : MSCupidStateMachine <MSPublisher, MSPublishStreamsProtocolDelegate, MSPublishStorageProtocolDelegate> {
-    MSMediaStreamDaemon *_daemon;
-    <MSPublisherDelegate> *_delegate;
-    MSObjectQueue *_derivativesQueue;
-    NSMutableDictionary *_fileHashToAssetMap;
-    int _maxErrorCount;
-    NSMutableDictionary *_maxSizeByUTI;
-    NSArray *_pendingDerivativesQueue;
-    MSPublishStreamsProtocol *_protocol;
-    int _publishBatchSize;
-    long long _publishTargetByteCount;
-    MSObjectQueue *_quarantinedQueue;
-    NSMutableArray *_requestAuthQueue;
-    NSMutableArray *_sendingQueue;
-    unsigned int _sendingQueueCount;
-    int _state;
-    <MSPublishStorageProtocol> *_storageProtocol;
-    NSURL *_storageProtocolURL;
-    NSMutableArray *_tempFiles;
-    MSObjectQueue *_uploadQueue;
+@interface MSPublisher : MSCupidStateMachine <MSPublishStorageProtocolDelegate, MSPublishStreamsProtocolDelegate, MSPublisher> {
+    MSMediaStreamDaemon * _daemon;
+    <MSPublisherDelegate> * _delegate;
+    MSObjectQueue * _derivativesQueue;
+    NSMutableDictionary * _fileHashToAssetMap;
+    int  _maxErrorCount;
+    NSMutableDictionary * _maxSizeByUTI;
+    NSArray * _pendingDerivativesQueue;
+    MSPublishStreamsProtocol * _protocol;
+    int  _publishBatchSize;
+    long long  _publishTargetByteCount;
+    MSObjectQueue * _quarantinedQueue;
+    NSMutableArray * _requestAuthQueue;
+    NSMutableArray * _sendingQueue;
+    unsigned long long  _sendingQueueCount;
+    int  _state;
+    <MSPublishStorageProtocol> * _storageProtocol;
+    NSURL * _storageProtocolURL;
+    NSMutableArray * _tempFiles;
+    MSObjectQueue * _uploadQueue;
 }
 
-@property MSMediaStreamDaemon * daemon;
-@property(copy,readonly) NSString * debugDescription;
-@property <MSPublisherDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property int publishBatchSize;
-@property long long publishTargetByteCount;
-@property(retain) NSURL * storageProtocolURL;
-@property(readonly) Class superclass;
+@property (nonatomic) MSMediaStreamDaemon *daemon;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <MSPublisherDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) int publishBatchSize;
+@property (nonatomic) long long publishTargetByteCount;
+@property (nonatomic, retain) NSURL *storageProtocolURL;
+@property (readonly) Class superclass;
 
 + (id)_clearInstantiatedPublishersByPersonID;
 + (void)_setMasterNextActivityDate:(id)arg1 forPersonID:(id)arg2;
 + (id)existingPublisherForPersonID:(id)arg1;
 + (void)forgetPersonID:(id)arg1;
-+ (BOOL)isInRetryState;
++ (bool)isInRetryState;
 + (id)nextActivityDate;
 + (id)nextActivityDateForPersonID:(id)arg1;
 + (id)personIDsWithOutstandingActivities;
@@ -51,15 +49,15 @@
 - (void)_abort;
 - (id)_abortedError;
 - (void)_addAssetToFileHashMap:(id)arg1;
-- (void)_categorizeError:(id)arg1 setOutIsIgnorable:(BOOL*)arg2 setOutIsCounted:(BOOL*)arg3 setOutIsFatal:(BOOL*)arg4 setOutNeedsBackoff:(BOOL*)arg5 setOutIsTemporary:(BOOL*)arg6 setOutIsTokenAuth:(BOOL*)arg7 setOutIsAuthError:(BOOL*)arg8;
+- (void)_categorizeError:(id)arg1 setOutIsIgnorable:(bool*)arg2 setOutIsCounted:(bool*)arg3 setOutIsFatal:(bool*)arg4 setOutNeedsBackoff:(bool*)arg5 setOutIsTemporary:(bool*)arg6 setOutIsTokenAuth:(bool*)arg7 setOutIsAuthError:(bool*)arg8;
 - (id)_checkAssetCollectionFiles:(id)arg1;
 - (id)_checkObjectWrappers:(id)arg1;
 - (id)_collectionWithNoDerivatives:(id)arg1;
 - (void)_didFinishUsingAssetCollections:(id)arg1;
 - (void)_forget;
 - (id)_invalidStreamsResponseErrorUnderlyingError:(id)arg1;
-- (BOOL)_isAllowedToUpload;
-- (BOOL)_isInRetryState;
+- (bool)_isAllowedToUpload;
+- (bool)_isInRetryState;
 - (void)_quarantineOrDiscardWrappers:(id)arg1 withError:(id)arg2;
 - (void)_refreshServerSideConfiguredParameters;
 - (void)_registerAllAssetsForWrapper:(id)arg1;
@@ -73,15 +71,15 @@
 - (void)_serverSideConfigurationDidChange:(id)arg1;
 - (int)_stop;
 - (void)_updateMasterManifest;
-- (BOOL)_verifyAssetFile:(id)arg1;
+- (bool)_verifyAssetFile:(id)arg1;
 - (void)abort;
 - (void)computeHashForAsset:(id)arg1;
 - (id)daemon;
 - (void)deactivate;
 - (void)dealloc;
 - (id)delegate;
-- (BOOL)dequeueAssetCollectionWithGUIDs:(id)arg1 outError:(id*)arg2;
-- (BOOL)enqueueAssetCollections:(id)arg1 outError:(id*)arg2;
+- (bool)dequeueAssetCollectionWithGUIDs:(id)arg1 outError:(id*)arg2;
+- (bool)enqueueAssetCollections:(id)arg1 outError:(id*)arg2;
 - (id)initWithPersonID:(id)arg1 baseURL:(id)arg2;
 - (void)publish;
 - (int)publishBatchSize;
@@ -101,7 +99,7 @@
 - (void)setStorageProtocolURL:(id)arg1;
 - (void)stop;
 - (id)storageProtocolURL;
-- (void)submitAssetCollectionsForPublication:(id)arg1 skipAssetCollections:(id)arg2;
 - (void)submitAssetCollectionsForPublication:(id)arg1;
+- (void)submitAssetCollectionsForPublication:(id)arg1 skipAssetCollections:(id)arg2;
 
 @end

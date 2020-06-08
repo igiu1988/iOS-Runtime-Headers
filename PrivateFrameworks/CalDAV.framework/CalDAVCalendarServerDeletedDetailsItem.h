@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/CalDAV.framework/CalDAV
  */
 
-@class ICSDateValue, NSString;
-
 @interface CalDAVCalendarServerDeletedDetailsItem : CoreDAVItem {
-    NSString *_componentType;
-    NSString *_displayName;
-    BOOL _hadMoreInstances;
-    ICSDateValue *_nextInstance;
-    NSString *_summary;
+    NSString * _componentType;
+    NSString * _displayName;
+    bool  _hadMoreInstances;
+    ICSDateValue * _nextInstance;
+    NSString * _summary;
 }
 
-@property(retain) NSString * componentType;
-@property(retain) NSString * displayName;
-@property BOOL hadMoreInstances;
-@property(retain) ICSDateValue * nextInstance;
-@property(retain) NSString * summary;
+@property (nonatomic, retain) NSString *componentType;
+@property (nonatomic, retain) NSString *displayName;
+@property (nonatomic) bool hadMoreInstances;
+@property (nonatomic, retain) ICSDateValue *nextInstance;
+@property (nonatomic, retain) NSString *summary;
 
+- (void).cxx_destruct;
 - (id)componentType;
 - (id)copyParseRules;
-- (void)dealloc;
 - (id)displayName;
-- (BOOL)hadMoreInstances;
+- (bool)hadMoreInstances;
 - (id)init;
 - (id)nextInstance;
 - (void)setComponentType:(id)arg1;
 - (void)setComponentTypeItem:(id)arg1;
 - (void)setDisplayName:(id)arg1;
 - (void)setDisplayNameItem:(id)arg1;
-- (void)setHadMoreInstances:(BOOL)arg1;
+- (void)setHadMoreInstances:(bool)arg1;
 - (void)setHadMoreInstancesItem:(id)arg1;
 - (void)setNextInstance:(id)arg1;
 - (void)setNextInstanceItem:(id)arg1;

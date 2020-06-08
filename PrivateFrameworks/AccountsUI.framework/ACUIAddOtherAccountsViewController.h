@@ -2,20 +2,21 @@
    Image: /System/Library/PrivateFrameworks/AccountsUI.framework/AccountsUI
  */
 
-@class NSString;
-
 @interface ACUIAddOtherAccountsViewController : PSListController <ACUISetupViewControllerDelegate> {
+    NSString * _filteredDataclass;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
+- (void).cxx_destruct;
 - (id)_specifiersForOtherCalendarAccounts;
 - (id)_specifiersForOtherContactsAccounts;
 - (id)_specifiersForOtherMailAccounts;
 - (id)_viewProvidersManager;
+- (void)setSpecifier:(id)arg1;
 - (void)setupViewControllerDidDismiss:(id)arg1;
 - (id)specifiers;
 

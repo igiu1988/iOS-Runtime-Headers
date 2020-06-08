@@ -2,46 +2,55 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@class BSEventQueueEvent, NSArray, NSHashTable, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
-
-@interface BSEventQueue : NSObject {
-    NSMutableArray *_eventQueue;
-    NSHashTable *_eventQueueLocks;
-    BSEventQueueEvent *_executingEvent;
-    NSString *_name;
-    NSObject<OS_dispatch_queue> *_queue;
+@interface BSEventQueue : NSObject <BSDescriptionProviding> {
+    NSMutableArray * _eventQueue;
+    NSHashTable * _eventQueueLocks;
+    BSEventQueueEvent * _executingEvent;
+    NSString * _name;
+    bool  _processingEvents;
+    NSObject<OS_dispatch_queue> * _queue;
 }
 
-@property(retain) BSEventQueueEvent * executingEvent;
-@property(copy) NSString * name;
-@property(copy,readonly) NSArray * pendingEvents;
-@property(retain) NSObject<OS_dispatch_queue> * queue;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isEmpty, nonatomic, readonly) bool empty;
+@property (nonatomic, retain) BSEventQueueEvent *executingEvent;
+@property (readonly) unsigned long long hash;
+@property (getter=isLocked, nonatomic, readonly) bool locked;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, readonly, copy) NSArray *pendingEvents;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *queue;
+@property (readonly) Class superclass;
 
+- (void).cxx_destruct;
 - (void)_addEventQueueLock:(id)arg1;
 - (void)_executeOrPendEvents:(id)arg1 position:(int)arg2;
+- (void)_noteQueueDidDrain;
 - (void)_noteQueueDidLock;
 - (void)_noteQueueDidUnlock;
-- (void)_noteWillCancelEventsWithName:(id)arg1 count:(unsigned int)arg2;
+- (void)_noteWillCancelEventsWithName:(id)arg1 count:(unsigned long long)arg2;
 - (void)_noteWillExecuteEvent:(id)arg1;
 - (void)_noteWillPendEvents:(id)arg1 atPosition:(int)arg2;
 - (void)_processNextEvent;
 - (void)_removeEventQueueLock:(id)arg1;
-- (BOOL)_shouldProcessEvent:(id)arg1 enqueuedDuringExecutionOfEvent:(id)arg2;
+- (bool)_shouldProcessEvent:(id)arg1 enqueuedDuringExecutionOfEvent:(id)arg2;
 - (id)acquireLockForReason:(id)arg1;
 - (void)cancelEventsWithName:(id)arg1;
-- (void)dealloc;
 - (id)description;
+- (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
+- (id)descriptionWithMultilinePrefix:(id)arg1;
 - (void)executeOrInsertEvent:(id)arg1 atPosition:(int)arg2;
 - (void)executeOrInsertEvents:(id)arg1 atPosition:(int)arg2;
 - (id)executingEvent;
 - (void)flushAllEvents;
 - (void)flushEvents:(id)arg1;
 - (void)flushPendingEvents;
-- (BOOL)hasEventWithName:(id)arg1;
-- (BOOL)hasEventWithPrefix:(id)arg1;
+- (bool)hasEventWithName:(id)arg1;
+- (bool)hasEventWithPrefix:(id)arg1;
 - (id)init;
 - (id)initWithName:(id)arg1 onQueue:(id)arg2;
-- (BOOL)isLocked;
+- (bool)isEmpty;
+- (bool)isLocked;
 - (id)name;
 - (id)pendingEvents;
 - (id)queue;
@@ -49,5 +58,7 @@
 - (void)setExecutingEvent:(id)arg1;
 - (void)setName:(id)arg1;
 - (void)setQueue:(id)arg1;
+- (id)succinctDescription;
+- (id)succinctDescriptionBuilder;
 
 @end

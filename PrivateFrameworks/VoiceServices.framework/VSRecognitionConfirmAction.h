@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/VoiceServices.framework/VoiceServices
  */
 
-@class VSRecognitionAction;
-
 @interface VSRecognitionConfirmAction : VSRecognitionRecognizeAction {
     struct { 
         unsigned int initializing : 1; 
         unsigned int confirmed : 1; 
-    } _confirmFlags;
-    VSRecognitionAction *_confirmedAction;
-    VSRecognitionAction *_deniedAction;
+    }  _confirmFlags;
+    VSRecognitionAction * _confirmedAction;
+    VSRecognitionAction * _deniedAction;
 }
 
-- (void)_setConfirmed:(BOOL)arg1;
+- (void)_setConfirmed:(bool)arg1;
 - (int)completionType;
 - (id)confirmedAction;
 - (void)dealloc;

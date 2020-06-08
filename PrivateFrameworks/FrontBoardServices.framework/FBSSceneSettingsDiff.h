@@ -2,27 +2,13 @@
    Image: /System/Library/PrivateFrameworks/FrontBoardServices.framework/FrontBoardServices
  */
 
-@class BSMutableSettings, NSString;
-
-@interface FBSSceneSettingsDiff : NSObject <BSXPCCoding> {
-    BSMutableSettings *_changes;
-}
-
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@interface FBSSceneSettingsDiff : FBSSettingsDiff
 
 + (id)diffFromSettings:(id)arg1 toSettings:(id)arg2;
 
-- (id)_initWithChanges:(id)arg1;
-- (void)dealloc;
-- (id)description;
-- (void)encodeWithXPCDictionary:(id)arg1;
-- (id)init;
-- (id)initWithXPCDictionary:(id)arg1;
-- (void)inspectChangesWithBlock:(id)arg1;
-- (void)inspectOtherChangesWithBlock:(id)arg1;
+- (void)evaluateWithInspector:(id)arg1 context:(void*)arg2;
+- (id)keyDescriptionForSetting:(unsigned long long)arg1;
 - (id)settingsByApplyingToMutableCopyOfSettings:(id)arg1;
+- (id)valueDescriptionForFlag:(long long)arg1 object:(id)arg2 ofSetting:(unsigned long long)arg3;
 
 @end

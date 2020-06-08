@@ -2,86 +2,50 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSString, NSURL;
-
-@interface PKPaymentCredential : NSObject <NSSecureCoding> {
-    NSString *_applicationIdentifier;
-    NSString *_cardSecurityCode;
-    NSString *_cardholderName;
-    int _credentialType;
-    int _eligibilityStatus;
-    NSString *_expiration;
-    NSURL *_iconURL;
-    NSString *_identifier;
-    NSString *_longDescription;
-    NSURL *_passURL;
-    NSString *_primaryAccountNumber;
-    NSString *_sanitizedPrimaryAccountNumber;
-    int _status;
-    NSString *_termsID;
-    NSURL *_termsURL;
+@interface PKPaymentCredential : NSObject {
+    long long  _credentialType;
+    PKPaymentEligibilityResponse * _eligibilityResponse;
+    NSString * _expiration;
+    NSString * _longDescription;
+    PKPaymentRequirementsResponse * _requirementsResponse;
+    NSString * _sanitizedPrimaryAccountNumber;
 }
 
-@property(copy) NSString * applicationIdentifier;
-@property(copy) NSString * cardSecurityCode;
-@property(readonly) NSString * cardTypeDescription;
-@property(copy) NSString * cardholderName;
-@property int credentialType;
-@property int eligibilityStatus;
-@property(readonly) NSString * eligibilityStatusDescription;
-@property(copy) NSString * expiration;
-@property(copy) NSURL * iconURL;
-@property(copy) NSString * identifier;
-@property(copy) NSString * longDescription;
-@property(copy) NSURL * passURL;
-@property(copy) NSString * primaryAccountNumber;
-@property(copy) NSString * sanitizedPrimaryAccountNumber;
-@property int status;
-@property(readonly) NSString * statusDescription;
-@property(copy) NSString * termsID;
-@property(copy) NSURL * termsURL;
+@property (nonatomic) long long credentialType;
+@property (nonatomic, retain) PKPaymentEligibilityResponse *eligibilityResponse;
+@property (nonatomic, copy) NSString *expiration;
+@property (nonatomic, copy) NSString *longDescription;
+@property (nonatomic, retain) PKPaymentRequirementsResponse *requirementsResponse;
+@property (nonatomic, copy) NSString *sanitizedPrimaryAccountNumber;
+@property (getter=isTransitCredential, nonatomic, readonly) bool transitCredential;
 
-+ (id)credentialWithDictionary:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (id)fakeRemoteCredentials;
 
-- (id)applicationIdentifier;
-- (id)cardSecurityCode;
-- (id)cardTypeDescription;
-- (id)cardholderName;
-- (int)credentialType;
-- (void)dealloc;
-- (id)description;
-- (id)dictionary;
-- (int)eligibilityStatus;
-- (id)eligibilityStatusDescription;
-- (void)encodeWithCoder:(id)arg1;
+- (void).cxx_destruct;
+- (id)contactlessProductCredential;
+- (long long)credentialType;
+- (id)digitalIssuanceProductCredential;
+- (id)eligibilityResponse;
 - (id)expiration;
-- (id)iconURL;
-- (id)identifier;
-- (id)init;
-- (id)initWithCoder:(id)arg1;
+- (bool)isContactlessProductCredential;
+- (bool)isDigitalIssuanceProductCredential;
+- (bool)isLocalPassCredential;
+- (bool)isPeerPaymentCredential;
+- (bool)isPurchasedProductCredential;
+- (bool)isRemoteCredential;
+- (bool)isTransitCredential;
+- (id)localPassCredential;
 - (id)longDescription;
-- (id)passURL;
-- (id)primaryAccountNumber;
+- (id)peerPaymentCredential;
+- (id)purchasedProductCredential;
+- (id)remoteCredential;
+- (id)requirementsResponse;
 - (id)sanitizedPrimaryAccountNumber;
-- (void)setApplicationIdentifier:(id)arg1;
-- (void)setCardSecurityCode:(id)arg1;
-- (void)setCardholderName:(id)arg1;
-- (void)setCredentialType:(int)arg1;
-- (void)setEligibilityStatus:(int)arg1;
+- (void)setCredentialType:(long long)arg1;
+- (void)setEligibilityResponse:(id)arg1;
 - (void)setExpiration:(id)arg1;
-- (void)setIconURL:(id)arg1;
-- (void)setIdentifier:(id)arg1;
 - (void)setLongDescription:(id)arg1;
-- (void)setPassURL:(id)arg1;
-- (void)setPrimaryAccountNumber:(id)arg1;
+- (void)setRequirementsResponse:(id)arg1;
 - (void)setSanitizedPrimaryAccountNumber:(id)arg1;
-- (void)setStatus:(int)arg1;
-- (void)setTermsID:(id)arg1;
-- (void)setTermsURL:(id)arg1;
-- (int)status;
-- (id)statusDescription;
-- (id)termsID;
-- (id)termsURL;
 
 @end

@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class AVItemErrorLogInternal, NSArray;
-
 @interface AVItemErrorLog : NSObject <NSCopying> {
-    AVItemErrorLogInternal *_playerItemErrorLog;
+    AVItemErrorLogInternal * _playerItemErrorLog;
 }
 
-@property(readonly) NSArray * events;
+@property (nonatomic, readonly) NSArray *events;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)events;
 - (id)extendedLogData;
-- (unsigned int)extendedLogDataStringEncoding;
+- (unsigned long long)extendedLogDataStringEncoding;
 - (void)finalize;
 - (id)init;
 - (id)initWithLogArray:(id)arg1;

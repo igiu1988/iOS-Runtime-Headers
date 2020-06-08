@@ -2,35 +2,32 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSObject<OS_xpc_object>, NSSet;
-
 @interface PHChangeRequestJob : PLDaemonJob {
-    id _completionHandler;
-    NSSet *_deletes;
-    NSSet *_inserts;
-    NSSet *_updates;
-    NSObject<OS_xpc_object> *_xpcDeletes;
-    NSObject<OS_xpc_object> *_xpcInserts;
-    NSObject<OS_xpc_object> *_xpcUpdates;
+    PLAssetsdClientServiceSender * _clientSender;
+    id /* block */  _completionHandler;
+    NSOrderedSet * _deletes;
+    NSOrderedSet * _inserts;
+    NSOrderedSet * _updates;
+    NSObject<OS_xpc_object> * _xpcDeletes;
+    NSObject<OS_xpc_object> * _xpcInserts;
+    NSObject<OS_xpc_object> * _xpcUpdates;
 }
 
-@property(copy) id completionHandler;
-@property(copy) NSSet * deletes;
-@property(copy) NSSet * inserts;
-@property(copy) NSSet * updates;
-@property(retain) NSObject<OS_xpc_object> * xpcDeletes;
-@property(retain) NSObject<OS_xpc_object> * xpcInserts;
-@property(retain) NSObject<OS_xpc_object> * xpcUpdates;
+@property (nonatomic, retain) PLAssetsdClientServiceSender *clientSender;
+@property (nonatomic, copy) id /* block */ completionHandler;
+@property (nonatomic, copy) NSOrderedSet *deletes;
+@property (nonatomic, copy) NSOrderedSet *inserts;
+@property (nonatomic, copy) NSOrderedSet *updates;
+@property (nonatomic, retain) NSObject<OS_xpc_object> *xpcDeletes;
+@property (nonatomic, retain) NSObject<OS_xpc_object> *xpcInserts;
+@property (nonatomic, retain) NSObject<OS_xpc_object> *xpcUpdates;
 
 + (void)_addChangeRequests:(id)arg1 toXPCDict:(id)arg2 withKey:(const char *)arg3;
-+ (void)applyPhotoKitInserts:(id)arg1 updates:(id)arg2 deletes:(id)arg3 completionHandler:(id)arg4;
++ (void)applyPhotoKitInserts:(id)arg1 updates:(id)arg2 deletes:(id)arg3 completionHandler:(id /* block */)arg4;
 
 - (void).cxx_destruct;
-- (id)completionHandler;
+- (id)clientSender;
+- (id /* block */)completionHandler;
 - (long long)daemonOperation;
 - (id)deletes;
 - (void)encodeToXPCObject:(id)arg1;
@@ -39,7 +36,8 @@
 - (id)inserts;
 - (void)run;
 - (void)runDaemonSide;
-- (void)setCompletionHandler:(id)arg1;
+- (void)setClientSender:(id)arg1;
+- (void)setCompletionHandler:(id /* block */)arg1;
 - (void)setDeletes:(id)arg1;
 - (void)setInserts:(id)arg1;
 - (void)setUpdates:(id)arg1;

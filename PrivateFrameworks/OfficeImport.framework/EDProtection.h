@@ -3,18 +3,19 @@
  */
 
 @interface EDProtection : NSObject <NSCopying> {
-    boolmHidden;
-    boolmLocked;
+    bool  mHidden;
+    bool  mLocked;
 }
 
 + (id)protectionWithHidden:(bool)arg1 locked:(bool)arg2;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned int)hash;
+- (id)description;
+- (unsigned long long)hash;
 - (id)init;
 - (id)initWithHidden:(bool)arg1 locked:(bool)arg2;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToProtection:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToProtection:(id)arg1;
 - (bool)isHidden;
 - (bool)isLocked;
 

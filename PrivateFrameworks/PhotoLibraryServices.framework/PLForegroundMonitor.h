@@ -2,28 +2,22 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSCountedSet, NSMapTable, NSMutableSet, NSObject<OS_dispatch_queue>;
-
 @interface PLForegroundMonitor : NSObject {
-    NSMutableSet *_foregroundApplications;
-    NSCountedSet *_interestingApplications;
-    BOOL _isMonitoringApplicationStates;
-    NSMapTable *_observers;
-    NSObject<OS_dispatch_queue> *_queue;
+    BKSApplicationStateMonitor * _applicationStateMonitor;
+    NSObject<OS_dispatch_queue> * _applicationStateMonitorQueue;
+    <PLForegroundMonitorDelegate> * _delegate;
+    NSMutableSet * _foregroundBundleIDs;
 }
 
-+ (id)sharedInstance;
+@property (nonatomic) <PLForegroundMonitorDelegate> *delegate;
 
-- (void)_applicationDidMoveToBackgroundLocked:(id)arg1;
-- (void)_applicationDidMoveToForegroundLocked:(id)arg1;
-- (void)_applicationStateDidChange:(id)arg1;
-- (void)_startMonitoringApplicationStatesLocked;
-- (void)_stopMonitoringApplicationStatesLocked;
-- (void)addForegroundObserver:(id)arg1 context:(id)arg2;
+- (void).cxx_destruct;
+- (void)_handleApplicationStateMonitorNotificationWithUserInfo:(id)arg1;
+- (void)_locked_applicationDidMoveToBackground:(id)arg1;
+- (void)_locked_applicationDidMoveToForeground:(id)arg1;
 - (void)dealloc;
+- (id)delegate;
 - (id)init;
-- (void)removeForegroundObserver:(id)arg1 context:(id)arg2;
-- (void)startWatchingApplicationWithBundleIdentifier:(id)arg1;
-- (void)stopWatchingApplicationWithBundleIdentifier:(id)arg1;
+- (void)setDelegate:(id)arg1;
 
 @end

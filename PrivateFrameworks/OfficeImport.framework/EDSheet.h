@@ -2,39 +2,38 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDColorReference, EDHeaderFooter, EDPageSetup, EDProcessors, EDString, EDWarnings, EDWorkbook, ESDContainer, NSMutableArray, OITSUPointerKeyDictionary;
-
 @interface EDSheet : OCDDelayedNode {
-    boolmDisplayFormulas;
-    boolmDisplayGridlines;
-    boolmHidden;
-    boolmIsDialogSheet;
-    OITSUPointerKeyDictionary *mCommentMap;
-    EDColorReference *mDefaultGridlineColorReference;
-    NSMutableArray *mDrawables;
-    ESDContainer *mEscherDrawing;
-    EDHeaderFooter *mHeaderFooter;
-    EDString *mName;
-    EDPageSetup *mPageSetup;
-    EDProcessors *mProcessors;
-    OITSUPointerKeyDictionary *mTextBoxMap;
-    EDWarnings *mWarnings;
-    EDWorkbook *mWorkbook;
+    OITSUPointerKeyDictionary * mCommentMap;
+    EDColorReference * mDefaultGridlineColorReference;
+    bool  mDisplayFormulas;
+    bool  mDisplayGridlines;
+    NSMutableArray * mDrawables;
+    ESDContainer * mEscherDrawing;
+    EDHeaderFooter * mHeaderFooter;
+    bool  mHidden;
+    bool  mIsDialogSheet;
+    EDString * mName;
+    EDPageSetup * mPageSetup;
+    EDProcessors * mProcessors;
+    OITSUPointerKeyDictionary * mTextBoxMap;
+    EDWarnings * mWarnings;
+    EDWorkbook * mWorkbook;
 }
 
-@property bool isDialogSheet;
+@property (nonatomic) bool isDialogSheet;
 
 + (id)sheetWithWorkbook:(id)arg1;
 
 - (void)addDrawable:(id)arg1;
 - (void)applyProcessors;
-- (unsigned int)commentCount;
+- (unsigned long long)commentCount;
 - (void)dealloc;
 - (id)defaultGridlineColor;
 - (id)defaultGridlineColorReference;
+- (id)description;
 - (void)doneWithNonRowContent;
-- (id)drawableAtIndex:(unsigned int)arg1;
-- (unsigned int)drawableCount;
+- (id)drawableAtIndex:(unsigned long long)arg1;
+- (unsigned long long)drawableCount;
 - (id)drawableEnumerator;
 - (id)drawables;
 - (id)edCommentForShape:(id)arg1;
@@ -50,7 +49,7 @@
 - (id)pageSetup;
 - (id)processors;
 - (void)reduceMemoryIfPossible;
-- (void)removeDrawableAtIndex:(unsigned int)arg1;
+- (void)removeDrawableAtIndex:(unsigned long long)arg1;
 - (void)setDefaultGridlineColor:(id)arg1;
 - (void)setDefaultGridlineColorReference:(id)arg1;
 - (void)setDisplayFormulas:(bool)arg1;

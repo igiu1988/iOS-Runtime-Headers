@@ -2,28 +2,31 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class BRCContainerMetadataSyncPersistedState, BRCContainerScheduler, NSMutableArray, NSMutableDictionary, NSString;
-
-@interface BRCContainerMetadataSyncDownOperation : BRCOperation <BRCOperationSubclass> {
-    NSMutableArray *_desiredKeysForDesiredAssets;
-    NSMutableArray *_recordIDsForDesiredAssets;
-    NSMutableDictionary *_recordIDsToVersionETagsForDesiredAssets;
-    BRCContainerScheduler *_scheduler;
-    BRCContainerMetadataSyncPersistedState *_state;
+@interface BRCContainerMetadataSyncDownOperation : _BRCOperation <BRCOperationSubclass> {
+    NSMutableSet * _containerIDsUpdated;
+    NSMutableArray * _desiredKeysForDesiredAssets;
+    NSMutableArray * _recordIDsForDesiredAssets;
+    NSMutableDictionary * _recordIDsToVersionETagsForDesiredAssets;
+    BRCAccountSession * _session;
+    bool  _shouldFetchAnotherBatch;
+    BRCContainerMetadataSyncPersistedState * _state;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool shouldFetchAnotherBatch;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (id)initWithContainerScheduler:(id)arg1 state:(id)arg2;
+- (void)_completedWithServerChangeToken:(id)arg1;
+- (id)createActivity;
+- (id)initWithSession:(id)arg1 state:(id)arg2;
 - (void)main;
-- (void)performAfterCreatingZoneIfNeeded:(id)arg1;
-- (void)performAfterFetchingAssetContents:(id)arg1;
-- (void)performAfterFetchingRecordChanges:(id)arg1;
-- (void)performAfterSubscribingToZoneIfNeeded:(id)arg1;
-- (BOOL)shouldRetryForError:(id)arg1;
+- (void)performAfterCreatingZoneIfNeeded:(id /* block */)arg1;
+- (void)performAfterFetchingAssetContents:(id /* block */)arg1;
+- (void)performAfterFetchingRecordChanges:(id /* block */)arg1;
+- (bool)shouldFetchAnotherBatch;
+- (bool)shouldRetryForError:(id)arg1;
 
 @end

@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class SLFacebookLoginInfoCellContentView;
-
 @interface SLFacebookLoginInfoCell : UITableViewCell {
-    SLFacebookLoginInfoCellContentView *_infoView;
+    SLFacebookLoginInfoCellContentView * _infoView;
 }
 
-+ (float)desiredRowHeightForWidth:(float)arg1;
++ (double)desiredRowHeightForWidth:(double)arg1;
 
 - (void).cxx_destruct;
 - (void)layoutSubviews;

@@ -2,26 +2,27 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKUIArtworkList, SKUILink;
-
 @interface SKUICarouselItem : NSObject {
-    NSString *_accessibilityLabel;
-    SKUIArtworkList *_artworkList;
-    long long _carouselItemIdentifier;
-    SKUILink *_link;
+    NSString * _accessibilityLabel;
+    <SKUIArtworkProviding> * _artworkProvider;
+    long long  _carouselItemIdentifier;
+    SKUILink * _link;
 }
 
-@property(readonly) NSString * accessibilityLabel;
-@property(readonly) long long carouselItemIdentifier;
-@property(readonly) SKUILink * link;
+@property (nonatomic, readonly) NSString *accessibilityLabel;
+@property (nonatomic, retain) <SKUIArtworkProviding> *artworkProvider;
+@property (nonatomic, readonly) long long carouselItemIdentifier;
+@property (nonatomic, readonly) SKUILink *link;
 
 - (void).cxx_destruct;
 - (void)_setLinkItem:(id)arg1;
 - (id)accessibilityLabel;
-- (id)artworkForSize:(struct CGSize { float x1; float x2; })arg1;
+- (id)artworkForSize:(struct CGSize { double x1; double x2; })arg1;
+- (id)artworkProvider;
 - (long long)carouselItemIdentifier;
 - (id)description;
 - (id)initWithComponentContext:(id)arg1;
 - (id)link;
+- (void)setArtworkProvider:(id)arg1;
 
 @end

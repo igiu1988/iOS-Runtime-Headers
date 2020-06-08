@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSMutableDictionary;
-
 @interface CKOperationFlowControlManager : NSObject {
-    NSMutableDictionary *_flowControlledOperationClasses;
+    NSMutableDictionary * _flowControlledOperationKeys;
 }
 
-@property(readonly) NSMutableDictionary * flowControlledOperationClasses;
+@property (readonly) NSMutableDictionary *flowControlledOperationKeys;
 
 - (void).cxx_destruct;
-- (id)flowControlledOperationClasses;
+- (id)CKStatusReportArray;
+- (id)flowControlledOperationKeys;
 - (id)init;
-- (BOOL)isOperationLimited:(id)arg1;
-- (void)limitOperation:(id)arg1 retryAfter:(id)arg2;
+- (bool)isOperationLimited:(id)arg1 outLimitError:(id*)arg2;
+- (void)limitOperation:(id)arg1 retryAfter:(id)arg2 error:(id)arg3;
 - (double)secondsUntilUnlimited:(id)arg1;
-- (id)statusReport;
 - (void)unlimitAllOperations;
 
 @end

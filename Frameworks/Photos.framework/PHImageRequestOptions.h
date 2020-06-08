@@ -2,84 +2,105 @@
    Image: /System/Library/Frameworks/Photos.framework/Photos
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface PHImageRequestOptions : NSObject <NSCopying> {
+    bool  _allowPlaceholder;
+    bool  _allowSecondaryOpportunisticImage;
+    double  _aspectRatioHint;
+    id /* block */  _cachingCompletedHandler;
+    bool  _deliveryFirstResultAsynchronously;
+    long long  _deliveryMode;
+    double  _demoteFactor;
+    double  _downloadUpdateInterval;
+    long long  _loadingMode;
+    bool  _memoryCachingAllowed;
+    bool  _networkAccessAllowed;
     struct CGRect { 
         struct CGPoint { 
-            float x; 
-            float y; 
+            double x; 
+            double y; 
         } origin; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } size; 
-    BOOL _allowPlaceholder;
-    double _aspectRatioHint;
-    BOOL _deliveryFirstResultAsynchronously;
-    int _deliveryMode;
-    double _demoteFactor;
-    double _downloadUpdateInterval;
-    int _loadingMode;
-    BOOL _networkAccessAllowed;
-    } _normalizedCropRect;
-    id _progressHandler;
-    int _rank;
-    int _resizeMode;
-    BOOL _synchronous;
-    int _version;
+    }  _normalizedCropRect;
+    id /* block */  _progressHandler;
+    long long  _rank;
+    int  _requestID;
+    long long  _resizeMode;
+    NSObject<OS_dispatch_queue> * _resultHandlerQueue;
+    bool  _routeToNewImageManager;
+    bool  _synchronous;
+    long long  _version;
 }
 
-@property BOOL allowPlaceholder;
-@property double aspectRatioHint;
-@property BOOL deliveryFirstResultAsynchronously;
-@property int deliveryMode;
-@property double demoteFactor;
-@property double downloadUpdateInterval;
-@property int loadingMode;
-@property(getter=isNetworkAccessAllowed) BOOL networkAccessAllowed;
-@property struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; } normalizedCropRect;
-@property(copy) id progressHandler;
-@property int rank;
-@property int resizeMode;
-@property(getter=isSynchronous) BOOL synchronous;
-@property int version;
+@property (nonatomic) bool allowPlaceholder;
+@property (nonatomic) bool allowSecondaryOpportunisticImage;
+@property (nonatomic) double aspectRatioHint;
+@property (nonatomic, copy) id /* block */ cachingCompletedHandler;
+@property (nonatomic) bool deliveryFirstResultAsynchronously;
+@property (nonatomic) long long deliveryMode;
+@property (nonatomic) double demoteFactor;
+@property (nonatomic) double downloadUpdateInterval;
+@property (nonatomic) long long loadingMode;
+@property (getter=isMemoryCachingAllowed, nonatomic) bool memoryCachingAllowed;
+@property (getter=isNetworkAccessAllowed, nonatomic) bool networkAccessAllowed;
+@property (nonatomic) struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; } normalizedCropRect;
+@property (nonatomic, copy) id /* block */ progressHandler;
+@property (nonatomic) long long rank;
+@property (nonatomic) int requestID;
+@property (nonatomic) long long resizeMode;
+@property (nonatomic, retain) NSObject<OS_dispatch_queue> *resultHandlerQueue;
+@property (nonatomic) bool routeToNewImageManager;
+@property (getter=isSynchronous, nonatomic) bool synchronous;
+@property (nonatomic) long long version;
 
 + (id)defaultOptionsAllowingPlaceholder;
 
 - (void).cxx_destruct;
-- (BOOL)allowPlaceholder;
+- (bool)allowPlaceholder;
+- (bool)allowSecondaryOpportunisticImage;
 - (double)aspectRatioHint;
+- (id /* block */)cachingCompletedHandler;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (BOOL)deliveryFirstResultAsynchronously;
-- (int)deliveryMode;
+- (bool)deliveryFirstResultAsynchronously;
+- (long long)deliveryMode;
 - (double)demoteFactor;
 - (id)description;
 - (double)downloadUpdateInterval;
 - (id)init;
-- (BOOL)isNetworkAccessAllowed;
-- (BOOL)isSynchronous;
-- (int)loadingMode;
-- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })normalizedCropRect;
-- (id)progressHandler;
-- (int)rank;
-- (int)resizeMode;
-- (void)setAllowPlaceholder:(BOOL)arg1;
+- (bool)isMemoryCachingAllowed;
+- (bool)isNetworkAccessAllowed;
+- (bool)isSynchronous;
+- (long long)loadingMode;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })normalizedCropRect;
+- (id /* block */)progressHandler;
+- (long long)rank;
+- (int)requestID;
+- (int)requestIDOrNextIfInvalid;
+- (long long)resizeMode;
+- (id)resultHandlerQueue;
+- (bool)routeToNewImageManager;
+- (void)setAllowPlaceholder:(bool)arg1;
+- (void)setAllowSecondaryOpportunisticImage:(bool)arg1;
 - (void)setAspectRatioHint:(double)arg1;
-- (void)setDeliveryFirstResultAsynchronously:(BOOL)arg1;
-- (void)setDeliveryMode:(int)arg1;
+- (void)setCachingCompletedHandler:(id /* block */)arg1;
+- (void)setDeliveryFirstResultAsynchronously:(bool)arg1;
+- (void)setDeliveryMode:(long long)arg1;
 - (void)setDemoteFactor:(double)arg1;
 - (void)setDownloadUpdateInterval:(double)arg1;
-- (void)setLoadingMode:(int)arg1;
-- (void)setNetworkAccessAllowed:(BOOL)arg1;
-- (void)setNormalizedCropRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (void)setProgressHandler:(id)arg1;
-- (void)setRank:(int)arg1;
-- (void)setResizeMode:(int)arg1;
-- (void)setSynchronous:(BOOL)arg1;
-- (void)setVersion:(int)arg1;
-- (int)version;
+- (void)setLoadingMode:(long long)arg1;
+- (void)setMemoryCachingAllowed:(bool)arg1;
+- (void)setNetworkAccessAllowed:(bool)arg1;
+- (void)setNormalizedCropRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setProgressHandler:(id /* block */)arg1;
+- (void)setRank:(long long)arg1;
+- (void)setRequestID:(int)arg1;
+- (void)setResizeMode:(long long)arg1;
+- (void)setResultHandlerQueue:(id)arg1;
+- (void)setRouteToNewImageManager:(bool)arg1;
+- (void)setSynchronous:(bool)arg1;
+- (void)setVersion:(long long)arg1;
+- (long long)version;
 
 @end

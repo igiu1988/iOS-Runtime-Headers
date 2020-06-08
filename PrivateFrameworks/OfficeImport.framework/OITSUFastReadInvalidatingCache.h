@@ -2,24 +2,18 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSArray, NSCondition;
-
 @interface OITSUFastReadInvalidatingCache : NSObject {
-    NSCondition *mCondition;
-    id mGenerator;
-    BOOL mIsGenerating;
-    long long mReaderCount;
-    BOOL mReentrant;
-    NSArray *mToDispose;
-    id mValue;
+    NSCondition * mCondition;
+    id /* block */  mGenerator;
+    bool  mIsGenerating;
+    long long  mReaderCount;
+    bool  mReentrant;
+    id  mToDispose;
+    id  mValue;
 }
 
 - (void)dealloc;
-- (id)initForReentrant:(BOOL)arg1 withGenerator:(id)arg2;
+- (id)initForReentrant:(bool)arg1 withGenerator:(id /* block */)arg2;
 - (void)invalidate;
 - (void)p_setValue:(id)arg1;
 - (id)value;

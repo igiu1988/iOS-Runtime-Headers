@@ -2,23 +2,22 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSNumber, NSString;
+@interface SAAlarmObject : SADomainObject
 
-@interface SAAlarmObject : SADomainObject {
-}
-
-@property(copy) NSNumber * enabled;
-@property(copy) NSArray * frequency;
-@property(copy) NSNumber * hour;
-@property(copy) NSString * label;
-@property(copy) NSNumber * minute;
-@property(copy) NSNumber * relativeOffsetMinutes;
+@property (nonatomic, copy) NSNumber *enabled;
+@property (nonatomic, copy) NSNumber *firing;
+@property (nonatomic, copy) NSArray *frequency;
+@property (nonatomic, copy) NSNumber *hour;
+@property (nonatomic, copy) NSString *label;
+@property (nonatomic, copy) NSNumber *minute;
+@property (nonatomic, copy) NSNumber *relativeOffsetMinutes;
 
 + (id)object;
 + (id)objectWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)enabled;
 - (id)encodedClassName;
+- (id)firing;
 - (id)frequency;
 - (id)groupIdentifier;
 - (id)hour;
@@ -26,11 +25,11 @@
 - (id)minute;
 - (id)relativeOffsetMinutes;
 - (void)setEnabled:(id)arg1;
+- (void)setFiring:(id)arg1;
 - (void)setFrequency:(id)arg1;
 - (void)setHour:(id)arg1;
 - (void)setLabel:(id)arg1;
 - (void)setMinute:(id)arg1;
 - (void)setRelativeOffsetMinutes:(id)arg1;
-- (void)updateUsingSet:(id)arg1 add:(id)arg2 remove:(id)arg3;
 
 @end

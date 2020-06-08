@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADColor;
-
 @interface OADFontReference : NSObject <NSCopying> {
-    OADColor *mColor;
-    int mIndex;
+    OADColor * mColor;
+    int  mIndex;
 }
 
 - (void)applyToParagraphProperties:(id)arg1;
@@ -14,9 +12,9 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (int)index;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)setIndex:(int)arg1;
 

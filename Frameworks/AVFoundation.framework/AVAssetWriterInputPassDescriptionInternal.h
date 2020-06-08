@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSArray;
-
 @interface AVAssetWriterInputPassDescriptionInternal : NSObject {
-    NSArray *timeRanges;
+    NSArray * timeRanges;
 }
 
 @end

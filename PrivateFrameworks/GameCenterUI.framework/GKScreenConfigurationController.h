@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@class GKEventEmitter;
-
 @interface GKScreenConfigurationController : NSObject {
-    GKEventEmitter *_emitter;
-    float _greatestScreenScale;
+    GKEventEmitter * _emitter;
+    double  _greatestScreenScale;
 }
 
-@property(retain) GKEventEmitter * emitter;
-@property(readonly) float greatestScreenScale;
+@property (nonatomic, retain) GKEventEmitter *emitter;
+@property (readonly) double greatestScreenScale;
 
-+ (float)_scaleForCurrentDisplayConfiguration;
++ (double)_scaleForCurrentDisplayConfiguration;
 + (id)sharedController;
 
 - (void)_screensDidChange:(id)arg1;
 - (void)dealloc;
 - (id)emitter;
-- (float)greatestScreenScale;
+- (double)greatestScreenScale;
 - (id)init;
 - (void)registerListener:(id)arg1;
 - (void)setEmitter:(id)arg1;

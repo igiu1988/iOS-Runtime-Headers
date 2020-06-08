@@ -2,44 +2,46 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class IMHandle, NSDate;
+@interface CKBalloonChatItem : CKChatItem
 
-@interface CKBalloonChatItem : CKChatItem {
-    BOOL _isFirstChatItem;
-}
+@property (nonatomic, readonly) unsigned long long balloonCorners;
+@property (nonatomic, readonly) BOOL balloonOrientation;
+@property (nonatomic, readonly) BOOL balloonShape;
+@property (nonatomic, readonly) Class balloonViewClass;
+@property (nonatomic, readonly) bool failed;
+@property (getter=isFromMe, nonatomic, readonly) bool fromMe;
+@property (nonatomic, readonly) Class impactBalloonViewClass;
+@property (nonatomic, readonly) IMHandle *sender;
+@property (nonatomic, readonly) bool shouldCacheSize;
+@property (nonatomic, readonly) BOOL tailShape;
+@property (nonatomic, readonly) NSDate *time;
 
-@property(readonly) unsigned int balloonCorners;
-@property(readonly) BOOL balloonOrientation;
-@property(readonly) Class balloonViewClass;
-@property(readonly) BOOL failed;
-@property(getter=isFromMe,readonly) BOOL fromMe;
-@property BOOL isFirstChatItem;
-@property(retain,readonly) IMHandle * sender;
-@property(retain,readonly) NSDate * time;
-
-- (unsigned int)balloonCorners;
+- (unsigned long long)balloonCorners;
+- (struct CKBalloonDescriptor_t { BOOL x1; BOOL x2; BOOL x3; BOOL x4; unsigned long long x5; BOOL x6; bool x7; bool x8; bool x9; })balloonDescriptor;
 - (BOOL)balloonOrientation;
+- (BOOL)balloonShape;
 - (Class)balloonViewClass;
 - (Class)cellClass;
 - (id)cellIdentifier;
 - (void)configureBalloonView:(id)arg1;
-- (id)contactImage;
-- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })contentInsets;
+- (id)contact;
+- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })contentInsets;
 - (id)description;
-- (BOOL)displayDuringSend;
-- (BOOL)failed;
-- (BOOL)isEditable;
-- (BOOL)isFirstChatItem;
-- (BOOL)isFromMe;
-- (struct CGSize { float x1; float x2; })loadSizeThatFits:(struct CGSize { float x1; float x2; })arg1 textAlignmentInsets:(out struct UIEdgeInsets { float x1; float x2; float x3; float x4; }*)arg2;
+- (bool)displayDuringSend;
+- (bool)failed;
+- (Class)impactBalloonViewClass;
+- (bool)isEditable;
+- (bool)isFromMe;
+- (struct CGSize { double x1; double x2; })loadSizeThatFits:(struct CGSize { double x1; double x2; })arg1 textAlignmentInsets:(out struct UIEdgeInsets { double x1; double x2; double x3; double x4; }*)arg2;
 - (id)loadTranscriptDrawerText;
-- (BOOL)needsAdjustedTextAlignmentInsets;
-- (BOOL)needsPreservedAspectRatio;
+- (bool)needsAdjustedTextAlignmentInsets;
+- (bool)needsPreservedAspectRatio;
 - (id)sender;
-- (void)setIsFirstChatItem:(BOOL)arg1;
+- (bool)shouldCacheSize;
+- (BOOL)tailShape;
 - (id)time;
 - (BOOL)transcriptOrientation;
-- (struct UIEdgeInsets { float x1; float x2; float x3; float x4; })transcriptTextAlignmentInsets;
-- (BOOL)wantsDrawerLayout;
+- (struct UIEdgeInsets { double x1; double x2; double x3; double x4; })transcriptTextAlignmentInsets;
+- (bool)wantsDrawerLayout;
 
 @end

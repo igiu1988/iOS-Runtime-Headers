@@ -2,52 +2,50 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class AVPlayerItemLegibleOutput, MPAVItem, MPAlternateTextTrack, NSArray, NSDictionary, NSMutableDictionary, NSString;
-
 @interface MPAlternateTracks : NSObject <AVPlayerItemLegibleOutputPushDelegate> {
-    NSDictionary *_alternateTracks;
-    MPAlternateTextTrack *_currentTextTrack;
-    BOOL _disableAlternateTextTrackRendering;
-    MPAVItem *_item;
-    AVPlayerItemLegibleOutput *_legibleOutput;
-    NSArray *_outOfBandTextTracks;
-    NSMutableDictionary *_trackChangeDictionary;
+    NSDictionary * _alternateTracks;
+    MPAlternateTextTrack * _currentTextTrack;
+    bool  _disableAlternateTextTrackRendering;
+    MPAVItem * _item;
+    AVPlayerItemLegibleOutput * _legibleOutput;
+    NSArray * _outOfBandTextTracks;
+    NSMutableDictionary * _trackChangeDictionary;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property BOOL disableAlternateTextTrackRendering;
-@property(readonly) unsigned int hash;
-@property(getter=isLoaded,readonly) BOOL loaded;
-@property(retain) NSArray * outOfBandTextTracks;
-@property(retain) MPAlternateTextTrack * selectedAlternateTextTrack;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) bool disableAlternateTextTrackRendering;
+@property (readonly) unsigned long long hash;
+@property (getter=isLoaded, nonatomic, readonly) bool loaded;
+@property (nonatomic, retain) NSArray *outOfBandTextTracks;
+@property (nonatomic, retain) MPAlternateTextTrack *selectedAlternateTextTrack;
+@property (readonly) Class superclass;
 
 + (id)subtitleLanguages;
 
 - (void).cxx_destruct;
 - (id)_currentTextTrackAccordingToAVF;
-- (id)_keyForTrackType:(unsigned int)arg1;
+- (id)_keyForTrackType:(unsigned long long)arg1;
 - (void)_suppressAVFSubtitleRendering;
 - (void)beginTrackChanges;
 - (void)commitTrackChanges;
-- (id)currentTrackForType:(unsigned int)arg1;
-- (BOOL)disableAlternateTextTrackRendering;
+- (id)currentTrackForType:(unsigned long long)arg1;
+- (bool)disableAlternateTextTrackRendering;
 - (void)enableLegibleOutputIfNecessary;
-- (BOOL)hasTracksForTypes:(unsigned int)arg1;
-- (unsigned int)indexOfCurrentTrackForType:(unsigned int)arg1;
+- (bool)hasTracksForTypes:(unsigned long long)arg1;
+- (unsigned long long)indexOfCurrentTrackForType:(unsigned long long)arg1;
 - (id)initWithItem:(id)arg1;
-- (BOOL)isLoaded;
+- (bool)isLoaded;
 - (void)legibleOutput:(id)arg1 didOutputAttributedStrings:(id)arg2 nativeSampleBuffers:(id)arg3 forItemTime:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg4;
 - (id)outOfBandTextTracks;
 - (void)reloadData;
-- (void)reloadDataWithChangedCaptionDisplayType:(BOOL)arg1;
+- (void)reloadDataWithChangedCaptionDisplayType:(bool)arg1;
 - (id)selectedAlternateTextTrack;
-- (void)setDisableAlternateTextTrackRendering:(BOOL)arg1;
+- (void)setDisableAlternateTextTrackRendering:(bool)arg1;
 - (void)setOutOfBandTextTracks:(id)arg1;
 - (void)setSelectedAlternateTextTrack:(id)arg1;
-- (void)setTrack:(id)arg1 forType:(unsigned int)arg2;
-- (unsigned int)trackCountForTypes:(unsigned int)arg1;
-- (id)tracksForType:(unsigned int)arg1;
+- (void)setTrack:(id)arg1 forType:(unsigned long long)arg2;
+- (unsigned long long)trackCountForTypes:(unsigned long long)arg1;
+- (id)tracksForType:(unsigned long long)arg1;
 
 @end

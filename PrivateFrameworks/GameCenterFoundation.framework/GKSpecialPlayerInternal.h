@@ -2,12 +2,13 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@interface GKSpecialPlayerInternal : GKPlayerInternal {
-}
+@interface GKSpecialPlayerInternal : GKPlayerInternal
+
++ (bool)supportsSecureCoding;
 
 - (id)alias;
 - (id)compositeName;
-- (BOOL)isLoaded;
+- (bool)isLoaded;
 - (id)photos;
 - (id)playerID;
 - (void)setAlias:(id)arg1;

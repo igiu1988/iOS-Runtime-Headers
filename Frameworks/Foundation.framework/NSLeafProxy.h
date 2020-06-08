@@ -2,40 +2,38 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSDocInfo, NSString;
-
 @interface NSLeafProxy <NSCopying> {
-     /* Encoded args for previous method:  */
-    NSString *dir;
-    NSDocInfo *docInfo;
-    NSString *file;
-    Class isa;
-    id realObject;
-    int refCount;
+    NSString * dir;
+    NSDocInfo * docInfo;
+    NSString * file;
+    Class  isa;
+    id  realObject;
+    long long  refCount;
 }
+
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
 + (id)alloc;
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
 + (void)forwardInvocation:(id)arg1;
-+ (/* Warning: Unrecognized filer type: '' using 'void*' */ void*)initialize;
 
-- (BOOL)_isDeallocating;
-- (BOOL)_tryRetain;
+- (bool)_isDeallocating;
+- (bool)_tryRetain;
 - (id)autorelease;
 - (id)copy;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (void)forwardInvocation:(id)arg1;
 - (id)initDir:(id)arg1 file:(id)arg2 docInfo:(id)arg3;
-- (BOOL)isProxy;
+- (bool)isProxy;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)reallyDealloc;
 - (void)release;
 - (id)retain;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
+
+// Image: /usr/lib/libobjc.A.dylib
+
++ (void)initialize:(void *)arg1; // needs 1 arg types, found 5: short, /* Warning: Unrecognized filer type: '"' using 'void*' */ void*, char *, short, /* Warning: Unrecognized filer type: ',' using 'void*' */ void*
 
 @end

@@ -2,16 +2,13 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray, NSString;
+@interface SAAlarmDelete : SADomainCommand <SAAlarmAlarmAction>
 
-@interface SAAlarmDelete : SADomainCommand <SAAlarmAlarmAction> {
-}
-
-@property(copy) NSArray * alarmIds;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSArray *alarmIds;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)delete;
 + (id)deleteWithDictionary:(id)arg1 context:(id)arg2;
@@ -19,7 +16,7 @@
 - (id)alarmIds;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (BOOL)requiresResponse;
+- (bool)requiresResponse;
 - (void)setAlarmIds:(id)arg1;
 
 @end

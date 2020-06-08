@@ -2,29 +2,26 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString;
+@interface SAWatchData : AceObject <SAAceSerializable>
 
-@interface SAWatchData : AceObject <SAAceSerializable> {
-}
-
-@property BOOL configuredForLeftWrist;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) NSString * interfaceOrientation;
-@property(readonly) Class superclass;
-@property BOOL wristDetected;
+@property (nonatomic) bool configuredForLeftWrist;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSString *interfaceOrientation;
+@property (readonly) Class superclass;
+@property (nonatomic) bool victoryDevice;
 
 + (id)watchData;
 + (id)watchDataWithDictionary:(id)arg1 context:(id)arg2;
 
-- (BOOL)configuredForLeftWrist;
+- (bool)configuredForLeftWrist;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 - (id)interfaceOrientation;
-- (void)setConfiguredForLeftWrist:(BOOL)arg1;
+- (void)setConfiguredForLeftWrist:(bool)arg1;
 - (void)setInterfaceOrientation:(id)arg1;
-- (void)setWristDetected:(BOOL)arg1;
-- (BOOL)wristDetected;
+- (void)setVictoryDevice:(bool)arg1;
+- (bool)victoryDevice;
 
 @end

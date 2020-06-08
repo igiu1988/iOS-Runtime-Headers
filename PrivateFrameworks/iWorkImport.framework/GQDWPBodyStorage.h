@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDWPLayoutStorage;
-
 @interface GQDWPBodyStorage : GQDWPStorage {
-    GQDWPLayoutStorage *mFootnotes;
+    GQDWPLayoutStorage * mFootnotes;
 }
 
 - (struct __CFArray { }*)body;

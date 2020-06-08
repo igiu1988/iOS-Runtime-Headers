@@ -2,10 +2,12 @@
    Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
  */
 
-@interface CKDResetUserPrivacySettingsOperation : CKDOperation {
-}
+@interface CKDResetUserPrivacySettingsOperation : CKDOperation
 
++ (long long)isPredominatelyDownload;
+
+- (id)activityCreate;
 - (void)main;
-- (BOOL)shouldCheckAppVersion;
+- (bool)shouldCheckAppVersion;
 
 @end

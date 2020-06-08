@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@interface OITSUAssertionHandler : NSAssertionHandler {
-}
+@interface OITSUAssertionHandler : NSObject
 
-+ (id)currentHandler;
-+ (void)installAsNSHandler;
-+ (id)performBlockIgnoringAssertions:(id)arg1;
-+ (void)testCaseStarted:(id)arg1;
-+ (void)testCaseStopped:(id)arg1;
-
-- (void)handleFailureInFunction:(id)arg1 file:(id)arg2 lineNumber:(int)arg3 description:(id)arg4;
-- (void)handleFailureInMethod:(SEL)arg1 object:(id)arg2 file:(id)arg3 lineNumber:(int)arg4 description:(id)arg5;
-- (void)handleFailureWithLocation:(id)arg1 file:(id)arg2 lineNumber:(int)arg3 description:(id)arg4 arguments:(void*)arg5;
++ (int)_atomicIncrementAssertCount;
++ (void)handleFailureInFunction:(id)arg1 file:(id)arg2 lineNumber:(long long)arg3 isFatal:(bool)arg4 description:(const char *)arg5;
++ (void)logBacktrace;
++ (void)logBacktraceThrottled;
++ (id)p_performBlockIgnoringAssertions:(id /* block */)arg1 onlyFatal:(bool)arg2;
++ (id)performBlockIgnoringAssertions:(id /* block */)arg1;
++ (id)performBlockIgnoringFatalAssertions:(id /* block */)arg1;
++ (void)simulateCrashWithMessage:(id)arg1;
 
 @end

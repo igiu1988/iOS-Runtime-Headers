@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/ManagedConfiguration.framework/ManagedConfiguration
  */
 
-@class NSDate, NSString;
-
 @interface MCProfileInfo : NSObject <NSSecureCoding> {
-    NSString *_UUID;
-    NSDate *_expiryDate;
-    NSString *_friendlyName;
-    NSString *_identifier;
-    NSString *_organization;
-    NSString *_profileDescription;
+    NSString * _UUID;
+    NSDate * _expiryDate;
+    NSString * _friendlyName;
+    NSString * _identifier;
+    NSString * _organization;
+    NSString * _profileDescription;
 }
 
-@property(retain) NSString * UUID;
-@property(retain) NSDate * expiryDate;
-@property(retain) NSString * friendlyName;
-@property(retain) NSString * identifier;
-@property(retain) NSString * organization;
-@property(retain) NSString * profileDescription;
+@property (nonatomic, retain) NSString *UUID;
+@property (nonatomic, retain) NSDate *expiryDate;
+@property (nonatomic, retain) NSString *friendlyName;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, retain) NSString *organization;
+@property (nonatomic, retain) NSString *profileDescription;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)UUID;

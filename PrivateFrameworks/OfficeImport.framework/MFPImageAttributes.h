@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary;
-
 @interface MFPImageAttributes : NSObject {
-    NSMutableDictionary *mColorAdjustMap;
+    NSMutableDictionary * mColorAdjustMap;
 }
 
 - (id)colorAdjustWithType:(int)arg1;

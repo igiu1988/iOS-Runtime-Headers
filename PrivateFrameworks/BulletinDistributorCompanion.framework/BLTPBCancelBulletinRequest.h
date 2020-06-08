@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
  */
 
-@class NSString;
-
 @interface BLTPBCancelBulletinRequest : PBRequest <NSCopying> {
+    double  _date;
+    unsigned int  _feed;
     struct { 
         unsigned int date : 1; 
         unsigned int feed : 1; 
-    double _date;
-    unsigned int _feed;
-    } _has;
-    NSString *_publisherMatchID;
-    NSString *_universalSectionID;
+    }  _has;
+    NSString * _publisherMatchID;
+    NSString * _universalSectionID;
 }
 
-@property double date;
-@property unsigned int feed;
-@property BOOL hasDate;
-@property BOOL hasFeed;
-@property(readonly) BOOL hasPublisherMatchID;
-@property(readonly) BOOL hasUniversalSectionID;
-@property(retain) NSString * publisherMatchID;
-@property(retain) NSString * universalSectionID;
+@property (nonatomic) double date;
+@property (nonatomic) unsigned int feed;
+@property (nonatomic) bool hasDate;
+@property (nonatomic) bool hasFeed;
+@property (nonatomic, readonly) bool hasPublisherMatchID;
+@property (nonatomic, readonly) bool hasUniversalSectionID;
+@property (nonatomic, retain) NSString *publisherMatchID;
+@property (nonatomic, retain) NSString *universalSectionID;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -31,19 +29,19 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)feed;
-- (BOOL)hasDate;
-- (BOOL)hasFeed;
-- (BOOL)hasPublisherMatchID;
-- (BOOL)hasUniversalSectionID;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasDate;
+- (bool)hasFeed;
+- (bool)hasPublisherMatchID;
+- (bool)hasUniversalSectionID;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)publisherMatchID;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setDate:(double)arg1;
 - (void)setFeed:(unsigned int)arg1;
-- (void)setHasDate:(BOOL)arg1;
-- (void)setHasFeed:(BOOL)arg1;
+- (void)setHasDate:(bool)arg1;
+- (void)setHasFeed:(bool)arg1;
 - (void)setPublisherMatchID:(id)arg1;
 - (void)setUniversalSectionID:(id)arg1;
 - (id)universalSectionID;

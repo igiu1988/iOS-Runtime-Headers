@@ -2,16 +2,15 @@
    Image: /System/Library/Frameworks/CoreData.framework/CoreData
  */
 
-@class NSManagedObjectContext;
-
 @interface _NSMemoryStorePredicateRemapper : NSObject {
-    NSManagedObjectContext *_context;
+    NSManagedObjectContext * _context;
 }
 
 + (id)defaultInstance;
++ (void)initialize;
 
-- (id)createPredicateForFetchFromPredicate:(id)arg1 withContext:(id)arg2;
 - (id)createPredicateForFetchFromPredicate:(id)arg1;
+- (id)createPredicateForFetchFromPredicate:(id)arg1 withContext:(id)arg2;
 - (void)dealloc;
 - (id)init;
 - (id)initWithContext:(id)arg1;

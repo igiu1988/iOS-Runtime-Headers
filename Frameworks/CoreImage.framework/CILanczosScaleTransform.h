@@ -2,26 +2,25 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, NSNumber;
-
 @interface CILanczosScaleTransform : CIFilter {
-    NSNumber *inputAspectRatio;
-    CIImage *inputImage;
-    NSNumber *inputScale;
+    NSNumber * inputAspectRatio;
+    CIImage * inputImage;
+    NSNumber * inputScale;
 }
 
-@property(retain) NSNumber * inputAspectRatio;
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputScale;
+@property (nonatomic, retain) NSNumber *inputAspectRatio;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputScale;
 
 + (id)customAttributes;
 
-- (BOOL)_isIdentity;
+- (bool)_isIdentity;
 - (id)inputAspectRatio;
 - (id)inputImage;
 - (id)inputScale;
 - (id)outputImage;
-- (void)setDefaults;
+- (id)outputImageNewScaleX:(double)arg1 scaleY:(double)arg2;
+- (id)outputImageOldScaleX:(double)arg1 scaleY:(double)arg2;
 - (void)setInputAspectRatio:(id)arg1;
 - (void)setInputImage:(id)arg1;
 - (void)setInputScale:(id)arg1;

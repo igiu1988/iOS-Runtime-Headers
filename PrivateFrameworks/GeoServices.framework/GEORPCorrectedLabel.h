@@ -2,50 +2,71 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOMapRegion, NSString;
-
 @interface GEORPCorrectedLabel : PBCodable <NSCopying> {
-    NSString *_correctedValue;
-    struct { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; struct { unsigned int x_5_1_1 : 1; unsigned int x_5_1_2 : 1; unsigned int x_5_1_3 : 1; unsigned int x_5_1_4 : 1; } x5; } *_featureHandles;
-    unsigned int _featureHandlesCount;
-    unsigned int _featureHandlesSpace;
-    GEOMapRegion *_featureRegion;
-    NSString *_originalValue;
+    GEOLatLng * _coordinate;
+    NSString * _correctedValue;
+    NSMutableArray * _featureHandles;
+    GEOMapRegion * _featureRegion;
+    struct { 
+        unsigned int uid : 1; 
+        unsigned int localizedLabels : 1; 
+    }  _has;
+    bool  _localizedLabels;
+    NSString * _originalValue;
+    unsigned long long  _uid;
 }
 
-@property(retain) NSString * correctedValue;
-@property(readonly) struct { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; struct { unsigned int x_5_1_1 : 1; unsigned int x_5_1_2 : 1; unsigned int x_5_1_3 : 1; unsigned int x_5_1_4 : 1; } x5; }* featureHandles;
-@property(readonly) unsigned int featureHandlesCount;
-@property(retain) GEOMapRegion * featureRegion;
-@property(readonly) BOOL hasCorrectedValue;
-@property(readonly) BOOL hasFeatureRegion;
-@property(readonly) BOOL hasOriginalValue;
-@property(retain) NSString * originalValue;
+@property (nonatomic, retain) GEOLatLng *coordinate;
+@property (nonatomic, retain) NSString *correctedValue;
+@property (nonatomic, retain) NSMutableArray *featureHandles;
+@property (nonatomic, retain) GEOMapRegion *featureRegion;
+@property (nonatomic, readonly) bool hasCoordinate;
+@property (nonatomic, readonly) bool hasCorrectedValue;
+@property (nonatomic, readonly) bool hasFeatureRegion;
+@property (nonatomic) bool hasLocalizedLabels;
+@property (nonatomic, readonly) bool hasOriginalValue;
+@property (nonatomic) bool hasUid;
+@property (nonatomic) bool localizedLabels;
+@property (nonatomic, retain) NSString *originalValue;
+@property (nonatomic) unsigned long long uid;
 
-- (void)addFeatureHandle:(struct { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; struct { unsigned int x_5_1_1 : 1; unsigned int x_5_1_2 : 1; unsigned int x_5_1_3 : 1; unsigned int x_5_1_4 : 1; } x5; })arg1;
++ (Class)featureHandleType;
+
+- (void).cxx_destruct;
+- (void)addFeatureHandle:(id)arg1;
 - (void)clearFeatureHandles;
+- (id)coordinate;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)correctedValue;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (struct { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; struct { unsigned int x_5_1_1 : 1; unsigned int x_5_1_2 : 1; unsigned int x_5_1_3 : 1; unsigned int x_5_1_4 : 1; } x5; })featureHandleAtIndex:(unsigned int)arg1;
-- (struct { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; struct { unsigned int x_5_1_1 : 1; unsigned int x_5_1_2 : 1; unsigned int x_5_1_3 : 1; unsigned int x_5_1_4 : 1; } x5; }*)featureHandles;
-- (unsigned int)featureHandlesCount;
+- (id)featureHandleAtIndex:(unsigned long long)arg1;
+- (id)featureHandles;
+- (unsigned long long)featureHandlesCount;
 - (id)featureRegion;
-- (BOOL)hasCorrectedValue;
-- (BOOL)hasFeatureRegion;
-- (BOOL)hasOriginalValue;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasCoordinate;
+- (bool)hasCorrectedValue;
+- (bool)hasFeatureRegion;
+- (bool)hasLocalizedLabels;
+- (bool)hasOriginalValue;
+- (bool)hasUid;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
+- (bool)localizedLabels;
 - (void)mergeFrom:(id)arg1;
 - (id)originalValue;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setCoordinate:(id)arg1;
 - (void)setCorrectedValue:(id)arg1;
-- (void)setFeatureHandles:(struct { unsigned int x1; unsigned int x2; unsigned int x3; unsigned int x4; struct { unsigned int x_5_1_1 : 1; unsigned int x_5_1_2 : 1; unsigned int x_5_1_3 : 1; unsigned int x_5_1_4 : 1; } x5; }*)arg1 count:(unsigned int)arg2;
+- (void)setFeatureHandles:(id)arg1;
 - (void)setFeatureRegion:(id)arg1;
+- (void)setHasLocalizedLabels:(bool)arg1;
+- (void)setHasUid:(bool)arg1;
+- (void)setLocalizedLabels:(bool)arg1;
 - (void)setOriginalValue:(id)arg1;
+- (void)setUid:(unsigned long long)arg1;
+- (unsigned long long)uid;
 - (void)writeTo:(id)arg1;
 
 @end

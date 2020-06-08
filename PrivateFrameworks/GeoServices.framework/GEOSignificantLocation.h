@@ -2,55 +2,53 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOLocation, NSString;
-
 @interface GEOSignificantLocation : PBCodable <NSCopying> {
+    double  _confidence;
     struct { 
         unsigned int confidence : 1; 
         unsigned int locationIndex : 1; 
         unsigned int numberOfVisitsBucket : 1; 
-    double _confidence;
-    } _has;
-    NSString *_identifier;
-    GEOLocation *_location;
-    unsigned int _locationIndex;
-    unsigned int _numberOfVisitsBucket;
+    }  _has;
+    NSString * _identifier;
+    GEOLocation * _location;
+    unsigned int  _locationIndex;
+    unsigned int  _numberOfVisitsBucket;
 }
 
-@property double confidence;
-@property BOOL hasConfidence;
-@property(readonly) BOOL hasIdentifier;
-@property(readonly) BOOL hasLocation;
-@property BOOL hasLocationIndex;
-@property BOOL hasNumberOfVisitsBucket;
-@property(retain) NSString * identifier;
-@property(retain) GEOLocation * location;
-@property unsigned int locationIndex;
-@property unsigned int numberOfVisitsBucket;
+@property (nonatomic) double confidence;
+@property (nonatomic) bool hasConfidence;
+@property (nonatomic, readonly) bool hasIdentifier;
+@property (nonatomic, readonly) bool hasLocation;
+@property (nonatomic) bool hasLocationIndex;
+@property (nonatomic) bool hasNumberOfVisitsBucket;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, retain) GEOLocation *location;
+@property (nonatomic) unsigned int locationIndex;
+@property (nonatomic) unsigned int numberOfVisitsBucket;
 
+- (void).cxx_destruct;
 - (double)confidence;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasConfidence;
-- (BOOL)hasIdentifier;
-- (BOOL)hasLocation;
-- (BOOL)hasLocationIndex;
-- (BOOL)hasNumberOfVisitsBucket;
-- (unsigned int)hash;
+- (bool)hasConfidence;
+- (bool)hasIdentifier;
+- (bool)hasLocation;
+- (bool)hasLocationIndex;
+- (bool)hasNumberOfVisitsBucket;
+- (unsigned long long)hash;
 - (id)identifier;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)location;
 - (unsigned int)locationIndex;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)numberOfVisitsBucket;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setConfidence:(double)arg1;
-- (void)setHasConfidence:(BOOL)arg1;
-- (void)setHasLocationIndex:(BOOL)arg1;
-- (void)setHasNumberOfVisitsBucket:(BOOL)arg1;
+- (void)setHasConfidence:(bool)arg1;
+- (void)setHasLocationIndex:(bool)arg1;
+- (void)setHasNumberOfVisitsBucket:(bool)arg1;
 - (void)setIdentifier:(id)arg1;
 - (void)setLocation:(id)arg1;
 - (void)setLocationIndex:(unsigned int)arg1;

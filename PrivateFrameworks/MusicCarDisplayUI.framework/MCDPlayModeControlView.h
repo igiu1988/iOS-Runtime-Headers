@@ -2,27 +2,39 @@
    Image: /System/Library/PrivateFrameworks/MusicCarDisplayUI.framework/MusicCarDisplayUI
  */
 
-@class MCDButton;
-
 @interface MCDPlayModeControlView : UIView {
-    BOOL _creatingGenius;
-    MCDButton *_geniusButton;
-    MCDButton *_repeatButton;
-    MCDButton *_shuffleButton;
+    NSArray * _activeButtonLayoutConstraints;
+    MCDPlayModeButton * _addToLibraryButton;
+    bool  _fuseSubscriberLayout;
+    MCDPlayModeButton * _moreButton;
+    MCDPlayModeButton * _playbackRateButton;
+    MCDRepeatButton * _repeatButton;
+    MCDPlayModeButton * _shuffleButton;
 }
 
-@property BOOL creatingGenius;
-@property(readonly) MCDButton * geniusButton;
-@property(readonly) MCDButton * repeatButton;
-@property(readonly) MCDButton * shuffleButton;
+@property (nonatomic, retain) NSArray *activeButtonLayoutConstraints;
+@property (nonatomic, readonly) MCDPlayModeButton *addToLibraryButton;
+@property (nonatomic) bool fuseSubscriberLayout;
+@property (nonatomic, readonly) MCDPlayModeButton *moreButton;
+@property (nonatomic, readonly) MCDPlayModeButton *playbackRateButton;
+@property (nonatomic, readonly) MCDRepeatButton *repeatButton;
+@property (nonatomic, readonly) MCDPlayModeButton *shuffleButton;
 
 - (void).cxx_destruct;
-- (BOOL)creatingGenius;
-- (id)geniusButton;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (void)_addConstraints;
+- (void)_updateButtonLayouts;
+- (id)activeButtonLayoutConstraints;
+- (void)addSizeConstraintsForButton:(id)arg1;
+- (id)addToLibraryButton;
+- (bool)fuseSubscriberLayout;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (struct CGSize { double x1; double x2; })intrinsicContentSize;
 - (void)layoutSubviews;
+- (id)moreButton;
+- (id)playbackRateButton;
 - (id)repeatButton;
-- (void)setCreatingGenius:(BOOL)arg1;
+- (void)setActiveButtonLayoutConstraints:(id)arg1;
+- (void)setFuseSubscriberLayout:(bool)arg1;
 - (id)shuffleButton;
 
 @end

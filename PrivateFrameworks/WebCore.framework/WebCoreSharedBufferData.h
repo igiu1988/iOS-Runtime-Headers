@@ -2,23 +2,10 @@
    Image: /System/Library/PrivateFrameworks/WebCore.framework/WebCore
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface WebCoreSharedBufferData : NSData {
-    struct RefPtr<WebCore::SharedBuffer::DataBuffer> { 
-        struct DataBuffer {} *m_ptr; 
-    struct RefPtr<WebCore::SharedBuffer> { 
-        struct SharedBuffer {} *m_ptr; 
-     /* Encoded args for previous method: @12@0:4^{DataBuffer={atomic<int>=Ai}{Vector<char, 0, WTF::CrashOnOverflow>=*II}}8 */
-    } sharedBuffer;
-    } sharedBufferDataBuffer;
+    struct RefPtr<const WebCore::SharedBuffer::DataSegment, WTF::DumbPtrTraits<const WebCore::SharedBuffer::DataSegment> > { 
+        struct DataSegment {} *m_ptr; 
+    }  sharedBufferDataSegment;
 }
 
 + (void)initialize;
@@ -27,9 +14,7 @@
 - (void).cxx_destruct;
 - (const void*)bytes;
 - (void)dealloc;
-- (void)finalize;
-- (id)initWithMemoryMappedSharedBuffer:(struct SharedBuffer { unsigned int x1; unsigned int x2; struct RefPtr<WebCore::SharedBuffer::DataBuffer> { struct DataBuffer {} *x_3_1_1; } x3; boolx4; struct OwnPtr<WebCore::PurgeableBuffer> { struct PurgeableBuffer {} *x_5_1_1; } x5; struct Vector<WTF::RetainPtr<const __CFData *>, 0, WTF::CrashOnOverflow> { struct RetainPtr<const __CFData *> {} *x_6_1_1; unsigned int x_6_1_2; unsigned int x_6_1_3; } x6; boolx7; unsigned int x8; int (*x9)(); void *x10; struct RetainPtr<const __CFData *> { void *x_11_1_1; } x11; }*)arg1;
-- (id)initWithSharedBufferDataBuffer:(struct DataBuffer { struct atomic<int> { /* Warning: Unrecognized filer type: 'A' using 'void*' */ void*x_1_1_1; int x_1_1_2; } x1; struct Vector<char, 0, WTF::CrashOnOverflow> { char *x_2_1_1; unsigned int x_2_1_2; unsigned int x_2_1_3; } x2; }*)arg1;
-- (unsigned int)length;
+- (id)initWithSharedBufferDataSegment:(const struct DataSegment { struct atomic<unsigned int> { unsigned int x_1_1_1; } x1; struct Variant<WTF::Vector<char, 0, WTF::CrashOnOverflow, 16>, WTF::RetainPtr<const __CFData *>, WebCore::FileSystem::MappedFileData> { union __variant_data<WTF::Vector<char, 0, WTF::CrashOnOverflow, 16>, WTF::RetainPtr<const __CFData *>, WebCore::FileSystem::MappedFileData> { union __variant_data<WTF::Vector<char, 0, WTF::CrashOnOverflow, 16> > { struct __storage_wrapper<WTF::Vector<char, 0, WTF::CrashOnOverflow, 16> > { struct type { unsigned char x_1_5_1[16]; } x_1_4_1; } x_1_3_1; struct __dummy_type { } x_1_3_2; } x_1_2_1; union __variant_data<WTF::RetainPtr<const __CFData *>, WebCore::FileSystem::MappedFileData> { union __variant_data<WTF::RetainPtr<const __CFData *> > { struct __storage_wrapper<WTF::RetainPtr<const __CFData *> > { struct type { unsigned char x_1_6_1[8]; } x_1_5_1; } x_1_4_1; struct __dummy_type { } x_1_4_2; } x_2_3_1; union __variant_data<WebCore::FileSystem::MappedFileData> { struct __storage_wrapper<WebCore::FileSystem::MappedFileData> { struct type { unsigned char x_1_6_1[16]; } x_1_5_1; } x_2_4_1; struct __dummy_type { } x_2_4_2; } x_2_3_2; } x_1_2_2; } x_2_1_1; BOOL x_2_1_2; } x2; }*)arg1;
+- (unsigned long long)length;
 
 @end

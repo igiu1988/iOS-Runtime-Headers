@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKBubbleFlowContainerView, _GKBubbleFlowPathTransitionInfo;
-
 @interface GKStandaloneWiggleRotateAnimator : GKWiggleRotateAnimator {
-    GKBubbleFlowContainerView *_containerView;
-    int _rotationDirection;
-    _GKBubbleFlowPathTransitionInfo *_transitionContext;
+    GKBubbleFlowContainerView * _containerView;
+    long long  _rotationDirection;
+    _GKBubbleFlowPathTransitionInfo * _transitionContext;
 }
 
-@property(retain) GKBubbleFlowContainerView * containerView;
-@property int rotationDirection;
-@property(retain) _GKBubbleFlowPathTransitionInfo * transitionContext;
+@property (nonatomic, retain) GKBubbleFlowContainerView *containerView;
+@property (nonatomic) long long rotationDirection;
+@property (nonatomic, retain) _GKBubbleFlowPathTransitionInfo *transitionContext;
 
 - (void)animate;
 - (void)animateForBubbleContainer:(id)arg1 withTransitionCoordinator:(id)arg2;
@@ -20,10 +18,10 @@
 - (void)dealloc;
 - (void)readEndingPositions;
 - (void)readStartingPositions;
-- (BOOL)rotatingRightWithTransitionContext:(id)arg1;
-- (int)rotationDirection;
+- (bool)rotatingRightWithTransitionContext:(id)arg1;
+- (long long)rotationDirection;
 - (void)setContainerView:(id)arg1;
-- (void)setRotationDirection:(int)arg1;
+- (void)setRotationDirection:(long long)arg1;
 - (void)setTransitionContext:(id)arg1;
 - (id)transitionContext;
 - (id)transitionContextCreatingIfNeeded;

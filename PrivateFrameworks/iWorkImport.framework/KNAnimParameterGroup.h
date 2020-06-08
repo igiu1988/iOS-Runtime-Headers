@@ -2,31 +2,37 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSArray, NSMutableDictionary, NSString;
-
 @interface KNAnimParameterGroup : NSObject {
-    NSString *_fileName;
-    NSString *_name;
-    NSString *_originalFileName;
-    NSArray *_parameterArray;
-    NSMutableDictionary *_parametersDict;
+    NSString * _fileName;
+    NSString * _name;
+    KNAnimParameterSavedGroup * _savedGroup;
 }
 
-@property(readonly) NSString * name;
-@property(readonly) NSArray * parameterArray;
+@property (nonatomic, copy) NSString *fileName;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, retain) KNAnimParameterSavedGroup *savedGroup;
 
-+ (id)parameterGroupForFile:(id)arg1;
++ (id)easeInEaseOutPath;
++ (id)easeInPath;
++ (id)easeOutPath;
++ (id)linearPath;
++ (id)mediaTimingFunctionForPath:(id)arg1 reversed:(bool)arg2;
++ (void)p_loadAllParametersIfNecessary;
++ (id)parameterGroupForName:(id)arg1;
 
-- (void)dealloc;
+- (void).cxx_destruct;
+- (bool)boolForKey:(id)arg1;
+- (double)doubleForAnimationCurve:(id)arg1 atPercent:(double)arg2;
+- (double)doubleForKey:(id)arg1;
+- (id)fileName;
 - (id)initWithFileName:(id)arg1;
-- (id)mediaTimingFunctionForAnimationCurve:(id)arg1 reversed:(BOOL)arg2;
 - (id)mediaTimingFunctionForAnimationCurve:(id)arg1;
+- (id)mediaTimingFunctionForAnimationCurve:(id)arg1 reversed:(bool)arg2;
 - (id)name;
-- (id)parameterArray;
-- (void)readAnimationCurvesFromFile;
-- (void)resetAnimationCurvesFromBundle;
-- (float)valueForAnimationCurve:(id)arg1 atPercent:(float)arg2;
-- (float)valueForConstant:(id)arg1;
-- (void)writeAnimationCurvesToFile;
+- (void)p_loadParameters;
+- (id)pathForAnimationCurve:(id)arg1;
+- (id)savedGroup;
+- (void)setFileName:(id)arg1;
+- (void)setSavedGroup:(id)arg1;
 
 @end

@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PUAbstractNavigationBannerDelegate>, UIView;
-
 @interface PUAbstractNavigationBanner : NSObject {
-    <PUAbstractNavigationBannerDelegate> *_delegate;
+    <PUAbstractNavigationBannerDelegate> * _delegate;
 }
 
-@property <PUAbstractNavigationBannerDelegate> * delegate;
-@property(readonly) float height;
-@property(readonly) UIView * view;
+@property (nonatomic) <PUAbstractNavigationBannerDelegate> *delegate;
+@property (nonatomic, readonly) double height;
+@property (nonatomic, readonly) UIView *view;
 
 - (void).cxx_destruct;
 - (id)delegate;
-- (float)height;
+- (double)height;
 - (void)setDelegate:(id)arg1;
 - (id)view;
 

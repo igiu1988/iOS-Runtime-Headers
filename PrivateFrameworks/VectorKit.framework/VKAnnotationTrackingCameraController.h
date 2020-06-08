@@ -2,30 +2,23 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class <VKTrackableAnnotation>, <VKTrackableAnnotationPresentation>, VKAnimation;
-
 @interface VKAnnotationTrackingCameraController : VKCameraController {
-    struct VKPoint { 
-        double x; 
-        double y; 
-        double z; 
-    struct VKPoint { 
-        double x; 
-        double y; 
-        double z; 
-    struct VKPoint { 
-        double x; 
-        double y; 
-        double z; 
-    struct VKPoint { 
-        double x; 
-        double y; 
-        double z; 
-    struct VKEdgeInsets { 
-        float top; 
-        float left; 
-        float bottom; 
-        float right; 
+    <VKTrackableAnnotation> * _annotation;
+    <VKTrackableAnnotationPresentation> * _annotationPresentation;
+    VKTimedAnimation * _currentAnimation;
+    struct Matrix<double, 3, 1> { 
+        double _e[3]; 
+    }  _currentAnimationEndCameraPosition;
+    struct Matrix<double, 3, 1> { 
+        double _e[3]; 
+    }  _currentAnimationEndPoint;
+    struct Matrix<double, 3, 1> { 
+        double _e[3]; 
+    }  _currentAnimationStartCameraPosition;
+    struct Matrix<double, 3, 1> { 
+        double _e[3]; 
+    }  _currentAnimationStartPoint;
+    VKTimedAnimation * _currentHeadingAnimation;
     struct { 
         unsigned int hasPendingChange : 1; 
         unsigned int paused : 1; 
@@ -37,44 +30,38 @@
         unsigned int annotationImplementsHeading : 1; 
         unsigned int annotationImplementsExpectedCoordinateUpdateInterval : 1; 
         unsigned int annotationImplementsExpectedHeadingUpdateInterval : 1; 
-    <VKTrackableAnnotation> *_annotation;
-    <VKTrackableAnnotationPresentation> *_annotationPresentation;
-    VKAnimation *_currentAnimation;
-    } _currentAnimationEndCameraPosition;
-    } _currentAnimationEndPoint;
-    } _currentAnimationStartCameraPosition;
-    } _currentAnimationStartPoint;
-    VKAnimation *_currentHeadingAnimation;
-    } _edgeInsets;
-    } _flags;
-    float _headingAnimationCompletedAngle;
-    double _pendingChangeDuration;
-    double _pendingHeadingChangeDuration;
-    int _zoomStyle;
+    }  _flags;
+    float  _headingAnimationCompletedAngle;
+    long long  _headingAnimationDisplayRate;
+    double  _pendingChangeDuration;
+    double  _pendingHeadingChangeDuration;
+    long long  _zoomStyle;
 }
 
-@property(readonly) <VKTrackableAnnotation> * annotation;
-@property struct VKEdgeInsets { float x1; float x2; float x3; float x4; } edgeInsets;
-@property(getter=isTrackingHeading,readonly) BOOL trackingHeading;
-@property int zoomStyle;
+@property (nonatomic, readonly) <VKTrackableAnnotation> *annotation;
+@property (nonatomic) long long headingAnimationDisplayRate;
+@property (getter=isTrackingHeading, nonatomic, readonly) bool trackingHeading;
+@property (nonatomic) long long zoomStyle;
 
 - (id).cxx_construct;
-- (void)_goToAnnotationAnimated:(BOOL)arg1 duration:(double)arg2 isInitial:(BOOL)arg3;
-- (void)_rotateToHeadingAnimated:(BOOL)arg1 duration:(double)arg2;
+- (void)_goToAnnotationAnimated:(bool)arg1 duration:(double)arg2 isInitial:(bool)arg3;
+- (void)_rotateToHeadingAnimated:(bool)arg1 duration:(double)arg2;
 - (id)annotation;
 - (void)dealloc;
-- (struct VKEdgeInsets { float x1; float x2; float x3; float x4; })edgeInsets;
-- (BOOL)isAnimating;
-- (BOOL)isTrackingHeading;
+- (long long)headingAnimationDisplayRate;
+- (id)init;
+- (bool)isAnimating;
+- (bool)isTrackingHeading;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (void)pauseAnimation;
 - (void)resumeAnimation;
 - (void)setEdgeInsets:(struct VKEdgeInsets { float x1; float x2; float x3; float x4; })arg1;
-- (void)setGesturing:(BOOL)arg1;
-- (void)setZoomStyle:(int)arg1;
-- (void)startTrackingAnnotation:(id)arg1 trackHeading:(BOOL)arg2 animated:(BOOL)arg3;
+- (void)setGesturing:(bool)arg1;
+- (void)setHeadingAnimationDisplayRate:(long long)arg1;
+- (void)setZoomStyle:(long long)arg1;
+- (void)startTrackingAnnotation:(id)arg1 trackHeading:(bool)arg2 animated:(bool)arg3;
 - (void)stopTrackingAnnotation;
 - (void)updateFramerate;
-- (int)zoomStyle;
+- (long long)zoomStyle;
 
 @end

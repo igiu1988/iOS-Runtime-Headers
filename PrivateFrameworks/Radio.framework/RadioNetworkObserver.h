@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/Radio.framework/Radio
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface RadioNetworkObserver : NSObject {
-    int _networkUsageCount;
-    NSObject<OS_dispatch_queue> *_networkUsageQueue;
+    long long  _networkUsageCount;
+    NSObject<OS_dispatch_queue> * _networkUsageQueue;
 }
 
-@property(readonly) BOOL isCellularNetworkingAllowed;
-@property(readonly) BOOL isUsingNetwork;
+@property (nonatomic, readonly) bool isCellularNetworkingAllowed;
+@property (nonatomic, readonly) bool isUsingNetwork;
 
 + (id)sharedNetworkObserver;
 
@@ -21,7 +19,7 @@
 - (void)dealloc;
 - (void)endUsingNetwork;
 - (id)init;
-- (BOOL)isCellularNetworkingAllowed;
-- (BOOL)isUsingNetwork;
+- (bool)isCellularNetworkingAllowed;
+- (bool)isUsingNetwork;
 
 @end

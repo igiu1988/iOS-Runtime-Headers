@@ -2,20 +2,17 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSString;
+@interface PSCellularDataSettingsDetail : NSObject <PSSettingsBoolDetail>
 
-@interface PSCellularDataSettingsDetail : NSObject <PSSettingsBoolDetail> {
-}
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
-
-+ (BOOL)deviceSupportsCellularData;
++ (bool)deviceSupportsCellularData;
 + (id)iconImage;
-+ (BOOL)isEnabled;
++ (bool)isEnabled;
 + (id)preferencesURL;
-+ (void)setEnabled:(BOOL)arg1;
++ (void)setEnabled:(bool)arg1;
 
 @end

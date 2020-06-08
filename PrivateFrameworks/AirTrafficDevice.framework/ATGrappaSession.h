@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-@class NSData;
-
 @interface ATGrappaSession : NSObject {
-    unsigned long _sessionId;
-    NSData *_sessionRequestData;
-    NSData *_sessionResponseData;
-    unsigned int _sessionType;
+    unsigned int  _sessionId;
+    NSData * _sessionRequestData;
+    NSData * _sessionResponseData;
+    unsigned long long  _sessionType;
 }
 
 - (void).cxx_destruct;
@@ -21,7 +19,7 @@
 - (id)deviceInfo;
 - (id)establishDeviceSessionWithRequestData:(id)arg1 responseData:(id*)arg2;
 - (id)establishHostSessionWithDeviceInfo:(id)arg1 clientRequestData:(id*)arg2;
-- (id)initWithType:(unsigned int)arg1;
+- (id)initWithType:(unsigned long long)arg1;
 - (id)verifySignature:(id)arg1 forData:(id)arg2;
 
 @end

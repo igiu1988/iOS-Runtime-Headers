@@ -2,12 +2,13 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface TSCHChartSeriesTypeBubble : TSCHChartSeriesTypeScatter {
-}
+@interface TSCHChartSeriesTypeBubble : TSCHChartSeriesTypeScatter
 
 - (id)axisTypesForValueLabels;
 - (int)defaultSymbolType;
 - (id)elementBuilder;
+- (int)fillPropertyType;
+- (id)fillPropertyTypeName;
 - (int)fillSetFillProperty;
 - (unsigned int)filterChartLabelPosition:(unsigned int)arg1;
 - (id)g_genericToSpecificPropertyMapBubble;
@@ -19,10 +20,10 @@
 - (int)legendBadgeType;
 - (id)propertiesForReferenceColors;
 - (id)supportedValueLabelsAxisCombinations;
-- (BOOL)supportsFillSetFill;
-- (BOOL)supportsLineConnectionStyle;
-- (BOOL)supportsSeriesStroke;
-- (BOOL)supportsSymbolTypeEditing;
-- (unsigned int)valueDimensions;
+- (bool)supportsFillSetFill;
+- (bool)supportsLineConnectionStyle;
+- (bool)supportsSeriesStroke;
+- (bool)supportsSymbolTypeEditing;
+- (unsigned long long)valueDimensions;
 
 @end

@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/WatchKit.framework/WatchKit
  */
 
-@class NSString;
-
 @interface SPRemoteInterfaceKeyedArchiverDelegate : NSObject <NSKeyedArchiverDelegate> {
-    BOOL _imageIsNamed;
+    bool  _imageIsNamed;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property BOOL imageIsNamed;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) bool imageIsNamed;
+@property (readonly) Class superclass;
 
 - (void)archiver:(id)arg1 didEncodeObject:(id)arg2;
 - (id)archiver:(id)arg1 willEncodeObject:(id)arg2;
-- (BOOL)imageIsNamed;
-- (void)setImageIsNamed:(BOOL)arg1;
+- (bool)imageIsNamed;
+- (void)setImageIsNamed:(bool)arg1;
 
 @end

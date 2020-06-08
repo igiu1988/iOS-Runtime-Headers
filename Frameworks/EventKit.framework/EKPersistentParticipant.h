@@ -2,18 +2,7 @@
    Image: /System/Library/Frameworks/EventKit.framework/EventKit
  */
 
-@class NSString, NSURL;
-
-@interface EKPersistentParticipant : EKPersistentObject <NSCopying> {
-}
-
-@property(readonly) NSString * UUID;
-@property(copy) NSURL * address;
-@property(copy) NSString * comment;
-@property(copy) NSString * displayName;
-@property(copy) NSString * emailAddress;
-@property(copy) NSString * firstName;
-@property(copy) NSString * lastName;
+@interface EKPersistentParticipant : EKPersistentObject
 
 + (id)defaultPropertiesToLoad;
 
@@ -24,15 +13,22 @@
 - (id)displayName;
 - (id)emailAddress;
 - (id)firstName;
-- (unsigned int)hash;
-- (id)init;
+- (id)invitedBy;
 - (id)lastName;
 - (id)owner;
+- (id)phoneNumber;
+- (id)proposedStartDate;
+- (int)proposedStartDateStatus;
+- (id)semanticIdentifier;
 - (void)setAddress:(id)arg1;
 - (void)setComment:(id)arg1;
 - (void)setDisplayName:(id)arg1;
 - (void)setEmailAddress:(id)arg1;
 - (void)setFirstName:(id)arg1;
 - (void)setLastName:(id)arg1;
+- (void)setPhoneNumber:(id)arg1;
+- (void)setProposedStartDate:(id)arg1;
+- (void)setProposedStartDateStatus:(int)arg1;
+- (void)setUUID:(id)arg1;
 
 @end

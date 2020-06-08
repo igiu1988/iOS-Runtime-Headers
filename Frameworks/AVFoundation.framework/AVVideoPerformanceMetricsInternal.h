@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSDictionary;
-
 @interface AVVideoPerformanceMetricsInternal : NSObject {
-    NSDictionary *_metricsDictionary;
+    NSDictionary * _metricsDictionary;
 }
 
 @end

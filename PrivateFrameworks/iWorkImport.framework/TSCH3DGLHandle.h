@@ -3,10 +3,10 @@
  */
 
 @interface TSCH3DGLHandle : TSCH3DResourceHandle {
-    unsigned int mValue;
+    unsigned int  mValue;
 }
 
-@property(readonly) unsigned int value;
+@property (nonatomic, readonly) unsigned int value;
 
 + (id)handleWithGLHandle:(unsigned int)arg1;
 

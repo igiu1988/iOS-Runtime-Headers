@@ -2,15 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADColor, OADPattern;
-
 @interface OADPatternFill : OADFill {
-    OADColor *mBgColor;
-    OADColor *mFgColor;
-    BOOL mIsBgColorOverridden;
-    BOOL mIsFgColorOverridden;
-    BOOL mIsPatternOverridden;
-    OADPattern *mPattern;
+    OADColor * mBgColor;
+    OADColor * mFgColor;
+    OADPattern * mPattern;
 }
 
 + (id)defaultProperties;
@@ -19,14 +14,17 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)fgColor;
-- (unsigned int)hash;
+- (void)fixPropertiesForChangingParentPreservingEffectiveValues:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithDefaults;
-- (BOOL)isBgColorOverridden;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isFgColorOverridden;
-- (BOOL)isPatternOverridden;
+- (bool)isAnythingOverridden;
+- (bool)isBgColorOverridden;
+- (bool)isEqual:(id)arg1;
+- (bool)isFgColorOverridden;
+- (bool)isPatternOverridden;
 - (id)namedImageDataWithBlipCollection:(id)arg1;
 - (id)pattern;
+- (void)removeUnnecessaryOverrides;
 - (void)setBgColor:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)setFgColor:(id)arg1;

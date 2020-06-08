@@ -2,52 +2,50 @@
    Image: /System/Library/PrivateFrameworks/BackBoardServices.framework/BackBoardServices
  */
 
-@class <BKSAccelerometerDelegate>, NSLock, NSThread;
-
 @interface BKSAccelerometer : NSObject {
-    struct __CFRunLoop { } *_accelerometerEventsRunLoop;
-    struct __CFRunLoopSource { } *_accelerometerEventsSource;
-    <BKSAccelerometerDelegate> *_delegate;
-    double _interval;
-    NSLock *_lock;
-    int _orientationCheckToken;
-    BOOL _orientationEventsEnabled;
-    NSThread *_orientationEventsThread;
-    int _orientationNotificationsToken;
-    unsigned int _orientationPort;
-    BOOL _passiveOrientationEvents;
-    double _updateInterval;
-    float _xThreshold;
-    float _yThreshold;
-    float _zThreshold;
+    struct __CFRunLoop { } * _accelerometerEventsRunLoop;
+    struct __CFRunLoopSource { } * _accelerometerEventsSource;
+    <BKSAccelerometerDelegate> * _delegate;
+    NSLock * _lock;
+    int  _orientationCheckToken;
+    bool  _orientationEventsEnabled;
+    NSThread * _orientationEventsThread;
+    int  _orientationNotificationsToken;
+    unsigned int  _orientationPort;
+    bool  _passiveOrientationEvents;
+    double  _updateInterval;
+    float  _xThreshold;
+    float  _yThreshold;
+    float  _zThreshold;
 }
 
-@property BOOL accelerometerEventsEnabled;
-@property <BKSAccelerometerDelegate> * delegate;
-@property BOOL orientationEventsEnabled;
-@property BOOL passiveOrientationEvents;
-@property double updateInterval;
-@property float xThreshold;
-@property float yThreshold;
-@property float zThreshold;
+@property (nonatomic) bool accelerometerEventsEnabled;
+@property (nonatomic) <BKSAccelerometerDelegate> *delegate;
+@property (nonatomic) bool orientationEventsEnabled;
+@property (nonatomic) bool passiveOrientationEvents;
+@property (nonatomic) double updateInterval;
+@property (nonatomic) float xThreshold;
+@property (nonatomic) float yThreshold;
+@property (nonatomic) float zThreshold;
 
+- (void).cxx_destruct;
 - (void)_checkIn;
 - (void)_checkOut;
 - (void)_orientationDidChange;
 - (id)_orientationEventsThread;
 - (void)_serverWasRestarted;
 - (void)_updateOrientationServer;
-- (BOOL)accelerometerEventsEnabled;
+- (bool)accelerometerEventsEnabled;
 - (int)currentDeviceOrientation;
 - (void)dealloc;
 - (id)delegate;
 - (id)init;
-- (BOOL)orientationEventsEnabled;
-- (BOOL)passiveOrientationEvents;
-- (void)setAccelerometerEventsEnabled:(BOOL)arg1;
+- (bool)orientationEventsEnabled;
+- (bool)passiveOrientationEvents;
+- (void)setAccelerometerEventsEnabled:(bool)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setOrientationEventsEnabled:(BOOL)arg1;
-- (void)setPassiveOrientationEvents:(BOOL)arg1;
+- (void)setOrientationEventsEnabled:(bool)arg1;
+- (void)setPassiveOrientationEvents:(bool)arg1;
 - (void)setUpdateInterval:(double)arg1;
 - (void)setXThreshold:(float)arg1;
 - (void)setYThreshold:(float)arg1;

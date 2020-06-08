@@ -2,20 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-@class NSNumber, NSObject<OS_dispatch_queue>;
-
 @interface BRCContainerCellularSettings : NSObject {
-    NSNumber *_isCellularEnabledForDocumentsAndData;
-    NSObject<OS_dispatch_queue> *_queue;
+    <NSObject> * _accountDidChangeNotificationObserver;
+    NSNumber * _isCellularEnabledForDocumentsAndData;
+    NSObject<OS_dispatch_queue> * _queue;
 }
 
++ (id)_notifAccountStore;
 + (id)containerCellularSettings;
 
 - (void).cxx_destruct;
 - (void)_accountDidChange;
-- (BOOL)_isCellularEnabledForBundleID:(id)arg1;
-- (BOOL)_isCellularEnabledForDocumentsAndData;
+- (void)dealloc;
 - (id)init;
-- (BOOL)isCellularEnabledForContainerID:(id)arg1;
+- (bool)isCellularEnabled;
 
 @end

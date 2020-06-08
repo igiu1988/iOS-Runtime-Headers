@@ -2,23 +2,19 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, NSValue;
-
 @interface CIAffineClamp : CIFilter {
-    CIImage *inputImage;
-    NSValue *inputTransform;
+    CIImage * inputImage;
+    NSValue * inputTransform;
 }
 
-@property(retain) CIImage * inputImage;
-@property(retain) NSValue * inputTransform;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSValue *inputTransform;
 
 + (id)customAttributes;
 
-- (id)_kernel;
 - (id)inputImage;
 - (id)inputTransform;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputImage:(id)arg1;
 - (void)setInputTransform:(id)arg1;
 

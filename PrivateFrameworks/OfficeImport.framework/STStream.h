@@ -3,10 +3,10 @@
  */
 
 @interface STStream : STSStgObject {
-    struct _Stream { } *m_pCStream;
+    struct _Stream { } * m_pCStream;
 }
 
-@property(readonly) struct _Stream { }* cStream;
+@property (nonatomic, readonly) struct _Stream { }*cStream;
 
 - (struct _Stream { }*)cStream;
 - (void)close;

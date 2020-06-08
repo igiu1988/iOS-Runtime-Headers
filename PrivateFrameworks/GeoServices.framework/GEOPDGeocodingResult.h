@@ -2,29 +2,32 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMutableArray;
-
 @interface GEOPDGeocodingResult : PBCodable <NSCopying> {
-    NSMutableArray *_disambiguationLabels;
+    NSMutableArray * _disambiguationLabels;
+    PBUnknownFields * _unknownFields;
 }
 
-@property(retain) NSMutableArray * disambiguationLabels;
+@property (nonatomic, retain) NSMutableArray *disambiguationLabels;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
++ (Class)disambiguationLabelType;
+
+- (void).cxx_destruct;
 - (void)addDisambiguationLabel:(id)arg1;
 - (void)clearDisambiguationLabels;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (id)disambiguationLabelAtIndex:(unsigned int)arg1;
+- (id)disambiguationLabelAtIndex:(unsigned long long)arg1;
 - (id)disambiguationLabels;
-- (unsigned int)disambiguationLabelsCount;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)disambiguationLabelsCount;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setDisambiguationLabels:(id)arg1;
+- (id)unknownFields;
 - (void)writeTo:(id)arg1;
 
 @end

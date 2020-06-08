@@ -2,47 +2,65 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSDictionary;
-
-@interface FigCaptureMovieFileRecordingSettings : FigCaptureRecordingSettings <NSCoding> {
+@interface FigCaptureMovieFileRecordingSettings : FigCaptureRecordingSettings {
+    NSDictionary * _audioSettings;
+    int  _bravoCameraSelectionBehavior;
+    bool  _debugMetadataSidecarFileEnabled;
+    bool  _irisRecording;
     struct { 
         long long value; 
         int timescale; 
         unsigned int flags; 
         long long epoch; 
-    NSDictionary *_audioSettings;
-    } _movieFragmentInterval;
-    NSDictionary *_movieLevelMetadata;
-    BOOL _sendThumbnailIOSurface;
-    BOOL _videoMirrored;
-    int _videoOrientation;
-    NSDictionary *_videoSettings;
+    }  _movieFragmentInterval;
+    NSArray * _movieLevelMetadata;
+    bool  _recordVideoOrientationAndMirroringChanges;
+    bool  _sendPreviewIOSurface;
+    bool  _videoMirrored;
+    int  _videoOrientation;
+    NSDictionary * _videoSettings;
 }
 
-@property(copy) NSDictionary * audioSettings;
-@property struct { long long x1; int x2; unsigned int x3; long long x4; } movieFragmentInterval;
-@property(copy) NSDictionary * movieLevelMetadata;
-@property BOOL sendThumbnailIOSurface;
-@property BOOL videoMirrored;
-@property int videoOrientation;
-@property(copy) NSDictionary * videoSettings;
+@property (nonatomic, copy) NSDictionary *audioSettings;
+@property (nonatomic) int bravoCameraSelectionBehavior;
+@property (nonatomic) bool debugMetadataSidecarFileEnabled;
+@property (getter=isIrisRecording, nonatomic) bool irisRecording;
+@property (nonatomic) struct { long long x1; int x2; unsigned int x3; long long x4; } movieFragmentInterval;
+@property (nonatomic, copy) NSArray *movieLevelMetadata;
+@property (nonatomic) bool recordVideoOrientationAndMirroringChanges;
+@property (nonatomic) bool sendPreviewIOSurface;
+@property (nonatomic) bool videoMirrored;
+@property (nonatomic) int videoOrientation;
+@property (nonatomic, copy) NSDictionary *videoSettings;
+
++ (bool)supportsSecureCoding;
 
 - (id)audioSettings;
+- (int)bravoCameraSelectionBehavior;
+- (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
+- (bool)debugMetadataSidecarFileEnabled;
+- (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithCoder:(id)arg1;
+- (bool)isIrisRecording;
 - (struct { long long x1; int x2; unsigned int x3; long long x4; })movieFragmentInterval;
 - (id)movieLevelMetadata;
-- (BOOL)sendThumbnailIOSurface;
+- (bool)recordVideoOrientationAndMirroringChanges;
+- (bool)sendPreviewIOSurface;
 - (void)setAudioSettings:(id)arg1;
+- (void)setBravoCameraSelectionBehavior:(int)arg1;
+- (void)setDebugMetadataSidecarFileEnabled:(bool)arg1;
+- (void)setIrisRecording:(bool)arg1;
 - (void)setMovieFragmentInterval:(struct { long long x1; int x2; unsigned int x3; long long x4; })arg1;
 - (void)setMovieLevelMetadata:(id)arg1;
-- (void)setSendThumbnailIOSurface:(BOOL)arg1;
-- (void)setVideoMirrored:(BOOL)arg1;
+- (void)setRecordVideoOrientationAndMirroringChanges:(bool)arg1;
+- (void)setSendPreviewIOSurface:(bool)arg1;
+- (void)setVideoMirrored:(bool)arg1;
 - (void)setVideoOrientation:(int)arg1;
 - (void)setVideoSettings:(id)arg1;
-- (BOOL)videoMirrored;
+- (bool)videoMirrored;
 - (int)videoOrientation;
 - (id)videoSettings;
 

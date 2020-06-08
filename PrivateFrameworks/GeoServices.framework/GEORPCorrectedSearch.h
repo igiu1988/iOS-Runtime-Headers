@@ -2,53 +2,51 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class GEOPDPlaceRequest, GEOPDPlaceResponse, GEOPlaceSearchRequest, GEOPlaceSearchResponse, NSString;
-
 @interface GEORPCorrectedSearch : PBCodable <NSCopying> {
+    unsigned int  _correctedSearchResultIndex;
     struct { 
         unsigned int correctedSearchResultIndex : 1; 
         unsigned int originalSearchResultIndex : 1; 
-    unsigned int _correctedSearchResultIndex;
-    } _has;
-    unsigned int _originalSearchResultIndex;
-    GEOPDPlaceRequest *_placeRequest;
-    GEOPDPlaceResponse *_placeResponse;
-    GEOPlaceSearchRequest *_placeSearchRequest;
-    GEOPlaceSearchResponse *_placeSearchResponse;
-    NSString *_preferredSearchDisplayLocation;
+    }  _has;
+    unsigned int  _originalSearchResultIndex;
+    GEOPDPlaceRequest * _placeRequest;
+    GEOPDPlaceResponse * _placeResponse;
+    GEOPlaceSearchRequest * _placeSearchRequest;
+    GEOPlaceSearchResponse * _placeSearchResponse;
+    NSString * _preferredSearchDisplayLocation;
 }
 
-@property unsigned int correctedSearchResultIndex;
-@property BOOL hasCorrectedSearchResultIndex;
-@property BOOL hasOriginalSearchResultIndex;
-@property(readonly) BOOL hasPlaceRequest;
-@property(readonly) BOOL hasPlaceResponse;
-@property(readonly) BOOL hasPlaceSearchRequest;
-@property(readonly) BOOL hasPlaceSearchResponse;
-@property(readonly) BOOL hasPreferredSearchDisplayLocation;
-@property unsigned int originalSearchResultIndex;
-@property(retain) GEOPDPlaceRequest * placeRequest;
-@property(retain) GEOPDPlaceResponse * placeResponse;
-@property(retain) GEOPlaceSearchRequest * placeSearchRequest;
-@property(retain) GEOPlaceSearchResponse * placeSearchResponse;
-@property(retain) NSString * preferredSearchDisplayLocation;
+@property (nonatomic) unsigned int correctedSearchResultIndex;
+@property (nonatomic) bool hasCorrectedSearchResultIndex;
+@property (nonatomic) bool hasOriginalSearchResultIndex;
+@property (nonatomic, readonly) bool hasPlaceRequest;
+@property (nonatomic, readonly) bool hasPlaceResponse;
+@property (nonatomic, readonly) bool hasPlaceSearchRequest;
+@property (nonatomic, readonly) bool hasPlaceSearchResponse;
+@property (nonatomic, readonly) bool hasPreferredSearchDisplayLocation;
+@property (nonatomic) unsigned int originalSearchResultIndex;
+@property (nonatomic, retain) GEOPDPlaceRequest *placeRequest;
+@property (nonatomic, retain) GEOPDPlaceResponse *placeResponse;
+@property (nonatomic, retain) GEOPlaceSearchRequest *placeSearchRequest;
+@property (nonatomic, retain) GEOPlaceSearchResponse *placeSearchResponse;
+@property (nonatomic, retain) NSString *preferredSearchDisplayLocation;
 
-- (BOOL)containsReportableData;
+- (void).cxx_destruct;
+- (bool)containsReportableData;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (unsigned int)correctedSearchResultIndex;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasCorrectedSearchResultIndex;
-- (BOOL)hasOriginalSearchResultIndex;
-- (BOOL)hasPlaceRequest;
-- (BOOL)hasPlaceResponse;
-- (BOOL)hasPlaceSearchRequest;
-- (BOOL)hasPlaceSearchResponse;
-- (BOOL)hasPreferredSearchDisplayLocation;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasCorrectedSearchResultIndex;
+- (bool)hasOriginalSearchResultIndex;
+- (bool)hasPlaceRequest;
+- (bool)hasPlaceResponse;
+- (bool)hasPlaceSearchRequest;
+- (bool)hasPlaceSearchResponse;
+- (bool)hasPreferredSearchDisplayLocation;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (unsigned int)originalSearchResultIndex;
 - (id)placeRequest;
@@ -56,10 +54,10 @@
 - (id)placeSearchRequest;
 - (id)placeSearchResponse;
 - (id)preferredSearchDisplayLocation;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setCorrectedSearchResultIndex:(unsigned int)arg1;
-- (void)setHasCorrectedSearchResultIndex:(BOOL)arg1;
-- (void)setHasOriginalSearchResultIndex:(BOOL)arg1;
+- (void)setHasCorrectedSearchResultIndex:(bool)arg1;
+- (void)setHasOriginalSearchResultIndex:(bool)arg1;
 - (void)setOriginalSearchResultIndex:(unsigned int)arg1;
 - (void)setPlaceRequest:(id)arg1;
 - (void)setPlaceResponse:(id)arg1;

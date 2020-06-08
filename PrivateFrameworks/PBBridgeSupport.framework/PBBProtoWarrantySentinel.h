@@ -2,35 +2,35 @@
    Image: /System/Library/PrivateFrameworks/PBBridgeSupport.framework/PBBridgeSupport
  */
 
-@class NSMutableArray, NSString;
-
 @interface PBBProtoWarrantySentinel : PBCodable <NSCopying> {
+    NSMutableArray * _appleLanguages;
+    NSString * _appleLocale;
+    NSString * _deviceName;
     struct { 
         unsigned int removeSentinel : 1; 
         unsigned int sentinelExists : 1; 
-    NSMutableArray *_appleLanguages;
-    NSString *_appleLocale;
-    NSString *_deviceName;
-    } _has;
-    BOOL _removeSentinel;
-    BOOL _sentinelExists;
+    }  _has;
+    bool  _removeSentinel;
+    bool  _sentinelExists;
 }
 
-@property(retain) NSMutableArray * appleLanguages;
-@property(retain) NSString * appleLocale;
-@property(retain) NSString * deviceName;
-@property(readonly) BOOL hasAppleLocale;
-@property(readonly) BOOL hasDeviceName;
-@property BOOL hasRemoveSentinel;
-@property BOOL hasSentinelExists;
-@property BOOL removeSentinel;
-@property BOOL sentinelExists;
+@property (nonatomic, retain) NSMutableArray *appleLanguages;
+@property (nonatomic, retain) NSString *appleLocale;
+@property (nonatomic, retain) NSString *deviceName;
+@property (nonatomic, readonly) bool hasAppleLocale;
+@property (nonatomic, readonly) bool hasDeviceName;
+@property (nonatomic) bool hasRemoveSentinel;
+@property (nonatomic) bool hasSentinelExists;
+@property (nonatomic) bool removeSentinel;
+@property (nonatomic) bool sentinelExists;
+
++ (Class)appleLanguagesType;
 
 - (void).cxx_destruct;
 - (void)addAppleLanguages:(id)arg1;
 - (id)appleLanguages;
-- (id)appleLanguagesAtIndex:(unsigned int)arg1;
-- (unsigned int)appleLanguagesCount;
+- (id)appleLanguagesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)appleLanguagesCount;
 - (id)appleLocale;
 - (void)clearAppleLanguages;
 - (void)copyTo:(id)arg1;
@@ -38,23 +38,23 @@
 - (id)description;
 - (id)deviceName;
 - (id)dictionaryRepresentation;
-- (BOOL)hasAppleLocale;
-- (BOOL)hasDeviceName;
-- (BOOL)hasRemoveSentinel;
-- (BOOL)hasSentinelExists;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasAppleLocale;
+- (bool)hasDeviceName;
+- (bool)hasRemoveSentinel;
+- (bool)hasSentinelExists;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (BOOL)removeSentinel;
-- (BOOL)sentinelExists;
+- (bool)readFrom:(id)arg1;
+- (bool)removeSentinel;
+- (bool)sentinelExists;
 - (void)setAppleLanguages:(id)arg1;
 - (void)setAppleLocale:(id)arg1;
 - (void)setDeviceName:(id)arg1;
-- (void)setHasRemoveSentinel:(BOOL)arg1;
-- (void)setHasSentinelExists:(BOOL)arg1;
-- (void)setRemoveSentinel:(BOOL)arg1;
-- (void)setSentinelExists:(BOOL)arg1;
+- (void)setHasRemoveSentinel:(bool)arg1;
+- (void)setHasSentinelExists:(bool)arg1;
+- (void)setRemoveSentinel:(bool)arg1;
+- (void)setSentinelExists:(bool)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

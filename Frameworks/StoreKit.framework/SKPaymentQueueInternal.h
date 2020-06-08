@@ -2,21 +2,21 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class NSMutableArray, SKPaymentQueueClient, SKXPCConnection;
-
 @interface SKPaymentQueueInternal : NSObject {
-    BOOL _checkedIn;
-    SKPaymentQueueClient *_client;
-    BOOL _isRefreshing;
-    NSMutableArray *_localTransactions;
-    struct __CFArray { } *_observers;
-    SKXPCConnection *_requestConnection;
-    SKXPCConnection *_responseConnection;
-    BOOL _restoreFinishedDuringRefresh;
-    BOOL _restoringCompletedTransactions;
-    NSMutableArray *_transactions;
+    bool  _checkedIn;
+    SKPaymentQueueClient * _client;
+    bool  _isRefreshing;
+    NSMutableArray * _localTransactions;
+    NSMutableArray * _observerReferences;
+    NSObject<OS_dispatch_queue> * _observerReferencesAccessQueue;
+    SKXPCConnection * _requestConnection;
+    SKXPCConnection * _responseConnection;
+    bool  _restoreFinishedDuringRefresh;
+    bool  _restoringCompletedTransactions;
+    NSMutableArray * _transactions;
 }
 
+- (void).cxx_destruct;
 - (void)dealloc;
 
 @end

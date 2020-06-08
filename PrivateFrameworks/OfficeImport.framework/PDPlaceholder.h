@@ -3,22 +3,23 @@
  */
 
 @interface PDPlaceholder : NSObject {
-    int mBoundsTrack;
-    int mIndex;
-    int mOrientation;
-    int mSize;
-    int mType;
+    int  mBoundsTrack;
+    unsigned int  mIndex;
+    int  mOrientation;
+    int  mSize;
+    int  mType;
 }
 
-+ (BOOL)isTextType:(int)arg1;
++ (bool)isNonTextType:(int)arg1;
++ (bool)isTextType:(int)arg1;
 
 - (int)boundsTrack;
 - (id)description;
-- (int)index;
+- (unsigned int)index;
 - (id)init;
 - (int)orientation;
 - (void)setBoundsTrack:(int)arg1;
-- (void)setIndex:(int)arg1;
+- (void)setIndex:(unsigned int)arg1;
 - (void)setOrientation:(int)arg1;
 - (void)setSize:(int)arg1;
 - (void)setType:(int)arg1;

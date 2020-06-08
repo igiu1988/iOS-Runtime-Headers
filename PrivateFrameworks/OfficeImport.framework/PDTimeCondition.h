@@ -2,23 +2,25 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class PDAnimationTarget;
-
 @interface PDTimeCondition : NSObject {
-    int mDelay;
-    BOOL mHasDelay;
-    PDAnimationTarget *mTarget;
-    int mTriggerEvent;
+    int  mDelay;
+    bool  mHasDelay;
+    bool  mHasTriggerEvent;
+    PDAnimationTarget * mTarget;
+    int  mTriggerEvent;
 }
 
 - (void)dealloc;
 - (int)delay;
-- (BOOL)hasDelay;
+- (id)description;
+- (bool)hasDelay;
+- (bool)hasTriggerEvent;
 - (id)init;
 - (void)setDelay:(int)arg1;
 - (void)setTarget:(id)arg1;
 - (void)setTriggerEvent:(int)arg1;
 - (id)target;
 - (int)triggerEvent;
+- (int)writeDelay;
 
 @end

@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSKeyValueMutatingSetMethodSet;
-
 @interface NSKeyValueFastMutableSet : NSKeyValueMutableSet {
-    NSKeyValueMutatingSetMethodSet *_mutatingMethods;
+    NSKeyValueMutatingSetMethodSet * _mutatingMethods;
 }
 
 - (id)_proxyInitWithContainer:(id)arg1 getter:(id)arg2;

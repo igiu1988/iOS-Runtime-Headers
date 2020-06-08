@@ -2,17 +2,15 @@
    Image: /System/Library/Frameworks/WatchKit.framework/WatchKit
  */
 
-@class NSString, SPProtoCacheAssets;
-
 @interface SPProtoCacheSyncData : PBCodable <NSCopying> {
-    NSString *_cacheIdentifier;
-    SPProtoCacheAssets *_permanentCache;
-    SPProtoCacheAssets *_transientCache;
+    NSString * _cacheIdentifier;
+    SPProtoCacheAssets * _permanentCache;
+    SPProtoCacheAssets * _transientCache;
 }
 
-@property(retain) NSString * cacheIdentifier;
-@property(retain) SPProtoCacheAssets * permanentCache;
-@property(retain) SPProtoCacheAssets * transientCache;
+@property (nonatomic, retain) NSString *cacheIdentifier;
+@property (nonatomic, retain) SPProtoCacheAssets *permanentCache;
+@property (nonatomic, retain) SPProtoCacheAssets *transientCache;
 
 - (void).cxx_destruct;
 - (id)cacheIdentifier;
@@ -20,11 +18,11 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)permanentCache;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setCacheIdentifier:(id)arg1;
 - (void)setPermanentCache:(id)arg1;
 - (void)setTransientCache:(id)arg1;

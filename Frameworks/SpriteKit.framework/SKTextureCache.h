@@ -3,84 +3,68 @@
  */
 
 @interface SKTextureCache : NSObject {
+    struct shared_ptr<jet_texture> { 
+        struct jet_texture {} *__ptr_; 
+        struct __shared_weak_count {} *__cntrl_; 
+    }  _backingTexture;
+    unsigned int  _textureFormat;
+    long long  filteringMode;
+    bool  hasAlpha;
+    bool  isPOT;
+    struct _opaque_pthread_mutex_t { 
+        long long __sig; 
+        BOOL __opaque[56]; 
+    }  lock;
+    char * pixelData;
     struct CGSize { 
-        float width; 
-        float height; 
+        double width; 
+        double height; 
+    }  pixelSize;
     struct CGSize { 
-        float width; 
-        float height; 
-    struct CGSize { 
-        float width; 
-        float height; 
-    unsigned int *alphaMap;
-    } alphaMapSize;
-    struct CGImage { } *collisionMask;
-    int filteringMode;
-    BOOL hasAlpha;
-    BOOL isLoaded;
-    BOOL isPOT;
-    int lock;
-    char *pixelData;
-    } pixelSize;
-    } size;
-    int state;
-    unsigned int texFormat;
-    unsigned int texId;
-    int texInternalFormat;
-    unsigned int texType;
-    int wrapMode;
+        double width; 
+        double height; 
+    }  size;
+    int  state;
+    int  wrapMode;
 }
 
-@property unsigned int* alphaMap;
-@property struct CGSize { float x1; float x2; } alphaMapSize;
-@property int filteringMode;
-@property BOOL hasAlpha;
-@property BOOL isLoaded;
-@property BOOL isPOT;
-@property(getter=getLock,readonly) int* lock;
-@property char * pixelData;
-@property struct CGSize { float x1; float x2; } pixelSize;
-@property struct CGSize { float x1; float x2; } size;
-@property int state;
-@property unsigned int texFormat;
-@property unsigned int texId;
-@property int texInternalFormat;
-@property unsigned int texType;
-@property int wrapMode;
+@property (nonatomic) struct shared_ptr<jet_texture> { struct jet_texture {} *x1; struct __shared_weak_count {} *x2; } backingTexture;
+@property (nonatomic) long long filteringMode;
+@property (nonatomic) bool hasAlpha;
+@property (nonatomic) bool isPOT;
+@property (getter=getLock, nonatomic, readonly) struct _opaque_pthread_mutex_t { long long x1; BOOL x2[56]; }*lock;
+@property (nonatomic) char *pixelData;
+@property (nonatomic) struct CGSize { double x1; double x2; } pixelSize;
+@property (nonatomic) struct CGSize { double x1; double x2; } size;
+@property (nonatomic) int state;
+@property (nonatomic) unsigned int textureFormat;
+@property (nonatomic) int wrapMode;
 
 - (id).cxx_construct;
-- (unsigned int*)alphaMap;
-- (struct CGSize { float x1; float x2; })alphaMapSize;
+- (void).cxx_destruct;
+- (void)_reset;
+- (struct shared_ptr<jet_texture> { struct jet_texture {} *x1; struct __shared_weak_count {} *x2; })backingTexture;
 - (void)dealloc;
-- (int)filteringMode;
-- (int*)getLock;
-- (BOOL)hasAlpha;
+- (long long)filteringMode;
+- (struct _opaque_pthread_mutex_t { long long x1; BOOL x2[56]; }*)getLock;
+- (bool)hasAlpha;
 - (id)init;
-- (BOOL)isLoaded;
-- (BOOL)isPOT;
+- (bool)isPOT;
 - (char *)pixelData;
-- (struct CGSize { float x1; float x2; })pixelSize;
-- (void)setAlphaMap:(unsigned int*)arg1;
-- (void)setAlphaMapSize:(struct CGSize { float x1; float x2; })arg1;
-- (void)setFilteringMode:(int)arg1;
-- (void)setHasAlpha:(BOOL)arg1;
-- (void)setIsLoaded:(BOOL)arg1;
-- (void)setIsPOT:(BOOL)arg1;
+- (struct CGSize { double x1; double x2; })pixelSize;
+- (void)setBackingTexture:(struct shared_ptr<jet_texture> { struct jet_texture {} *x1; struct __shared_weak_count {} *x2; })arg1;
+- (void)setFilteringMode:(long long)arg1;
+- (void)setHasAlpha:(bool)arg1;
+- (void)setIsPOT:(bool)arg1;
 - (void)setPixelData:(char *)arg1;
-- (void)setPixelSize:(struct CGSize { float x1; float x2; })arg1;
-- (void)setSize:(struct CGSize { float x1; float x2; })arg1;
+- (void)setPixelSize:(struct CGSize { double x1; double x2; })arg1;
+- (void)setSize:(struct CGSize { double x1; double x2; })arg1;
 - (void)setState:(int)arg1;
-- (void)setTexFormat:(unsigned int)arg1;
-- (void)setTexId:(unsigned int)arg1;
-- (void)setTexInternalFormat:(int)arg1;
-- (void)setTexType:(unsigned int)arg1;
+- (void)setTextureFormat:(unsigned int)arg1;
 - (void)setWrapMode:(int)arg1;
-- (struct CGSize { float x1; float x2; })size;
+- (struct CGSize { double x1; double x2; })size;
 - (int)state;
-- (unsigned int)texFormat;
-- (unsigned int)texId;
-- (int)texInternalFormat;
-- (unsigned int)texType;
+- (unsigned int)textureFormat;
 - (int)wrapMode;
 
 @end

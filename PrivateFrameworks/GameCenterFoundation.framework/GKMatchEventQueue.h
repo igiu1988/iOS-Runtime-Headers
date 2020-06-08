@@ -2,57 +2,59 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKPlayer, NSMutableArray, NSMutableDictionary;
-
 @interface GKMatchEventQueue : NSObject {
-    NSMutableDictionary *_connectionInfo;
-    BOOL _counted;
-    int _deferedPlayerState;
-    NSMutableArray *_events;
-    BOOL _hasInitRelayInfo;
-    BOOL _hasUpdateRelayInfo;
-    BOOL _okToSend;
-    GKPlayer *_player;
-    int _playerState;
-    BOOL _relayInitiated;
-    unsigned int _sequenceNumber;
+    NSMutableDictionary * _connectionInfo;
+    bool  _counted;
+    long long  _deferedPlayerState;
+    NSMutableArray * _events;
+    bool  _hasInitRelayInfo;
+    bool  _hasUpdateRelayInfo;
+    GKPlayer * _hostPlayer;
+    bool  _okToSend;
+    GKPlayer * _player;
+    long long  _playerState;
+    bool  _relayInitiated;
+    unsigned int  _sequenceNumber;
 }
 
-@property(retain) NSMutableDictionary * connectionInfo;
-@property BOOL counted;
-@property int deferedPlayerState;
-@property(retain) NSMutableArray * events;
-@property BOOL hasInitRelayInfo;
-@property BOOL hasUpdateRelayInfo;
-@property BOOL okToSend;
-@property(retain) GKPlayer * player;
-@property int playerState;
-@property BOOL relayInitiated;
-@property unsigned int sequenceNumber;
+@property (nonatomic, retain) NSMutableDictionary *connectionInfo;
+@property (nonatomic) bool counted;
+@property (nonatomic) long long deferedPlayerState;
+@property (nonatomic, retain) NSMutableArray *events;
+@property (nonatomic) bool hasInitRelayInfo;
+@property (nonatomic) bool hasUpdateRelayInfo;
+@property (nonatomic, retain) GKPlayer *hostPlayer;
+@property (nonatomic) bool okToSend;
+@property (nonatomic, retain) GKPlayer *player;
+@property (nonatomic) long long playerState;
+@property (nonatomic) bool relayInitiated;
+@property (nonatomic) unsigned int sequenceNumber;
 
 - (id)connectionInfo;
-- (BOOL)counted;
+- (bool)counted;
 - (void)dealloc;
-- (int)deferedPlayerState;
+- (long long)deferedPlayerState;
 - (id)events;
-- (BOOL)hasInitRelayInfo;
-- (BOOL)hasUpdateRelayInfo;
+- (bool)hasInitRelayInfo;
+- (bool)hasUpdateRelayInfo;
+- (id)hostPlayer;
 - (id)init;
-- (BOOL)okToSend;
+- (bool)okToSend;
 - (id)player;
-- (int)playerState;
-- (BOOL)relayInitiated;
+- (long long)playerState;
+- (bool)relayInitiated;
 - (unsigned int)sequenceNumber;
 - (void)setConnectionInfo:(id)arg1;
-- (void)setCounted:(BOOL)arg1;
-- (void)setDeferedPlayerState:(int)arg1;
+- (void)setCounted:(bool)arg1;
+- (void)setDeferedPlayerState:(long long)arg1;
 - (void)setEvents:(id)arg1;
-- (void)setHasInitRelayInfo:(BOOL)arg1;
-- (void)setHasUpdateRelayInfo:(BOOL)arg1;
-- (void)setOkToSend:(BOOL)arg1;
+- (void)setHasInitRelayInfo:(bool)arg1;
+- (void)setHasUpdateRelayInfo:(bool)arg1;
+- (void)setHostPlayer:(id)arg1;
+- (void)setOkToSend:(bool)arg1;
 - (void)setPlayer:(id)arg1;
-- (void)setPlayerState:(int)arg1;
-- (void)setRelayInitiated:(BOOL)arg1;
+- (void)setPlayerState:(long long)arg1;
+- (void)setRelayInitiated:(bool)arg1;
 - (void)setSequenceNumber:(unsigned int)arg1;
 
 @end

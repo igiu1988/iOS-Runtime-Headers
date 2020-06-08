@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString, NSURL;
-
 @interface OCPPackageRelationship : NSObject {
-    NSString *mIdentifier;
-    NSURL *mTargetLocation;
-    int mTargetMode;
-    NSString *mType;
+    NSString * mIdentifier;
+    NSURL * mTargetLocation;
+    int  mTargetMode;
+    NSString * mType;
 }
 
 - (void)dealloc;

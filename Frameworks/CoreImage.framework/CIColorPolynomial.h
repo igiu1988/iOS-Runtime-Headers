@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, CIVector;
-
 @interface CIColorPolynomial : CIFilter {
-    CIVector *inputAlphaCoefficients;
-    CIVector *inputBlueCoefficients;
-    CIVector *inputGreenCoefficients;
-    CIImage *inputImage;
-    CIVector *inputRedCoefficients;
+    CIVector * inputAlphaCoefficients;
+    CIVector * inputBlueCoefficients;
+    CIVector * inputGreenCoefficients;
+    CIImage * inputImage;
+    CIVector * inputRedCoefficients;
 }
 
-@property(retain) CIVector * inputAlphaCoefficients;
-@property(retain) CIVector * inputBlueCoefficients;
-@property(retain) CIVector * inputGreenCoefficients;
-@property(retain) CIImage * inputImage;
-@property(retain) CIVector * inputRedCoefficients;
+@property (nonatomic, retain) CIVector *inputAlphaCoefficients;
+@property (nonatomic, retain) CIVector *inputBlueCoefficients;
+@property (nonatomic, retain) CIVector *inputGreenCoefficients;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) CIVector *inputRedCoefficients;
 
 + (id)customAttributes;
 
-- (BOOL)_isIdentity;
+- (bool)_isIdentity;
 - (id)_kernel;
 - (id)inputAlphaCoefficients;
 - (id)inputBlueCoefficients;
@@ -28,7 +26,6 @@
 - (id)inputImage;
 - (id)inputRedCoefficients;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputAlphaCoefficients:(id)arg1;
 - (void)setInputBlueCoefficients:(id)arg1;
 - (void)setInputGreenCoefficients:(id)arg1;

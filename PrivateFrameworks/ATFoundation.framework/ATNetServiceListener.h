@@ -2,24 +2,26 @@
    Image: /System/Library/PrivateFrameworks/ATFoundation.framework/ATFoundation
  */
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_tcp_listener>, NSString;
-
 @interface ATNetServiceListener : ATMessageLinkListener {
-    NSString *_interfaceName;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSString *_serviceDomain;
-    NSString *_serviceName;
-    NSString *_serviceType;
-    NSObject<OS_tcp_listener> *_tcpListener;
+    bool  _enableTLS;
+    NSString * _interfaceName;
+    NSObject<OS_dispatch_queue> * _queue;
+    NSString * _serviceDomain;
+    NSString * _serviceName;
+    NSString * _serviceType;
+    NSObject<OS_tcp_listener> * _tcpListener;
 }
 
-@property(copy) NSString * interfaceName;
+@property (nonatomic) bool enableTLS;
+@property (nonatomic, copy) NSString *interfaceName;
 
 - (void).cxx_destruct;
+- (bool)enableTLS;
 - (id)initWithServiceName:(id)arg1 type:(id)arg2 domain:(id)arg3;
 - (id)interfaceName;
+- (void)setEnableTLS:(bool)arg1;
 - (void)setInterfaceName:(id)arg1;
-- (BOOL)start;
+- (bool)start;
 - (void)stop;
 
 @end

@@ -2,8 +2,9 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-@interface SKTurbulenceFieldNode : SKNoiseFieldNode {
-}
+@interface SKTurbulenceFieldNode : SKNoiseFieldNode
+
++ (bool)supportsSecureCoding;
 
 - (id)_descriptionClassName;
 - (void)_initialize;

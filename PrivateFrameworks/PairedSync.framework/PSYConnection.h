@@ -2,28 +2,23 @@
    Image: /System/Library/PrivateFrameworks/PairedSync.framework/PairedSync
  */
 
-@class <PSYConnectionDelegate>, NSXPCConnection, PSYOptions;
-
 @interface PSYConnection : NSObject {
-    NSXPCConnection *_connection;
-    <PSYConnectionDelegate> *_delegate;
-    PSYOptions *_options;
-    BOOL _valid;
+    NSXPCConnection * _connection;
+    <PSYConnectionDelegate> * _delegate;
+    PSYOptions * _options;
+    bool  _valid;
 }
 
-@property(retain) NSXPCConnection * connection;
-@property <PSYConnectionDelegate> * delegate;
-@property(retain) PSYOptions * options;
-@property(getter=isValid,readonly) BOOL valid;
+@property (nonatomic, retain) NSXPCConnection *connection;
+@property (nonatomic) <PSYConnectionDelegate> *delegate;
+@property (nonatomic, retain) PSYOptions *options;
+@property (getter=isValid, nonatomic, readonly) bool valid;
 
 - (void).cxx_destruct;
-- (void)_handleConnectionInterruption;
-- (void)_handleConnectionInvalidation;
-- (void)_resumeConnectionIfPossible;
 - (id)connection;
 - (id)delegate;
 - (id)init;
-- (BOOL)isValid;
+- (bool)isValid;
 - (id)options;
 - (id)remoteConnection;
 - (void)setConnection:(id)arg1;

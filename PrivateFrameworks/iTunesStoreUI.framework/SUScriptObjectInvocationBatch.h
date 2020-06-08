@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSLock, NSMutableArray, SUScriptObject;
-
 @interface SUScriptObjectInvocationBatch : NSObject {
-    NSMutableArray *_invocationQueue;
-    NSLock *_lock;
-    struct __CFDictionary { } *_proxies;
-    SUScriptObject *_rootObject;
+    NSMutableArray * _invocationQueue;
+    NSLock * _lock;
+    struct __CFDictionary { } * _proxies;
+    SUScriptObject * _rootObject;
 }
 
-@property SUScriptObject * rootObject;
+@property SUScriptObject *rootObject;
 
 - (void)_delayedDequeueInvocations;
 - (id)batchProxyForObject:(id)arg1;

@@ -3,18 +3,18 @@
  */
 
 @interface MLITChapterTOC : MLChapterTOC {
-    struct ChapterData { } *_chapterDataRef;
-    unsigned int *_nameCookieIndexMap;
-    unsigned int *_picCookieIndexMap;
-    unsigned int _totalTimeInMS;
-    unsigned int *_urlCookieIndexMap;
+    struct ChapterData { } * _chapterDataRef;
+    unsigned int * _nameCookieIndexMap;
+    unsigned int * _picCookieIndexMap;
+    unsigned int  _totalTimeInMS;
+    unsigned int * _urlCookieIndexMap;
 }
 
 + (unsigned int**)_chapterDataCookieIndexMapForProperty:(int)arg1 ofChapterTOC:(id)arg2;
-+ (void)enumerateArtworkCacheIDsInFlattenedChapterData:(id)arg1 usingBlock:(id)arg2;
-+ (void)enumerateChapterTimesInFlattenedChapterData:(id)arg1 usingBlock:(id)arg2;
++ (void)enumerateArtworkCacheIDsInFlattenedChapterData:(id)arg1 usingBlock:(id /* block */)arg2;
++ (void)enumerateChapterTimesInFlattenedChapterData:(id)arg1 usingBlock:(id /* block */)arg2;
 
-- (unsigned int*)_cachedCookieIndexMapForProperty:(int)arg1 createIfNecessary:(BOOL)arg2;
+- (unsigned int*)_cachedCookieIndexMapForProperty:(int)arg1 createIfNecessary:(bool)arg2;
 - (struct ChapterData { }*)chapterDataRef;
 - (unsigned int)chapterIndexForGroupIndex:(unsigned int)arg1 groupingProperty:(int)arg2;
 - (unsigned int)countOfChapters;

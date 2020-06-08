@@ -2,45 +2,45 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEORPProblemResponse : PBCodable <NSCopying> {
     struct { 
         unsigned int statusCode : 1; 
         unsigned int isNotificationSupported : 1; 
-    } _has;
-    BOOL _isNotificationSupported;
-    NSString *_problemId;
-    int _statusCode;
+    }  _has;
+    bool  _isNotificationSupported;
+    NSString * _problemId;
+    int  _statusCode;
 }
 
-@property BOOL hasIsNotificationSupported;
-@property(readonly) BOOL hasProblemId;
-@property BOOL hasStatusCode;
-@property BOOL isNotificationSupported;
-@property(retain) NSString * problemId;
-@property int statusCode;
+@property (nonatomic) bool hasIsNotificationSupported;
+@property (nonatomic, readonly) bool hasProblemId;
+@property (nonatomic) bool hasStatusCode;
+@property (nonatomic) bool isNotificationSupported;
+@property (nonatomic, retain) NSString *problemId;
+@property (nonatomic) int statusCode;
 
+- (void).cxx_destruct;
+- (int)StringAsStatusCode:(id)arg1;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasIsNotificationSupported;
-- (BOOL)hasProblemId;
-- (BOOL)hasStatusCode;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isNotificationSupported;
+- (bool)hasIsNotificationSupported;
+- (bool)hasProblemId;
+- (bool)hasStatusCode;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
+- (bool)isNotificationSupported;
 - (void)mergeFrom:(id)arg1;
 - (id)problemId;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasIsNotificationSupported:(BOOL)arg1;
-- (void)setHasStatusCode:(BOOL)arg1;
-- (void)setIsNotificationSupported:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasIsNotificationSupported:(bool)arg1;
+- (void)setHasStatusCode:(bool)arg1;
+- (void)setIsNotificationSupported:(bool)arg1;
 - (void)setProblemId:(id)arg1;
 - (void)setStatusCode:(int)arg1;
 - (int)statusCode;
+- (id)statusCodeAsString:(int)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

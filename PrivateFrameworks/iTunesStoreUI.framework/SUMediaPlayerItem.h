@@ -2,34 +2,32 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSArray, NSString, NSURL;
-
 @interface SUMediaPlayerItem : NSObject <NSCopying> {
-    NSURL *_backgroundImageURL;
-    NSString *_bookmarkIdentifier;
-    NSArray *_downloadPingURLs;
-    int _initialOrientation;
-    unsigned long long _itemIdentifier;
-    int _itemType;
-    double _playableDuration;
-    NSArray *_playbackPingURLs;
-    NSString *_subtitle;
-    NSString *_title;
-    NSURL *_url;
+    NSURL * _backgroundImageURL;
+    NSString * _bookmarkIdentifier;
+    NSArray * _downloadPingURLs;
+    long long  _initialOrientation;
+    unsigned long long  _itemIdentifier;
+    long long  _itemType;
+    double  _playableDuration;
+    NSArray * _playbackPingURLs;
+    NSString * _subtitle;
+    NSString * _title;
+    NSURL * _url;
 }
 
-@property(retain) NSURL * URL;
-@property(retain) NSURL * backgroundImageURL;
-@property(copy) NSString * bookmarkIdentifier;
-@property double bookmarkedStartTime;
-@property(copy) NSArray * downloadPingURLs;
-@property int initialOrientation;
-@property unsigned long long itemIdentifier;
-@property int itemType;
-@property double playableDuration;
-@property(copy) NSArray * playbackPingURLs;
-@property(copy) NSString * subtitle;
-@property(copy) NSString * title;
+@property (nonatomic, retain) NSURL *URL;
+@property (nonatomic, retain) NSURL *backgroundImageURL;
+@property (nonatomic, copy) NSString *bookmarkIdentifier;
+@property (nonatomic) double bookmarkedStartTime;
+@property (nonatomic, copy) NSArray *downloadPingURLs;
+@property (nonatomic) long long initialOrientation;
+@property (nonatomic) unsigned long long itemIdentifier;
+@property (nonatomic) long long itemType;
+@property (nonatomic) double playableDuration;
+@property (nonatomic, copy) NSArray *playbackPingURLs;
+@property (nonatomic, copy) NSString *subtitle;
+@property (nonatomic, copy) NSString *title;
 
 - (id)URL;
 - (id)_newPingURLsWithArray:(id)arg1;
@@ -40,9 +38,9 @@
 - (void)dealloc;
 - (id)downloadPingURLs;
 - (id)initWithItem:(id)arg1;
-- (int)initialOrientation;
+- (long long)initialOrientation;
 - (unsigned long long)itemIdentifier;
-- (int)itemType;
+- (long long)itemType;
 - (double)playableDuration;
 - (id)playbackPingURLs;
 - (void)resetBookmarkedStartTime;
@@ -50,9 +48,9 @@
 - (void)setBookmarkIdentifier:(id)arg1;
 - (void)setBookmarkedStartTime:(double)arg1;
 - (void)setDownloadPingURLs:(id)arg1;
-- (void)setInitialOrientation:(int)arg1;
+- (void)setInitialOrientation:(long long)arg1;
 - (void)setItemIdentifier:(unsigned long long)arg1;
-- (void)setItemType:(int)arg1;
+- (void)setItemType:(long long)arg1;
 - (void)setPlayableDuration:(double)arg1;
 - (void)setPlaybackPingURLs:(id)arg1;
 - (void)setSubtitle:(id)arg1;

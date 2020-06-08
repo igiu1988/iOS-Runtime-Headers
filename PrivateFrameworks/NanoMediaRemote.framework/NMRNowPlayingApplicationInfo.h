@@ -2,29 +2,39 @@
    Image: /System/Library/PrivateFrameworks/NanoMediaRemote.framework/NanoMediaRemote
  */
 
-@class NSString, _NMRNowPlayingApplicationStateProtobuf;
-
 @interface NMRNowPlayingApplicationInfo : NSObject <NMRMediaRemoteProtobufCodable> {
-    _NMRNowPlayingApplicationStateProtobuf *_protobuf;
+    int  _processID;
+    _NMRNowPlayingApplicationStateProtobuf * _protobuf;
 }
 
-@property(copy) NSString * bundleIdentifier;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) NSString * localizedDisplayName;
-@property unsigned int playbackState;
-@property(readonly) Class superclass;
+@property (nonatomic, copy) NSString *companionBundleIdentifier;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSData *iconDigest;
+@property (nonatomic, copy) NSString *localizedDisplayName;
+@property (nonatomic) unsigned int playbackState;
+@property (nonatomic) int processID;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSString *watchBundleIdentifier;
+
++ (int)_getNextPlaceholderProcessID;
 
 - (void).cxx_destruct;
-- (id)bundleIdentifier;
+- (id)companionBundleIdentifier;
+- (id)iconDigest;
 - (id)init;
 - (id)initWithProtobufData:(id)arg1;
 - (id)localizedDisplayName;
 - (unsigned int)playbackState;
+- (int)processID;
 - (id)protobufData;
-- (void)setBundleIdentifier:(id)arg1;
+- (void)setCompanionBundleIdentifier:(id)arg1;
+- (void)setIconDigest:(id)arg1;
 - (void)setLocalizedDisplayName:(id)arg1;
 - (void)setPlaybackState:(unsigned int)arg1;
+- (void)setProcessID:(int)arg1;
+- (void)setWatchBundleIdentifier:(id)arg1;
+- (id)watchBundleIdentifier;
 
 @end

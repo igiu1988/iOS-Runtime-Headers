@@ -2,25 +2,27 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVWeakReference, AVWeakReferencingDelegateStorage, NSArray, NSObject<OS_dispatch_queue>;
-
 @interface AVCaptureMetadataOutputInternal : NSObject {
+    AVWeakReferencingDelegateStorage * delegateOverrideStorage;
+    AVWeakReferencingDelegateStorage * delegateStorage;
+    bool  faceTrackingMetadataObjectTypesAvailable;
+    struct localQueueOpaque { } * localQueue;
+    NSArray * metadataObjectTypes;
+    NSObject<OS_dispatch_queue> * objectQueue;
+    bool  offlineVideoStabilizationMotionMetadataObjectTypesAvailable;
+    struct OpaqueFigSimpleMutex { } * queueMutex;
     struct CGRect { 
         struct CGPoint { 
-            float x; 
-            float y; 
+            double x; 
+            double y; 
         } origin; 
         struct CGSize { 
-            float width; 
-            float height; 
+            double width; 
+            double height; 
         } size; 
-    AVWeakReferencingDelegateStorage *delegateStorage;
-    NSArray *metadataObjectTypes;
-    NSObject<OS_dispatch_queue> *objectQueue;
-    } rectOfInterest;
-    struct OpaqueFigSimpleMutex { } *remoteQueueMutex;
-    struct remoteQueueReceiverOpaque { } *remoteReceiverQueue;
-    AVWeakReference *weakReference;
+    }  rectOfInterest;
+    struct remoteQueueReceiverOpaque { } * remoteQueueReceiver;
+    AVWeakReference * weakReference;
 }
 
 - (void)dealloc;

@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/MediaToolbox.framework/MediaToolbox
  */
 
-@class NSObject<OS_dispatch_queue>;
-
 @interface FigVideoLayerInternal : NSObject {
-    BOOL isPresentationLayer;
-    NSObject<OS_dispatch_queue> *notificationSerialQueue;
-    struct OpaqueFigSimpleMutex { } *serializationMutex;
-    BOOL visible;
+    bool  isPresentationLayer;
+    NSObject<OS_dispatch_queue> * notificationSerialQueue;
+    struct OpaqueFigSimpleMutex { } * serializationMutex;
+    bool  visible;
 }
 
 @end

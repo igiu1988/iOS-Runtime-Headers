@@ -4,23 +4,28 @@
 
 @interface GEOPhotoOptions : PBCodable <NSCopying> {
     struct { 
-        int *list; 
-        unsigned int count; 
-        unsigned int size; 
-    struct { 
         unsigned int photoType : 1; 
-    } _has;
-    int _maxPhotos;
-    } _photoSizes;
-    int _photoType;
+    }  _has;
+    int  _maxPhotos;
+    struct { 
+        int *list; 
+        unsigned long long count; 
+        unsigned long long size; 
+    }  _photoSizes;
+    int  _photoType;
+    PBUnknownFields * _unknownFields;
 }
 
-@property BOOL hasPhotoType;
-@property int maxPhotos;
-@property(readonly) int* photoSizes;
-@property(readonly) unsigned int photoSizesCount;
-@property int photoType;
+@property (nonatomic) bool hasPhotoType;
+@property (nonatomic) int maxPhotos;
+@property (nonatomic, readonly) int*photoSizes;
+@property (nonatomic, readonly) unsigned long long photoSizesCount;
+@property (nonatomic) int photoType;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
+- (void).cxx_destruct;
+- (int)StringAsPhotoSizes:(id)arg1;
+- (int)StringAsPhotoType:(id)arg1;
 - (void)addPhotoSize:(int)arg1;
 - (void)clearPhotoSizes;
 - (void)copyTo:(id)arg1;
@@ -28,20 +33,23 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasPhotoType;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasPhotoType;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (int)maxPhotos;
 - (void)mergeFrom:(id)arg1;
-- (int)photoSizeAtIndex:(unsigned int)arg1;
+- (int)photoSizeAtIndex:(unsigned long long)arg1;
 - (int*)photoSizes;
-- (unsigned int)photoSizesCount;
+- (id)photoSizesAsString:(int)arg1;
+- (unsigned long long)photoSizesCount;
 - (int)photoType;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasPhotoType:(BOOL)arg1;
+- (id)photoTypeAsString:(int)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasPhotoType:(bool)arg1;
 - (void)setMaxPhotos:(int)arg1;
-- (void)setPhotoSizes:(int*)arg1 count:(unsigned int)arg2;
+- (void)setPhotoSizes:(int*)arg1 count:(unsigned long long)arg2;
 - (void)setPhotoType:(int)arg1;
+- (id)unknownFields;
 - (void)writeTo:(id)arg1;
 
 @end

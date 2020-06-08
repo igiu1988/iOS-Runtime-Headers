@@ -2,32 +2,30 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class GKGameRecordInternal, GKPlayer, NSDate, NSString;
-
 @interface GKGameRecord : GKGame {
-    GKPlayer *_player;
+    GKPlayer * _player;
 }
 
-@property(readonly) unsigned int achievementPoints;
-@property(readonly) unsigned int achievements;
-@property(readonly) NSString * defaultLeaderboardIdentifier;
-@property(readonly) unsigned int friendRank;
-@property(retain,readonly) GKGameRecordInternal * internal;
-@property(readonly) NSDate * lastPlayedDate;
-@property(readonly) unsigned int maxAchievementPoints;
-@property(readonly) unsigned int maxAchievements;
-@property(readonly) unsigned int maxFriendRank;
-@property(readonly) unsigned int maxRank;
-@property(readonly) unsigned int numberOfCategories;
-@property(readonly) unsigned int numberOfLeaderboardSets;
-@property(readonly) unsigned int numberOfLeaderboards;
-@property(readonly) BOOL played;
-@property(retain) GKPlayer * player;
-@property(readonly) NSDate * purchaseDate;
-@property(readonly) unsigned int rank;
-@property(readonly) BOOL supportsAchievements;
-@property(readonly) BOOL supportsLeaderboardSets;
-@property(readonly) BOOL supportsLeaderboards;
+@property (nonatomic, readonly) unsigned long long achievementPoints;
+@property (nonatomic, readonly) unsigned long long achievements;
+@property (nonatomic, readonly) NSString *defaultLeaderboardIdentifier;
+@property (nonatomic, readonly) unsigned long long friendRank;
+@property (readonly, retain) GKGameRecordInternal *internal;
+@property (nonatomic, readonly) NSDate *lastPlayedDate;
+@property (nonatomic, readonly) unsigned long long maxAchievementPoints;
+@property (nonatomic, readonly) unsigned long long maxAchievements;
+@property (nonatomic, readonly) unsigned long long maxFriendRank;
+@property (nonatomic, readonly) unsigned long long maxRank;
+@property (nonatomic, readonly) unsigned long long numberOfCategories;
+@property (nonatomic, readonly) unsigned long long numberOfLeaderboardSets;
+@property (nonatomic, readonly) unsigned long long numberOfLeaderboards;
+@property (nonatomic, readonly) bool played;
+@property (nonatomic, retain) GKPlayer *player;
+@property (nonatomic, readonly) NSDate *purchaseDate;
+@property (nonatomic, readonly) unsigned long long rank;
+@property (nonatomic, readonly) bool supportsAchievements;
+@property (nonatomic, readonly) bool supportsLeaderboardSets;
+@property (nonatomic, readonly) bool supportsLeaderboards;
 
 + (id)cacheKeyForPlayer:(id)arg1 game:(id)arg2;
 + (id)cacheKeyForPlayer:(id)arg1 internal:(id)arg2;
@@ -35,20 +33,20 @@
 + (id)internalRepresentationCache;
 + (id)internalRepresentationForPlayer:(id)arg1 game:(id)arg2;
 + (void)invalidateCaches;
-+ (void)loadGameRecordForPlayer:(id)arg1 game:(id)arg2 withCompletionHandler:(id)arg3;
-+ (void)loadGameRecordsForPlayer:(id)arg1 games:(id)arg2 withCompletionHandler:(id)arg3;
++ (void)loadGameRecordForPlayer:(id)arg1 game:(id)arg2 withCompletionHandler:(id /* block */)arg3;
++ (void)loadGameRecordsForPlayer:(id)arg1 games:(id)arg2 withCompletionHandler:(id /* block */)arg3;
 + (void)partitionGameRecords:(id)arg1 returniOS:(id*)arg2 returnMac:(id*)arg3;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void)dealloc;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithInternalRepresentation:(id)arg1 player:(id)arg2;
 - (id)initWithInternalRepresentation:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)played;
+- (id)initWithInternalRepresentation:(id)arg1 player:(id)arg2;
+- (bool)isEqual:(id)arg1;
+- (bool)played;
 - (id)player;
 - (void)setPlayer:(id)arg1;
 

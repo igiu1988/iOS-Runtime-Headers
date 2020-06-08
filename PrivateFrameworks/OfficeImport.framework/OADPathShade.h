@@ -2,13 +2,10 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADRelativeRect;
-
 @interface OADPathShade : OADShade {
-    OADRelativeRect *mFillToRect;
-    BOOL mIsFillToRectOverridden;
-    BOOL mIsTypeOverridden;
-    int mType;
+    OADRelativeRect * mFillToRect;
+    bool  mIsTypeOverridden;
+    int  mType;
 }
 
 + (id)defaultProperties;
@@ -16,11 +13,14 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)fillToRect;
-- (unsigned int)hash;
+- (void)fixPropertiesForChangingParentPreservingEffectiveValues:(id)arg1;
+- (unsigned long long)hash;
 - (id)initWithDefaults;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isFillToRectOverridden;
-- (BOOL)isTypeOverridden;
+- (bool)isAnythingOverridden;
+- (bool)isEqual:(id)arg1;
+- (bool)isFillToRectOverridden;
+- (bool)isTypeOverridden;
+- (void)removeUnnecessaryOverrides;
 - (void)setFillToRect:(id)arg1;
 - (void)setType:(int)arg1;
 - (int)type;

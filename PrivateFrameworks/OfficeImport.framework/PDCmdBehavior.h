@@ -2,16 +2,13 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface PDCmdBehavior : PDAnimateBehavior {
-    int mBehaviorType;
-    NSString *mCmd;
+    int  mBehaviorType;
+    bool  mHasBehaviorType;
 }
 
 - (int)behaviorType;
-- (id)cmd;
+- (bool)hasBehaviorType;
 - (void)setBehaviorType:(int)arg1;
-- (void)setCmd:(id)arg1;
 
 @end

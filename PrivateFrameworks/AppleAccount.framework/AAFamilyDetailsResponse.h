@@ -2,48 +2,49 @@
    Image: /System/Library/PrivateFrameworks/AppleAccount.framework/AppleAccount
  */
 
-@class AAFamilyMember, NSArray, NSString;
-
 @interface AAFamilyDetailsResponse : AAResponse {
-    BOOL _canAddChildMembers;
-    BOOL _canAddMembers;
-    NSString *_childAccountButtonTitle;
-    NSString *_childAccountPrompt;
-    NSArray *_invites;
-    AAFamilyMember *_me;
-    NSArray *_members;
-    AAFamilyMember *_organizer;
-    NSArray *_pendingMembers;
+    NSString * _addMemberInstructions;
+    bool  _canAddChildMembers;
+    bool  _canAddMembers;
+    NSString * _childAccountButtonTitle;
+    NSString * _childAccountPrompt;
+    NSArray * _invites;
+    AAFamilyMember * _me;
+    NSArray * _members;
+    AAFamilyMember * _organizer;
+    NSArray * _pendingMembers;
 }
 
-@property(readonly) BOOL canAddChildMembers;
-@property(readonly) BOOL canAddMembers;
-@property(readonly) NSString * childAccountButtonTitle;
-@property(readonly) NSString * childAccountPrompt;
-@property(readonly) NSArray * firstNames;
-@property(readonly) NSArray * invites;
-@property(readonly) AAFamilyMember * me;
-@property(readonly) int memberCount;
-@property(readonly) NSArray * members;
-@property(readonly) AAFamilyMember * organizer;
-@property(readonly) int pendingInviteCount;
-@property(readonly) int pendingMemberCount;
-@property(readonly) NSArray * pendingMembers;
+@property (nonatomic, readonly) NSString *addMemberInstructions;
+@property (nonatomic, readonly) bool canAddChildMembers;
+@property (nonatomic, readonly) bool canAddMembers;
+@property (nonatomic, readonly) NSString *childAccountButtonTitle;
+@property (nonatomic, readonly) NSString *childAccountPrompt;
+@property (nonatomic, readonly) NSArray *firstNames;
+@property (nonatomic, readonly) NSArray *invites;
+@property (nonatomic, readonly) AAFamilyMember *me;
+@property (nonatomic, readonly) long long memberCount;
+@property (nonatomic, readonly) NSArray *members;
+@property (nonatomic, readonly) AAFamilyMember *organizer;
+@property (nonatomic, readonly) long long pendingInviteCount;
+@property (nonatomic, readonly) long long pendingMemberCount;
+@property (nonatomic, readonly) NSArray *pendingMembers;
 
 - (void).cxx_destruct;
-- (BOOL)canAddChildMembers;
-- (BOOL)canAddMembers;
+- (id)addMemberInstructions;
+- (bool)canAddChildMembers;
+- (bool)canAddMembers;
 - (id)childAccountButtonTitle;
 - (id)childAccountPrompt;
 - (id)firstNames;
 - (id)initWithHTTPResponse:(id)arg1 data:(id)arg2;
 - (id)invites;
 - (id)me;
-- (int)memberCount;
+- (long long)memberCount;
 - (id)members;
 - (id)organizer;
-- (int)pendingInviteCount;
-- (int)pendingMemberCount;
+- (long long)pendingInviteCount;
+- (long long)pendingMemberCount;
 - (id)pendingMembers;
 
 @end

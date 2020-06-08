@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class NSString;
-
 @interface PSConfirmationSpecifier : PSSpecifier {
-    NSString *_cancelButton;
-    NSString *_okButton;
-    NSString *_prompt;
-    NSString *_title;
+    NSString * _cancelButton;
+    NSString * _okButton;
+    NSString * _prompt;
+    NSString * _title;
 }
 
-@property(retain) NSString * cancelButton;
-@property(retain) NSString * okButton;
-@property(retain) NSString * prompt;
-@property(retain) NSString * title;
+@property (nonatomic, retain) NSString *cancelButton;
+@property (nonatomic, retain) NSString *okButton;
+@property (nonatomic, retain) NSString *prompt;
+@property (nonatomic, retain) NSString *title;
 
-+ (id)preferenceSpecifierNamed:(id)arg1 target:(id)arg2 set:(SEL)arg3 get:(SEL)arg4 detail:(Class)arg5 cell:(int)arg6 edit:(Class)arg7;
++ (id)preferenceSpecifierNamed:(id)arg1 target:(id)arg2 set:(SEL)arg3 get:(SEL)arg4 detail:(Class)arg5 cell:(long long)arg6 edit:(Class)arg7;
 + (id)specifierWithSpecifier:(id)arg1;
 
+- (void).cxx_destruct;
 - (id)cancelButton;
-- (void)dealloc;
-- (BOOL)isDestructive;
-- (BOOL)isEqualToSpecifier:(id)arg1;
+- (bool)isDestructive;
+- (bool)isEqualToSpecifier:(id)arg1;
 - (id)okButton;
 - (id)prompt;
 - (void)setCancelButton:(id)arg1;

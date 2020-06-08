@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface EDTableStylesCollection : EDCollection {
-    NSString *mDefaultPivotStyleName;
-    NSString *mDefaultTableStyleName;
+    NSString * mDefaultPivotStyleName;
+    NSString * mDefaultTableStyleName;
 }
 
 - (void)dealloc;

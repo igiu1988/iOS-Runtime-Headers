@@ -2,18 +2,23 @@
    Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
  */
 
-@class NSString;
-
 @interface IMAttachment : NSObject {
-    NSString *_guid;
-    NSString *_path;
+    NSDate * _createdDate;
+    NSString * _guid;
+    bool  _isSticker;
+    bool  _isTransferComplete;
+    NSString * _path;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
+- (id)createdDate;
 - (id)description;
 - (id)fileTransfer;
 - (id)guid;
 - (id)initWithPath:(id)arg1 guid:(id)arg2;
+- (id)initWithPath:(id)arg1 guid:(id)arg2 createdDate:(id)arg3 isSticker:(bool)arg4 isTransferComplete:(bool)arg5;
+- (bool)isSticker;
+- (bool)isTransferComplete;
 - (id)path;
 
 @end

@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureSession, NSMutableArray, NSObject<OS_dispatch_queue>, NSString;
-
 @interface AVCaptureOutputInternal : NSObject {
+    int  changeSeed;
+    NSMutableArray * connections;
+    struct OpaqueFigCaptureSession { } * figCaptureSession;
+    NSObject<OS_dispatch_queue> * figCaptureSessionSyncQueue;
     struct CGAffineTransform { 
-        float a; 
-        float b; 
-        float c; 
-        float d; 
-        float tx; 
-        float ty; 
-    int changeSeed;
-    NSMutableArray *connections;
-    struct OpaqueFigCaptureSession { } *figCaptureSession;
-    NSObject<OS_dispatch_queue> *figCaptureSessionSyncQueue;
-    } metadataTransform;
-    BOOL physicallyMirrorsVideo;
-    float rollAdjustment;
-    AVCaptureSession *session;
-    NSString *sinkID;
+        double a; 
+        double b; 
+        double c; 
+        double d; 
+        double tx; 
+        double ty; 
+    }  metadataTransform;
+    bool  physicallyMirrorsVideo;
+    double  rollAdjustment;
+    AVCaptureSession * session;
+    NSString * sinkID;
 }
 
 - (void)dealloc;

@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/AccountsUI.framework/AccountsUI
  */
 
-@class UIActivityIndicatorView, UILabel;
-
 @interface ACUISpinnerTitle : UIView {
-    UIActivityIndicatorView *_spinner;
-    UILabel *_titleView;
+    UIActivityIndicatorView * _spinner;
+    UILabel * _titleView;
 }
 
 - (void).cxx_destruct;
@@ -14,6 +12,6 @@
 - (void)didMoveToWindow;
 - (id)initWithTitle:(id)arg1;
 - (void)layoutSubviews;
-- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
+- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
 
 @end

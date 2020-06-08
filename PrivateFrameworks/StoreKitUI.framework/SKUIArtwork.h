@@ -2,25 +2,24 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSDictionary, NSMutableDictionary, NSString, NSURL;
-
-@interface SKUIArtwork : NSObject <SKUICacheCoding> {
-    int _height;
-    NSURL *_url;
-    NSString *_urlString;
-    int _width;
+@interface SKUIArtwork : NSObject <NSSecureCoding, SKUICacheCoding> {
+    long long  _height;
+    NSURL * _url;
+    NSString * _urlString;
+    long long  _width;
 }
 
-@property(readonly) NSURL * URL;
-@property(getter=_lookupDictionary,readonly) NSDictionary * _lookupDictionary;
-@property(readonly) NSMutableDictionary * cacheRepresentation;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) int height;
-@property(readonly) struct CGSize { float x1; float x2; } size;
-@property(readonly) Class superclass;
-@property(readonly) int width;
+@property (nonatomic, readonly) NSURL *URL;
+@property (nonatomic, readonly) NSMutableDictionary *cacheRepresentation;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) long long height;
+@property (nonatomic, readonly) struct CGSize { double x1; double x2; } size;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) long long width;
+
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)URL;
@@ -28,13 +27,15 @@
 - (id)cacheRepresentation;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
-- (unsigned int)hash;
-- (int)height;
+- (void)encodeWithCoder:(id)arg1;
+- (unsigned long long)hash;
+- (long long)height;
 - (id)initWithArtworkDictionary:(id)arg1;
 - (id)initWithCacheRepresentation:(id)arg1;
-- (id)initWithURL:(id)arg1 size:(struct CGSize { float x1; float x2; })arg2;
-- (BOOL)isEqual:(id)arg1;
-- (struct CGSize { float x1; float x2; })size;
-- (int)width;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithURL:(id)arg1 size:(struct CGSize { double x1; double x2; })arg2;
+- (bool)isEqual:(id)arg1;
+- (struct CGSize { double x1; double x2; })size;
+- (long long)width;
 
 @end

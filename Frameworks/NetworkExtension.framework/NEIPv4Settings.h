@@ -2,42 +2,48 @@
    Image: /System/Library/Frameworks/NetworkExtension.framework/NetworkExtension
  */
 
-@class NSString;
-
-@interface NEIPv4Settings : NSObject <NEConfigurationValidating, NEPrettyDescription, NEConfigurationLegacySupport, NSSecureCoding, NSCopying> {
-    NSString *_address;
-    int _configMethod;
-    BOOL _overridePrimary;
-    NSString *_router;
-    NSString *_subnetMask;
+@interface NEIPv4Settings : NSObject <NEConfigurationLegacySupport, NEConfigurationValidating, NEPrettyDescription, NSCopying, NSSecureCoding> {
+    NSArray * _addresses;
+    long long  _configMethod;
+    NSArray * _excludedRoutes;
+    NSArray * _includedRoutes;
+    bool  _overridePrimary;
+    NSString * _router;
+    NSArray * _subnetMasks;
 }
 
-@property(copy) NSString * address;
-@property int configMethod;
-@property BOOL overridePrimary;
-@property(copy) NSString * router;
-@property(copy) NSString * subnetMask;
+@property (readonly) NSArray *addresses;
+@property long long configMethod;
+@property (copy) NSArray *excludedRoutes;
+@property (copy) NSArray *includedRoutes;
+@property bool overridePrimary;
+@property (copy) NSString *router;
+@property (readonly) NSArray *subnetMasks;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (id)address;
-- (BOOL)checkValidityAndCollectErrors:(id)arg1;
-- (int)configMethod;
+- (id)addresses;
+- (bool)checkValidityAndCollectErrors:(id)arg1;
+- (long long)configMethod;
 - (id)copyLegacyDictionary;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (id)descriptionWithIndent:(int)arg1;
+- (id)descriptionWithIndent:(int)arg1 options:(unsigned long long)arg2;
 - (void)encodeWithCoder:(id)arg1;
+- (id)excludedRoutes;
+- (bool)hasDefaultRoute;
+- (id)includedRoutes;
 - (id)init;
 - (id)initFromLegacyDictionary:(id)arg1;
+- (id)initWithAddresses:(id)arg1 subnetMasks:(id)arg2;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)overridePrimary;
+- (bool)overridePrimary;
 - (id)router;
-- (void)setAddress:(id)arg1;
-- (void)setConfigMethod:(int)arg1;
-- (void)setOverridePrimary:(BOOL)arg1;
+- (void)setConfigMethod:(long long)arg1;
+- (void)setExcludedRoutes:(id)arg1;
+- (void)setIncludedRoutes:(id)arg1;
+- (void)setOverridePrimary:(bool)arg1;
 - (void)setRouter:(id)arg1;
-- (void)setSubnetMask:(id)arg1;
-- (id)subnetMask;
+- (id)subnetMasks;
 
 @end

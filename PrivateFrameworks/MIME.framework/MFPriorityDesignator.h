@@ -3,10 +3,12 @@
  */
 
 @interface MFPriorityDesignator : NSObject {
-    int _priority;
+    int  _priority;
 }
 
 + (id)currentDesignator;
++ (id)currentDesignatorIfExists;
++ (void)destroyCurrentDesignator;
 
 - (int)priority;
 - (void)setPriority:(int)arg1;

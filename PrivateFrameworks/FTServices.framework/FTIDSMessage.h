@@ -2,42 +2,44 @@
    Image: /System/Library/PrivateFrameworks/FTServices.framework/FTServices
  */
 
-@class NSData, NSMutableArray, NSString;
-
 @interface FTIDSMessage : IDSBaseMessage <NSCopying> {
-    NSMutableArray *_certDataArray;
-    NSData *_identityCert;
-    struct __SecKey { } *_identityKey;
-    struct __SecKey { } *_identityPublicKey;
-    NSMutableArray *_privateKeyArray;
-    NSMutableArray *_publicKeyArray;
-    NSData *_pushCert;
-    struct __SecKey { } *_pushKey;
-    struct __SecKey { } *_pushPublicKey;
-    NSData *_pushToken;
-    NSString *_selfURI;
-    NSMutableArray *_userIDArray;
+    NSMutableArray * _certDataArray;
+    NSData * _identityCert;
+    struct __SecKey { } * _identityKey;
+    struct __SecKey { } * _identityPublicKey;
+    NSMutableArray * _privateKeyArray;
+    NSMutableArray * _publicKeyArray;
+    NSData * _pushCert;
+    struct __SecKey { } * _pushKey;
+    struct __SecKey { } * _pushPublicKey;
+    NSData * _pushToken;
+    NSString * _selfURI;
+    NSNumber * _serverTimestamp;
+    NSNumber * _serverTimestampReceivedDate;
+    NSMutableArray * _userIDArray;
 }
 
-@property(copy) NSData * IDCertificate;
-@property(copy) NSMutableArray * certDataArray;
-@property struct __SecKey { }* identityPrivateKey;
-@property struct __SecKey { }* identityPublicKey;
-@property(copy) NSMutableArray * privateKeyArray;
-@property(copy) NSMutableArray * publicKeyArray;
-@property(copy) NSData * pushCertificate;
-@property struct __SecKey { }* pushPrivateKey;
-@property struct __SecKey { }* pushPublicKey;
-@property(copy) NSData * pushToken;
-@property(copy) NSString * selfURI;
-@property(copy) NSMutableArray * userIDArray;
+@property (nonatomic, copy) NSData *IDCertificate;
+@property (nonatomic, copy) NSMutableArray *certDataArray;
+@property (nonatomic) struct __SecKey { }*identityPrivateKey;
+@property (nonatomic) struct __SecKey { }*identityPublicKey;
+@property (nonatomic, copy) NSMutableArray *privateKeyArray;
+@property (nonatomic, copy) NSMutableArray *publicKeyArray;
+@property (nonatomic, copy) NSData *pushCertificate;
+@property (nonatomic) struct __SecKey { }*pushPrivateKey;
+@property (nonatomic) struct __SecKey { }*pushPublicKey;
+@property (nonatomic, copy) NSData *pushToken;
+@property (nonatomic, copy) NSString *selfURI;
+@property (nonatomic, copy) NSMutableArray *userIDArray;
+@property (readonly) bool wantsIDSProtocolVersion;
 
+- (void).cxx_destruct;
 - (id)IDCertificate;
 - (void)addAuthUserID:(id)arg1 certificate:(id)arg2 privateKey:(struct __SecKey { }*)arg3 publicKey:(struct __SecKey { }*)arg4;
 - (id)additionalMessageHeaders;
 - (id)additionalMessageHeadersForOutgoingPush;
 - (id)certDataArray;
-- (int)command;
+- (long long)command;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (struct __SecKey { }*)identityPrivateKey;
@@ -49,8 +51,11 @@
 - (struct __SecKey { }*)pushPrivateKey;
 - (struct __SecKey { }*)pushPublicKey;
 - (id)pushToken;
-- (int)responseCommand;
+- (long long)responseCommand;
+- (id)retryCountKey;
 - (id)selfURI;
+- (id)serverTimestamp;
+- (id)serverTimestampReceivedDate;
 - (void)setCertDataArray:(id)arg1;
 - (void)setIDCertificate:(id)arg1;
 - (void)setIdentityPrivateKey:(struct __SecKey { }*)arg1;
@@ -62,14 +67,17 @@
 - (void)setPushPublicKey:(struct __SecKey { }*)arg1;
 - (void)setPushToken:(id)arg1;
 - (void)setSelfURI:(id)arg1;
+- (void)setServerTimestamp:(id)arg1;
+- (void)setServerTimestampReceivedDate:(id)arg1;
 - (void)setUserIDArray:(id)arg1;
 - (id)userIDArray;
-- (BOOL)wantsBagKey;
-- (BOOL)wantsBinaryPush;
-- (BOOL)wantsBodySignature;
-- (BOOL)wantsCompressedBody;
-- (BOOL)wantsHTTPHeaders;
-- (BOOL)wantsIDSServer;
-- (BOOL)wantsSignature;
+- (bool)wantsBagKey;
+- (bool)wantsBinaryPush;
+- (bool)wantsBodySignature;
+- (bool)wantsCompressedBody;
+- (bool)wantsHTTPHeaders;
+- (bool)wantsIDSProtocolVersion;
+- (bool)wantsIDSServer;
+- (bool)wantsSignature;
 
 @end

@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVOutputSettings;
-
 @interface AVFormatSpecification : NSObject {
-    AVOutputSettings *_outputSettings;
-    struct opaqueCMFormatDescription { } *_sourceFormatDescription;
+    AVOutputSettings * _outputSettings;
+    struct opaqueCMFormatDescription { } * _sourceFormatDescription;
 }
 
 + (id)formatSpecificationWithOutputSettings:(id)arg1 sourceFormatDescription:(struct opaqueCMFormatDescription { }*)arg2;

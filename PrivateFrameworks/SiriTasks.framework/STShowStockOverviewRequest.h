@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/SiriTasks.framework/SiriTasks
  */
 
-@class NSNumber, NSString;
-
 @interface STShowStockOverviewRequest : AFSiriRequest {
-    NSNumber *_change;
-    NSNumber *_changePercent;
-    NSString *_chartData;
-    NSString *_exchange;
-    NSNumber *_high;
-    NSNumber *_low;
-    NSString *_name;
-    NSNumber *_price;
-    NSString *_symbol;
+    NSNumber * _change;
+    NSNumber * _changePercent;
+    NSString * _chartData;
+    NSString * _exchange;
+    NSNumber * _high;
+    NSNumber * _low;
+    NSString * _name;
+    NSNumber * _price;
+    NSString * _symbol;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_initWithName:(id)arg1 symbol:(id)arg2 exchange:(id)arg3 price:(id)arg4 high:(id)arg5 low:(id)arg6 change:(id)arg7 changePercent:(id)arg8 chartData:(id)arg9;

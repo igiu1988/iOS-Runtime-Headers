@@ -2,38 +2,36 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSMutableArray, NSString;
-
 @interface TSTTemporaryCollectionNode : NSObject {
+    NSMutableArray * _children;
     struct TSCEVectorIndexPair { 
-        unsigned short column; 
-        unsigned short row; 
-    NSMutableArray *mChildren;
-    } mDimensions;
-    unsigned int mFirstIndex;
-    unsigned int mLastIndex;
-    NSMutableArray *mWhitespaceAfterDelimiters;
-    NSString *mWhitespaceBeforeFirstChild;
+        unsigned int column; 
+        unsigned int row; 
+    }  _dimensions;
+    unsigned long long  _firstIndex;
+    unsigned long long  _lastIndex;
+    NSMutableArray * _whitespaceAfterDelimiters;
+    NSString * _whitespaceBeforeFirstChild;
 }
 
-@property(retain) NSMutableArray * children;
-@property struct TSCEVectorIndexPair { unsigned short x1; unsigned short x2; } dimensions;
-@property unsigned int firstIndex;
-@property unsigned int lastIndex;
-@property(retain) NSMutableArray * whitespaceAfterDelimiters;
-@property(retain) NSString * whitespaceBeforeFirstChild;
+@property (nonatomic, retain) NSMutableArray *children;
+@property (nonatomic) struct TSCEVectorIndexPair { unsigned int x1; unsigned int x2; } dimensions;
+@property (nonatomic) unsigned long long firstIndex;
+@property (nonatomic) unsigned long long lastIndex;
+@property (nonatomic, retain) NSMutableArray *whitespaceAfterDelimiters;
+@property (nonatomic, retain) NSString *whitespaceBeforeFirstChild;
 
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)children;
-- (void)dealloc;
-- (struct TSCEVectorIndexPair { unsigned short x1; unsigned short x2; })dimensions;
-- (unsigned int)firstIndex;
+- (struct TSCEVectorIndexPair { unsigned int x1; unsigned int x2; })dimensions;
+- (unsigned long long)firstIndex;
 - (id)init;
-- (unsigned int)lastIndex;
+- (unsigned long long)lastIndex;
 - (void)setChildren:(id)arg1;
-- (void)setDimensions:(struct TSCEVectorIndexPair { unsigned short x1; unsigned short x2; })arg1;
-- (void)setFirstIndex:(unsigned int)arg1;
-- (void)setLastIndex:(unsigned int)arg1;
+- (void)setDimensions:(struct TSCEVectorIndexPair { unsigned int x1; unsigned int x2; })arg1;
+- (void)setFirstIndex:(unsigned long long)arg1;
+- (void)setLastIndex:(unsigned long long)arg1;
 - (void)setWhitespaceAfterDelimiters:(id)arg1;
 - (void)setWhitespaceBeforeFirstChild:(id)arg1;
 - (id)whitespaceAfterDelimiters;

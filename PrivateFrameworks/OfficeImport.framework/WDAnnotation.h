@@ -2,25 +2,24 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDAnnotation, WDAnnotationData, WDCharacterRun;
-
 @interface WDAnnotation : WDRun {
-    WDAnnotationData *mData;
-    WDAnnotation *mOtherEndOfRangedAnnotation;
-    WDCharacterRun *mReference;
-    BOOL mReferencePopertiesFixed;
-    int mType;
+    WDAnnotationData * mData;
+    WDAnnotation * mOtherEndOfRangedAnnotation;
+    WDCharacterRun * mReference;
+    bool  mReferencePopertiesFixed;
+    int  mType;
 }
 
 - (int)annotationType;
 - (id)data;
 - (id)date;
 - (void)dealloc;
+- (id)description;
 - (id)initWithParagraph:(id)arg1 type:(int)arg2;
 - (id)otherEndOfRangedAnnotation;
 - (id)owner;
 - (id)reference;
-- (BOOL)referencePropertiesFixed;
+- (bool)referencePropertiesFixed;
 - (int)runType;
 - (void)setDate:(id)arg1;
 - (void)setOtherEndOfRangedAnnotation:(id)arg1;

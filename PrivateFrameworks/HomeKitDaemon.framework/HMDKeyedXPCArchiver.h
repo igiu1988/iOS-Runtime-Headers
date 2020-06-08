@@ -2,20 +2,20 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class NSKeyedArchiver;
-
-@interface HMDKeyedXPCArchiver : NSObject {
-    NSKeyedArchiver *_archiver;
+@interface HMDKeyedXPCArchiver : HMFObject {
+    NSKeyedArchiver * _archiver;
 }
 
-@property(retain) NSKeyedArchiver * archiver;
+@property (nonatomic, retain) NSKeyedArchiver *archiver;
 
 - (void).cxx_destruct;
 - (void)_configure;
 - (id)archiver;
+- (void)dealloc;
 - (void)encodeObject:(id)arg1 forKey:(id)arg2;
+- (id)encodedData;
 - (void)finishEncoding;
-- (id)initForWritingWithMutableData:(id)arg1;
+- (id)initForWritingWithMessage:(id)arg1;
 - (void)setArchiver:(id)arg1;
 
 @end

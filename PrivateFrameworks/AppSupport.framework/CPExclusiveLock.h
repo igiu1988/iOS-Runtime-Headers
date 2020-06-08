@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/AppSupport.framework/AppSupport
  */
 
-@class NSString;
-
 @interface CPExclusiveLock : NSObject <NSLocking> {
-    int _fd;
-    NSString *_name;
+    int  _fd;
+    NSString * _name;
 }
 
 - (void)dealloc;
@@ -15,7 +13,7 @@
 - (void)lock;
 - (id)name;
 - (void)setName:(id)arg1;
-- (BOOL)tryLock;
+- (bool)tryLock;
 - (void)unlock;
 
 @end

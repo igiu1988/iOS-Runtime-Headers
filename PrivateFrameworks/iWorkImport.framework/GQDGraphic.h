@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class GQDSStyle;
-
 @interface GQDGraphic : GQDDrawable {
-    GQDSStyle *mGraphicStyle;
+    GQDSStyle * mGraphicStyle;
 }
 
 - (void)dealloc;

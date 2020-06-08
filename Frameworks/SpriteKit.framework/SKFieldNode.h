@@ -2,48 +2,39 @@
    Image: /System/Library/Frameworks/SpriteKit.framework/SpriteKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class PKPhysicsField, SKRegion, SKTexture;
-
 @interface SKFieldNode : SKNode {
-     /* Encoded args for previous method: @24@0:48 */
-     /* Encoded args for previous method: @24@0:48 */
-     /* Encoded args for previous method: 8@0:4 */
-     /* Encoded args for previous method: v24@0:48 */
-    float _animationSpeed;
-    BOOL _exclusive;
-    PKPhysicsField *_field;
-    SKRegion *_region;
-    float _smoothness;
-    SKTexture *_texture;
+    float  _animationSpeed;
+    bool  _exclusive;
+    PKPhysicsField * _field;
+    SKRegion * _region;
+    float  _smoothness;
+    SKTexture * _texture;
 }
 
-@property float animationSpeed;
-@property unsigned int categoryBitMask;
-@property /* Warning: Unrecognized filer type: '' using 'void*' */ void* direction;
-@property(getter=isEnabled) BOOL enabled;
-@property(getter=isExclusive) BOOL exclusive;
-@property float falloff;
-@property float minimumRadius;
-@property(retain) SKRegion * region;
-@property float smoothness;
-@property float strength;
-@property(retain) SKTexture * texture;
+@property (nonatomic) float animationSpeed;
+@property (nonatomic) unsigned int categoryBitMask;
+@property (nonatomic) void direction;
+@property (getter=isEnabled, nonatomic) bool enabled;
+@property (getter=isExclusive, nonatomic) bool exclusive;
+@property (nonatomic) float falloff;
+@property (nonatomic) float minimumRadius;
+@property (nonatomic, retain) SKRegion *region;
+@property (nonatomic) float smoothness;
+@property (nonatomic) float strength;
+@property (nonatomic, retain) SKTexture *texture;
 
-+ (id)customFieldWithEvaluationBlock:(id)arg1;
++ (id)customFieldWithEvaluationBlock:(id /* block */)arg1;
 + (id)dragField;
 + (id)electricField;
-+ (id)linearGravityFieldWithVector:(/* Warning: Unrecognized filer type: '' using 'void*' */ void*)arg1;
++ (id)linearGravityFieldWithVector;
 + (id)magneticField;
-+ (id)noiseFieldWithSmoothness:(float)arg1 animationSpeed:(float)arg2;
++ (id)noiseFieldWithSmoothness:(double)arg1 animationSpeed:(double)arg2;
 + (id)radialGravityField;
 + (id)springField;
-+ (id)turbulenceFieldWithSmoothness:(float)arg1 animationSpeed:(float)arg2;
++ (bool)supportsSecureCoding;
++ (id)turbulenceFieldWithSmoothness:(double)arg1 animationSpeed:(double)arg2;
 + (id)velocityFieldWithTexture:(id)arg1;
-+ (id)velocityFieldWithVector:(/* Warning: Unrecognized filer type: '' using 'void*' */ void*)arg1;
++ (id)velocityFieldWithVector;
 + (id)vortexField;
 
 - (void).cxx_destruct;
@@ -51,26 +42,26 @@
 - (float)animationSpeed;
 - (unsigned int)categoryBitMask;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (/* Warning: Unrecognized filer type: '8' using 'void*' */ void*)direction;
+- (void)direction;
 - (void)encodeWithCoder:(id)arg1;
 - (float)falloff;
 - (id)field;
-- (unsigned int)hash;
 - (id)init;
-- (id)initWithCoder:(id)arg1 field:(id)arg2;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEnabled;
-- (BOOL)isEqualToNode:(id)arg1;
-- (BOOL)isExclusive;
+- (id)initWithCoder:(id)arg1 field:(id)arg2;
+- (bool)isEnabled;
+- (bool)isEqualToNode:(id)arg1;
+- (bool)isExclusive;
 - (float)minimumRadius;
 - (id)region;
 - (void)setAnimationSpeed:(float)arg1;
 - (void)setCategoryBitMask:(unsigned int)arg1;
-- (void)setDirection:(/* Warning: Unrecognized filer type: '' using 'void*' */ void*)arg1;
-- (void)setEnabled:(BOOL)arg1;
-- (void)setExclusive:(BOOL)arg1;
+- (void)setDirection;
+- (void)setEnabled:(bool)arg1;
+- (void)setExclusive:(bool)arg1;
 - (void)setFalloff:(float)arg1;
 - (void)setMinimumRadius:(float)arg1;
+- (void)setPhysicsField:(id)arg1;
 - (void)setRegion:(id)arg1;
 - (void)setSmoothness:(float)arg1;
 - (void)setStrength:(float)arg1;

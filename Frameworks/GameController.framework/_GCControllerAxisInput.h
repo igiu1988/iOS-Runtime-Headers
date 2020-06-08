@@ -2,34 +2,30 @@
    Image: /System/Library/Frameworks/GameController.framework/GameController
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class GCControllerButtonInput, GCControllerElement;
-
 @interface _GCControllerAxisInput : GCControllerAxisInput {
-    GCControllerElement *_collection;
-    BOOL _digital;
-    BOOL _flipped;
-    GCControllerButtonInput *_negative;
-    GCControllerButtonInput *_positive;
-    float _value;
-    id _valueChangedHandler;
+    GCControllerElement * _collection;
+    bool  _digital;
+    bool  _flipped;
+    GCControllerButtonInput * _negative;
+    GCControllerButtonInput * _positive;
+    float  _value;
+    id /* block */  _valueChangedHandler;
 }
 
 - (void).cxx_destruct;
-- (BOOL)_setValue:(float)arg1;
+- (bool)_setValue:(float)arg1;
+- (bool)_setValue:(float)arg1 queue:(id)arg2;
 - (id)collection;
-- (id)initWithCollection:(id)arg1 flipped:(BOOL)arg2 digital:(BOOL)arg3;
-- (BOOL)isAnalog;
-- (BOOL)isDigital;
-- (BOOL)isFlipped;
+- (id)initWithCollection:(id)arg1 flipped:(bool)arg2 digital:(bool)arg3;
+- (bool)isAnalog;
+- (bool)isDigital;
+- (bool)isFlipped;
 - (id)negative;
 - (id)positive;
-- (BOOL)setHIDValue:(struct __IOHIDValue { }*)arg1;
-- (void)setValueChangedHandler:(id)arg1;
+- (bool)setHIDValue:(struct __IOHIDValue { }*)arg1;
+- (bool)setHIDValue:(struct __IOHIDValue { }*)arg1 queue:(id)arg2;
+- (void)setValueChangedHandler:(id /* block */)arg1;
 - (float)value;
-- (id)valueChangedHandler;
+- (id /* block */)valueChangedHandler;
 
 @end

@@ -2,37 +2,35 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class NSArray, NSMutableArray, NSString, NSURL, SLFacebookAlbum, SLFacebookPlace, SLFacebookPostPrivacySetting;
-
 @interface SLFacebookPost : NSObject <NSSecureCoding> {
-    SLFacebookAlbum *_album;
-    NSMutableArray *_imageAssetURLs;
-    NSMutableArray *_imageData;
-    NSURL *_link;
-    NSString *_maskedApplicationID;
-    SLFacebookPlace *_place;
-    SLFacebookPostPrivacySetting *_privacySetting;
-    NSArray *_taggedUserIDs;
-    NSString *_text;
-    NSMutableArray *_videoAssetURLs;
-    NSMutableArray *_videoData;
-    NSString *_videoExportPreset;
+    SLFacebookAlbum * _album;
+    NSMutableArray * _imageAssetURLs;
+    NSMutableArray * _imageData;
+    NSURL * _link;
+    NSString * _maskedApplicationID;
+    SLFacebookPlace * _place;
+    SLFacebookPostPrivacySetting * _privacySetting;
+    NSArray * _taggedUserIDs;
+    NSString * _text;
+    NSMutableArray * _videoAssetURLs;
+    NSMutableArray * _videoData;
+    NSString * _videoExportPreset;
 }
 
-@property(retain) SLFacebookAlbum * album;
-@property(retain) NSArray * imageAssetURLs;
-@property(retain) NSArray * imageData;
-@property(retain) NSURL * link;
-@property(retain) NSString * maskedApplicationID;
-@property(retain) SLFacebookPlace * place;
-@property(retain) SLFacebookPostPrivacySetting * privacySetting;
-@property(retain) NSArray * taggedUserIDs;
-@property(retain) NSString * text;
-@property(retain) NSArray * videoAssetURLs;
-@property(retain) NSArray * videoData;
-@property(retain) NSString * videoExportPreset;
+@property (retain) SLFacebookAlbum *album;
+@property (retain) NSArray *imageAssetURLs;
+@property (retain) NSArray *imageData;
+@property (retain) NSURL *link;
+@property (retain) NSString *maskedApplicationID;
+@property (retain) SLFacebookPlace *place;
+@property (retain) SLFacebookPostPrivacySetting *privacySetting;
+@property (retain) NSArray *taggedUserIDs;
+@property (retain) NSString *text;
+@property (retain) NSArray *videoAssetURLs;
+@property (retain) NSArray *videoData;
+@property (retain) NSString *videoExportPreset;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_encodableObjectProperties;

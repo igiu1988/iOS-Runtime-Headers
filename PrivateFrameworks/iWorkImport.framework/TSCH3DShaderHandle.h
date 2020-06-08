@@ -3,10 +3,10 @@
  */
 
 @interface TSCH3DShaderHandle : TSCH3DGLHandle {
-    unsigned int mType;
+    unsigned int  mType;
 }
 
-@property(readonly) unsigned int type;
+@property (nonatomic, readonly) unsigned int type;
 
 + (id)handleWithType:(unsigned int)arg1;
 

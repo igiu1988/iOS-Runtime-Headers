@@ -2,11 +2,11 @@
    Image: /System/Library/PrivateFrameworks/Message.framework/Message
  */
 
-@class NSString;
-
-@interface _MFSelectMailboxReplayContextTransformation : NSObject <MFOfflineCacheReplayContextTransformation> {
-    NSString *_mailboxID;
+@interface _MFSelectMailboxReplayContextTransformation : MFOfflineCacheReplayContextTransformation {
+    NSString * _mailboxID;
 }
+
++ (bool)supportsSecureCoding;
 
 - (void)applyToReplayContext:(id)arg1;
 - (void)dealloc;

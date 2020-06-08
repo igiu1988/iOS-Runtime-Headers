@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/StoreServices.framework/StoreServices
  */
 
-@class SSPersistentCache;
-
 @interface SSDatabaseCacheEntry : SSSQLiteEntity {
-    SSPersistentCache *_persistentCache;
+    SSPersistentCache * _persistentCache;
 }
 
 + (unsigned long long)_fetchPersistentID:(id)arg1 inDatabase:(id)arg2;
 + (id)allPropertyKeys;
 + (id)databaseTable;
 
-- (id)dataBlob:(BOOL*)arg1;
+- (id)dataBlob:(bool*)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)initWithLookupKey:(id)arg1 inDatabase:(id)arg2;

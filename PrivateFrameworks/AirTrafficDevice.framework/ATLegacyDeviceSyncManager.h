@@ -2,49 +2,46 @@
    Image: /System/Library/PrivateFrameworks/AirTrafficDevice.framework/AirTrafficDevice
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class ATAsset, ATClientController, ATLegacyAssetLink, ATLegacyMessageLink, ATSession, ATUserDefaults, NSDate, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
-
-@interface ATLegacyDeviceSyncManager : ATDeviceSyncManager <ATEnvironmentMonitorObserver, ATSessionObserver, ATLegacyAssetLinkProgressDelegate> {
-    ATLegacyAssetLink *_assetLink;
-    BOOL _automaticSync;
-    struct CacheDeleteToken { } *_cacheDeleteToken;
-    ATClientController *_clientController;
-    id _clientProgressCallback;
-    ATAsset *_currentAsset;
-    NSString *_currentDataclass;
-    ATLegacyMessageLink *_currentMessageLink;
-    double _currentOverallProgress;
-    unsigned int _currentStage;
-    NSString *_currentStatus;
-    double _currentSyncProgress;
-    NSMutableDictionary *_dataclassTimers;
-    NSMutableArray *_dataclasses;
-    ATUserDefaults *_defaults;
-    NSMutableDictionary *_diskUsageInfo;
-    NSObject<OS_dispatch_queue> *_diskUsageQueue;
-    unsigned long _grappaId;
-    BOOL _localSyncRequest;
-    BOOL _localSyncRequestCanceled;
-    NSMutableArray *_messageLinks;
-    NSDate *_startTime;
-    ATSession *_syncSession;
-    NSObject<OS_dispatch_queue> *_workQueue;
+@interface ATLegacyDeviceSyncManager : ATDeviceSyncManager <ATEnvironmentMonitorObserver, ATLegacyAssetLinkProgressDelegate, ATSessionObserver> {
+    ATLegacyAssetLink * _assetLink;
+    bool  _automaticSync;
+    struct CacheDeleteToken { } * _cacheDeleteToken;
+    ATClientController * _clientController;
+    id /* block */  _clientProgressCallback;
+    ATAsset * _currentAsset;
+    NSString * _currentDataclass;
+    ATLegacyMessageLink * _currentMessageLink;
+    double  _currentOverallProgress;
+    unsigned int  _currentStage;
+    NSString * _currentStatus;
+    NSDictionary * _currentSyncHostInfo;
+    double  _currentSyncProgress;
+    NSMutableDictionary * _dataclassTimers;
+    NSMutableArray * _dataclasses;
+    ATUserDefaults * _defaults;
+    ATDeviceDiskUsageProvider * _diskUsageProvider;
+    unsigned int  _grappaId;
+    bool  _localSyncRequest;
+    bool  _localSyncRequestCanceled;
+    NSMutableArray * _messageLinks;
+    NSDate * _startTime;
+    ATSession * _syncSession;
+    NSObject<OS_dispatch_queue> * _workQueue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
-@property(retain) ATSession * syncSession;
+@property (nonatomic, copy) NSDictionary *currentSyncHostInfo;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) ATSession *syncSession;
 
 + (id)legacyDeviceSyncManager;
 
 - (void).cxx_destruct;
-- (BOOL)_currentLinkIsWifiConnection;
+- (void)_cancelExistingSyncSession;
+- (id)_currentHostType;
+- (bool)_currentLinkIsWifiConnection;
 - (void)_handleAssetMetricsMessage:(id)arg1 fromLink:(id)arg2;
 - (void)_handleCapabilitiesMessage:(id)arg1 fromLink:(id)arg2;
 - (void)_handleFinishedSyncingMetadataMessage:(id)arg1 fromLink:(id)arg2;
@@ -55,12 +52,12 @@
 - (void)_reconcileSyncWithMessage:(id)arg1;
 - (void)_reportLocalProgress;
 - (void)_reset;
-- (void)_sendDiskUsageForDataClasses:(id)arg1;
+- (void)_sendDiskUsageForDataClasses:(id)arg1 updateFirst:(bool)arg2;
 - (void)_sendInstalledAssets;
 - (void)_sendSyncAllowed;
-- (void)_updatePurgeableStorageUsage;
 - (void)assetLink:(id)arg1 didUpdateOverallProgress:(double)arg2;
 - (void)cancelSyncOnMessageLink:(id)arg1;
+- (id)currentSyncHostInfo;
 - (void)environmentMonitorDidChangePower:(id)arg1;
 - (id)init;
 - (void)initiateSyncForLibrary:(id)arg1 onMessageLink:(id)arg2;
@@ -72,6 +69,7 @@
 - (void)session:(id)arg1 willBeginSessionTask:(id)arg2;
 - (void)sessionDidFinish:(id)arg1;
 - (void)sessionWillBegin:(id)arg1;
+- (void)setCurrentSyncHostInfo:(id)arg1;
 - (void)setSyncSession:(id)arg1;
 - (id)syncSession;
 

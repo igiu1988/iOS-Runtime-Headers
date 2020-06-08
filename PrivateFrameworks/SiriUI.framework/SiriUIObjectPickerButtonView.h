@@ -2,23 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SiriUI.framework/SiriUI
  */
 
-@class SiriUIKeyline, UIButton;
-
 @interface SiriUIObjectPickerButtonView : UIView {
-    SiriUIKeyline *_bottomKeyline;
-    UIButton *_button;
-    BOOL _showsTopKeyline;
-    SiriUIKeyline *_topKeyline;
+    UIButton * _button;
 }
 
-@property(readonly) UIButton * button;
-@property BOOL showsTopKeyline;
+@property (nonatomic, readonly) UIButton *button;
+
++ (double)defaultHeight;
 
 - (void).cxx_destruct;
 - (id)button;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (void)layoutSubviews;
-- (void)setShowsTopKeyline:(BOOL)arg1;
-- (BOOL)showsTopKeyline;
 
 @end

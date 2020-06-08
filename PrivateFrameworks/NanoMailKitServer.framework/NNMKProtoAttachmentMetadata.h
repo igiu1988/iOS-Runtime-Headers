@@ -2,39 +2,40 @@
    Image: /System/Library/PrivateFrameworks/NanoMailKitServer.framework/NanoMailKitServer
  */
 
-@class NSString;
-
 @interface NNMKProtoAttachmentMetadata : PBCodable <NSCopying> {
+    NSString * _contentId;
+    NSString * _fileName;
+    unsigned int  _fileSize;
     struct { 
         unsigned int fileSize : 1; 
         unsigned int imageHeight : 1; 
         unsigned int imageWidth : 1; 
         unsigned int type : 1; 
         unsigned int renderOnClient : 1; 
-    NSString *_contentId;
-    NSString *_fileName;
-    unsigned int _fileSize;
-    } _has;
-    float _imageHeight;
-    float _imageWidth;
-    BOOL _renderOnClient;
-    unsigned int _type;
+    }  _has;
+    float  _imageHeight;
+    float  _imageWidth;
+    NSString * _mimePartNumber;
+    bool  _renderOnClient;
+    unsigned int  _type;
 }
 
-@property(retain) NSString * contentId;
-@property(retain) NSString * fileName;
-@property unsigned int fileSize;
-@property(readonly) BOOL hasContentId;
-@property(readonly) BOOL hasFileName;
-@property BOOL hasFileSize;
-@property BOOL hasImageHeight;
-@property BOOL hasImageWidth;
-@property BOOL hasRenderOnClient;
-@property BOOL hasType;
-@property float imageHeight;
-@property float imageWidth;
-@property BOOL renderOnClient;
-@property unsigned int type;
+@property (nonatomic, retain) NSString *contentId;
+@property (nonatomic, retain) NSString *fileName;
+@property (nonatomic) unsigned int fileSize;
+@property (nonatomic, readonly) bool hasContentId;
+@property (nonatomic, readonly) bool hasFileName;
+@property (nonatomic) bool hasFileSize;
+@property (nonatomic) bool hasImageHeight;
+@property (nonatomic) bool hasImageWidth;
+@property (nonatomic, readonly) bool hasMimePartNumber;
+@property (nonatomic) bool hasRenderOnClient;
+@property (nonatomic) bool hasType;
+@property (nonatomic) float imageHeight;
+@property (nonatomic) float imageWidth;
+@property (nonatomic, retain) NSString *mimePartNumber;
+@property (nonatomic) bool renderOnClient;
+@property (nonatomic) unsigned int type;
 
 - (void).cxx_destruct;
 - (id)contentId;
@@ -44,31 +45,34 @@
 - (id)dictionaryRepresentation;
 - (id)fileName;
 - (unsigned int)fileSize;
-- (BOOL)hasContentId;
-- (BOOL)hasFileName;
-- (BOOL)hasFileSize;
-- (BOOL)hasImageHeight;
-- (BOOL)hasImageWidth;
-- (BOOL)hasRenderOnClient;
-- (BOOL)hasType;
-- (unsigned int)hash;
+- (bool)hasContentId;
+- (bool)hasFileName;
+- (bool)hasFileSize;
+- (bool)hasImageHeight;
+- (bool)hasImageWidth;
+- (bool)hasMimePartNumber;
+- (bool)hasRenderOnClient;
+- (bool)hasType;
+- (unsigned long long)hash;
 - (float)imageHeight;
 - (float)imageWidth;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (BOOL)renderOnClient;
+- (id)mimePartNumber;
+- (bool)readFrom:(id)arg1;
+- (bool)renderOnClient;
 - (void)setContentId:(id)arg1;
 - (void)setFileName:(id)arg1;
 - (void)setFileSize:(unsigned int)arg1;
-- (void)setHasFileSize:(BOOL)arg1;
-- (void)setHasImageHeight:(BOOL)arg1;
-- (void)setHasImageWidth:(BOOL)arg1;
-- (void)setHasRenderOnClient:(BOOL)arg1;
-- (void)setHasType:(BOOL)arg1;
+- (void)setHasFileSize:(bool)arg1;
+- (void)setHasImageHeight:(bool)arg1;
+- (void)setHasImageWidth:(bool)arg1;
+- (void)setHasRenderOnClient:(bool)arg1;
+- (void)setHasType:(bool)arg1;
 - (void)setImageHeight:(float)arg1;
 - (void)setImageWidth:(float)arg1;
-- (void)setRenderOnClient:(BOOL)arg1;
+- (void)setMimePartNumber:(id)arg1;
+- (void)setRenderOnClient:(bool)arg1;
 - (void)setType:(unsigned int)arg1;
 - (unsigned int)type;
 - (void)writeTo:(id)arg1;

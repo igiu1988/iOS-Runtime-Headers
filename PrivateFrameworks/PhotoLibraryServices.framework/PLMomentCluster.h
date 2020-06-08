@@ -2,32 +2,32 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class CLLocation, NSArray, NSCountedSet, NSDate, NSMutableArray, NSMutableSet, NSObject<NSCopying>, NSString;
-
 @interface PLMomentCluster : NSObject {
-    CLLocation *__approximateLocation;
-    NSDate *__endingDate;
-    NSCountedSet *__mergeTags;
-    NSMutableArray *__mutableNodes;
-    NSMutableSet *__nodesWithLocation;
-    NSObject<NSCopying> *__objectID;
-    NSCountedSet *__splitTags;
-    NSDate *__startingDate;
-    NSString *__title;
-    short _generationType;
+    CLLocation * __approximateLocation;
+    NSDate * __endingDate;
+    NSCountedSet * __mergeTags;
+    NSMutableArray * __mutableNodes;
+    NSMutableSet * __nodesWithLocation;
+    NSObject<NSCopying> * __objectID;
+    NSCountedSet * __splitTags;
+    NSDate * __startingDate;
+    NSString * __title;
+    bool  __usedLocationsOfInterest;
+    short  _generationType;
 }
 
-@property(setter=_setMergeTags:,retain) NSCountedSet * _mergeTags;
-@property(setter=_setNodes:,copy) NSMutableArray * _mutableNodes;
-@property(readonly) NSMutableSet * _nodesWithLocation;
-@property(setter=_setSplitTags:,retain) NSCountedSet * _splitTags;
-@property(readonly) CLLocation * approximateLocation;
-@property(retain) NSDate * endingDate;
-@property short generationType;
-@property(copy,readonly) NSArray * nodes;
-@property(readonly) NSObject<NSCopying> * objectID;
-@property(retain) NSDate * startingDate;
-@property(retain) NSString * title;
+@property (setter=_setMergeTags:, nonatomic, retain) NSCountedSet *_mergeTags;
+@property (setter=_setNodes:, nonatomic, copy) NSMutableArray *_mutableNodes;
+@property (nonatomic, readonly) NSMutableSet *_nodesWithLocation;
+@property (setter=_setSplitTags:, nonatomic, retain) NSCountedSet *_splitTags;
+@property (nonatomic, readonly) CLLocation *approximateLocation;
+@property (setter=_setEndingDate:, nonatomic, retain) NSDate *endingDate;
+@property (nonatomic) short generationType;
+@property (nonatomic, readonly, copy) NSArray *nodes;
+@property (nonatomic, copy) NSObject<NSCopying> *objectID;
+@property (setter=_setStartingDate:, nonatomic, retain) NSDate *startingDate;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic) bool usedLocationsOfInterest;
 
 + (double)nameOccurrenceCutoff;
 
@@ -49,25 +49,28 @@
 - (void)dealloc;
 - (id)description;
 - (id)endingDate;
-- (unsigned int)expandFromNode:(id)arg1 withNeighbors:(id)arg2 inClustering:(id)arg3 minimumNumberOfPoints:(unsigned int)arg4;
+- (unsigned long long)expandFromNode:(id)arg1 withNeighbors:(id)arg2 inClustering:(id)arg3 minimumNumberOfPoints:(unsigned long long)arg4;
 - (short)generationType;
-- (BOOL)hasMerges;
-- (BOOL)hasSplits;
+- (bool)hasMerges;
+- (bool)hasSplits;
 - (id)init;
 - (id)initWithMoment:(id)arg1;
 - (id)initWithObjectID:(id)arg1;
-- (BOOL)isTagged;
+- (bool)isTagged;
 - (id)mergeTagAboveCutoff:(double)arg1;
 - (id)mergeTags;
 - (id)nodes;
 - (id)objectID;
-- (void)removeNode:(id)arg1 nilCluster:(BOOL)arg2;
+- (void)removeNode:(id)arg1 nilCluster:(bool)arg2;
 - (void)removeNodes:(id)arg1;
 - (void)removeNodesFromCluster:(id)arg1;
 - (void)setGenerationType:(short)arg1;
+- (void)setObjectID:(id)arg1;
 - (void)setTitle:(id)arg1;
+- (void)setUsedLocationsOfInterest:(bool)arg1;
 - (id)splitTags;
 - (id)startingDate;
 - (id)title;
+- (bool)usedLocationsOfInterest;
 
 @end

@@ -2,20 +2,19 @@
    Image: /System/Library/PrivateFrameworks/Preferences.framework/Preferences
  */
 
-@class UIControl;
-
 @interface PSControlTableCell : PSTableCell {
-    UIControl *_control;
+    UIControl * _control;
 }
 
-@property(retain) UIControl * control;
+@property (nonatomic, retain) UIControl *control;
 
-- (BOOL)canReload;
+- (void).cxx_destruct;
+- (bool)canReload;
 - (id)control;
 - (void)controlChanged:(id)arg1;
 - (id)controlValue;
 - (void)dealloc;
-- (id)initWithStyle:(int)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 - (id)newControl;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 - (void)setControl:(id)arg1;

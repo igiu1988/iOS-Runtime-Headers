@@ -2,41 +2,39 @@
    Image: /System/Library/PrivateFrameworks/DataAccess.framework/DataAccess
  */
 
-@class NSString;
-
 @interface DAFolder : NSObject {
-    int _dataclass;
-    NSString *_folderID;
-    NSString *_folderName;
-    BOOL _hasRemoteChanges;
-    BOOL _isDefault;
-    NSString *_parentFolderID;
+    long long  _dataclass;
+    NSString * _folderID;
+    NSString * _folderName;
+    bool  _hasRemoteChanges;
+    bool  _isDefault;
+    NSString * _parentFolderID;
 }
 
-@property int dataclass;
-@property(copy) NSString * folderID;
-@property(copy) NSString * folderName;
-@property BOOL hasRemoteChanges;
-@property BOOL isDefault;
-@property(copy) NSString * parentFolderID;
+@property (nonatomic) long long dataclass;
+@property (nonatomic, copy) NSString *folderID;
+@property (nonatomic, copy) NSString *folderName;
+@property (nonatomic) bool hasRemoteChanges;
+@property (nonatomic) bool isDefault;
+@property (nonatomic, copy) NSString *parentFolderID;
 
 - (void).cxx_destruct;
-- (int)dataclass;
+- (long long)dataclass;
 - (id)description;
 - (id)folderID;
 - (id)folderName;
-- (BOOL)hasRemoteChanges;
-- (unsigned int)hash;
-- (BOOL)isDefault;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasRemoteChanges;
+- (unsigned long long)hash;
+- (bool)isDefault;
+- (bool)isEqual:(id)arg1;
 - (id)mailboxID;
 - (id)parentFolderID;
 - (id)parentMailboxID;
-- (void)setDataclass:(int)arg1;
+- (void)setDataclass:(long long)arg1;
 - (void)setFolderID:(id)arg1;
 - (void)setFolderName:(id)arg1;
-- (void)setHasRemoteChanges:(BOOL)arg1;
-- (void)setIsDefault:(BOOL)arg1;
+- (void)setHasRemoteChanges:(bool)arg1;
+- (void)setIsDefault:(bool)arg1;
 - (void)setParentFolderID:(id)arg1;
 
 @end

@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class TSMTraceBuffer;
-
 @interface TCTracingManager : NSObject {
-    TSMTraceBuffer *mBuffer;
-    unsigned int mCount;
+    TSMTraceBuffer * mBuffer;
+    unsigned int  mCount;
 }
 
 + (id)_singletonAlloc;
@@ -18,7 +16,7 @@
 - (void)dealloc;
 - (oneway void)release;
 - (id)retain;
-- (unsigned int)retainCount;
+- (unsigned long long)retainCount;
 - (void)setup;
 - (void)teardown;
 

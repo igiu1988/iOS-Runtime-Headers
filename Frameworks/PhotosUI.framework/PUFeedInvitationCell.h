@@ -2,45 +2,62 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class NSString, UIButton, UILabel, UIView;
-
-@interface PUFeedInvitationCell : PUFeedCell {
-    UIButton *__acceptButon;
-    UIView *__bottomSeparatorView;
-    UIButton *__declineButton;
-    UILabel *__subtitleLabel;
-    UILabel *__titleLabel;
-    NSString *_subtitle;
-    NSString *_title;
+@interface PUFeedInvitationCell : PUFeedCell <PXSharedAlbumInvitationViewDelegate> {
+    UILabel * _dateLabel;
+    PXSharedAlbumHeaderView * _headerView;
+    PXFeedInvitationSectionInfo * _invitationSectionInfo;
+    PXSharedAlbumInvitationView * _invitationView;
+    UIView * _separatorView;
+    bool  _showFooter;
+    bool  _showHeader;
+    bool  _useInPopover;
 }
 
-@property(setter=_setAcceptButton:,retain) UIButton * _acceptButon;
-@property(setter=_setBottomSeparatorView:,retain) UIView * _bottomSeparatorView;
-@property(setter=_setDeclineButton:,retain) UIButton * _declineButton;
-@property(setter=_setSubtitleLabel:,retain) UILabel * _subtitleLabel;
-@property(setter=_setTitleLabel:,retain) UILabel * _titleLabel;
-@property(copy) NSString * subtitle;
-@property(copy) NSString * title;
+@property (nonatomic, retain) UILabel *dateLabel;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) PXSharedAlbumHeaderView *headerView;
+@property (nonatomic, retain) PXFeedInvitationSectionInfo *invitationSectionInfo;
+@property (nonatomic, retain) PXSharedAlbumInvitationView *invitationView;
+@property (nonatomic, retain) UIView *separatorView;
+@property (nonatomic) bool showFooter;
+@property (nonatomic) bool showHeader;
+@property (readonly) Class superclass;
+@property (nonatomic) bool useInPopover;
 
 - (void).cxx_destruct;
-- (id)_acceptButon;
-- (id)_bottomSeparatorView;
-- (id)_declineButton;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (id)_delegate;
-- (void)_replyButtonAction:(id)arg1;
-- (void)_setAcceptButton:(id)arg1;
-- (void)_setBottomSeparatorView:(id)arg1;
-- (void)_setDeclineButton:(id)arg1;
-- (void)_setSubtitleLabel:(id)arg1;
-- (void)_setTitleLabel:(id)arg1;
-- (id)_subtitleLabel;
-- (id)_titleLabel;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (struct CGSize { double x1; double x2; })_performLayoutInRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 updateSubviewFrames:(bool)arg2;
+- (void)_updateColors;
+- (void)_updateDate;
+- (void)_updateFooter;
+- (void)_updateHeaderView;
+- (void)_updateInvitationView;
+- (id)dateLabel;
+- (id)headerView;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (id)invitationSectionInfo;
+- (id)invitationView;
 - (void)layoutSubviews;
-- (void)setSubtitle:(id)arg1;
-- (void)setTitle:(id)arg1;
-- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
-- (id)subtitle;
-- (id)title;
+- (void)prepareForReuse;
+- (id)separatorView;
+- (void)setDateLabel:(id)arg1;
+- (void)setHeaderView:(id)arg1;
+- (void)setInvitationSectionInfo:(id)arg1;
+- (void)setInvitationView:(id)arg1;
+- (void)setSeparatorView:(id)arg1;
+- (void)setShowFooter:(bool)arg1;
+- (void)setShowHeader:(bool)arg1;
+- (void)setUseInPopover:(bool)arg1;
+- (void)sharedAlbumInvitationView:(id)arg1 didAccept:(bool)arg2;
+- (void)sharedAlbumInvitationView:(id)arg1 presentViewController:(id)arg2;
+- (void)sharedAlbumInvitationViewDidReportAsJunk:(id)arg1;
+- (bool)showFooter;
+- (bool)showHeader;
+- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
+- (void)tintColorDidChange;
+- (bool)useInPopover;
 
 @end

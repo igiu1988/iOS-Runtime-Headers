@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class NSArray;
-
 @interface ML3ChapterTable : ML3DatabaseTable {
-    NSArray *_columns;
+    NSArray * _columns;
 }
 
 - (void).cxx_destruct;

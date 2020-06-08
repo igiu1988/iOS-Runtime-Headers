@@ -2,18 +2,23 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAsset, AVWeakReference, NSDictionary, NSString;
-
 @interface AVPlayerItemTrackInternal : NSObject {
-    AVAsset *asset;
-    BOOL enabled;
-    BOOL enabledWasSet;
-    struct OpaqueFigPlaybackItem { } *figPlaybackItem;
-    BOOL figPlaybackItemIsReadyForInspection;
-    NSDictionary *loudnessInfo;
-    int trackID;
-    NSString *videoFieldMode;
-    AVWeakReference *weakReferenceToPlayerItem;
+    long long  activeHapticChannelIndex;
+    bool  activeHapticChannelIndexWasSet;
+    AVAsset * asset;
+    bool  disableColorMatching;
+    bool  disableColorMatchingWasSet;
+    bool  enabled;
+    bool  enabledWasSet;
+    struct OpaqueFigPlaybackItem { } * figPlaybackItem;
+    bool  figPlaybackItemIsReadyForInspection;
+    float  hapticVolume;
+    bool  hapticVolumeWasSet;
+    NSDictionary * loudnessInfo;
+    int  trackID;
+    NSDictionary * videoEnhancementFilterOptions;
+    NSString * videoFieldMode;
+    AVWeakReference * weakReferenceToPlayerItem;
 }
 
 @end

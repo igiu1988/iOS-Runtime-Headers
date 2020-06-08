@@ -2,59 +2,57 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class <CoreDAVGetAccountPropertiesTaskGroupDelegate>, NSMutableSet, NSSet, NSString, NSURL;
-
-@interface CoreDAVGetAccountPropertiesTaskGroup : CoreDAVTaskGroup <CoreDAVPropFindTaskDelegate, CoreDAVOptionsTaskDelegate, CoreDAVPrincipalSearchPropertySetTaskDelegate, CoreDAVTaskDelegate> {
-    NSSet *_collections;
-    NSString *_displayName;
-    NSSet *_emailAddresses;
-    BOOL _fetchPrincipalSearchProperties;
-    BOOL _isExpandPropertyReportSupported;
-    NSSet *_principalSearchProperties;
-    NSURL *_principalURL;
-    NSMutableSet *_redirectHistory;
-    NSURL *_resourceID;
-    BOOL _shouldIgnoreHomeSetOnDifferentHost;
+@interface CoreDAVGetAccountPropertiesTaskGroup : CoreDAVTaskGroup <CoreDAVOptionsTaskDelegate, CoreDAVPrincipalSearchPropertySetTaskDelegate, CoreDAVPropFindTaskDelegate, CoreDAVTaskDelegate> {
+    NSSet * _collections;
+    NSString * _displayName;
+    NSSet * _emailAddresses;
+    bool  _fetchPrincipalSearchProperties;
+    bool  _isExpandPropertyReportSupported;
+    NSSet * _principalSearchProperties;
+    NSURL * _principalURL;
+    NSMutableSet * _redirectHistory;
+    NSURL * _resourceID;
+    bool  _shouldIgnoreHomeSetOnDifferentHost;
 }
 
-@property(readonly) NSSet * collections;
-@property(copy,readonly) NSString * debugDescription;
-@property <CoreDAVGetAccountPropertiesTaskGroupDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) NSString * displayName;
-@property(readonly) NSSet * emailAddresses;
-@property BOOL fetchPrincipalSearchProperties;
-@property(readonly) unsigned int hash;
-@property(readonly) BOOL isExpandPropertyReportSupported;
-@property(readonly) NSSet * principalSearchProperties;
-@property(readonly) NSURL * principalURL;
-@property(readonly) NSURL * resourceID;
-@property BOOL shouldIgnoreHomeSetOnDifferentHost;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) NSSet *collections;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <CoreDAVGetAccountPropertiesTaskGroupDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) NSString *displayName;
+@property (nonatomic, readonly) NSSet *emailAddresses;
+@property (nonatomic) bool fetchPrincipalSearchProperties;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isExpandPropertyReportSupported;
+@property (nonatomic, readonly) NSSet *principalSearchProperties;
+@property (nonatomic, readonly) NSURL *principalURL;
+@property (nonatomic, readonly) NSURL *resourceID;
+@property (nonatomic) bool shouldIgnoreHomeSetOnDifferentHost;
+@property (readonly) Class superclass;
 
+- (void).cxx_destruct;
 - (id)_copyAccountPropertiesPropFindElements;
 - (void)_setPropertiesFromParsedResponses:(id)arg1;
 - (void)_taskCompleted:(id)arg1 withError:(id)arg2;
 - (void)coaxServerForPrincipalHeaders;
 - (id)collections;
-- (void)dealloc;
 - (id)description;
 - (id)displayName;
 - (id)emailAddresses;
-- (BOOL)fetchPrincipalSearchProperties;
-- (BOOL)forceOptionsRequest;
+- (bool)fetchPrincipalSearchProperties;
+- (bool)forceOptionsRequest;
 - (id)homeSet;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
-- (BOOL)isExpandPropertyReportSupported;
+- (bool)isExpandPropertyReportSupported;
 - (id)principalSearchProperties;
 - (id)principalURL;
 - (void)processPrincipalHeaders:(id)arg1;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (id)resourceID;
 - (void)searchPropertySetTask:(id)arg1 completetWithPropertySearchSet:(id)arg2 error:(id)arg3;
-- (void)setFetchPrincipalSearchProperties:(BOOL)arg1;
-- (void)setShouldIgnoreHomeSetOnDifferentHost:(BOOL)arg1;
-- (BOOL)shouldIgnoreHomeSetOnDifferentHost;
+- (void)setFetchPrincipalSearchProperties:(bool)arg1;
+- (void)setShouldIgnoreHomeSetOnDifferentHost:(bool)arg1;
+- (bool)shouldIgnoreHomeSetOnDifferentHost;
 - (void)startTaskGroup;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)taskGroupWillCancelWithError:(id)arg1;

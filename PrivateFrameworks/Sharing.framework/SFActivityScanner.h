@@ -2,35 +2,31 @@
    Image: /System/Library/PrivateFrameworks/Sharing.framework/Sharing
  */
 
-@class <SFActivityScannerDelegate>, NSString, NSUUID;
-
 @interface SFActivityScanner : NSObject <SFContinuityScanManagerObserver> {
-    <SFActivityScannerDelegate> *_delegate;
-    NSUUID *_identifier;
-    BOOL _receiving;
+    <SFActivityScannerDelegate> * _delegate;
+    NSUUID * _identifier;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <SFActivityScannerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) NSUUID * identifier;
-@property BOOL receiving;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) <SFActivityScannerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (retain) NSUUID *identifier;
+@property (readonly) Class superclass;
 
-- (void)activityPayloadFromDeviceIdentifier:(id)arg1 forAdvertisementPayload:(id)arg2 withCompletionHandler:(id)arg3;
+- (void).cxx_destruct;
+- (void)activityPayloadFromDevice:(id)arg1 forAdvertisementPayload:(id)arg2 command:(id)arg3 timeout:(long long)arg4 withCompletionHandler:(id /* block */)arg5;
+- (void)activityPayloadFromDevice:(id)arg1 forAdvertisementPayload:(id)arg2 command:(id)arg3 withCompletionHandler:(id /* block */)arg4;
 - (void)dealloc;
 - (id)delegate;
 - (id)identifier;
 - (id)init;
-- (BOOL)receiving;
-- (void)scanManager:(id)arg1 foundDeviceWithDeviceIdentifier:(id)arg2;
-- (void)scanManager:(id)arg1 lostDeviceWithDeviceIdentifier:(id)arg2;
+- (id)initWithDelegate:(id)arg1;
+- (void)scanForTypes:(unsigned long long)arg1;
+- (void)scanManager:(id)arg1 foundDeviceWithDevice:(id)arg2;
+- (void)scanManager:(id)arg1 lostDeviceWithDevice:(id)arg2;
+- (void)scanManager:(id)arg1 pairedDevicesChanged:(id)arg2;
 - (void)scanManager:(id)arg1 receivedAdvertisement:(id)arg2;
-- (void)setDelegate:(id)arg1;
 - (void)setIdentifier:(id)arg1;
-- (void)setReceiving:(BOOL)arg1;
-- (void)start;
-- (void)stop;
 
 @end

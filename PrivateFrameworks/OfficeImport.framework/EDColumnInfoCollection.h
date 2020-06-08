@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class EDResources, EDWorksheet;
-
 @interface EDColumnInfoCollection : EDSortedCollection {
-    EDResources *mResources;
-    EDWorksheet *mWorksheet;
+    EDResources * mResources;
+    EDWorksheet * mWorksheet;
 }
 
 - (id)columnInfoCreateIfNilForColumnNumber:(int)arg1;

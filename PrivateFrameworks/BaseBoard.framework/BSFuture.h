@@ -2,36 +2,34 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@class NSConditionLock, NSError, NSMutableArray, NSString;
-
 @interface BSFuture : NSObject <BSFuture> {
-    NSMutableArray *_completionBlocks;
-    NSError *_error;
-    id _result;
-    NSConditionLock *_stateLock;
+    NSMutableArray * _completionBlocks;
+    NSError * _error;
+    id  _result;
+    NSConditionLock * _stateLock;
 }
 
-@property(getter=isCancelled,readonly) BOOL cancelled;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(getter=isFinished,readonly) BOOL finished;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (getter=isCancelled, readonly) bool cancelled;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (getter=isFinished, readonly) bool finished;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-- (void)_addCompletionBlock:(id)arg1;
+- (void).cxx_destruct;
+- (void)_addCompletionBlock:(id /* block */)arg1;
 - (void)_flushCompletionBlocks;
-- (BOOL)_nts_isFinished;
-- (void)addFailureBlock:(id)arg1;
-- (void)addSuccessBlock:(id)arg1;
-- (BOOL)cancel;
-- (void)dealloc;
+- (bool)_nts_isFinished;
+- (void)addFailureBlock:(id /* block */)arg1;
+- (void)addSuccessBlock:(id /* block */)arg1;
+- (bool)cancel;
 - (void)didCancel;
-- (BOOL)finishWithError:(id)arg1;
-- (BOOL)finishWithResult:(id)arg1 error:(id)arg2;
-- (BOOL)finishWithResult:(id)arg1;
+- (bool)finishWithError:(id)arg1;
+- (bool)finishWithResult:(id)arg1;
+- (bool)finishWithResult:(id)arg1 error:(id)arg2;
 - (id)init;
-- (BOOL)isCancelled;
-- (BOOL)isFinished;
+- (bool)isCancelled;
+- (bool)isFinished;
 - (id)result:(id*)arg1;
 - (id)resultBeforeDate:(id)arg1 error:(id*)arg2;
 

@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, NSNumber;
-
 @interface CIColorControls : CIFilter {
-    NSNumber *inputBrightness;
-    NSNumber *inputContrast;
-    CIImage *inputImage;
-    NSNumber *inputSaturation;
+    NSNumber * inputBrightness;
+    NSNumber * inputContrast;
+    CIImage * inputImage;
+    NSNumber * inputSaturation;
 }
 
-@property(retain) NSNumber * inputBrightness;
-@property(retain) NSNumber * inputContrast;
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputSaturation;
+@property (nonatomic, retain) NSNumber *inputBrightness;
+@property (nonatomic, retain) NSNumber *inputContrast;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputSaturation;
 
 + (id)customAttributes;
 
@@ -23,7 +21,6 @@
 - (id)inputImage;
 - (id)inputSaturation;
 - (id)outputImage;
-- (void)setDefaults;
 - (void)setInputBrightness:(id)arg1;
 - (void)setInputContrast:(id)arg1;
 - (void)setInputImage:(id)arg1;

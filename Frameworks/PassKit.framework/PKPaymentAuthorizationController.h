@@ -2,80 +2,48 @@
    Image: /System/Library/Frameworks/PassKit.framework/PassKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <PKPaymentAuthorizationControllerDelegate>, <PKPaymentAuthorizationControllerPrivateDelegate>, NSObject<OS_dispatch_queue>, NSString, NSTimer, NSXPCConnection, NSXPCListener, PKInAppPaymentService, PKPaymentAuthorizationControllerExportedObject, PKPaymentRequest;
-
-@interface PKPaymentAuthorizationController : NSObject <NSXPCListenerDelegate> {
-    NSXPCConnection *_connection;
-    double _connectionTimeout;
-    BOOL _didPresent;
-    PKPaymentAuthorizationControllerExportedObject *_exportedObject;
-    NSString *_hostIdentifier;
-    PKInAppPaymentService *_inAppPaymentService;
-    NSXPCListener *_listener;
-    PKPaymentRequest *_paymentRequest;
-    id _presentationCompletionBlock;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSTimer *_timer;
+@interface PKPaymentAuthorizationController : NSObject <PKPaymentAuthorizationCoordinatorDelegate, PKPaymentAuthorizationCoordinatorPrivateDelegate> {
+    <PKPaymentAuthorizationControllerDelegate> * _delegate;
+    PKPaymentAuthorizationCoordinator * _paymentCoordinator;
+    <PKPaymentAuthorizationControllerPrivateDelegate> * _privateDelegate;
+    PKPaymentAuthorizationController * _retainSelf;
 }
 
-@property(setter=_setPrivateDelegate:) <PKPaymentAuthorizationControllerPrivateDelegate> * _privateDelegate;
-@property(retain) NSXPCConnection * connection;
-@property double connectionTimeout;
-@property(copy,readonly) NSString * debugDescription;
-@property <PKPaymentAuthorizationControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property BOOL didPresent;
-@property(retain) PKPaymentAuthorizationControllerExportedObject * exportedObject;
-@property(readonly) unsigned int hash;
-@property(retain) NSString * hostIdentifier;
-@property(retain) PKInAppPaymentService * inAppPaymentService;
-@property(retain) NSXPCListener * listener;
-@property(retain) PKPaymentRequest * paymentRequest;
-@property(copy) id presentationCompletionBlock;
-@property NSObject<OS_dispatch_queue> * queue;
-@property(readonly) Class superclass;
-@property(retain) NSTimer * timer;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <PKPaymentAuthorizationControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) PKPaymentAuthorizationCoordinator *paymentCoordinator;
+@property (nonatomic) <PKPaymentAuthorizationControllerPrivateDelegate> *privateDelegate;
+@property (readonly) Class superclass;
 
-+ (BOOL)canMakePayments;
-+ (BOOL)canMakePaymentsUsingNetworks:(id)arg1;
++ (bool)canMakePayments;
++ (bool)canMakePaymentsUsingNetworks:(id)arg1;
++ (bool)canMakePaymentsUsingNetworks:(id)arg1 capabilities:(unsigned long long)arg2;
 
-- (void)_invokeCallbackWithSuccess:(BOOL)arg1;
-- (id)_privateDelegate;
-- (id)_remoteObjectProxy;
-- (void)_setPrivateDelegate:(id)arg1;
-- (void)_viewServiceTimerFired:(id)arg1;
-- (id)connection;
-- (double)connectionTimeout;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)delegate;
-- (BOOL)didPresent;
-- (void)dismissWithCompletion:(id)arg1;
-- (id)exportedObject;
-- (id)hostIdentifier;
-- (id)inAppPaymentService;
+- (void)dismissWithCompletion:(id /* block */)arg1;
+- (id)init;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithPaymentRequest:(id)arg1;
-- (BOOL)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-- (id)listener;
-- (id)paymentRequest;
-- (void)presentWithCompletion:(id)arg1;
-- (id)presentationCompletionBlock;
-- (id)queue;
-- (void)setConnection:(id)arg1;
-- (void)setConnectionTimeout:(double)arg1;
+- (void)paymentAuthorizationCoordinator:(id)arg1 didAuthorizePayment:(id)arg2 handler:(id /* block */)arg3;
+- (void)paymentAuthorizationCoordinator:(id)arg1 didAuthorizePeerPaymentQuote:(id)arg2 handler:(id /* block */)arg3;
+- (void)paymentAuthorizationCoordinator:(id)arg1 didAuthorizePurchase:(id)arg2 completion:(id /* block */)arg3;
+- (void)paymentAuthorizationCoordinator:(id)arg1 didEncounterAuthorizationEvent:(unsigned long long)arg2;
+- (void)paymentAuthorizationCoordinator:(id)arg1 didRequestMerchantSession:(id /* block */)arg2;
+- (void)paymentAuthorizationCoordinator:(id)arg1 didSelectPaymentMethod:(id)arg2 handler:(id /* block */)arg3;
+- (void)paymentAuthorizationCoordinator:(id)arg1 didSelectShippingAddress:(id)arg2 handler:(id /* block */)arg3;
+- (void)paymentAuthorizationCoordinator:(id)arg1 didSelectShippingMethod:(id)arg2 handler:(id /* block */)arg3;
+- (void)paymentAuthorizationCoordinator:(id)arg1 willFinishWithError:(id)arg2;
+- (void)paymentAuthorizationCoordinatorDidFinish:(id)arg1;
+- (void)paymentAuthorizationCoordinatorWillAuthorizePayment:(id)arg1;
+- (id)paymentCoordinator;
+- (void)presentWithCompletion:(id /* block */)arg1;
+- (id)privateDelegate;
 - (void)setDelegate:(id)arg1;
-- (void)setDidPresent:(BOOL)arg1;
-- (void)setExportedObject:(id)arg1;
-- (void)setHostIdentifier:(id)arg1;
-- (void)setInAppPaymentService:(id)arg1;
-- (void)setListener:(id)arg1;
-- (void)setPaymentRequest:(id)arg1;
-- (void)setPresentationCompletionBlock:(id)arg1;
-- (void)setQueue:(id)arg1;
-- (void)setTimer:(id)arg1;
-- (id)timer;
+- (void)setPaymentCoordinator:(id)arg1;
+- (void)setPrivateDelegate:(id)arg1;
 
 @end

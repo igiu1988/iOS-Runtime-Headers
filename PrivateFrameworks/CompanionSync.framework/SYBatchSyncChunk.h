@@ -2,19 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CompanionSync.framework/CompanionSync
  */
 
-@class NSMutableArray, NSString, SYMessageHeader;
-
 @interface SYBatchSyncChunk : PBCodable <NSCopying> {
-    unsigned int _chunkIndex;
-    SYMessageHeader *_header;
-    NSMutableArray *_objects;
-    NSString *_syncID;
+    unsigned int  _chunkIndex;
+    SYMessageHeader * _header;
+    NSMutableArray * _objects;
+    NSString * _syncID;
 }
 
-@property unsigned int chunkIndex;
-@property(retain) SYMessageHeader * header;
-@property(retain) NSMutableArray * objects;
-@property(retain) NSString * syncID;
+@property (nonatomic) unsigned int chunkIndex;
+@property (nonatomic, retain) SYMessageHeader *header;
+@property (nonatomic, retain) NSMutableArray *objects;
+@property (nonatomic, retain) NSString *syncID;
+
++ (Class)objectsType;
 
 - (void).cxx_destruct;
 - (void)addObjects:(id)arg1;
@@ -24,14 +24,14 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)header;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)objects;
-- (id)objectsAtIndex:(unsigned int)arg1;
-- (unsigned int)objectsCount;
-- (BOOL)readFrom:(id)arg1;
+- (id)objectsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)objectsCount;
+- (bool)readFrom:(id)arg1;
 - (void)setChunkIndex:(unsigned int)arg1;
 - (void)setHeader:(id)arg1;
 - (void)setObjects:(id)arg1;

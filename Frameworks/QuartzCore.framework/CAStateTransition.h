@@ -2,19 +2,18 @@
    Image: /System/Library/Frameworks/QuartzCore.framework/QuartzCore
  */
 
-@class NSArray, NSString;
-
-@interface CAStateTransition : NSObject <NSCopying, NSCoding> {
-    NSArray *_elements;
-    NSString *_fromState;
-    NSString *_toState;
+@interface CAStateTransition : NSObject <NSCopying, NSSecureCoding> {
+    NSArray * _elements;
+    NSString * _fromState;
+    NSString * _toState;
 }
 
-@property(copy) NSArray * elements;
-@property(copy) NSString * fromState;
-@property(copy) NSString * toState;
+@property (nonatomic, copy) NSArray *elements;
+@property (nonatomic, copy) NSString *fromState;
+@property (nonatomic, copy) NSString *toState;
 
 + (void)CAMLParserStartElement:(id)arg1;
++ (bool)supportsSecureCoding;
 
 - (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
 - (id)CAMLTypeForKey:(id)arg1;

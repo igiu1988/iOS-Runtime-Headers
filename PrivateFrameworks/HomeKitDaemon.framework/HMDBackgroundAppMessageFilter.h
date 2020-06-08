@@ -2,21 +2,10 @@
    Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
  */
 
-@class NSMutableSet;
+@interface HMDBackgroundAppMessageFilter : HMDMessageFilter
 
-@interface HMDBackgroundAppMessageFilter : HMDMessageFilter {
-    NSMutableSet *_pidOfAppsRunningInBackground;
-}
++ (bool)isWhitelistedMessage:(id)arg1;
 
-@property(retain) NSMutableSet * pidOfAppsRunningInBackground;
-
-+ (BOOL)isWhitelistedMessage:(id)arg1;
-
-- (void).cxx_destruct;
-- (BOOL)acceptMessage:(id)arg1 target:(id)arg2 errorReason:(id*)arg3;
-- (id)initWithName:(id)arg1;
-- (id)pidOfAppsRunningInBackground;
-- (void)setPidOfAppsRunningInBackground:(id)arg1;
-- (void)updateAppWithPid:(int)arg1 runningInBackground:(BOOL)arg2;
+- (bool)acceptMessage:(id)arg1 target:(id)arg2 errorReason:(id*)arg3;
 
 @end

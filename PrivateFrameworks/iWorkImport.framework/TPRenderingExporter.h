@@ -2,26 +2,32 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TPPdfHyperlinkController;
-
 @interface TPRenderingExporter : TSARenderingExporter {
-    TPPdfHyperlinkController *mHyperlinkController;
-    unsigned int mPageCount;
-    unsigned int mPageIndex;
+    bool  mDidLimitPageLayout;
+    TPPdfHyperlinkController * mHyperlinkController;
+    long long  mLastPageIndexForLayout;
+    unsigned long long  mPageCount;
+    unsigned long long  mPageIndex;
 }
 
-- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })boundsRect;
+@property (nonatomic, readonly) bool didLimitPageLayout;
+@property (nonatomic) long long lastPageIndexForLayout;
+
+- (void).cxx_destruct;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })boundsRect;
 - (id)currentInfos;
-- (void)dealloc;
-- (BOOL)hasMoreThanOnePageToPrint;
-- (BOOL)incrementPage;
+- (bool)didLimitPageLayout;
+- (void)finalizeContext:(struct CGContext { }*)arg1;
+- (bool)incrementPage;
 - (id)initWithDocumentRoot:(id)arg1;
-- (unsigned int)pageCount;
-- (BOOL)preparePage:(unsigned int)arg1;
+- (long long)lastPageIndexForLayout;
+- (unsigned long long)pageCount;
+- (bool)preparePage:(unsigned long long)arg1;
 - (double)progressForCurrentPage;
+- (void)setLastPageIndexForLayout:(long long)arg1;
 - (void)setup;
 - (void)teardown;
 - (double)totalProgess;
-- (struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })unscaledClipRect;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })unscaledClipRect;
 
 @end

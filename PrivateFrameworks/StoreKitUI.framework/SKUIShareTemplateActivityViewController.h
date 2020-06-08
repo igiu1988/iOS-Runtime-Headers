@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIClientContext, SKUIShareTemplateViewElement;
-
 @interface SKUIShareTemplateActivityViewController : UIActivityViewController {
-    SKUIClientContext *_clientContext;
-    SKUIShareTemplateViewElement *_templateElement;
+    SKUIClientContext * _clientContext;
+    SKUIShareTemplateViewElement * _templateElement;
 }
 
 - (void).cxx_destruct;

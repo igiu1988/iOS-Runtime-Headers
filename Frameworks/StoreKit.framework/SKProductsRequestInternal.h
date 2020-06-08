@@ -2,12 +2,12 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@class NSSet;
-
 @interface SKProductsRequestInternal : NSObject {
-    NSSet *_productIdentifiers;
+    NSSet * _productIdentifiers;
+    NSObject<OS_dispatch_queue> * _replyQueue;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
+- (id)init;
 
 @end

@@ -2,17 +2,15 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVItem;
-
 @interface CoreDAVSetItem : CoreDAVItem {
-    CoreDAVItem *_prop;
+    CoreDAVItem * _prop;
 }
 
-@property(retain) CoreDAVItem * prop;
+@property (nonatomic, retain) CoreDAVItem *prop;
 
 + (id)copyParseRules;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 - (id)init;
 - (id)prop;

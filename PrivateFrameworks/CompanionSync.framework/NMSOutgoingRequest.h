@@ -2,37 +2,37 @@
    Image: /System/Library/PrivateFrameworks/CompanionSync.framework/CompanionSync
  */
 
-@class NMSMessageCenter, NSData, NSDictionary, NSString;
-
-@interface NMSOutgoingRequest : NSObject <NMSObfuscatableDescriptionProviding> {
-    NSData *_data;
-    NSDictionary *_extraIDSOptions;
-    NSString *_idsIdentifier;
-    NMSMessageCenter *_messageCenter;
-    unsigned short _messageID;
-    id _pbRequest;
-    NSDictionary *_persistentUserInfo;
-    unsigned int _priority;
-    double _responseTimeout;
-    double _sendTimeout;
-    BOOL _shouldEncrypt;
+@interface NMSOutgoingRequest : NSObject <NMSDeviceTargetable, NMSObfuscatableDescriptionProviding> {
+    NSData * _data;
+    NSDictionary * _extraIDSOptions;
+    NSString * _idsIdentifier;
+    NMSMessageCenter * _messageCenter;
+    unsigned short  _messageID;
+    id  _pbRequest;
+    NSDictionary * _persistentUserInfo;
+    unsigned long long  _priority;
+    double  _responseTimeout;
+    double  _sendTimeout;
+    bool  _shouldEncrypt;
+    NSSet * targetDeviceIDs;
 }
 
-@property(retain) NSData * data;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(retain) NSDictionary * extraIDSOptions;
-@property(readonly) unsigned int hash;
-@property(copy) NSString * idsIdentifier;
-@property NMSMessageCenter * messageCenter;
-@property unsigned short messageID;
-@property(retain) id pbRequest;
-@property(retain) NSDictionary * persistentUserInfo;
-@property unsigned int priority;
-@property double responseTimeout;
-@property double sendTimeout;
-@property BOOL shouldEncrypt;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) NSData *data;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSDictionary *extraIDSOptions;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSString *idsIdentifier;
+@property (nonatomic) NMSMessageCenter *messageCenter;
+@property (nonatomic) unsigned short messageID;
+@property (nonatomic, retain) id pbRequest;
+@property (nonatomic, retain) NSDictionary *persistentUserInfo;
+@property (nonatomic) unsigned long long priority;
+@property (nonatomic) double responseTimeout;
+@property (nonatomic) double sendTimeout;
+@property (nonatomic) bool shouldEncrypt;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSSet *targetDeviceIDs;
 
 + (id)requestWithMessageID:(unsigned short)arg1;
 
@@ -47,7 +47,7 @@
 - (unsigned short)messageID;
 - (id)pbRequest;
 - (id)persistentUserInfo;
-- (unsigned int)priority;
+- (unsigned long long)priority;
 - (double)responseTimeout;
 - (double)sendTimeout;
 - (void)setData:(id)arg1;
@@ -57,10 +57,12 @@
 - (void)setMessageID:(unsigned short)arg1;
 - (void)setPbRequest:(id)arg1;
 - (void)setPersistentUserInfo:(id)arg1;
-- (void)setPriority:(unsigned int)arg1;
+- (void)setPriority:(unsigned long long)arg1;
 - (void)setResponseTimeout:(double)arg1;
 - (void)setSendTimeout:(double)arg1;
-- (void)setShouldEncrypt:(BOOL)arg1;
-- (BOOL)shouldEncrypt;
+- (void)setShouldEncrypt:(bool)arg1;
+- (void)setTargetDeviceIDs:(id)arg1;
+- (bool)shouldEncrypt;
+- (id)targetDeviceIDs;
 
 @end

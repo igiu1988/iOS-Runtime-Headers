@@ -2,81 +2,87 @@
    Image: /System/Library/PrivateFrameworks/CloudDocsDaemon.framework/CloudDocsDaemon
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class BRCAccountSession, BRCStagePersistedState, NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
-
-@interface BRCStageRegistry : NSObject <BRCModule, BRCLowDiskDelegate> {
-    NSMutableSet *_containersWithUnflushedFileIDs;
-    int _deviceID;
-    NSObject<OS_dispatch_queue> *_flushingQueue;
-    NSMutableDictionary *_lockedFileIDs;
-    NSObject<OS_dispatch_source> *_lockedTestTimer;
-    BOOL _lowDiskSpace;
-    BRCStagePersistedState *_persistedState;
-    NSObject<OS_dispatch_queue> *_queue;
-    BRCAccountSession *_session;
-    unsigned long long _stageDirectoryFileID[7];
-    NSString *_stageDirectoryPath[7];
-    NSMutableSet *_unflushedStagedFileIDs;
-    /* Warning: Unrecognized filer type: 'A' using 'void*' */ void*_suspendCount;
+@interface BRCStageRegistry : NSObject <BRCLowDiskDelegate, BRCModule> {
+    NSMutableSet * _activeDownloadStageIDs;
+    NSMutableSet * _activeUploadStageIDs;
+    int  _deviceID;
+    NSObject<OS_dispatch_queue> * _flushingQueue;
+    bool  _isCancelled;
+    NSObject<OS_dispatch_source> * _lockedTestTimer;
+    bool  _lowDiskSpace;
+    BRCStagePersistedState * _persistedState;
+    NSObject<OS_dispatch_queue> * _queue;
+    BRCAccountSession * _session;
+    unsigned long long  _stageDirectoryFileID;
+    NSString * _stageDirectoryPath;
+    brc_task_tracker * _tracker;
+    NSMutableSet * _unflushedStagedFileIDs;
+    NSMutableDictionary * _watchedLockedFileIDs;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) int deviceID;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) int deviceID;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isCancelled;
+@property (readonly) Class superclass;
+
++ (unsigned short)computeItemModeFromStatInfo:(id)arg1 sharingOptions:(unsigned long long)arg2 isDirectory:(bool)arg3;
++ (void)migrateStageToVersion2_0WithSession:(id)arg1;
 
 - (void).cxx_destruct;
+- (id)_anchorNameForChangeToken:(id)arg1 recordZoneID:(id)arg2;
+- (void)_fileIDMightHaveBeenUnlocked:(id)arg1;
+- (bool)_flockToMakeLiveAtPath:(id)arg1 error:(id*)arg2;
+- (bool)_graveyardAt:(int)arg1 path:(id)arg2 forItemID:(id)arg3;
 - (int)_openStageDirectory:(unsigned char)arg1;
-- (int)_performInStageDirectory:(unsigned char)arg1 block:(id)arg2;
-- (void)_testLockedFiles;
+- (id)_pathInStage:(unsigned long long)arg1 index:(unsigned char*)arg2 generationID:(unsigned int*)arg3;
+- (int)_performInStageDirectory:(unsigned char)arg1 block:(id /* block */)arg2;
+- (long long)_purgeSpaceUnderQueue:(long long)arg1 withUrgency:(int)arg2;
+- (void)_updatePersistedStateWithLatestGCStartTime:(long long)arg1;
 - (void)_watchLockedRelpath:(id)arg1;
-- (void)applyMetadataOnFileDescriptor:(int)arg1 liveFileDescriptor:(int)arg2 container:(id)arg3 statInfo:(id)arg4 version:(id)arg5;
-- (BOOL)beginStageOfPackageWithManifestID:(id)arg1 manifestPath:(id)arg2 error:(id*)arg3;
-- (void)cleanupStagedUploadWithContainer:(id)arg1 itemID:(id)arg2;
+- (void)applyMetadataOnFileDescriptor:(int)arg1 liveFileDescriptor:(int)arg2 clientZone:(id)arg3 statInfo:(id)arg4 version:(id)arg5 sharingOptions:(unsigned long long)arg6;
+- (void)associateDownloadStageID:(id)arg1 withOperation:(id)arg2;
+- (void)associateSyncUpStageID:(id)arg1 withOperation:(id)arg2;
+- (void)cancel;
+- (void)cleanupStagedDownloadWithID:(id)arg1 forItemID:(id)arg2;
+- (void)cleanupStagedSyncUpWithID:(id)arg1;
+- (void)cleanupStagedUploadWithID:(id)arg1;
 - (void)close;
-- (id)copyBundleIconsToStageWithDictionary:(id)arg1;
-- (BOOL)copyPackageFileWithPackageFd:(int)arg1 toStageFd:(int)arg2 relpath:(id)arg3;
-- (void)dealloc;
+- (bool)copyPackageFileWithPackageFd:(int)arg1 toStageFd:(int)arg2 relpath:(id)arg3;
+- (id)createURLForDownloadWithStageID:(id)arg1 name:(id)arg2;
+- (id)createURLForUploadWithStageID:(id)arg1 name:(id)arg2;
 - (int)deviceID;
-- (void)didFlushAllStagedFileIDs;
-- (BOOL)didFlushStagedFileID:(unsigned long long)arg1;
-- (BOOL)existsInOldVersionStage:(unsigned long long)arg1 generationID:(unsigned int*)arg2;
-- (BOOL)existsInStage:(unsigned long long)arg1 generationID:(unsigned int*)arg2;
-- (BOOL)finishStageOfPackageWithManifestID:(id)arg1 gatherFileID:(unsigned long long*)arg2 generationID:(unsigned int*)arg3 documentID:(unsigned int*)arg4 inContainer:(id)arg5 error:(id*)arg6;
-- (void)forgetWatchedLockedFileID:(unsigned long long)arg1;
-- (void)forgetWatchedLockedFileIDsForContainer:(id)arg1;
-- (long long)garbageCollect:(BOOL)arg1;
+- (bool)didFlushStagedFileID:(unsigned long long)arg1;
+- (void)disarmLockedTestTimer;
+- (bool)existsInOldVersionStageOrGraveyard:(unsigned long long)arg1;
+- (bool)existsInStage:(unsigned long long)arg1 generationID:(unsigned int*)arg2;
+- (void)forgetWatchedLockedFileID:(id)arg1;
+- (void)forgetWatchedLockedFileIDsForAppLibrary:(id)arg1;
+- (void)garbageCollectPackages;
+- (long long)garbageCollectSpace:(long long)arg1;
 - (id)initWithAccountSession:(id)arg1;
-- (BOOL)isItemInStageWithParentFileID:(unsigned long long)arg1 error:(id*)arg2;
-- (void)lowDiskStatusChangedForDevice:(int)arg1 hasEnoughSpace:(BOOL)arg2;
-- (BOOL)makeDirectoryInStageGatherFileID:(unsigned long long*)arg1 generationID:(unsigned int*)arg2 inContainer:(id)arg3 error:(id*)arg4;
-- (id)makeNonLocalVersionSideFaultWithAdditionName:(id)arg1 container:(id)arg2 statInfo:(id)arg3 version:(id)arg4 error:(id*)arg5;
-- (BOOL)makeSideFaultInStageGatherFileID:(unsigned long long*)arg1 generationID:(unsigned int*)arg2 documentID:(unsigned int*)arg3 properties:(id)arg4 inContainer:(id)arg5 forCreation:(BOOL)arg6 error:(id*)arg7;
-- (BOOL)manifestExistsInStageWithManifestID:(id)arg1 gatherPackageFileID:(unsigned long long*)arg2 gatherManifestFileID:(unsigned long long*)arg3;
-- (BOOL)manifestFileIDsForManifestID:(id)arg1 manifestFileID:(unsigned long long*)arg2 stagingManifestFileID:(unsigned long long*)arg3 error:(id*)arg4;
-- (BOOL)mayLockFileID:(unsigned long long)arg1;
-- (BOOL)moveFromStage:(unsigned long long)arg1 toPath:(id)arg2 fileName:(id)arg3 error:(id*)arg4;
-- (BOOL)moveFromStageToGraveyard:(unsigned long long)arg1;
-- (BOOL)moveOldVersionFromPath:(id)arg1 error:(id*)arg2;
-- (BOOL)movePackageFromStageToGraveyard:(id)arg1;
-- (BOOL)moveToGraveyardFromPath:(id)arg1 error:(id*)arg2;
-- (BOOL)moveToStageFromTmp:(id)arg1 gatherFileID:(unsigned long long*)arg2 generationID:(unsigned int*)arg3 documentID:(unsigned int*)arg4 inContainer:(id)arg5 error:(id*)arg6;
+- (bool)isCancelled;
+- (void)lowDiskStatusChangedForDevice:(int)arg1 hasEnoughSpace:(bool)arg2;
+- (bool)makeDirectoryInStageGatherFileID:(unsigned long long*)arg1 generationID:(unsigned int*)arg2 error:(id*)arg3;
+- (bool)makeItemLive:(id)arg1 fromStage:(unsigned long long)arg2 bySwappingWith:(id)arg3 fileName:(id)arg4 error:(id*)arg5;
+- (id)makeNonLocalVersionSideFaultWithAdditionName:(id)arg1 clientZone:(id)arg2 statInfo:(id)arg3 version:(id)arg4 sharingOptions:(unsigned long long)arg5 error:(id*)arg6;
+- (id)makePendingFetchRecordDirWithStartingChangeToken:(id)arg1 recordZoneID:(id)arg2;
+- (bool)makeSideFaultInStageGatherFileID:(unsigned long long*)arg1 generationID:(unsigned int*)arg2 documentID:(unsigned int*)arg3 properties:(id)arg4 inAppLibrary:(id)arg5 forCreation:(bool)arg6 error:(id*)arg7;
+- (bool)makeSymlinkWithTarget:(id)arg1 inStageGatherFileID:(unsigned long long*)arg2 generationID:(unsigned int*)arg3 error:(id*)arg4;
+- (bool)moveFromStage:(unsigned long long)arg1 toPath:(id)arg2 fileName:(id)arg3 error:(id*)arg4;
+- (bool)moveFromStageToGraveyard:(unsigned long long)arg1 forItemID:(id)arg2;
+- (bool)moveOldVersionFromPath:(id)arg1 error:(id*)arg2;
+- (bool)moveToGraveyardFromPath:(id)arg1 forItemID:(id)arg2 error:(id*)arg3;
 - (id)nonLocalFaultURLForAdditionName:(id)arg1;
 - (void)open;
-- (unsigned long long)packageRootFileIDForManifestID:(id)arg1 createIfMissing:(BOOL)arg2 error:(id*)arg3;
-- (id)pathInStage:(unsigned long long)arg1;
+- (bool)pendingFetchRecordDirExistsInStageWithStartingChangeToken:(id)arg1 recordZoneID:(id)arg2;
 - (long long)purgableSpace;
-- (long long)purgeOldFiles;
+- (long long)purgeGraveyardSpace:(long long)arg1 withUrgency:(int)arg2;
+- (long long)purgeSpace:(long long)arg1 withUrgency:(int)arg2;
+- (bool)rememberStagedDownloadWithID:(id)arg1 gatherFileID:(unsigned long long*)arg2 generationID:(unsigned int*)arg3 documentID:(unsigned int*)arg4 appLibrary:(id)arg5 error:(id*)arg6;
 - (void)resume;
-- (id)stagedManifestURLForManifestID:(id)arg1;
-- (id)stagedUploadAssetWithContainer:(id)arg1 itemID:(id)arg2 suffix:(id)arg3 kind:(unsigned int)arg4 error:(id*)arg5;
-- (id)stagedUploadURLWithContainer:(id)arg1 itemID:(id)arg2 suffix:(id)arg3 kind:(unsigned int)arg4;
-- (void)suspend;
-- (BOOL)transferDocumentID:(unsigned int)arg1 fromOldVersionStage:(unsigned long long)arg2 toStage:(unsigned long long)arg3;
+- (bool)transferDocumentID:(unsigned int)arg1 fromOldVersionStage:(unsigned long long)arg2 toStage:(unsigned long long)arg3;
+- (void)willFlushAllStagedFileIDs;
 
 @end

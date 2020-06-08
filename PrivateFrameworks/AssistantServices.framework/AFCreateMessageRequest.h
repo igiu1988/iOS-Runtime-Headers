@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class AFMessage;
-
 @interface AFCreateMessageRequest : AFSiriRequest {
-    AFMessage *_message;
+    STSiriMessage * _message;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)_initWithMessage:(id)arg1;

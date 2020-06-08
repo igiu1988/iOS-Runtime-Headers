@@ -2,42 +2,27 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class NSString;
-
 @interface FigCaptureSinkConfiguration : NSObject <FigXPCCoding, NSCopying> {
-    NSString *_sinkID;
-    int _sinkType;
-    BOOL _videoDataDerivedFromPreview;
-    BOOL _videoDataDiscardsLateVideoFrames;
+    NSString * _sinkID;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) NSString * sinkID;
-@property int sinkType;
-@property(readonly) Class superclass;
-@property BOOL videoDataDerivedFromPreview;
-@property BOOL videoDataDiscardsLateVideoFrames;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSString *sinkID;
+@property (nonatomic, readonly) int sinkType;
+@property (readonly) Class superclass;
 
-+ (void)initialize;
-+ (int)sinkTypeForString:(id)arg1;
 + (id)stringForSinkType:(int)arg1;
 
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)copyXPCEncoding;
 - (void)dealloc;
 - (id)description;
-- (id)init;
 - (id)initWithXPCEncoding:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)setSinkID:(id)arg1;
-- (void)setSinkType:(int)arg1;
-- (void)setVideoDataDerivedFromPreview:(BOOL)arg1;
-- (void)setVideoDataDiscardsLateVideoFrames:(BOOL)arg1;
 - (id)sinkID;
 - (int)sinkType;
-- (BOOL)videoDataDerivedFromPreview;
-- (BOOL)videoDataDiscardsLateVideoFrames;
 
 @end

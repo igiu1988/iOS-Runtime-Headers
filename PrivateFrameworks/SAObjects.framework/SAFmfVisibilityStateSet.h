@@ -2,18 +2,17 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@interface SAFmfVisibilityStateSet : SADomainCommand {
-}
+@interface SAFmfVisibilityStateSet : SADomainCommand
 
-@property BOOL visible;
+@property (nonatomic) bool visible;
 
 + (id)visibilityStateSet;
 + (id)visibilityStateSetWithDictionary:(id)arg1 context:(id)arg2;
 
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (BOOL)requiresResponse;
-- (void)setVisible:(BOOL)arg1;
-- (BOOL)visible;
+- (bool)requiresResponse;
+- (void)setVisible:(bool)arg1;
+- (bool)visible;
 
 @end

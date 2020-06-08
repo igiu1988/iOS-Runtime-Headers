@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/GameCenterFoundation.framework/GameCenterFoundation
  */
 
-@class NSArray;
-
 @interface GKRequestIdentifier : NSObject <NSCopying> {
-    NSArray *_arguments;
-    unsigned int _savedHash;
-    SEL _selector;
+    NSArray * _arguments;
+    unsigned long long  _savedHash;
+    SEL  _selector;
 }
 
 + (id)requestIdentifierForInvocation:(id)arg1;
@@ -16,8 +14,8 @@
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithInvocation:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 
 @end

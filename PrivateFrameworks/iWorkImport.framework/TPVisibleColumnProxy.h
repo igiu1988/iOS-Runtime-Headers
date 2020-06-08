@@ -2,32 +2,32 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, TPPageController;
-
 @interface TPVisibleColumnProxy : NSObject <TSWPOffscreenColumn> {
-    TPPageController *_pageController;
-    unsigned int _pageIndex;
+    <TSWPFlowInfo> * _flowInfo;
+    TPPageController * _pageController;
+    unsigned long long  _pageIndex;
 }
 
-@property(readonly) struct _NSRange { unsigned int x1; unsigned int x2; } anchoredRange;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) unsigned int nextWidowPullsDownFromCharIndex;
-@property(readonly) struct _NSRange { unsigned int x1; unsigned int x2; } range;
-@property(readonly) unsigned int startAnchoredCharIndex;
-@property(readonly) unsigned int startCharIndex;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } anchoredRange;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool lastLineIsEmptyAndHasListLabel;
+@property (nonatomic, readonly) unsigned long long nextWidowPullsDownFromCharIndex;
+@property (nonatomic, readonly) struct _NSRange { unsigned long long x1; unsigned long long x2; } range;
+@property (readonly) Class superclass;
 
-- (struct _NSRange { unsigned int x1; unsigned int x2; })anchoredRange;
-- (void)dealloc;
-- (id)initWithPageIndex:(unsigned int)arg1 pageController:(id)arg2;
-- (unsigned int)nextWidowPullsDownFromCharIndex;
-- (const struct { struct CGRect { struct CGPoint { float x_1_2_1; float x_1_2_2; } x_1_1_1; struct CGSize { float x_2_2_1; float x_2_2_2; } x_1_1_2; } x1; struct _NSRange { unsigned int x_2_1_1; unsigned int x_2_1_2; } x2; unsigned int x3; struct _NSRange { unsigned int x_4_1_1; unsigned int x_4_1_2; } x4; unsigned int x5; }*)p_targetFirstHint;
-- (const struct { struct CGRect { struct CGPoint { float x_1_2_1; float x_1_2_2; } x_1_1_1; struct CGSize { float x_2_2_1; float x_2_2_2; } x_1_1_2; } x1; struct _NSRange { unsigned int x_2_1_1; unsigned int x_2_1_2; } x2; unsigned int x3; struct _NSRange { unsigned int x_4_1_1; unsigned int x_4_1_2; } x4; unsigned int x5; }*)p_targetLastHint;
-- (struct _NSRange { unsigned int x1; unsigned int x2; })range;
-- (unsigned int)startAnchoredCharIndex;
-- (unsigned int)startCharIndex;
-- (void)trimToCharIndex:(unsigned int)arg1 inTarget:(id)arg2 removeFootnoteLayoutCount:(unsigned int)arg3 removeAutoNumberFootnoteCount:(unsigned int)arg4;
+- (void).cxx_destruct;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })anchoredRange;
+- (id)initWithPageIndex:(unsigned long long)arg1 pageController:(id)arg2;
+- (id)initWithPageIndex:(unsigned long long)arg1 pageController:(id)arg2 flowInfo:(id)arg3;
+- (bool)lastLineIsEmptyAndHasListLabel;
+- (unsigned long long)nextWidowPullsDownFromCharIndex;
+- (id)p_targetFirstHint;
+- (id)p_targetLastHint;
+- (struct _NSRange { unsigned long long x1; unsigned long long x2; })range;
+- (unsigned long long)startAnchoredCharIndex;
+- (unsigned long long)startCharIndex;
+- (void)trimToCharIndex:(unsigned long long)arg1 inTarget:(id)arg2 removeFootnoteReferenceCount:(unsigned long long)arg3 removeAutoNumberFootnoteCount:(unsigned long long)arg4;
 
 @end

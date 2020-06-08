@@ -3,14 +3,14 @@
  */
 
 @interface _NMRIDSMessageHandler : NSObject {
-    SEL _action;
-    unsigned short _messageType;
-    id _target;
+    SEL  _action;
+    unsigned short  _messageType;
+    id  _target;
 }
 
-@property SEL action;
-@property unsigned short messageType;
-@property id target;
+@property (nonatomic) SEL action;
+@property (nonatomic) unsigned short messageType;
+@property (nonatomic) id target;
 
 - (void).cxx_destruct;
 - (SEL)action;

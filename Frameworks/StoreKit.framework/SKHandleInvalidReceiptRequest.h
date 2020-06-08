@@ -2,9 +2,8 @@
    Image: /System/Library/Frameworks/StoreKit.framework/StoreKit
  */
 
-@interface SKHandleInvalidReceiptRequest : SKRequest {
-}
+@interface SKHandleInvalidReceiptRequest : SKRequest
 
-- (void)_sendXPCMessage;
+- (void)_start;
 
 @end

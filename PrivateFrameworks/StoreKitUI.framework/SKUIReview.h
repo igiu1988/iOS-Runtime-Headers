@@ -2,26 +2,24 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSMutableDictionary, NSString;
-
 @interface SKUIReview : NSObject <SKUICacheCoding> {
-    NSString *_body;
-    NSString *_dateString;
-    float _rating;
-    NSString *_reviewer;
-    NSString *_title;
+    NSString * _body;
+    NSString * _dateString;
+    float  _rating;
+    NSString * _reviewer;
+    NSString * _title;
 }
 
-@property(readonly) NSString * body;
-@property(readonly) NSMutableDictionary * cacheRepresentation;
-@property(readonly) NSString * dateString;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) float rating;
-@property(readonly) NSString * reviewer;
-@property(readonly) Class superclass;
-@property(readonly) NSString * title;
+@property (nonatomic, readonly) NSString *body;
+@property (nonatomic, readonly) NSMutableDictionary *cacheRepresentation;
+@property (nonatomic, readonly) NSString *dateString;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) float rating;
+@property (nonatomic, readonly) NSString *reviewer;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSString *title;
 
 - (void).cxx_destruct;
 - (id)body;

@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-@class NSString;
-
 @interface VKPShieldIndexEntry : PBCodable <NSCopying> {
+    NSString * _artworkIdentifier;
     struct { 
         int *list; 
-        unsigned int count; 
-        unsigned int size; 
+        unsigned long long count; 
+        unsigned long long size; 
+    }  _defaultForFeatureTypes;
     struct { 
         int *list; 
-        unsigned int count; 
-        unsigned int size; 
-    NSString *_artworkIdentifier;
-    } _defaultForFeatureTypes;
-    } _shieldTypes;
+        unsigned long long count; 
+        unsigned long long size; 
+    }  _shieldTypes;
 }
 
-@property(retain) NSString * artworkIdentifier;
-@property(readonly) int* defaultForFeatureTypes;
-@property(readonly) unsigned int defaultForFeatureTypesCount;
-@property(readonly) BOOL hasArtworkIdentifier;
-@property(readonly) int* shieldTypes;
-@property(readonly) unsigned int shieldTypesCount;
+@property (nonatomic, retain) NSString *artworkIdentifier;
+@property (nonatomic, readonly) int*defaultForFeatureTypes;
+@property (nonatomic, readonly) unsigned long long defaultForFeatureTypesCount;
+@property (nonatomic, readonly) bool hasArtworkIdentifier;
+@property (nonatomic, readonly) int*shieldTypes;
+@property (nonatomic, readonly) unsigned long long shieldTypesCount;
 
 - (void)addDefaultForFeatureType:(int)arg1;
 - (void)addShieldTypes:(int)arg1;
@@ -33,22 +31,22 @@
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
-- (int)defaultForFeatureTypeAtIndex:(unsigned int)arg1;
+- (int)defaultForFeatureTypeAtIndex:(unsigned long long)arg1;
 - (int*)defaultForFeatureTypes;
-- (unsigned int)defaultForFeatureTypesCount;
+- (unsigned long long)defaultForFeatureTypesCount;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasArtworkIdentifier;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasArtworkIdentifier;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setArtworkIdentifier:(id)arg1;
-- (void)setDefaultForFeatureTypes:(int*)arg1 count:(unsigned int)arg2;
-- (void)setShieldTypes:(int*)arg1 count:(unsigned int)arg2;
+- (void)setDefaultForFeatureTypes:(int*)arg1 count:(unsigned long long)arg2;
+- (void)setShieldTypes:(int*)arg1 count:(unsigned long long)arg2;
 - (int*)shieldTypes;
-- (int)shieldTypesAtIndex:(unsigned int)arg1;
-- (unsigned int)shieldTypesCount;
+- (int)shieldTypesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)shieldTypesCount;
 - (void)writeTo:(id)arg1;
 
 @end

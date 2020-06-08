@@ -2,51 +2,60 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOMapItemAddressBookAttributes : PBCodable <NSCopying> {
+    NSString * _addressIdentifier;
+    int  _addressType;
     struct { 
         unsigned int addressType : 1; 
         unsigned int isMe : 1; 
-    int _addressType;
-    } _has;
-    BOOL _isMe;
-    NSString *_name;
-    NSString *_spokenName;
+    }  _has;
+    bool  _isMe;
+    NSString * _name;
+    NSString * _spokenName;
+    PBUnknownFields * _unknownFields;
 }
 
-@property int addressType;
-@property BOOL hasAddressType;
-@property BOOL hasIsMe;
-@property(readonly) BOOL hasName;
-@property(readonly) BOOL hasSpokenName;
-@property BOOL isMe;
-@property(retain) NSString * name;
-@property(retain) NSString * spokenName;
+@property (nonatomic, retain) NSString *addressIdentifier;
+@property (nonatomic) int addressType;
+@property (nonatomic, readonly) bool hasAddressIdentifier;
+@property (nonatomic) bool hasAddressType;
+@property (nonatomic) bool hasIsMe;
+@property (nonatomic, readonly) bool hasName;
+@property (nonatomic, readonly) bool hasSpokenName;
+@property (nonatomic) bool isMe;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *spokenName;
+@property (nonatomic, readonly) PBUnknownFields *unknownFields;
 
+- (void).cxx_destruct;
+- (int)StringAsAddressType:(id)arg1;
+- (id)addressIdentifier;
 - (int)addressType;
+- (id)addressTypeAsString:(int)arg1;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasAddressType;
-- (BOOL)hasIsMe;
-- (BOOL)hasName;
-- (BOOL)hasSpokenName;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isMe;
+- (bool)hasAddressIdentifier;
+- (bool)hasAddressType;
+- (bool)hasIsMe;
+- (bool)hasName;
+- (bool)hasSpokenName;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
+- (bool)isMe;
 - (void)mergeFrom:(id)arg1;
 - (id)name;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setAddressIdentifier:(id)arg1;
 - (void)setAddressType:(int)arg1;
-- (void)setHasAddressType:(BOOL)arg1;
-- (void)setHasIsMe:(BOOL)arg1;
-- (void)setIsMe:(BOOL)arg1;
+- (void)setHasAddressType:(bool)arg1;
+- (void)setHasIsMe:(bool)arg1;
+- (void)setIsMe:(bool)arg1;
 - (void)setName:(id)arg1;
 - (void)setSpokenName:(id)arg1;
 - (id)spokenName;
+- (id)unknownFields;
 - (void)writeTo:(id)arg1;
 
 @end

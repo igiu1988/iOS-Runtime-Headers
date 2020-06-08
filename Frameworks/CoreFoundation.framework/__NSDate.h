@@ -3,12 +3,12 @@
  */
 
 @interface __NSDate : NSDate {
-    double _time;
+    double  _time;
 }
 
 + (id)__new:(double)arg1;
 + (id)allocWithZone:(struct _NSZone { }*)arg1;
-+ (BOOL)automaticallyNotifiesObserversForKey:(id)arg1;
++ (bool)automaticallyNotifiesObserversForKey:(id)arg1;
 
 - (void)dealloc;
 - (id)initWithTimeIntervalSinceReferenceDate:(double)arg1;

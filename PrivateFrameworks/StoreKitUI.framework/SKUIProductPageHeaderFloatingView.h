@@ -2,33 +2,31 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class SKUIColorScheme, UIControl, UISegmentedControl, UIView, _UIBackdropView;
-
 @interface SKUIProductPageHeaderFloatingView : UIView {
-    UIView *_backdropAlphaView;
-    _UIBackdropView *_backdropView;
-    SKUIColorScheme *_colorScheme;
-    BOOL _isPad;
-    UISegmentedControl *_sectionControl;
-    UIView *_separatorView;
+    UIView * _backdropAlphaView;
+    _UIBackdropView * _backdropView;
+    SKUIColorScheme * _colorScheme;
+    bool  _isPad;
+    UISegmentedControl * _sectionControl;
+    UIView * _separatorView;
 }
 
-@property float backdropAlpha;
-@property(retain) SKUIColorScheme * colorScheme;
-@property(readonly) UIControl * sectionControl;
-@property int selectedSectionIndex;
+@property (nonatomic) double backdropAlpha;
+@property (nonatomic, retain) SKUIColorScheme *colorScheme;
+@property (nonatomic, readonly) UIControl *sectionControl;
+@property (nonatomic) long long selectedSectionIndex;
 
 - (void).cxx_destruct;
 - (void)_reloadBackdropView;
-- (float)backdropAlpha;
+- (double)backdropAlpha;
 - (id)colorScheme;
-- (id)initWithSectionTitles:(id)arg1 isPad:(BOOL)arg2;
+- (id)initWithSectionTitles:(id)arg1 isPad:(bool)arg2;
 - (void)layoutSubviews;
 - (id)sectionControl;
-- (int)selectedSectionIndex;
-- (void)setBackdropAlpha:(float)arg1;
+- (long long)selectedSectionIndex;
+- (void)setBackdropAlpha:(double)arg1;
 - (void)setColorScheme:(id)arg1;
-- (void)setSelectedSectionIndex:(int)arg1;
-- (struct CGSize { float x1; float x2; })sizeThatFits:(struct CGSize { float x1; float x2; })arg1;
+- (void)setSelectedSectionIndex:(long long)arg1;
+- (struct CGSize { double x1; double x2; })sizeThatFits:(struct CGSize { double x1; double x2; })arg1;
 
 @end

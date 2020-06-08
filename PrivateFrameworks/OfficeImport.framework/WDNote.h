@@ -2,20 +2,19 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class WDCharacterRun, WDText;
-
 @interface WDNote : WDRun {
-    BOOL mAutomaticNumbering;
-    WDCharacterRun *mReference;
-    WDText *mText;
+    bool  mAutomaticNumbering;
+    WDCharacterRun * mReference;
+    WDText * mText;
 }
 
-- (BOOL)automaticNumbering;
+- (bool)automaticNumbering;
 - (void)dealloc;
-- (id)initWithParagraph:(id)arg1 footnote:(BOOL)arg2;
+- (id)description;
+- (id)initWithParagraph:(id)arg1 footnote:(bool)arg2;
 - (id)reference;
 - (int)runType;
-- (void)setAutomaticNumbering:(BOOL)arg1;
+- (void)setAutomaticNumbering:(bool)arg1;
 - (id)text;
 
 @end

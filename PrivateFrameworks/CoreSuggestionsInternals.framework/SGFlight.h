@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSString;
-
 @interface SGFlight : NSObject {
-    NSString *_airline;
-    NSString *_arrivalAirportDescription;
-    NSString *_departureAirportDescription;
-    NSString *_flightno;
+    NSString * _airline;
+    NSString * _arrivalAirportDescription;
+    NSString * _departureAirportDescription;
+    NSString * _flightno;
 }
 
-@property(readonly) NSString * airline;
-@property(readonly) NSString * arrivalAirportDescription;
-@property(readonly) NSString * departureAirportDescription;
-@property(readonly) NSString * flightno;
+@property (nonatomic, readonly) NSString *airline;
+@property (nonatomic, readonly) NSString *arrivalAirportDescription;
+@property (nonatomic, readonly) NSString *departureAirportDescription;
+@property (nonatomic, readonly) NSString *flightno;
 
 - (void).cxx_destruct;
 - (id)airline;

@@ -2,19 +2,19 @@
    Image: /usr/lib/libAWDSupportFramework.dylib
  */
 
-@class NSMutableArray;
-
 @interface AWDPowerNetworkUsageMetrics : PBCodable <NSCopying> {
     struct { 
         unsigned int timestamp : 1; 
-    } _has;
-    unsigned long long _timestamp;
-    NSMutableArray *_usages;
+    }  _has;
+    unsigned long long  _timestamp;
+    NSMutableArray * _usages;
 }
 
-@property BOOL hasTimestamp;
-@property unsigned long long timestamp;
-@property(retain) NSMutableArray * usages;
+@property (nonatomic) bool hasTimestamp;
+@property (nonatomic) unsigned long long timestamp;
+@property (nonatomic, retain) NSMutableArray *usages;
+
++ (Class)usageType;
 
 - (void)addUsage:(id)arg1;
 - (void)clearUsages;
@@ -23,18 +23,18 @@
 - (void)dealloc;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasTimestamp;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasTimestamp;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
-- (void)setHasTimestamp:(BOOL)arg1;
+- (bool)readFrom:(id)arg1;
+- (void)setHasTimestamp:(bool)arg1;
 - (void)setTimestamp:(unsigned long long)arg1;
 - (void)setUsages:(id)arg1;
 - (unsigned long long)timestamp;
-- (id)usageAtIndex:(unsigned int)arg1;
+- (id)usageAtIndex:(unsigned long long)arg1;
 - (id)usages;
-- (unsigned int)usagesCount;
+- (unsigned long long)usagesCount;
 - (void)writeTo:(id)arg1;
 
 @end

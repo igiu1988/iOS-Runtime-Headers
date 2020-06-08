@@ -2,25 +2,27 @@
    Image: /System/Library/PrivateFrameworks/CloudDocs.framework/CloudDocs
  */
 
-@class NSHashTable, NSObject<OS_dispatch_queue>;
-
 @interface BRReachabilityMonitor : NSObject {
-    BOOL _isNetworkReachable;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSHashTable *_reachabilityObservers;
-    struct __SCNetworkReachability { } *_reachabilityRef;
+    NSObject<OS_dispatch_queue> * _queue;
+    unsigned int  _reachabilityFlags;
+    NSHashTable * _reachabilityObservers;
+    struct __SCNetworkReachability { } * _reachabilityRef;
 }
 
-@property BOOL isNetworkReachable;
+@property (nonatomic, readonly) bool isNetworkReachable;
+@property (nonatomic) unsigned int reachabilityFlags;
 
++ (bool)isNetworkReachableForFlags:(unsigned int)arg1;
 + (id)sharedReachabilityMonitor;
 
+- (void).cxx_destruct;
 - (void)addObserver:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (void)invalidate;
-- (BOOL)isNetworkReachable;
+- (bool)isNetworkReachable;
+- (unsigned int)reachabilityFlags;
 - (void)removeObserver:(id)arg1;
-- (void)setIsNetworkReachable:(BOOL)arg1;
+- (void)setReachabilityFlags:(unsigned int)arg1;
 
 @end

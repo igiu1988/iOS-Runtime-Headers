@@ -2,47 +2,44 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@class BLActivityAlert, NSDictionary, NSString, PLUIController, UIWindow;
-
 @interface PLPhotosApplication : UIApplication <UIApplicationDelegate> {
-    NSString *_currentTestName;
-    NSDictionary *_currentTestOptions;
-    BLActivityAlert *_iPhotoMigrationActivityAlert;
-    BOOL _isOnWifi;
-    BOOL _isReachable;
-    int _observeForRechabilityChanges;
-    int _photoStreamActivityToken;
-    BOOL _photoStreamIsBusy;
-    BOOL _receivingRemoteControlEvents;
-    int _sharedPhotoStreamActivityToken;
-    int _sharedPhotoStreamInvitationFailureToken;
-    BOOL _sharedPhotoStreamIsBusy;
-    PLUIController *_uiController;
-    BOOL _urlNeedsHandling;
-    UIWindow *_window;
+    NSString * _currentTestName;
+    NSDictionary * _currentTestOptions;
+    BLActivityAlert * _iPhotoMigrationActivityAlert;
+    bool  _isOnWifi;
+    bool  _isReachable;
+    NSSet * _notificationSuppressionContexts;
+    int  _observeForRechabilityChanges;
+    int  _photoStreamActivityToken;
+    bool  _photoStreamIsBusy;
+    bool  _receivingRemoteControlEvents;
+    int  _sharedPhotoStreamActivityToken;
+    int  _sharedPhotoStreamInvitationFailureToken;
+    bool  _sharedPhotoStreamIsBusy;
+    UIWindow * _window;
 }
 
-@property(retain) NSString * currentTestName;
-@property(retain) NSDictionary * currentTestOptions;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(retain) BLActivityAlert * iPhotoMigrationActivityAlert;
-@property(readonly) BOOL isOnWifi;
-@property(readonly) BOOL isReachable;
-@property(readonly) Class superclass;
-@property(retain) UIWindow * window;
+@property (nonatomic, retain) NSString *currentTestName;
+@property (nonatomic, retain) NSDictionary *currentTestOptions;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) BLActivityAlert *iPhotoMigrationActivityAlert;
+@property (nonatomic, readonly) bool isOnWifi;
+@property (nonatomic, readonly) bool isReachable;
+@property (nonatomic, copy) NSSet *notificationSuppressionContexts;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) UIWindow *window;
 
 + (void)initialize;
 
 - (void)_applicationDidBecomeActive:(id)arg1;
 - (void)_applicationDidResignActive:(id)arg1;
-- (void)_finishExtendedTest;
+- (void)_cleanUpOutboundSharingAssets;
 - (void)_networkReachabilityDidChange:(id)arg1;
 - (void)_registerForPhotoStreamActivityNotifications;
 - (void)_setImageOptions;
 - (void)_startObservingReachabilityChanges;
-- (void)_statusBarDoubleTap:(id)arg1;
 - (void)_stopObservingReachabilityChanges;
 - (void)_unregisterForPhotoStreamActivityNotifications;
 - (void)_updateNetworkActivityIndicatorAsync;
@@ -54,25 +51,27 @@
 - (void)applicationWillEnterForeground:(id)arg1;
 - (id)currentTestName;
 - (id)currentTestOptions;
-- (id)currentUIConfiguration;
 - (void)dealloc;
 - (void)disableNetworkObservation;
 - (void)enableNetworkObservation;
 - (void*)getSharedAddressBook;
+- (id)getSharedContactStore;
+- (void)handleImportCompleteAlertResponse:(struct __CFUserNotification { }*)arg1 flags:(unsigned long long)arg2;
 - (id)iPhotoMigrationActivityAlert;
-- (BOOL)isOnWifi;
-- (BOOL)isReachable;
+- (bool)isOnWifi;
+- (bool)isReachable;
 - (id)mainWindow;
+- (id)notificationSuppressionContexts;
 - (void)photosPreferencesChanged;
-- (void)presentInternalSettingsController;
 - (id)rootViewController;
 - (void)setCurrentTestName:(id)arg1;
 - (void)setCurrentTestOptions:(id)arg1;
 - (void)setIPhotoMigrationActivityAlert:(id)arg1;
-- (void)setReceivingRemoteControlEvents:(BOOL)arg1;
-- (void)sharedFinishedLaunching:(BOOL)arg1;
-- (BOOL)shouldAllowSBAlertSupression;
-- (BOOL)useCompatibleSuspensionAnimation;
-- (BOOL)visitViewControllersWithBlock:(id)arg1;
+- (void)setNotificationSuppressionContexts:(id)arg1;
+- (void)setReceivingRemoteControlEvents:(bool)arg1;
+- (void)sharedFinishedLaunching:(bool)arg1;
+- (bool)shouldAllowSBAlertSupression;
+- (bool)useCompatibleSuspensionAnimation;
+- (bool)visitViewControllersWithBlock:(id /* block */)arg1;
 
 @end

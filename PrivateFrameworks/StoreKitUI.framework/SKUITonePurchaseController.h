@@ -2,42 +2,35 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class ABPeoplePickerNavigationController, NSString, SKUIClientContext, SKUIItem, UIViewController;
-
-@interface SKUITonePurchaseController : NSObject <ABPeoplePickerNavigationControllerDelegate> {
-    SKUIClientContext *_clientContext;
-    id _completionBlock;
-    SKUIItem *_item;
-    UIViewController *_parentViewController;
-    ABPeoplePickerNavigationController *_peoplePicker;
+@interface SKUITonePurchaseController : NSObject <CNContactPickerDelegate> {
+    SKUIClientContext * _clientContext;
+    id /* block */  _completionBlock;
+    CNContactPickerViewController * _contactPickerController;
+    SKUIItem * _item;
+    UIViewController * _parentViewController;
 }
 
-@property(retain) SKUIClientContext * clientContext;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property UIViewController * parentViewController;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) UIViewController *parentViewController;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (void)_dismissPeoplePicker;
-- (void)_finishPeoplePicker:(id)arg1 withPerson:(void*)arg2;
+- (void)_dismissContactPicker;
+- (void)_finishContactPicker:(id)arg1 withContact:(id)arg2;
 - (void)_finishWithTonePurchase:(id)arg1;
 - (void)_presentViewController:(id)arg1;
-- (void)_showPeoplePicker;
+- (void)_showContactPicker;
 - (id)clientContext;
+- (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
+- (void)contactPickerDidCancel:(id)arg1;
 - (void)dealloc;
 - (id)initWithItem:(id)arg1;
 - (id)parentViewController;
-- (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(void*)arg2 property:(int)arg3 identifier:(int)arg4;
-- (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(void*)arg2;
-- (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
 - (void)setClientContext:(id)arg1;
 - (void)setParentViewController:(id)arg1;
-- (void)showPurchaseFlowWithCompletionBlock:(id)arg1;
+- (void)showPurchaseFlowWithCompletionBlock:(id /* block */)arg1;
 
 @end

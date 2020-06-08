@@ -2,19 +2,12 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString, TCDumpType;
-
 @interface TCDumpArray : TCDumpType {
-    int mCount;
-    NSString *mCountFieldName;
-    int mCountFieldType;
-    TCDumpType *mElementType;
-    int mPaddingSize;
+    int  mCount;
+    NSString * mCountFieldName;
+    int  mCountFieldType;
+    TCDumpType * mElementType;
+    int  mPaddingSize;
 }
 
 - (void)dealloc;

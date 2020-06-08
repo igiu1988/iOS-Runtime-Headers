@@ -2,85 +2,103 @@
    Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSLocale, NSString, VKImageCanvas, VKMapCameraController, VKMapModel, VKMemoryObserver;
-
-@interface VKMapSnapshotCreator : NSObject <VKMapModelDelegate> {
-    VKMapCameraController *_cameraController;
-    VKImageCanvas *_canvas;
-    id _completion;
-    BOOL _didBecomeFullyDrawn;
-    struct GLRenderer { int (**x1)(); struct Device {} *x2; unsigned int x3; unsigned int x4; boolx5; float x6; boolx7; id x8; struct RenderState {} *x9; struct unique_ptr<ggl::OESContext, std::__1::default_delete<ggl::OESContext> > { struct __compressed_pair<ggl::OESContext *, std::__1::default_delete<ggl::OESContext> > { struct OESContext {} *x_1_2_1; } x_10_1_1; } x10; struct RenderTarget {} *x11; struct TransactionBuffer { struct deque<std::__1::shared_ptr<ggl::RenderTransaction>, std::__1::allocator<std::__1::shared_ptr<ggl::RenderTransaction> > > { struct __split_buffer<std::__1::shared_ptr<ggl::RenderTransaction> *, std::__1::allocator<std::__1::shared_ptr<ggl::RenderTransaction> *> > { struct shared_ptr<ggl::RenderTransaction> {} **x_1_3_1; struct shared_ptr<ggl::RenderTransaction> {} **x_1_3_2; struct shared_ptr<ggl::RenderTransaction> {} **x_1_3_3; struct __compressed_pair<std::__1::shared_ptr<ggl::RenderTransaction> **, std::__1::allocator<std::__1::shared_ptr<ggl::RenderTransaction> *> > { struct shared_ptr<ggl::RenderTransaction> {} **x_4_4_1; } x_1_3_4; } x_1_2_1; unsigned int x_1_2_2; struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::shared_ptr<ggl::RenderTransaction> > > { unsigned long x_3_3_1; } x_1_2_3; } x_12_1_1; } x12; struct unique_ptr<ggl::PerformanceHUD, std::__1::default_delete<ggl::PerformanceHUD> > { struct __compressed_pair<ggl::PerformanceHUD *, std::__1::default_delete<ggl::PerformanceHUD> > { struct PerformanceHUD {} *x_1_2_1; } x_13_1_1; } x13; struct vector<std::__1::shared_ptr<ggl::DebugRenderer>, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer> > > { struct shared_ptr<ggl::DebugRenderer> {} *x_14_1_1; struct shared_ptr<ggl::DebugRenderer> {} *x_14_1_2; struct __compressed_pair<std::__1::shared_ptr<ggl::DebugRenderer> *, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer> > > { struct shared_ptr<ggl::DebugRenderer> {} *x_3_2_1; } x_14_1_3; } x14; struct deque<std::__1::pair<unsigned long, void *>, std::__1::allocator<std::__1::pair<unsigned long, void *> > > { struct __split_buffer<std::__1::pair<unsigned long, void *> *, std::__1::allocator<std::__1::pair<unsigned long, void *> *> > { struct pair<unsigned long, void *> {} **x_1_2_1; struct pair<unsigned long, void *> {} **x_1_2_2; struct pair<unsigned long, void *> {} **x_1_2_3; struct __compressed_pair<std::__1::pair<unsigned long, void *> **, std::__1::allocator<std::__1::pair<unsigned long, void *> *> > { struct pair<unsigned long, void *> {} **x_4_3_1; } x_1_2_4; } x_15_1_1; unsigned int x_15_1_2; struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::pair<unsigned long, void *> > > { unsigned long x_3_2_1; } x_15_1_3; } x15; struct unique_ptr<ggl::RenderQueue, std::__1::default_delete<ggl::RenderQueue> > { struct __compressed_pair<ggl::RenderQueue *, std::__1::default_delete<ggl::RenderQueue> > { struct RenderQueue {} *x_1_2_1; } x_16_1_1; } x16; struct vector<ggl::BufferLoadItem, std::__1::allocator<ggl::BufferLoadItem> > { struct BufferLoadItem {} *x_17_1_1; struct BufferLoadItem {} *x_17_1_2; struct __compressed_pair<ggl::BufferLoadItem *, std::__1::allocator<ggl::BufferLoadItem> > { struct BufferLoadItem {} *x_3_2_1; } x_17_1_3; } x17; struct vector<ggl::Texture2DLoadItem, std::__1::allocator<ggl::Texture2DLoadItem> > { struct Texture2DLoadItem {} *x_18_1_1; struct Texture2DLoadItem {} *x_18_1_2; struct __compressed_pair<ggl::Texture2DLoadItem *, std::__1::allocator<ggl::Texture2DLoadItem> > { struct Texture2DLoadItem {} *x_3_2_1; } x_18_1_3; } x18; unsigned int x19; struct unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer> > { struct __compressed_pair<ggl::CommandBuffer *, std::__1::default_delete<ggl::CommandBuffer> > { struct CommandBuffer {} *x_1_2_1; } x_20_1_1; } x20; } *_gglRenderer;
-    BOOL _hasFailedTiles;
-    NSLocale *_locale;
-    VKMapModel *_mapModel;
-    int _mapType;
-    VKMemoryObserver *_memoryObserver;
-    unsigned int _tileGroupID;
+@interface VKMapSnapshotCreator : NSObject <MapEngineDelegate, VKImageCanvasDelegate> {
+    id /* block */  _completion;
+    bool  _didBecomeFullyDrawn;
+    bool  _didSoftDealloc;
+    unsigned char  _emphasis;
+    VKGlobeImageCanvas * _globeCanvas;
+    bool  _hasFailedTiles;
+    NSLocale * _locale;
+    GEOResourceManifestConfiguration * _manifestConfiguration;
+    VKMapImageCanvas * _mapCanvas;
+    struct { 
+        unsigned char timePeriod; 
+        unsigned char overlayType; 
+        unsigned char applicationState; 
+        unsigned char searchResultsType; 
+        bool mapHasLabels; 
+    }  _mapDisplayStyle;
+    struct unique_ptr<md::MapEngine, std::__1::default_delete<md::MapEngine> > { 
+        struct __compressed_pair<md::MapEngine *, std::__1::default_delete<md::MapEngine> > { 
+            struct MapEngine {} *__value_; 
+        } __ptr_; 
+    }  _mapEngine;
+    long long  _mapType;
+    VKMemoryObserver * _memoryObserver;
+    struct shared_ptr<md::TaskContext> { 
+        struct TaskContext {} *__ptr_; 
+        struct __shared_weak_count {} *__cntrl_; 
+    }  _taskContext;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property int labelScaleFactor;
-@property BOOL localizeLabels;
-@property int mapType;
-@property BOOL showsBuildings;
-@property BOOL showsPointsOfInterest;
-@property(readonly) struct CGSize { float x1; float x2; } size;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic) unsigned char emphasis;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) long long labelScaleFactor;
+@property (nonatomic) bool localizeLabels;
+@property (nonatomic) struct { unsigned char x1; unsigned char x2; unsigned char x3; unsigned char x4; bool x5; } mapDisplayStyle;
+@property (nonatomic) long long mapType;
+@property (nonatomic) bool showsBuildings;
+@property (nonatomic) bool showsPointLabels;
+@property (nonatomic) bool showsPointsOfInterest;
+@property (nonatomic) bool showsVenues;
+@property (readonly) struct CGSize { double x1; double x2; } size;
+@property (readonly) Class superclass;
 
-+ (struct shared_ptr<ggl::GLDevice> { struct GLDevice {} *x1; struct __shared_weak_count {} *x2; })device;
-+ (BOOL)supportsHighResolutionSnapshots;
-+ (BOOL)supportsSharingThumbnails;
+// Image: /System/Library/PrivateFrameworks/VectorKit.framework/VectorKit
+
++ (bool)supportsSharingThumbnails;
+
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)_transferSettingsFrom:(id)arg1 to:(id)arg2;
+- (id)activeCanvas;
+- (void)addCustomFeatureDataSource:(id)arg1;
+- (void)cancel;
+- (void)cancelFlushingTileDecodes:(bool)arg1;
+- (void)dealloc;
+- (void)didPresent;
+- (void)didReceiveMemoryWarning:(id)arg1;
+- (unsigned char)emphasis;
+- (void)imageCanvasDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(bool)arg2;
+- (void)imageCanvasWillBecomeFullyDrawn:(id)arg1;
+- (id)initWithSize:(struct CGSize { double x1; double x2; })arg1 scale:(double)arg2 homeQueue:(id)arg3;
+- (id)initWithSize:(struct CGSize { double x1; double x2; })arg1 scale:(double)arg2 homeQueue:(id)arg3 manifestConfiguration:(id)arg4 locale:(id)arg5;
+- (bool)isRoadClassDisabled:(int)arg1;
+- (long long)labelScaleFactor;
+- (bool)localizeLabels;
+- (void)lookAtX:(unsigned long long)arg1 y:(unsigned long long)arg2 z:(unsigned long long)arg3;
+- (struct { unsigned char x1; unsigned char x2; unsigned char x3; unsigned char x4; bool x5; })mapDisplayStyle;
+- (long long)mapType;
+- (void)nearestVenueDidChange:(const struct Venue { unsigned long long x1; unsigned long long x2; struct vector<md::VenueBuilding, std::__1::allocator<md::VenueBuilding> > { struct VenueBuilding {} *x_3_1_1; struct VenueBuilding {} *x_3_1_2; struct __compressed_pair<md::VenueBuilding *, std::__1::allocator<md::VenueBuilding> > { struct VenueBuilding {} *x_3_2_1; } x_3_1_3; } x3; struct Polygon2<double> { struct vector<gm::Matrix<double, 2, 1>, std::__1::allocator<gm::Matrix<double, 2, 1> > > { struct Matrix<double, 2, 1> {} *x_1_2_1; struct Matrix<double, 2, 1> {} *x_1_2_2; struct __compressed_pair<gm::Matrix<double, 2, 1> *, std::__1::allocator<gm::Matrix<double, 2, 1> > > { struct Matrix<double, 2, 1> {} *x_3_3_1; } x_1_2_3; } x_4_1_1; } x4; struct ConvexHull2<double> { struct vector<gm::Matrix<double, 2, 1>, std::__1::allocator<gm::Matrix<double, 2, 1> > > { struct Matrix<double, 2, 1> {} *x_1_2_1; struct Matrix<double, 2, 1> {} *x_1_2_2; struct __compressed_pair<gm::Matrix<double, 2, 1> *, std::__1::allocator<gm::Matrix<double, 2, 1> > > { struct Matrix<double, 2, 1> {} *x_3_3_1; } x_1_2_3; } x_5_1_1; } x5; }*)arg1 building:(const struct VenueBuilding { struct vector<md::VenueLevel, std::__1::allocator<md::VenueLevel> > { struct VenueLevel {} *x_1_1_1; struct VenueLevel {} *x_1_1_2; struct __compressed_pair<md::VenueLevel *, std::__1::allocator<md::VenueLevel> > { struct VenueLevel {} *x_3_2_1; } x_1_1_3; } x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; short x6; struct Matrix<double, 2, 1> { double x_7_1_1[2]; } x7; struct ConvexHull2<double> { struct vector<gm::Matrix<double, 2, 1>, std::__1::allocator<gm::Matrix<double, 2, 1> > > { struct Matrix<double, 2, 1> {} *x_1_2_1; struct Matrix<double, 2, 1> {} *x_1_2_2; struct __compressed_pair<gm::Matrix<double, 2, 1> *, std::__1::allocator<gm::Matrix<double, 2, 1> > > { struct Matrix<double, 2, 1> {} *x_3_3_1; } x_1_2_3; } x_8_1_1; } x8; }*)arg2;
+- (void)removeCustomFeatureDataSource:(id)arg1;
+- (void)renderRequest:(id)arg1 completion:(id /* block */)arg2;
+- (void)renderSnapshot:(id /* block */)arg1;
+- (void)setCenterCoordinate:(struct { double x1; double x2; })arg1 altitude:(double)arg2 yaw:(double)arg3 pitch:(double)arg4;
+- (void)setEmphasis:(unsigned char)arg1;
+- (void)setLabelScaleFactor:(long long)arg1;
+- (void)setLocalizeLabels:(bool)arg1;
+- (void)setMapDisplayStyle:(struct { unsigned char x1; unsigned char x2; unsigned char x3; unsigned char x4; bool x5; })arg1;
+- (void)setMapRegion:(id)arg1 pitch:(double)arg2 yaw:(double)arg3;
+- (void)setMapType:(long long)arg1;
+- (void)setShowsBuildings:(bool)arg1;
+- (void)setShowsPointLabels:(bool)arg1;
+- (void)setShowsPointsOfInterest:(bool)arg1;
+- (void)setShowsVenues:(bool)arg1;
+- (bool)showsBuildings;
+- (bool)showsPointLabels;
+- (bool)showsPointsOfInterest;
+- (bool)showsVenues;
+- (struct CGSize { double x1; double x2; })size;
+- (void)softDealloc;
+- (bool)wantsTimerTick;
+- (void)willLayoutWithTimestamp:(double)arg1;
+
+// Image: /System/Library/Frameworks/MapKit.framework/MapKit
 
 - (void)_mapkit_configureFromDefaults;
-- (void)cancel;
-- (void)cancelFlushingTileDecodes:(BOOL)arg1;
-- (void)dealloc;
-- (void)didReceiveMemoryWarning:(id)arg1;
-- (id)initWithSize:(struct CGSize { float x1; float x2; })arg1 scale:(float)arg2 homeQueue:(id)arg3 softwareRendering:(BOOL)arg4 tileGroupIdentifier:(unsigned int)arg5 locale:(id)arg6;
-- (id)initWithSize:(struct CGSize { float x1; float x2; })arg1 scale:(float)arg2 homeQueue:(id)arg3;
-- (BOOL)isRoadClassDisabled:(int)arg1;
-- (int)labelScaleFactor;
-- (BOOL)localizeLabels;
-- (void)lookAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
-- (void)mapModel:(id)arg1 annotationMarker:(id)arg2 didChangeDragState:(int)arg3 fromOldState:(int)arg4;
-- (id)mapModel:(id)arg1 markerForAnnotation:(id)arg2;
-- (void)mapModel:(id)arg1 needsPanByOffset:(struct CGPoint { float x1; float x2; })arg2 relativeToScreenPoint:(struct CGPoint { float x1; float x2; })arg3 animated:(BOOL)arg4 duration:(double)arg5 completionHandler:(id)arg6;
-- (id)mapModel:(id)arg1 painterForOverlay:(id)arg2;
-- (void)mapModel:(id)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
-- (void)mapModel:(id)arg1 willTransitionFrom:(int)arg2 to:(int)arg3 duration:(double)arg4;
-- (void)mapModelDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(BOOL)arg2;
-- (void)mapModelDidBecomePartiallyDrawn:(id)arg1;
-- (void)mapModelDidFailLoadingTiles:(id)arg1 withError:(id)arg2;
-- (void)mapModelDidFinishLoadingTiles:(id)arg1;
-- (void)mapModelDidStartLoadingTiles:(id)arg1;
-- (void)mapModelDidUpdateMinMaxZoomLevel:(id)arg1;
-- (BOOL)mapModelInNav:(id)arg1;
-- (BOOL)mapModelInNavAtDefaultZoom:(id)arg1;
-- (void)mapModelWillBecomFullyDrawn:(id)arg1;
-- (double)mapModelZoomScale:(id)arg1;
-- (int)mapType;
-- (void)renderRequest:(id)arg1 completion:(id)arg2;
-- (void)renderSnapshot:(id)arg1;
-- (void)setCenterCoordinate:(struct { double x1; double x2; })arg1 altitude:(double)arg2 yaw:(double)arg3 pitch:(double)arg4;
-- (void)setLabelScaleFactor:(int)arg1;
-- (void)setLocalizeLabels:(BOOL)arg1;
-- (void)setMapRegion:(id)arg1 pitch:(double)arg2 yaw:(double)arg3;
-- (void)setMapType:(int)arg1;
-- (void)setShowsBuildings:(BOOL)arg1;
-- (void)setShowsPointsOfInterest:(BOOL)arg1;
-- (BOOL)showsBuildings;
-- (BOOL)showsPointsOfInterest;
-- (struct CGSize { float x1; float x2; })size;
+- (void)_mapkit_configureWithOptions:(id)arg1;
 
 @end

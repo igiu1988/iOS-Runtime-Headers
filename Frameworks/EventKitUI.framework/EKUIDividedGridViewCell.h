@@ -2,26 +2,26 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class EKUIDividedGridViewController, NSLayoutConstraint, UITextLabel;
-
 @interface EKUIDividedGridViewCell : UIView {
-    UITextLabel *_label;
-    BOOL _selected;
-    EKUIDividedGridViewController *_viewController;
-    NSLayoutConstraint *_widthConstraint;
+    UIColor * _bgColor;
+    UITextLabel * _label;
+    bool  _selected;
+    EKUIDividedGridViewController * _viewController;
+    NSLayoutConstraint * _widthConstraint;
 }
 
-@property(retain) UITextLabel * label;
-@property BOOL selected;
-@property EKUIDividedGridViewController * viewController;
-@property NSLayoutConstraint * widthConstraint;
+@property (retain) UITextLabel *label;
+@property (nonatomic) bool selected;
+@property EKUIDividedGridViewController *viewController;
+@property NSLayoutConstraint *widthConstraint;
 
 - (void).cxx_destruct;
 - (id)init;
+- (id)initWithBackgroundColor:(id)arg1;
 - (id)label;
-- (BOOL)selected;
+- (bool)selected;
 - (void)setLabel:(id)arg1;
-- (void)setSelected:(BOOL)arg1;
+- (void)setSelected:(bool)arg1;
 - (void)setViewController:(id)arg1;
 - (void)setWidthConstraint:(id)arg1;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;

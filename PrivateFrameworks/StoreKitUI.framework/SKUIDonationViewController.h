@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSOperationQueue, NSString, SKUIClientContext, SKUIDonationConfiguration, UIViewController;
-
 @interface SKUIDonationViewController : UINavigationController {
-    NSString *_charityID;
-    SKUIClientContext *_clientContext;
-    SKUIDonationConfiguration *_donationConfiguration;
-    NSOperationQueue *_operationQueue;
-    UIViewController *_placeholderViewController;
+    NSString * _charityID;
+    SKUIClientContext * _clientContext;
+    SKUIDonationConfiguration * _donationConfiguration;
+    NSOperationQueue * _operationQueue;
+    UIViewController * _placeholderViewController;
 }
 
-@property(readonly) NSString * charityIdentifier;
-@property(retain) SKUIClientContext * clientContext;
-@property(retain) NSOperationQueue * operationQueue;
+@property (nonatomic, readonly) NSString *charityIdentifier;
+@property (nonatomic, retain) SKUIClientContext *clientContext;
+@property (nonatomic, retain) NSOperationQueue *operationQueue;
 
 - (void).cxx_destruct;
 - (void)_cancelButtonAction:(id)arg1;
-- (void)_configurationDidLoadWithResult:(BOOL)arg1 error:(id)arg2;
+- (void)_configurationDidLoadWithResult:(bool)arg1 error:(id)arg2;
 - (void)_finishAuthenticateWithResponse:(id)arg1 error:(id)arg2;
 - (id)_initSKUIDonationViewController;
 - (void)_loadDonationConfiguration;
@@ -29,6 +27,6 @@
 - (id)operationQueue;
 - (void)setClientContext:(id)arg1;
 - (void)setOperationQueue:(id)arg1;
-- (void)viewWillAppear:(BOOL)arg1;
+- (void)viewWillAppear:(bool)arg1;
 
 @end

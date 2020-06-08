@@ -2,35 +2,46 @@
    Image: /System/Library/Frameworks/CloudKit.framework/CloudKit
  */
 
-@class NSString;
-
-@interface CKAccountInfo : NSObject <NSCopying, NSSecureCoding> {
-    BOOL _accountWantsPushRegistration;
-    NSString *_email;
-    BOOL _isUnitTestingAccount;
-    NSString *_password;
+@interface CKAccountInfo : NSObject <NSSecureCoding> {
+    long long  _accountPartition;
+    long long  _accountStatus;
+    bool  _hasEncryptionIdentity;
+    bool  _hasValidCredentials;
+    NSError * _manateeError;
+    bool  _supportsDeviceToDeviceEncryption;
 }
 
-@property BOOL accountWantsPushRegistration;
-@property(readonly) NSString * email;
-@property BOOL isUnitTestingAccount;
-@property(readonly) NSString * password;
+@property (nonatomic) long long accountPartition;
+@property (nonatomic) long long accountStatus;
+@property (nonatomic, retain) NSError *deviceToDeviceEncryptionAvailabilityError;
+@property (nonatomic) bool hasEncryptionIdentity;
+@property (nonatomic) bool hasValidCredentials;
+@property (nonatomic, retain) NSError *manateeError;
+@property (nonatomic) bool supportsDeviceToDeviceEncryption;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
-- (BOOL)accountWantsPushRegistration;
-- (id)copyWithZone:(struct _NSZone { }*)arg1;
+- (id)CKPropertiesDescription;
+- (long long)accountPartition;
+- (long long)accountStatus;
 - (id)description;
-- (id)email;
+- (id)deviceToDeviceEncryptionAvailabilityError;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (bool)hasEncryptionIdentity;
+- (bool)hasValidCredentials;
+- (unsigned long long)hash;
+- (id)init;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithEmail:(id)arg1 password:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isUnitTestingAccount;
-- (id)password;
-- (void)setAccountWantsPushRegistration:(BOOL)arg1;
-- (void)setIsUnitTestingAccount:(BOOL)arg1;
+- (bool)isEqual:(id)arg1;
+- (id)manateeError;
+- (void)setAccountPartition:(long long)arg1;
+- (void)setAccountStatus:(long long)arg1;
+- (void)setDeviceToDeviceEncryptionAvailabilityError:(id)arg1;
+- (void)setHasEncryptionIdentity:(bool)arg1;
+- (void)setHasValidCredentials:(bool)arg1;
+- (void)setManateeError:(id)arg1;
+- (void)setSupportsDeviceToDeviceEncryption:(bool)arg1;
+- (bool)supportsDeviceToDeviceEncryption;
 
 @end

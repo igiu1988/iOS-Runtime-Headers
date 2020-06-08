@@ -2,24 +2,23 @@
    Image: /System/Library/PrivateFrameworks/PassKitCore.framework/PassKitCore
  */
 
-@class NSString, PKPassLibrary, PKPaymentService;
-
 @interface PKPassLibraryDefaultDataProvider : NSObject <PKPassLibraryDataProvider> {
-    PKPassLibrary *_library;
-    PKPaymentService *_paymentService;
+    PKPassLibrary * _library;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) bool canAddPaymentPass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-- (BOOL)canAddPaymentPass;
-- (id)defaultCardIdentifier;
+- (void).cxx_destruct;
+- (bool)canAddPaymentPass;
 - (id)init;
 - (id)passWithPassTypeIdentifier:(id)arg1 serialNumber:(id)arg2;
 - (id)passWithUniqueID:(id)arg1;
 - (id)paymentPasses;
+- (id)peerPaymentPassUniqueID;
 - (void)removePass:(id)arg1;
 
 @end

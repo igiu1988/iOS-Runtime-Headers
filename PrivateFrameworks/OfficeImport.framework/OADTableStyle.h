@@ -2,25 +2,23 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString, OADTableBackground, OADTablePartStyle;
-
 @interface OADTableStyle : NSObject {
-    OADTableBackground *mBackground;
-    OADTablePartStyle *mBand1HorzStyle;
-    OADTablePartStyle *mBand1VertStyle;
-    OADTablePartStyle *mBand2HorzStyle;
-    OADTablePartStyle *mBand2VertStyle;
-    OADTablePartStyle *mFirstColumnStyle;
-    OADTablePartStyle *mFirstRowStyle;
-    NSString *mId;
-    OADTablePartStyle *mLastColumnStyle;
-    OADTablePartStyle *mLastRowStyle;
-    NSString *mName;
-    OADTablePartStyle *mNorthEastStyle;
-    OADTablePartStyle *mNorthWestStyle;
-    OADTablePartStyle *mSouthEastStyle;
-    OADTablePartStyle *mSouthWestStyle;
-    OADTablePartStyle *mWholeTableStyle;
+    OADTableBackground * mBackground;
+    OADTablePartStyle * mBand1HorzStyle;
+    OADTablePartStyle * mBand1VertStyle;
+    OADTablePartStyle * mBand2HorzStyle;
+    OADTablePartStyle * mBand2VertStyle;
+    OADTablePartStyle * mFirstColumnStyle;
+    OADTablePartStyle * mFirstRowStyle;
+    NSString * mId;
+    OADTablePartStyle * mLastColumnStyle;
+    OADTablePartStyle * mLastRowStyle;
+    NSString * mName;
+    OADTablePartStyle * mNorthEastStyle;
+    OADTablePartStyle * mNorthWestStyle;
+    OADTablePartStyle * mSouthEastStyle;
+    OADTablePartStyle * mSouthWestStyle;
+    OADTablePartStyle * mWholeTableStyle;
 }
 
 - (id)background;
@@ -29,6 +27,7 @@
 - (id)band2HorzStyle;
 - (id)band2VertStyle;
 - (void)dealloc;
+- (id)description;
 - (id)firstColumnStyle;
 - (id)firstRowStyle;
 - (id)id;
@@ -53,6 +52,7 @@
 - (void)setNorthWestStyle:(id)arg1;
 - (void)setSouthEastStyle:(id)arg1;
 - (void)setSouthWestStyle:(id)arg1;
+- (void)setStyle:(id)arg1 forPart:(int)arg2;
 - (void)setWholeTableStyle:(id)arg1;
 - (id)southEastStyle;
 - (id)southWestStyle;

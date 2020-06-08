@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/GameKitServices.framework/GameKitServices
  */
 
-@class GKRWLock, GKSessionInternal, NSMutableArray;
-
 @interface GKVoiceChatSessionListener : NSObject {
-    NSMutableArray *_conferenceList;
-    GKSessionInternal *_gkSession;
-    GKRWLock *_rwlock;
+    NSMutableArray * _conferenceList;
+    GKSessionInternal * _gkSession;
+    GKRWLock * _rwlock;
 }
 
 - (id)currentSessions;

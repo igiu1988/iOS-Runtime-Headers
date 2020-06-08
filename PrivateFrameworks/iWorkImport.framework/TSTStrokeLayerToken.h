@@ -2,34 +2,35 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, TSDStroke;
-
 @interface TSTStrokeLayerToken : NSObject <TSTStrokeLayerStrokeAndRange> {
+    int  _order;
+    unsigned long long  _position;
     struct TSTSimpleRange { 
-        int origin; 
-        unsigned int length; 
-    unsigned int _position;
-    } _range;
-    TSDStroke *_stroke;
+        long long origin; 
+        unsigned long long length; 
+    }  _range;
+    TSDStroke * _stroke;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property unsigned int position;
-@property struct TSTSimpleRange { int x1; unsigned int x2; } range;
-@property(retain) TSDStroke * stroke;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) int order;
+@property (nonatomic) unsigned long long position;
+@property (nonatomic) struct TSTSimpleRange { long long x1; unsigned long long x2; } range;
+@property (nonatomic, retain) TSDStroke *stroke;
+@property (readonly) Class superclass;
 
-+ (id)tokenWithStroke:(id)arg1 range:(struct TSTSimpleRange { int x1; unsigned int x2; })arg2 andPosition:(unsigned int)arg3;
++ (id)tokenWithStroke:(id)arg1 range:(struct TSTSimpleRange { long long x1; unsigned long long x2; })arg2 order:(int)arg3 andPosition:(unsigned long long)arg4;
 
-- (id).cxx_construct;
-- (void)dealloc;
-- (id)initWithStroke:(id)arg1 range:(struct TSTSimpleRange { int x1; unsigned int x2; })arg2 andPosition:(unsigned int)arg3;
-- (unsigned int)position;
-- (struct TSTSimpleRange { int x1; unsigned int x2; })range;
-- (void)setPosition:(unsigned int)arg1;
-- (void)setRange:(struct TSTSimpleRange { int x1; unsigned int x2; })arg1;
+- (void).cxx_destruct;
+- (id)initWithStroke:(id)arg1 range:(struct TSTSimpleRange { long long x1; unsigned long long x2; })arg2 order:(int)arg3 andPosition:(unsigned long long)arg4;
+- (int)order;
+- (unsigned long long)position;
+- (struct TSTSimpleRange { long long x1; unsigned long long x2; })range;
+- (void)setOrder:(int)arg1;
+- (void)setPosition:(unsigned long long)arg1;
+- (void)setRange:(struct TSTSimpleRange { long long x1; unsigned long long x2; })arg1;
 - (void)setStroke:(id)arg1;
 - (id)stroke;
 

@@ -2,21 +2,18 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class <IKAppTabBarController>, IKJSTabBar;
-
 @interface IKAppTabBar : NSObject {
-    <IKAppTabBarController> *_controller;
-    IKJSTabBar *_jsTabBar;
+    <IKAppTabBarController> * _controller;
+    IKJSTabBar * _jsTabBar;
 }
 
-@property(readonly) <IKAppTabBarController> * controller;
-@property IKJSTabBar * jsTabBar;
+@property (nonatomic, readonly) <IKAppTabBarController> *controller;
+@property (nonatomic) IKJSTabBar *jsTabBar;
 
 - (void).cxx_destruct;
 - (id)controller;
 - (id)initWithTabBarController:(id)arg1;
 - (id)jsTabBar;
-- (void)onReload;
 - (void)onSelect;
 - (void)setJsTabBar:(id)arg1;
 

@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class NSMutableSet;
-
 @interface CoreDAVACLItem : CoreDAVItem {
-    NSMutableSet *_accessControlEntities;
+    NSMutableSet * _accessControlEntities;
 }
 
-@property(retain) NSMutableSet * accessControlEntities;
+@property (nonatomic, retain) NSMutableSet *accessControlEntities;
 
 + (id)copyParseRules;
 
+- (void).cxx_destruct;
 - (id)accessControlEntities;
 - (void)addACE:(id)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)init;
 - (id)liveACEs;

@@ -2,27 +2,27 @@
    Image: /System/Library/Frameworks/EventKitUI.framework/EventKitUI
  */
 
-@class <EKEventAttachmentCellControllerDelegate>, EKAttachment, EKEventAttachmentCell, NSString;
-
 @interface EKEventAttachmentCellController : NSObject <UIDocumentInteractionControllerDelegate> {
-    EKAttachment *_attachment;
-    EKEventAttachmentCell *_cell;
-    <EKEventAttachmentCellControllerDelegate> *_delegate;
-    id _downloadID;
-    BOOL _sourceIsManaged;
+    EKAttachment * _attachment;
+    EKEventAttachmentCell * _cell;
+    <EKEventAttachmentCellControllerDelegate> * _delegate;
+    id  _downloadID;
+    bool  _sourceIsManaged;
 }
 
-@property(retain) EKAttachment * attachment;
-@property(readonly) EKEventAttachmentCell * cell;
-@property(copy,readonly) NSString * debugDescription;
-@property <EKEventAttachmentCellControllerDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property BOOL sourceIsManaged;
-@property(readonly) Class superclass;
+@property (nonatomic, retain) EKAttachment *attachment;
+@property (readonly) EKEventAttachmentCell *cell;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <EKEventAttachmentCellControllerDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-+ (BOOL)_attachmentIsViewable:(id)arg1;
-+ (id)cellControllersForAttachments:(id)arg1 givenExistingControllers:(id)arg2;
++ (id)_attachmentDownloadErrorLocalizedString;
++ (bool)_attachmentIsViewable:(id)arg1;
++ (id)_cannotOpenAttachmentLocalizedString;
++ (id)_okLocalizedString;
++ (id)cellControllersForAttachments:(id)arg1 givenExistingControllers:(id)arg2 sourceIsManaged:(bool)arg3;
 
 - (void).cxx_destruct;
 - (void)_clearDownloadID;
@@ -36,11 +36,9 @@
 - (id)documentInteractionControllerViewControllerForPreview:(id)arg1;
 - (id)documentInteractionControllerViewForPreview:(id)arg1;
 - (void)documentInteractionControllerWillEndPreview:(id)arg1;
-- (id)initWithAttachment:(id)arg1;
+- (id)initWithAttachment:(id)arg1 sourceIsManaged:(bool)arg2;
 - (void)setAttachment:(id)arg1;
 - (void)setDelegate:(id)arg1;
-- (void)setSourceIsManaged:(BOOL)arg1;
-- (BOOL)sourceIsManaged;
 - (void)tearDown;
 
 @end

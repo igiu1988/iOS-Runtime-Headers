@@ -2,10 +2,9 @@
    Image: /System/Library/PrivateFrameworks/CoreRoutine.framework/CoreRoutine
  */
 
-@interface RTSourceCoreRoutine : RTSource {
-}
+@interface RTSourceCoreRoutine : RTSource
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -2,31 +2,29 @@
    Image: /System/Library/PrivateFrameworks/PhotoEditSupport.framework/PhotoEditSupport
  */
 
-@class CIFilter, CIImage, CIVector, NSData, NSNumber;
-
 @interface BLDramaFilter : CIFilter {
-    CIFilter *_colorCubeFilterDrama;
-    NSNumber *_inputAmount;
-    CIVector *_inputHueStrengthArray;
-    CIImage *_inputImage;
-    NSNumber *_inputNeutralGamma;
-    NSNumber *_inputPhototone;
-    float _lastAmount;
-    CIVector *_lastHueStrengthArray;
-    float _lastNeutralGamma;
-    float _lastPhototone;
-    BOOL _needsReprocess;
-    NSData *_precomputedCube;
+    CIFilter * _colorCubeFilterDrama;
+    NSNumber * _inputAmount;
+    CIVector * _inputHueStrengthArray;
+    CIImage * _inputImage;
+    NSNumber * _inputNeutralGamma;
+    NSNumber * _inputPhototone;
+    float  _lastAmount;
+    CIVector * _lastHueStrengthArray;
+    float  _lastNeutralGamma;
+    float  _lastPhototone;
+    bool  _needsReprocess;
+    NSData * _precomputedCube;
 }
 
-@property(retain) CIFilter * colorCubeFilterDrama;
-@property(copy) NSNumber * inputAmount;
-@property(copy) CIVector * inputHueStrengthArray;
-@property(retain) CIImage * inputImage;
-@property(copy) NSNumber * inputNeutralGamma;
-@property(copy) NSNumber * inputPhototone;
-@property(retain) CIVector * lastHueStrengthArray;
-@property(retain) NSData * precomputedCube;
+@property (nonatomic, retain) CIFilter *colorCubeFilterDrama;
+@property (nonatomic, copy) NSNumber *inputAmount;
+@property (nonatomic, copy) CIVector *inputHueStrengthArray;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, copy) NSNumber *inputNeutralGamma;
+@property (nonatomic, copy) NSNumber *inputPhototone;
+@property (nonatomic, retain) CIVector *lastHueStrengthArray;
+@property (nonatomic, retain) NSData *precomputedCube;
 
 - (void).cxx_destruct;
 - (id)colorCubeFilterDrama;

@@ -7,18 +7,16 @@
         float x; 
         float y; 
         float z; 
+    }  max;
     struct SCNVector3 { 
         float x; 
         float y; 
         float z; 
-    } max;
-    } min;
+    }  min;
 }
 
-@property struct SCNVector3 { float x1; float x2; float x3; } max;
-@property struct SCNVector3 { float x1; float x2; float x3; } min;
-
-+ (id)SCNJSExportProtocol;
+@property (nonatomic) struct SCNVector3 { float x1; float x2; float x3; } max;
+@property (nonatomic) struct SCNVector3 { float x1; float x2; float x3; } min;
 
 - (id)description;
 - (struct SCNVector3 { float x1; float x2; float x3; })max;

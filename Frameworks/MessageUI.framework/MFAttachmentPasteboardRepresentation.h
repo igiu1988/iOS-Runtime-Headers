@@ -2,18 +2,18 @@
    Image: /System/Library/Frameworks/MessageUI.framework/MessageUI
  */
 
-@class NSData, NSString;
-
-@interface MFAttachmentPasteboardRepresentation : NSObject <NSCoding, MFAttachmentPasteboardRepresentation> {
-    NSData *_data;
-    NSString *_mimeType;
-    NSString *_name;
+@interface MFAttachmentPasteboardRepresentation : NSObject <MFAttachmentPasteboardRepresentation, NSSecureCoding> {
+    NSData * _data;
+    NSString * _mimeType;
+    NSString * _name;
 }
 
-@property(retain) NSData * data;
-@property(retain) NSString * mimeType;
-@property(retain) NSString * name;
-@property(getter=isValid,readonly) BOOL valid;
+@property (nonatomic, retain) NSData *data;
+@property (nonatomic, retain) NSString *mimeType;
+@property (nonatomic, retain) NSString *name;
+@property (getter=isValid, nonatomic, readonly) bool valid;
+
++ (bool)supportsSecureCoding;
 
 - (id)data;
 - (void)dealloc;
@@ -21,7 +21,7 @@
 - (id)initWithAttachment:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithMFAttachment:(id)arg1;
-- (BOOL)isValid;
+- (bool)isValid;
 - (id)mimeType;
 - (id)name;
 - (void)setData:(id)arg1;

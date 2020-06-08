@@ -2,52 +2,62 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardFoundation.framework/SpringBoardFoundation
  */
 
-@class NSMutableSet, SBFColorBoxes, UIImage;
-
 @interface SBFStaticWallpaperView : SBFWallpaperView {
-    SBFColorBoxes *_colorBoxes;
-    UIImage *_image;
-    NSMutableSet *_mappedBackdropKeys;
-    BOOL _treatWallpaper;
-    UIImage *_treatedImage;
+    NSString * _cacheGroup;
+    SBFColorBoxes * _colorBoxes;
+    UIImage * _displayedImage;
+    UIImage * _image;
+    double  _overallContrast;
+    UIImage * _sampleImage;
 }
 
-@property(retain) SBFColorBoxes * colorBoxes;
+@property (nonatomic, retain) SBFColorBoxes *colorBoxes;
+@property (getter=_displayedImage, setter=_setDisplayedImage:, nonatomic, retain) UIImage *displayedImage;
+@property (getter=_sampleImage, setter=_setSampleImage:, nonatomic, retain) UIImage *sampleImage;
 
-+ (BOOL)_allowsParallax;
-+ (BOOL)_allowsRasterization;
++ (bool)_allowsParallax;
++ (bool)_allowsRasterization;
++ (bool)_canCacheImages;
++ (bool)_canDownscaleSampleImage;
++ (id)imageByScalingImage:(id)arg1 withScaleFactor:(double)arg2 needsLuminanceTreatment:(bool)arg3;
++ (id)luminanceTreatmentFilters;
 
-- (id)_averageColorInContentViewRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 smudgeRadius:(float)arg2;
-- (id)_blurredImage;
-- (void)_cacheTreatedImage;
-- (unsigned int)_colorBoxSize;
+- (void).cxx_destruct;
+- (id)_averageColorInContentViewRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 smudgeRadius:(double)arg2;
 - (id)_computeAverageColor;
+- (double)_contrastInContentViewRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 contrastWithinBoxes:(double*)arg2 contrastBetweenBoxes:(double*)arg3;
 - (id)_createColorBoxes;
+- (void)_displayImage:(id)arg1;
 - (id)_displayedImage;
-- (id)_imageForBackdropParameters:(struct { int x1; int x2; int x3; })arg1 includeTint:(BOOL)arg2;
-- (struct CGSize { float x1; float x2; })_imageSize;
-- (id)_mappedImageKeyForParameters:(struct { int x1; int x2; int x3; })arg1 includingTint:(BOOL)arg2;
-- (id)_newTreatedImage;
-- (void)_removeMappedBlurs;
+- (void)_generateImageForImage:(id)arg1 options:(unsigned long long)arg2 downsampleFactor:(double)arg3 generationHandler:(id /* block */)arg4;
+- (struct CGSize { double x1; double x2; })_imageSize;
 - (void)_resetColorBoxes;
-- (void)_setupContentView;
-- (id)_treatedImageKey;
-- (id)_untintedImageForBackdropParameters:(struct { int x1; int x2; int x3; })arg1;
+- (id)_sampleImage;
+- (void)_setDisplayedImage:(id)arg1;
+- (void)_setSampleImage:(id)arg1;
+- (void)_setUpStaticImageContentView:(id)arg1;
+- (void)_setupContentViewWithOptions:(unsigned long long)arg1;
+- (void)_setupWallpaperImage:(id)arg1 options:(unsigned long long)arg2;
 - (id)_wallpaperImageForAnalysis;
 - (float)_zoomScale;
+- (id)cacheGroup;
 - (id)colorBoxes;
-- (float)contrastInRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 contrastWithinBoxes:(float*)arg2 contrastBetweenBoxes:(float*)arg3;
-- (float)contrastInRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (float)cropZoomScale;
-- (void)dealloc;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 wallpaperImage:(id)arg2 treatWallpaper:(BOOL)arg3 variant:(int)arg4;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 wallpaperImage:(id)arg2 variant:(int)arg3;
-- (BOOL)isDisplayingWallpaper:(id)arg1 forVariant:(int)arg2 options:(id)arg3;
+- (double)contrast;
+- (double)contrastInRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 contrastWithinBoxes:(double*)arg2 contrastBetweenBoxes:(double*)arg3;
+- (double)cropZoomScale;
+- (bool)hasContentOutsideVisibleBounds;
+- (bool)imageRequiresLuminanceTreatment;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 variant:(long long)arg2 wallpaperSettingsProvider:(id)arg3;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 wallpaperImage:(id)arg2 cacheGroup:(id)arg3 variant:(long long)arg4 options:(unsigned long long)arg5 wallpaperSettingsProvider:(id)arg6;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 wallpaperImage:(id)arg2 variant:(long long)arg3 wallpaperSettingsProvider:(id)arg4;
+- (bool)isDisplayingWallpaperWithConfiguration:(id)arg1 forVariant:(long long)arg2;
+- (void)preheatImageData;
 - (void)setColorBoxes:(id)arg1;
 - (void)setContentView:(id)arg1;
-- (void)setContentsRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (void)setCropRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 zoomScale:(float)arg2;
-- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)setContentsRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setCropRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 zoomScale:(double)arg2;
+- (id)snapshotImage;
 - (id)wallpaperImage;
+- (long long)wallpaperType;
 
 @end

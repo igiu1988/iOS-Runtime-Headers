@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/AssistantServices.framework/AssistantServices
  */
 
-@class NSObject<OS_xpc_object>;
-
 @interface AFXPCWrapper : NSObject <NSSecureCoding> {
-    NSObject<OS_xpc_object> *_xpcObject;
+    NSObject<OS_xpc_object> * _xpcObject;
 }
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

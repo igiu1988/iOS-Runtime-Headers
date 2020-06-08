@@ -3,12 +3,14 @@
  */
 
 @interface GKUnauthenticatedPlayerInternal : GKLocalPlayerInternal {
-    int _encodingCount;
+    int  _encodingCount;
 }
+
++ (bool)supportsSecureCoding;
 
 - (id)alias;
 - (void)encodeWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)playerID;
 
 @end

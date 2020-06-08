@@ -2,43 +2,41 @@
    Image: /System/Library/PrivateFrameworks/Sharing.framework/Sharing
  */
 
-@class NSNumber, NSString;
-
-@interface SFCompanionService : NSObject <NSSecureCoding, NSCopying> {
-    NSString *_deviceID;
-    NSString *_deviceName;
-    NSString *_identifier;
-    NSString *_ipAddress;
-    NSString *_managerID;
-    NSNumber *_nsxpcVersion;
-    NSString *_serviceType;
+@interface SFCompanionService : NSObject <NSCopying, NSSecureCoding> {
+    NSString * _deviceID;
+    NSString * _deviceName;
+    NSString * _identifier;
+    NSString * _ipAddress;
+    NSString * _managerID;
+    NSNumber * _nsxpcVersion;
+    NSString * _serviceType;
 }
 
-@property(copy) NSString * deviceID;
-@property(copy) NSString * deviceName;
-@property(copy) NSString * identifier;
-@property(copy) NSString * ipAddress;
-@property(copy) NSString * managerID;
-@property(copy) NSNumber * nsxpcVersion;
-@property(copy) NSString * serviceType;
+@property (copy) NSString *deviceID;
+@property (copy) NSString *deviceName;
+@property (copy) NSString *identifier;
+@property (copy) NSString *ipAddress;
+@property (copy) NSString *managerID;
+@property (copy) NSNumber *nsxpcVersion;
+@property (copy) NSString *serviceType;
 
 + (id)serviceFromAuthorData:(id)arg1;
 + (id)serviceFromDictionary:(id)arg1;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)deviceID;
 - (id)deviceName;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)identifier;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithServiceName:(id)arg1;
 - (id)ipAddress;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isEqualToService:(id)arg1;
+- (bool)isEqual:(id)arg1;
+- (bool)isEqualToService:(id)arg1;
 - (id)managerID;
 - (id)messageData;
 - (id)nsxpcVersion;

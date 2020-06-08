@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSString, NSURL;
+@interface SAClockAddCompleted : SABaseCommand <SAServerBoundCommand>
 
-@interface SAClockAddCompleted : SABaseCommand <SAServerBoundCommand> {
-}
-
-@property(copy) NSString * aceId;
-@property BOOL alreadyExists;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) NSString * refId;
-@property(readonly) Class superclass;
-@property(copy) NSURL * worldClockId;
+@property (nonatomic, copy) NSString *aceId;
+@property (nonatomic) bool alreadyExists;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
+@property (nonatomic, copy) NSURL *worldClockId;
 
 + (id)addCompleted;
 + (id)addCompletedWithDictionary:(id)arg1 context:(id)arg2;
 
-- (BOOL)alreadyExists;
+- (bool)alreadyExists;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (void)setAlreadyExists:(BOOL)arg1;
+- (bool)requiresResponse;
+- (void)setAlreadyExists:(bool)arg1;
 - (void)setWorldClockId:(id)arg1;
 - (id)worldClockId;
 

@@ -2,50 +2,53 @@
    Image: /System/Library/PrivateFrameworks/CompanionSync.framework/CompanionSync
  */
 
-@class NSArray, NSDate, NSObject<OS_dispatch_queue>, NSString;
-
 @interface NMSWindowData : NSObject {
-    struct sqlite3_stmt { } *_addMessageInFlight;
-    struct sqlite3_stmt { } *_countPendingMessages;
-    struct sqlite3 { } *_db;
-    struct sqlite3_stmt { } *_getBytesInFlight;
-    struct sqlite3_stmt { } *_getCountInFlight;
-    struct sqlite3_stmt { } *_getExpiredMessageIDs;
-    struct sqlite3_stmt { } *_getMessageLength;
-    struct sqlite3_stmt { } *_getNextExpireDate;
-    struct sqlite3_stmt { } *_getPendingMessage;
-    struct __CFString { } *_loggingFacility;
-    NSString *_path;
-    struct sqlite3_stmt { } *_popPendingMessage;
-    struct sqlite3_stmt { } *_pushPendingMessage;
-    struct sqlite3_stmt { } *_removeMessageInFlight;
-    NSObject<OS_dispatch_queue> *_syncQ;
+    struct sqlite3_stmt { } * _addMessageInFlight;
+    struct sqlite3_stmt { } * _countPendingMessages;
+    struct sqlite3 { } * _db;
+    struct sqlite3_stmt { } * _getBytesInFlight;
+    struct sqlite3_stmt { } * _getCountInFlight;
+    struct sqlite3_stmt { } * _getExpiredMessageIDs;
+    struct sqlite3_stmt { } * _getMessageLength;
+    struct sqlite3_stmt { } * _getNextExpireDate;
+    struct sqlite3_stmt { } * _getPendingMessage;
+    struct __CFString { } * _loggingFacility;
+    NSString * _path;
+    struct sqlite3_stmt { } * _popPendingMessage;
+    struct sqlite3_stmt { } * _pushPendingMessage;
+    struct sqlite3_stmt { } * _removeMessageInFlight;
+    _SYSharedServiceDB * _sharedDB;
+    NSObject<OS_dispatch_queue> * _syncQ;
 }
 
-@property(readonly) unsigned int countOfAllMessagesInFlight;
-@property(readonly) unsigned int countOfPendingMessages;
-@property(readonly) NSDate * dateOfNextMessageExpiry;
-@property(readonly) NSArray * expiredMessageIDs;
-@property(readonly) unsigned int lengthOfAllMessagesInFlight;
+@property (nonatomic, readonly) unsigned long long countOfAllMessagesInFlight;
+@property (nonatomic, readonly) unsigned long long countOfPendingMessages;
+@property (nonatomic, readonly) NSDate *dateOfNextMessageExpiry;
+@property (nonatomic, readonly) NSArray *expiredMessageIDs;
+@property (nonatomic, readonly) unsigned long long lengthOfAllMessagesInFlight;
 
 - (void).cxx_destruct;
+- (void)_ensureSchema;
 - (int)_getSchemaVersion;
-- (BOOL)_openDBForceRecreate:(BOOL)arg1;
-- (BOOL)_syncTransaction:(BOOL)arg1 block:(id)arg2;
-- (void)addMessageWithID:(id)arg1 ofLength:(unsigned int)arg2 timeoutTime:(double)arg3;
-- (unsigned int)countOfAllMessagesInFlight;
-- (unsigned int)countOfPendingMessages;
+- (bool)_openDBForceRecreate:(bool)arg1;
+- (void)_prepareStatements;
+- (bool)_syncTransaction:(bool)arg1 block:(id /* block */)arg2;
+- (void)_withDB:(id /* block */)arg1;
+- (void)addMessageWithID:(id)arg1 ofLength:(unsigned long long)arg2 timeoutTime:(double)arg3;
+- (unsigned long long)countOfAllMessagesInFlight;
+- (unsigned long long)countOfPendingMessages;
 - (id)dateOfNextMessageExpiry;
 - (struct sqlite3 { }*)dbRef;
 - (void)dealloc;
 - (id)expiredMessageIDs;
 - (id)init;
 - (id)initWithPath:(id)arg1 logFacility:(struct __CFString { }*)arg2;
-- (unsigned int)lengthOfAllMessagesInFlight;
+- (id)initWithSharedDBForServiceName:(id)arg1;
+- (unsigned long long)lengthOfAllMessagesInFlight;
 - (id)popPendingMessage;
 - (void)pushPendingMessageData:(id)arg1 timeToLive:(double)arg2;
 - (void)removeAllMessages;
-- (unsigned int)removeAndReturnLengthOfMessageWithID:(id)arg1;
-- (unsigned int)removeAndReturnLengthOfMessagesWithIDs:(id)arg1;
+- (unsigned long long)removeAndReturnLengthOfMessageWithID:(id)arg1;
+- (unsigned long long)removeAndReturnLengthOfMessagesWithIDs:(id)arg1;
 
 @end

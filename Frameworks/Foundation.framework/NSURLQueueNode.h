@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSURLQueueNode;
-
 @interface NSURLQueueNode : NSObject {
-    NSURLQueueNode *next;
-    id object;
+    NSURLQueueNode * next;
+    id  object;
 }
 
 @end

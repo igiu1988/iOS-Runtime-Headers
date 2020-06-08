@@ -2,43 +2,43 @@
    Image: /System/Library/PrivateFrameworks/BaseBoard.framework/BaseBoard
  */
 
-@class NSString;
+@interface BSPlatform : NSObject
 
-@interface BSPlatform : NSObject {
-    BOOL _hasGasGauge;
-    BOOL _isInternalInstall;
-    BOOL _isMultiCore;
-    NSString *_localizedProductName;
-    NSString *_productBuildVersion;
-    NSString *_productClass;
-    NSString *_productHardwareModel;
-    NSString *_productType;
-    NSString *_productVersion;
-    NSString *_uniqueDeviceIdentifier;
-}
-
-@property(readonly) BOOL hasGasGauge;
-@property(getter=isInternalInstall,readonly) BOOL internalInstall;
-@property(copy,readonly) NSString * localizedProductName;
-@property(getter=isMultiCore,readonly) BOOL multiCore;
-@property(copy,readonly) NSString * productBuildVersion;
-@property(copy,readonly) NSString * productClass;
-@property(copy,readonly) NSString * productHardwareModel;
-@property(copy,readonly) NSString * productType;
-@property(copy,readonly) NSString * productVersion;
-@property(copy,readonly) NSString * uniqueDeviceIdentifier;
+@property (getter=isCarrierInstall, nonatomic, readonly) bool carrierInstall;
+@property (getter=isDeveloperInstall, nonatomic, readonly) bool developerInstall;
+@property (nonatomic, readonly) int deviceClass;
+@property (nonatomic, readonly) bool hasGasGauge;
+@property (nonatomic, readonly) bool hasOrbCapability;
+@property (nonatomic, readonly) long long homeButtonType;
+@property (getter=isInternalInstall, nonatomic, readonly) bool internalInstall;
+@property (nonatomic, readonly, copy) NSString *localizedProductName;
+@property (getter=isMultiCore, nonatomic, readonly) bool multiCore;
+@property (nonatomic, readonly, copy) NSString *operatingSystemName;
+@property (nonatomic, readonly, copy) NSString *productBuildVersion;
+@property (nonatomic, readonly, copy) NSString *productClass;
+@property (nonatomic, readonly, copy) NSString *productHardwareModel;
+@property (nonatomic, readonly, copy) NSString *productHardwareModelName;
+@property (nonatomic, readonly, copy) NSString *productType;
+@property (nonatomic, readonly, copy) NSString *productVersion;
+@property (nonatomic, readonly, copy) NSString *uniqueDeviceIdentifier;
 
 + (id)sharedInstance;
 
-- (void)dealloc;
-- (BOOL)hasGasGauge;
-- (id)init;
-- (BOOL)isInternalInstall;
-- (BOOL)isMultiCore;
+- (bool)_isD22Emulator;
+- (int)deviceClass;
+- (bool)hasGasGauge;
+- (bool)hasOrbCapability;
+- (long long)homeButtonType;
+- (bool)isCarrierInstall;
+- (bool)isDeveloperInstall;
+- (bool)isInternalInstall;
+- (bool)isMultiCore;
 - (id)localizedProductName;
+- (id)operatingSystemName;
 - (id)productBuildVersion;
 - (id)productClass;
 - (id)productHardwareModel;
+- (id)productHardwareModelName;
 - (id)productType;
 - (id)productVersion;
 - (id)uniqueDeviceIdentifier;

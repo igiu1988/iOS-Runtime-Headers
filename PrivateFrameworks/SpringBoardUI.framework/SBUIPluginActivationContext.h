@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/SpringBoardUI.framework/SpringBoardUI
  */
 
-@class UIScreen;
-
 @interface SBUIPluginActivationContext : NSObject {
-    int _activationEvent;
-    UIScreen *_screen;
+    int  _activationEvent;
+    UIScreen * _screen;
 }
 
-@property int activationEvent;
-@property(retain) UIScreen * screen;
+@property (nonatomic) int activationEvent;
+@property (nonatomic, retain) UIScreen *screen;
 
+- (void).cxx_destruct;
 - (int)activationEvent;
-- (void)dealloc;
 - (id)screen;
 - (void)setActivationEvent:(int)arg1;
 - (void)setScreen:(id)arg1;

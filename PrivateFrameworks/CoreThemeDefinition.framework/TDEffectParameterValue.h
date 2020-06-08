@@ -2,16 +2,28 @@
    Image: /System/Library/PrivateFrameworks/CoreThemeDefinition.framework/CoreThemeDefinition
  */
 
-@class NSNumber, TDEffectComponent, TDEffectParameterType;
+@interface TDEffectParameterValue : NSManagedObject
 
-@interface TDEffectParameterValue : NSManagedObject {
-}
+@property (nonatomic, retain) NSNumber *angleValue;
+@property (nonatomic) unsigned long long blueComponent;
+@property (nonatomic, retain) NSNumber *colorValue;
+@property (nonatomic, retain) TDEffectComponent *component;
+@property (nonatomic, retain) NSNumber *floatValue;
+@property (nonatomic) unsigned long long greenComponent;
+@property (nonatomic, retain) NSNumber *intValue;
+@property (nonatomic, retain) TDEffectParameterType *parameterType;
+@property (nonatomic) unsigned long long redComponent;
 
-@property(retain) NSNumber * angleValue;
-@property(retain) NSNumber * colorValue;
-@property(retain) TDEffectComponent * component;
-@property(retain) NSNumber * floatValue;
-@property(retain) NSNumber * intValue;
-@property(retain) TDEffectParameterType * parameterType;
++ (id)keyPathsForValuesAffectingBlueComponent;
++ (id)keyPathsForValuesAffectingColor;
++ (id)keyPathsForValuesAffectingGreenComponent;
++ (id)keyPathsForValuesAffectingRedComponent;
+
+- (unsigned long long)blueComponent;
+- (unsigned long long)greenComponent;
+- (unsigned long long)redComponent;
+- (void)setBlueComponent:(unsigned long long)arg1;
+- (void)setGreenComponent:(unsigned long long)arg1;
+- (void)setRedComponent:(unsigned long long)arg1;
 
 @end

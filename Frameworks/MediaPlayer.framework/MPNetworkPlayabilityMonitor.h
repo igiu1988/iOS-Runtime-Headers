@@ -2,30 +2,31 @@
    Image: /System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
  */
 
-@class NSObject<OS_dispatch_queue>;
-
-@interface MPNetworkPlayabilityMonitor : NSObject {
-    int _effectiveNetworkTypeForCloudPlayback;
-    double _lastAverageBitrate;
-    int _networkType;
-    NSObject<OS_dispatch_queue> *_queue;
+@interface MPNetworkPlayabilityMonitor : NSObject <ICEnvironmentMonitorObserver> {
+    long long  _effectiveNetworkTypeForCloudPlayback;
+    double  _lastAverageBitrate;
+    long long  _networkType;
+    NSObject<OS_dispatch_queue> * _queue;
 }
 
-@property(readonly) int effectiveNetworkTypeForPlayback;
-@property(readonly) double lastAverageBitrate;
-@property(readonly) int networkType;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) long long effectiveNetworkTypeForPlayback;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) double lastAverageBitrate;
+@property (nonatomic, readonly) long long networkType;
+@property (readonly) Class superclass;
 
 + (id)sharedNetworkPlayabilityMonitor;
 
 - (void).cxx_destruct;
-- (void)_networkTypeDidChangeNotification:(id)arg1;
-- (int)_onQueueEffectiveNetworkTypeForAverageBitrate:(double)arg1;
+- (long long)_onQueueEffectiveNetworkTypeForAverageBitrate:(double)arg1;
 - (void)_onQueueUpdateEffectiveNetworkTypesForPlayback;
 - (void)adjustEffectiveNetworkTypeUsingPreviouslyPlayedItem:(id)arg1;
-- (void)dealloc;
-- (int)effectiveNetworkTypeForPlayback;
+- (long long)effectiveNetworkTypeForPlayback;
+- (void)environmentMonitorDidChangeNetworkType:(id)arg1;
 - (id)init;
 - (double)lastAverageBitrate;
-- (int)networkType;
+- (long long)networkType;
 
 @end

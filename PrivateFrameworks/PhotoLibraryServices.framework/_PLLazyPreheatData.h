@@ -2,11 +2,9 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSData, NSString;
-
 @interface _PLLazyPreheatData : NSData {
-    NSData *_data;
-    NSString *_path;
+    NSData * _data;
+    NSString * _path;
 }
 
 + (id)dataWithContentsOfFile:(id)arg1;
@@ -15,6 +13,6 @@
 - (const void*)bytes;
 - (void)dealloc;
 - (id)initWithContentsOfFile:(id)arg1;
-- (unsigned int)length;
+- (unsigned long long)length;
 
 @end

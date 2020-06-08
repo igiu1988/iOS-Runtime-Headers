@@ -3,14 +3,20 @@
  */
 
 @interface DevicePINSetupController : PSSetupController {
-    BOOL _success;
+    bool  _allowOptionsButton;
+    bool  _success;
 }
 
-- (BOOL)canBeShownFromSuspendedState;
+@property (nonatomic) bool allowOptionsButton;
+
+- (bool)allowOptionsButton;
+- (bool)canBeShownFromSuspendedState;
 - (id)init;
-- (BOOL)popupStyleIsModal;
-- (struct CGSize { float x1; float x2; })preferredContentSize;
-- (BOOL)success;
-- (BOOL)usePopupStyle;
+- (bool)popupStyleIsModal;
+- (struct CGSize { double x1; double x2; })preferredContentSize;
+- (void)setAllowOptionsButton:(bool)arg1;
+- (void)showController:(id)arg1 animate:(bool)arg2;
+- (bool)success;
+- (bool)usePopupStyle;
 
 @end

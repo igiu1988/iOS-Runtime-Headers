@@ -2,40 +2,39 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TNPageController, TNPageCoordinateDictionary, TSDDrawableInfo;
-
 @interface TNHintCache : NSObject {
+    TNPageCoordinateDictionary * mHintCacheEntryDictionary;
+    TSDDrawableInfo * mInfo;
+    bool  mIsMaxColumnValid;
+    bool  mIsMaxRowValid;
+    TNPageController * mPageController;
     struct { 
-        struct { 
-            unsigned short row; 
-            unsigned char column; 
-            unsigned char reserved; 
+        struct TSUCellCoord { 
+            unsigned int row; 
+            unsigned short column; 
+            bool _preserveRow; 
+            bool _preserveColumn; 
         } topLeft; 
-        struct { 
-            unsigned short row; 
-            unsigned char column; 
-            unsigned char reserved; 
+        struct TSUCellCoord { 
+            unsigned int row; 
+            unsigned short column; 
+            bool _preserveRow; 
+            bool _preserveColumn; 
         } bottomRight; 
-    TNPageCoordinateDictionary *mHintCacheEntryDictionary;
-    TSDDrawableInfo *mInfo;
-    BOOL mIsMaxColumnValid;
-    BOOL mIsMaxRowValid;
-    TNPageController *mPageController;
-    } mPageRange;
+    }  mPageRange;
 }
 
-@property(retain) TSDDrawableInfo * info;
-@property(readonly) TNPageController * pageController;
+@property (retain) TSDDrawableInfo *info;
+@property (readonly) TNPageController *pageController;
 
-- (id).cxx_construct;
 - (void)dealloc;
 - (id)info;
 - (id)initWithInfo:(id)arg1 pageController:(id)arg2;
 - (void)invalidate;
-- (id)layoutAtCoordinate:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg1 parentLayout:(id)arg2;
-- (id)p_hintCacheEntryAtCoordinate:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg1;
+- (id)layoutAtCoordinate:(struct TSUCellCoord { unsigned int x1; unsigned short x2; bool x3; bool x4; })arg1 parentLayout:(id)arg2;
+- (id)p_hintCacheEntryAtCoordinate:(struct TSUCellCoord { unsigned int x1; unsigned short x2; bool x3; bool x4; })arg1;
 - (id)pageController;
-- (struct { struct { unsigned short x_1_1_1; unsigned char x_1_1_2; unsigned char x_1_1_3; } x1; struct { unsigned short x_2_1_1; unsigned char x_2_1_2; unsigned char x_2_1_3; } x2; })pageRangeWithUpperBound:(struct { unsigned short x1; unsigned char x2; unsigned char x3; })arg1;
+- (struct { struct TSUCellCoord { unsigned int x_1_1_1; unsigned short x_1_1_2; bool x_1_1_3; bool x_1_1_4; } x1; struct TSUCellCoord { unsigned int x_2_1_1; unsigned short x_2_1_2; bool x_2_1_3; bool x_2_1_4; } x2; })pageRangeWithUpperBound:(struct TSUCellCoord { unsigned int x1; unsigned short x2; bool x3; bool x4; })arg1;
 - (void)setInfo:(id)arg1;
 
 @end

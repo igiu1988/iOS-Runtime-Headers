@@ -2,12 +2,10 @@
    Image: /System/Library/PrivateFrameworks/MusicLibrary.framework/MusicLibrary
  */
 
-@class ML3DatabaseConnection, NSEnumerator;
-
 @interface _ML3SortMapFaultingNameOrderDictionaryEnumerator : NSEnumerator {
-    ML3DatabaseConnection *_connection;
-    NSEnumerator *_dirtyInsertsEnumerator;
-    unsigned int _offset;
+    ML3DatabaseConnection * _connection;
+    NSEnumerator * _dirtyInsertsEnumerator;
+    unsigned long long  _offset;
 }
 
 - (void).cxx_destruct;

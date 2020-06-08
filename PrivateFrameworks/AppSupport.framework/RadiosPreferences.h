@@ -2,46 +2,43 @@
    Image: /System/Library/PrivateFrameworks/AppSupport.framework/AppSupport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class <RadiosPreferencesDelegate>, NSObject<OS_dispatch_queue>;
-
 @interface RadiosPreferences : NSObject {
-    int _applySkipCount;
-    BOOL _cachedAirplaneMode;
-    <RadiosPreferencesDelegate> *_delegate;
-    NSObject<OS_dispatch_queue> *_dispatchQueue;
-    BOOL _isCachedAirplaneModeValid;
-    struct __SCPreferences { } *_prefs;
-    BOOL notifyForExternalChangeOnly;
+    int  _applySkipCount;
+    bool  _cachedAirplaneMode;
+    <RadiosPreferencesDelegate> * _delegate;
+    NSObject<OS_dispatch_queue> * _dispatchQueue;
+    bool  _isCachedAirplaneModeValid;
+    struct __SCPreferences { } * _prefs;
+    bool  notifyForExternalChangeOnly;
+    NSObject<OS_os_log> * radios_prefs_log;
 }
 
-@property BOOL airplaneMode;
-@property <RadiosPreferencesDelegate> * delegate;
-@property BOOL notifyForExternalChangeOnly;
+@property (nonatomic) bool airplaneMode;
+@property (nonatomic) <RadiosPreferencesDelegate> *delegate;
+@property (nonatomic) bool notifyForExternalChangeOnly;
 
-+ (BOOL)shouldMirrorAirplaneMode;
++ (bool)shouldMirrorAirplaneMode;
 
-- (BOOL)airplaneMode;
+- (bool)airplaneMode;
 - (void)dealloc;
 - (id)delegate;
 - (void*)getValueForKey:(id)arg1;
+- (void*)getValueWithLockForKey:(id)arg1;
 - (id)init;
 - (id)initWithQueue:(id)arg1;
 - (void)initializeSCPrefs:(id)arg1;
-- (BOOL)notifyForExternalChangeOnly;
+- (bool)notifyForExternalChangeOnly;
 - (void)notifyTarget:(unsigned int)arg1;
 - (void)refresh;
 - (oneway void)release;
-- (void)setAirplaneMode:(BOOL)arg1;
-- (void)setAirplaneModeWithoutMirroring:(BOOL)arg1;
-- (void)setCallback:(int (*)())arg1 withContext:(struct { int x1; void *x2; int (*x3)(); int (*x4)(); int (*x5)(); }*)arg2;
+- (void)setAirplaneMode:(bool)arg1;
+- (void)setAirplaneModeWithoutMirroring:(bool)arg1;
+- (void)setCallback:(int (*)arg1 withContext:(struct { long long x1; void *x2; int (*x3)(); int (*x4)(); int (*x5)(); }*)arg2;
 - (void)setDelegate:(id)arg1;
-- (void)setNotifyForExternalChangeOnly:(BOOL)arg1;
+- (void)setNotifyForExternalChangeOnly:(bool)arg1;
+- (void)setTelephonyState:(bool)arg1 fromBundleID:(id)arg2;
 - (void)setValue:(void*)arg1 forKey:(id)arg2;
 - (void)synchronize;
+- (bool)telephonyStateWithBundleIdentifierOut:(id*)arg1;
 
 @end

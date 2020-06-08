@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/NanoPassKit.framework/NanoPassKit
  */
 
-@class NSString;
-
 @interface NPKProtoGizmoInitiatedDeletePassRequest : PBRequest <NSCopying> {
-    NSString *_passID;
+    NSString * _passID;
 }
 
-@property(retain) NSString * passID;
+@property (nonatomic, retain) NSString *passID;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)passID;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setPassID:(id)arg1;
 - (void)writeTo:(id)arg1;
 

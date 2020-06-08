@@ -2,44 +2,42 @@
    Image: /System/Library/PrivateFrameworks/MobileBackup.framework/MobileBackup
  */
 
-@class NSArray, NSDictionary, NSString;
+@interface MBApp : MBContainer
 
-@interface MBApp : MBContainer {
-    NSDictionary *_entitlements;
-    NSArray *_groups;
-    NSArray *_plugins;
-}
-
-@property(retain) NSString * bundleDir;
-@property(readonly) NSString * bundleID;
-@property(readonly) NSString * bundleVersion;
-@property(readonly) NSArray * containers;
-@property(retain) NSDictionary * entitlements;
-@property(retain) NSArray * groups;
-@property(readonly) BOOL isPlaceholder;
-@property(readonly) BOOL isSystemApp;
-@property(retain) NSArray * plugins;
+@property (nonatomic, retain) NSString *bundleDir;
+@property (nonatomic, readonly) NSString *bundleID;
+@property (nonatomic, readonly) NSString *bundleVersion;
+@property (nonatomic, readonly) NSArray *containers;
+@property (nonatomic, readonly) NSDictionary *entitlements;
+@property (nonatomic, readonly) NSString *entitlementsRelativePath;
+@property (nonatomic, readonly) NSArray *groups;
+@property (nonatomic, readonly) bool isAppUpdating;
+@property (nonatomic, readonly) bool isPlaceholder;
+@property (nonatomic, readonly) bool isSystemApp;
+@property (nonatomic, readonly) NSArray *plugins;
 
 + (id)appWithBundleID:(id)arg1;
 + (id)appWithPropertyList:(id)arg1;
 + (id)safeHarborWithPath:(id)arg1;
++ (bool)unzipPlaceholderDomainZipFile:(id)arg1 atDirectory:(id)arg2;
 
 - (id)_placeholderRelativePathsToBackupAndRestoreWithCache:(id)arg1;
 - (id)_resourceRelativePathsToBackupAndRestoreForRootDir:(id)arg1 relativePath:(id)arg2;
+- (bool)_writeDeviceAppropriateIconToPath:(id)arg1 fromBundlePath:(id)arg2;
 - (id)bundleDir;
 - (id)bundleID;
 - (id)bundleVersion;
 - (id)containers;
 - (id)domain;
 - (id)entitlements;
+- (id)entitlementsRelativePath;
 - (id)groups;
-- (BOOL)isPlaceholder;
-- (BOOL)isSystemApp;
+- (bool)isAppUpdating;
+- (bool)isPlaceholder;
+- (bool)isSystemApp;
 - (id)placeholderDomainWithCache:(id)arg1;
+- (id)placeholderDomainZipWithCache:(id)arg1;
 - (id)plugins;
 - (void)setBundleDir:(id)arg1;
-- (void)setEntitlements:(id)arg1;
-- (void)setGroups:(id)arg1;
-- (void)setPlugins:(id)arg1;
 
 @end

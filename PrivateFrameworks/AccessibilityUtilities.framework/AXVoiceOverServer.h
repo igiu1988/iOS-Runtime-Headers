@@ -2,13 +2,19 @@
    Image: /System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities
  */
 
-@interface AXVoiceOverServer : AXServer {
-}
+@interface AXVoiceOverServer : AXServer
 
 + (id)server;
 
-- (BOOL)_connectIfNecessary;
+- (bool)_connectIfNecessary;
 - (id)_serviceName;
-- (void)triggerCommand:(int)arg1;
+- (id)currentFocusedElement;
+- (id)currentRotorName;
+- (bool)isBrailleInputUIShowing;
+- (id)lastScreenChange;
+- (id)lastSoundsPlayed;
+- (id)lastSpokenPhrases;
+- (bool)triggerCommand:(long long)arg1;
+- (bool)triggerCommand:(long long)arg1 withArgument:(id)arg2;
 
 @end

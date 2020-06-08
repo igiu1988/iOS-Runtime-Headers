@@ -2,31 +2,33 @@
    Image: /System/Library/PrivateFrameworks/BookmarkDAV.framework/BookmarkDAV
  */
 
-@class CoreDAVErrorItem, NSArray, NSData, NSDictionary, NSMutableArray, NSString, NSURL;
-
-@interface BookmarkDAVFolder : CoreDAVContainer <CoreDAVModifiedContainer, CoreDAVAddedContainer, CoreDAVLeafDataPayload> {
-    NSDictionary *_appleAttributes;
-    NSString *_bulkParsedCTag;
-    NSString *_bulkParsedPTag;
-    CoreDAVErrorItem *_bulkUploadErrorItem;
-    NSMutableArray *_childrenOrder;
+@interface BookmarkDAVFolder : CoreDAVContainer <CoreDAVAddedContainer, CoreDAVLeafDataPayload, CoreDAVModifiedContainer> {
+    NSDictionary * _appleAttributes;
+    NSString * _bulkParsedCTag;
+    NSString * _bulkParsedPTag;
+    CoreDAVErrorItem * _bulkUploadErrorItem;
+    NSMutableArray * _childrenOrder;
+    NSURL * _destinationURL;
+    NSURL * _sourceURL;
 }
 
-@property(readonly) NSDictionary * appleAttributes;
-@property(retain) NSString * bulkParsedCTag;
-@property(retain) NSString * bulkParsedPTag;
-@property(retain) CoreDAVErrorItem * bulkUploadErrorItem;
-@property(readonly) NSArray * childrenOrder;
-@property(readonly) NSData * dataPayload;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property BOOL isBookmarkBarFolder;
-@property BOOL isBookmarkFolder;
-@property BOOL isBookmarkMenuFolder;
-@property(retain) NSURL * serverID;
-@property(readonly) Class superclass;
-@property(readonly) NSString * syncKey;
+@property (nonatomic, readonly) NSDictionary *appleAttributes;
+@property (nonatomic, retain) NSString *bulkParsedCTag;
+@property (nonatomic, retain) NSString *bulkParsedPTag;
+@property (nonatomic, retain) CoreDAVErrorItem *bulkUploadErrorItem;
+@property (nonatomic, readonly) NSArray *childrenOrder;
+@property (nonatomic, readonly) NSData *dataPayload;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, retain) NSURL *destinationURL;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) bool isBookmarkBarFolder;
+@property (nonatomic) bool isBookmarkFolder;
+@property (nonatomic) bool isBookmarkMenuFolder;
+@property (nonatomic, retain) NSURL *serverID;
+@property (nonatomic, retain) NSURL *sourceURL;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSString *syncKey;
 
 + (id)copyPropertyMappingsForParser;
 
@@ -42,19 +44,23 @@
 - (id)copyPropPatchTask;
 - (id)dataPayload;
 - (void)dealloc;
+- (id)destinationURL;
 - (id)initWithServerID:(id)arg1 containerName:(id)arg2 appleAttributes:(id)arg3;
 - (id)initWithURL:(id)arg1 eTag:(id)arg2 dataPayload:(id)arg3 inContainerWithURL:(id)arg4 withAccountInfoProvider:(id)arg5;
-- (BOOL)isBookmarkBarFolder;
-- (BOOL)isBookmarkFolder;
-- (BOOL)isBookmarkMenuFolder;
+- (bool)isBookmarkBarFolder;
+- (bool)isBookmarkFolder;
+- (bool)isBookmarkMenuFolder;
 - (id)serverID;
 - (void)setBulkParsedCTag:(id)arg1;
 - (void)setBulkParsedPTag:(id)arg1;
 - (void)setBulkUploadErrorItem:(id)arg1;
-- (void)setIsBookmarkBarFolder:(BOOL)arg1;
-- (void)setIsBookmarkFolder:(BOOL)arg1;
-- (void)setIsBookmarkMenuFolder:(BOOL)arg1;
+- (void)setDestinationURL:(id)arg1;
+- (void)setIsBookmarkBarFolder:(bool)arg1;
+- (void)setIsBookmarkFolder:(bool)arg1;
+- (void)setIsBookmarkMenuFolder:(bool)arg1;
 - (void)setServerID:(id)arg1;
+- (void)setSourceURL:(id)arg1;
+- (id)sourceURL;
 - (id)syncKey;
 
 @end

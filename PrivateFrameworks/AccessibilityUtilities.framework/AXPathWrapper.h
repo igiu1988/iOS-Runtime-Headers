@@ -3,15 +3,14 @@
  */
 
 @interface AXPathWrapper : NSObject <NSSecureCoding> {
-    struct CGPath { } *_path;
+    struct CGPath { } * _path;
 }
 
-@property struct CGPath { }* path;
+@property (nonatomic) struct CGPath { }*path;
 
 + (id)currentSharedInstance;
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (struct CGPath { }*)path;

@@ -2,37 +2,32 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class TSCHChartInfo;
-
 @interface TSCH3DAbstractLimitingSeriesUpgrader : NSObject {
-    TSCHChartInfo *mChartInfo;
-    id mWillModifyBlock;
+    TSCHChartInfo * mChartInfo;
+    id /* block */  mWillModifyBlock;
 }
 
-@property(copy) id willModifyBlock;
+@property (nonatomic, copy) id /* block */ willModifyBlock;
 
-+ (BOOL)chartTypeUsesSeriesLimiting:(id)arg1;
-+ (float)depthFactorForAdjustingNumberOfSeries:(unsigned int)arg1 chartType:(id)arg2 fromOldLimitingSeries:(unsigned int)arg3 toNewLimitingSeries:(unsigned int)arg4;
++ (bool)chartTypeUsesSeriesLimiting:(id)arg1;
++ (double)depthFactorForAdjustingNumberOfSeries:(unsigned long long)arg1 chartType:(id)arg2 fromOldLimitingSeries:(unsigned long long)arg3 toNewLimitingSeries:(unsigned long long)arg4;
 + (id)upgraderWithChartInfo:(id)arg1;
 
-- (id)adjustedScaleFromLayoutSettings:(const struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; }*)arg1 toLayoutSettings:(const struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; }*)arg2;
+- (id)adjustedScaleFromLayoutSettings:(const struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; }*)arg1 toLayoutSettings:(const struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; }*)arg2;
 - (void)configureScene:(id)arg1;
-- (id)configuredSceneWithLayoutSettings:(struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; })arg1;
+- (id)configuredSceneWithLayoutSettings:(struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; })arg1;
 - (id)constantDepthInfoChartScaleForInfoChartScale:(id)arg1;
 - (void)dealloc;
 - (id)initWithChartInfo:(id)arg1;
-- (void)mutateInfoByAdjustingScaleFromLayoutSettings:(const struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; }*)arg1 toLayoutSettings:(const struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; }*)arg2;
+- (void)mutateInfoByAdjustingScaleFromLayoutSettings:(const struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; }*)arg1 toLayoutSettings:(const struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; }*)arg2;
 - (void)mutateInfoWithContainingViewport:(id)arg1 scene:(id)arg2;
 - (void)mutateInfoWithMutations:(id)arg1;
-- (unsigned int)numberOfSeries;
-- (struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; })oldLayoutSettings;
-- (void)setWillModifyBlock:(id)arg1;
-- (void)upgrade;
-- (struct { BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; unsigned int x7; })upgradedLayoutSettings;
-- (id)willModifyBlock;
+- (unsigned long long)numberOfSeries;
+- (struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; })oldLayoutSettings;
+- (struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; })p_oldLayoutSettingsForSpice:(bool)arg1;
+- (void)setWillModifyBlock:(id /* block */)arg1;
+- (void)upgradeForSpice:(bool)arg1 naturalSize:(struct CGSize { double x1; double x2; })arg2;
+- (struct { bool x1; bool x2; bool x3; bool x4; bool x5; bool x6; bool x7; long long x8; unsigned long long x9; })upgradedLayoutSettings;
+- (id /* block */)willModifyBlock;
 
 @end

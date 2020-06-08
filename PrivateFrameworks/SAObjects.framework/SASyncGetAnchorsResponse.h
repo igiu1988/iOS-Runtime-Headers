@@ -2,12 +2,15 @@
    Image: /System/Library/PrivateFrameworks/SAObjects.framework/SAObjects
  */
 
-@class NSArray;
+@interface SASyncGetAnchorsResponse : SABaseClientBoundCommand <SAServerBoundCommand>
 
-@interface SASyncGetAnchorsResponse : SABaseClientBoundCommand {
-}
-
-@property(copy) NSArray * anchors;
+@property (nonatomic, copy) NSString *aceId;
+@property (nonatomic, copy) NSArray *anchors;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSString *refId;
+@property (readonly) Class superclass;
 
 + (id)getAnchorsResponse;
 + (id)getAnchorsResponseWithDictionary:(id)arg1 context:(id)arg2;
@@ -15,7 +18,8 @@
 - (id)anchors;
 - (id)encodedClassName;
 - (id)groupIdentifier;
-- (BOOL)requiresResponse;
+- (bool)mutatingCommand;
+- (bool)requiresResponse;
 - (void)setAnchors:(id)arg1;
 
 @end

@@ -2,62 +2,78 @@
    Image: /System/Library/PrivateFrameworks/IDS.framework/IDS
  */
 
-@class NSArray, NSData, NSDate, NSDictionary, NSString, _IDSAccount;
-
 @interface IDSAccount : NSObject {
-    _IDSAccount *_internal;
+    _IDSAccount * _internal;
+    NSString * _loginID;
 }
 
-@property(retain) NSDictionary * accountInfo;
-@property(readonly) int accountType;
-@property(retain,readonly) NSArray * aliasStrings;
-@property(retain,readonly) NSArray * aliases;
-@property(readonly) BOOL canSend;
-@property(readonly) NSDate * dateRegistered;
-@property(retain,readonly) NSArray * devices;
-@property(retain,readonly) NSString * displayName;
-@property(readonly) BOOL isActive;
-@property(retain) NSString * loginID;
-@property(retain,readonly) NSArray * nearbyDevices;
-@property(readonly) NSDate * nextRegistrationDate;
-@property(retain,readonly) NSString * primaryServiceName;
-@property(readonly) NSString * profileID;
-@property(retain,readonly) NSDictionary * profileInfo;
-@property(readonly) NSData * pushToken;
-@property(readonly) NSString * regionBasePhoneNumber;
-@property(readonly) NSString * regionID;
-@property(readonly) NSDictionary * regionServerContext;
-@property(readonly) NSArray * registeredURIs;
-@property(readonly) NSData * registrationCertificate;
-@property(readonly) int registrationStatus;
-@property(retain,readonly) NSString * serviceName;
-@property(retain,readonly) NSString * uniqueID;
-@property(retain,readonly) NSArray * vettedAliases;
+@property (nonatomic, readonly, retain) _IDSAccount *_internal;
+@property (setter=_setIsEnabled:, nonatomic) bool _isEnabled;
+@property (nonatomic, retain) NSDictionary *accountInfo;
+@property (nonatomic, readonly) int accountType;
+@property (nonatomic, readonly) NSSet *activeAliases;
+@property (nonatomic, readonly) NSArray *aliasStrings;
+@property (nonatomic, readonly) NSArray *aliases;
+@property (nonatomic, readonly) bool canSend;
+@property (nonatomic, readonly) NSDate *dateRegistered;
+@property (nonatomic, readonly) NSArray *devices;
+@property (nonatomic, readonly) NSString *displayName;
+@property (nonatomic, readonly) NSArray *handles;
+@property (readonly, copy) NSArray *hmd_handles;
+@property (nonatomic, readonly) bool isActive;
+@property (nonatomic, readonly) bool isUsableForOuterMessaging;
+@property (nonatomic, readonly) bool isUserDisabled;
+@property (nonatomic, retain) NSString *loginID;
+@property (nonatomic, readonly) NSArray *nearbyDevices;
+@property (nonatomic, readonly) NSDate *nextRegistrationDate;
+@property (nonatomic, readonly) NSString *primaryServiceName;
+@property (nonatomic, readonly) NSString *profileID;
+@property (nonatomic, readonly) NSDictionary *profileInfo;
+@property (nonatomic, readonly) NSData *pushToken;
+@property (nonatomic, readonly) NSString *regionBasePhoneNumber;
+@property (nonatomic, readonly) NSString *regionID;
+@property (nonatomic, readonly) NSDictionary *regionServerContext;
+@property (nonatomic, readonly) NSArray *registeredURIs;
+@property (nonatomic, readonly) NSData *registrationCertificate;
+@property (nonatomic, readonly) int registrationStatus;
+@property (nonatomic, readonly) NSString *serviceName;
+@property (nonatomic, readonly) NSString *uniqueID;
+@property (nonatomic, readonly) NSArray *vettedAliases;
 
+// Image: /System/Library/PrivateFrameworks/IDS.framework/IDS
+
+- (void).cxx_destruct;
 - (void)_callNearbyDevicesChanged;
 - (id)_initWithDictionary:(id)arg1 uniqueID:(id)arg2 serviceName:(id)arg3;
 - (id)_internal;
-- (BOOL)_isEnabled;
-- (void)_reregisterAndReidentify:(BOOL)arg1;
-- (void)_setIsEnabled:(BOOL)arg1;
+- (bool)_isEnabled;
+- (void)_reloadCachedDevices;
+- (void)_reregisterAndReidentify:(bool)arg1;
+- (void)_setIsEnabled:(bool)arg1;
 - (id)accountInfo;
 - (int)accountType;
+- (void)activateAlias:(id)arg1;
+- (id)activeAliases;
 - (void)addAliases:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
 - (void)addRegistrationDelegate:(id)arg1 queue:(id)arg2;
 - (id)aliasStrings;
 - (id)aliases;
 - (void)authenticateAccount;
-- (BOOL)canSend;
+- (bool)canSend;
 - (id)dateRegistered;
+- (void)deactivateAlias:(id)arg1;
 - (void)deactivateAndPurgeIdentify;
 - (void)dealloc;
 - (id)description;
 - (id)devices;
 - (id)displayName;
+- (id)handles;
 - (id)initWithDictionary:(id)arg1 uniqueID:(id)arg2 serviceName:(id)arg3;
 - (id)initWithLoginID:(id)arg1 uniqueID:(id)arg2 serviceName:(id)arg3;
-- (BOOL)isActive;
+- (bool)isActive;
+- (bool)isUsableForOuterMessaging;
+- (bool)isUserDisabled;
 - (id)loginID;
 - (id)nearbyDevices;
 - (id)nextRegistrationDate;
@@ -89,5 +105,9 @@
 - (void)validateAliases:(id)arg1;
 - (void)validateProfile;
 - (id)vettedAliases;
+
+// Image: /System/Library/PrivateFrameworks/HomeKitDaemon.framework/HomeKitDaemon
+
+- (id)hmd_handles;
 
 @end

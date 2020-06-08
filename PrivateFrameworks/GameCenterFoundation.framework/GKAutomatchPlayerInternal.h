@@ -3,10 +3,17 @@
  */
 
 @interface GKAutomatchPlayerInternal : GKSpecialPlayerInternal {
+    long long  _automatchPosition;
 }
 
+@property (nonatomic) long long automatchPosition;
+
++ (bool)supportsSecureCoding;
+
 - (id)alias;
-- (BOOL)isAutomatchPlayer;
+- (long long)automatchPosition;
+- (bool)isAutomatchPlayer;
 - (id)playerID;
+- (void)setAutomatchPosition:(long long)arg1;
 
 @end

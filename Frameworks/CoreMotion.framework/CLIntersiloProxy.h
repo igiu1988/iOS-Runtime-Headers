@@ -2,39 +2,29 @@
    Image: /System/Library/Frameworks/CoreMotion.framework/CoreMotion
  */
 
-@class <CLIntersiloProxyDelegateProtocol>, CLIntersiloInterface, CLIntersiloInterfaceSelectorInfo, CLIntersiloProxy, CLSilo;
-
-@interface CLIntersiloProxy : NSProxy <CLIntersiloServiceProtocol> {
-    CLIntersiloProxy *_asymStrongPeer;
-    <CLIntersiloProxyDelegateProtocol> *_delegate;
-    CLIntersiloInterface *_delegateInterface;
-    CLSilo *_delegateSilo;
-    CLIntersiloInterfaceSelectorInfo *_last;
-    CLIntersiloProxy *_peer;
-    CLIntersiloInterface *_proxiedInterface;
+@interface CLIntersiloProxy : NSProxy {
+    <CLIntersiloProxyDelegateProtocol> * _delegate;
+    CLSilo * _delegateSilo;
 }
 
-@property(readonly) <CLIntersiloProxyDelegateProtocol> * delegate;
-@property(copy,readonly) CLIntersiloInterface * delegateInterface;
-@property(readonly) CLSilo * delegateSilo;
-@property(copy,readonly) CLIntersiloInterface * proxiedInterface;
-@property BOOL valid;
+@property (nonatomic, readonly) <CLIntersiloProxyDelegateProtocol> *delegate;
+@property (nonatomic, readonly) CLSilo *delegateSilo;
 
-+ (void)becameFatallyBlocked:(id)arg1;
-+ (id)getSilo;
-+ (BOOL)isSupported;
-+ (id)proxyForRecipientObject:(id)arg1 inSilo:(id)arg2 withInboundInterface:(id)arg3 andOutboundInterface:(id)arg4;
++ (Class)initiatorRepresentingClass;
++ (id)proxyForRecipientObject:(id)arg1 inSilo:(id)arg2 recipientName:(id)arg3;
++ (Class)recipientRepresentingClass;
 
 - (void).cxx_destruct;
-- (BOOL)conformsToProtocol:(id)arg1;
 - (id)delegate;
-- (id)delegateInterface;
 - (id)delegateSilo;
+- (id)description;
 - (void)forwardInvocation:(id)arg1;
-- (id)initWithDelegateInterface:(id)arg1 proxiedInterface:(id)arg2 andUninitializedPeer:(id)arg3;
-- (id)initWithDelegateInterface:(id)arg1 proxiedInterface:(id)arg2 delegateObject:(id)arg3 delegateSilo:(id)arg4 andUninitializedPeer:(id)arg5;
+- (id)init;
+- (id)initWithDelegateObject:(id)arg1 delegateSilo:(id)arg2;
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (id)proxiedInterface;
+- (bool)offsiloHandleInvocation:(id)arg1 selectorInfo:(id)arg2 peer:(id)arg3;
+- (id)peer;
 - (void)registerDelegate:(id)arg1 inSilo:(id)arg2;
+- (void)setDelegateEntityName:(const char *)arg1;
 
 @end

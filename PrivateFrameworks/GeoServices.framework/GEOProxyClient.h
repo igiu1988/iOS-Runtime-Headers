@@ -2,35 +2,34 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSData, NSString;
-
 @interface GEOProxyClient : NSObject {
-    NSData *_auditToken;
-    NSString *_bundleIdentifier;
-    NSString *_bundleVersion;
-    BOOL _isApplication;
+    GEOApplicationAuditToken * _auditToken;
+    NSString * _bundleIdentifier;
+    NSString * _bundleVersion;
+    bool  _isApplication;
 }
 
-@property(retain) NSData * auditToken;
-@property(retain) NSString * bundleIdentifier;
-@property(retain) NSString * bundleVersion;
-@property BOOL isApplication;
+@property (nonatomic, retain) GEOApplicationAuditToken *auditToken;
+@property (nonatomic, retain) NSString *bundleIdentifier;
+@property (nonatomic, retain) NSString *bundleVersion;
+@property (nonatomic) bool isApplication;
 
 + (id)compositeClientForClients:(id)arg1;
 + (id)currentClient;
 
+- (void).cxx_destruct;
 - (id)URLConnectionProperties;
 - (id)auditToken;
 - (id)bundleIdentifier;
 - (id)bundleVersion;
-- (void)dealloc;
 - (id)description;
-- (unsigned int)hash;
-- (BOOL)isApplication;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (id)initWithXPCConnection:(id)arg1;
+- (bool)isApplication;
+- (bool)isEqual:(id)arg1;
 - (void)setAuditToken:(id)arg1;
 - (void)setBundleIdentifier:(id)arg1;
 - (void)setBundleVersion:(id)arg1;
-- (void)setIsApplication:(BOOL)arg1;
+- (void)setIsApplication:(bool)arg1;
 
 @end

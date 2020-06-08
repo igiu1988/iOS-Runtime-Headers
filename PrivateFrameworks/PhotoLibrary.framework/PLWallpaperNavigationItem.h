@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibrary.framework/PhotoLibrary
  */
 
-@interface PLWallpaperNavigationItem : UINavigationItem {
-}
+@interface PLWallpaperNavigationItem : UINavigationItem
 
-- (int)barStyle;
+- (long long)barStyle;
 
 @end

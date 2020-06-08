@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSData, NSString;
-
 @interface OISFUZipArchiveMemoryDataRepresentation : OISFUDataRepresentation <SFUZipArchiveDataRepresentation> {
-    NSData *mData;
+    NSData * mData;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 - (id)bufferedInputStream;
-- (id)bufferedInputStreamWithBufferSize:(unsigned long)arg1;
+- (id)bufferedInputStreamWithBufferSize:(unsigned long long)arg1;
 - (id)bufferedInputStreamWithOffset:(long long)arg1 length:(long long)arg2;
 - (id)data;
 - (long long)dataLength;
 - (void)dealloc;
-- (BOOL)hasSameLocationAs:(id)arg1;
+- (bool)hasSameLocationAs:(id)arg1;
 - (id)initWithData:(id)arg1;
 - (id)inputStream;
 - (id)inputStreamWithOffset:(long long)arg1 length:(long long)arg2;
-- (BOOL)isReadable;
+- (bool)isReadable;
 
 @end

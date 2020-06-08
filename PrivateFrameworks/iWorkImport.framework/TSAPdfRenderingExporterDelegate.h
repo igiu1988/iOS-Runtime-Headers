@@ -2,33 +2,30 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class NSString, TSARenderingExporter;
-
 @interface TSAPdfRenderingExporterDelegate : NSObject <TSARenderingExporterDelegate> {
-    float mMaxPixels;
-    NSString *mPassphraseOpen;
-    NSString *mPassphrasePrintCopy;
-    TSARenderingExporter *mRenderingExporter;
-    int mRenderingQuality;
-    BOOL mRequireCopyPassword;
-    BOOL mRequireOpenPassword;
-    BOOL mRequirePrintPassword;
+    NSString * mPassphraseOpen;
+    NSString * mPassphrasePrintCopy;
+    TSARenderingExporter * mRenderingExporter;
+    int  mRenderingQuality;
+    bool  mRequireCopyPassword;
+    bool  mRequireOpenPassword;
+    bool  mRequirePrintPassword;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithRenderingExporter:(id)arg1;
 - (struct CGContext { }*)newCGContextForURL:(id)arg1;
 - (void)releaseCGContext:(struct CGContext { }*)arg1;
 - (int)renderingQuality;
 - (void)setCopyPassphrase:(id)arg1 hint:(id)arg2;
-- (void)setMaxPixels:(float)arg1;
 - (void)setPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setPrintPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setRenderingQuality:(int)arg1;
 - (void)setup;
-- (BOOL)supportsPaging;
-- (BOOL)supportsRenderingQuality;
+- (bool)supportsPaging;
+- (bool)supportsRenderingQuality;
 - (void)teardown;
-- (float)viewScale;
+- (bool)validatePassphrases:(id*)arg1;
+- (double)viewScale;
 
 @end

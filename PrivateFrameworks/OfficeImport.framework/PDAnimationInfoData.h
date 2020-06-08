@@ -2,13 +2,11 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADDrawable, PDBuild, PDSequentialTimeNode;
-
 @interface PDAnimationInfoData : NSObject {
-    PDBuild *mBuild;
-    OADDrawable *mDrawable;
-    unsigned int mOrder;
-    PDSequentialTimeNode *mSequentialTimeNodeData;
+    PDBuild * mBuild;
+    OADDrawable * mDrawable;
+    unsigned int  mOrder;
+    PDSequentialTimeNode * mSequentialTimeNodeData;
 }
 
 - (id)build;

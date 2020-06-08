@@ -2,22 +2,21 @@
    Image: /System/Library/Frameworks/CoreImage.framework/CoreImage
  */
 
-@class CIImage, CIVector, NSNumber;
-
 @interface CITileFilter : CIFilter {
-    NSNumber *inputAngle;
-    CIVector *inputCenter;
-    CIImage *inputImage;
-    NSNumber *inputWidth;
+    NSNumber * inputAngle;
+    CIVector * inputCenter;
+    CIImage * inputImage;
+    NSNumber * inputWidth;
 }
 
-@property(retain) NSNumber * inputAngle;
-@property(retain) CIVector * inputCenter;
-@property(retain) CIImage * inputImage;
-@property(retain) NSNumber * inputWidth;
+@property (nonatomic, retain) NSNumber *inputAngle;
+@property (nonatomic, retain) CIVector *inputCenter;
+@property (nonatomic, retain) CIImage *inputImage;
+@property (nonatomic, retain) NSNumber *inputWidth;
 
 + (id)customAttributes;
 
+- (id)_croppedCenterPixelImage;
 - (id)_kernel;
 - (id)_kernel_name;
 - (id)_kernel_source;
@@ -25,7 +24,6 @@
 - (id)inputCenter;
 - (id)inputImage;
 - (id)inputWidth;
-- (void)setDefaults;
 - (void)setInputAngle:(id)arg1;
 - (void)setInputCenter:(id)arg1;
 - (void)setInputImage:(id)arg1;

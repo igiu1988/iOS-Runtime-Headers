@@ -2,25 +2,23 @@
    Image: /System/Library/Frameworks/Social.framework/Social
  */
 
-@class NSDate, NSNumber, NSString;
-
 @interface SLFacebookRegistrationInfo : NSObject {
-    NSDate *_birthday;
-    NSString *_email;
-    NSString *_firstName;
-    NSString *_gender;
-    NSString *_lastName;
-    NSString *_password;
-    NSNumber *_phone;
+    NSDate * _birthday;
+    NSString * _email;
+    NSString * _firstName;
+    NSString * _gender;
+    NSString * _lastName;
+    NSString * _password;
+    NSNumber * _phone;
 }
 
-@property(retain) NSDate * birthday;
-@property(retain) NSString * email;
-@property(retain) NSString * firstName;
-@property(retain) NSString * gender;
-@property(retain) NSString * lastName;
-@property(retain) NSString * password;
-@property(retain) NSNumber * phone;
+@property (nonatomic, retain) NSDate *birthday;
+@property (nonatomic, retain) NSString *email;
+@property (nonatomic, retain) NSString *firstName;
+@property (nonatomic, retain) NSString *gender;
+@property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) NSString *password;
+@property (nonatomic, retain) NSNumber *phone;
 
 - (void).cxx_destruct;
 - (id)birthday;
@@ -28,7 +26,7 @@
 - (id)email;
 - (id)firstName;
 - (id)gender;
-- (BOOL)hasAllRequiredValues;
+- (bool)hasAllRequiredValues;
 - (id)lastName;
 - (id)password;
 - (id)phone;

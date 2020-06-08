@@ -2,53 +2,34 @@
    Image: /System/Library/PrivateFrameworks/MIME.framework/MIME
  */
 
-@class MFMessageFileWrapper, NSMutableDictionary;
-
 @interface MFMessageTextAttachment : NSObject {
-    NSMutableDictionary *_cache;
+    NSMutableDictionary * _cache;
 }
 
-@property(retain) MFMessageFileWrapper * fileWrapper;
+@property (nonatomic, retain) MFMessageFileWrapper *fileWrapper;
 
-+ (unsigned int)precedenceLevel;
++ (unsigned long long)precedenceLevel;
 
-- (id)_contentTypeByStrippingZipIfNeeded:(BOOL)arg1;
-- (BOOL)_isSinglePagePDFThatIsAllowedToBeInline;
 - (unsigned int)approximateSize;
 - (id)cachedValueForKey:(id)arg1;
-- (id)contentType;
 - (void)dealloc;
 - (id)description;
 - (void)download;
 - (id)fileWrapper;
-- (id)fileWrapperForcingDownload:(BOOL)arg1;
-- (BOOL)hasBeenDownloaded;
-- (unsigned int)imageScalingFlags;
+- (id)fileWrapperForcingDownload:(bool)arg1;
+- (bool)hasBeenDownloaded;
 - (id)init;
 - (id)initWithWrapper:(id)arg1;
 - (void)inlineDisplayData:(id*)arg1 mimeType:(id*)arg2;
-- (BOOL)isCalendarFile;
-- (BOOL)isContentDownloadable;
-- (BOOL)isContentOpenable;
-- (BOOL)isDisplayableInline;
-- (BOOL)isDisplayableInsidePlugin;
-- (BOOL)isPass;
-- (BOOL)isPlaceholder;
-- (struct CGSize { float x1; float x2; })mf_markupSizeForImageScale:(unsigned int)arg1;
-- (id)mf_markupStringForComposition:(BOOL)arg1 prependBlankLine:(BOOL)arg2 imageScale:(unsigned int)arg3;
-- (id)mf_markupURL;
+- (bool)isPlaceholder;
 - (id)mimePart;
-- (id)mimeType;
-- (BOOL)needsRedownload;
-- (id)pass;
+- (bool)needsRedownload;
 - (id)persistentUniqueIdentifier;
 - (void)setCachedValue:(id)arg1 forKey:(id)arg2;
 - (void)setFileWrapper:(id)arg1;
-- (void)setImageScalingFlags:(unsigned int)arg1;
 - (void)setMimePart:(id)arg1;
-- (BOOL)shouldDownloadAttachmentOnDisplay;
+- (bool)shouldDownloadAttachmentOnDisplay;
 - (id)textEncodingGuess;
 - (id)textEncodingNameForData:(id)arg1 mimeType:(id)arg2;
-- (id)unzippedContentType;
 
 @end

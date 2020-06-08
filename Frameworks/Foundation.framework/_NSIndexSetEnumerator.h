@@ -2,11 +2,9 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSIndexSet;
-
 @interface _NSIndexSetEnumerator : NSEnumerator {
-    unsigned int _index;
-    NSIndexSet *_indexSet;
+    unsigned long long  _index;
+    NSIndexSet * _indexSet;
 }
 
 - (void)dealloc;

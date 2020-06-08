@@ -2,31 +2,34 @@
    Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
  */
 
-@class <BLTSectionInfoListProviderDelegate>, NSDate, NSString;
-
-@interface BLTSectionInfoListBridgeProvider : NSObject <LSApplicationWorkspaceObserverProtocol> {
+@interface BLTSectionInfoListBridgeProvider : NSObject <BLTSectionInfoListProvider, LSApplicationWorkspaceObserverProtocol> {
+    <BLTSectionInfoListProviderDelegate> * _delegate;
+    NSDate * _lastKnownBridgeSettingsChangeDate;
     struct _opaque_pthread_mutex_t { 
-        long __sig; 
-        BOOL __opaque[40]; 
-    <BLTSectionInfoListProviderDelegate> *_delegate;
-    NSDate *_lastKnownBridgeSettingsChangeDate;
-    } _lock;
+        long long __sig; 
+        BOOL __opaque[56]; 
+    }  _lock;
+    BLTSectionConfiguration * _sectionConfiguration;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <BLTSectionInfoListProviderDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <BLTSectionInfoListProviderDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) BLTSectionConfiguration *sectionConfiguration;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (id)_loadOverridesChangedSince:(id)arg1;
 - (void)_reloadUpdatedOverrides;
-- (void)_reloadUpdatedOverridesWithCompletion:(id)arg1;
+- (void)_reloadUpdatedOverridesWithCompletion:(id /* block */)arg1;
 - (void)dealloc;
 - (id)delegate;
-- (id)init;
-- (void)reloadWithCompletion:(id)arg1;
+- (id)initWithSectionConfiguration:(id)arg1;
+- (void)reloadWithCompletion:(id /* block */)arg1;
+- (id)sectionConfiguration;
 - (void)setDelegate:(id)arg1;
+- (void)setNotificationsLevel:(int)arg1 sectionID:(id)arg2 forceCustom:(bool)arg3;
+- (void)setSectionConfiguration:(id)arg1;
 
 @end

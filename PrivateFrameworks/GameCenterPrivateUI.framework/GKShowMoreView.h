@@ -2,61 +2,60 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class GKLabel, NSLayoutConstraint, UIActivityIndicatorView, UICollectionView;
-
 @interface GKShowMoreView : UICollectionReusableView {
-    UICollectionView *_collectionView;
-    NSLayoutConstraint *_horizontalContraint;
-    GKLabel *_label;
-    BOOL _loading;
-    int _numberToShow;
-    int _sectionIndex;
-    SEL _showMoreAction;
-    BOOL _showShowAll;
-    UIActivityIndicatorView *_spinner;
-    float _textAlignmentOffset;
-    NSLayoutConstraint *_verticalContraint;
+    UICollectionView * _collectionView;
+    NSLayoutConstraint * _horizontalContraint;
+    GKLabel * _label;
+    bool  _loading;
+    long long  _numberToShow;
+    long long  _sectionIndex;
+    SEL  _showMoreAction;
+    bool  _showShowAll;
+    UIActivityIndicatorView * _spinner;
+    double  _textAlignmentOffset;
+    NSLayoutConstraint * _verticalContraint;
 }
 
-@property(retain) UICollectionView * collectionView;
-@property(retain) NSLayoutConstraint * horizontalContraint;
-@property(retain) GKLabel * label;
-@property BOOL loading;
-@property int numberToShow;
-@property int sectionIndex;
-@property SEL showMoreAction;
-@property BOOL showShowAll;
-@property(retain) UIActivityIndicatorView * spinner;
-@property float textAlignmentOffset;
-@property(retain) NSLayoutConstraint * verticalContraint;
+@property (nonatomic, retain) UICollectionView *collectionView;
+@property (nonatomic, retain) NSLayoutConstraint *horizontalContraint;
+@property (nonatomic, retain) GKLabel *label;
+@property (nonatomic) bool loading;
+@property (nonatomic) long long numberToShow;
+@property (nonatomic) long long sectionIndex;
+@property (nonatomic) SEL showMoreAction;
+@property (nonatomic) bool showShowAll;
+@property (nonatomic, retain) UIActivityIndicatorView *spinner;
+@property (nonatomic) double textAlignmentOffset;
+@property (nonatomic, retain) NSLayoutConstraint *verticalContraint;
 
-+ (BOOL)requiresConstraintBasedLayout;
++ (bool)requiresConstraintBasedLayout;
 
 - (void)applyLayoutAttributes:(id)arg1;
+- (id)baseTextStyle;
 - (id)collectionView;
 - (void)dealloc;
 - (id)horizontalContraint;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
 - (id)label;
-- (BOOL)loading;
-- (int)numberToShow;
+- (bool)loading;
+- (long long)numberToShow;
 - (void)prepareForReuse;
-- (int)sectionIndex;
+- (long long)sectionIndex;
 - (void)setCollectionView:(id)arg1;
 - (void)setHorizontalContraint:(id)arg1;
 - (void)setLabel:(id)arg1;
-- (void)setLoading:(BOOL)arg1;
-- (void)setNumberToShow:(int)arg1;
-- (void)setSectionIndex:(int)arg1;
+- (void)setLoading:(bool)arg1;
+- (void)setNumberToShow:(long long)arg1;
+- (void)setSectionIndex:(long long)arg1;
 - (void)setShowMoreAction:(SEL)arg1;
-- (void)setShowShowAll:(BOOL)arg1;
+- (void)setShowShowAll:(bool)arg1;
 - (void)setSpinner:(id)arg1;
-- (void)setTextAlignmentOffset:(float)arg1;
+- (void)setTextAlignmentOffset:(double)arg1;
 - (void)setVerticalContraint:(id)arg1;
 - (SEL)showMoreAction;
-- (BOOL)showShowAll;
+- (bool)showShowAll;
 - (id)spinner;
-- (float)textAlignmentOffset;
+- (double)textAlignmentOffset;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)updateConstraints;
 - (void)updateLabel;

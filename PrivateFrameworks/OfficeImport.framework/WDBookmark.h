@@ -2,15 +2,14 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface WDBookmark : WDRun {
-    int mBookmarkType;
-    NSString *mName;
+    int  mBookmarkType;
+    NSString * mName;
 }
 
 - (int)bookmarkType;
 - (void)dealloc;
+- (id)description;
 - (id)initWithParagraph:(id)arg1 name:(id)arg2 type:(int)arg3;
 - (id)name;
 - (int)runType;

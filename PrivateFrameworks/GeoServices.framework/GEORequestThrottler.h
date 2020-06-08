@@ -2,18 +2,18 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSMapTable;
-
 @interface GEORequestThrottler : NSObject {
-    NSMapTable *_throttleMap;
+    NSLock * _lock;
+    NSMapTable * _throttleMap;
 }
 
 + (id)sharedThrottler;
 
-- (void)_countryProvidersDidChange:(id)arg1;
-- (BOOL)allowRequest:(unsigned int)arg1 toURL:(id)arg2;
-- (void)clear;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (id)_throttlePolicyForKey:(id)arg1;
+- (bool)allowRequestForKey:(id)arg1;
 - (id)init;
+- (unsigned long long)throttleStateLevelForKey:(id)arg1;
+- (double)throttleStateResetTimeRemainingForKey:(id)arg1;
 
 @end

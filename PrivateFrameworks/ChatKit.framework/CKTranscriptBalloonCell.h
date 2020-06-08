@@ -2,45 +2,28 @@
    Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
  */
 
-@class CKBalloonView, NSAttributedString, UILabel;
-
-@interface CKTranscriptBalloonCell : CKTranscriptMessageCell {
-    struct CGSize { 
-        float width; 
-        float height; 
-    CKBalloonView *_balloonView;
-    UILabel *_drawerLabel;
-    NSAttributedString *_drawerText;
-    BOOL _drawerTextChanged;
-    } _drawerTextSize;
-    BOOL _drawerWasVisible;
+@interface CKTranscriptBalloonCell : CKTranscriptMessageContentCell {
+    CKBalloonView * _balloonView;
+    bool  _mayReparentPluginViews;
 }
 
-@property(retain) CKBalloonView * balloonView;
-@property(retain) UILabel * drawerLabel;
-@property(copy) NSAttributedString * drawerText;
-@property BOOL drawerTextChanged;
-@property struct CGSize { float x1; float x2; } drawerTextSize;
-@property BOOL drawerWasVisible;
+@property (nonatomic, retain) CKBalloonView *balloonView;
+@property (nonatomic) bool mayReparentPluginViews;
 
+- (void).cxx_destruct;
+- (void)addFilter:(id)arg1;
 - (id)balloonView;
+- (void)clearFilters;
 - (void)configureForChatItem:(id)arg1;
 - (void)dealloc;
 - (id)description;
-- (id)drawerLabel;
-- (id)drawerText;
-- (BOOL)drawerTextChanged;
-- (struct CGSize { float x1; float x2; })drawerTextSize;
-- (BOOL)drawerWasVisible;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (void)layoutSubviewsForAlignmentContents;
-- (void)layoutSubviewsForDrawer;
+- (id)init;
+- (bool)mayReparentPluginViews;
+- (id)messageDisplayView;
+- (void)setAnimationPauseReasons:(long long)arg1;
 - (void)setBalloonView:(id)arg1;
-- (void)setDrawerLabel:(id)arg1;
-- (void)setDrawerText:(id)arg1;
-- (void)setDrawerTextChanged:(BOOL)arg1;
-- (void)setDrawerTextSize:(struct CGSize { float x1; float x2; })arg1;
-- (void)setDrawerWasVisible:(BOOL)arg1;
-- (void)setEditing:(BOOL)arg1 animated:(BOOL)arg2;
+- (void)setEditing:(bool)arg1 animated:(bool)arg2;
+- (void)setMayReparentPluginViews:(bool)arg1;
+- (void)willLayoutDrawerLabelFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; }*)arg1;
 
 @end

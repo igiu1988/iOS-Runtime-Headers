@@ -2,64 +2,62 @@
    Image: /System/Library/PrivateFrameworks/GameCenterPrivateUI.framework/GameCenterPrivateUI
  */
 
-@class NSArray, NSMutableDictionary, UIImageView, UIView;
-
 @interface GKHeaderWithUnderlineView : UICollectionReusableView {
-    BOOL _didSetupConstraints;
-    NSArray *_gutterConstraints;
-    BOOL _isPinned;
-    float _leadingMargin;
-    NSMutableDictionary *_metrics;
-    UIView *_pinnedBackdropView;
-    UIImageView *_shadowView;
-    float _trailingMargin;
-    BOOL _underlineHasRightMargin;
-    UIView *_underlineView;
+    bool  _didSetupConstraints;
+    NSArray * _gutterConstraints;
+    bool  _isPinned;
+    double  _leadingMargin;
+    NSMutableDictionary * _metrics;
+    UIView * _pinnedBackdropView;
+    UIImageView * _shadowView;
+    double  _trailingMargin;
+    bool  _underlineHasRightMargin;
+    UIView * _underlineView;
 }
 
-@property BOOL didSetupConstraints;
-@property(retain) NSArray * gutterConstraints;
-@property BOOL isPinned;
-@property float leadingMargin;
-@property(retain) NSMutableDictionary * metrics;
-@property(retain) UIView * pinnedBackdropView;
-@property(retain) UIImageView * shadowView;
-@property float trailingMargin;
-@property BOOL underlineHasRightMargin;
-@property(retain) UIView * underlineView;
+@property (nonatomic) bool didSetupConstraints;
+@property (nonatomic, retain) NSArray *gutterConstraints;
+@property (nonatomic) bool isPinned;
+@property (nonatomic) double leadingMargin;
+@property (nonatomic, retain) NSMutableDictionary *metrics;
+@property (nonatomic, retain) UIView *pinnedBackdropView;
+@property (nonatomic, retain) UIImageView *shadowView;
+@property (nonatomic) double trailingMargin;
+@property (nonatomic) bool underlineHasRightMargin;
+@property (nonatomic, retain) UIView *underlineView;
 
 + (void)initialize;
 + (id)macMetrics;
 + (id)padMetrics;
 + (id)phoneMetrics;
-+ (BOOL)requiresConstraintBasedLayout;
++ (bool)requiresConstraintBasedLayout;
 
-- (BOOL)allowsVibrancy;
+- (bool)allowsVibrancy;
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)dealloc;
-- (BOOL)didSetupConstraints;
-- (BOOL)drawsUnderline;
+- (bool)didSetupConstraints;
+- (bool)drawsUnderline;
 - (void)establishConstraints;
 - (id)gutterConstraints;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (BOOL)isPinned;
-- (float)leadingMargin;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (bool)isPinned;
+- (double)leadingMargin;
 - (id)metrics;
 - (id)pinnedBackdropView;
-- (void)pinningStateChangedTo:(BOOL)arg1;
-- (void)setDidSetupConstraints:(BOOL)arg1;
+- (void)pinningStateChangedTo:(bool)arg1;
+- (void)setDidSetupConstraints:(bool)arg1;
 - (void)setGutterConstraints:(id)arg1;
-- (void)setIsPinned:(BOOL)arg1;
-- (void)setLeadingMargin:(float)arg1;
+- (void)setIsPinned:(bool)arg1;
+- (void)setLeadingMargin:(double)arg1;
 - (void)setMetrics:(id)arg1;
 - (void)setPinnedBackdropView:(id)arg1;
 - (void)setShadowView:(id)arg1;
-- (void)setTrailingMargin:(float)arg1;
-- (void)setUnderlineHasRightMargin:(BOOL)arg1;
+- (void)setTrailingMargin:(double)arg1;
+- (void)setUnderlineHasRightMargin:(bool)arg1;
 - (void)setUnderlineView:(id)arg1;
 - (id)shadowView;
-- (float)trailingMargin;
-- (BOOL)underlineHasRightMargin;
+- (double)trailingMargin;
+- (bool)underlineHasRightMargin;
 - (id)underlineView;
 - (void)updateConstraints;
 - (void)updateGutterConstraints;

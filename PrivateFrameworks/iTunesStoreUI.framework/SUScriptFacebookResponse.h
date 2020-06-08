@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class NSString, SUScriptError;
-
 @interface SUScriptFacebookResponse : SUScriptObject {
-    NSString *_bodyData;
-    SUScriptError *_error;
-    int _statusCode;
+    NSString * _bodyData;
+    SUScriptError * _error;
+    long long  _statusCode;
 }
 
-@property(readonly) int HTTPStatusCode;
-@property(readonly) NSString * bodyData;
-@property(readonly) SUScriptError * error;
+@property (readonly) long long HTTPStatusCode;
+@property (readonly) NSString *bodyData;
+@property (readonly) SUScriptError *error;
 
 + (void)initialize;
 + (id)webScriptNameForKeyName:(id)arg1;
 
-- (int)HTTPStatusCode;
+- (long long)HTTPStatusCode;
 - (id)_className;
 - (id)attributeKeys;
 - (id)bodyData;

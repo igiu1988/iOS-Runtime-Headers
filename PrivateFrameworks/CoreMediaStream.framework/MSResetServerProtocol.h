@@ -2,11 +2,6 @@
    Image: /System/Library/PrivateFrameworks/CoreMediaStream.framework/CoreMediaStream
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
 @interface MSResetServerProtocol : MSStreamsProtocol {
     struct __MSRSPCContext { 
         struct __MSSPCContext { 
@@ -30,7 +25,7 @@
         int (*finishedCallback)(); 
         int (*authFailedCallback)(); 
         int (*didReceiveServerSideConfigurationVersionCallback)(); 
-    } _context;
+    }  _context;
 }
 
 - (void)_coreProtocolDidFailAuthenticationError:(id)arg1;

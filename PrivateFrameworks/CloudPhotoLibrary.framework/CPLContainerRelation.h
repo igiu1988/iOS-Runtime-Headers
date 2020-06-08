@@ -2,33 +2,32 @@
    Image: /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/CloudPhotoLibrary
  */
 
-@class NSString;
-
-@interface CPLContainerRelation : NSObject <NSSecureCoding, NSCopying> {
-    NSString *_containerIdentifier;
-    BOOL _keyAsset;
-    int _position;
+@interface CPLContainerRelation : NSObject <NSCopying, NSSecureCoding> {
+    NSString * _containerIdentifier;
+    bool  _keyAsset;
+    long long  _position;
 }
 
-@property(copy) NSString * containerIdentifier;
-@property(getter=isKeyAsset) BOOL keyAsset;
-@property int position;
+@property (nonatomic, copy) NSString *containerIdentifier;
+@property (getter=isKeyAsset, nonatomic) bool keyAsset;
+@property (nonatomic) long long position;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)containerIdentifier;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isKeyAsset;
-- (int)position;
+- (bool)isEqual:(id)arg1;
+- (bool)isKeyAsset;
+- (long long)position;
 - (id)proposedIdentifierForItemIdentifier:(id)arg1;
+- (id)proposedScopedIdentifierForItemScopedIdentifier:(id)arg1;
 - (void)setContainerIdentifier:(id)arg1;
-- (void)setKeyAsset:(BOOL)arg1;
-- (void)setPosition:(int)arg1;
+- (void)setKeyAsset:(bool)arg1;
+- (void)setPosition:(long long)arg1;
 
 @end

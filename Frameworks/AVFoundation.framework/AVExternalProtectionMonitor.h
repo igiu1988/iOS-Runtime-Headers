@@ -2,16 +2,14 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVExternalProtectionMonitorInternal;
-
 @interface AVExternalProtectionMonitor : NSObject {
-    AVExternalProtectionMonitorInternal *_monitor;
+    AVExternalProtectionMonitorInternal * _monitor;
 }
 
-@property(readonly) int externalProtectionState;
+@property (nonatomic, readonly) long long externalProtectionState;
 
 - (void)dealloc;
-- (int)externalProtectionState;
+- (long long)externalProtectionState;
 - (id)init;
 
 @end

@@ -2,14 +2,12 @@
    Image: /System/Library/PrivateFrameworks/Symbolication.framework/Symbolication
  */
 
-@class NSString;
-
 @interface VMUObjectLabelHandlerInfo : NSObject {
-    NSString *_className;
-    SEL _handlerSelector;
-    Class _localClass;
+    NSString * _className;
+    SEL  _handlerSelector;
+    Class  _localClass;
 }
 
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end

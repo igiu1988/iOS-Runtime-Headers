@@ -2,16 +2,14 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface OADBulletFontSpecification : OADBulletFont {
-    NSString *mFont;
+    NSString * mFont;
 }
 
 - (void)dealloc;
 - (id)font;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithFont:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 
 @end

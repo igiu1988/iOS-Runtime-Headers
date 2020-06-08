@@ -2,15 +2,13 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class CMOutlineState, OADTablePartStyle;
-
 @interface PMState : CMState {
-    OADTablePartStyle *mCurrentRowStyle;
-    CMOutlineState *mListState;
+    OADTablePartStyle * mCurrentRowStyle;
+    CMOutlineState * mListState;
 }
 
+- (void).cxx_destruct;
 - (id)currentRowStyle;
-- (void)dealloc;
 - (id)init;
 - (id)listState;
 - (void)setCurrentRowStyle:(id)arg1;

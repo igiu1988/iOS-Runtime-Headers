@@ -2,28 +2,33 @@
    Image: /System/Library/PrivateFrameworks/BackBoardServices.framework/BackBoardServices
  */
 
-@class BKSEventFocusDeferralProperties;
-
 @interface BKSEventFocusDeferral : NSObject <NSSecureCoding> {
-    BKSEventFocusDeferralProperties *_deferredProperties;
-    BKSEventFocusDeferralProperties *_properties;
+    BKSEventFocusDeferralProperties * _deferredProperties;
+    int  _priority;
+    BKSEventFocusDeferralProperties * _properties;
 }
 
-@property(readonly) BKSEventFocusDeferralProperties * deferredProperties;
-@property(readonly) BKSEventFocusDeferralProperties * properties;
+@property (nonatomic, readonly) BKSEventFocusDeferralProperties *deferredProperties;
+@property (nonatomic, readonly) bool isCycle;
+@property (nonatomic, readonly) int priority;
+@property (nonatomic, readonly) BKSEventFocusDeferralProperties *properties;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
-- (void)dealloc;
+- (void).cxx_destruct;
+- (id)conciseDescription;
 - (id)deferredProperties;
 - (id)deferredPropertiesForProperties:(id)arg1;
-- (BOOL)defersProperties:(id)arg1;
+- (bool)defersProperties:(id)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithProperties:(id)arg1 deferredProperties:(id)arg2;
-- (BOOL)isEqual:(id)arg1;
+- (id)initWithProperties:(id)arg1 deferredProperties:(id)arg2 withPriority:(int)arg3;
+- (bool)isCycle;
+- (bool)isEqual:(id)arg1;
+- (int)priority;
 - (id)properties;
 
 @end

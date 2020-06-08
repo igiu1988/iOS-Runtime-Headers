@@ -2,14 +2,7 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString;
-
-@interface TSTImportWarningSet : NSObject <TSTCellDiffing> {
+@interface TSTImportWarningSet : NSObject <TSSPropertyCommandSerializing> {
     struct TSTImportWarningSetCellWarningFlags { 
         unsigned int mCondFormatAboveAvgEqualAverageImportWarning : 1; 
         unsigned int mCondFormatAboveAvgStdDevImportWarning : 1; 
@@ -24,19 +17,23 @@
         unsigned int mCondFormatUnsupportedTimePeriodImportWarning : 1; 
         unsigned int mUnsupportedConditionalFormatImportWarning : 1; 
         unsigned int mUnsupportedDataFormatImportWarning : 1; 
+    }  mCellWarning;
     struct TSTImportFormulaWarning { 
-        int mType; 
+        long long mType; 
         NSString *mOriginalFormula; 
         NSString *mSupplementaryText; 
-    } mCellWarning;
-    } mFormulaWarning;
-    NSString *mOriginalDataFormat;
+    }  mFormulaWarning;
+    NSString * mOriginalDataFormat;
 }
+
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 + (id)cellDiffClearingAllWarningsWithContext:(id)arg1;
 + (id)emptyWarningSet;
-+ (id)p_warningSetForFormulaWarningType:(int)arg1 originalFormula:(id)arg2 supplementaryText:(id)arg3;
-+ (id)properties;
++ (id)p_warningSetForFormulaWarningType:(long long)arg1 originalFormula:(id)arg2 supplementaryText:(id)arg3;
 + (id)warningSetFor3DReferenceFormula:(id)arg1;
 + (id)warningSetForArrayedFormula:(id)arg1;
 + (id)warningSetForCondFormatAboveAvgEqualAvg;
@@ -64,24 +61,23 @@
 + (id)warningSetForUnsupportedDataFormat:(id)arg1;
 + (id)warningSetForUnsupportedFormula:(id)arg1;
 + (id)warningSetForUnsupportedFunction:(id)arg1 originalFormula:(id)arg2;
-+ (id)warningSetForUnsupportedNameFormula:(id)arg1;
++ (id)warningSetForUnsupportedNameFormula:(id)arg1 originalFormula:(id)arg2;
 
-- (id).cxx_construct;
-- (BOOL)areAnySet;
+- (bool)areAnySet;
 - (id)cellDiffClearingWarningsWithContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (void)dealloc;
 - (id)description;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)individualWarnings;
 - (id)init;
-- (id)initFromArchive:(const struct ImportWarningSetArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct ImportWarningSetArchive_FormulaImportWarning {} *x3; boolx4; boolx5; boolx6; boolx7; boolx8; boolx9; boolx10; boolx11; boolx12; boolx13; boolx14; boolx15; boolx16; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > {} *x17; int x18; unsigned int x19[1]; }*)arg1;
-- (BOOL)isEqual:(id)arg1;
-- (BOOL)isTransposeWarning;
+- (id)initFromArchive:(const struct ImportWarningSetArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct ImportWarningSetArchive_FormulaImportWarning {} *x5; bool x6; bool x7; bool x8; bool x9; bool x10; bool x11; bool x12; bool x13; bool x14; bool x15; bool x16; bool x17; bool x18; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > {} *x19; }*)arg1;
+- (id)initFromPropertyCommandMessage:(const struct Message { int (**x1)(); }*)arg1 unarchiver:(id)arg2;
+- (bool)isEqual:(id)arg1;
+- (bool)isTransposeWarning;
 - (id)localizedWarningStrings;
-- (id)objectByRemovingPropertiesInMap:(id)arg1 addingPropertiesInMap:(id)arg2;
-- (id)propertiesMatchingThoseInMap:(id)arg1;
-- (void)saveToArchive:(struct ImportWarningSetArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct ImportWarningSetArchive_FormulaImportWarning {} *x3; boolx4; boolx5; boolx6; boolx7; boolx8; boolx9; boolx10; boolx11; boolx12; boolx13; boolx14; boolx15; boolx16; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > {} *x17; int x18; unsigned int x19[1]; }*)arg1;
+- (void)saveToArchive:(struct ImportWarningSetArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; unsigned int x3[1]; int x4; struct ImportWarningSetArchive_FormulaImportWarning {} *x5; bool x6; bool x7; bool x8; bool x9; bool x10; bool x11; bool x12; bool x13; bool x14; bool x15; bool x16; bool x17; bool x18; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > {} *x19; }*)arg1;
+- (void)saveToPropertyCommandMessage:(struct Message { int (**x1)(); }*)arg1 archiver:(id)arg2;
 - (id)warningSetByAddingWarningsFromSet:(id)arg1;
 - (id)warningSetByRemovingWarningsFromSet:(id)arg1;
 

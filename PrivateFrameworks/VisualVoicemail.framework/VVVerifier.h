@@ -2,26 +2,29 @@
    Image: /System/Library/PrivateFrameworks/VisualVoicemail.framework/VisualVoicemail
  */
 
-@class NSArray, NSMutableDictionary;
-
 @interface VVVerifier : NSObject {
-    NSMutableDictionary *_checkpointDictionary;
-    NSArray *_keyDescriptions;
+    NSMutableDictionary * _checkpointDictionary;
+    NSArray * _keyDescriptions;
+    NSString * _serviceIdentifier;
 }
 
-+ (id)sharedVerifier;
+@property (nonatomic, readonly, copy) NSString *serviceIdentifier;
 
++ (id)homeDirectory;
+
+- (void).cxx_destruct;
 - (id)_checkpointDictionary;
 - (void)_checkpointDictionaryChanged;
 - (id)_checkpointDictionaryFilePath;
 - (void)_mapFromSourceDictionary:(id)arg1 destinationDictionary:(id)arg2 inKey:(id)arg3 outDescription:(id)arg4;
 - (void)_saveCheckpointDictionary;
 - (id)configurationDictionary;
-- (void)dealloc;
 - (id)humanReadableConfigurationDictionary:(id*)arg1;
+- (id)initWithServiceIdentifier:(id)arg1;
 - (id)keyDescriptions;
 - (id)readableError;
-- (void)storeValue:(BOOL)arg1 forCheckpointKey:(id)arg2;
-- (BOOL)valueForCheckpointKey:(id)arg1 exists:(BOOL*)arg2;
+- (id)serviceIdentifier;
+- (void)storeValue:(bool)arg1 forCheckpointKey:(id)arg2;
+- (bool)valueForCheckpointKey:(id)arg1 exists:(bool*)arg2;
 
 @end

@@ -2,33 +2,36 @@
    Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
  */
 
-@class IMHandle, NSDate, NSString;
-
 @interface IMLocationShareOfferChatItem : IMTranscriptChatItem <IMMessageChatItem> {
-    BOOL _actionableEclipsed;
-    IMHandle *_sender;
+    bool  _actionableEclipsed;
+    IMHandle * _sender;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) BOOL failed;
-@property(readonly) unsigned int hash;
-@property(readonly) BOOL isFromMe;
-@property(readonly) int offerState;
-@property(retain,readonly) IMHandle * sender;
-@property(readonly) Class superclass;
-@property(retain,readonly) NSDate * time;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (nonatomic, readonly) bool failed;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) bool isFromMe;
+@property (nonatomic, readonly) long long offerState;
+@property (nonatomic, readonly) IMHandle *sender;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) NSDate *time;
 
-- (Class)__ck_chatItemClass;
+// Image: /System/Library/PrivateFrameworks/IMCore.framework/IMCore
+
+- (void).cxx_destruct;
 - (id)_initWithItem:(id)arg1 sender:(id)arg2;
-- (BOOL)_isActionableEclipsed;
-- (void)_setActionableEclipsed:(BOOL)arg1;
+- (bool)_isActionableEclipsed;
+- (void)_setActionableEclipsed:(bool)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
-- (BOOL)failed;
-- (BOOL)isFromMe;
-- (int)offerState;
+- (bool)failed;
+- (bool)isFromMe;
+- (long long)offerState;
 - (id)sender;
 - (id)time;
+
+// Image: /System/Library/PrivateFrameworks/ChatKit.framework/ChatKit
+
+- (Class)__ck_chatItemClass;
 
 @end

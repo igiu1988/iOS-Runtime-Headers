@@ -2,35 +2,33 @@
    Image: /System/Library/PrivateFrameworks/HomeSharing.framework/HomeSharing
  */
 
-@class NSDate, NSString, NSURL;
-
 @interface HSBook : NSObject <NSSecureCoding> {
-    NSURL *_artworkURL;
-    NSString *_author;
-    NSDate *_datePurchased;
-    NSString *_genre;
-    unsigned long long _purchaseHistoryID;
-    NSString *_redownloadParameters;
-    unsigned long long _storeID;
-    NSString *_title;
-    BOOL _vppLicensed;
-    NSString *_vppOrganizationDisplayName;
-    NSString *_vppOrganizationID;
+    NSURL * _artworkURL;
+    NSString * _author;
+    NSDate * _datePurchased;
+    NSString * _genre;
+    unsigned long long  _purchaseHistoryID;
+    NSString * _redownloadParameters;
+    unsigned long long  _storeID;
+    NSString * _title;
+    bool  _vppLicensed;
+    NSString * _vppOrganizationDisplayName;
+    NSString * _vppOrganizationID;
 }
 
-@property(copy) NSURL * artworkURL;
-@property(copy) NSString * author;
-@property(copy) NSDate * datePurchased;
-@property(copy) NSString * genre;
-@property unsigned long long purchaseHistoryID;
-@property(copy) NSString * redownloadParameters;
-@property unsigned long long storeID;
-@property(copy) NSString * title;
-@property(getter=isVPPLicensed) BOOL vppLicensed;
-@property(copy) NSString * vppOrganizationDisplayName;
-@property(copy) NSString * vppOrganizationID;
+@property (nonatomic, copy) NSURL *artworkURL;
+@property (nonatomic, copy) NSString *author;
+@property (nonatomic, copy) NSDate *datePurchased;
+@property (nonatomic, copy) NSString *genre;
+@property (nonatomic) unsigned long long purchaseHistoryID;
+@property (nonatomic, copy) NSString *redownloadParameters;
+@property (nonatomic) unsigned long long storeID;
+@property (nonatomic, copy) NSString *title;
+@property (getter=isVPPLicensed, nonatomic) bool vppLicensed;
+@property (nonatomic, copy) NSString *vppOrganizationDisplayName;
+@property (nonatomic, copy) NSString *vppOrganizationID;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)artworkURL;
@@ -40,7 +38,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)genre;
 - (id)initWithCoder:(id)arg1;
-- (BOOL)isVPPLicensed;
+- (bool)isVPPLicensed;
 - (unsigned long long)purchaseHistoryID;
 - (id)redownloadParameters;
 - (void)setArtworkURL:(id)arg1;
@@ -51,7 +49,7 @@
 - (void)setRedownloadParameters:(id)arg1;
 - (void)setStoreID:(unsigned long long)arg1;
 - (void)setTitle:(id)arg1;
-- (void)setVppLicensed:(BOOL)arg1;
+- (void)setVppLicensed:(bool)arg1;
 - (void)setVppOrganizationDisplayName:(id)arg1;
 - (void)setVppOrganizationID:(id)arg1;
 - (unsigned long long)storeID;

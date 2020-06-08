@@ -2,20 +2,18 @@
    Image: /System/Library/PrivateFrameworks/iTunesStoreUI.framework/iTunesStoreUI
  */
 
-@class <SUActivityItemProviderDelegate>, NSObject<OS_dispatch_queue>, UIActivity, UIImage;
-
 @interface SUActivityItemProvider : UIActivityItemProvider {
-    UIActivity *_activity;
-    <SUActivityItemProviderDelegate> *_delegate;
-    NSObject<OS_dispatch_queue> *_dispatchQueue;
-    id _lastProvidedItem;
-    UIImage *_previewImage;
+    UIActivity * _activity;
+    <SUActivityItemProviderDelegate> * _delegate;
+    NSObject<OS_dispatch_queue> * _dispatchQueue;
+    id  _lastProvidedItem;
+    UIImage * _previewImage;
 }
 
-@property <SUActivityItemProviderDelegate> * delegate;
-@property(setter=setSUActivity:,retain) UIActivity * suActivity;
-@property(readonly) id suLastProvidedItem;
-@property(setter=setSUPreviewImage:,retain) UIImage * suPreviewImage;
+@property <SUActivityItemProviderDelegate> *delegate;
+@property (setter=setSUActivity:, retain) UIActivity *suActivity;
+@property (readonly) id suLastProvidedItem;
+@property (setter=setSUPreviewImage:, retain) UIImage *suPreviewImage;
 
 - (void)dealloc;
 - (id)delegate;

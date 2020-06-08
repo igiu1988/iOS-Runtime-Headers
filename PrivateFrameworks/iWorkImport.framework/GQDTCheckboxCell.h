@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface GQDTCheckboxCell : GQDTNumberCell {
-}
+@interface GQDTCheckboxCell : GQDTNumberCell
 
-- (BOOL)boolValue;
+- (bool)boolValue;
 
 @end

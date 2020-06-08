@@ -2,27 +2,26 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableString, WDCharacterProperties;
-
 @interface WDCharacterRun : WDRun {
-    BOOL mBinaryWriterContentFlag;
-    WDCharacterProperties *mProperties;
-    NSMutableString *mString;
+    bool  mBinaryWriterContentFlag;
+    WDCharacterProperties * mProperties;
+    NSMutableString * mString;
 }
 
 - (void)appendString:(id)arg1;
-- (BOOL)binaryWriterContentFlag;
+- (bool)binaryWriterContentFlag;
 - (void)clearProperties;
 - (void)clearString;
 - (void)copyPropertiesFrom:(id)arg1;
 - (void)dealloc;
-- (id)initWithParagraph:(id)arg1 string:(id)arg2;
+- (id)description;
 - (id)initWithParagraph:(id)arg1;
-- (BOOL)isEmpty;
+- (id)initWithParagraph:(id)arg1 string:(id)arg2;
+- (bool)isEmpty;
 - (id)properties;
 - (void)removeLastCharacter:(unsigned short)arg1;
 - (int)runType;
-- (void)setBinaryWriterContentFlag:(BOOL)arg1;
+- (void)setBinaryWriterContentFlag:(bool)arg1;
 - (void)setPropertiesForDocument;
 - (void)setString:(id)arg1;
 - (id)string;

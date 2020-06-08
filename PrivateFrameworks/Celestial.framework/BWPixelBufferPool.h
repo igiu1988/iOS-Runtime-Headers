@@ -2,37 +2,45 @@
    Image: /System/Library/PrivateFrameworks/Celestial.framework/Celestial
  */
 
-@class BWVideoFormat, NSDictionary, NSString;
-
 @interface BWPixelBufferPool : NSObject {
-    NSDictionary *_additionalPixelBufferAttributes;
-    unsigned long _capacity;
-    BOOL _clientProvidesPool;
-    NSString *_name;
-    struct __CVPixelBufferPool { } *_pixelBufferPool;
-    NSDictionary *_pixelBufferPoolAuxAttributes;
-    long _pixelBufferPoolCreateError;
-    long _pixelBufferPoolOnce;
-    BWVideoFormat *_videoFormat;
+    NSDictionary * _additionalPixelBufferAttributes;
+    unsigned long long  _capacity;
+    bool  _clientProvidesPool;
+    BWMemoryPool * _memoryPool;
+    NSString * _name;
+    struct __CVPixelBufferPool { } * _pixelBufferPool;
+    NSDictionary * _pixelBufferPoolAuxAttributes;
+    int  _pixelBufferPoolCreateError;
+    long long  _pixelBufferPoolOnce;
+    BWVideoFormat * _videoFormat;
 }
 
-@property(readonly) unsigned long capacity;
-@property(readonly) struct __CVPixelBufferPool { }* cvPixelBufferPool;
-@property(readonly) struct __CFDictionary { }* cvPixelBufferPoolAuxAttributes;
+@property (nonatomic, readonly) unsigned long long capacity;
+@property (nonatomic, readonly) struct __CVPixelBufferPool { }*cvPixelBufferPool;
+@property (nonatomic, readonly) struct __CFDictionary { }*cvPixelBufferPoolAuxAttributes;
+@property (readonly) NSString *name;
 
 + (void)initialize;
 
-- (long)_ensurePool;
-- (unsigned long)capacity;
+- (int)_ensurePool;
+- (void)_flush;
+- (unsigned long long)capacity;
 - (struct __CVPixelBufferPool { }*)cvPixelBufferPool;
 - (struct __CFDictionary { }*)cvPixelBufferPoolAuxAttributes;
 - (void)dealloc;
-- (id)initWithVideoFormat:(id)arg1 capacity:(unsigned long)arg2 name:(id)arg3 additionalPixelBufferAttributes:(id)arg4;
-- (id)initWithVideoFormat:(id)arg1 capacity:(unsigned long)arg2 name:(id)arg3 clientProvidesPool:(BOOL)arg4;
-- (id)initWithVideoFormat:(id)arg1 capacity:(unsigned long)arg2 name:(id)arg3;
+- (void)enumerateSurfacesUsingBlock:(id /* block */)arg1;
+- (void)flush;
+- (void)flushWithCompletionHandler:(id /* block */)arg1;
+- (id)initWithVideoFormat:(id)arg1 capacity:(unsigned long long)arg2 name:(id)arg3;
+- (id)initWithVideoFormat:(id)arg1 capacity:(unsigned long long)arg2 name:(id)arg3 additionalPixelBufferAttributes:(id)arg4;
+- (id)initWithVideoFormat:(id)arg1 capacity:(unsigned long long)arg2 name:(id)arg3 clientProvidesPool:(bool)arg4 memoryPool:(id)arg5;
+- (id)initWithVideoFormat:(id)arg1 capacity:(unsigned long long)arg2 name:(id)arg3 memoryPool:(id)arg4;
+- (id)name;
 - (struct __CVBuffer { }*)newPixelBuffer;
-- (long)preallocate;
-- (void)preallocateWithCompletionHandler:(id)arg1;
+- (int)preallocate;
+- (void)preallocateWithCompletionHandler:(id /* block */)arg1;
+- (void)prefetchWithCompletionHandler:(id /* block */)arg1;
 - (void)setCVPixelBufferPool:(struct __CVPixelBufferPool { }*)arg1 attributes:(struct __CFDictionary { }*)arg2;
+- (void)setCapacity:(unsigned long long)arg1;
 
 @end

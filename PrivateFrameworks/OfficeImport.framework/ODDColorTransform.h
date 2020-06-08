@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSMutableDictionary;
-
 @interface ODDColorTransform : NSObject {
-    NSMutableDictionary *mStyleLabels;
+    NSMutableDictionary * mStyleLabels;
 }
 
 - (void)dealloc;

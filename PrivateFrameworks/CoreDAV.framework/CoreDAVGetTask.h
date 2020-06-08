@@ -2,27 +2,25 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class <CoreDAVTaskDelegate>;
-
 @interface CoreDAVGetTask : CoreDAVTask {
-    id _appSpecificDataItemResult;
-    BOOL _forceNoCache;
+    id  _appSpecificDataItemResult;
+    bool  _forceNoCache;
 }
 
-@property(retain) id appSpecificDataItemResult;
-@property <CoreDAVTaskDelegate> * delegate;
-@property BOOL forceNoCache;
+@property (nonatomic, retain) id appSpecificDataItemResult;
+@property (nonatomic) <CoreDAVTaskDelegate> *delegate;
+@property (nonatomic) bool forceNoCache;
 
+- (void).cxx_destruct;
 - (id)appSpecificDataItemResult;
-- (unsigned int)cachePolicy;
+- (unsigned long long)cachePolicy;
 - (id)copyDefaultParserForContentType:(id)arg1;
-- (void)dealloc;
 - (id)description;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
-- (BOOL)forceNoCache;
+- (bool)forceNoCache;
 - (id)httpMethod;
 - (id)requestBody;
 - (void)setAppSpecificDataItemResult:(id)arg1;
-- (void)setForceNoCache:(BOOL)arg1;
+- (void)setForceNoCache:(bool)arg1;
 
 @end

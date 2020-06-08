@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/AirPortAssistant.framework/AirPortAssistant
  */
 
-@class NSCharacterSet, NSString;
-
 @interface MACFormatter : APFormatter {
-    NSCharacterSet *_possibleSeparators;
-    NSCharacterSet *_possibleSeparatorsInvertedSet;
-    NSString *_userPreferredSeparator;
+    NSCharacterSet * _possibleSeparators;
+    NSCharacterSet * _possibleSeparatorsInvertedSet;
+    NSString * _userPreferredSeparator;
 }
 
 + (id)macAddressSet;
 + (id)macFormatter;
-+ (BOOL)parseMACAddress:(const char *)arg1 intoHexString:(char *)arg2;
++ (bool)parseMACAddress:(const char *)arg1 intoHexString:(char *)arg2;
 + (id)sharedMACFormatter;
 
 - (void)dealloc;
 - (id)init;
-- (BOOL)isPartialStringValid:(id*)arg1 proposedSelectedRange:(struct _NSRange { unsigned int x1; unsigned int x2; }*)arg2 originalString:(id)arg3 originalSelectedRange:(struct _NSRange { unsigned int x1; unsigned int x2; })arg4 errorDescription:(id*)arg5;
+- (bool)isPartialStringValid:(id*)arg1 proposedSelectedRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; }*)arg2 originalString:(id)arg3 originalSelectedRange:(struct _NSRange { unsigned long long x1; unsigned long long x2; })arg4 errorDescription:(id*)arg5;
 - (id)possibleSeparators;
 - (id)possibleSeparatorsInvertedSet;
 - (void)removeMACAddressSeparatorsFromString:(id)arg1;

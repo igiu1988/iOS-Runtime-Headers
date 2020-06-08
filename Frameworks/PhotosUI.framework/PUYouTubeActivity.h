@@ -2,14 +2,13 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@interface PUYouTubeActivity : PUPublishingActivity {
-}
+@interface PUYouTubeActivity : PUPublishingActivity
 
-- (id)_activityImage;
-- (id)_activitySettingsImage;
+- (id)_activityBundleImageConfiguration;
+- (id)_activitySettingsBundleImageConfiguration;
 - (id)activityTitle;
 - (id)activityType;
-- (BOOL)canPerformWithActivityItems:(id)arg1;
+- (bool)canPerformWithActivityItems:(id)arg1;
 - (id)publishingBundle;
 
 @end

@@ -2,13 +2,11 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSDictionary, NSString;
-
 @interface NSConcreteNotification : NSNotification {
-    BOOL dyingObject;
-    NSString *name;
-    id object;
-    NSDictionary *userInfo;
+    bool  dyingObject;
+    NSString * name;
+    id  object;
+    NSDictionary * userInfo;
 }
 
 + (id)newTempNotificationWithName:(id)arg1 object:(id)arg2 userInfo:(id)arg3;

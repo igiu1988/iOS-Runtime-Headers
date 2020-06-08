@@ -2,24 +2,22 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, SKUIGiftAmount, SKUIGiftCharity, UIImage, UIImageView, UILabel, UIScrollView, UIView;
-
 @interface SKUIDonationAmountView : UIView {
-    NSArray *_amountButtons;
-    UILabel *_amountDisclaimerLabel;
-    SKUIGiftCharity *_charity;
-    UILabel *_descriptionLabel;
-    UILabel *_legalText2Label;
-    UILabel *_legalTextLabel;
-    UIImageView *_logoImageView;
-    UIScrollView *_scrollView;
-    int _selectedAmountIndex;
-    UIView *_separatorView;
+    NSArray * _amountButtons;
+    UILabel * _amountDisclaimerLabel;
+    SKUIGiftCharity * _charity;
+    UILabel * _descriptionLabel;
+    UILabel * _legalText2Label;
+    UILabel * _legalTextLabel;
+    UIImageView * _logoImageView;
+    UIScrollView * _scrollView;
+    long long  _selectedAmountIndex;
+    UIView * _separatorView;
 }
 
-@property(readonly) SKUIGiftCharity * charity;
-@property(retain) UIImage * logoImage;
-@property(readonly) SKUIGiftAmount * selectedAmount;
+@property (nonatomic, readonly) SKUIGiftCharity *charity;
+@property (nonatomic, retain) UIImage *logoImage;
+@property (nonatomic, readonly) SKUIGiftAmount *selectedAmount;
 
 - (void).cxx_destruct;
 - (void)_amountButtonDown:(id)arg1;

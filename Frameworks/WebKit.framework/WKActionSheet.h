@@ -2,36 +2,39 @@
    Image: /System/Library/Frameworks/WebKit.framework/WebKit
  */
 
-@class <WKActionSheetDelegate>, WKContentView;
-
 @interface WKActionSheet : UIAlertController {
+    unsigned long long  _arrowDirections;
+    long long  _currentPresentationStyle;
     struct RetainPtr<UIViewController> { 
         void *m_ptr; 
+    }  _currentPresentingViewController;
+    bool  _isRotating;
     struct RetainPtr<id<UIPopoverPresentationControllerDelegate> > { 
         void *m_ptr; 
-    unsigned int _arrowDirections;
-    BOOL _isRotating;
-    } _popoverPresentationControllerDelegateWhileRotating;
-    } _presentedViewControllerWhileRotating;
-    BOOL _readyToPresentAfterRotation;
-    <WKActionSheetDelegate> *_sheetDelegate;
-    WKContentView *_view;
+    }  _popoverPresentationControllerDelegateWhileRotating;
+    struct RetainPtr<UIViewController> { 
+        void *m_ptr; 
+    }  _presentedViewControllerWhileRotating;
+    bool  _readyToPresentAfterRotation;
+    <WKActionSheetDelegate> * _sheetDelegate;
 }
 
-@property unsigned int arrowDirections;
-@property <WKActionSheetDelegate> * sheetDelegate;
+@property (nonatomic) unsigned long long arrowDirections;
+@property (nonatomic) <WKActionSheetDelegate> *sheetDelegate;
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)_cleanup;
 - (void)_didRotateAndLayout;
-- (unsigned int)arrowDirections;
+- (struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })_presentationRectForStyle:(long long)arg1;
+- (unsigned long long)arrowDirections;
 - (void)dealloc;
 - (void)didRotate;
-- (void)doneWithSheet;
-- (id)initWithView:(id)arg1;
-- (BOOL)presentSheet;
-- (BOOL)presentSheetFromRect:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1;
-- (void)setArrowDirections:(unsigned int)arg1;
+- (void)doneWithSheet:(bool)arg1;
+- (id)init;
+- (bool)presentSheet:(long long)arg1;
+- (bool)presentSheetFromRect:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1;
+- (void)setArrowDirections:(unsigned long long)arg1;
 - (void)setSheetDelegate:(id)arg1;
 - (id)sheetDelegate;
 - (void)updateSheetPosition;

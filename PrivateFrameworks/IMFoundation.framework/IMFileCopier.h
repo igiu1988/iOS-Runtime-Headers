@@ -2,40 +2,34 @@
    Image: /System/Library/PrivateFrameworks/IMFoundation.framework/IMFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class <IMFileCopierDelegate>, NSObject<OS_dispatch_queue>, NSURL;
-
 @interface IMFileCopier : NSObject {
-    void *_BOMCopier;
-    id _callback;
-    <IMFileCopierDelegate> *_delegate;
-    BOOL _didErrorOccur;
-    id _identifier;
-    BOOL _inProgress;
-    NSURL *_inputURL;
-    unsigned int _operation;
-    NSURL *_outputURL;
-    NSObject<OS_dispatch_queue> *_queue;
-    BOOL _shouldCancel;
+    void * _BOMCopier;
+    id /* block */  _callback;
+    <IMFileCopierDelegate> * _delegate;
+    bool  _didErrorOccur;
+    id  _identifier;
+    bool  _inProgress;
+    NSURL * _inputURL;
+    unsigned long long  _operation;
+    NSURL * _outputURL;
+    NSObject<OS_dispatch_queue> * _queue;
+    bool  _shouldCancel;
 }
 
-@property void* _BOMCopier;
-@property id _callback;
-@property NSObject<OS_dispatch_queue> * _queue;
-@property <IMFileCopierDelegate> * delegate;
-@property(readonly) BOOL didErrorOccur;
-@property(readonly) id identifier;
-@property BOOL inProgress;
-@property(readonly) NSURL * inputURL;
-@property unsigned int operation;
-@property(readonly) NSURL * outputURL;
-@property(readonly) BOOL wasCancelled;
+@property void*_BOMCopier;
+@property (copy) id /* block */ _callback;
+@property (retain) NSObject<OS_dispatch_queue> *_queue;
+@property <IMFileCopierDelegate> *delegate;
+@property (nonatomic, readonly) bool didErrorOccur;
+@property (readonly, retain) id identifier;
+@property bool inProgress;
+@property (readonly, retain) NSURL *inputURL;
+@property unsigned long long operation;
+@property (readonly, retain) NSURL *outputURL;
+@property (nonatomic, readonly) bool wasCancelled;
 
 - (void*)_BOMCopier;
-- (id)_callback;
+- (id /* block */)_callback;
 - (void)_fillOutputURLFromInputURL;
 - (void)_main_copierFinishedWithResult:(id)arg1;
 - (id)_queue;
@@ -45,21 +39,21 @@
 - (void)cleanup;
 - (void)dealloc;
 - (id)delegate;
-- (BOOL)didErrorOccur;
+- (bool)didErrorOccur;
 - (id)identifier;
-- (BOOL)inProgress;
-- (id)initWithInputURL:(id)arg1 outputURL:(id)arg2 identifier:(id)arg3 operation:(unsigned int)arg4 completionBlock:(id)arg5 queue:(id)arg6;
-- (id)initWithInputURL:(id)arg1 outputURL:(id)arg2 identifier:(id)arg3 operation:(unsigned int)arg4 delegate:(id)arg5;
+- (bool)inProgress;
+- (id)initWithInputURL:(id)arg1 outputURL:(id)arg2 identifier:(id)arg3 operation:(unsigned long long)arg4 completionBlock:(id /* block */)arg5 queue:(id)arg6;
+- (id)initWithInputURL:(id)arg1 outputURL:(id)arg2 identifier:(id)arg3 operation:(unsigned long long)arg4 delegate:(id)arg5;
 - (id)inputURL;
-- (unsigned int)operation;
+- (unsigned long long)operation;
 - (id)outputURL;
 - (void)setDelegate:(id)arg1;
-- (void)setInProgress:(BOOL)arg1;
-- (void)setOperation:(unsigned int)arg1;
+- (void)setInProgress:(bool)arg1;
+- (void)setOperation:(unsigned long long)arg1;
 - (void)set_BOMCopier:(void*)arg1;
-- (void)set_callback:(id)arg1;
+- (void)set_callback:(id /* block */)arg1;
 - (void)set_queue:(id)arg1;
 - (void)start;
-- (BOOL)wasCancelled;
+- (bool)wasCancelled;
 
 @end

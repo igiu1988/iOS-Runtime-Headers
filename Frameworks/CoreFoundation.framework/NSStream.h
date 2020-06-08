@@ -2,19 +2,17 @@
    Image: /System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
  */
 
-@class <NSStreamDelegate>, NSError;
+@interface NSStream : NSObject
 
-@interface NSStream : NSObject {
-}
+@property <NSStreamDelegate> *delegate;
+@property (readonly, copy) NSError *streamError;
+@property (readonly) unsigned long long streamStatus;
 
-@property <NSStreamDelegate> * delegate;
-@property(copy,readonly) NSError * streamError;
-@property(readonly) unsigned int streamStatus;
+// Image: /System/Library/Frameworks/Foundation.framework/Foundation
 
-+ (void)createBoundInputStream:(id*)arg1 outputStream:(id*)arg2 bufferSize:(unsigned int)arg3;
-+ (void)getBoundStreamsWithBufferSize:(unsigned int)arg1 inputStream:(id*)arg2 outputStream:(id*)arg3;
-+ (void)getStreamsToHost:(id)arg1 port:(int)arg2 inputStream:(id*)arg3 outputStream:(id*)arg4;
-+ (void)getStreamsToHostWithName:(id)arg1 port:(int)arg2 inputStream:(id*)arg3 outputStream:(id*)arg4;
++ (void)getBoundStreamsWithBufferSize:(unsigned long long)arg1 inputStream:(id*)arg2 outputStream:(id*)arg3;
++ (void)getStreamsToHost:(id)arg1 port:(long long)arg2 inputStream:(id*)arg3 outputStream:(id*)arg4;
++ (void)getStreamsToHostWithName:(id)arg1 port:(long long)arg2 inputStream:(id*)arg3 outputStream:(id*)arg4;
 
 - (void)close;
 - (id)delegate;
@@ -23,8 +21,16 @@
 - (void)removeFromRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
 - (void)setDelegate:(id)arg1;
-- (BOOL)setProperty:(id)arg1 forKey:(id)arg2;
+- (bool)setProperty:(id)arg1 forKey:(id)arg2;
 - (id)streamError;
-- (unsigned int)streamStatus;
+- (unsigned long long)streamStatus;
+
+// Image: /System/Library/PrivateFrameworks/CloudKitDaemon.framework/CloudKitDaemon
+
++ (void)createBoundInputStream:(id*)arg1 outputStream:(id*)arg2 bufferSize:(unsigned long long)arg3;
+
+// Image: /System/Library/PrivateFrameworks/CompanionSync.framework/CompanionSync
+
+- (void)_SY_notifyOnQueue:(id)arg1 handler:(id /* block */)arg2;
 
 @end

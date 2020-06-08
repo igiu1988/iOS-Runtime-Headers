@@ -2,34 +2,31 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSDictionary, OITSUColor;
-
 @interface MFPColorAdjust : NSObject {
+    struct MFPColorMatrix { float x1[5][5]; } * mColorMatrix;
+    int  mColorMatrixFlags;
+    bool  mEnabled;
+    float  mGamma;
+    struct MFPColorMatrix { float x1[5][5]; } * mGrayMatrix;
+    NSDictionary * mRecolorMap;
+    float  mThreshold;
     struct { 
         OITSUColor *mLow; 
         OITSUColor *mHigh; 
-    struct MFPColorMatrix { float x1[5][5]; } *mColorMatrix;
-    int mColorMatrixFlags;
-    BOOL mEnabled;
-    float mGamma;
-    struct MFPColorMatrix { float x1[5][5]; } *mGrayMatrix;
-    NSDictionary *mRecolorMap;
-    float mThreshold;
-    } mTransparentRange;
+    }  mTransparentRange;
 }
 
-- (id).cxx_construct;
 - (struct MFPColorMatrix { float x1[5][5]; }*)colorMatrix;
 - (int)colorMatrixFlags;
 - (void)dealloc;
 - (float)gamma;
 - (struct MFPColorMatrix { float x1[5][5]; }*)grayMatrix;
 - (id)init;
-- (BOOL)isEnabled;
+- (bool)isEnabled;
 - (id)recolorMap;
 - (void)setColorMatrix:(struct MFPColorMatrix { float x1[5][5]; }*)arg1;
 - (void)setColorMatrixFlags:(int)arg1;
-- (void)setEnabled:(BOOL)arg1;
+- (void)setEnabled:(bool)arg1;
 - (void)setGamma:(float)arg1;
 - (void)setGrayMatrix:(struct MFPColorMatrix { float x1[5][5]; }*)arg1;
 - (void)setRecolorMap:(id)arg1;

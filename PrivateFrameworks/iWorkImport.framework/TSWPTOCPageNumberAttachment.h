@@ -2,31 +2,23 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered one or more ivar type encodings for a function pointer. 
-   The runtime does not encode function signature information.  We use a signature of: 
-           "int (*funcName)()",  where funcName might be null. 
- */
-
-@class NSString;
-
 @interface TSWPTOCPageNumberAttachment : TSWPTextualAttachment {
-    NSString *_bookmarkName;
-    NSString *_pageNumber;
+    NSString * _bookmarkName;
+    NSString * _pageNumber;
 }
 
-@property(copy) NSString * bookmarkName;
-@property(copy) NSString * pageNumber;
+@property (nonatomic, copy) NSString *bookmarkName;
+@property (nonatomic, copy) NSString *pageNumber;
 
-- (const struct TextualAttachmentArchive { int (**x1)(); struct UnknownFieldSet { struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField> > {} *x_2_1_1; } x2; struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > {} *x3; int x4; int x5; unsigned int x6[1]; }*)textualAttachmentArchiveFromUnarchiver:(id)arg1;
+- (void).cxx_destruct;
 - (id)bookmarkName;
-- (void)dealloc;
 - (int)elementKind;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)pageNumber;
 - (void)saveToArchiver:(id)arg1;
 - (void)setBookmarkName:(id)arg1;
 - (void)setPageNumber:(id)arg1;
 - (id)stringEquivalent;
-- (id)stringWithPageNumber:(unsigned int)arg1 pageCount:(unsigned int)arg2 charIndex:(unsigned int)arg3;
+- (id)stringWithPageNumber:(unsigned long long)arg1 pageCount:(unsigned long long)arg2 charIndex:(unsigned long long)arg3;
 
 @end

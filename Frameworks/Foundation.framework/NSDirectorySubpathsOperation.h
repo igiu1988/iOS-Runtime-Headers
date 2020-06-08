@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-@class NSMutableArray;
-
 @interface NSDirectorySubpathsOperation : NSDirectoryTraversalOperation {
-    NSMutableArray *_subpaths;
+    NSMutableArray * _subpaths;
 }
 
 + (id)_errorWithErrno:(int)arg1 atPath:(id)arg2;

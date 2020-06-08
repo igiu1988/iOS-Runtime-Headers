@@ -6,32 +6,32 @@
     struct { 
         unsigned int sessionIdentifier : 1; 
         unsigned int wifiAvailable : 1; 
-    } _has;
-    int _sessionIdentifier;
-    BOOL _wifiAvailable;
+    }  _has;
+    int  _sessionIdentifier;
+    bool  _wifiAvailable;
 }
 
-@property BOOL hasSessionIdentifier;
-@property BOOL hasWifiAvailable;
-@property int sessionIdentifier;
-@property BOOL wifiAvailable;
+@property (nonatomic) bool hasSessionIdentifier;
+@property (nonatomic) bool hasWifiAvailable;
+@property (nonatomic) int sessionIdentifier;
+@property (nonatomic) bool wifiAvailable;
 
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
 - (id)description;
 - (id)dictionaryRepresentation;
-- (BOOL)hasSessionIdentifier;
-- (BOOL)hasWifiAvailable;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasSessionIdentifier;
+- (bool)hasWifiAvailable;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (int)sessionIdentifier;
-- (void)setHasSessionIdentifier:(BOOL)arg1;
-- (void)setHasWifiAvailable:(BOOL)arg1;
+- (void)setHasSessionIdentifier:(bool)arg1;
+- (void)setHasWifiAvailable:(bool)arg1;
 - (void)setSessionIdentifier:(int)arg1;
-- (void)setWifiAvailable:(BOOL)arg1;
-- (BOOL)wifiAvailable;
+- (void)setWifiAvailable:(bool)arg1;
+- (bool)wifiAvailable;
 - (void)writeTo:(id)arg1;
 
 @end

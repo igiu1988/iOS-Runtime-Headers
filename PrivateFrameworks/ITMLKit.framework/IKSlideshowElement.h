@@ -2,19 +2,16 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class NSArray;
+@interface IKSlideshowElement : IKViewElement
 
-@interface IKSlideshowElement : IKViewElement {
-}
-
-@property(retain,readonly) NSArray * images;
-@property(readonly) int showSettings;
-@property(readonly) unsigned int transition;
-@property(readonly) double transitionInterval;
+@property (nonatomic, readonly, retain) NSArray *images;
+@property (nonatomic, readonly) long long showSettings;
+@property (nonatomic, readonly) unsigned long long transition;
+@property (nonatomic, readonly) double transitionInterval;
 
 - (id)images;
-- (int)showSettings;
-- (unsigned int)transition;
+- (long long)showSettings;
+- (unsigned long long)transition;
 - (double)transitionInterval;
 
 @end

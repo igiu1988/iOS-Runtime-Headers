@@ -2,32 +2,36 @@
    Image: /System/Library/PrivateFrameworks/TouchRemote.framework/TouchRemote
  */
 
-@class <TRDeviceSetupBrowserDelegate>, NSString, TRDeviceSetupPeripheral, TRTransferBrowser;
-
 @interface TRDeviceSetupBrowser : NSObject <TRTransferBrowserDelegate> {
-    <TRDeviceSetupBrowserDelegate> *_delegate;
-    TRDeviceSetupPeripheral *_peripheral;
-    TRTransferBrowser *_transferBrowser;
+    <TRDeviceSetupBrowserDelegate> * _delegate;
+    TRDeviceSetupPeripheral * _peripheral;
+    TRTransferBrowser * _transferBrowser;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property <TRDeviceSetupBrowserDelegate> * delegate;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) int state;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) <TRDeviceSetupBrowserDelegate> *delegate;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, retain) TRDeviceSetupPeripheral *peripheral;
+@property (nonatomic, readonly) long long state;
+@property (readonly) Class superclass;
+@property (nonatomic, retain) TRTransferBrowser *transferBrowser;
 
 - (void).cxx_destruct;
-- (id)browser:(id)arg1 didReceiveData:(id)arg2;
+- (void)browser:(id)arg1 didReceiveData:(id)arg2 replyHandler:(id /* block */)arg3;
+- (void)browser:(id)arg1 didStartTransferWithSendDataHandler:(id /* block */)arg2;
 - (void)browserDidChangeState:(id)arg1;
 - (void)browserDidDisconnect:(id)arg1;
-- (id)browserDidStartTransfer:(id)arg1;
 - (void)defer;
 - (id)delegate;
 - (id)init;
+- (id)peripheral;
 - (void)setDelegate:(id)arg1;
+- (void)setPeripheral:(id)arg1;
+- (void)setTransferBrowser:(id)arg1;
 - (void)start;
-- (int)state;
+- (long long)state;
 - (void)stop;
+- (id)transferBrowser;
 
 @end

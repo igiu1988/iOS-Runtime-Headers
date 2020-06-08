@@ -3,17 +3,17 @@
  */
 
 @interface PSWeakReference : NSObject <NSCopying> {
-    id _location;
+    id  _location;
 }
 
 + (id)weakReferenceWithObject:(id)arg1;
 
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (void)dealloc;
 - (id)forwardingTargetForSelector:(SEL)arg1;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (id)initWithObject:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (id)object;
 
 @end

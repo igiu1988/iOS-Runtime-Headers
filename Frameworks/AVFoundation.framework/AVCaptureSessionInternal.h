@@ -2,36 +2,40 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVCaptureDevice, AVCaptureSessionConfiguration, AVRunLoopCondition, AVWeakReference, FigCaptureSessionConfiguration, NSError, NSHashTable, NSMutableArray, NSString;
-
 @interface AVCaptureSessionInternal : NSObject {
-    AVCaptureDevice *adjustingDeviceActiveFormat;
-    BOOL adjustingVideoDeviceHDREnabled;
-    BOOL automaticallyConfiguresApplicationAudioSession;
-    int beginConfigRefCount;
-    NSMutableArray *committedAVCaptureSessionConfigurations;
-    NSMutableArray *connections;
-    struct OpaqueFigCaptureSession { } *figCaptureSession;
-    BOOL figCaptureSessionRunning;
-    NSMutableArray *inputs;
-    BOOL interrupted;
-    AVCaptureSessionConfiguration *liveAVCaptureSessionConfiguration;
-    struct OpaqueCMClock { } *masterClock;
-    BOOL notifiesOnMainThread;
-    NSMutableArray *outputs;
-    AVRunLoopCondition *runLoopCondition;
-    BOOL running;
-    FigCaptureSessionConfiguration *sessionConfig;
-    NSString *sessionPreset;
-    BOOL sessionPresetChanging;
-    NSError *stopError;
-    BOOL usesApplicationAudioSession;
-    NSHashTable *videoPreviewLayers;
-    BOOL waitingForFigCaptureSessionConfigurationToBecomeLive;
-    BOOL waitingForFigCaptureSessionToStart;
-    BOOL waitingForFigCaptureSessionToStop;
-    BOOL waitingForFigCaptureSessionToStopDueToEmptyConfig;
-    AVWeakReference *weakReference;
+    AVCaptureDevice * adjustingDeviceActiveFormat;
+    bool  adjustingVideoDeviceHDREnabled;
+    bool  authorizedToUseCameraInMultipleForegroundAppLayout;
+    bool  automaticallyConfiguresApplicationAudioSession;
+    bool  automaticallyConfiguresCaptureDeviceForWideColor;
+    int  beginConfigRefCount;
+    NSMutableArray * committedAVCaptureSessionConfigurations;
+    NSMutableArray * connections;
+    struct OpaqueFigCaptureSession { } * figCaptureSession;
+    bool  figCaptureSessionRunning;
+    bool  figCaptureSessionStarted;
+    struct ct_green_tea_logger_s { } * greenTeaLogger;
+    NSMutableArray * inputs;
+    bool  interrupted;
+    AVCaptureSessionConfiguration * liveAVCaptureSessionConfiguration;
+    struct OpaqueCMClock { } * masterClock;
+    bool  notifiesOnMainThread;
+    NSMutableArray * outputs;
+    bool  resetVideoZoomFactorAndMinMaxFrameDurations;
+    AVRunLoopCondition * runLoopCondition;
+    bool  running;
+    id  serverConnectionDiedNotificationToken;
+    NSObject<OS_dispatch_semaphore> * serverConnectionDiedSemaphore;
+    FigCaptureSessionConfiguration * sessionConfig;
+    NSString * sessionPreset;
+    NSError * stopError;
+    bool  usesApplicationAudioSession;
+    bool  videoInputDeviceUsed;
+    NSHashTable * videoPreviewLayers;
+    bool  waitingForFigCaptureSessionConfigurationToBecomeLive;
+    bool  waitingForFigCaptureSessionToStart;
+    bool  waitingForFigCaptureSessionToStop;
+    AVWeakReference * weakReference;
 }
 
 @end

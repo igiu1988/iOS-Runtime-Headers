@@ -2,21 +2,19 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class NSArray, NSHashTable;
-
 @interface AVCaptureSessionConfiguration : NSObject {
-    long long _configurationID;
-    NSArray *_connections;
-    NSArray *_inputs;
-    NSArray *_outputs;
-    NSHashTable *_videoPreviewLayers;
+    long long  _configurationID;
+    NSArray * _connections;
+    NSArray * _inputs;
+    NSArray * _outputs;
+    NSHashTable * _videoPreviewLayers;
 }
 
-@property(readonly) long long configurationID;
-@property(readonly) NSArray * connections;
-@property(readonly) NSArray * inputs;
-@property(readonly) NSArray * outputs;
-@property(readonly) NSHashTable * videoPreviewLayers;
+@property (readonly) long long configurationID;
+@property (readonly) NSArray *connections;
+@property (readonly) NSArray *inputs;
+@property (readonly) NSArray *outputs;
+@property (readonly) NSHashTable *videoPreviewLayers;
 
 - (long long)configurationID;
 - (id)connections;

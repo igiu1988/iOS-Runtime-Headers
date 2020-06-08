@@ -2,27 +2,22 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class NSError, NSObject<OS_dispatch_queue>, NSString, TSUFileIOChannel;
-
 @interface TSPComponentWriteChannelAdapter : NSObject <TSPComponentWriteChannel> {
-    TSUFileIOChannel *_channel;
-    NSError *_error;
-    id _handler;
-    NSObject<OS_dispatch_queue> *_queue;
+    TSUFileIOChannel * _channel;
+    NSError * _error;
+    id /* block */  _handler;
+    NSObject<OS_dispatch_queue> * _queue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
+- (void)_close;
 - (void)close;
-- (id)initWithQueue:(id)arg1 channel:(id)arg2 handler:(id)arg3;
+- (id)initWithChannel:(id)arg1 handler:(id /* block */)arg2;
 - (void)setError:(id)arg1;
 - (void)writeData:(id)arg1;
 

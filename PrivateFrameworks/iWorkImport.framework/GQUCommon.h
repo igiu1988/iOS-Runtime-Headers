@@ -2,9 +2,8 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@interface GQUCommon : NSObject {
-}
+@interface GQUCommon : NSObject
 
-+ (BOOL)fileExistsAtUrl:(struct __CFURL { }*)arg1;
++ (bool)fileExistsAtUrl:(struct __CFURL { }*)arg1;
 
 @end

@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/BulletinDistributorCompanion.framework/BulletinDistributorCompanion
  */
 
-@class NSData;
-
 @interface BLTPBSectionIconVariant : PBCodable <NSCopying> {
+    unsigned int  _format;
     struct { 
         unsigned int precomposed : 1; 
-    unsigned int _format;
-    } _has;
-    NSData *_imageData;
-    BOOL _precomposed;
+    }  _has;
+    NSData * _imageData;
+    bool  _precomposed;
 }
 
-@property unsigned int format;
-@property(readonly) BOOL hasImageData;
-@property BOOL hasPrecomposed;
-@property(retain) NSData * imageData;
-@property BOOL precomposed;
+@property (nonatomic) unsigned int format;
+@property (nonatomic, readonly) bool hasImageData;
+@property (nonatomic) bool hasPrecomposed;
+@property (nonatomic, retain) NSData *imageData;
+@property (nonatomic) bool precomposed;
 
 - (void).cxx_destruct;
 - (void)copyTo:(id)arg1;
@@ -25,18 +23,18 @@
 - (id)description;
 - (id)dictionaryRepresentation;
 - (unsigned int)format;
-- (BOOL)hasImageData;
-- (BOOL)hasPrecomposed;
-- (unsigned int)hash;
+- (bool)hasImageData;
+- (bool)hasPrecomposed;
+- (unsigned long long)hash;
 - (id)imageData;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
-- (BOOL)precomposed;
-- (BOOL)readFrom:(id)arg1;
+- (bool)precomposed;
+- (bool)readFrom:(id)arg1;
 - (void)setFormat:(unsigned int)arg1;
-- (void)setHasPrecomposed:(BOOL)arg1;
+- (void)setHasPrecomposed:(bool)arg1;
 - (void)setImageData:(id)arg1;
-- (void)setPrecomposed:(BOOL)arg1;
+- (void)setPrecomposed:(bool)arg1;
 - (void)writeTo:(id)arg1;
 
 @end

@@ -2,59 +2,57 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSArray, NSMutableDictionary, NSString, NSURL, SKUIDeveloperInfo, SKUIItemContentRating, SKUIStoreNotes;
-
 @interface SKUIProductPageItem : SKUIItem {
-    NSURL *_artistPageURL;
-    NSArray *_childItemIdentifiers;
-    SKUIItemContentRating *_contentRating;
-    NSString *_copyrightString;
-    SKUIDeveloperInfo *_developerInfo;
-    NSArray *_inAppPurchases;
-    NSString *_installationRequirementsDescription;
-    NSString *_itemDescription;
-    NSString *_lastUpdateDateString;
-    NSString *_licenseAgreementURLString;
-    NSMutableDictionary *_loadedChildItems;
-    NSArray *_parentBundleItemIdentifiers;
-    NSString *_privacyPolicyURLString;
-    NSString *_regularPriceString;
-    NSArray *_releaseNotes;
-    NSString *_reviewsURLString;
-    NSArray *_screenshots;
-    NSArray *_secondaryContentRatings;
-    NSString *_sellerName;
-    NSString *_shortenedProductPageURLString;
-    SKUIStoreNotes *_storeNotes;
-    NSString *_supportURLString;
-    int _supportedFeatures;
-    unsigned int _supportedGameCenterFeatures;
-    NSString *_updateDescription;
+    NSURL * _artistPageURL;
+    NSArray * _childItemIdentifiers;
+    SKUIItemContentRating * _contentRating;
+    NSString * _copyrightString;
+    SKUIDeveloperInfo * _developerInfo;
+    NSArray * _inAppPurchases;
+    NSString * _installationRequirementsDescription;
+    NSString * _itemDescription;
+    NSString * _lastUpdateDateString;
+    NSString * _licenseAgreementURLString;
+    NSMutableDictionary * _loadedChildItems;
+    NSArray * _parentBundleItemIdentifiers;
+    NSString * _privacyPolicyURLString;
+    NSString * _regularPriceString;
+    NSArray * _releaseNotes;
+    NSString * _reviewsURLString;
+    NSArray * _screenshots;
+    NSArray * _secondaryContentRatings;
+    NSString * _sellerName;
+    NSString * _shortenedProductPageURLString;
+    SKUIStoreNotes * _storeNotes;
+    NSString * _supportURLString;
+    long long  _supportedFeatures;
+    unsigned long long  _supportedGameCenterFeatures;
+    NSString * _updateDescription;
 }
 
-@property(readonly) NSURL * artistPageURL;
-@property(readonly) SKUIItemContentRating * contentRating;
-@property(readonly) NSString * copyrightString;
-@property(readonly) SKUIDeveloperInfo * developerInfo;
-@property(readonly) NSArray * inAppPurchases;
-@property(readonly) NSString * installationRequirementsDescription;
-@property(readonly) NSString * itemDescription;
-@property(readonly) NSString * lastUpdateDateString;
-@property(readonly) NSString * licenseAgreementURLString;
-@property(readonly) NSArray * parentBundleItemIdentifiers;
-@property(readonly) NSString * privacyPolicyURLString;
-@property(readonly) NSString * regularPriceString;
-@property(readonly) NSArray * releaseNotes;
-@property(readonly) NSString * reviewsURLString;
-@property(readonly) NSArray * screenshots;
-@property(readonly) NSArray * secondaryContentRatings;
-@property(readonly) NSString * sellerName;
-@property(readonly) NSString * shortenedProductPageURLString;
-@property(readonly) SKUIStoreNotes * storeNotes;
-@property(readonly) NSString * supportURLString;
-@property(readonly) int supportedFeatures;
-@property(readonly) unsigned int supportedGameCenterFeatures;
-@property(readonly) NSString * updateDescription;
+@property (nonatomic, readonly) NSURL *artistPageURL;
+@property (nonatomic, readonly) SKUIItemContentRating *contentRating;
+@property (nonatomic, readonly) NSString *copyrightString;
+@property (nonatomic, readonly) SKUIDeveloperInfo *developerInfo;
+@property (nonatomic, readonly) NSArray *inAppPurchases;
+@property (nonatomic, readonly) NSString *installationRequirementsDescription;
+@property (nonatomic, readonly) NSString *itemDescription;
+@property (nonatomic, readonly) NSString *lastUpdateDateString;
+@property (nonatomic, readonly) NSString *licenseAgreementURLString;
+@property (nonatomic, readonly) NSArray *parentBundleItemIdentifiers;
+@property (nonatomic, readonly) NSString *privacyPolicyURLString;
+@property (nonatomic, readonly) NSString *regularPriceString;
+@property (nonatomic, readonly) NSArray *releaseNotes;
+@property (nonatomic, readonly) NSString *reviewsURLString;
+@property (nonatomic, readonly) NSArray *screenshots;
+@property (nonatomic, readonly) NSArray *secondaryContentRatings;
+@property (nonatomic, readonly) NSString *sellerName;
+@property (nonatomic, readonly) NSString *shortenedProductPageURLString;
+@property (nonatomic, readonly) SKUIStoreNotes *storeNotes;
+@property (nonatomic, readonly) NSString *supportURLString;
+@property (nonatomic, readonly) long long supportedFeatures;
+@property (nonatomic, readonly) unsigned long long supportedGameCenterFeatures;
+@property (nonatomic, readonly) NSString *updateDescription;
 
 - (void).cxx_destruct;
 - (void)_setInAppPurchases:(id)arg1;
@@ -72,7 +70,7 @@
 - (id)lastUpdateDateString;
 - (id)licenseAgreementURLString;
 - (id)loadedChildItems;
-- (int)numberOfChildItems;
+- (long long)numberOfChildItems;
 - (id)parentBundleItemIdentifiers;
 - (id)privacyPolicyURLString;
 - (id)regularPriceString;
@@ -84,8 +82,8 @@
 - (id)shortenedProductPageURLString;
 - (id)storeNotes;
 - (id)supportURLString;
-- (int)supportedFeatures;
-- (unsigned int)supportedGameCenterFeatures;
+- (long long)supportedFeatures;
+- (unsigned long long)supportedGameCenterFeatures;
 - (id)updateDescription;
 
 @end

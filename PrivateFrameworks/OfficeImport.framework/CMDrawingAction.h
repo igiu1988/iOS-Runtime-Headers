@@ -3,11 +3,12 @@
  */
 
 @interface CMDrawingAction : NSObject {
-    float _floatValue;
-    int _type;
-    id _value;
+    float  _floatValue;
+    int  _type;
+    id  _value;
 }
 
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)description;
 - (float)floatValue;

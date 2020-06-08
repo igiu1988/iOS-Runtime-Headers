@@ -2,28 +2,26 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class NSString;
-
 @interface TCOfficeFontInfo : NSObject {
-    NSString *_alphaFontName;
-    NSString *_fontName;
-    BOOL _isBold;
-    BOOL _isItalic;
+    NSString * _alphaFontName;
+    NSString * _fontName;
+    bool  _isBold;
+    bool  _isItalic;
 }
 
-@property(retain) NSString * alphaFontName;
-@property(retain) NSString * fontName;
-@property BOOL isBold;
-@property BOOL isItalic;
+@property (nonatomic, readonly) NSString *alphaFontName;
+@property (nonatomic, readonly) NSString *fontName;
+@property (nonatomic, readonly) bool isBold;
+@property (nonatomic, readonly) bool isItalic;
+
++ (id)officeFontInfoWithFontName:(id)arg1 alphaFontName:(id)arg2 isBold:(bool)arg3 isItalic:(bool)arg4;
 
 - (id)alphaFontName;
+- (void)dealloc;
 - (id)description;
 - (id)fontName;
-- (BOOL)isBold;
-- (BOOL)isItalic;
-- (void)setAlphaFontName:(id)arg1;
-- (void)setFontName:(id)arg1;
-- (void)setIsBold:(BOOL)arg1;
-- (void)setIsItalic:(BOOL)arg1;
+- (id)initWithFontName:(id)arg1 alphaFontName:(id)arg2 isBold:(bool)arg3 isItalic:(bool)arg4;
+- (bool)isBold;
+- (bool)isItalic;
 
 @end

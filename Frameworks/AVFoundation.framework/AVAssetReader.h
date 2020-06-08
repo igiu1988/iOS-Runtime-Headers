@@ -2,31 +2,34 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVAsset, AVAssetReaderInternal, NSArray, NSError;
-
 @interface AVAssetReader : NSObject {
-    AVAssetReaderInternal *_priv;
+    AVAssetReaderInternal * _priv;
 }
 
-@property(retain,readonly) AVAsset * asset;
-@property(readonly) NSError * error;
-@property(getter=_figAssetReader,readonly) struct OpaqueFigAssetReader { }* figAssetReader;
-@property(readonly) NSArray * outputs;
-@property(readonly) int status;
-@property struct { struct { long long x_1_1_1; int x_1_1_2; unsigned int x_1_1_3; long long x_1_1_4; } x1; struct { long long x_2_1_1; int x_2_1_2; unsigned int x_2_1_3; long long x_2_1_4; } x2; } timeRange;
+@property (nonatomic, readonly, retain) AVAsset *asset;
+@property (readonly) NSError *error;
+@property (getter=_figAssetReader, nonatomic, readonly) struct OpaqueFigAssetReader { }*figAssetReader;
+@property (nonatomic, readonly) NSArray *outputs;
+@property (getter=_readSingleSample, setter=_setReadSingleSample:, nonatomic) bool readSingleSample;
+@property (readonly) long long status;
+@property (nonatomic) struct { struct { long long x_1_1_1; int x_1_1_2; unsigned int x_1_1_3; long long x_1_1_4; } x1; struct { long long x_2_1_1; int x_2_1_2; unsigned int x_2_1_3; long long x_2_1_4; } x2; } timeRange;
 
-+ (id)_errorForOSStatus:(long)arg1;
++ (id)_errorForOSStatus:(int)arg1;
 + (id)assetReaderWithAsset:(id)arg1 error:(id*)arg2;
 + (void)initialize;
 
-- (BOOL)_canAddOutput:(id)arg1 exceptionReason:(id*)arg2;
+- (bool)_canAddOutput:(id)arg1 exceptionReason:(id*)arg2;
+- (void)_failWithError:(id)arg1;
 - (struct OpaqueFigAssetReader { }*)_figAssetReader;
 - (void)_handleServerDiedNotification;
+- (void)_outputDidFinish:(id)arg1;
+- (bool)_readSingleSample;
+- (void)_setReadSingleSample:(bool)arg1;
 - (void)_tearDownFigAssetReader;
-- (void)_transitionToStatus:(int)arg1 failureError:(id)arg2;
+- (void)_transitionToStatus:(long long)arg1 failureError:(id)arg2;
 - (void)addOutput:(id)arg1;
 - (id)asset;
-- (BOOL)canAddOutput:(id)arg1;
+- (bool)canAddOutput:(id)arg1;
 - (void)cancelReading;
 - (void)dealloc;
 - (id)description;
@@ -34,11 +37,10 @@
 - (void)finalize;
 - (id)init;
 - (id)initWithAsset:(id)arg1 error:(id*)arg2;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void*)arg4;
 - (id)outputs;
 - (void)setTimeRange:(struct { struct { long long x_1_1_1; int x_1_1_2; unsigned int x_1_1_3; long long x_1_1_4; } x1; struct { long long x_2_1_1; int x_2_1_2; unsigned int x_2_1_3; long long x_2_1_4; } x2; })arg1;
-- (BOOL)startReading;
-- (int)status;
+- (bool)startReading;
+- (long long)status;
 - (struct { struct { long long x_1_1_1; int x_1_1_2; unsigned int x_1_1_3; long long x_1_1_4; } x1; struct { long long x_2_1_1; int x_2_1_2; unsigned int x_2_1_3; long long x_2_1_4; } x2; })timeRange;
 
 @end

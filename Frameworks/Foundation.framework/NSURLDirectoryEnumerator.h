@@ -2,27 +2,22 @@
    Image: /System/Library/Frameworks/Foundation.framework/Foundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface NSURLDirectoryEnumerator : NSDirectoryEnumerator {
-    struct __CFURLEnumerator { } *_enumerator;
-    id _errorHandler;
-    BOOL shouldContinue;
+    struct __CFURLEnumerator { } * _enumerator;
+    id /* block */  _errorHandler;
+    bool  shouldContinue;
 }
 
-@property(copy) id errorHandler;
+@property (copy) id /* block */ errorHandler;
 
 - (void)dealloc;
 - (id)directoryAttributes;
-- (id)errorHandler;
+- (id /* block */)errorHandler;
 - (id)fileAttributes;
-- (void)finalize;
-- (id)initWithURL:(id)arg1 includingPropertiesForKeys:(id)arg2 options:(unsigned int)arg3 errorHandler:(id)arg4;
-- (unsigned int)level;
+- (id)initWithURL:(id)arg1 includingPropertiesForKeys:(id)arg2 options:(unsigned long long)arg3 errorHandler:(id /* block */)arg4;
+- (unsigned long long)level;
 - (id)nextObject;
-- (void)setErrorHandler:(id)arg1;
+- (void)setErrorHandler:(id /* block */)arg1;
 - (void)skipDescendants;
 - (void)skipDescendents;
 

@@ -2,61 +2,32 @@
    Image: /System/Library/PrivateFrameworks/AssertionServices.framework/AssertionServices
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class BKSProcessAssertionClient, BSSignal, NSObject<OS_dispatch_queue>, NSString;
-
-@interface BKSProcessAssertion : NSObject <BKSProcessAssertionClientHandler> {
-    BOOL _acquired;
-    BOOL _acquiring;
-    id _acquisitionHandler;
-    NSString *_bundleIdentifier;
-    BKSProcessAssertionClient *_client;
-    NSObject<OS_dispatch_queue> *_clientQueue;
-    unsigned int _flags;
-    NSString *_identifier;
-    id _invalidationHandler;
-    BSSignal *_invalidationSignal;
-    NSString *_name;
-    int _pid;
-    unsigned int _reason;
+@interface BKSProcessAssertion : BKSAssertion {
+    NSString * _bundleIdentifier;
+    unsigned int  _flags;
+    int  _pid;
+    unsigned int  _reason;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property unsigned int flags;
-@property(readonly) unsigned int hash;
-@property(copy) id invalidationHandler;
-@property(copy) NSString * name;
-@property(readonly) unsigned int reason;
-@property(readonly) Class superclass;
-@property(readonly) BOOL valid;
+@property (nonatomic) unsigned int flags;
+@property (nonatomic, readonly) unsigned int reason;
 
 + (id)NameForReason:(unsigned int)arg1;
 
-- (void)_clientQueue_acquireAssertion;
-- (void)_clientQueue_invalidate:(BOOL)arg1;
-- (void)_clientQueue_notifyAssertionAcquired:(BOOL)arg1;
-- (void)_clientQueue_setAcquisitionHandler:(id)arg1;
-- (void)_clientQueue_updateAssertion;
-- (id)acquisitionHandler;
-- (void)assertionDidInvalidate;
+- (id)_clientQueue_createEvent;
+- (id)_clientQueue_destroyEvent;
+- (id)_clientQueue_updateEvent;
 - (void)dealloc;
 - (unsigned int)flags;
 - (id)init;
-- (id)initWithBundleIdentifier:(id)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id)arg5;
-- (id)initWithPID:(int)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id)arg5;
-- (void)invalidate;
-- (id)invalidationHandler;
-- (id)name;
+- (id)initWithBundleIdentifier:(id)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4;
+- (id)initWithBundleIdentifier:(id)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id /* block */)arg5;
+- (id)initWithBundleIdentifier:(id)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id /* block */)arg5 acquire:(bool)arg6;
+- (id)initWithBundleIdentifier:(id)arg1 pid:(int)arg2 flags:(unsigned int)arg3 reason:(unsigned int)arg4 name:(id)arg5 withHandler:(id /* block */)arg6 acquire:(bool)arg7;
+- (id)initWithPID:(int)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4;
+- (id)initWithPID:(int)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id /* block */)arg5;
+- (id)initWithPID:(int)arg1 flags:(unsigned int)arg2 reason:(unsigned int)arg3 name:(id)arg4 withHandler:(id /* block */)arg5 acquire:(bool)arg6;
 - (unsigned int)reason;
-- (void)setAcquisitionHandler:(id)arg1;
 - (void)setFlags:(unsigned int)arg1;
-- (void)setInvalidationHandler:(id)arg1;
-- (void)setName:(id)arg1;
-- (void)setReason:(unsigned int)arg1;
-- (BOOL)valid;
 
 @end

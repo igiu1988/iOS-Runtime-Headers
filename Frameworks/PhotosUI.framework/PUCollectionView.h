@@ -2,42 +2,52 @@
    Image: /System/Library/Frameworks/PhotosUI.framework/PhotosUI
  */
 
-@class <PUCollectionViewReorderDelegate>, NSIndexPath, NSString, PUAutoScroller, UILongPressGestureRecognizer, UIView;
-
 @interface PUCollectionView : UICollectionView <UIGestureRecognizerDelegate> {
+    _UIDragSnappingFeedbackGenerator * __feedbackDragBehavior;
+    PXUIAutoScroller * _autoScroller;
+    UILongPressGestureRecognizer * _dragGestureRecognizer;
+    NSIndexPath * _dragSourceIndexPath;
+    NSIndexPath * _dragTargetIndexPath;
+    UIView * _draggedView;
     struct CGPoint { 
-        float x; 
-        float y; 
-    PUAutoScroller *_autoScroller;
-    UILongPressGestureRecognizer *_dragGestureRecognizer;
-    NSIndexPath *_dragSourceIndexPath;
-    NSIndexPath *_dragTargetIndexPath;
-    UIView *_draggedView;
-    } _draggedViewCenterOffset;
-    <PUCollectionViewReorderDelegate> *_reorderDelegate;
+        double x; 
+        double y; 
+    }  _draggedViewCenterOffset;
+    <PUCollectionViewReorderDelegate> * _reorderDelegate;
+    <PUCollectionViewSelectionDelegate> * _selectionDelegate;
+    bool  _shouldWorkaround34630932;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property <PUCollectionViewReorderDelegate> * reorderDelegate;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) _UIDragSnappingFeedbackGenerator *_feedbackDragBehavior;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic) <PUCollectionViewReorderDelegate> *reorderDelegate;
+@property (nonatomic) <PUCollectionViewSelectionDelegate> *selectionDelegate;
+@property (readonly) Class superclass;
 
 + (id)_reuseKeyForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(id)arg2;
 
 - (void).cxx_destruct;
+- (void)_applyAutomaticAdjustedContentOffset:(struct CGPoint { double x1; double x2; })arg1;
+- (id)_feedbackDragBehavior;
 - (void)_handleDrag:(id)arg1;
 - (id)_reorderableLayout;
-- (void)_updateDragUsingIndexPathUpdateBlock:(id)arg1;
+- (void)_updateDragUsingIndexPathUpdateBlock:(id /* block */)arg1;
+- (void)adjustedContentInsetDidChange;
 - (void)dealloc;
 - (void)deleteItemsAtIndexPaths:(id)arg1;
-- (BOOL)gestureRecognizerShouldBegin:(id)arg1;
-- (id)initWithFrame:(struct CGRect { struct CGPoint { float x_1_1_1; float x_1_1_2; } x1; struct CGSize { float x_2_1_1; float x_2_1_2; } x2; })arg1 collectionViewLayout:(id)arg2;
+- (void)didScrollToInitialPosition;
+- (bool)gestureRecognizerShouldBegin:(id)arg1;
+- (id)indexPathsForSelectedItems;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x_1_1_1; double x_1_1_2; } x1; struct CGSize { double x_2_1_1; double x_2_1_2; } x2; })arg1 collectionViewLayout:(id)arg2;
 - (void)insertItemsAtIndexPaths:(id)arg1;
 - (void)moveItemAtIndexPath:(id)arg1 toIndexPath:(id)arg2;
 - (void)reloadData;
 - (id)reorderDelegate;
+- (id)selectionDelegate;
 - (void)setReorderDelegate:(id)arg1;
-- (void)visiblyInsertItemAtIndexPath:(id)arg1 modelUpdate:(id)arg2 completionHandler:(id)arg3;
+- (void)setSelectionDelegate:(id)arg1;
+- (void)visiblyInsertItemAtIndexPath:(id)arg1 modelUpdate:(id /* block */)arg2 completionHandler:(id /* block */)arg3;
 
 @end

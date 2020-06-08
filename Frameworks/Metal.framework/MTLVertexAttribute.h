@@ -2,23 +2,16 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-@class NSString;
+@interface MTLVertexAttribute : NSObject
 
-@interface MTLVertexAttribute : NSObject {
-    BOOL _active;
-    unsigned int _attributeIndex;
-    NSString *_name;
-}
+@property (getter=isActive, readonly) bool active;
+@property (readonly) unsigned long long attributeIndex;
+@property (readonly) unsigned long long attributeType;
+@property (readonly) NSString *name;
+@property (getter=isPatchControlPointData, readonly) bool patchControlPointData;
+@property (getter=isPatchData, readonly) bool patchData;
 
-@property(getter=isActive,readonly) BOOL active;
-@property(readonly) unsigned int attributeIndex;
-@property(readonly) NSString * name;
-
-- (unsigned int)attributeIndex;
-- (void)dealloc;
-- (id)description;
-- (id)initWithName:(id)arg1 attributeIndex:(unsigned int)arg2 isActive:(BOOL)arg3;
-- (BOOL)isActive;
-- (id)name;
++ (id)alloc;
++ (id)allocWithZone:(struct _NSZone { }*)arg1;
 
 @end

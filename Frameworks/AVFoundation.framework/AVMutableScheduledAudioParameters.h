@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVMutableScheduledAudioParametersInternal;
-
 @interface AVMutableScheduledAudioParameters : AVScheduledAudioParameters {
-    AVMutableScheduledAudioParametersInternal *_mutableScheduledParametersInternal;
+    AVMutableScheduledAudioParametersInternal * _mutableScheduledParametersInternal;
 }
 
 + (id)scheduledAudioParameters;

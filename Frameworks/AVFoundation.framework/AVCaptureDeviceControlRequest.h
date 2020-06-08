@@ -2,27 +2,23 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
 @interface AVCaptureDeviceControlRequest : NSObject {
-    id _completionBlock;
-    long _errorCode;
-    int _requestID;
+    id /* block */  _completionBlock;
+    int  _errorCode;
+    int  _requestID;
 }
 
-@property(copy,readonly) id completionBlock;
-@property long errorCode;
-@property(readonly) int requestID;
+@property (nonatomic, readonly, copy) id /* block */ completionBlock;
+@property (nonatomic) int errorCode;
+@property (nonatomic, readonly) int requestID;
 
-+ (id)deviceControlRequestWithCompletionBlock:(id)arg1;
++ (id)deviceControlRequestWithCompletionBlock:(id /* block */)arg1;
 
-- (id)_initWithCompletionBlock:(id)arg1;
-- (id)completionBlock;
+- (id)_initWithCompletionBlock:(id /* block */)arg1;
+- (id /* block */)completionBlock;
 - (void)dealloc;
-- (long)errorCode;
+- (int)errorCode;
 - (int)requestID;
-- (void)setErrorCode:(long)arg1;
+- (void)setErrorCode:(int)arg1;
 
 @end

@@ -2,28 +2,23 @@
    Image: /System/Library/Frameworks/JavaScriptCore.framework/JavaScriptCore
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class JSValue, JSVirtualMachine, JSWrapperMap, NSString;
-
 @interface JSContext : NSObject {
+    id /* block */  _exceptionHandler;
+    struct OpaqueJSContext { } * m_context;
     struct Strong<JSC::JSObject> { 
         struct JSValue {} *m_slot; 
-    id exceptionHandler;
-    struct OpaqueJSContext { } *m_context;
-    } m_exception;
-    JSVirtualMachine *m_virtualMachine;
-    JSWrapperMap *m_wrapperMap;
+    }  m_exception;
+    JSVirtualMachine * m_virtualMachine;
 }
 
-@property(retain) JSValue * exception;
-@property(copy) id exceptionHandler;
-@property(readonly) JSValue * globalObject;
-@property(copy) NSString * name;
-@property(readonly) JSVirtualMachine * virtualMachine;
-@property(retain,readonly) JSWrapperMap * wrapperMap;
+@property (nonatomic, readonly) RWIProtocolInspector *_inspector;
+@property (retain) JSValue *exception;
+@property (copy) id /* block */ exceptionHandler;
+@property (readonly) JSValue *globalObject;
+@property (copy) NSString *name;
+@property (readonly) JSVirtualMachine *virtualMachine;
+
+// Image: /System/Library/Frameworks/JavaScriptCore.framework/JavaScriptCore
 
 + (id)contextWithJSGlobalContextRef:(struct OpaqueJSContext { }*)arg1;
 + (id)currentArguments;
@@ -35,19 +30,20 @@
 - (void).cxx_destruct;
 - (struct OpaqueJSContext { }*)JSGlobalContextRef;
 - (struct __CFRunLoop { }*)_debuggerRunLoop;
-- (BOOL)_includesNativeCallStackWhenReportingExceptions;
-- (BOOL)_remoteInspectionEnabled;
+- (bool)_includesNativeCallStackWhenReportingExceptions;
+- (bool)_remoteInspectionEnabled;
 - (void)_setDebuggerRunLoop:(struct __CFRunLoop { }*)arg1;
-- (void)_setIncludesNativeCallStackWhenReportingExceptions:(BOOL)arg1;
-- (void)_setRemoteInspectionEnabled:(BOOL)arg1;
-- (void)beginCallbackWithData:(struct CallbackData { struct CallbackData {} *x1; id x2; id x3; struct OpaqueJSValue {} *x4; struct OpaqueJSValue {} *x5; unsigned int x6; struct OpaqueJSValue {} **x7; id x8; }*)arg1 calleeValue:(struct OpaqueJSValue { }*)arg2 thisValue:(struct OpaqueJSValue { }*)arg3 argumentCount:(unsigned long)arg4 arguments:(const struct OpaqueJSValue {}**)arg5;
-- (BOOL)boolFromNotifyException:(struct OpaqueJSValue { }*)arg1;
+- (void)_setIncludesNativeCallStackWhenReportingExceptions:(bool)arg1;
+- (void)_setRemoteInspectionEnabled:(bool)arg1;
+- (void)beginCallbackWithData:(/* Warning: unhandled struct encoding: '{CallbackData=^{CallbackData}@@^{OpaqueJSValue}^{OpaqueJSValue}Q^^{OpaqueJSValue}@}' */ struct CallbackData { struct CallbackData {} *x1; id x2; struct OpaqueJSValue {} *x3; struct OpaqueJSValue {} *x4; unsigned long long x5; struct OpaqueJSValue {} **x6; id x7; }*)arg1 calleeValue:(struct OpaqueJSValue { }*)arg2 thisValue:(struct OpaqueJSValue { }*)arg3 argumentCount:(unsigned long long)arg4 arguments:(const struct OpaqueJSValue {}**)arg5;
+- (bool)boolFromNotifyException:(struct OpaqueJSValue { }*)arg1;
 - (void)dealloc;
-- (void)endCallbackWithData:(struct CallbackData { struct CallbackData {} *x1; id x2; id x3; struct OpaqueJSValue {} *x4; struct OpaqueJSValue {} *x5; unsigned int x6; struct OpaqueJSValue {} **x7; id x8; }*)arg1;
-- (id)evaluateScript:(id)arg1 withSourceURL:(id)arg2;
+- (void)endCallbackWithData:(/* Warning: unhandled struct encoding: '{CallbackData=^{CallbackData}@@^{OpaqueJSValue}^{OpaqueJSValue}Q^^{OpaqueJSValue}@}' */ struct CallbackData { struct CallbackData {} *x1; id x2; struct OpaqueJSValue {} *x3; struct OpaqueJSValue {} *x4; unsigned long long x5; struct OpaqueJSValue {} **x6; id x7; }*)arg1;
+- (void)ensureWrapperMap;
 - (id)evaluateScript:(id)arg1;
+- (id)evaluateScript:(id)arg1 withSourceURL:(id)arg2;
 - (id)exception;
-- (id)exceptionHandler;
+- (id /* block */)exceptionHandler;
 - (id)globalObject;
 - (id)init;
 - (id)initWithGlobalContextRef:(struct OpaqueJSContext { }*)arg1;
@@ -56,7 +52,7 @@
 - (void)notifyException:(struct OpaqueJSValue { }*)arg1;
 - (id)objectForKeyedSubscript:(id)arg1;
 - (void)setException:(id)arg1;
-- (void)setExceptionHandler:(id)arg1;
+- (void)setExceptionHandler:(id /* block */)arg1;
 - (void)setName:(id)arg1;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (id)valueFromNotifyException:(struct OpaqueJSValue { }*)arg1;
@@ -64,5 +60,9 @@
 - (id)wrapperForJSObject:(struct OpaqueJSValue { }*)arg1;
 - (id)wrapperForObjCObject:(id)arg1;
 - (id)wrapperMap;
+
+// Image: /System/Library/PrivateFrameworks/WebInspector.framework/WebInspector
+
+- (id)_inspector;
 
 @end

@@ -3,17 +3,15 @@
  */
 
 @interface GQDBezierLine : NSObject {
+    bool  isOutsideToLeft;
     struct CGPoint { 
-        float x; 
-        float y; 
+        double x; 
+        double y; 
+    }  mLower;
     struct CGPoint { 
-        float x; 
-        float y; 
-    BOOL isOutsideToLeft;
-    } mLower;
-    } mUpper;
+        double x; 
+        double y; 
+    }  mUpper;
 }
-
-- (id).cxx_construct;
 
 @end

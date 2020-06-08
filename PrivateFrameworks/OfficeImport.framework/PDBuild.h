@@ -2,19 +2,19 @@
    Image: /System/Library/PrivateFrameworks/OfficeImport.framework/OfficeImport
  */
 
-@class OADDrawable;
-
 @interface PDBuild : NSObject {
-    OADDrawable *mDrawable;
-    BOOL mIsAnimateBackground;
+    OADDrawable * mDrawable;
+    bool  mIsAnimateBackground;
 }
 
 - (void)dealloc;
+- (id)description;
 - (id)drawable;
+- (unsigned long long)hash;
 - (id)init;
-- (BOOL)isAnimateBackground;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isAnimateBackground;
+- (bool)isEqual:(id)arg1;
 - (void)setDrawable:(id)arg1;
-- (void)setIsAnimateBackground:(BOOL)arg1;
+- (void)setIsAnimateBackground:(bool)arg1;
 
 @end

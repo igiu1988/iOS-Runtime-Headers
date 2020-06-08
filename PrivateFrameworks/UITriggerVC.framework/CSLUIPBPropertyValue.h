@@ -2,37 +2,35 @@
    Image: /System/Library/PrivateFrameworks/UITriggerVC.framework/UITriggerVC
  */
 
-@class CSLUIPBNumber, CSLUIPBPropertyValue, CSLUIPBSize, NSData, NSMutableArray, NSString;
-
 @interface CSLUIPBPropertyValue : PBCodable <NSCopying> {
-    NSMutableArray *_arrayValues;
-    NSData *_dataValue;
-    CSLUIPBPropertyValue *_dictionaryKey;
-    CSLUIPBNumber *_numberValue;
-    CSLUIPBSize *_sizeValue;
-    NSString *_stringValue;
-    NSData *_uUIDValue;
+    NSMutableArray * _arrayValues;
+    NSData * _dataValue;
+    CSLUIPBPropertyValue * _dictionaryKey;
+    CSLUIPBNumber * _numberValue;
+    CSLUIPBSize * _sizeValue;
+    NSString * _stringValue;
+    NSData * _uUIDValue;
 }
 
-@property(retain) NSMutableArray * arrayValues;
-@property(retain) NSData * dataValue;
-@property(retain) CSLUIPBPropertyValue * dictionaryKey;
-@property(readonly) BOOL hasDataValue;
-@property(readonly) BOOL hasDictionaryKey;
-@property(readonly) BOOL hasNumberValue;
-@property(readonly) BOOL hasSizeValue;
-@property(readonly) BOOL hasStringValue;
-@property(readonly) BOOL hasUUIDValue;
-@property(retain) CSLUIPBNumber * numberValue;
-@property(retain) CSLUIPBSize * sizeValue;
-@property(retain) NSString * stringValue;
-@property(retain) NSData * uUIDValue;
+@property (nonatomic, retain) NSMutableArray *arrayValues;
+@property (nonatomic, retain) NSData *dataValue;
+@property (nonatomic, retain) CSLUIPBPropertyValue *dictionaryKey;
+@property (nonatomic, readonly) bool hasDataValue;
+@property (nonatomic, readonly) bool hasDictionaryKey;
+@property (nonatomic, readonly) bool hasNumberValue;
+@property (nonatomic, readonly) bool hasSizeValue;
+@property (nonatomic, readonly) bool hasStringValue;
+@property (nonatomic, readonly) bool hasUUIDValue;
+@property (nonatomic, retain) CSLUIPBNumber *numberValue;
+@property (nonatomic, retain) CSLUIPBSize *sizeValue;
+@property (nonatomic, retain) NSString *stringValue;
+@property (nonatomic, retain) NSData *uUIDValue;
 
 - (void).cxx_destruct;
 - (void)addArrayValues:(id)arg1;
 - (id)arrayValues;
-- (id)arrayValuesAtIndex:(unsigned int)arg1;
-- (unsigned int)arrayValuesCount;
+- (id)arrayValuesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)arrayValuesCount;
 - (void)clearArrayValues;
 - (void)copyTo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
@@ -40,17 +38,17 @@
 - (id)description;
 - (id)dictionaryKey;
 - (id)dictionaryRepresentation;
-- (BOOL)hasDataValue;
-- (BOOL)hasDictionaryKey;
-- (BOOL)hasNumberValue;
-- (BOOL)hasSizeValue;
-- (BOOL)hasStringValue;
-- (BOOL)hasUUIDValue;
-- (unsigned int)hash;
-- (BOOL)isEqual:(id)arg1;
+- (bool)hasDataValue;
+- (bool)hasDictionaryKey;
+- (bool)hasNumberValue;
+- (bool)hasSizeValue;
+- (bool)hasStringValue;
+- (bool)hasUUIDValue;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 - (void)mergeFrom:(id)arg1;
 - (id)numberValue;
-- (BOOL)readFrom:(id)arg1;
+- (bool)readFrom:(id)arg1;
 - (void)setArrayValues:(id)arg1;
 - (void)setDataValue:(id)arg1;
 - (void)setDictionaryKey:(id)arg1;

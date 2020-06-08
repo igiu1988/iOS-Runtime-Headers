@@ -2,21 +2,19 @@
    Image: /System/Library/PrivateFrameworks/CoreDAV.framework/CoreDAV
  */
 
-@class CoreDAVLeafItem, NSMutableArray, NSSet;
-
 @interface CoreDAVMultiStatusItem : CoreDAVItem {
-    NSMutableArray *_orderedResponses;
-    CoreDAVLeafItem *_responseDescription;
+    NSMutableArray * _orderedResponses;
+    CoreDAVLeafItem * _responseDescription;
 }
 
-@property(retain) NSMutableArray * orderedResponses;
-@property(retain) CoreDAVLeafItem * responseDescription;
-@property(readonly) NSSet * responses;
+@property (nonatomic, retain) NSMutableArray *orderedResponses;
+@property (nonatomic, retain) CoreDAVLeafItem *responseDescription;
+@property (nonatomic, readonly) NSSet *responses;
 
 + (id)copyParseRules;
 
+- (void).cxx_destruct;
 - (void)addResponse:(id)arg1;
-- (void)dealloc;
 - (id)description;
 - (id)init;
 - (id)orderedResponses;

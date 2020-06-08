@@ -2,16 +2,17 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class TSTImportWarningSet;
-
 @interface TSTTableDataImportWarningSet : TSTTableDataObject {
-    TSTImportWarningSet *mImportWarningSet;
+    TSTImportWarningSet * _importWarningSet;
 }
 
-- (void)dealloc;
+@property (nonatomic, readonly) TSTImportWarningSet *importWarningSet;
+
+- (void).cxx_destruct;
 - (id)description;
-- (unsigned int)hash;
-- (id)initObjectWithImportWarningSet:(id)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (id)importWarningSet;
+- (id)initObjectWithImportWarningSet:(id)arg1 refCount:(unsigned int)arg2;
+- (bool)isEqual:(id)arg1;
 
 @end

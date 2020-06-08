@@ -2,22 +2,17 @@
    Image: /System/Library/Frameworks/Metal.framework/Metal
  */
 
-@interface MTLVertexAttributeDescriptor : NSObject <NSCopying> {
-    unsigned int _bufferIndex;
-    unsigned int _offset;
-    unsigned int _vertexFormat;
-}
+@interface MTLVertexAttributeDescriptor : NSObject <NSCopying>
 
-@property unsigned int bufferIndex;
-@property unsigned int format;
-@property unsigned int offset;
+@property (nonatomic) unsigned long long bufferIndex;
+@property (nonatomic) unsigned long long format;
+@property (nonatomic) unsigned long long offset;
 
-- (unsigned int)bufferIndex;
++ (id)alloc;
++ (id)allocWithZone:(struct _NSZone { }*)arg1;
+
 - (id)copyWithZone:(struct _NSZone { }*)arg1;
-- (unsigned int)format;
-- (unsigned int)offset;
-- (void)setBufferIndex:(unsigned int)arg1;
-- (void)setFormat:(unsigned int)arg1;
-- (void)setOffset:(unsigned int)arg1;
+- (unsigned long long)hash;
+- (bool)isEqual:(id)arg1;
 
 @end

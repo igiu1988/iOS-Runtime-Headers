@@ -2,54 +2,52 @@
    Image: /System/Library/PrivateFrameworks/AppSupport.framework/AppSupport
  */
 
-@class NSDictionary, NSString;
-
 @interface ALCity : NSObject {
-    NSString *_countryName;
-    NSString *_countryOverride;
-    int _identifier;
-    NSString *_identifierForCPCity;
-    float _latitude;
-    NSString *_localeCode;
-    BOOL _localizationAttempted;
-    float _longitude;
-    NSString *_name;
-    NSString *_timeZone;
-    NSString *_unlocalizedCountryName;
-    NSString *_unlocalizedCountryOverride;
-    NSString *_unlocalizedName;
-    NSString *_yahooCode;
+    NSString * _countryName;
+    NSString * _countryOverride;
+    int  _identifier;
+    NSString * _identifierForCPCity;
+    float  _latitude;
+    NSString * _localeCode;
+    bool  _localizationAttempted;
+    float  _longitude;
+    NSString * _name;
+    NSString * _timeZone;
+    NSString * _unlocalizedCountryName;
+    NSString * _unlocalizedCountryOverride;
+    NSString * _unlocalizedName;
+    NSString * _yahooCode;
 }
 
-@property(readonly) NSString * classicIdentifier;
-@property(retain) NSString * countryName;
-@property(retain) NSString * countryOverride;
-@property int identifier;
-@property float latitude;
-@property(retain) NSString * localeCode;
-@property float longitude;
-@property(retain) NSString * name;
-@property(readonly) NSDictionary * properties;
-@property(retain) NSString * timeZone;
-@property(retain) NSString * unlocalizedCountryName;
-@property(retain) NSString * unlocalizedCountryOverride;
-@property(retain) NSString * unlocalizedName;
-@property(retain) NSString * yahooCode;
+@property (nonatomic, readonly) NSString *classicIdentifier;
+@property (nonatomic, retain) NSString *countryName;
+@property (nonatomic, retain) NSString *countryOverride;
+@property (nonatomic) int identifier;
+@property (nonatomic) float latitude;
+@property (nonatomic, retain) NSString *localeCode;
+@property (nonatomic) float longitude;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, readonly) NSDictionary *properties;
+@property (nonatomic, retain) NSString *timeZone;
+@property (nonatomic, retain) NSString *unlocalizedCountryName;
+@property (nonatomic, retain) NSString *unlocalizedCountryOverride;
+@property (nonatomic, retain) NSString *unlocalizedName;
+@property (nonatomic, retain) NSString *yahooCode;
 
 - (id)classicIdentifier;
 - (id)countryName;
 - (id)countryOverride;
 - (void)dealloc;
 - (id)description;
-- (id)displayNameIncludingCountry:(BOOL)arg1 withFormat:(id)arg2;
-- (id)displayNameIncludingCountry:(BOOL)arg1;
+- (id)displayNameIncludingCountry:(bool)arg1;
+- (id)displayNameIncludingCountry:(bool)arg1 withFormat:(id)arg2;
 - (void)ensureLocalized;
-- (unsigned int)hash;
+- (unsigned long long)hash;
 - (int)identifier;
 - (id)init;
 - (id)initWithProperties:(id)arg1;
 - (id)initWithSQLRow:(char **)arg1;
-- (BOOL)isEqual:(id)arg1;
+- (bool)isEqual:(id)arg1;
 - (float)latitude;
 - (id)localeCode;
 - (float)longitude;

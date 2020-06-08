@@ -2,10 +2,8 @@
    Image: /System/Library/Frameworks/AVFoundation.framework/AVFoundation
  */
 
-@class AVVideoCompositionCoreAnimationToolInternal;
-
 @interface AVVideoCompositionCoreAnimationTool : NSObject {
-    AVVideoCompositionCoreAnimationToolInternal *_videoCompositionTool;
+    AVVideoCompositionCoreAnimationToolInternal * _videoCompositionTool;
 }
 
 + (id)videoCompositionCoreAnimationToolWithAdditionalLayer:(id)arg1 asTrackID:(int)arg2;
@@ -14,8 +12,8 @@
 
 - (int)_auxiliaryTrackID;
 - (id)_auxiliaryTrackLayer;
-- (BOOL)_hasLayerAsAuxiliaryTrack;
-- (BOOL)_hasPostProcessingLayers;
+- (bool)_hasLayerAsAuxiliaryTrack;
+- (bool)_hasPostProcessingLayers;
 - (id)_postProcessingRootLayer;
 - (id)_postProcessingVideoLayers;
 - (void)dealloc;

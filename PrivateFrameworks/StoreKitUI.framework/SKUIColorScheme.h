@@ -2,22 +2,20 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class UIColor;
-
 @interface SKUIColorScheme : NSObject <NSCopying, NSSecureCoding> {
-    UIColor *_backgroundColor;
-    UIColor *_highlightedTextColor;
-    UIColor *_primaryTextColor;
-    UIColor *_secondaryTextColor;
+    UIColor * _backgroundColor;
+    UIColor * _highlightedTextColor;
+    UIColor * _primaryTextColor;
+    UIColor * _secondaryTextColor;
 }
 
-@property(copy) UIColor * backgroundColor;
-@property(copy) UIColor * highlightedTextColor;
-@property(copy) UIColor * primaryTextColor;
-@property(readonly) int schemeStyle;
-@property(copy) UIColor * secondaryTextColor;
+@property (nonatomic, copy) UIColor *backgroundColor;
+@property (nonatomic, copy) UIColor *highlightedTextColor;
+@property (nonatomic, copy) UIColor *primaryTextColor;
+@property (nonatomic, readonly) long long schemeStyle;
+@property (nonatomic, copy) UIColor *secondaryTextColor;
 
-+ (BOOL)supportsSecureCoding;
++ (bool)supportsSecureCoding;
 
 - (void).cxx_destruct;
 - (id)backgroundColor;
@@ -27,7 +25,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithColorSchemeDictionary:(id)arg1;
 - (id)primaryTextColor;
-- (int)schemeStyle;
+- (long long)schemeStyle;
 - (id)secondaryTextColor;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setHighlightedTextColor:(id)arg1;

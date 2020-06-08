@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/GameCenterUI.framework/GameCenterUI
  */
 
-@interface GKTextStylePhone : GKTextStyle {
-}
+@interface GKTextStylePhone : GKTextStyle
 
-+ (float)bubbleTextScale;
-+ (float)standardFontSize;
++ (double)bubbleTextScale;
++ (double)standardFontSize;
 
 - (id)bubbleHeadline;
 - (id)bubbleText;

@@ -2,43 +2,36 @@
    Image: /System/Library/PrivateFrameworks/CalendarFoundation.framework/CalendarFoundation
  */
 
-/* RuntimeBrowser encountered an ivar type encoding it does not handle. 
-   See Warning(s) below.
- */
-
-@class CLLocation, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSString;
-
 @interface CalLocationManagerDelegate : NSObject <CLLocationManagerDelegate> {
-    id _completionBlock;
-    CLLocation *_currentLocation;
-    BOOL _didFinish;
-    NSObject<OS_dispatch_queue> *_queue;
-    NSObject<OS_dispatch_source> *_timer;
+    id /* block */  _completionBlock;
+    NSString * _currentBundleID;
+    CLLocation * _currentLocation;
+    bool  _didFinish;
+    CLLocationManager * _manager;
 }
 
-@property(copy) id completionBlock;
-@property(retain) CLLocation * currentLocation;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property BOOL didFinish;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (copy) id /* block */ completionBlock;
+@property (retain) CLLocation *currentLocation;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property bool didFinish;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
-- (id)completionBlock;
+- (void)cancel;
+- (id /* block */)completionBlock;
 - (id)currentLocation;
 - (void)dealloc;
-- (BOOL)didFinish;
+- (bool)didFinish;
 - (void)didFinishLocationLookupWithLocation:(id)arg1 error:(id)arg2;
-- (id)initWithQueue:(id)arg1;
+- (id)initWithCurrentBundleID:(id)arg1 completionBlock:(id /* block */)arg2;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
-- (void)locationManager:(id)arg1 didUpdateToLocation:(id)arg2 fromLocation:(id)arg3;
-- (void)setCompletionBlock:(id)arg1;
+- (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
+- (void)setCompletionBlock:(id /* block */)arg1;
 - (void)setCurrentLocation:(id)arg1;
-- (void)setDidFinish:(BOOL)arg1;
-- (void)startTimer;
-- (void)stopTimer;
+- (void)setDidFinish:(bool)arg1;
 - (void)timeout;
 
 @end

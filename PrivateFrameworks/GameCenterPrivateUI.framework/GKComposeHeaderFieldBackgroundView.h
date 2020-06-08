@@ -3,10 +3,10 @@
  */
 
 @interface GKComposeHeaderFieldBackgroundView : UIImageView {
-    unsigned int _location;
+    unsigned int  _location;
 }
 
-@property unsigned int location;
+@property (nonatomic) unsigned int location;
 
 - (id)init;
 - (void)layoutSubviews;

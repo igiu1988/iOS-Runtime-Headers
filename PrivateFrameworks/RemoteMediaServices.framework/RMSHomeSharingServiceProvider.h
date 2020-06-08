@@ -2,11 +2,10 @@
    Image: /System/Library/PrivateFrameworks/RemoteMediaServices.framework/RemoteMediaServices
  */
 
-@interface RMSHomeSharingServiceProvider : RMSBonjourServiceProvider {
-}
+@interface RMSHomeSharingServiceProvider : RMSBonjourServiceProvider
 
 - (id)searchScope;
 - (id)searchType;
-- (int)serviceDiscoverySource;
+- (long long)serviceDiscoverySource;
 
 @end

@@ -2,10 +2,8 @@
    Image: /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices
  */
 
-@class NSMutableArray;
-
 @interface PLDelayedFiledSystemDeletions : NSObject {
-    NSMutableArray *_deletionInfos;
+    NSMutableArray * _deletionInfos;
 }
 
 + (void)appendDescriptionForEvent:(id)arg1 toComponents:(id)arg2;
@@ -17,7 +15,7 @@
 - (void)appendToXPCMessage:(id)arg1 managedObjectContext:(id)arg2;
 - (void)dealloc;
 - (id)debugDescription;
-- (void)deleteAllRemainingFilesAndThumbnailsWithPhotoLibrary:(id)arg1 completionHandler:(id)arg2;
+- (void)deleteAllRemainingFilesAndThumbnailsWithPhotoLibrary:(id)arg1 completionHandler:(id /* block */)arg2;
 - (id)initWithFilesystemDeletionInfos:(id)arg1;
 
 @end

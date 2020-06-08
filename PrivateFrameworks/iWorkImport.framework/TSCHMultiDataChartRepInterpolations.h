@@ -2,19 +2,17 @@
    Image: /System/Library/PrivateFrameworks/iWorkImport.framework/iWorkImport
  */
 
-@class CAMediaTimingFunction;
-
 @interface TSCHMultiDataChartRepInterpolations : NSObject {
-    CAMediaTimingFunction *mIndividualTimingFunction;
-    CAMediaTimingFunction *mOverallTimingFunction;
+    CAMediaTimingFunction * mIndividualTimingFunction;
+    CAMediaTimingFunction * mOverallTimingFunction;
 }
 
-@property(readonly) CAMediaTimingFunction * individual;
-@property(readonly) CAMediaTimingFunction * overall;
+@property (nonatomic, readonly) CAMediaTimingFunction *individual;
+@property (nonatomic, readonly) CAMediaTimingFunction *overall;
 
 + (id)interpolationsWithOverallTimingFunction:(id)arg1 individualTimingFunction:(id)arg2;
 
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)individual;
 - (id)initWithOverallTimingFunction:(id)arg1 individualTimingFunction:(id)arg2;
 - (id)overall;

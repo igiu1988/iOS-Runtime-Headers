@@ -2,16 +2,22 @@
    Image: /System/Library/PrivateFrameworks/GeoServices.framework/GeoServices
  */
 
-@class NSString;
-
 @interface GEOSearchAttributionServerRemoteProxy : NSObject <GEOSearchAttributionServerProxy> {
+    GEOSearchAttributionManifest * _attributionManifest;
+    NSLock * _attributionManifestLock;
+    int  _attributionManifestUpdatedToken;
+    NSObject<OS_dispatch_queue> * _attributionQueue;
 }
 
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(readonly) Class superclass;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
 
-- (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 completionHandler:(id)arg3 errorHandler:(id)arg4;
+- (void).cxx_destruct;
+- (id)_attributionManifest;
+- (void)_loadAttributionInfoForIdentifiers:(id)arg1 completionHandler:(id /* block */)arg2;
+- (id)init;
+- (void)loadAttributionInfoForIdentifiers:(id)arg1 completionHandler:(id /* block */)arg2;
 
 @end

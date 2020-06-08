@@ -2,23 +2,21 @@
    Image: /System/Library/PrivateFrameworks/StoreKitUI.framework/StoreKitUI
  */
 
-@class NSString, SKUIRedeemITunesPassLockup, SKUIRedeemTextField, UIBarButtonItem, UIImageView;
-
 @interface SKUIRedeemInputViewController : SKUIRedeemStepViewController <UITextFieldDelegate> {
-    int _category;
-    SKUIRedeemTextField *_field;
-    UIImageView *_imageView;
-    NSString *_initialCode;
-    SKUIRedeemITunesPassLockup *_passbookLockup;
-    UIBarButtonItem *_redeemButton;
+    long long  _category;
+    SKUIRedeemTextField * _field;
+    UIImageView * _imageView;
+    NSString * _initialCode;
+    SKUIRedeemITunesPassLockup * _passbookLockup;
+    UIBarButtonItem * _redeemButton;
 }
 
-@property(readonly) int category;
-@property(copy,readonly) NSString * debugDescription;
-@property(copy,readonly) NSString * description;
-@property(readonly) unsigned int hash;
-@property(copy) NSString * initialCode;
-@property(readonly) Class superclass;
+@property (nonatomic, readonly) long long category;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, copy) NSString *initialCode;
+@property (readonly) Class superclass;
 
 - (void).cxx_destruct;
 - (void)_cancelAction:(id)arg1;
@@ -28,12 +26,13 @@
 - (void)_redeemConfigurationImagesDidLoad:(id)arg1;
 - (void)_termsButtonAction:(id)arg1;
 - (void)_textFieldTextDidChange:(id)arg1;
-- (int)category;
+- (void)_toggleActivityIndicatorBarButtonItem:(bool)arg1;
+- (long long)category;
 - (void)dealloc;
-- (id)initWithRedeemCategory:(int)arg1;
+- (id)initWithRedeemCategory:(long long)arg1;
 - (id)initialCode;
 - (void)loadView;
 - (void)setInitialCode:(id)arg1;
-- (BOOL)textFieldShouldReturn:(id)arg1;
+- (bool)textFieldShouldReturn:(id)arg1;
 
 @end

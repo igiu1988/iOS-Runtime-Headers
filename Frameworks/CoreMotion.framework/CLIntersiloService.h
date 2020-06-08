@@ -2,34 +2,36 @@
    Image: /System/Library/Frameworks/CoreMotion.framework/CoreMotion
  */
 
-@class CLIntersiloInterface, CLSilo;
-
-@interface CLIntersiloService : NSObject <CLIntersiloServiceProtocol> {
-    CLIntersiloInterface *_inboundInterface;
-    CLIntersiloInterface *_outboundInterface;
-    CLSilo *_silo;
-    BOOL _valid;
+@interface CLIntersiloService : NSObject <CLIntersiloServiceProtocol, CLIntersiloUniverse> {
+    CLSilo * _silo;
+    bool  _valid;
+    CLServiceVendor * _vendor;
 }
 
-@property(readonly) CLIntersiloInterface * inboundInterface;
-@property(readonly) CLIntersiloInterface * outboundInterface;
-@property(readonly) CLSilo * silo;
-@property BOOL valid;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *description;
+@property (readonly) unsigned long long hash;
+@property (nonatomic, readonly) CLSilo *silo;
+@property (readonly) Class superclass;
+@property (nonatomic, readonly) <CLIntersiloUniverse> *universe;
+@property (nonatomic) bool valid;
+@property (nonatomic, readonly) CLServiceVendor *vendor;
 
-+ (void)becameFatallyBlocked:(id)arg1;
++ (void)becameFatallyBlocked:(id)arg1 index:(unsigned long long)arg2;
 + (id)getSilo;
-+ (BOOL)isSupported;
++ (bool)isSupported;
++ (void)performSyncOnSilo:(id)arg1 invoker:(id /* block */)arg2;
 
 - (void).cxx_destruct;
 - (id)debugDescription;
-- (id)inboundInterface;
 - (id)init;
-- (id)initInSilo:(id)arg1;
-- (id)initWithInboundProtocol:(id)arg1 outboundProtocol:(id)arg2 andSilo:(id)arg3;
-- (BOOL)isHydrated;
-- (id)outboundInterface;
-- (void)setValid:(BOOL)arg1;
+- (id)initWithInboundProtocol:(id)arg1 outboundProtocol:(id)arg2;
+- (void)setSilo:(id)arg1;
+- (void)setValid:(bool)arg1;
+- (void)setVendor:(id)arg1;
 - (id)silo;
-- (BOOL)valid;
+- (id)universe;
+- (bool)valid;
+- (id)vendor;
 
 @end

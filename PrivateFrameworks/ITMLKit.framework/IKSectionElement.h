@@ -2,18 +2,20 @@
    Image: /System/Library/PrivateFrameworks/ITMLKit.framework/ITMLKit
  */
 
-@class IKHeaderElement, NSArray;
-
-@interface IKSectionElement : IKViewElement {
-    NSArray *_items;
+@interface IKSectionElement : IKDataSourceElement {
+    NSArray * _items;
 }
 
-@property(retain,readonly) IKHeaderElement * header;
-@property(retain,readonly) NSArray * items;
+@property (nonatomic, readonly, retain) IKViewElement *footer;
+@property (nonatomic, readonly, retain) IKHeaderElement *header;
+@property (nonatomic, readonly, retain) NSArray *items;
 
 - (void).cxx_destruct;
+- (void)appDocumentDidMarkStylesDirty;
 - (id)applyUpdatesWithElement:(id)arg1;
+- (id)footer;
 - (id)header;
 - (id)items;
+- (id)unboundItemElements;
 
 @end

@@ -2,18 +2,16 @@
    Image: /System/Library/PrivateFrameworks/CoreSuggestionsInternals.framework/CoreSuggestionsInternals
  */
 
-@class NSArray, NSMutableArray;
-
 @interface SGMicrodataItemScope : NSObject {
-    NSMutableArray *_itemProps;
+    NSMutableArray * _itemProps;
 }
 
-@property(readonly) NSArray * itemProps;
+@property (nonatomic, readonly) NSArray *itemProps;
 
 - (void).cxx_destruct;
 - (void)addItemProp:(id)arg1;
 - (id)init;
-- (BOOL)isReferencedBy:(id)arg1;
+- (bool)isReferencedBy:(id)arg1;
 - (id)itemProps;
 
 @end
